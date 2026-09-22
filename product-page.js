@@ -288,6 +288,16 @@ if(!p){
    ${best.length?`<div class="best-for"><b>مناسبة لـ</b><div class="best-tags">${best.map(x=>`<span>${x}</span>`).join('')}</div></div>`:''}
   </section>
 
+  ${p.official?`
+  <section class="product-section official-specs">
+    <div class="official-head">
+      <div class="official-brand">${productLogo(p)}<div><span class="official-kicker">معلومات من المصدر الرسمي</span><h2>${p.official.officialPlan}</h2><small>آخر مراجعة: ${p.official.verified}</small></div></div>
+      <a class="official-source" href="${p.official.source}" target="_blank" rel="noopener">المصدر الرسمي ↗</a>
+    </div>
+    <div class="official-fact-grid">${p.official.facts.map(x=>`<div><span>✓</span><p>${x}</p></div>`).join('')}</div>
+    <p class="official-note"><b>مهم:</b> ${p.official.note}</p>
+  </section>`:''}
+
   <div id="planDetails">${renderPlanDetails(chosen)}</div>
   ${comparison}
 
