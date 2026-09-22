@@ -424,6 +424,244 @@ const officialResearch={
   facts:['مشاهدة بدون إعلانات','تنزيل الفيديوهات والموسيقى للاستخدام Offline','Background Play على الموبايل','YouTube Music Premium مشمول','1080p Premium لبعض الفيديوهات المؤهلة'],
   source:'https://support.google.com/youtube/answer/6308116?hl=ar',
   note:'عرض MASTER STORE يحتاج بطاقة أثناء التفعيل حسب طريقة التفعيل الحالية.'
+},
+'Perplexity Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Perplexity Pro',
+  facts:['Extended access إلى Pro Search وResearch','الوصول إلى نماذج AI متقدمة متعددة داخل Perplexity','Image Generation وVideo Generation بحدود الخطة','رفع وتحليل ملفات بحدود أعلى؛ حتى 50 ملفًا لكل Project وفق المقارنة الحالية','لا يوجد رقم Credits ثابت بسيط يعبّر عن كل استخدام Pro؛ الحدود موزعة حسب نوع الأداة'],
+  source:'https://www.perplexity.ai/help-center/en/articles/10352901-what-is-perplexity-pro',
+  note:'عرض MASTER STORE هو حساب خاص جاهز بسعر المتجر. مدة العرض الفعلية تُؤكد قبل الدفع ولا نستنتجها من سعر Perplexity الرسمي.'
+},
+'Claude Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Claude Pro',
+  facts:['معدل استخدام أعلى من الخطة المجانية','أولوية أفضل وقت الضغط','وصول مبكر لمزايا جديدة','Claude Opus 5 هو أقوى Model متاح حاليًا على Claude Pro','Claude Code على Pro حصل على زيادة في حدود الاستخدام خلال 2026'],
+  source:'https://www.anthropic.com/news/claude-pro',
+  note:'Claude Pro لا يعمل بنظام Credit شهري ثابت معلن للعميل؛ حدود الاستخدام تتغير حسب النموذج والضغط. عرض المتجر تفعيل على حساب العميل بوسيلة دفع المتجر.'
+},
+'Wink AI':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Wink Creative Standard / Pro',
+  facts:['Standard الرسمي: 1,000 Credit شهريًا','Pro الرسمي: 4,000 Credit شهريًا','Credits صالحة 31 يومًا','ميزات AI المختلفة تستهلك عددًا مختلفًا من Credits حسب الأداة ومستوى المعالجة'],
+  source:'https://wink.ai/pricing',
+  note:'عروض MASTER STORE أسبوع/شهر هي عروض حسابات جاهزة؛ يجب فحص مستوى الخطة والرصيد الفعلي عند الاستلام.'
+},
+'Midjourney':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Midjourney Basic / Standard / Pro / Mega',
+  facts:['Basic: 3.3 ساعة Fast GPU شهريًا','Standard: 15 ساعة Fast GPU + Unlimited Relax Images','Pro: 30 ساعة Fast GPU + Unlimited Relax Images وSD Video','Mega: 60 ساعة Fast GPU','Stealth Mode متاح في Pro وMega فقط'],
+  source:'https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans',
+  note:'الخدمة غير متاحة حاليًا في MASTER STORE؛ أي أسعار reseller قديمة ليست عرضًا نشطًا.'
+},
+'Leonardo AI':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Leonardo Essential / Premium / Ultimate',
+  facts:['Essential: 8,500 Fast Tokens شهريًا','Premium: 25,000 Fast Tokens شهريًا + Token Bank حتى 75,000','Ultimate: 60,000 Fast Tokens شهريًا + Token Bank حتى 180,000','Premium يدعم Unlimited Relaxed Image Generation على Models مختارة','Ultimate يضيف Unlimited Relaxed Video Generation على Models مختارة'],
+  source:'https://www.leonardo.ai/pricing',
+  note:'الخدمة غير متاحة حاليًا في المتجر؛ عند عودتها يجب ربط العرض باسم الخطة الفعلية بدل استخدام رقم Tokens وحده.'
+},
+'Manus':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Manus Pro',
+  facts:['Pro يبدأ من 4,000 Credit شهريًا','الوصول إلى Manus 1.6 Max و1.6 وLite في Agent Mode حسب صفحة المساعدة الحالية','Advanced Research وWebsite Deployment وSlide Generation ضمن Pro','Credits الشهرية تُصفّر مع بداية دورة الاشتراك إذا لم تُستخدم','الاستهلاك يحدث عند تشغيل Agent للمهام وليس لمجرد فتح التطبيق'],
+  source:'https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus',
+  note:'عرض المورد/المتجر الذي يذكر 4,000 Credit شهريًا يتوافق مع نقطة بداية Pro الرسمية الحالية؛ تفاصيل الحساب الفعلي تُفحص عند التسليم.'
+},
+'Gumloop':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Gumloop Pro — Credit tiers',
+  facts:['خطة Pro تستخدم مستويات Credits شهرية','المستويات تبدأ من 20,000 Credit شهريًا وتصل لأحجام أعلى','يمكن رفع مستوى Credits أثناء دورة الاشتراك','استهلاك Credits يعتمد على Nodes/Models والخطوات المستخدمة في الـWorkflow'],
+  source:'https://support.gumloop.com/articles/9772571567-how-do-i-get-more-credits-without-enabling-overages',
+  note:'عرض MASTER STORE يذكر 20,000 Credit؛ مدة الاشتراك نفسها يجب تأكيدها قبل الدفع لأنها ليست مثبتة في بيانات العرض.'
+},
+'Magic Patterns':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Magic Patterns Starter',
+  facts:['Starter هو الاسم الحالي الذي حل محل Hobby','Design systems وShared workspace وCentralized billing متاحة في Starter','من مارس 2026 أصبح استهلاك Credits حسب تعقيد الطلب بدل Credit ثابت لكل Prompt','On-demand usage متاح للخطط المدفوعة ويمكن وضع Budget limits'],
+  source:'https://www.magicpatterns.com/blog/new-plans-and-pricing',
+  note:'عرض المتجر 12 شهر Starter متوافق مع اسم Tier الحالي، لكن عدد Credits الشهري يجب التأكد منه داخل الحساب لأن النظام أصبح Usage-based.'
+},
+'Freepik':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Freepik Premium — مرجع للمحتوى',
+  facts:['Premium الرسمي يتضمن Premium stock content','حدود AI منفصلة عن تنزيل ملفات Stock','الوثائق الحالية تعرض 20,000 AI Credit شهريًا لـPremium','Downloads للـStock لها حدود وسياسات Freepik الحالية','الترخيص التجاري وعدم الحاجة للنسب متاحان حسب الخطة والمحتوى'],
+  source:'https://www.freepik.com/ai/faq/freepik-subscriptions-plans',
+  note:'MASTER STORE لا يبيع حساب Freepik في هذا العرض؛ العميل يرسل روابط الملفات والمتجر يسلّم الملفات المتاحة فقط. لذلك Credits الحساب الرسمية لا تدخل ضمن ما يشتريه العميل.'
+},
+'Adobe Creative Cloud':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Adobe Creative Cloud Pro',
+  facts:['أكثر من 20 تطبيقًا مثل Photoshop وIllustrator وPremiere','1,000 Generative Credits شهريًا للمزايا Premium الإبداعية حسب الخطة الحالية','Unlimited access لبعض Standard AI image/vector features','100GB Cloud Storage في الخطة الفردية الحالية'],
+  source:'https://www.adobe.com/creativecloud/pricing.html',
+  note:'الخدمة غير متاحة حاليًا في MASTER STORE ولا يتم الدفع قبل رجوع المخزون.'
+},
+'Duolingo Super':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Super Duolingo',
+  facts:['إزالة الإعلانات من تجربة التعلم','Unlimited Hearts بدل الانتظار بعد الأخطاء','مزايا إضافية للتعلم والمراجعة حسب الإصدار والمنطقة','التقدم والحساب يظلان مرتبطين بحساب Duolingo الشخصي'],
+  source:'https://blog.duolingo.com/super-duolingo-launch/',
+  note:'عرض MASTER STORE سنة كاملة عبر رابط تفعيل على الحساب الشخصي وبدون بطاقة حسب العرض.'
+},
+'Quizizz Premium':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Wayground Individual (Super) — Quizizz سابقًا',
+  facts:['Quizizz تغيّر اسمه رسميًا إلى Wayground','Individual (Super) يعطي Full/Premium library access','Unlimited activity storage','حتى 1,000 participant في Session حسب مقارنة الخطط الحالية','كل Question Types متاحة في Individual (Super)'],
+  source:'https://help.wayground.com/support/solutions/articles/158000403874-understanding-wayground-plans',
+  note:'اسم Quizizz Premium في المتجر اسم قديم/تجاري. الخطة الرسمية الحالية الأقرب هي Wayground Individual (Super)، ويجب تأكيد أن التفعيل المورّد يطابقها قبل الدفع.'
+},
+'Wordwall Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Wordwall Pro',
+  facts:['Create and edit unlimited activities','Access إلى أكثر من 25 مليون Teaching resources','AI lesson content generation','Pro هو أعلى Individual tier في صفحة Wordwall الحالية','الفوترة الرسمية متاحة Monthly أو Annual'],
+  source:'https://wordwall.net/price-plans',
+  note:'عرض MASTER STORE متاح شهر أو سنة بحساب جاهز؛ لا تغيّر بيانات الحساب قبل التأكد من تعليمات العرض.'
+},
+'LinkedIn Premium':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'LinkedIn Premium — عدة أنواع',
+  facts:['Premium Career يتضمن 5 InMail شهريًا','Who viewed your profile لمدة تصل لسنة','LinkedIn Learning وأكثر من 21,000 دورة حسب صفحة المساعدة الحالية','Advanced job search filters وAI job insights وProfile Writing Assistance','LinkedIn لديه Career وBusiness وAll-in-One وغيرها؛ اسم Premium وحده لا يحدد الـTier'],
+  source:'https://www.linkedin.com/help/linkedin/answer/a7474394',
+  note:'عرض MASTER STORE لا يحدد نوع Premium الرسمي بدقة؛ رابط التفعيل يستخدم مرة واحدة ويحتاج بطاقة حسب عرض المتجر، لذلك نوع الخطة يُراجع قبل الدفع.'
+},
+'Stealth Writer':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'StealthWriter paid plans',
+  facts:['Starter الرسمي حاليًا: 50 Humanizations يوميًا','Plus: 150 يوميًا، Pro: 350 يوميًا','الخطط المدفوعة تسمح حتى 5,000 كلمة لكل Input','تتضمن Humanizer وAI Detector وDeep Scan','لا توجد خدمة يمكنها ضمان تجاوز كل أدوات كشف AI بنسبة 100%'],
+  source:'https://stealthwriter.ai/pricing',
+  note:'عرض MASTER STORE الحالي يذكر 10 Humanize يوميًا مع 5,000 كلمة للعملية؛ هذا لا يطابق Tier رسمي واحد ظاهر الآن، لذلك اسم الخطة الفعلية يجب فحصه قبل الدفع.'
+},
+'Pangram Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Pangram Professional',
+  facts:['Professional الرسمي: 1,500,000 كلمة شهريًا','500 Image detection scans شهريًا','Plagiarism detection متاح مع كل Scan','200$ Monthly API usage مذكورة للخطة Professional','يدعم AI detection لأكثر من 20 لغة'],
+  source:'https://www.pangram.com/pricing',
+  note:'اسم عرض المتجر Pangram Pro يحتاج مطابقة الحساب مع Professional الرسمي؛ لا نفترض تلقائيًا حدود 1.5M كلمة إلا بعد التأكد من Tier الحساب.'
+},
+'Supercut Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Supercut Pro',
+  facts:['Unlimited 4K sharing','AI Assistant','Auto chapters وSummaries','Editor وAuto-Edit وZooms','Transcription وCaptions ضمن Pro','الخطة الرسمية تبدأ من 15$ لكل Seat شهريًا عند الفوترة السنوية'],
+  source:'https://supercut.ai/pricing',
+  note:'عرض MASTER STORE لمدة سنة هو عرض توريد منفصل؛ Pro الرسمي Seat-based.'
+},
+'Mobbin Team':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Mobbin Team',
+  facts:['Team يشمل كل مزايا Pro بالإضافة للتعاون','Unlimited shared team collections','Admin tools وCentralized billing','Seat-based billing ويمكن دعوة أعضاء الفريق','Team متاح Quarterly أو Yearly رسميًا'],
+  source:'https://help.mobbin.com/en/articles/692672',
+  note:'عرض MASTER STORE يتم بدعوة Team؛ لا تعدّل إعدادات الفريق أو تضف أعضاء خارج المقاعد المتفق عليها.'
+},
+'Jam Team':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Jam Team',
+  facts:['Unlimited Jams','150 Recording Links','Recordings حتى 15 دقيقة','200 AI summaries','Access controls وBackend logging'],
+  source:'https://jam.dev/pricing',
+  note:'Team الرسمي Seat/Creator based؛ عرض المتجر يتم بدعوة فريق وفق المخزون.'
+},
+'Readwise + Reader':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Readwise + Reader',
+  facts:['اشتراك واحد يشمل Reader وReadwise','Reader يقرأ Articles وPDFs وEPUBs وNewsletters وRSS وYouTube وX threads وغيرها','Highlights تنتقل إلى Readwise تلقائيًا','Export إلى Notion وObsidian وتطبيقات ملاحظات أخرى','Reader يعمل Offline على Web/Mobile وفق طريقة المزامنة'],
+  source:'https://readwise.io/pricing/reader',
+  note:'عرض MASTER STORE حساب جاهز لمدة سنة؛ لا تغيّر بيانات الحساب قبل تأكيد السماح.'
+},
+'Waking Up':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Waking Up Membership',
+  facts:['Full access إلى مكتبة Meditations','Lessons وConversations ضمن العضوية','محتوى جديد يُضاف بانتظام','منهج Secular للتأمل ولا يتطلب التزامًا دينيًا أو فلسفيًا','Community خاصة للأعضاء حسب الموقع الرسمي'],
+  source:'https://wakingup.com/',
+  note:'عرض MASTER STORE حساب جاهز لمدة سنة؛ المحتوى داخل المكتبة يتغير بمرور الوقت.'
+},
+'Linear Business':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Linear Business',
+  facts:['Unlimited teams','Private teams and guests','Triage Intelligence وLoops وCode Intelligence','Linear Insights وLinear Asks','Zendesk وIntercom integrations','بعض AI features مثل Coding sessions وLoops قد تستخدم AI credits منفصلة'],
+  source:'https://linear.app/pricing',
+  note:'عرض MASTER STORE مدته 5 شهور. AI Credits الإضافية ليست جزءًا مضمونًا من العرض إلا إذا ذُكرت صراحة.'
+},
+'PostHog Scale':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'PostHog — Usage based products',
+  facts:['Product Analytics: أول 1M event شهريًا Free ثم Pay-per-use','Session Replay: أول 5,000 Recording شهريًا Free ثم Pay-per-use','Feature Flags: أول 1M Request شهريًا Free ثم Pay-per-use','Managed Warehouse: أول 1M Row شهريًا Free ثم Pay-per-use'],
+  source:'https://posthog.com/',
+  note:'PostHog الحالي يسعّر منتجاته بنظام Usage-based. اسم Scale في عرض المتجر قد يكون تسمية/خطة قديمة أو توريد خاص؛ يجب التحقق من الحساب قبل البيع كـScale.'
+},
+'Customer.io Essentials':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Customer.io Essentials',
+  facts:['5,000 Profiles (people + objects)','1,000,000 Email شهريًا','2 Object Types','Visual workflow builder','Unlimited API calls وUnlimited push/in-app ضمن الحدود والسياسات الحالية','الزيادة: 0.009$ لكل Profile إضافي و0.12$ لكل 1,000 Email إضافي'],
+  source:'https://customer.io/pricing',
+  note:'مدة عرض MASTER STORE غير مثبتة في بيانات المتجر؛ يجب تأكيد المدة قبل الدفع حتى لو كانت مواصفات Essentials الرسمية واضحة.'
+},
+'iCloud+ 4TB':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'iCloud+ — Apple Egypt reference',
+  facts:['Apple Egypt تعرض رسميًا 50GB و200GB و2TB و6TB و12TB','Family Sharing يسمح بالمشاركة مع حتى 5 أفراد من العائلة','Hide My Email وCustom Email Domain ضمن iCloud+','HomeKit Secure Video حسب مستوى التخزين'],
+  source:'https://www.apple.com/eg/icloud/',
+  note:'Apple لا تعرض Tier مستقل 4TB حاليًا في مصر؛ لذلك عرض MASTER STORE باسم 4TB هو ترتيب خاص/مشاركة وليس اسم خطة Apple قياسية. مدة العرض أيضًا يجب تأكيدها قبل الدفع.'
+},
+'HMA VPN':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'HMA VPN',
+  facts:['3,400+ Servers حسب صفحة التسعير الحالية','100+ Locations حول العالم','Streaming وP2P servers','Lightning Connect وSplit-Tunneling وKill Switch','الخطط الرسمية تدعم 5 أو 10 اتصالات متزامنة حسب Tier'],
+  source:'https://www.hidemyass.com/pricing-plans',
+  note:'مصدر عرض المتجر للمدة كان غير واضح بين 20/30 يوم؛ لذلك لا نثبت مدة نهائية إلا بعد تأكيد المخزون.'
+},
+'Grammarly Premium':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Grammarly Pro — الاسم الحالي',
+  facts:['Grammarly Pro يتضمن Rewrite كامل للجمل وTone adjustments','Unlimited personalized suggestions','Plagiarism وAI-generated text detection','2,000 AI prompts شهريًا لكل عضو في Pro','Premium القديم انتقل/تغير إلى Pro في التسعير الحالي'],
+  source:'https://www.grammarly.com/plans',
+  note:'الخدمة ما زالت Coming Soon في MASTER STORE؛ عند الإطلاق استخدم اسم Grammarly Pro الحالي بدل Premium إذا كانت الخطة المورّدة هي نفسها.'
+},
+'QuillBot Premium':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'QuillBot Premium',
+  facts:['Paraphrasing بدون حد كلمات داخل الأداة المدعومة','جميع 9 Paraphrasing Modes','Unlimited Custom modes','Full access إلى Humanizer وAI Detector','Advanced Grammar recommendations وPlagiarism tools ضمن Premium'],
+  source:'https://quillbot.com/premium',
+  note:'الخدمة Coming Soon؛ حدود بعض الأدوات قد تختلف حسب Platform، لذلك يتم تثبيت التفاصيل عند إضافة العرض للبيع.'
+},
+'Envato Elements':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Envato Core / Plus / Ultimate',
+  facts:['Unlimited downloads لأكثر من 29 مليون Creative Asset','Lifetime commercial license للأصول المستخدمة حسب شروط الترخيص','Core حاليًا يتضمن 20 AI Credit شهريًا','Plus يتضمن 200 AI Credit شهريًا و3 Parallel AI generations','الخطط تختلف أساسًا في حجم AI usage'],
+  source:'https://elements.envato.com/pricing',
+  note:'الخدمة Coming Soon؛ يجب اختيار Tier رسمي واضح عند إضافة السعر بدل عرض اسم Envato Elements فقط.'
+},
+'Motion Array':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Motion Array Everything',
+  facts:['Unlimited downloads من Marketplace للمشترك المدفوع','Video templates وMotion graphics وFootage','Music وSound effects وGraphics وPhotos','Plugins وPresets وLUTs','المشاريع المنشورة أثناء الاشتراك تظل مرخصة وفق شروط Motion Array حتى بعد انتهاء الاشتراك'],
+  source:'https://motionarray.com/pricing/',
+  note:'الخدمة Coming Soon؛ الخطة النهائية يجب تحديدها لأن Motion Array يقدم Everything وVideo Templates وAI Voiceover وخطط Team/Business.'
+},
+'Suno AI':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Suno Pro',
+  facts:['2,500 Credit شهريًا','20 Song downloads شهريًا في Pro','Commercial use rights','Priority queue حتى 10 Songs في وقت واحد','إمكانية شراء Credits إضافية','Subscription credits لا تترحل للشهر التالي'],
+  source:'https://suno.com/pricing',
+  note:'الخدمة Coming Soon؛ عند تفعيلها يمكن تسمية العرض Suno Pro إذا كان الحساب الفعلي يطابق الـTier الرسمي.'
+},
+'Murf AI':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Murf Creator / Business',
+  facts:['Creator: 24 ساعة Voice Generation سنويًا عند الخطة السنوية','Creator يتضمن 200+ Voices وUnlimited Downloads وCommercial Rights','Business: 96 ساعة Voice Generation سنويًا','Business يضيف Audio-to-Text وPowerPoint integration ومزايا تحكم صوتي إضافية'],
+  source:'https://murf.ai/pricing',
+  note:'الخدمة Coming Soon؛ لازم تحديد Creator أو Business قبل عرض السعر لأن الحدود مختلفة جدًا.'
+},
+'Discord Nitro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Discord Nitro',
+  facts:['1GB File sharing حسب صفحة Nitro الحالية','HD streaming','2 Server Boosts + خصم 30% على Boosts إضافية','رسائل حتى 4,000 Character','الانضمام إلى حتى 200 Server','Custom profiles وEmojis وThemes ومزايا تخصيص إضافية'],
+  source:'https://discord.com/nitro',
+  note:'الخدمة Coming Soon؛ يتم البيع فقط إذا طريقة التفعيل قانونية ومدعومة، مع تجنب أي مصدر غير رسمي قد يؤدي لسحب Nitro.'
+},
+'Kling AI':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Kling AI — مرجع Kuaishou الرسمي',
+  facts:['Kling AI منصة توليد فيديو وصور تابعة لـKuaishou','أعلنت Kuaishou تاريخيًا نظام Inspiration Credits وخطط مدفوعة','حدود وأسعار الخطط الحالية تحتاج تحقق مباشر من Kling وقت عودة المخزون'],
+  source:'https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-launches-full-beta-testing-kling-ai-global-users-0',
+  note:'الخدمة منتهية المخزون حاليًا. لا نعرض أرقام Credits قديمة كأنها مواصفات 2026؛ يتم تحديثها عند عودة الخدمة.'
 }
 };
 
