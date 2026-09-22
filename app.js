@@ -136,3 +136,33 @@ function orderProduct(p,selectedPlan){
 }
 function showToast(message){toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}
 document.querySelector('.dialog-close').onclick=()=>dialog.close();document.querySelector('.checkout-close').onclick=()=>checkoutDialog.close();[dialog,checkoutDialog].forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));document.querySelectorAll('.copy').forEach(b=>b.onclick=async()=>{try{await navigator.clipboard.writeText(b.dataset.copy);showToast('تم النسخ')}catch{showToast('تعذر النسخ')}});search.addEventListener('input',draw);drawFilters();draw();
+
+const mobileMenu=document.querySelector('.menu');
+const mobileNav=document.createElement('nav');
+mobileNav.className='mobile-nav';
+mobileNav.setAttribute('aria-label','التنقل السريع');
+mobileNav.innerHTML='<a href="#products">المنتجات</a><a href="#how">طريقة الطلب</a><a href="#payment">طرق الدفع</a><a href="#terms">الشروط</a>';
+document.querySelector('.topbar').appendChild(mobileNav);
+mobileMenu.setAttribute('aria-expanded','false');
+mobileMenu.onclick=()=>{const open=mobileNav.classList.toggle('open');mobileMenu.setAttribute('aria-expanded',String(open))};
+mobileNav.querySelectorAll('a').forEach(link=>link.onclick=()=>{mobileNav.classList.remove('open');mobileMenu.setAttribute('aria-expanded','false')});
+
+const checkoutObserver=new MutationObserver(()=>{
+ const submit=checkoutContent.querySelector('.checkout-submit');
+ const form=checkoutContent.querySelector('#checkoutForm');
+ if(!submit||!form||submit.dataset.ready)return;
+ submit.disabled=false;
+ submit.textContent='إرسال الطلب للمراجعة عبر واتساب';
+ submit.dataset.ready='true';
+ submit.onclick=()=>{
+  if(!form.reportValidity())return;
+  const data=new FormData(form);
+  const product=checkoutContent.querySelector('.order-summary b')?.textContent||'';
+  const plan=checkoutContent.querySelector('.order-summary small')?.textContent||'';
+  const total=checkoutContent.querySelector('#orderTotal')?.textContent||'';
+  const message=['طلب جديد من MASTER STORE','المنتج: '+product,'الخطة: '+plan,'الكمية: '+data.get('quantity'),'الاسم: '+data.get('name'),'واتساب: '+data.get('phone'),'البريد: '+data.get('email'),'الإجمالي: '+total,'طريقة الدفع المفضلة: '+data.get('pay'),'أرغب بتأكيد التوفر وطريقة الدفع قبل التحويل.'].join('\n');
+  window.open('https://wa.me/201500950624?text='+encodeURIComponent(message),'_blank','noopener');
+  showToast('تم تجهيز رسالة الطلب في واتساب');
+ };
+});
+checkoutObserver.observe(checkoutContent,{childList:true,subtree:true});
