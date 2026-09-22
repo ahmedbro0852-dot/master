@@ -213,4 +213,218 @@ function warrantyText(p,plan){
  ];
 }
 
-const products=rows.map((r,i)=>({id:i,name:r[0],category:r[1],duration:r[2],price:r[3],activation:r[4],account:r[5],warranty:r[6],status:r[7],description:r[8],benefits:categoryBenefits[r[1]],terms:categoryTerms[r[1]],deep:serviceDeep[r[0]]||{},logo:logoSlugs[r[0]]||'',domain:logoDomains[r[0]]||'',plans:planSets[r[0]]||[]}));
+
+const officialResearch={
+'Lovable Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Lovable Pro',
+  facts:['100 Credit شهريًا في خطة Pro الأساسية','5 Credits يومية إضافية للبناء على الخطط المدفوعة','Custom domains وPrivate projects وCredit rollover','استهلاك Credits يختلف حسب تعقيد المهمة؛ Plan Mode يحسب 1 Credit لكل رسالة'],
+  source:'https://lovable.dev/pricing',
+  note:'دي مواصفات Lovable الرسمية الحالية. عرض MASTER STORE مدته وسعره منفصلان عن سعر Lovable الرسمي.'
+},
+'Lovable Pro Lite':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'عرض MASTER STORE مرتبط بـ Lovable',
+  facts:['Lovable Pro الرسمي يبدأ من 100 Credit شهريًا','الخطط المدفوعة تشمل 5 Credits يومية للبناء','الـCredits قد تُستهلك بمعدلات مختلفة حسب نوع المهمة'],
+  source:'https://lovable.dev/pricing',
+  note:'عرض Lite عندنا ليس اسم خطة رسمية من Lovable؛ مواصفات الرصيد المكتوبة في عرض المتجر هي المرجع للعميل.'
+},
+'Runway Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Runway Pro',
+  facts:['2,250 Credit شهريًا في Pro','Credits الخطة الشهرية لا تنتقل للشهر التالي في Pro','Gen-4.5 يستهلك 12 Credit لكل ثانية فيديو','يمكن شراء Credits إضافية على الخطط المدفوعة'],
+  source:'https://help.runwayml.com/hc/en-us/articles/15124877443219-How-do-credits-work',
+  note:'الخدمة غير متاحة للبيع حاليًا في المتجر.'
+},
+'ChatGPT Plus':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'ChatGPT Plus',
+  facts:['وصول أوسع للنماذج والأدوات مقارنة بالخطة المجانية','سرعات أعلى وأولوية أفضل وقت الضغط','Voice وImage Generation وFile Analysis وDeep Research حسب التوفر','لا يوجد رقم ثابت مضمون لعدد الرسائل؛ الحدود قد تتغير','استخدام API غير مشمول في Plus ويُحاسب منفصلًا'],
+  source:'https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus',
+  note:'لا نعرض رقم Credits ثابت لـ ChatGPT Plus لأن OpenAI لا تعتبر Plus باقة Credits ثابتة.'
+},
+'Grok':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'SuperGrok / SuperGrok Plus',
+  facts:['SuperGrok الرسمي يشمل نماذج Grok المتقدمة وحدود استخدام أعلى','البحث عبر الويب وX وVoice وConnectors ضمن المزايا الرسمية','SuperGrok Plus يضيف حدود استخدام أعلى و1080p Video Creation'],
+  source:'https://x.ai/pricing',
+  note:'عرض MASTER STORE لمدة 10 أيام هو عرض متجر وليس مدة اشتراك قياسية معلنة كخطة رسمية.'
+},
+'Gamma Plus':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Gamma Plus',
+  facts:['1,000 Credit شهريًا في Plus','Credits تتجدد شهريًا في الخطط المدفوعة','يمكن ترحيل Credits حتى ضعف حجم الخطة','إزالة Made with Gamma من المحتوى المشترك/المصدّر','إنشاء حتى 100 Slide في Prompt واحد حسب الحدود الحالية'],
+  source:'https://help.gamma.app/en/articles/8077107-how-can-i-upgrade-my-gamma-subscription',
+  note:'الرصيد الرسمي الحالي لـ Plus هو 1,000 شهريًا؛ عرض المتجر يُراجع عند التسليم للتأكد من الخطة الفعلية.'
+},
+'Gamma Account':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'عرض MASTER STORE خاص بـ Workspaces',
+  facts:['Gamma رسميًا يخصص Credits فردية في Free/Plus/Pro/Ultra/Teams','Business وEnterprise فقط يدعمان Shared Credit Pool','Pro الرسمي يتضمن 4,000 Credit شهريًا لكل مستخدم حسب Gamma'],
+  source:'https://help.gamma.app/en/articles/7834324-how-do-credits-work-in-gamma',
+  note:'عرض 10 Workspaces × 2,000 Credit هو تركيب خاص بعرض المتجر وليس اسم خطة Gamma رسمية.'
+},
+'ElevenLabs Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'خطط ElevenLabs الرسمية',
+  facts:['Starter: 30,000 Credit شهريًا','Creator: 121,000 Credit شهريًا','Pro: 600,000 Credit شهريًا','Credits مشتركة بين منتجات ElevenLabs المختلفة','الرصيد غير المستخدم يترحل حتى شهرين بحد أقصى إجمالي 3× الحصة الشهرية على الاشتراك المدفوع'],
+  source:'https://elevenlabs.io/pricing',
+  note:'اسم عرض المتجر يحتاج مطابقة الخطة الفعلية وقت التسليم؛ لا نعتمد كلمة Pro وحدها لتحديد الرصيد.'
+},
+'HeyGen AI':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'HeyGen Creator / Pro',
+  facts:['Creator الرسمي: 600 Credit شهريًا و1080p','Pro الرسمي يبدأ من 1,000 Credit شهريًا ويصل إلى مستويات أعلى','Pro يدعم 4K وفيديوهات حتى 30 دقيقة','Creator وPro لا يدعمان شراء Credit Packs منفصلة؛ الترقية تكون لمستوى أعلى'],
+  source:'https://www.heygen.com/pricing',
+  note:'عرض المتجر 1,250 Credit لا يطابق رقم باقة قياسية واحدة ظاهرة حاليًا؛ لذلك اسم الخطة النهائية يُؤكد قبل الدفع.'
+},
+'Factory Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Factory Pro',
+  facts:['Factory Pro الرسمي بسعر 20$ شهريًا','يتضمن Desktop / CLI / SDK','Cloud وLocal background agents','الاستخدام يعتمد على Rolling Rate Limits وليس Credit شهري ثابت'],
+  source:'https://factory.ai/pricing',
+  note:'أي مدة سنوية في عرض المتجر هي عرض توريد منفصل؛ الحدود الرسمية الحالية تعمل بنظام Rate Limits.'
+},
+'Framer Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Framer Pro',
+  facts:['3,000 AI Credit شهريًا في Pro','حتى 150 صفحة قبل Add-ons','10 CMS Collections','100 GB Bandwidth شهريًا','Staging وBranching with previews'],
+  source:'https://www.framer.com/pricing',
+  note:'المواصفات الرسمية تخص Site Plan Pro الحالي.'
+},
+'Supabase Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Supabase Pro',
+  facts:['يبدأ من 25$ شهريًا','100,000 Monthly Active Users ضمن الحصة الأساسية','8 GB Disk لكل Project ثم Usage إضافي','250 GB Egress و250 GB Cached Egress','10$ Compute Credits شهريًا تكفي Micro instance واحدة'],
+  source:'https://supabase.com/pricing',
+  note:'الاستهلاك فوق الحدود قد يسبب رسوم Usage إضافية عند تعطيل Spend Cap.'
+},
+'Canva Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Canva Pro',
+  facts:['حتى 100 GB Upload Storage حسب مركز مساعدة Canva','يدعم رفع Custom Fonts على Pro','يشمل أدوات وتصميمات Premium حسب الخطة الحالية'],
+  source:'https://www.canva.com/es_mx/help/upload-formats-requirements-variantb/',
+  note:'عرض MASTER STORE لمدة 3 سنوات وضمان سنتين هو عرض متجر؛ المواصفات الرسمية قد تتغير من Canva.'
+},
+'CapCut Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'CapCut Pro',
+  facts:['CapCut Credit هو رصيد منفصل لاستخدام ميزات AI','كل Credit يعادل 0.01$ حسب مركز المساعدة الحالي','Pro الجديد يصل إلى 1,200 AI Credit في الباقة الرسمية المحدثة','Cloud Storage في Pro المحدث يصل إلى 1 TB','Credits لا تُستخدم لشراء اشتراك Pro نفسه'],
+  source:'https://www.capcut.com/help/new-capcut-subscription-pricing',
+  note:'عروض MASTER STORE ذات 500/1000/1600 Credit عروض مخزون خاصة؛ الرقم المكتوب في الباقة المختارة هو الملزم.'
+},
+'Figma Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Figma Professional — Full Seat',
+  facts:['3,000 AI Credit شهريًا للـFull Seat على Professional','Unlimited files and projects لفريق واحد','Team-wide design libraries','Advanced Dev Mode inspection وMCP Server','Full Seat يشمل Figma Design وDev Mode وFigJam وSlides وغيرها'],
+  source:'https://www.figma.com/pricing/',
+  note:'نوع الـSeat لازم يتأكد قبل الدفع؛ كلمة Professional وحدها لا تعني تلقائيًا Full Seat.'
+},
+'ELSA Speak':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'ELSA Premium',
+  facts:['ELSA AI Roleplay','Speech Analyzer','Feedback على النطق والطلاقة والقواعد والمفردات','9,000+ Specialized Lessons حسب صفحة Premium الحالية','مسارات IELTS وTOEFL وTOEIC وBusiness English'],
+  source:'https://elsaspeak.com/en/product-detail/elsa-premium-one-year',
+  note:'اسم الخطة الفعلية في عرض المتجر يجب تأكيده إذا كان العرض 7 أيام.'
+},
+'Coursera Plus':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Coursera Plus',
+  facts:['وصول إلى أكثر من 10,000 Course/Project/Specialization/Professional Certificate مشمول','شهادات غير محدودة للمحتوى المشمول بعد انتهاء Trial','لا تشمل Degrees أو MasterTrack','بعض البرامج غير مشمولة؛ وجود شارة Coursera Plus هو المرجع'],
+  source:'https://www.coursera.org/courseraplus',
+  note:'في عرض الحساب المشترك بالمتجر لا نضمن شهادة باسم العميل في كل الحالات؛ ده مختلف عن اشتراك Coursera Plus شخصي قياسي.'
+},
+'Turnitin':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Similarity Report',
+  facts:['Similarity Score يقيس نسبة النص المطابق لمصادر قاعدة Turnitin','التطابق لا يعني تلقائيًا Plagiarism','التقرير يوضح Sources وMatch Groups ويمكن تنزيله PDF'],
+  source:'https://guides.turnitin.com/hc/en-us/articles/24194876779661-Overview-of-the-new-Similarity-Report-experience',
+  note:'الخدمة في المتجر هي فحص ملف وتسليم تقرير، وليست حساب Turnitin.'
+},
+'Microsoft 365':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Microsoft 365 Personal — مرجع رسمي',
+  facts:['1 TB OneDrive Storage','شخص واحد','تسجيل دخول على 5 أجهزة في نفس الوقت','Word وExcel وPowerPoint وOutlook وOneNote Desktop','ميزات Copilot وحدود AI أعلى من النسخة المجانية في الخطة الحالية'],
+  source:'https://www.microsoft.com/ar-eg/microsoft-365/p/microsoft-365-personal/cfq7ttc0k5bf',
+  note:'عرض MASTER STORE يجب تأكيد نوع الخطة/الحساب لأنه لا يوجد في بيانات المتجر حتى الآن ما يثبت أنه Personal تحديدًا.'
+},
+'Notion Plus / Business':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Notion Plus / Business',
+  facts:['Notion AI الكامل متاح حاليًا على Business وEnterprise','Plus يحصل على عدد محدود من AI responses للتجربة','Business يتضمن AI usage allowance بنوافذ استخدام 6 ساعات وشهرية','Premium AI Models قد تستهلك Notion Credits منفصلة'],
+  source:'https://www.notion.com/help/notion-ai-faqs',
+  note:'ميزة Notion AI تختلف بوضوح بين Plus وBusiness؛ لذلك اختيار الباقة في المتجر مهم.'
+},
+'Zoom Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Zoom Workplace Pro',
+  facts:['اجتماعات حتى 30 ساعة','حتى 100 Participant في الخطة القياسية الحالية','10 GB Cloud Recording Storage لكل License','AI Companion ضمن الخطة المدفوعة حسب التوفر','Unlimited Docs sharing وClips Plus وفق المقارنة الحالية'],
+  source:'https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/',
+  note:'مدة 14 يوم المذكورة في بعض دفعات حساب المتجر ليست حد Zoom Pro رسمي؛ دي حالة مخزون يعالجها ضمان المتجر.'
+},
+'Railway Hobby':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Railway Hobby',
+  facts:['5$ Minimum Usage شهريًا','يشمل 5$ Resource Usage شهريًا','حتى 48 vCPU / 48 GB RAM لكل Service كحد أقصى','حتى 5 GB Volume Storage','Single developer workspace و7-Day Log History'],
+  source:'https://railway.com/pricing',
+  note:'Railway خدمة Usage-based؛ استهلاك موارد أعلى من الحصة قد يسبب تكلفة إضافية.'
+},
+'Wispr Flow Pro':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Wispr Flow Pro',
+  facts:['Unlimited Dictations','100+ Languages','More meetings kept for longer','Advanced AI Models وEarly feature access','يدعم Mac وWindows وiOS وAndroid للدكتation'],
+  source:'https://wisprflow.ai/pricing',
+  note:'حدود الاجتماعات الدقيقة قد تختلف؛ راجع صفحة الخطة وقت الطلب.'
+},
+'Granola Business':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Granola Business',
+  facts:['Unlimited meeting notes and history','Advanced AI thinking models','Integrations مع Notion وSlack وHubSpot وZapier وغيرها','Centralized billing وUser management','MCP Integration'],
+  source:'https://www.granola.ai/pricing',
+  note:'Business الرسمي حاليًا للأفراد أو الفرق الصغيرة.'
+},
+'NordVPN':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'NordVPN',
+  facts:['حتى 10 أجهزة في وقت واحد للحساب الرسمي','شبكة خوادم تغطي 225+ Location حسب الصفحة الحالية','NordLynx ودعم التطبيقات الرئيسية','Bandwidth غير محدود وفق وصف NordVPN الرسمي'],
+  source:'https://nordvpn.com/pricing/',
+  note:'عرض المتجر قد يكون حساب جاهز وله تعليمات مختلفة بخصوص تغيير البيانات.'
+},
+'Proton VPN':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Proton VPN Plus — مرجع رسمي',
+  facts:['حتى 10 أجهزة في نفس الوقت في VPN Plus','أعلى سرعة ضمن خطط Proton VPN','خوادم في 140+ دولة حسب الصفحة الحالية','Streaming وP2P وMalware/Ads blocker ضمن Plus'],
+  source:'https://protonvpn.com/pricing',
+  note:'عرض MASTER STORE مذكور لجهاز واحد، وده قيد خاص بالعرض وليس الحد الرسمي لـVPN Plus.'
+},
+'Surfshark':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Surfshark',
+  facts:['Unlimited devices على الاشتراك الرسمي','Ad blocker وCookie pop-up blocker','Bypasser / Split tunneling','Rotating IP وDynamic MultiHop'],
+  source:'https://surfshark.com/pricing',
+  note:'عرض الكوبون في المتجر يحتاج بطاقة وقت التفعيل حسب شروط العرض.'
+},
+'ExpressVPN':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'ExpressVPN',
+  facts:['يدعم Windows وMac وLinux وiOS وAndroid وRouters وSmart TVs وغيرها','حتى 14 جهازًا متصلًا في وقت واحد حسب السياسة الحالية','خوادم في 113 دولة حسب صفحة الأجهزة الحالية'],
+  source:'https://www.expressvpn.com/features/simultaneous-device-policy',
+  note:'عرض MASTER STORE لمدة 3 أيام هو مدة متجر قصيرة وليس Plan رسمي قياسي.'
+},
+'Spotify Premium':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'Spotify Premium Individual — مرجع رسمي',
+  facts:['استماع بدون إعلانات','Download للاستماع Offline','تشغيل الأغاني بأي ترتيب','جودة صوت أعلى','Premium Individual في مصر = حساب Premium واحد'],
+  source:'https://www.spotify.com/eg-en/premium/',
+  note:'عرض MASTER STORE لمدة 3 شهور تفعيل على حساب العميل الشخصي.'
+},
+'YouTube Premium':{
+  verified:'22 سبتمبر 2026',
+  officialPlan:'YouTube Premium',
+  facts:['مشاهدة بدون إعلانات','تنزيل الفيديوهات والموسيقى للاستخدام Offline','Background Play على الموبايل','YouTube Music Premium مشمول','1080p Premium لبعض الفيديوهات المؤهلة'],
+  source:'https://support.google.com/youtube/answer/6308116?hl=ar',
+  note:'عرض MASTER STORE يحتاج بطاقة أثناء التفعيل حسب طريقة التفعيل الحالية.'
+}
+};
+
+const products=rows.map((r,i)=>({id:i,name:r[0],category:r[1],duration:r[2],price:r[3],activation:r[4],account:r[5],warranty:r[6],status:r[7],description:r[8],benefits:categoryBenefits[r[1]],terms:categoryTerms[r[1]],deep:serviceDeep[r[0]]||{},official:officialResearch[r[0]]||null,logo:logoSlugs[r[0]]||'',domain:logoDomains[r[0]]||'',plans:planSets[r[0]]||[]}));
