@@ -200,7 +200,21 @@
       var res = await fetch(API_ENDPOINT,{
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({message:q, productContext:context}),
+        body:JSON.stringify({
+          message:q,
+          products:(function(){
+            var nq=norm(q);
+            var scored=catalog.map(function(item){
+              var score=0;
+              productTokens(item).forEach(function(t){if(nq.indexOf(t)!==-1)score++;});
+              if(context && item.name===context.name)score+=10;
+              return {item:item,score:score};
+            }).sort(function(a,b){return b.score-a.score;});
+            var picked=scored.filter(function(x){return x.score>0;}).slice(0,8).map(function(x){return x.item;});
+            if(!picked.length)picked=catalog.filter(available).slice(0,8);
+            return picked;
+          })()
+        }),
         signal:controller.signal
       });
       clearTimeout(timer);
