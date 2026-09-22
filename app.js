@@ -7,7 +7,7 @@ function drawFilters(){filters.innerHTML=categories.map(c=>`<button class="filte
 function shortText(x,n=95){x=String(x||'');return x.length>n?x.slice(0,n).trim()+'…':x}
 function draw(){
  const q=search.value.trim().toLowerCase();
- const list=products.filter(p=>(selected==='الكل'||p.category===selected)&&Object.values(p).join(' ').toLowerCase().includes(q));
+ const list=products.filter(p=>(selected==='الكل'||p.category===selected)&&Object.values(p).join(' ').toLowerCase().includes(q)).sort((a,b)=>(a.status==='متاح'?0:1)-(b.status==='متاح'?0:1));
  grid.innerHTML=list.map(p=>{
    const highlight=p.deep?.features?.[0]||p.description;
    return `<article class="card">
@@ -17,7 +17,7 @@ function draw(){
     <p class="card-desc">${shortText(highlight)}</p>
     <div class="card-bottom">
       <div><small>${p.plans.length>1?p.plans.length+' خطط':p.duration}</small><strong>${p.price}</strong></div>
-      <a class="details" href="product.html?product=${encodeURIComponent(p.name)}">عرض التفاصيل</a>
+      <a class="details" href="product.html?product=${encodeURIComponent(p.name)}">اختار واشترك</a>
     </div>
    </article>`;
  }).join('');
