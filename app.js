@@ -14,6 +14,7 @@ function draw(){
     <div class="card-top">${productIcon(p)}<span class="badge ${p.status!=='متاح'?'soon':''}">${p.status}</span></div>
     <h3>${p.name}</h3>
     <span class="category">${p.category}</span>
+    ${p.official?'<span class="researched-badge">✓ مواصفات رسمية محدثة</span>':''}
     <p class="card-desc">${shortText(highlight)}</p>
     <div class="card-bottom">
       <div><small>${p.plans.length>1?p.plans.length+' خطط':p.duration}</small><strong>${p.price}</strong></div>
