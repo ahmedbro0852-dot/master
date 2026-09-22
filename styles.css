@@ -308,3 +308,73 @@ dialog::backdrop{background:rgba(4,12,29,.58);backdrop-filter:none}
  .compact-facts,.feature-grid,.deep-grid{grid-template-columns:1fr}
  .detail-hero,.detail-body{padding-right:20px;padding-left:20px}
 }
+
+/* Dedicated service pages */
+.product-page-body{background:#f7f8fb}
+.product-topbar{background:#fff}
+.product-page{max-width:1160px;margin:auto;padding:28px 24px 70px}
+.product-loading,.product-not-found{min-height:50vh;display:grid;place-items:center;text-align:center;color:var(--muted)}
+.product-not-found{align-content:center;gap:14px}
+.breadcrumbs{display:flex;align-items:center;gap:8px;font-size:11px;color:#7b8492;margin:4px 0 22px}
+.breadcrumbs a:hover{color:var(--blue)}
+.breadcrumbs b{color:var(--navy)}
+.product-hero-page{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;align-items:start;margin-bottom:20px}
+.product-main-info,.product-buy-box,.product-section,.final-cta{background:#fff;border:1px solid var(--line);border-radius:18px}
+.product-main-info{padding:28px}
+.product-title-row{display:flex;align-items:center;gap:18px}
+.service-logo{width:82px;height:82px;display:grid;place-items:center;border:1px solid var(--line);border-radius:18px;background:#fff;padding:13px}
+.service-logo img{width:100%;height:100%;object-fit:contain}
+.service-logo .fallback{display:none;font-weight:800;color:var(--blue);font-size:22px}
+.service-logo.logo-failed img{display:none}
+.service-logo.logo-failed .fallback{display:block}
+.product-title-row h1{margin:0 0 7px;font-size:34px;line-height:1.2}
+.product-title-row .eyebrow{margin-bottom:5px}
+.product-lead{font-size:14px;line-height:1.95;color:#5e6979;max-width:760px;margin:24px 0 0}
+.product-plan-select{display:grid;gap:7px;margin-top:22px;max-width:520px}
+.product-plan-select span{font-size:11px;font-weight:800;color:#586274}
+.product-plan-select select{width:100%;border:1px solid var(--line);border-radius:11px;padding:12px 13px;font-family:inherit;background:#fff;outline:0}
+.product-plan-select select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,94,255,.08)}
+.product-buy-box{padding:22px;position:sticky;top:18px;display:grid;gap:8px}
+.product-buy-box>small{font-size:11px;color:var(--muted)}
+.product-buy-box>strong{font-size:30px;color:var(--navy)}
+.product-buy-box>span{font-size:12px;color:#657083}
+.product-buy-box button,.final-cta button{border:0;border-radius:11px;background:var(--blue);color:#fff;padding:13px 17px;font-family:inherit;font-weight:800;cursor:pointer;margin-top:8px}
+.product-buy-box button:disabled,.final-cta button:disabled{background:#b8c0cf;cursor:not-allowed}
+.product-buy-box>a{text-align:center;font-size:11px;color:#657083;padding:6px}
+.product-section{padding:24px;margin-top:14px}
+.product-section h2{font-size:18px;margin:0 0 16px}
+.product-feature-grid{grid-template-columns:repeat(2,1fr)}
+.best-for{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.best-for>b{font-size:12px}
+.product-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.product-facts>div{background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px;display:grid;gap:5px}
+.product-facts small{font-size:10px;color:var(--muted)}
+.product-facts b{font-size:12px;line-height:1.7}
+.blue-text{color:var(--blue)}
+.product-two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.compact-section{height:100%}
+.important-box{background:#fffdf7;border-color:#eedca7}
+.important-box h2{color:#7b5b0b}
+.final-cta{margin-top:18px;padding:24px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.final-cta small{color:var(--blue);font-weight:800}
+.final-cta h2{margin:3px 0 4px;font-size:21px}
+.final-cta p{margin:0;color:var(--muted);font-size:12px}
+.final-cta button{min-width:160px;margin:0}
+@media(max-width:850px){
+ .product-hero-page{grid-template-columns:1fr}
+ .product-buy-box{position:static}
+ .product-facts{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+ .product-page{padding:18px 14px 48px}
+ .product-main-info{padding:20px}
+ .product-title-row{align-items:flex-start}
+ .service-logo{width:66px;height:66px;border-radius:15px;padding:10px;flex:0 0 auto}
+ .product-title-row h1{font-size:26px}
+ .product-lead{font-size:13px;margin-top:18px}
+ .product-section{padding:18px}
+ .product-feature-grid,.product-facts,.product-two-col{grid-template-columns:1fr}
+ .final-cta{align-items:stretch;flex-direction:column}
+ .final-cta button{width:100%}
+ .product-topbar nav,.product-topbar .nav-cta{display:none}
+}
