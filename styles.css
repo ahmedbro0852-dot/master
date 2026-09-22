@@ -413,3 +413,28 @@ dialog::backdrop{background:rgba(4,12,29,.58);backdrop-filter:none}
  .product-buy-box>button{grid-column:1 / -1;grid-row:3;width:100%;margin-top:6px}
  .product-buy-box>a{grid-column:1 / -1;grid-row:4;text-align:center}
 }
+
+/* Product page alignment fix — centered reading column */
+.product-page{max-width:980px!important;margin-inline:auto!important}
+.product-hero-page,.product-section,.product-two-col,.final-cta,#planDetails{width:100%}
+.product-main-info{text-align:center!important}
+.product-title-row{justify-content:center!important;text-align:right}
+.product-lead{max-width:720px!important;margin:20px auto 0!important;text-align:center}
+.product-plan-select{max-width:520px!important;margin:22px auto 0!important;text-align:right}
+.product-buy-box{max-width:900px;margin-inline:auto!important}
+.product-section{max-width:900px!important;margin-left:auto!important;margin-right:auto!important}
+.product-facts{max-width:900px!important;margin:14px auto 0!important}
+.product-two-col{max-width:900px!important;margin-left:auto!important;margin-right:auto!important}
+.final-cta{max-width:900px!important;margin-left:auto!important;margin-right:auto!important}
+.product-section>h2{text-align:center}
+.product-feature-grid{max-width:760px;margin-inline:auto}
+.best-for{justify-content:center}
+.journey-list{max-width:760px;margin-inline:auto}
+.plan-table-wrap{max-width:820px;margin-inline:auto}
+.important-box .detail-list{max-width:760px;margin-inline:auto}
+@media(max-width:560px){
+ .product-main-info{text-align:right!important}
+ .product-title-row{justify-content:flex-start!important}
+ .product-lead{text-align:right!important;margin-top:16px!important}
+ .product-section>h2{text-align:right}
+}
