@@ -1,29 +1,33 @@
-name: Deploy MASTER STORE to GitHub Pages
+name: Sync MASTER STORE live branch
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
+
 concurrency:
-  group: pages
+  group: master-store-live
   cancel-in-progress: true
+
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
+      - name: Checkout site
+        uses: actions/checkout@v4
         with:
-          enablement: true
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          fetch-depth: 0
+
+      - name: Prepare static site
+        run: |
+          touch .nojekyll
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .nojekyll
+          git commit -m "Prepare static site" || true
+
+      - name: Publish gh-pages branch
+        run: git push origin HEAD:gh-pages --force
