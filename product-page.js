@@ -85,8 +85,8 @@ function packageGuide(p,plan){
  ]);
 
  const policies=[
-  'السعر والتوفر يتم تأكيدهما وقت إنشاء الطلب، وليس عند مشاهدة الصفحة فقط.',
-  'يبدأ تجهيز الخدمة بعد تأكيد الدفع، وقد تختلف مدة التنفيذ حسب نوع التفعيل.',
+  'السعر والتوفر الظاهرين يتم تأكيدهما عند بدء الطلب.',
+  'يبدأ تنفيذ الاشتراك بعد تأكيد الدفع، ومدة التنفيذ حسب نوع الخدمة.',
   `الضمان المطبق على هذه الخطة هو: ${plan.warranty}.`,
   'الضمان يغطي مشكلة من جهة التفعيل/الحساب حسب شروط العرض، ولا يغطي عادةً سوء الاستخدام أو تغييرات غير مصرح بها.',
   'إذا تعذر إصلاح مشكلة مشمولة بالضمان أو توفير بديل مناسب، تتم معالجة الاسترداد وفق سياسة المتجر.',
@@ -121,8 +121,8 @@ function openPurchaseFlow(p,plan){
  purchaseContent.innerHTML=`
   <button class="purchase-close" type="button" aria-label="إغلاق">×</button>
   <div class="purchase-step" id="termsStep">
-   <span class="purchase-kicker">الخطوة 1 من 2</span>
-   <h2>راجع الشروط قبل الدفع</h2>
+   <span class="purchase-kicker">تأكيد الطلب</span>
+   <h2>أكد طلبك قبل الدفع</h2>
    <div class="purchase-summary"><b>${p.name}</b><span>${plan.name} • ${plan.duration}</span><strong>${plan.price}</strong></div>
    <div class="purchase-policy-list">
     ${guide.policies.map(x=>`<p>• ${x}</p>`).join('')}
@@ -133,14 +133,14 @@ function openPurchaseFlow(p,plan){
    <button class="continue-payment" id="continuePayment" disabled>موافق — متابعة للدفع</button>
   </div>
   <div class="purchase-step hidden" id="paymentStep">
-   <span class="purchase-kicker">الخطوة 2 من 2</span>
-   <h2>اختر طريقة الدفع</h2>
+   <span class="purchase-kicker">الدفع</span>
+   <h2>اختار طريقة الدفع المناسبة</h2>
    <div class="purchase-summary"><b>${p.name}</b><span>${plan.name} • ${plan.duration}</span><strong>${plan.price}</strong></div>
    <div class="payment-choice-grid">
     ${Object.entries(paymentInfo).map(([key,x],i)=>`<label class="payment-choice-card"><input type="radio" name="purchasePay" value="${key}" ${i===0?'checked':''}><span><b>${x.name}</b><small>${x.detail}</small></span><button type="button" class="copy-pay" data-copy="${x.value}">نسخ</button></label>`).join('')}
    </div>
-   <div class="payment-review-note">حتى ربط API التحقق التلقائي، يتم تأكيد التحويل يدويًا من المتجر قبل بدء تنفيذ الطلب.</div>
-   <button class="payment-finish" id="paymentFinish">تم التحويل — إرسال الطلب للمراجعة</button>
+   <div class="payment-review-note">بعد التحويل، ابعت الطلب للمراجعة. بيتم تأكيد الدفع قبل بدء تنفيذ الاشتراك.</div>
+   <button class="payment-finish" id="paymentFinish">تم التحويل — تأكيد طلبي</button>
    <button class="back-terms" id="backTerms" type="button">رجوع للشروط</button>
   </div>`;
  purchaseDialog.showModal();
@@ -277,8 +277,8 @@ if(!p){
     <small>السعر الحالي</small>
     <strong id="sidePrice">${chosen.price}</strong>
     <span id="sideDuration">${chosen.duration}</span>
-    <button id="orderNow" ${p.status!=='متاح'?'disabled':''}>${p.status==='متاح'?'ابدأ الطلب':'غير متاح حاليًا'}</button>
-    <a href="index.html#products">شوف خدمات تانية</a>
+    <button id="orderNow" ${p.status!=='متاح'?'disabled':''}>${p.status==='متاح'?'اشترك الآن':'غير متاح حاليًا'}</button>
+    <a href="index.html#products">غيّر الاشتراك</a>
    </aside>
   </section>
 
@@ -294,8 +294,8 @@ if(!p){
   ${notes.length?`<section class="product-section important-box"><h2>ملاحظات خاصة بالخدمة</h2><ul class="detail-list terms-list">${notes.map(x=>`<li>${x}</li>`).join('')}</ul></section>`:''}
 
   <section class="final-cta">
-   <div><small>جاهز تطلب؟</small><h2>${p.name}</h2><p>هتراجع الشروط الأول، وبعد الموافقة تنتقل مباشرة لخطوة الدفع.</p></div>
-   <button id="bottomOrder" ${p.status!=='متاح'?'disabled':''}>${p.status==='متاح'?'مراجعة الشروط والمتابعة':'غير متاح'}</button>
+   <div><small>جاهز تشترك؟</small><h2>${p.name}</h2><p>راجع الباقة، وافق على الشروط، وبعدها كمل الدفع وأرسل طلبك للتنفيذ.</p></div>
+   <button id="bottomOrder" ${p.status!=='متاح'?'disabled':''}>${p.status==='متاح'?'اشترك الآن':'غير متاح'}</button>
   </section>
  `;
 
