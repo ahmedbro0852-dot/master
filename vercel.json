@@ -1,7 +1,12 @@
 {
-  "functions": {
-    "api/ai.js": {
-      "maxDuration": 30
+  "version": 2,
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
     }
-  }
+  ]
 }
