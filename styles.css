@@ -438,3 +438,54 @@ dialog::backdrop{background:rgba(4,12,29,.58);backdrop-filter:none}
  .product-lead{text-align:right!important;margin-top:16px!important}
  .product-section>h2{text-align:right}
 }
+
+/* Package details + consent/payment flow */
+.include-exclude-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:900px;margin:14px auto 0}
+.package-box{margin-top:0!important;height:100%}
+.package-box h2{text-align:right!important}
+.include-box{border-color:#d8eadf;background:#fbfffc}
+.exclude-box{border-color:#f0d9d9;background:#fffafa}
+.instruction-box{border-color:#dbe5ff;background:#fbfcff}
+.policy-box{border-color:#e7def5;background:#fdfbff}
+.package-list{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.package-list li{position:relative;padding-right:21px;font-size:12px;line-height:1.8;color:#4d5869}
+.package-list li:before{content:'✓';position:absolute;right:0;top:0;color:#198754;font-weight:800}
+.exclude-list li:before{content:'×';color:#c63e3e}
+.instruction-box .package-list li:before{content:'•';color:var(--blue)}
+.policy-box .package-list li:before{content:'•';color:#7950b8}
+.purchase-dialog{width:min(640px,calc(100% - 24px));max-height:90vh;border:0;border-radius:20px;padding:0;box-shadow:0 30px 90px rgba(4,16,43,.28);overflow:auto}
+.purchase-dialog::backdrop{background:rgba(4,12,29,.62)}
+.purchase-step{padding:28px}
+.purchase-step.hidden{display:none}
+.purchase-close{position:sticky;float:left;top:12px;margin:-8px -8px 0 0;width:36px;height:36px;border:0;border-radius:50%;background:#eef1f6;color:var(--navy);font-size:24px;cursor:pointer}
+.purchase-kicker{display:inline-block;color:var(--blue);font-size:11px;font-weight:800;margin-bottom:6px}
+.purchase-step h2{margin:0 0 18px;font-size:23px}
+.purchase-summary{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;background:#f7f9fd;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:16px}
+.purchase-summary b{font-size:14px}
+.purchase-summary span{font-size:11px;color:var(--muted)}
+.purchase-summary strong{grid-column:2;grid-row:1 / span 2;color:var(--blue);font-size:20px}
+.purchase-policy-list{background:#fffdf7;border:1px solid #eedca7;border-radius:12px;padding:12px 14px;margin-bottom:14px}
+.purchase-policy-list p{font-size:11px;line-height:1.75;color:#5d6472;margin:4px 0}
+.accept-row{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--line);border-radius:11px;padding:11px 12px;margin-top:8px;cursor:pointer}
+.accept-row input{margin-top:4px;accent-color:var(--blue)}
+.accept-row span{font-size:11px;line-height:1.75;color:#4f5968}
+.continue-payment,.payment-finish{width:100%;border:0;border-radius:11px;background:var(--blue);color:#fff;padding:13px;font-family:inherit;font-weight:800;margin-top:16px;cursor:pointer}
+.continue-payment:disabled{background:#b9c1cf;cursor:not-allowed}
+.payment-choice-grid{display:grid;gap:9px}
+.payment-choice-card{display:grid;grid-template-columns:18px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px;cursor:pointer}
+.payment-choice-card:has(input:checked){border-color:var(--blue);background:#f4f7ff}
+.payment-choice-card input{accent-color:var(--blue)}
+.payment-choice-card span{display:grid;gap:2px}
+.payment-choice-card b{font-size:12px}
+.payment-choice-card small{font-size:10px;color:var(--muted)}
+.copy-pay{border:0;background:#eef3ff;color:var(--blue);border-radius:8px;padding:7px 10px;font-family:inherit;font-size:10px;font-weight:700;cursor:pointer}
+.payment-review-note{margin-top:12px;background:#fff8e6;border:1px solid #efd995;border-radius:11px;padding:11px 12px;font-size:10px;line-height:1.8;color:#765b13}
+.back-terms{width:100%;border:0;background:transparent;color:#667085;padding:10px;font-family:inherit;font-weight:700;cursor:pointer}
+@media(max-width:700px){
+ .include-exclude-grid{grid-template-columns:1fr}
+ .purchase-step{padding:22px 18px}
+ .purchase-summary{grid-template-columns:1fr}
+ .purchase-summary strong{grid-column:1;grid-row:auto}
+ .payment-choice-card{grid-template-columns:18px 1fr}
+ .copy-pay{grid-column:2;width:max-content}
+}
