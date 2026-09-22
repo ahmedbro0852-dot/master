@@ -3,7 +3,8 @@
 
   var catalog = typeof products !== 'undefined' && Array.isArray(products) ? products : [];
   var SUPPORT_URL = 'https://wa.me/201500950624';
-  var API_ENDPOINT = (window.MASTER_AI_ENDPOINT || '/api/ai').trim();
+  var defaultEndpoint = location.hostname.endsWith('github.io') ? '' : '/api/chat';
+  var API_ENDPOINT = (window.MASTER_AI_ENDPOINT || defaultEndpoint).trim();
 
   function norm(s){
     return String(s || '')
