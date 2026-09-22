@@ -5,6 +5,7 @@
   var SUPPORT_URL = 'https://wa.me/201500950624';
   var defaultEndpoint = location.hostname.endsWith('github.io') ? '' : '/api/chat';
   var API_ENDPOINT = (window.MASTER_AI_ENDPOINT || defaultEndpoint).trim();
+  var chatHistory = [];
 
   function norm(s){
     return String(s || '')
@@ -203,6 +204,7 @@
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({
           message:q,
+          history:chatHistory.slice(-8),
           products:(function(){
             var nq=norm(q);
             var scored=catalog.map(function(item){
@@ -211,8 +213,8 @@
               if(context && item.name===context.name)score+=10;
               return {item:item,score:score};
             }).sort(function(a,b){return b.score-a.score;});
-            var picked=scored.filter(function(x){return x.score>0;}).slice(0,8).map(function(x){return x.item;});
-            if(!picked.length)picked=catalog.filter(available).slice(0,8);
+            var picked=scored.filter(function(x){return x.score>0;}).slice(0,12).map(function(x){return x.item;});
+            if(!picked.length)picked=catalog.filter(available).slice(0,20);
             return picked;
           })()
         }),
@@ -310,7 +312,10 @@
 
     var remote = await remoteReply(q);
     loading.remove();
-    add(remote || localReply(q),'bot');
+    var answer = remote || localReply(q);
+    add(answer,'bot');
+    chatHistory.push({role:'user',content:q},{role:'assistant',content:answer});
+    if(chatHistory.length>12) chatHistory=chatHistory.slice(-12);
     input.disabled = false;
     input.focus();
   }
