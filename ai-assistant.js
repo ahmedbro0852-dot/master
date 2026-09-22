@@ -3,7 +3,7 @@
 
   var catalog = typeof products !== 'undefined' && Array.isArray(products) ? products : [];
   var SUPPORT_URL = 'https://wa.me/201500950624';
-  var API_ENDPOINT = (window.MASTER_AI_ENDPOINT || '').trim();
+  var API_ENDPOINT = (window.MASTER_AI_ENDPOINT || '/api/ai').trim();
 
   function norm(s){
     return String(s || '')
