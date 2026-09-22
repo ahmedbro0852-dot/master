@@ -8,8 +8,8 @@ const rows = [
 ['Grok','AI Tools','10 أيام','150 ج','تسليم حساب جاهز','إيميل وكلمة مرور','5 أيام','متاح','مساعد ذكاء اصطناعي للمحادثة والبحث وإنجاز المهام اليومية.'],
 ['Wink AI','AI Tools','أسبوع / شهر','150–400 ج','تسليم حساب جاهز خلال 5 دقائق','تغيير البيانات مسموح','ضمان كامل','متاح','أدوات تحسين الفيديو والصور. الاستخدام وفق الحدود الرسمية للمنصة وقد تتغير هذه الحدود من مقدم الخدمة.'],
 ['Gamma Plus','AI Tools','شهر','400 ج','تسليم حساب جاهز','إيميل وكلمة مرور','ضمان كامل','متاح','إنشاء عروض تقديمية ومستندات وصفحات باستخدام الذكاء الاصطناعي.'],
-['Gamma Account','AI Tools','حسب العرض','800 ج','تسليم حساب جاهز خلال 10 دقائق إلى ساعة','حساب خاص واحد يضم 5 Workspaces','ضمان كامل','متاح','إجمالي 10,000 Credit موزعة على خمس مساحات عمل، بواقع 2,000 Credit لكل Workspace.'],
-['ElevenLabs Pro','AI Tools','شهر','550 ج','تسليم حساب جاهز خلال 10 دقائق إلى ساعة','حساب خاص — يمكن تغيير كلمة المرور','ضمان كامل','متاح','يتضمن 131,000 Credit تُضاف مرة واحدة إلى الحساب.'],
+['Gamma Account','AI Tools','حسب العرض','800 ج','تسليم حساب جاهز خلال 10 دقائق إلى ساعة','حساب واحد — 10 Workspaces','ضمان كامل','متاح','10 Workspaces، كل Workspace يحتوي على 2,000 Credit (إجمالي 20,000 Credit). يوجد دعم Upgrade كامل مرة واحدة خلال أول شهر وفق شروط العرض.'],
+['ElevenLabs Pro','AI Tools','شهر','550 ج','تسليم حساب جاهز خلال 10 دقائق إلى ساعة','حساب جاهز','ضمان كامل','متاح','اشتراك ElevenLabs لمدة شهر مع Credits الخطة. قيمة الرصيد الدقيقة تُراجع عند التسليم لأن الخطة/الحدود قد تتغير.'],
 ['HeyGen AI','AI Tools','شهر - 1250 Credits','1,250 ج','تسليم حساب جاهز خلال 10 دقائق إلى ساعة','إيميل وكلمة مرور','ضمان كامل','متاح','1,250 Credit تُضاف مرة واحدة لإنشاء الفيديوهات والأفاتار والتعليق الصوتي.'],
 ['Midjourney','AI Tools','—','—','—','—','—','غير متوفر','الخدمة غير متوفرة حاليًا.'],
 ['Leonardo AI','AI Tools','—','—','—','—','—','غير متوفر','الخدمة غير متوفرة حاليًا.'],
@@ -22,7 +22,7 @@ const rows = [
 ['Canva Pro','التصميم','3 سنوات','50 ج','تفعيل على البريد الشخصي','حساب العميل','ضمان سنتين','متاح','دعوة رسمية إلى Canva Pro على البريد الشخصي للعميل.'],
 ['CapCut Pro','التصميم','أسبوع / شهر / 3 / 6 / 12 شهر','من 50 ج','تسليم حساب جاهز خلال دقيقة إلى ساعة','إيميل وكلمة مرور — جهازان — ممنوع تغيير البيانات','ضمان كامل','متاح','جميع الخطط مضمونة بالكامل. الاشتراكات الأطول من شهر تُسلّم بحساب جديد كل شهر طوال المدة.'],
 ['Figma Pro','التصميم','12 شهر','750 ج','دعوة أو حساب','حسب المتوفر','ضمان كامل','متاح','تصميم واجهات المستخدم والتعاون على النماذج الأولية والمشاريع.'],
-['Freepik','التصميم','شهر','450 ج','تسليم حساب Premium جاهز','إيميل وكلمة مرور','ضمان كامل','متاح','تحميل Premium مفتوح ولا تشمل الخطة AI Credits.'],
+['Freepik','التصميم','شهر','450 ج','خدمة تحميل ملفات','ترسل روابط الملفات المطلوبة للمتجر','ضمان الملفات','متاح','هذه خدمة تحميل وليست تسليم حساب. أرسل روابط ملفات Freepik المطلوبة وسيتم تسليم الملفات المتاحة ضمن الخدمة.'],
 ['Adobe Creative Cloud','التصميم','—','—','—','—','—','انتهى المخزون','حزمة تطبيقات Adobe الإبداعية؛ الخدمة غير متوفرة حاليًا.'],
 ['Duolingo Super','التعليم','سنة','300 ج','رابط تفعيل بدون بطاقة','حساب فردي على البريد الشخصي','ضمان كامل','متاح','تعلم اللغات بلا إعلانات وبقلوب غير محدودة.'],
 ['ELSA Speak','التعليم','7 أيام / سنة','90–1,900 ج','تسليم أو تفعيل','حساب فردي','ضمان كامل','متاح','تدريب على نطق الإنجليزية وتطوير مهارات التحدث.'],
@@ -53,7 +53,7 @@ const rows = [
 ['Surfshark','VPN والحماية','شهرين','200 ج','كود تفعيل','يتطلب بطاقة أثناء التفعيل','بدون Hold Warranty','متاح','كود ترويجي لتفعيل Surfshark وفق شروط العرض.'],
 ['HMA VPN','VPN والحماية','30 يوم','100 ج','تسليم حساب جاهز','إيميل وكلمة مرور','حسب العرض','متاح','اتصال VPN بحساب جاهز لمدة شهر.'],
 ['ExpressVPN','VPN والحماية','3 أيام','50 ج','تفعيل','حسب العرض','حسب العرض','متاح','خدمة VPN قصيرة المدة للتصفح والاتصال المشفر.'],
-['Spotify Premium','الترفيه','3 شهور','100 ج','تسليم حساب جاهز','إيميل وكلمة مرور','ضمان كامل','متاح','استماع للموسيقى والمحتوى الصوتي بمزايا Premium من خلال حساب جاهز.'],
+['Spotify Premium','الترفيه','3 شهور','100 ج','رابط تفعيل على حساب العميل','حساب العميل الشخصي','ضمان كامل','متاح','تفعيل Spotify Premium لمدة 3 شهور على حساب العميل الشخصي من خلال رابط التفعيل.'],
 ['YouTube Premium','الترفيه','3 شهور','200 ج','رابط تفعيل يحتاج بطاقة','حساب شخصي','ضمان كامل','متاح','مشاهدة YouTube بلا إعلانات مع YouTube Music على الحساب الشخصي.'],
 ['Grammarly Premium','قريباً','—','—','—','—','—','قريباً','أدوات مساعدة للكتابة والتدقيق باللغة الإنجليزية؛ سيتم توفيرها لاحقًا.'],
 ['QuillBot Premium','قريباً','—','—','—','—','—','قريباً','إعادة صياغة النصوص وأدوات كتابة مساعدة؛ سيتم توفيرها لاحقًا.'],
@@ -91,12 +91,12 @@ const planSets={
 {name:'أسبوع',duration:'7 أيام',price:'150 ج',credits:'وفق الحدود الرسمية',activation:'تسليم خلال 5 دقائق',account:'حساب جاهز — تغيير البيانات مسموح',warranty:'ضمان كامل'},
 {name:'شهر',duration:'30 يوم',price:'400 ج',credits:'وفق الحدود الرسمية',activation:'تسليم خلال 5 دقائق',account:'حساب جاهز — تغيير البيانات مسموح',warranty:'ضمان كامل'}],
 'CapCut Pro':[
-{name:'أسبوع',duration:'7 أيام',price:'50 ج',credits:'بدون Credits مضمونة',activation:'حساب جاهز خلال دقيقة إلى ساعة',account:'جهازان — ممنوع تغيير البيانات',warranty:'ضمان كامل للخدمة'},
-{name:'شهر — 500 Credit',duration:'30 يوم',price:'180 ج',credits:'500 Credit',activation:'حساب جاهز خلال دقيقة إلى ساعة',account:'جهازان — ممنوع تغيير البيانات',warranty:'ضمان كامل'},
-{name:'شهر — 1500 Credit',duration:'30 يوم',price:'300 ج',credits:'1500 Credit',activation:'حساب جاهز خلال دقيقة إلى ساعة',account:'جهازان — ممنوع تغيير البيانات',warranty:'ضمان كامل'},
-{name:'3 شهور',duration:'3 شهور',price:'500 ج',credits:'400–1500 Credit عشوائيًا كل شهر',activation:'حساب جديد كل شهر',account:'جهازان — ممنوع تغيير البيانات',warranty:'ضمان كامل'},
-{name:'6 شهور',duration:'6 شهور',price:'900 ج',credits:'400–1500 Credit عشوائيًا كل شهر',activation:'حساب جديد كل شهر',account:'جهازان — ممنوع تغيير البيانات',warranty:'ضمان كامل'},
-{name:'سنة',duration:'12 شهر',price:'1,400 ج',credits:'400–1500 Credit عشوائيًا كل شهر',activation:'حساب جديد كل شهر',account:'جهازان — ممنوع تغيير البيانات',warranty:'ضمان كامل'}],
+{name:'7 أيام',duration:'7 أيام',price:'50 ج',credits:'قد يكون بدون Credits أو برصيد بسيط؛ Credits غير مضمونة',activation:'حساب جاهز — إيميل وكلمة مرور — قد يطلب كود',account:'حساب جاهز؛ يُفضّل عدم تغيير البيانات',warranty:'ضمان الخدمة؛ لا اعتراض على غياب Credits في خطة الأسبوع'},
+{name:'شهر — غالبًا 500 Credit',duration:'30 يوم',price:'150 ج',credits:'عادةً 500 Credit',activation:'حساب جاهز — إيميل وكلمة مرور — قد يطلب كود',account:'حساب جاهز؛ يُفضّل عدم تغيير البيانات',warranty:'إذا كان الرصيد متفقًا عليه ولم يوجد، يحق للعميل الاعتراض'},
+{name:'شهر — 1600 Credit',duration:'30 يوم',price:'300 ج',credits:'1600 Credit',activation:'حساب جاهز — إيميل وكلمة مرور — قد يطلب كود',account:'حساب جاهز؛ يُفضّل عدم تغيير البيانات',warranty:'الرصيد جزء من العرض ويجب مطابقته'},
+{name:'3 شهور',duration:'3 شهور',price:'550 ج',credits:'الرصيد متغير عادةً بين 500 و1000 Credit',activation:'حساب جاهز',account:'يتم توضيح آلية الاستمرار قبل الدفع',warranty:'ضمان كامل حسب شروط العرض'},
+{name:'6 شهور',duration:'6 شهور',price:'950 ج',credits:'500–1000 Credit شهريًا',activation:'حساب جاهز',account:'يتم توضيح آلية الاستمرار قبل الدفع',warranty:'ضمان كامل حسب شروط العرض'},
+{name:'سنة',duration:'12 شهر',price:'1,400 ج',credits:'الرصيد متغير عادةً بين 500 و1000 Credit',activation:'حساب جاهز',account:'يتم توضيح آلية الاستمرار قبل الدفع',warranty:'ضمان كامل حسب شروط العرض'}],
 'ELSA Speak':[
 {name:'7 أيام',duration:'7 أيام',price:'90 ج'},{name:'سنة',duration:'12 شهر',price:'1,900 ج'}],
 'Coursera Plus':[
@@ -106,13 +106,114 @@ const planSets={
 'Wordwall Pro':[
 {name:'شهر',duration:'30 يوم',price:'300 ج'},{name:'سنة',duration:'12 شهر',price:'1,050 ج'}],
 'Notion Plus / Business':[
-{name:'3 شهور',duration:'3 شهور',price:'400 ج'},{name:'6 شهور',duration:'6 شهور',price:'600 ج'}],
+{name:'Notion Plus — 3 شهور',duration:'3 شهور',price:'400 ج',account:'حساب شخصي أو حساب جاهز',activation:'قد يحتاج OTP أثناء التفعيل',warranty:'ضمان كامل'},
+{name:'Notion Business — 6 شهور',duration:'6 شهور',price:'600 ج',account:'حساب شخصي أو حساب جاهز',activation:'قد يحتاج OTP أثناء التفعيل',warranty:'ضمان كامل'},
+{name:'Notion Business — 12 شهر',duration:'12 شهر',price:'950 ج',account:'يتم تأكيد نوع الحساب قبل الطلب',activation:'حسب المخزون وطريقة التفعيل المتاحة',warranty:'يتم تأكيد الضمان قبل الدفع'}],
 'Zoom Pro':[
-{name:'سنة',duration:'12 شهر',price:'1,800 ج',account:'حساب جاهز',warranty:'ضمان كامل'}]};
+{name:'شهر — حساب جاهز',duration:'30 يوم',price:'250 ج',account:'حساب جاهز',activation:'تسليم بيانات الحساب',warranty:'ضمان كامل؛ بعض الدُفعات قد تتوقف بعد 14 يوم ويتم التعامل معها ضمن الضمان'},
+{name:'3 شهور — حساب جاهز',duration:'3 شهور',price:'550 ج',account:'حساب جاهز',activation:'تسليم بيانات الحساب',warranty:'ضمان كامل'},
+{name:'سنة — حساب جاهز',duration:'12 شهر',price:'1,800 ج',account:'حساب جاهز',activation:'تسليم بيانات الحساب',warranty:'ضمان كامل'},
+{name:'شهر — تفعيل على بريدك',duration:'30 يوم',price:'300 ج',account:'حساب العميل',activation:'تفعيل على البريد الشخصي',warranty:'ضمان كامل'}]};
 const logoDomains={
 'Wink AI':'wink.ai','Gumloop':'gumloop.com','Magic Patterns':'magicpatterns.com','Factory Pro':'factory.ai','HeyGen AI':'heygen.com','Railway Hobby':'railway.app','Pangram Pro':'pangram.com','Supercut Pro':'supercut.ai','Wispr Flow Pro':'wisprflow.ai','Mobbin Team':'mobbin.com','Granola Business':'granola.ai','Jam Team':'jam.dev','Readwise + Reader':'readwise.io','Waking Up':'wakingup.com','Linear Business':'linear.app','PostHog Scale':'posthog.com','Customer.io Essentials':'customer.io','Stealth Writer':'stealthwriter.ai','Wordwall Pro':'wordwall.net','Turnitin':'turnitin.com','Motion Array':'motionarray.com','Murf AI':'murf.ai'
 };
-const products=rows.map((r,i)=>({id:i,name:r[0],category:r[1],duration:r[2],price:r[3],activation:r[4],account:r[5],warranty:r[6],status:r[7],description:r[8],benefits:categoryBenefits[r[1]],terms:categoryTerms[r[1]],logo:logoSlugs[r[0]]||'',domain:logoDomains[r[0]]||'',plans:planSets[r[0]]||[]}));
+
+const serviceDeep={
+'Lovable Pro':{features:['بناء تطبيقات ومواقع من وصف نصي','تعديل الواجهة والمنطق عبر المحادثة','مناسب للنماذج الأولية والمشاريع السريعة'],best:['المطورون ورواد الأعمال','تحويل فكرة إلى MVP بسرعة'],notes:['حدود الاستخدام تخضع لخطة Pro الحالية','التفعيل يتم على الحساب الشخصي حسب العرض']},
+'Lovable Pro Lite':{features:['300 Credit عند التفعيل','5 Credits يوميًا طوال مدة العرض','تفعيل برابط على البريد الشخصي بدون بطاقة'],best:['تجربة Lovable لمدة طويلة بتكلفة أقل','مشاريع صغيرة ومتوسطة'],notes:['لا يلزم إرسال كلمة مرور البريد','الرصيد اليومي جزء أساسي من العرض']},
+'Runway Pro':{features:['أدوات إنشاء وتحرير فيديو مدعومة بالذكاء الاصطناعي','مناسبة لتجارب الفيديو التوليدي والمونتاج الذكي'],best:['صناع المحتوى والمونتاج','تجربة أدوات الفيديو بالذكاء الاصطناعي'],notes:['الخدمة غير متاحة حاليًا في المتجر','لا يتم الدفع قبل تأكيد عودة المخزون']},
+'Perplexity Pro':{features:['بحث مدعوم بالذكاء الاصطناعي مع مصادر','نماذج وأدوات متقدمة حسب الخطة الحالية','مفيد للبحث وتجميع المعلومات'],best:['البحث والدراسة','جمع مصادر ومقارنة معلومات بسرعة'],notes:['حساب خاص جاهز','قد يحتاج كود دخول أول مرة ويقدمه المتجر عند الحاجة']},
+'Claude Pro':{features:['الوصول إلى مزايا Claude Pro المتاحة رسميًا','محادثات وكتابة وتحليل ملفات وفق حدود الخطة','مناسب للكتابة والتحليل والبرمجة'],best:['الكتابة الطويلة','التحليل والبرمجة والمذاكرة'],notes:['التفعيل على حساب العميل','الدفع يتم بوسيلة دفع المتجر']},
+'ChatGPT Plus':{features:['تفعيل Plus على حساب العميل الشخصي','الوصول إلى مزايا الخطة المتاحة وقت التفعيل','مناسب للكتابة والبرمجة والتحليل والتعلم'],best:['الاستخدام اليومي المكثف','العمل والدراسة وإنشاء المحتوى'],notes:['المتجر يقوم بعملية الدفع/التفعيل','الحساب يظل حساب العميل الشخصي']},
+'Grok':{features:['محادثة ومساعدة في البحث والمهام اليومية','وصول قصير المدة مناسب للتجربة'],best:['تجربة Grok قبل الاشتراك الأطول','الاستخدام المؤقت'],notes:['حساب جاهز بإيميل وكلمة مرور','الضمان 5 أيام فقط']},
+'Wink AI':{features:['أدوات تحسين الفيديو والصور','خطط أسبوعية وشهرية'],best:['تحسين المحتوى المرئي بسرعة','صناع المحتوى على الموبايل'],notes:['الحساب جاهز','تفاصيل الحدود الفعلية تتبع الخطة المتاحة وقت التسليم']},
+'Gamma Plus':{features:['إنشاء عروض تقديمية ومستندات وصفحات بالذكاء الاصطناعي','حساب جاهز لمدة شهر'],best:['العروض الدراسية والعمل','تحويل الأفكار إلى Presentation بسرعة'],notes:['التسليم بإيميل وكلمة مرور','الضمان كامل حسب العرض']},
+'Gamma Account':{features:['10 Workspaces','2,000 Credit لكل Workspace','إجمالي 20,000 Credit على الحساب'],best:['فرق أو مستخدم يحتاج مساحات عمل متعددة','إنشاء عدد كبير من العروض'],notes:['تغيير كلمة المرور مطلوب مباشرة حسب تعليمات هذا العرض','لا تترك أي Workspace بدون إذن','دعم Upgrade كامل مرة واحدة خلال أول شهر وفق شروط العرض']},
+'ElevenLabs Pro':{features:['إنشاء أصوات وتعليق صوتي بالذكاء الاصطناعي','Credits الخطة مرفقة بالحساب'],best:['التعليق الصوتي','الفيديوهات والبودكاست والمحتوى'],notes:['قيمة Credits الدقيقة تُراجع عند التسليم','الخطة الدقيقة يجب تأكيدها قبل الدفع']},
+'HeyGen AI':{features:['1,250 Credit ضمن العرض','إنشاء فيديوهات وأفاتار وتعليق صوتي'],best:['فيديوهات التسويق والتعليم','إنشاء فيديو بدون تصوير تقليدي'],notes:['التسليم بعد 5–6 ساعات تقريبًا','الحساب جاهز']},
+'Midjourney':{features:['إنشاء صور بالذكاء الاصطناعي عبر بيئة Midjourney'],best:['التصميم والإلهام البصري','Concept Art'],notes:['غير متاح حاليًا','الأسعار القديمة لا تعتبر عرضًا نشطًا']},
+'Leonardo AI':{features:['إنشاء صور وأصول بصرية بالذكاء الاصطناعي'],best:['التصميم والمحتوى المرئي','توليد أفكار وصور'],notes:['غير متاح حاليًا','يتم إعلان الخطة والسعر عند عودة المخزون']},
+'Manus':{features:['وكيل ذكاء اصطناعي لتنفيذ مهام متعددة الخطوات','بحث وتنظيم سير عمل حسب إمكانات الخطة'],best:['المهام المركبة','البحث والتنظيم والأتمتة'],notes:['حساب خاص','يُفضّل عدم تغيير بيانات الحساب']},
+'Gumloop':{features:['20,000 Credit ضمن العرض','أتمتة سير العمل وربط خطوات مدعومة بالذكاء الاصطناعي'],best:['الأتمتة بدون كود','ربط عمليات متكررة'],notes:['تحقق من الرصيد عند أول تسجيل دخول','مدة العرض تُؤكد قبل الدفع إذا لم تكن ظاهرة']},
+'Magic Patterns':{features:['إنشاء أفكار واجهات من أوصاف نصية','تسريع تصميم النماذج الأولية'],best:['مصممو UI/UX','أفكار الواجهات السريعة'],notes:['تسليم دعوة أو حساب حسب المتوفر','الخصائص الدقيقة تُراجع مع الخطة الحالية']},
+'Factory Pro':{features:['مساعدة فرق التطوير في سير العمل البرمجي','أدوات ذكاء اصطناعي للمطورين حسب الخطة'],best:['المطورون والفرق التقنية','مشاريع البرمجيات'],notes:['Workspace مخصص وفق العرض','لا تغيّر البيانات أو الإعدادات الحساسة']},
+'Framer Pro':{features:['تصميم ونشر مواقع تفاعلية','تحرير بصري سريع للمواقع'],best:['Landing Pages','المصممون وأصحاب المشاريع'],notes:['دعوة أو حساب حسب المخزون','حدود الخطة الرسمية تتبع Framer']},
+'Supabase Pro':{features:['Backend للمشاريع','قواعد بيانات ومصادقة وخدمات مرتبطة بالمشروع'],best:['مطورون ويب وتطبيقات','مشاريع تحتاج Backend سريع'],notes:['حساب أو Organization حسب العرض','لا تغيّر بيانات المؤسسة بدون اتفاق']},
+'Canva Pro':{features:['تفعيل على البريد الشخصي','الوصول إلى أدوات وقوالب Pro المتاحة بالخطة'],best:['تصميم السوشيال ميديا','العروض والتصميم اليومي'],notes:['مدة العرض 3 سنوات','ضمان سنتين حسب عرض المتجر']},
+'CapCut Pro':{features:['أدوات تحرير ومزايا Pro','عدة مدد وخيارات Credits','خطط جاهزة لصناع الفيديو'],best:['TikTok وReels وShorts','المونتاج السريع والمحتوى اليومي'],notes:['خطة 7 أيام لا تضمن Credits','في الخطط التي يُذكر فيها الرصيد يجب أن يطابق العرض','الحسابات الجاهزة قد تطلب كود دخول']},
+'Figma Pro':{features:['تصميم واجهات وتجارب مستخدم','تعاون على ملفات ونماذج أولية حسب الخطة'],best:['UI/UX','فرق التصميم والمنتجات'],notes:['الخطة الرسمية الدقيقة تحتاج تأكيد قبل الدفع','التسليم دعوة أو حساب حسب المخزون']},
+'Freepik':{features:['خدمة تحميل ملفات Premium','لا يتم تسليم بيانات حساب للعميل'],best:['تحميل Assets محددة','مصممين يحتاجون ملفات جاهزة'],notes:['أرسل روابط الملفات المطلوبة','الضمان على تسليم الملفات المتاحة فقط']},
+'Adobe Creative Cloud':{features:['حزمة تطبيقات Adobe الإبداعية'],best:['التصميم والمونتاج والصوت'],notes:['انتهى المخزون حاليًا','لا يتم قبول دفع قبل تأكيد التوفر']},
+'Duolingo Super':{features:['تفعيل لمدة سنة','تجربة تعلم بدون إعلانات وبمزايا Super حسب الخطة'],best:['تعلم اللغات يوميًا','المبتدئون والمستمرون'],notes:['التفعيل برابط على الحساب الشخصي','لا تحتاج بطاقة حسب العرض']},
+'ELSA Speak':{features:['تدريب نطق الإنجليزية','تمارين تحدث ومسار تعلم داخل التطبيق'],best:['تحسين النطق','ممارسة الإنجليزية المحكية'],notes:['يوجد عرض 7 أيام وعرض سنة','تفاصيل الخطة الرسمية الدقيقة تُراجع وقت الطلب']},
+'Coursera Plus':{features:['الوصول إلى دورات ضمن الخطة المتاحة','خيارات 3 شهور وسنة مشتركة وسنة خاصة'],best:['التعلم المهني','الدورات الطويلة وتطوير المهارات'],notes:['الحساب المشترك لا يضمن إصدار شهادة باسمك في كل الحالات','الحساب الخاص منفصل عن المشترك','تفاصيل أهلية الشهادة تُؤكد قبل الدفع']},
+'Quizizz Premium':{features:['أدوات إنشاء اختبارات وأنشطة تعليمية','تفعيل على البريد الشخصي'],best:['المعلمين والمدربين','الأنشطة التفاعلية'],notes:['اسم الخطة الرسمية الحالي يجب تأكيده قبل الدفع','الحساب يظل تحت تحكم العميل']},
+'Wordwall Pro':{features:['إنشاء أنشطة وألعاب تعليمية','خيارات شهر وسنة'],best:['المعلمين','الفصول والأنشطة التفاعلية'],notes:['حساب جاهز','يُفضّل عدم تغيير كلمة المرور إلا بعد تأكيد السماح']},
+'Turnitin':{features:['فحص ملف واحد','تسليم تقرير/نتيجة الفحص'],best:['مراجعة التشابه قبل التسليم','الطلاب والباحثون'],notes:['هذه خدمة فحص وليست حساب Turnitin','لا يوجد ضمان لدرجة أو نتيجة أكاديمية معينة']},
+'Microsoft 365':{features:['تطبيقات Office مثل Word وExcel وPowerPoint','اشتراك لمدة سنة وفق العرض'],best:['الدراسة والعمل المكتبي','المستندات والجداول والعروض'],notes:['قد يكون حسابًا جاهزًا أو تفعيلًا حسب المتوفر','في الحساب الجاهز احتفظ بالبيانات الأصلية ما لم يُسمح بالتغيير']},
+'Notion Plus / Business':{features:['إدارة ملاحظات ومشاريع وقواعد بيانات','خطط Plus وBusiness بمدد مختلفة'],best:['تنظيم الدراسة والعمل','الفرق وإدارة المشاريع'],notes:['قد يحتاج OTP أثناء التفعيل','نوع الحساب يختلف حسب الخطة والمخزون']},
+'LinkedIn Premium':{features:['تفعيل Premium على الحساب الشخصي','رابط التفعيل يستخدم مرة واحدة'],best:['البحث عن وظائف والتواصل المهني','تطوير الملف المهني'],notes:['يلزم وجود بطاقة وفق عرض التفعيل','بعد فتح/استخدام الرابط يعتبر مستهلكًا ولا يعاد استخدامه']},
+'Zoom Pro':{features:['خطط شهر و3 شهور وسنة','خيار حساب جاهز أو تفعيل على بريدك'],best:['الاجتماعات والدروس أونلاين','فرق العمل والمدربين'],notes:['عرض الشهر الجاهز عليه ضمان كامل حتى لو توقفت دفعة مبكرًا','اختَر نوع الحساب المناسب قبل الدفع']},
+'Stealth Writer':{features:['حتى 10 عمليات Humanize يوميًا حسب العرض','حتى 5,000 كلمة للعملية الواحدة'],best:['إعادة الصياغة وتحسين الأسلوب','تحرير نصوص طويلة'],notes:['لا يوجد ضمان 100% لتجاوز جميع أدوات كشف AI','الحدود الفعلية تخضع للخدمة وقت الاستخدام']},
+'Railway Hobby':{features:['استضافة وتشغيل مشاريع وتطبيقات','إدارة Deployments وفق الخطة'],best:['المطورون','المشاريع الصغيرة والتجريبية'],notes:['حساب جاهز','تفاصيل الاستخدام الدقيقة تتبع خطة Railway الحالية']},
+'Pangram Pro':{features:['أدوات احترافية مرتبطة بتحليل/العمل على النصوص حسب الخطة'],best:['مستخدمون يحتاجون مزايا Pangram المدفوعة'],notes:['الخصائص الرسمية الدقيقة لم تُثبت داخل بيانات المتجر بعد','يجب تأكيدها قبل الدفع']},
+'Supercut Pro':{features:['الوصول إلى مزايا Supercut Pro حسب الخطة'],best:['صناع المحتوى حسب استخدام الأداة'],notes:['تفاصيل المزايا الرسمية الدقيقة تحتاج مراجعة قبل الدفع','حساب جاهز']},
+'Wispr Flow Pro':{features:['إملاء صوتي ذكي','تحويل الكلام إلى نص أثناء العمل'],best:['الكتابة السريعة بالصوت','المستخدمون الذين يكتبون كثيرًا'],notes:['حساب جاهز','الاستخدام يخضع لأنظمة وتوافق المنصة']},
+'Mobbin Team':{features:['مكتبة مراجع لتصميم واجهات وتجارب مستخدم','وصول Team حسب العرض'],best:['مصممو UI/UX','البحث عن Patterns ومرجع بصري'],notes:['دعوة إلى Team','لا تعدّل إعدادات الفريق']},
+'Granola Business':{features:['ملاحظات اجتماعات مدعومة بالذكاء الاصطناعي','تنظيم ملخصات ومعلومات الاجتماعات'],best:['الفرق والاجتماعات','توثيق المكالمات'],notes:['حساب جاهز','لا تغيّر بيانات الحساب بدون تأكيد']},
+'Jam Team':{features:['تسجيل ومشاركة مشكلات المواقع','التعاون على Feedback تقني'],best:['فرق التطوير والاختبار','QA وBug reporting'],notes:['دعوة Team','احتفظ ببيانات وإعدادات الفريق الأصلية']},
+'Readwise + Reader':{features:['حفظ وتنظيم القراءة','مراجعة Highlights ومحتوى محفوظ'],best:['القراء والباحثون','تنظيم المعرفة الشخصية'],notes:['حساب جاهز','لا تغيّر بيانات الحساب قبل التأكد من سياسة العرض']},
+'Waking Up':{features:['اشتراك في محتوى تطبيق Waking Up حسب العرض'],best:['المستخدمون المهتمون بمحتوى التطبيق'],notes:['حساب جاهز','تفاصيل المكتبة والمحتوى تتغير من مقدم الخدمة']},
+'Linear Business':{features:['إدارة مشاريع ومهام للفرق','مزايا Business حسب الخطة'],best:['فرق المنتجات والهندسة','إدارة Issues وWorkflows'],notes:['دعوة أو حساب حسب المتوفر','مدة العرض 5 شهور']},
+'PostHog Scale':{features:['تحليلات منتجات وسلوك مستخدمين','مزايا Scale حسب العرض'],best:['فرق المنتجات والتحليلات','مشاريع SaaS'],notes:['حساب جاهز','الحدود الفنية الدقيقة يجب تأكيدها قبل الدفع']},
+'Customer.io Essentials':{features:['أتمتة تواصل ورسائل للعملاء','مزايا Essentials حسب العرض'],best:['التسويق ودورة حياة العميل','فرق Growth وCRM'],notes:['مدة العرض لم تُحدد داخل بيانات المتجر','يجب تأكيد المدة قبل الدفع']},
+'iCloud+ 4TB':{features:['مساحة iCloud+ إجمالية 4TB حسب العرض','التفعيل عبر دعوة Apple ID/مشاركة'],best:['نسخ احتياطي وصور وملفات Apple','مستخدمون يحتاجون مساحة كبيرة'],notes:['مدة العرض شهر حسب قاعدة البيانات المرفوعة','التفعيل يعتمد على أهلية Apple ID']},
+'NordVPN':{features:['اتصال VPN مشفر','مدة 3 شهور'],best:['التصفح عبر VPN','الاستخدام أثناء السفر والعمل'],notes:['حساب جاهز','لا تغيّر بيانات الحساب']},
+'Proton VPN':{features:['اشتراك لمدة سنة','مخصص لجهاز واحد حسب عرض المتجر'],best:['استخدام VPN طويل المدة على جهاز واحد'],notes:['قد يحتاج كود يقدمه المتجر','لا تستخدم الحساب على أكثر من الجهاز المسموح']},
+'Surfshark':{features:['كوبون لمدة شهرين','تفعيل على الحساب المؤهل'],best:['من يفضل التفعيل على حسابه'],notes:['يتطلب بطاقة أثناء التفعيل','العرض مصنف بدون Hold Warranty']},
+'HMA VPN':{features:['وصول VPN قصير المدة'],best:['استخدام مؤقت','تجربة HMA'],notes:['مدة العرض تحتاج تأكيد نهائي قبل الدفع إذا ظهر اختلاف في المخزون']},
+'ExpressVPN':{features:['وصول VPN لمدة 3 أيام'],best:['احتياج قصير جدًا','سفر أو استخدام مؤقت'],notes:['طريقة التفعيل والضمان تُؤكد قبل الدفع']},
+'Spotify Premium':{features:['Premium لمدة 3 شهور','التفعيل على حساب العميل الشخصي'],best:['الاستماع اليومي للموسيقى والبودكاست'],notes:['التفعيل برابط','الحساب يظل حساب العميل']},
+'YouTube Premium':{features:['YouTube Premium لمدة 3 شهور','YouTube Music ضمن مزايا الخطة الرسمية'],best:['مشاهدة بدون إعلانات حسب الخطة','الموسيقى والمحتوى المرئي'],notes:['التفعيل برابط على الحساب الشخصي','يحتاج بطاقة أثناء التفعيل حسب العرض']},
+'Grammarly Premium':{features:['مزايا كتابة وتدقيق متقدمة حسب الخطة'],best:['الكتابة الإنجليزية'],notes:['قريبًا — غير متاح للطلب حاليًا']},
+'QuillBot Premium':{features:['إعادة صياغة وأدوات كتابة حسب الخطة'],best:['إعادة صياغة النصوص'],notes:['قريبًا — غير متاح للطلب حاليًا']},
+'Envato Elements':{features:['مكتبة أصول وقوالب رقمية'],best:['المصممون وصناع المحتوى'],notes:['قريبًا — السعر والخطة يعلنان عند التوفر']},
+'Motion Array':{features:['قوالب وموارد للفيديو والمونتاج'],best:['المونتير وصانع الفيديو'],notes:['قريبًا — غير متاح للطلب الآن']},
+'Suno AI':{features:['إنشاء محتوى موسيقي بالذكاء الاصطناعي'],best:['الموسيقى والمحتوى'],notes:['قريبًا — الخطة والسعر لم يحددا بعد']},
+'Murf AI':{features:['إنشاء أصوات وتعليقات صوتية بالذكاء الاصطناعي'],best:['التعليق الصوتي'],notes:['قريبًا — غير متاح للطلب الآن']},
+'Discord Nitro':{features:['مزايا Nitro الإضافية لحساب Discord'],best:['مستخدمي Discord'],notes:['قريبًا — غير متاح للطلب الآن']},
+'Kling AI':{features:['إنشاء فيديو بالذكاء الاصطناعي'],best:['صناع الفيديو'],notes:['انتهى المخزون حاليًا']}
+};
+
+function activationJourney(p,plan){
+ const a=(plan.activation||p.activation||'').toLowerCase();
+ if(a.includes('ملف'))return ['أرسل الملف المطلوب فحصه للمتجر','يتم تنفيذ الخدمة على الملف','يتم تسليم النتيجة أو التقرير بعد الانتهاء'];
+ if(a.includes('رابط'))return ['تأكيد البريد/الحساب المطلوب قبل الدفع','استلام رابط التفعيل من المتجر','فتح الرابط وإكمال الخطوات المطلوبة ثم التأكد من ظهور الخطة'];
+ if(a.includes('حساب جاهز')||a.includes('تسليم حساب'))return ['تأكيد توفر الحساب قبل الدفع','استلام بيانات الدخول أو الكود المطلوب','تسجيل الدخول وفحص المدة/الرصيد فورًا ثم إبلاغ المتجر بأي مشكلة'];
+ if(a.includes('بريد')||a.includes('حساب العميل')||a.includes('تفعيل'))return ['إرسال البريد أو بيانات الحساب المطلوبة فقط','يقوم المتجر بتنفيذ التفعيل حسب العرض','التأكد من ظهور الخطة والمدة على حسابك بعد الإتمام'];
+ return ['تأكيد الخطة والتوفر مع المتجر','تنفيذ طريقة التسليم الموضحة في العرض','فحص الخدمة فور الاستلام'];
+}
+function accountSafety(p,plan){
+ const txt=((plan.account||p.account||'')+' '+(plan.activation||p.activation||'')).toLowerCase();
+ const out=[];
+ if(txt.includes('حساب العميل')||txt.includes('شخصي')||txt.includes('البريد الشخصي'))out.push('التفعيل مرتبط بحسابك الشخصي؛ حافظ على وسائل الاسترداد الخاصة بك.');
+ if(txt.includes('جاهز'))out.push('الحساب الجاهز له قواعد مختلفة عن الحساب الشخصي؛ لا تغيّر البريد أو كلمة المرور إلا إذا كان العرض يسمح بذلك صراحةً.');
+ if(txt.includes('مشترك'))out.push('الحساب المشترك قد يستخدمه أكثر من شخص؛ لا تغيّر البيانات أو الملف الرئيسي للحساب.');
+ if(txt.includes('otp')||txt.includes('كود'))out.push('قد يُطلب كود دخول/OTP لإكمال التفعيل؛ استخدمه فقط أثناء خطوة التفعيل المتفق عليها.');
+ if(txt.includes('بطاقة'))out.push('وجود بطاقة قد يكون شرطًا لإتمام التفعيل حتى لو كان سعر الاشتراك مدفوعًا للمتجر.');
+ if(!out.length)out.push('اتبع بيانات وطريقة الدخول المسلّمة مع الطلب، وأبلغ المتجر قبل إجراء أي تغيير أمني في الحساب.');
+ return out;
+}
+function warrantyText(p,plan){
+ const w=plan.warranty||p.warranty||'غير محدد';
+ return [
+  'نوع الضمان لهذا العرض: '+w+'.',
+  'إذا ظهرت مشكلة من جهة الحساب/التفعيل خلال مدة الضمان، تواصل مع المتجر مع صورة للمشكلة.',
+  'المشكلات الناتجة عن تغيير بيانات الحساب أو مخالفة شروط الاستخدام قد لا تكون مشمولة.'
+ ];
+}
+
+const products=rows.map((r,i)=>({id:i,name:r[0],category:r[1],duration:r[2],price:r[3],activation:r[4],account:r[5],warranty:r[6],status:r[7],description:r[8],benefits:categoryBenefits[r[1]],terms:categoryTerms[r[1]],deep:serviceDeep[r[0]]||{},logo:logoSlugs[r[0]]||'',domain:logoDomains[r[0]]||'',plans:planSets[r[0]]||[]}));
 const categories=['الكل',...new Set(products.map(p=>p.category))];
 let selected='الكل';
 const grid=document.querySelector('#grid'),filters=document.querySelector('#filters'),search=document.querySelector('#search'),empty=document.querySelector('#empty'),dialog=document.querySelector('#productDialog'),dialogContent=document.querySelector('#dialogContent'),checkoutDialog=document.querySelector('#checkoutDialog'),checkoutContent=document.querySelector('#checkoutContent'),toast=document.querySelector('#toast');
@@ -122,7 +223,52 @@ function drawFilters(){filters.innerHTML=categories.map(c=>`<button class="filte
 function draw(){const q=search.value.trim().toLowerCase();const list=products.filter(p=>(selected==='الكل'||p.category===selected)&&Object.values(p).join(' ').toLowerCase().includes(q));grid.innerHTML=list.map(p=>`<article class="card"><div class="card-top">${productIcon(p)}<span class="badge ${p.status!=='متاح'?'soon':''}">${p.status}</span></div><h3>${p.name}</h3><span class="category">${p.category}</span><div class="meta"><span>${p.plans.length>1?'الخطط المتاحة':'المدة'}</span><b>${p.plans.length>1?p.plans.length+' خطط':p.duration}</b></div><div class="price"><strong>${p.price}</strong><div class="card-actions"><button class="details" data-id="${p.id}">التفاصيل</button><button class="order" data-order="${p.id}">${p.plans.length>1?'اختر الخطة':'اطلب'}</button></div></div></article>`).join('');empty.style.display=list.length?'none':'block';grid.querySelectorAll('.details').forEach(b=>b.onclick=()=>openDetails(+b.dataset.id));grid.querySelectorAll('.order').forEach(b=>b.onclick=()=>{const p=products[+b.dataset.order];p.plans.length>1?openDetails(p.id):orderProduct(p,resolvePlan(p))})}
 function fact(label,value){return `<div class="fact"><small>${label}</small><b>${value}</b></div>`}
 function resolvePlan(p,plan={}){return{name:plan.name||p.duration,duration:plan.duration||p.duration,price:plan.price||p.price,credits:plan.credits||'غير محدد',activation:plan.activation||p.activation,account:plan.account||p.account,warranty:plan.warranty||p.warranty}}
-function openDetails(id){const p=products[id],plans=p.plans.length?p.plans:[resolvePlan(p)],first=resolvePlan(p,plans[0]),options=p.plans.length>1?`<label class="plan-picker"><span>اختر الخطة</span><select id="planSelect">${p.plans.map((x,i)=>`<option value="${i}">${x.name} — ${x.price}</option>`).join('')}</select></label>`:'';dialogContent.innerHTML=`<div class="detail-hero"><div class="detail-heading">${productIcon(p)}<div><h2 id="dialogTitle">${p.name}</h2><p>${p.category}</p></div></div><div class="detail-price"><strong id="detailPrice">${first.price}</strong><span class="badge ${p.status!=='متاح'?'soon':''}">${p.status}</span></div></div><div class="detail-body"><p class="detail-description">${p.description}</p>${options}<div class="detail-facts"><div class="fact"><small>الخطة أو المدة</small><b id="detailDuration">${first.duration}</b></div><div class="fact"><small>Credits أو الرصيد</small><b id="detailCredits">${first.credits}</b></div><div class="fact"><small>طريقة التسليم والتفعيل</small><b id="detailActivation">${first.activation}</b></div><div class="fact"><small>بيانات الحساب</small><b id="detailAccount">${first.account}</b></div><div class="fact"><small>الضمان</small><b id="detailWarranty">${first.warranty}</b></div></div><div class="detail-columns"><div><h3>مميزات الخدمة</h3><ul class="detail-list">${p.benefits.map(x=>`<li>${x}</li>`).join('')}</ul></div><div><h3>شروط مهمة</h3><ul class="detail-list terms-list">${p.terms.map(x=>`<li>${x}</li>`).join('')}</ul></div></div><button class="dialog-order" data-order-dialog="${p.id}" ${p.status!=='متاح'?'disabled':''}>${p.status==='متاح'?'اطلب الخطة المختارة':'غير متاح للطلب الآن'}</button></div>`;dialog.showModal();let chosen=first;const select=dialogContent.querySelector('#planSelect');if(select)select.onchange=()=>{chosen=resolvePlan(p,p.plans[+select.value]);dialogContent.querySelector('#detailPrice').textContent=chosen.price;dialogContent.querySelector('#detailDuration').textContent=chosen.duration;dialogContent.querySelector('#detailCredits').textContent=chosen.credits;dialogContent.querySelector('#detailActivation').textContent=chosen.activation;dialogContent.querySelector('#detailAccount').textContent=chosen.account;dialogContent.querySelector('#detailWarranty').textContent=chosen.warranty};dialogContent.querySelector('[data-order-dialog]')?.addEventListener('click',()=>orderProduct(p,chosen))}
+function openDetails(id){
+ const p=products[id],plans=p.plans.length?p.plans:[resolvePlan(p)],first=resolvePlan(p,plans[0]);
+ const options=p.plans.length>1?`<label class="plan-picker"><span>اختر الخطة</span><select id="planSelect">${p.plans.map((x,i)=>`<option value="${i}">${x.name} — ${x.price}</option>`).join('')}</select></label>`:'';
+ const deep=p.deep||{},features=(deep.features&&deep.features.length?deep.features:p.benefits),best=deep.best||[],notes=[...(deep.notes||[]),...(p.terms||[])];
+ const comparison=p.plans.length>1?`<div class="detail-section"><h3>مقارنة الخطط</h3><div class="plan-table-wrap"><table class="plan-table"><thead><tr><th>الخطة</th><th>المدة</th><th>السعر</th><th>الرصيد/الحدود</th></tr></thead><tbody>${p.plans.map(x=>{const q=resolvePlan(p,x);return `<tr><td>${x.name}</td><td>${q.duration}</td><td>${q.price}</td><td>${q.credits}</td></tr>`}).join('')}</tbody></table></div></div>`:'';
+ function renderDynamic(plan){
+   return `<div class="detail-section"><h3>طريقة الاستلام خطوة بخطوة</h3><ol class="journey-list">${activationJourney(p,plan).map((x,i)=>`<li><span>${i+1}</span><p>${x}</p></li>`).join('')}</ol></div>
+   <div class="deep-grid">
+    <section class="deep-card"><h4>الحساب والأمان</h4><ul class="detail-list">${accountSafety(p,plan).map(x=>`<li>${x}</li>`).join('')}</ul></section>
+    <section class="deep-card"><h4>الضمان والدعم</h4><ul class="detail-list">${warrantyText(p,plan).map(x=>`<li>${x}</li>`).join('')}</ul></section>
+   </div>`;
+ }
+ dialogContent.innerHTML=`<div class="detail-hero"><div class="detail-heading">${productIcon(p)}<div><h2 id="dialogTitle">${p.name}</h2><p>${p.category}</p></div></div><div class="detail-price"><strong id="detailPrice">${first.price}</strong><span class="badge ${p.status!=='متاح'?'soon':''}">${p.status}</span></div></div>
+ <div class="detail-body">
+  <p class="detail-description">${p.description}</p>
+  ${options}
+  <div class="detail-facts">
+   <div class="fact"><small>الخطة أو المدة</small><b id="detailDuration">${first.duration}</b></div>
+   <div class="fact"><small>Credits أو الرصيد</small><b id="detailCredits">${first.credits}</b></div>
+   <div class="fact"><small>طريقة التسليم والتفعيل</small><b id="detailActivation">${first.activation}</b></div>
+   <div class="fact"><small>نوع/بيانات الحساب</small><b id="detailAccount">${first.account}</b></div>
+   <div class="fact"><small>الضمان</small><b id="detailWarranty">${first.warranty}</b></div>
+   <div class="fact"><small>حالة الطلب</small><b>${p.status}</b></div>
+  </div>
+  <div class="detail-section"><h3>ماذا ستحصل عليه؟</h3><ul class="feature-grid">${features.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+  ${best.length?`<div class="detail-section"><h3>مناسب لمين؟</h3><div class="best-tags">${best.map(x=>`<span>${x}</span>`).join('')}</div></div>`:''}
+  ${comparison}
+  <div id="dynamicDeep">${renderDynamic(first)}</div>
+  <div class="detail-section warning-section"><h3>ملاحظات مهمة قبل الدفع</h3><ul class="detail-list terms-list">${notes.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+  <button class="dialog-order" data-order-dialog="${p.id}" ${p.status!=='متاح'?'disabled':''}>${p.status==='متاح'?'اطلب الخطة المختارة':'غير متاح للطلب الآن'}</button>
+ </div>`;
+ dialog.showModal();
+ let chosen=first;
+ const select=dialogContent.querySelector('#planSelect');
+ if(select)select.onchange=()=>{
+   chosen=resolvePlan(p,p.plans[+select.value]);
+   dialogContent.querySelector('#detailPrice').textContent=chosen.price;
+   dialogContent.querySelector('#detailDuration').textContent=chosen.duration;
+   dialogContent.querySelector('#detailCredits').textContent=chosen.credits;
+   dialogContent.querySelector('#detailActivation').textContent=chosen.activation;
+   dialogContent.querySelector('#detailAccount').textContent=chosen.account;
+   dialogContent.querySelector('#detailWarranty').textContent=chosen.warranty;
+   dialogContent.querySelector('#dynamicDeep').innerHTML=renderDynamic(chosen);
+ };
+ dialogContent.querySelector('[data-order-dialog]')?.addEventListener('click',()=>orderProduct(p,chosen));
+}
 const paymentInfo={we1:['WE Pay','01500950624 — أحمد …م…م…'],we2:['WE Pay','01505896364 — منصور …ع…ج…'],binance:['Binance Pay','Pay ID: 1222200704']};
 function paymentBox(key){const x=paymentInfo[key];return `<div class="payment-details"><b>${x[0]}</b><span>${x[1]}</span><small>يرجى تأكيد توفر الخدمة والسعر عبر واتساب قبل التحويل.</small></div>`}
 function orderProduct(p,selectedPlan){
