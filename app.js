@@ -220,15 +220,7 @@ const grid=document.querySelector('#grid'),filters=document.querySelector('#filt
 function initials(n){return n.split(' ').map(x=>x[0]).join('').slice(0,2).toUpperCase()}
 function productIcon(p){const url=p.logo?`logos/${p.logo}.svg`:p.domain?`https://www.google.com/s2/favicons?domain_url=https://${encodeURIComponent(p.domain)}&sz=256`:'';return `<span class="product-icon logo-${p.logo||'remote'} ${url?'':'logo-failed'}">${url?`<img src="${url}" alt="شعار ${p.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('logo-failed')">`:''}<span class="fallback">${initials(p.name)}</span></span>`}
 function drawFilters(){filters.innerHTML=categories.map(c=>`<button class="filter ${c===selected?'active':''}" data-c="${c}">${c}</button>`).join('');filters.querySelectorAll('button').forEach(b=>b.onclick=()=>{selected=b.dataset.c;drawFilters();draw()})}
-function cardAccountLabel(p){
- const t=(p.account||'').toLowerCase();
- if(t.includes('العميل')||t.includes('شخصي'))return 'حسابك الشخصي';
- if(t.includes('جاهز'))return 'حساب جاهز';
- if(t.includes('مشترك'))return 'حساب مشترك';
- if(t.includes('خدمة'))return 'خدمة مباشرة';
- return 'طريقة خاصة';
-}
-function shortText(x,n=105){x=String(x||'');return x.length>n?x.slice(0,n).trim()+'…':x}
+function shortText(x,n=95){x=String(x||'');return x.length>n?x.slice(0,n).trim()+'…':x}
 function draw(){
  const q=search.value.trim().toLowerCase();
  const list=products.filter(p=>(selected==='الكل'||p.category===selected)&&Object.values(p).join(' ').toLowerCase().includes(q));
@@ -236,16 +228,17 @@ function draw(){
    const highlight=p.deep?.features?.[0]||p.description;
    return `<article class="card">
     <div class="card-top">${productIcon(p)}<span class="badge ${p.status!=='متاح'?'soon':''}">${p.status}</span></div>
-    <h3>${p.name}</h3><span class="category">${p.category}</span>
-    <p class="card-desc">${shortText(highlight,92)}</p>
-    <div class="quick-row"><span>${cardAccountLabel(p)}</span><span>${p.warranty&&p.warranty!=='—'?shortText(p.warranty,28):'الضمان عند الطلب'}</span></div>
-    <div class="meta"><span>${p.plans.length>1?'الخطط المتاحة':'المدة'}</span><b>${p.plans.length>1?p.plans.length+' خطط':p.duration}</b></div>
-    <div class="price"><strong>${p.price}</strong><div class="card-actions"><button class="details" data-id="${p.id}">كل التفاصيل</button><button class="order" data-order="${p.id}">${p.plans.length>1?'اختر الخطة':'اطلب'}</button></div></div>
+    <h3>${p.name}</h3>
+    <span class="category">${p.category}</span>
+    <p class="card-desc">${shortText(highlight)}</p>
+    <div class="card-bottom">
+      <div><small>${p.plans.length>1?p.plans.length+' خطط':p.duration}</small><strong>${p.price}</strong></div>
+      <button class="details" data-id="${p.id}">عرض التفاصيل</button>
+    </div>
    </article>`;
  }).join('');
  empty.style.display=list.length?'none':'block';
  grid.querySelectorAll('.details').forEach(b=>b.onclick=()=>openDetails(+b.dataset.id));
- grid.querySelectorAll('.order').forEach(b=>b.onclick=()=>{const p=products[+b.dataset.order];p.plans.length>1?openDetails(p.id):orderProduct(p,resolvePlan(p))});
 }
 function fact(label,value){return `<div class="fact"><small>${label}</small><b>${value}</b></div>`}
 function resolvePlan(p,plan={}){return{name:plan.name||p.duration,duration:plan.duration||p.duration,price:plan.price||p.price,credits:plan.credits||'غير محدد',activation:plan.activation||p.activation,account:plan.account||p.account,warranty:plan.warranty||p.warranty}}
@@ -273,35 +266,34 @@ function faqFor(p,plan){
 
 function openDetails(id){
  const p=products[id],plans=p.plans.length?p.plans:[resolvePlan(p)],first=resolvePlan(p,plans[0]);
- const options=p.plans.length>1?`<label class="plan-picker"><span>اختر الخطة</span><select id="planSelect">${p.plans.map((x,i)=>`<option value="${i}">${x.name} — ${x.price}</option>`).join('')}</select></label>`:'';
  const deep=p.deep||{},features=(deep.features&&deep.features.length?deep.features:p.benefits),best=deep.best||[],notes=[...(deep.notes||[]),...(p.terms||[])];
- const comparison=p.plans.length>1?`<div class="detail-section"><h3>مقارنة الخطط</h3><div class="plan-table-wrap"><table class="plan-table"><thead><tr><th>الخطة</th><th>المدة</th><th>السعر</th><th>الرصيد/الحدود</th></tr></thead><tbody>${p.plans.map(x=>{const q=resolvePlan(p,x);return `<tr><td>${x.name}</td><td>${q.duration}</td><td>${q.price}</td><td>${q.credits}</td></tr>`}).join('')}</tbody></table></div></div>`:'';
- function renderDynamic(plan){
-   return `<div class="detail-section"><h3>طريقة الاستلام خطوة بخطوة</h3><ol class="journey-list">${activationJourney(p,plan).map((x,i)=>`<li><span>${i+1}</span><p>${x}</p></li>`).join('')}</ol></div>
-   <div class="deep-grid">
-    <section class="deep-card"><h4>الحساب والأمان</h4><ul class="detail-list">${accountSafety(p,plan).map(x=>`<li>${x}</li>`).join('')}</ul></section>
-    <section class="deep-card"><h4>الضمان والدعم</h4><ul class="detail-list">${warrantyText(p,plan).map(x=>`<li>${x}</li>`).join('')}</ul></section>
-   </div>`;
+ const options=p.plans.length>1?`<label class="plan-picker"><span>اختر الخطة</span><select id="planSelect">${p.plans.map((x,i)=>`<option value="${i}">${x.name} — ${x.price}</option>`).join('')}</select></label>`:'';
+ function planTable(){
+   if(!p.plans.length||p.plans.length<2)return '';
+   return `<details class="detail-accordion"><summary>مقارنة كل الخطط</summary><div class="accordion-body"><div class="plan-table-wrap"><table class="plan-table"><thead><tr><th>الخطة</th><th>المدة</th><th>السعر</th><th>الرصيد</th></tr></thead><tbody>${p.plans.map(x=>{const q=resolvePlan(p,x);return `<tr><td>${x.name}</td><td>${q.duration}</td><td>${q.price}</td><td>${q.credits}</td></tr>`}).join('')}</tbody></table></div></div></details>`;
  }
- dialogContent.innerHTML=`<div class="detail-hero"><div class="detail-heading">${productIcon(p)}<div><h2 id="dialogTitle">${p.name}</h2><p>${p.category}</p></div></div><div class="detail-price"><strong id="detailPrice">${first.price}</strong><span class="badge ${p.status!=='متاح'?'soon':''}">${p.status}</span></div></div>
+ function dynamic(plan){
+   return `
+    <details class="detail-accordion"><summary>طريقة التفعيل والاستلام</summary><div class="accordion-body"><ol class="journey-list">${activationJourney(p,plan).map((x,i)=>`<li><span>${i+1}</span><p>${x}</p></li>`).join('')}</ol></div></details>
+    <details class="detail-accordion"><summary>الحساب والضمان</summary><div class="accordion-body"><div class="deep-grid"><section class="deep-card"><h4>الحساب والأمان</h4><ul class="detail-list">${accountSafety(p,plan).map(x=>`<li>${x}</li>`).join('')}</ul></section><section class="deep-card"><h4>الضمان والدعم</h4><ul class="detail-list">${warrantyText(p,plan).map(x=>`<li>${x}</li>`).join('')}</ul></section></div></div></details>
+    <details class="detail-accordion"><summary>أسئلة شائعة</summary><div class="accordion-body"><div class="faq-list" id="faqList">${faqFor(p,plan).map(x=>`<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('')}</div></div></details>`;
+ }
+ dialogContent.innerHTML=`<div class="detail-hero compact-detail"><div class="detail-heading">${productIcon(p)}<div><h2 id="dialogTitle">${p.name}</h2><p>${p.category}</p></div></div><div class="detail-price"><strong id="detailPrice">${first.price}</strong><span class="badge ${p.status!=='متاح'?'soon':''}">${p.status}</span></div></div>
  <div class="detail-body">
   <p class="detail-description">${p.description}</p>
   ${options}
-  <div class="detail-facts">
-   <div class="fact"><small>الخطة أو المدة</small><b id="detailDuration">${first.duration}</b></div>
-   <div class="fact"><small>Credits أو الرصيد</small><b id="detailCredits">${first.credits}</b></div>
-   <div class="fact"><small>طريقة التسليم والتفعيل</small><b id="detailActivation">${first.activation}</b></div>
-   <div class="fact"><small>نوع/بيانات الحساب</small><b id="detailAccount">${first.account}</b></div>
+  <div class="detail-facts compact-facts">
+   <div class="fact"><small>المدة</small><b id="detailDuration">${first.duration}</b></div>
+   <div class="fact"><small>الرصيد</small><b id="detailCredits">${first.credits}</b></div>
+   <div class="fact"><small>التفعيل</small><b id="detailActivation">${first.activation}</b></div>
+   <div class="fact"><small>الحساب</small><b id="detailAccount">${first.account}</b></div>
    <div class="fact"><small>الضمان</small><b id="detailWarranty">${first.warranty}</b></div>
-   <div class="fact"><small>حالة الطلب</small><b>${p.status}</b></div>
   </div>
-  <div class="detail-section"><h3>ماذا ستحصل عليه؟</h3><ul class="feature-grid">${features.map(x=>`<li>${x}</li>`).join('')}</ul></div>
-  ${best.length?`<div class="detail-section"><h3>مناسب لمين؟</h3><div class="best-tags">${best.map(x=>`<span>${x}</span>`).join('')}</div></div>`:''}
-  ${comparison}
-  <div id="dynamicDeep">${renderDynamic(first)}</div>
-  <div class="detail-section"><h3>أسئلة مهمة قبل الاشتراك</h3><div class="faq-list" id="faqList">${faqFor(p,first).map(x=>`<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('')}</div></div>
-  <div class="detail-section warning-section"><h3>ملاحظات مهمة قبل الدفع</h3><ul class="detail-list terms-list">${notes.map(x=>`<li>${x}</li>`).join('')}</ul></div>
-  <button class="dialog-order" data-order-dialog="${p.id}" ${p.status!=='متاح'?'disabled':''}>${p.status==='متاح'?'اطلب الخطة المختارة':'غير متاح للطلب الآن'}</button>
+  <div class="simple-feature-box"><h3>يشمل</h3><ul class="feature-grid">${features.slice(0,4).map(x=>`<li>${x}</li>`).join('')}</ul>${best.length?`<div class="best-tags">${best.map(x=>`<span>${x}</span>`).join('')}</div>`:''}</div>
+  ${planTable()}
+  <div id="dynamicDeep">${dynamic(first)}</div>
+  ${notes.length?`<details class="detail-accordion warning-accordion"><summary>ملاحظات مهمة قبل الدفع</summary><div class="accordion-body"><ul class="detail-list terms-list">${notes.map(x=>`<li>${x}</li>`).join('')}</ul></div></details>`:''}
+  <button class="dialog-order" data-order-dialog="${p.id}" ${p.status!=='متاح'?'disabled':''}>${p.status==='متاح'?'اطلب هذه الخطة':'غير متاح حاليًا'}</button>
  </div>`;
  dialog.showModal();
  let chosen=first;
@@ -314,8 +306,7 @@ function openDetails(id){
    dialogContent.querySelector('#detailActivation').textContent=chosen.activation;
    dialogContent.querySelector('#detailAccount').textContent=chosen.account;
    dialogContent.querySelector('#detailWarranty').textContent=chosen.warranty;
-   dialogContent.querySelector('#dynamicDeep').innerHTML=renderDynamic(chosen);
-   dialogContent.querySelector('#faqList').innerHTML=faqFor(p,chosen).map(x=>`<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('');
+   dialogContent.querySelector('#dynamicDeep').innerHTML=dynamic(chosen);
  };
  dialogContent.querySelector('[data-order-dialog]')?.addEventListener('click',()=>orderProduct(p,chosen));
 }
