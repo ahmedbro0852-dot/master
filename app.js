@@ -218,11 +218,59 @@ const categories=['الكل',...new Set(products.map(p=>p.category))];
 let selected='الكل';
 const grid=document.querySelector('#grid'),filters=document.querySelector('#filters'),search=document.querySelector('#search'),empty=document.querySelector('#empty'),dialog=document.querySelector('#productDialog'),dialogContent=document.querySelector('#dialogContent'),checkoutDialog=document.querySelector('#checkoutDialog'),checkoutContent=document.querySelector('#checkoutContent'),toast=document.querySelector('#toast');
 function initials(n){return n.split(' ').map(x=>x[0]).join('').slice(0,2).toUpperCase()}
-function productIcon(p){const url=p.logo?`logos/${p.logo}.svg`:p.domain?`https://www.google.com/s2/favicons?domain=${encodeURIComponent(p.domain)}&sz=128`:'';return `<span class="product-icon logo-${p.logo||'remote'} ${url?'':'logo-failed'}">${url?`<img src="${url}" alt="شعار ${p.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('logo-failed')">`:''}<span class="fallback">${initials(p.name)}</span></span>`}
+function productIcon(p){const url=p.logo?`logos/${p.logo}.svg`:p.domain?`https://www.google.com/s2/favicons?domain_url=https://${encodeURIComponent(p.domain)}&sz=256`:'';return `<span class="product-icon logo-${p.logo||'remote'} ${url?'':'logo-failed'}">${url?`<img src="${url}" alt="شعار ${p.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.classList.add('logo-failed')">`:''}<span class="fallback">${initials(p.name)}</span></span>`}
 function drawFilters(){filters.innerHTML=categories.map(c=>`<button class="filter ${c===selected?'active':''}" data-c="${c}">${c}</button>`).join('');filters.querySelectorAll('button').forEach(b=>b.onclick=()=>{selected=b.dataset.c;drawFilters();draw()})}
-function draw(){const q=search.value.trim().toLowerCase();const list=products.filter(p=>(selected==='الكل'||p.category===selected)&&Object.values(p).join(' ').toLowerCase().includes(q));grid.innerHTML=list.map(p=>`<article class="card"><div class="card-top">${productIcon(p)}<span class="badge ${p.status!=='متاح'?'soon':''}">${p.status}</span></div><h3>${p.name}</h3><span class="category">${p.category}</span><div class="meta"><span>${p.plans.length>1?'الخطط المتاحة':'المدة'}</span><b>${p.plans.length>1?p.plans.length+' خطط':p.duration}</b></div><div class="price"><strong>${p.price}</strong><div class="card-actions"><button class="details" data-id="${p.id}">التفاصيل</button><button class="order" data-order="${p.id}">${p.plans.length>1?'اختر الخطة':'اطلب'}</button></div></div></article>`).join('');empty.style.display=list.length?'none':'block';grid.querySelectorAll('.details').forEach(b=>b.onclick=()=>openDetails(+b.dataset.id));grid.querySelectorAll('.order').forEach(b=>b.onclick=()=>{const p=products[+b.dataset.order];p.plans.length>1?openDetails(p.id):orderProduct(p,resolvePlan(p))})}
+function cardAccountLabel(p){
+ const t=(p.account||'').toLowerCase();
+ if(t.includes('العميل')||t.includes('شخصي'))return 'حسابك الشخصي';
+ if(t.includes('جاهز'))return 'حساب جاهز';
+ if(t.includes('مشترك'))return 'حساب مشترك';
+ if(t.includes('خدمة'))return 'خدمة مباشرة';
+ return 'طريقة خاصة';
+}
+function shortText(x,n=105){x=String(x||'');return x.length>n?x.slice(0,n).trim()+'…':x}
+function draw(){
+ const q=search.value.trim().toLowerCase();
+ const list=products.filter(p=>(selected==='الكل'||p.category===selected)&&Object.values(p).join(' ').toLowerCase().includes(q));
+ grid.innerHTML=list.map(p=>{
+   const highlight=p.deep?.features?.[0]||p.description;
+   return `<article class="card">
+    <div class="card-top">${productIcon(p)}<span class="badge ${p.status!=='متاح'?'soon':''}">${p.status}</span></div>
+    <h3>${p.name}</h3><span class="category">${p.category}</span>
+    <p class="card-desc">${shortText(highlight,92)}</p>
+    <div class="quick-row"><span>${cardAccountLabel(p)}</span><span>${p.warranty&&p.warranty!=='—'?shortText(p.warranty,28):'الضمان عند الطلب'}</span></div>
+    <div class="meta"><span>${p.plans.length>1?'الخطط المتاحة':'المدة'}</span><b>${p.plans.length>1?p.plans.length+' خطط':p.duration}</b></div>
+    <div class="price"><strong>${p.price}</strong><div class="card-actions"><button class="details" data-id="${p.id}">كل التفاصيل</button><button class="order" data-order="${p.id}">${p.plans.length>1?'اختر الخطة':'اطلب'}</button></div></div>
+   </article>`;
+ }).join('');
+ empty.style.display=list.length?'none':'block';
+ grid.querySelectorAll('.details').forEach(b=>b.onclick=()=>openDetails(+b.dataset.id));
+ grid.querySelectorAll('.order').forEach(b=>b.onclick=()=>{const p=products[+b.dataset.order];p.plans.length>1?openDetails(p.id):orderProduct(p,resolvePlan(p))});
+}
 function fact(label,value){return `<div class="fact"><small>${label}</small><b>${value}</b></div>`}
 function resolvePlan(p,plan={}){return{name:plan.name||p.duration,duration:plan.duration||p.duration,price:plan.price||p.price,credits:plan.credits||'غير محدد',activation:plan.activation||p.activation,account:plan.account||p.account,warranty:plan.warranty||p.warranty}}
+function yesNoFact(text,yesWords,noWords){
+ const t=String(text||'').toLowerCase();
+ if(noWords.some(x=>t.includes(x)))return 'لا — حسب تفاصيل العرض الحالي.';
+ if(yesWords.some(x=>t.includes(x)))return 'نعم/قد يُطلب — راجع خطوة التفعيل قبل التنفيذ.';
+ return 'غير محدد بشكل ثابت؛ يتم تأكيده قبل الدفع.';
+}
+function faqFor(p,plan){
+ const all=[p.activation,p.account,plan.activation,plan.account,(p.deep?.notes||[]).join(' ')].join(' ');
+ let password='في الحسابات الجاهزة يُفضّل عدم تغيير البيانات إلا إذا كان العرض يسمح بذلك صراحةً.';
+ if(p.name==='Gamma Account')password='نعم — في عرض Gamma Account يتم تغيير كلمة المرور فور الاستلام، ثم الاحتفاظ بها لأن نسيانها غير مشمول.';
+ else if(/حساب العميل|شخصي|البريد الشخصي/i.test(all))password='الحساب شخصي وتحت سيطرتك؛ أي تغيير أثناء التفعيل نفسه يُفضّل تأجيله حتى يكتمل الاشتراك.';
+ const card=yesNoFact(all,['بطاقة'],['بدون بطاقة','لا يحتاج بطاقة']);
+ const otp=yesNoFact(all,['otp','كود'],['بدون كود']);
+ return [
+  ['هل أحتاج بطاقة؟',card],
+  ['هل قد أحتاج OTP أو كود؟',otp],
+  ['هل أقدر أغيّر كلمة المرور؟',password],
+  ['كيف أستلم الخدمة؟',plan.activation||p.activation||'يتم تأكيد طريقة التسليم قبل الدفع.'],
+  ['ما الضمان؟',plan.warranty||p.warranty||'يتم تأكيد الضمان قبل الدفع.']
+ ];
+}
+
 function openDetails(id){
  const p=products[id],plans=p.plans.length?p.plans:[resolvePlan(p)],first=resolvePlan(p,plans[0]);
  const options=p.plans.length>1?`<label class="plan-picker"><span>اختر الخطة</span><select id="planSelect">${p.plans.map((x,i)=>`<option value="${i}">${x.name} — ${x.price}</option>`).join('')}</select></label>`:'';
@@ -251,6 +299,7 @@ function openDetails(id){
   ${best.length?`<div class="detail-section"><h3>مناسب لمين؟</h3><div class="best-tags">${best.map(x=>`<span>${x}</span>`).join('')}</div></div>`:''}
   ${comparison}
   <div id="dynamicDeep">${renderDynamic(first)}</div>
+  <div class="detail-section"><h3>أسئلة مهمة قبل الاشتراك</h3><div class="faq-list" id="faqList">${faqFor(p,first).map(x=>`<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('')}</div></div>
   <div class="detail-section warning-section"><h3>ملاحظات مهمة قبل الدفع</h3><ul class="detail-list terms-list">${notes.map(x=>`<li>${x}</li>`).join('')}</ul></div>
   <button class="dialog-order" data-order-dialog="${p.id}" ${p.status!=='متاح'?'disabled':''}>${p.status==='متاح'?'اطلب الخطة المختارة':'غير متاح للطلب الآن'}</button>
  </div>`;
@@ -266,6 +315,7 @@ function openDetails(id){
    dialogContent.querySelector('#detailAccount').textContent=chosen.account;
    dialogContent.querySelector('#detailWarranty').textContent=chosen.warranty;
    dialogContent.querySelector('#dynamicDeep').innerHTML=renderDynamic(chosen);
+   dialogContent.querySelector('#faqList').innerHTML=faqFor(p,chosen).map(x=>`<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('');
  };
  dialogContent.querySelector('[data-order-dialog]')?.addEventListener('click',()=>orderProduct(p,chosen));
 }
