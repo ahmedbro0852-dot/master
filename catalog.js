@@ -824,7 +824,8 @@ const products = [
         "account": "إيميل وكلمة مرور",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://mma.prnewswire.com/media/996864/HMA_Logo.jpg?p=facebook"
   },
   {
     "id": "expressvpn",

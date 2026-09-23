@@ -1,6 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Motion Array">
-  <rect x="8" y="8" width="112" height="112" rx="24" fill="#ffffff"/>
-  <rect x="34" y="20" width="60" height="60" rx="18" fill="#0b1736"/>
-  <text x="64" y="59" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#ffffff">MA</text>
-  <text x="64" y="101" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" fill="#101828">Motion Array</text>
+  <defs>
+    <linearGradient id="maA" x1="34" y1="18" x2="88" y2="108" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F062B6"/>
+      <stop offset=".5" stop-color="#B05DE8"/>
+      <stop offset="1" stop-color="#49BDF4"/>
+    </linearGradient>
+    <linearGradient id="maB" x1="22" y1="30" x2="104" y2="98" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7CAF"/>
+      <stop offset=".55" stop-color="#9866E7"/>
+      <stop offset="1" stop-color="#55C7F6"/>
+    </linearGradient>
+  </defs>
+  <rect x="7" y="7" width="114" height="114" rx="26" fill="#0A0914"/>
+  <path d="M29 63 51 24l12 39H29Z" fill="url(#maA)"/>
+  <path d="M54 24 99 60 66 63 54 24Z" fill="url(#maB)"/>
+  <path d="M29 67h34L47 104 29 67Z" fill="url(#maB)"/>
+  <path d="M67 66 99 61 59 105 67 66Z" fill="url(#maA)"/>
 </svg>
