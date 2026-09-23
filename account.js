@@ -8,7 +8,7 @@
   const orders=MasterStore.getOrders();
 
   if(!profile && !orders.length){
-    root.innerHTML='<div class="empty-account"><h2>لسه مفيش حساب على الجهاز ده</h2><p>مش محتاج تسجل دلوقتي. اختار أي منتج، ولما تبدأ أول طلب هنحفظ اسمك وواتسابك وبريدك هنا تلقائيًا.</p><a class="primary" href="index.html#products">اختار منتج</a></div>';
+    root.innerHTML='<div class="empty-account"><h2>لسه ماعملتش طلب</h2><p>اختار الخدمة المناسبة، ولما ترسل أول طلب هتقدر ترجع هنا لمتابعته بسهولة.</p><a class="primary" href="index.html#products">اختار منتج</a></div>';
     return;
   }
 
@@ -26,13 +26,13 @@
 
   root.innerHTML=
     '<section class="profile-card">'+
-      '<div><span class="eyebrow">بياناتك</span><h2>'+MasterStore.escapeHtml(profile?.name||'عميل MASTER STORE')+'</h2><p>'+MasterStore.escapeHtml(profile?.phone||'')+(profile?.email?' • '+MasterStore.escapeHtml(profile.email):'')+'</p></div>'+
+      '<div><span class="eyebrow">بيانات التواصل</span><h2>'+MasterStore.escapeHtml(profile?.name||'عميل MASTER STORE')+'</h2><p>'+MasterStore.escapeHtml(profile?.phone||'')+(profile?.email?' • '+MasterStore.escapeHtml(profile.email):'')+'</p></div>'+
       '<button id="editProfile" class="ghost-btn" type="button">تعديل البيانات</button>'+
     '</section>'+
     '<section class="orders-section"><div class="section-head small"><div><span class="eyebrow">طلباتك</span><h2>سجل الطلبات</h2></div></div>'+
       (orders.length?'<div class="orders-list">'+orders.map(orderCard).join('')+'</div>':'<div class="notice">لسه مفيش طلبات محفوظة.</div>')+
     '</section>'+
-    '<section class="device-note"><b>ملاحظة مهمة</b><p>البيانات والطلبات هنا محفوظة على المتصفح الحالي فقط. لو فتحت الموقع من جهاز أو متصفح مختلف مش هتظهر تلقائيًا.</p></section>';
+    '<section class="device-note"><b>خصوصية بياناتك</b><p>بيانات الطلبات محفوظة على المتصفح الحالي لتسهيل المتابعة، لذلك قد لا تظهر تلقائيًا عند استخدام جهاز مختلف.</p></section>';
 
   document.getElementById('editProfile')?.addEventListener('click',()=>{
     const name=prompt('الاسم',profile?.name||'');
