@@ -75,15 +75,19 @@
     const plan=selectedPlan();
     if(!plan){planDetails.innerHTML='';return;}
     const notes=[...(p.notes||[]),...(plan.notes||[])];
+    const features=plan.features||[];
+    const saving=plan.oldPrice&&Number(plan.oldPrice)>Number(plan.price)?Number(plan.oldPrice)-Number(plan.price):0;
     planDetails.innerHTML=
       '<dl class="details-list">'+
         '<div><dt>السعر</dt><dd>'+MasterStore.money(plan.price)+'</dd></div>'+
+        (plan.oldPrice?'<div><dt>السعر قبل العرض</dt><dd><del>'+MasterStore.money(plan.oldPrice)+'</del>'+(saving?' <strong class="saving">وفر '+MasterStore.money(saving)+'</strong>':'')+'</dd></div>':'')+
         '<div><dt>المدة</dt><dd>'+MasterStore.escapeHtml(plan.duration||'غير محددة')+'</dd></div>'+
         '<div><dt>نوع الحساب</dt><dd>'+MasterStore.escapeHtml(plan.account||'يُؤكد قبل الدفع')+'</dd></div>'+
         '<div><dt>التفعيل</dt><dd>'+MasterStore.escapeHtml(plan.activation||'يُؤكد قبل الدفع')+'</dd></div>'+
         '<div><dt>الضمان</dt><dd>'+MasterStore.escapeHtml(plan.warranty||'غير محدد')+'</dd></div>'+
         (plan.credits?'<div><dt>الرصيد</dt><dd>'+MasterStore.escapeHtml(plan.credits)+'</dd></div>':'')+
       '</dl>'+
+      (features.length?'<div class="plan-features"><b>مميزات الباقة</b><ul>'+features.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'')+
       (notes.length?'<div class="plan-notes"><b>ملاحظات مهمة</b><ul>'+notes.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'');
   }
   radios.forEach(r=>r.onchange=renderDetails);
