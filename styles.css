@@ -158,3 +158,20 @@ footer{max-width:1180px;margin:auto;border-top:1px solid var(--line);padding:32p
   .card-specs{margin-bottom:13px}
   .spec{flex-basis:88px}
 }
+
+/* product service details + durations */
+.plan-preview{margin:3px 0 10px}
+.preview-label{display:block;font-size:8px;font-weight:800;color:#7c8798;margin-bottom:6px}
+.duration-chips{display:flex;gap:6px;flex-wrap:wrap}
+.duration-chip{display:grid;grid-template-columns:auto auto;column-gap:6px;align-items:center;border:1px solid #dfe5ef;background:#f9fbff;border-radius:9px;padding:6px 8px}
+.duration-chip b{font-size:9px;color:var(--navy);line-height:1.2}
+.duration-chip small{grid-column:1/-1;font-size:7px;color:#8a93a3;line-height:1.25;margin-top:2px}
+.duration-chip em{font-style:normal;font-size:8px;font-weight:800;color:var(--blue);white-space:nowrap}
+.service-extra{display:flex;align-items:flex-start;gap:7px;border-top:1px dashed #e4e8ef;border-bottom:1px dashed #e4e8ef;padding:8px 0;margin:2px 0 10px}
+.service-extra small{font-size:8px;font-weight:800;color:#8d96a5;min-width:38px}
+.service-extra span{font-size:8px;line-height:1.55;color:#505c70}
+.product-card{min-height:430px}
+@media(max-width:580px){
+  .product-card{min-height:0}
+  .duration-chip{padding:6px 7px}
+}
