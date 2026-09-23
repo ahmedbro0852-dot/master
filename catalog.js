@@ -187,7 +187,7 @@ const products = [
       {
         "name": "عرض 10 أيام",
         "duration": "10 أيام",
-        "price": 150,
+        "price": 220,
         "oldPrice": 250,
         "activation": "بريد + كلمة مرور.",
         "account": "حساب جاهز",
