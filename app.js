@@ -40,7 +40,11 @@
     return;
   }
 
-  const products=Catalog.products||[];
+  const statusRank={available:0,soon:1,out:2};
+  const products=[...(Catalog.products||[])].sort((a,b)=>{
+    const rank=(statusRank[a.status]??9)-(statusRank[b.status]??9);
+    return rank||0;
+  });
   const categories=['الكل',...(Catalog.categoryOrder||[...new Set(products.map(p=>p.category).filter(Boolean))])];
   let selected='الكل';
 
@@ -48,6 +52,20 @@
   const ui=(ar,en)=>isEn()?en:ar;
   const tr=(value,kind,id)=>Locale?.catalogText(value,kind,id) ?? String(value??'');
   const esc=value=>Store.escapeHtml(value);
+
+  function normalizeSearch(value){
+    return String(value??'')
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g,'')
+      .replace(/[إأآٱ]/g,'ا')
+      .replace(/ى/g,'ي')
+      .replace(/ؤ/g,'و')
+      .replace(/ئ/g,'ي')
+      .replace(/ة/g,'ه')
+      .replace(/[^a-z0-9\u0600-\u06FF]+/g,' ')
+      .trim();
+  }
 
   function initials(name){
     return String(name||'M').split(/\s+/).filter(Boolean).map(x=>x[0]).join('').slice(0,2).toUpperCase();
@@ -92,7 +110,7 @@
   }
 
   function searchText(product){
-    return [
+    return normalizeSearch([
       product.name,
       tr(product.category,'category',product.id),
       tr(product.description,'description',product.id),
@@ -102,7 +120,7 @@
         tr(plan.duration||'','duration',product.id),
         tr(plan.account||'','account',product.id)
       ])
-    ].join(' ').toLowerCase();
+    ].join(' '));
   }
 
   function cardMarkup(product){
@@ -157,7 +175,7 @@
   }
 
   function applyFilters(){
-    const q=(search?.value||'').trim().toLowerCase();
+    const q=normalizeSearch(search?.value||'');
     let visible=0;
 
     grid.querySelectorAll('.product-card').forEach(card=>{
@@ -173,6 +191,11 @@
     }
   }
 
+  function updateCatalogCount(){
+    const count=document.querySelector('[data-catalog-count]');
+    if(count)count.textContent='+'+products.length;
+  }
+
   function updateShelf(){
     const shelf=document.querySelector('.shelf-feature strong');
     const lovable=Catalog.getProduct('lovable-lite');
@@ -184,6 +207,7 @@
     drawFilters();
     applyFilters();
     updateShelf();
+    updateCatalogCount();
   }
 
   search?.addEventListener('input',applyFilters);

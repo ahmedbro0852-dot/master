@@ -38,7 +38,20 @@
     return;
   }
 
-  document.title=p.name+' | MASTER STORE';
+  function setMeta(selector,value){
+    const el=document.querySelector(selector);
+    if(el&&value)el.setAttribute('content',value);
+  }
+
+  function updateProductMetadata(){
+    const description=tr(p.description||'','description')||p.name;
+    document.title=p.name+' | MASTER STORE';
+    setMeta('meta[name="description"]',description);
+    setMeta('meta[property="og:title"]',p.name+' | MASTER STORE');
+    setMeta('meta[property="og:description"]',description);
+  }
+
+  updateProductMetadata();
 
   const active=p.status==='available';
   const plans=p.plans||[];
@@ -274,6 +287,7 @@
       if(price)price.textContent=MasterStore.planMoney(plan);
     });
     renderDetails();
+    updateProductMetadata();
     Locale?.apply();
   }
   document.addEventListener('masterstore:localechange',refreshLocalizedProductPrices);
@@ -286,7 +300,7 @@
 
     checkoutContent.innerHTML=
       '<button class="dialog-close" type="button" aria-label="'+ui('إغلاق','Close')+'">×</button>'+
-      '<div class="checkout-head"><span class="eyebrow">'+ui('إتمام الطلب','Checkout')+'</span><h2>'+ui('بيانات التواصل','Contact details')+'</h2><p>'+ui('أدخل بياناتك لإرسال الطلب، وفريق الدعم هيتابع معاك لتأكيد التوفر والدفع.','Enter your details to send the order. Support will follow up to confirm availability and payment.')+'</p></div>'+
+      '<div class="checkout-head"><span class="eyebrow">'+ui('إتمام الطلب','Checkout')+'</span><h2 id="checkoutTitle">'+ui('بيانات التواصل','Contact details')+'</h2><p>'+ui('أدخل بياناتك لإرسال الطلب، وفريق الدعم هيتابع معاك لتأكيد التوفر والدفع.','Enter your details to send the order. Support will follow up to confirm availability and payment.')+'</p></div>'+
       '<div class="checkout-summary"><b>'+MasterStore.escapeHtml(p.name)+'</b><span>'+MasterStore.escapeHtml(tr(plan.name,'planName'))+' — '+MasterStore.escapeHtml(tr(plan.duration,'duration'))+'</span><strong>'+MasterStore.planMoney(plan)+'</strong></div>'+
       '<form id="checkoutForm" class="checkout-form">'+
         '<label><span>'+ui('الاسم','Name')+'</span><input name="name" maxlength="80" required value="'+MasterStore.escapeHtml(profile.name||'')+'" placeholder="'+ui('اسمك الكامل','Full name')+'" autocomplete="name"></label>'+

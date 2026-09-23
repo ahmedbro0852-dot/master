@@ -8,14 +8,17 @@
   let profileDialog=null;
   const en=()=>Locale?.getState().language==='en';
   const ui=(ar,enText)=>en()?enText:ar;
+  const tr=(value,kind,id)=>Locale?.catalogText(value,kind,id) ?? String(value??'');
 
   function orderCard(o){
     const date=new Date(o.createdAt);
     const follow='https://wa.me/201500950624?text='+encodeURIComponent('متابعة طلب MASTER STORE رقم '+o.id);
+    const statusRaw=o.status||'بانتظار التأكيد';
+    const statusText=en()?(Locale?.t?.(statusRaw)||statusRaw):statusRaw;
     return '<article class="order-card">'+
-      '<div class="order-top"><div><small>'+ui('رقم الطلب','Order ID')+'</small><b>'+Store.escapeHtml(o.id)+'</b></div><span class="status soon">'+ui(o.status||'بانتظار التأكيد','Pending confirmation')+'</span></div>'+
+      '<div class="order-top"><div><small>'+ui('رقم الطلب','Order ID')+'</small><b>'+Store.escapeHtml(o.id)+'</b></div><span class="status soon">'+Store.escapeHtml(statusText)+'</span></div>'+
       '<h3>'+Store.escapeHtml(o.product)+'</h3>'+
-      '<p>'+Store.escapeHtml(o.plan)+' — '+Store.escapeHtml(o.duration||'')+'</p>'+
+      '<p>'+Store.escapeHtml(tr(o.plan,'planName',o.productId))+' — '+Store.escapeHtml(tr(o.duration||'','duration',o.productId))+'</p>'+
       '<div class="order-meta"><span>'+ui('الكمية','Quantity')+': '+Number(o.quantity||1)+'</span><span>'+ui('الإجمالي','Total')+': '+Store.orderMoney(o)+'</span><span>'+date.toLocaleDateString(en()?'en-US':'ar-EG')+'</span></div>'+
       '<a class="order-follow" target="_blank" rel="noopener" href="'+follow+'">'+ui('متابعة الطلب على واتساب','Track order on WhatsApp')+'</a>'+
     '</article>';
@@ -26,6 +29,8 @@
     profileDialog=document.createElement('dialog');
     profileDialog.id='profileDialog';
     profileDialog.className='profile-dialog';
+    profileDialog.setAttribute('aria-labelledby','profileDialogTitle');
+    profileDialog.addEventListener('click',e=>{if(e.target===profileDialog)profileDialog.close();});
     document.body.appendChild(profileDialog);
   }
 
@@ -33,11 +38,11 @@
     ensureDialog();
     profileDialog.innerHTML=
       '<div class="profile-dialog-inner">'+
-        '<div class="profile-dialog-head"><div><h2>'+ui('تعديل بيانات التواصل','Edit contact details')+'</h2><p>'+ui('حدّث البيانات المستخدمة في متابعة طلباتك.','Update the contact details used to follow up on your orders.')+'</p></div><button class="profile-dialog-close" type="button" aria-label="'+ui('إغلاق','Close')+'">×</button></div>'+
+        '<div class="profile-dialog-head"><div><h2 id="profileDialogTitle">'+ui('تعديل بيانات التواصل','Edit contact details')+'</h2><p>'+ui('حدّث البيانات المستخدمة في متابعة طلباتك.','Update the contact details used to follow up on your orders.')+'</p></div><button class="profile-dialog-close" type="button" aria-label="'+ui('إغلاق','Close')+'">×</button></div>'+
         '<form id="profileForm" class="profile-form">'+
-          '<label><span>'+ui('الاسم','Name')+'</span><input name="name" maxlength="80" required></label>'+
-          '<label><span>'+ui('رقم واتساب','WhatsApp number')+'</span><input name="phone" maxlength="30" inputmode="tel" required></label>'+
-          '<label><span>'+ui('البريد الإلكتروني','Email')+'</span><input name="email" maxlength="120" type="email" required></label>'+
+          '<label><span>'+ui('الاسم','Name')+'</span><input name="name" maxlength="80" autocomplete="name" required></label>'+
+          '<label><span>'+ui('رقم واتساب','WhatsApp number')+'</span><input name="phone" maxlength="30" inputmode="tel" autocomplete="tel" required></label>'+
+          '<label><span>'+ui('البريد الإلكتروني','Email')+'</span><input name="email" maxlength="120" type="email" autocomplete="email" required></label>'+
           '<div class="profile-form-actions"><button class="ghost-btn profile-cancel" type="button">'+ui('إلغاء','Cancel')+'</button><button class="primary" type="submit">'+ui('حفظ التعديلات','Save changes')+'</button></div>'+
         '</form>'+
       '</div>';
