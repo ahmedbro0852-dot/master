@@ -356,19 +356,15 @@ const products = [
     "category": "التصميم",
     "logo": "freepik",
     "status": "available",
-    "description": "خدمة تحميل ملفات Freepik فقط — لا يتم تسليم حساب.",
+    "description": "تسليم حساب Freepik جاهز لمدة شهر.",
     "plans": [
       {
-        "name": "خدمة تحميل",
+        "name": "حساب Freepik",
         "duration": "1 شهر",
         "price": 450,
-        "activation": "ترسل روابط الملفات المطلوبة للمتجر.",
-        "account": "خدمة تحميل ملفات",
-        "warranty": "ضمان كامل",
-        "notes": [
-          "ليست خدمة تسليم حساب كامل.",
-          "عدد/حدود التحميل تُؤكد قبل الدفع."
-        ]
+        "activation": "تسليم حساب جاهز.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل"
       }
     ]
   },
