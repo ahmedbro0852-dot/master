@@ -1,222 +1,1243 @@
 const products = [
   {
-    id:"chatgpt-plus", name:"ChatGPT Plus", category:"AI Tools", logo:"chatgpt", status:"available",
-    description:"تفعيل ChatGPT Plus على حساب العميل الشخصي.",
-    plans:[{name:"ChatGPT Plus", duration:"المدة تُؤكد قبل الدفع", price:1100, activation:"تفعيل مباشر على حساب العميل؛ الدفع يتم بواسطة المتجر.", account:"حساب شخصي", warranty:"غير محدد", notes:["لا يتم تخزين بيانات دخولك داخل الموقع."]}]
-  },
-  {
-    id:"claude-pro", name:"Claude Pro", category:"AI Tools", logo:"claude", status:"available",
-    description:"تفعيل Claude على حسابك الشخصي باستخدام وسيلة دفع المتجر.",
-    plans:[{name:"Claude Pro", duration:"المدة تُؤكد قبل الدفع", price:1250, activation:"تفعيل على حساب العميل الشخصي.", account:"حساب شخصي", warranty:"غير محدد", notes:["السعر خاص بعرض المتجر الحالي."]}]
-  },
-  {
-    id:"perplexity-pro", name:"Perplexity Pro", category:"AI Tools", logo:"perplexity", status:"available",
-    description:"حساب خاص جاهز مع ضمان كامل حسب عرض المتجر.",
-    plans:[{name:"Perplexity Pro", duration:"المدة غير محددة", price:550, activation:"تسليم البريد وكلمة المرور، وقد يرسل المتجر كود الدخول عند الحاجة.", account:"حساب خاص جاهز", warranty:"ضمان كامل", notes:["يفضل عدم تغيير كلمة المرور حتى لا تتأثر خدمة الدعم/الضمان."]}]
-  },
-  {
-    id:"lovable-pro", name:"Lovable Pro", category:"AI Tools", logo:"lovable", status:"available",
-    description:"اشتراك Lovable Pro لمدة 12 شهر.",
-    plans:[{name:"Pro", duration:"12 شهر", price:1800, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد", notes:["طريقة التسليم والضمان يتم تأكيدهما قبل التحويل."]}]
-  },
-  {
-    id:"lovable-lite", name:"Lovable Pro Lite", category:"AI Tools", logo:"lovable", status:"available",
-    description:"خطة سنوية برصيد أساسي مع Credits يومية.",
-    plans:[{name:"Pro Lite", duration:"12 شهر", price:650, oldPrice:750, activation:"رابط تفعيل على البريد الشخصي — بدون بطاقة.", account:"حساب العميل", warranty:"غير محدد", credits:"300 Credit + 5 Credits يوميًا لمدة سنة"}]
-  },
-  {
-    id:"runway-pro", name:"Runway Pro", category:"AI Tools", logo:"runway", status:"available",
-    description:"اشتراك Runway Pro لمدة 12 شهر.",
-    plans:[{name:"Pro", duration:"12 شهر", price:1600, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
-  },
-  {
-    id:"wink-ai", name:"Wink AI Pro", category:"AI Tools", logo:"wink", status:"available",
-    description:"حساب جاهز لأدوات Wink AI.",
-    plans:[
-      {name:"7 أيام", duration:"7 أيام", price:150, activation:"بريد + كلمة مرور — بدون كود حسب العرض.", account:"حساب جاهز", warranty:"غير محدد"},
-      {name:"شهر", duration:"1 شهر", price:400, activation:"حساب جاهز؛ التفاصيل تُؤكد قبل الدفع.", account:"حساب جاهز", warranty:"غير محدد"}
+    "id": "chatgpt-plus",
+    "name": "ChatGPT Plus",
+    "category": "AI Tools",
+    "logo": "chatgpt",
+    "status": "available",
+    "description": "تفعيل ChatGPT Plus على حساب العميل الشخصي.",
+    "plans": [
+      {
+        "name": "ChatGPT Plus",
+        "duration": "1 شهر",
+        "price": 1100,
+        "activation": "تفعيل على حساب العميل.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "ضمان كامل لمدة شهر",
+        "notes": [
+          "لا يتم تخزين بيانات دخولك داخل الموقع."
+        ]
+      }
     ]
   },
   {
-    id:"grok", name:"Grok", category:"AI Tools", logo:"grok", status:"available",
-    description:"حساب Grok جاهز لمدة قصيرة بسعر عرض.",
-    plans:[{name:"عرض 10 أيام", duration:"10 أيام", price:150, oldPrice:250, activation:"بريد + كلمة مرور.", account:"حساب جاهز", warranty:"5 أيام"}]
+    "id": "claude-pro",
+    "name": "Claude Pro",
+    "category": "AI Tools",
+    "logo": "claude",
+    "status": "available",
+    "description": "تفعيل Claude على حسابك الشخصي باستخدام وسيلة دفع المتجر.",
+    "plans": [
+      {
+        "name": "Claude Pro",
+        "duration": "1 شهر",
+        "price": 1250,
+        "activation": "تفعيل خلال ساعة إلى ساعتين على حساب العميل.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "ضمان كامل لمدة شهر",
+        "notes": [
+          "السعر خاص بعرض المتجر الحالي."
+        ]
+      }
+    ]
   },
   {
-    id:"gamma-plus", name:"Gamma Plus", category:"AI Tools", logo:"gamma", status:"available",
-    description:"حساب Gamma Plus جاهز.",
-    plans:[{name:"Plus", duration:"1 شهر", price:400, activation:"تسليم حساب جاهز.", account:"حساب جاهز", warranty:"ضمان كامل"}]
+    "id": "perplexity-pro",
+    "name": "Perplexity Pro",
+    "category": "AI Tools",
+    "logo": "perplexity",
+    "status": "available",
+    "description": "حساب خاص جاهز مع ضمان كامل حسب عرض المتجر.",
+    "plans": [
+      {
+        "name": "Perplexity Pro",
+        "duration": "1 شهر",
+        "price": 550,
+        "activation": "تسليم حساب جاهز، وقد يطلب كود دخول أول مرة.",
+        "account": "حساب خاص جاهز",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يفضل عدم تغيير كلمة المرور حتى لا تتأثر خدمة الدعم/الضمان."
+        ]
+      }
+    ]
   },
   {
-    id:"gamma-account", name:"Gamma Account", category:"AI Tools", logo:"gamma", status:"available",
-    description:"حساب واحد يحتوي على 10 Workspaces، كل Workspace به 2,000 Credit.",
-    plans:[{name:"10 Workspaces", duration:"المدة غير محددة", price:800, activation:"تسليم حساب جاهز.", account:"حساب واحد — الحد الأقصى للكمية 1", warranty:"دعم Upgrade كامل مرة واحدة خلال أول شهر", credits:"20,000 Credit إجماليًا", notes:["غيّر كلمة المرور فور الاستلام.","لا يوجد ضمان لنسيان كلمة المرور.","لـ Upgrade كامل قد يلزم تزويد الدعم بكلمة المرور، ويتم التنفيذ خلال 3 أيام.","لا تترك أي Workspace بدون إذن لأن ذلك قد يفقدك صلاحيات العرض."]}]
+    "id": "lovable-pro",
+    "name": "Lovable Pro",
+    "category": "AI Tools",
+    "logo": "lovable",
+    "status": "available",
+    "description": "اشتراك Lovable Pro لمدة 12 شهر.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 1800,
+        "activation": "يُؤكد قبل الدفع",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد",
+        "notes": [
+          "طريقة التسليم والضمان يتم تأكيدهما قبل التحويل."
+        ]
+      }
+    ]
   },
   {
-    id:"elevenlabs", name:"ElevenLabs", category:"AI Tools", logo:"elevenlabs", status:"available",
-    description:"حساب ElevenLabs جاهز مع Credits الخطة.",
-    plans:[{name:"خطة شهر", duration:"1 شهر", price:550, activation:"تسليم حساب جاهز.", account:"حساب جاهز", warranty:"غير محدد", credits:"Credits الخطة — العدد الدقيق يُؤكد قبل الدفع"}]
+    "id": "lovable-lite",
+    "name": "Lovable Pro Lite",
+    "category": "AI Tools",
+    "logo": "lovable",
+    "status": "available",
+    "description": "خطة سنوية برصيد أساسي مع Credits يومية.",
+    "plans": [
+      {
+        "name": "Pro Lite",
+        "duration": "12 شهر",
+        "price": 650,
+        "oldPrice": 750,
+        "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
+        "account": "حساب العميل",
+        "warranty": "غير محدد",
+        "credits": "300 Credit + 5 Credits يوميًا لمدة سنة"
+      }
+    ]
   },
   {
-    id:"heygen", name:"HeyGen", category:"AI Tools", logo:"heygen", status:"available",
-    description:"حساب HeyGen جاهز مع 1,250 Credit.",
-    plans:[{name:"1,250 Credits", duration:"1 شهر", price:1250, activation:"تسليم حساب جاهز خلال 5–6 ساعات.", account:"حساب جاهز", warranty:"غير محدد", credits:"1,250 Credit"}]
+    "id": "runway-pro",
+    "name": "Runway Pro",
+    "category": "AI Tools",
+    "logo": "runway",
+    "status": "available",
+    "description": "اشتراك Runway Pro لمدة 12 شهر.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 1600,
+        "activation": "يُؤكد قبل الدفع",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد"
+      }
+    ]
   },
   {
-    id:"canva-pro", name:"Canva Pro", category:"التصميم", logo:"canva", status:"available",
-    description:"تفعيل Canva Pro على البريد الشخصي.",
-    plans:[{name:"Canva Pro", duration:"3 سنوات", price:50, activation:"تفعيل على البريد الشخصي خلال وقت قصير.", account:"حساب العميل", warranty:"سنتان"}]
+    "id": "wink-ai",
+    "name": "Wink AI Pro",
+    "category": "AI Tools",
+    "logo": "wink",
+    "status": "available",
+    "description": "حساب جاهز لأدوات Wink AI.",
+    "plans": [
+      {
+        "name": "7 أيام",
+        "duration": "7 أيام",
+        "price": 150,
+        "activation": "بريد + كلمة مرور — بدون كود حسب العرض.",
+        "account": "حساب جاهز",
+        "warranty": "غير محدد"
+      },
+      {
+        "name": "شهر",
+        "duration": "1 شهر",
+        "price": 400,
+        "activation": "حساب جاهز؛ التفاصيل تُؤكد قبل الدفع.",
+        "account": "حساب جاهز",
+        "warranty": "غير محدد"
+      }
+    ]
   },
   {
-    id:"capcut-pro", name:"CapCut Pro", category:"التصميم", logo:"capcut", status:"available",
-    description:"حسابات CapCut Pro جاهزة بعدة مدد وCredits مختلفة.",
-    plans:[
-      {name:"7 أيام", duration:"7 أيام", price:50, activation:"بريد + كلمة مرور؛ قد يطلب كود دخول.", account:"حساب جاهز", warranty:"غير محدد", credits:"قد لا يوجد Credits أو تكون قليلة", notes:["لا يوجد اعتراض على عدم وجود Credits في باقة 7 أيام."]},
-      {name:"شهر", duration:"1 شهر", price:150, activation:"بريد + كلمة مرور؛ قد يطلب كود دخول.", account:"حساب جاهز", warranty:"غير محدد", credits:"عادةً 500 Credit", notes:["يمكن الاعتراض إذا كان الرصيد المتفق عليه غير موجود."]},
-      {name:"شهر — 1600 Credits", duration:"1 شهر", price:300, activation:"بريد + كلمة مرور؛ قد يطلب كود دخول.", account:"حساب جاهز", warranty:"غير محدد", credits:"1,600 Credit", notes:["يمكن الاعتراض إذا كان الرصيد المتفق عليه غير موجود."]},
-      {name:"3 شهور", duration:"3 شهور", price:550, activation:"بريد + كلمة مرور؛ قد يطلب كود دخول.", account:"حساب جاهز", warranty:"غير محدد", credits:"يتغير عادةً بين 500–1000"},
-      {name:"6 شهور", duration:"6 شهور", price:950, activation:"بريد + كلمة مرور؛ قد يطلب كود دخول.", account:"حساب جاهز", warranty:"غير محدد", credits:"500–1000 Credit شهريًا"},
-      {name:"سنة", duration:"12 شهر", price:1400, activation:"بريد + كلمة مرور؛ قد يطلب كود دخول.", account:"حساب جاهز", warranty:"غير محدد", credits:"يتغير عادةً بين 500–1000"}
+    "id": "grok",
+    "name": "Grok",
+    "category": "AI Tools",
+    "logo": "grok",
+    "status": "available",
+    "description": "حساب Grok جاهز لمدة قصيرة بسعر عرض.",
+    "plans": [
+      {
+        "name": "عرض 10 أيام",
+        "duration": "10 أيام",
+        "price": 150,
+        "oldPrice": 250,
+        "activation": "بريد + كلمة مرور.",
+        "account": "حساب جاهز",
+        "warranty": "5 أيام"
+      }
+    ]
+  },
+  {
+    "id": "gamma-plus",
+    "name": "Gamma Plus",
+    "category": "AI Tools",
+    "logo": "gamma",
+    "status": "available",
+    "description": "حساب Gamma Plus جاهز.",
+    "plans": [
+      {
+        "name": "Plus",
+        "duration": "1 شهر",
+        "price": 400,
+        "activation": "تسليم حساب جاهز.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "gamma-account",
+    "name": "Gamma Account",
+    "category": "AI Tools",
+    "logo": "gamma",
+    "status": "available",
+    "description": "حساب واحد يحتوي على 10 Workspaces، كل Workspace به 2,000 Credit.",
+    "plans": [
+      {
+        "name": "10 Workspaces",
+        "duration": "حسب العرض",
+        "price": 800,
+        "activation": "تسليم حساب جاهز.",
+        "account": "حساب واحد — الحد الأقصى للكمية 1",
+        "warranty": "دعم Upgrade كامل مرة واحدة خلال أول شهر",
+        "credits": "20,000 Credit إجماليًا",
+        "notes": [
+          "غيّر كلمة المرور فور الاستلام.",
+          "لا يوجد ضمان لنسيان كلمة المرور.",
+          "لـ Upgrade كامل قد يلزم تزويد الدعم بكلمة المرور، ويتم التنفيذ خلال 3 أيام.",
+          "لا تترك أي Workspace بدون إذن لأن ذلك قد يفقدك صلاحيات العرض."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "elevenlabs",
+    "name": "ElevenLabs",
+    "category": "AI Tools",
+    "logo": "elevenlabs",
+    "status": "available",
+    "description": "حساب ElevenLabs جاهز مع Credits الخطة.",
+    "plans": [
+      {
+        "name": "خطة شهر",
+        "duration": "1 شهر",
+        "price": 550,
+        "activation": "تسليم حساب جاهز.",
+        "account": "حساب جاهز",
+        "warranty": "غير محدد",
+        "credits": "Credits الخطة — العدد الدقيق يُؤكد قبل الدفع"
+      }
+    ]
+  },
+  {
+    "id": "heygen",
+    "name": "HeyGen",
+    "category": "AI Tools",
+    "logo": "heygen",
+    "status": "available",
+    "description": "حساب HeyGen جاهز مع 1,250 Credit.",
+    "plans": [
+      {
+        "name": "1,250 Credits",
+        "duration": "1 شهر",
+        "price": 1250,
+        "activation": "تسليم حساب جاهز خلال 5–6 ساعات.",
+        "account": "حساب جاهز",
+        "warranty": "غير محدد",
+        "credits": "1,250 Credit"
+      }
+    ]
+  },
+  {
+    "id": "canva-pro",
+    "name": "Canva Pro",
+    "category": "التصميم",
+    "logo": "canva",
+    "status": "available",
+    "description": "تفعيل Canva Pro على البريد الشخصي.",
+    "plans": [
+      {
+        "name": "Canva Pro",
+        "duration": "3 سنوات",
+        "price": 50,
+        "activation": "تفعيل على البريد الشخصي خلال وقت قصير.",
+        "account": "حساب العميل",
+        "warranty": "سنتان"
+      }
+    ]
+  },
+  {
+    "id": "capcut-pro",
+    "name": "CapCut Pro",
+    "category": "التصميم",
+    "logo": "capcut",
+    "status": "available",
+    "description": "حسابات CapCut Pro جاهزة بعدة مدد وCredits مختلفة.",
+    "plans": [
+      {
+        "name": "7 أيام",
+        "duration": "7 أيام",
+        "price": 50,
+        "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
+        "account": "حساب جاهز",
+        "warranty": "غير محدد",
+        "credits": "قد لا يوجد Credits أو تكون قليلة",
+        "notes": [
+          "لا يوجد اعتراض على عدم وجود Credits في باقة 7 أيام."
+        ]
+      },
+      {
+        "name": "شهر",
+        "duration": "1 شهر",
+        "price": 150,
+        "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
+        "account": "حساب جاهز",
+        "warranty": "غير محدد",
+        "credits": "عادةً 500 Credit",
+        "notes": [
+          "يمكن الاعتراض إذا كان الرصيد المتفق عليه غير موجود."
+        ]
+      },
+      {
+        "name": "شهر — 1600 Credits",
+        "duration": "1 شهر",
+        "price": 300,
+        "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
+        "account": "حساب جاهز",
+        "warranty": "غير محدد",
+        "credits": "1,600 Credit",
+        "notes": [
+          "يمكن الاعتراض إذا كان الرصيد المتفق عليه غير موجود."
+        ]
+      },
+      {
+        "name": "3 شهور",
+        "duration": "3 شهور",
+        "price": 550,
+        "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
+        "account": "حساب جاهز",
+        "warranty": "غير محدد",
+        "credits": "يتغير عادةً بين 500–1000"
+      },
+      {
+        "name": "6 شهور",
+        "duration": "6 شهور",
+        "price": 950,
+        "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
+        "account": "حساب جاهز",
+        "warranty": "غير محدد",
+        "credits": "500–1000 Credit شهريًا"
+      },
+      {
+        "name": "سنة",
+        "duration": "12 شهر",
+        "price": 1400,
+        "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
+        "account": "حساب جاهز",
+        "warranty": "غير محدد",
+        "credits": "يتغير عادةً بين 500–1000"
+      }
     ],
-    notes:["يفضل عدم تغيير كلمة المرور في الحسابات الجاهزة إلا على مسؤوليتك."]
-  },
-  {
-    id:"figma", name:"Figma", category:"التصميم", logo:"figma", status:"available",
-    description:"اشتراك Figma لمدة 12 شهر.",
-    plans:[{name:"12 شهر", duration:"12 شهر", price:750, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
-  },
-  {
-    id:"freepik", name:"Freepik", category:"التصميم", logo:"freepik", status:"available",
-    description:"خدمة تحميل ملفات Freepik فقط — لا يتم تسليم حساب.",
-    plans:[{name:"خدمة تحميل", duration:"1 شهر", price:450, activation:"ترسل روابط الملفات المطلوبة للمتجر.", account:"خدمة تحميل ملفات", warranty:"غير محدد", notes:["ليست خدمة تسليم حساب كامل.","عدد/حدود التحميل تُؤكد قبل الدفع."]}]
-  },
-  {
-    id:"adobe-cc", name:"Adobe Creative Cloud", category:"التصميم", logo:"adobe", status:"out",
-    description:"المخزون غير متوفر حاليًا.", plans:[]
-  },
-  {
-    id:"duolingo", name:"Duolingo", category:"التعليم", logo:"duolingo", status:"available",
-    description:"اشتراك سنة على البريد الشخصي.",
-    plans:[{name:"سنة", duration:"12 شهر", price:300, activation:"رابط تفعيل على البريد الشخصي — بدون بطاقة.", account:"حساب العميل", warranty:"غير محدد"}]
-  },
-  {
-    id:"elsa", name:"ELSA Speak", category:"التعليم", logo:"elsa", status:"available",
-    description:"اشتراك ELSA Speak للتدريب على النطق والمحادثة.",
-    plans:[
-      {name:"7 أيام", duration:"7 أيام", price:90, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"},
-      {name:"12 شهر", duration:"12 شهر", price:1900, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}
+    "notes": [
+      "يفضل عدم تغيير كلمة المرور في الحسابات الجاهزة إلا على مسؤوليتك."
     ]
   },
   {
-    id:"coursera", name:"Coursera", category:"التعليم", logo:"coursera", status:"available",
-    description:"خيارات Coursera بمدد وأنواع حساب مختلفة.",
-    plans:[
-      {name:"3 شهور", duration:"3 شهور", price:300, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"},
-      {name:"سنة — حساب مشترك", duration:"12 شهر", price:300, activation:"تسليم حساب مشترك.", account:"حساب مشترك", warranty:"غير محدد", notes:["قد تكون بعض الدورات مؤهلة لشهادة باسمك، لكن المتجر لا يضمن الشهادات في الحساب المشترك."]},
-      {name:"سنة — حساب خاص", duration:"12 شهر", price:1000, activation:"تسليم حساب خاص.", account:"حساب خاص", warranty:"غير محدد"}
+    "id": "figma",
+    "name": "Figma",
+    "category": "التصميم",
+    "logo": "figma",
+    "status": "available",
+    "description": "اشتراك Figma لمدة 12 شهر.",
+    "plans": [
+      {
+        "name": "12 شهر",
+        "duration": "12 شهر",
+        "price": 750,
+        "activation": "يُؤكد قبل الدفع",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد"
+      }
     ]
   },
   {
-    id:"quizizz", name:"Quizizz", category:"التعليم", logo:"quizizz", status:"available",
-    description:"اشتراك Quizizz على بريد العميل.",
-    plans:[{name:"12 شهر", duration:"12 شهر", price:1500, activation:"تفعيل على البريد الشخصي.", account:"حساب العميل", warranty:"غير محدد"}]
-  },
-  {
-    id:"wordwall", name:"Wordwall Pro", category:"التعليم", logo:"wordwall", status:"available",
-    description:"اشتراك Wordwall Pro لمدة شهر أو سنة.",
-    plans:[
-      {name:"شهر", duration:"1 شهر", price:300, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"},
-      {name:"سنة", duration:"12 شهر", price:1050, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}
+    "id": "freepik",
+    "name": "Freepik",
+    "category": "التصميم",
+    "logo": "freepik",
+    "status": "available",
+    "description": "خدمة تحميل ملفات Freepik فقط — لا يتم تسليم حساب.",
+    "plans": [
+      {
+        "name": "خدمة تحميل",
+        "duration": "1 شهر",
+        "price": 450,
+        "activation": "ترسل روابط الملفات المطلوبة للمتجر.",
+        "account": "خدمة تحميل ملفات",
+        "warranty": "غير محدد",
+        "notes": [
+          "ليست خدمة تسليم حساب كامل.",
+          "عدد/حدود التحميل تُؤكد قبل الدفع."
+        ]
+      }
     ]
   },
   {
-    id:"turnitin", name:"Turnitin", category:"التعليم", logo:"turnitin", status:"available",
-    description:"خدمة فحص ملف واحد وإرسال تقرير التشابه.",
-    plans:[{name:"فحص ملف", duration:"ملف واحد", price:250, activation:"ترسل الملف المطلوب فحصه.", account:"خدمة ملف — بدون حساب", warranty:"غير محدد", notes:["الخدمة لا تضمن درجة أكاديمية أو نتيجة معينة."]}]
+    "id": "adobe-cc",
+    "name": "Adobe Creative Cloud",
+    "category": "التصميم",
+    "logo": "adobe",
+    "status": "out",
+    "description": "المخزون غير متوفر حاليًا.",
+    "plans": []
   },
   {
-    id:"microsoft-365", name:"Microsoft 365", category:"الإنتاجية", logo:"microsoft", status:"available",
-    description:"اشتراك Microsoft 365 لمدة سنة.",
-    plans:[{name:"سنة", duration:"12 شهر", price:200, activation:"طريقة التفعيل تُؤكد قبل الدفع.", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
-  },
-  {
-    id:"notion", name:"Notion", category:"الإنتاجية", logo:"notion", status:"available",
-    description:"خطط Notion Plus وBusiness بمدد مختلفة.",
-    plans:[
-      {name:"Plus — 3 شهور", duration:"3 شهور", price:400, activation:"تفعيل على البريد الشخصي أو حساب جاهز؛ قد يحتاج OTP.", account:"شخصي أو جاهز", warranty:"غير محدد"},
-      {name:"Business — 6 شهور", duration:"6 شهور", price:600, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"},
-      {name:"Business — 12 شهر", duration:"12 شهر", price:950, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}
+    "id": "duolingo",
+    "name": "Duolingo",
+    "category": "التعليم",
+    "logo": "duolingo",
+    "status": "available",
+    "description": "اشتراك سنة على البريد الشخصي.",
+    "plans": [
+      {
+        "name": "سنة",
+        "duration": "12 شهر",
+        "price": 300,
+        "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
+        "account": "حساب العميل",
+        "warranty": "غير محدد"
+      }
     ]
   },
   {
-    id:"linkedin-premium", name:"LinkedIn Premium", category:"الإنتاجية", logo:"linkedin", status:"available",
-    description:"تفعيل Premium على الحساب الشخصي عبر رابط يستخدم مرة واحدة.",
-    plans:[{name:"3 شهور", duration:"3 شهور", price:250, activation:"رابط تفعيل لمرة واحدة ويتطلب بطاقة.", account:"حساب شخصي", warranty:"غير محدد", notes:["بعد فتح/استخدام رابط التفعيل يُعتبر مستهلكًا ولا يمكن إعادة استخدامه."]}]
-  },
-  {
-    id:"zoom", name:"Zoom", category:"الإنتاجية", logo:"zoom", status:"available",
-    description:"خيارات Zoom بحساب جاهز أو تفعيل على بريدك.",
-    plans:[
-      {name:"شهر — حساب جاهز", duration:"1 شهر", price:250, activation:"تسليم حساب جاهز.", account:"حساب جاهز", warranty:"ضمان كامل", notes:["قد تعمل بعض الحسابات شهرًا كاملًا أو تتوقف بعد نحو 14 يومًا؛ الضمان الكامل يغطي العرض حسب شروط المتجر."]},
-      {name:"3 شهور", duration:"3 شهور", price:550, activation:"التسليم يُؤكد قبل الدفع.", account:"يُؤكد قبل الدفع", warranty:"غير محدد"},
-      {name:"سنة", duration:"12 شهر", price:1800, activation:"التسليم يُؤكد قبل الدفع.", account:"يُؤكد قبل الدفع", warranty:"ضمان كامل"},
-      {name:"شهر — على بريدك", duration:"1 شهر", price:300, activation:"تفعيل على بريد العميل.", account:"حساب العميل", warranty:"غير محدد"}
+    "id": "elsa",
+    "name": "ELSA Speak",
+    "category": "التعليم",
+    "logo": "elsa",
+    "status": "available",
+    "description": "اشتراك ELSA Speak للتدريب على النطق والمحادثة.",
+    "plans": [
+      {
+        "name": "7 أيام",
+        "duration": "7 أيام",
+        "price": 90,
+        "activation": "يُؤكد قبل الدفع",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد"
+      },
+      {
+        "name": "12 شهر",
+        "duration": "12 شهر",
+        "price": 1900,
+        "activation": "يُؤكد قبل الدفع",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد"
+      }
     ]
   },
   {
-    id:"stealth-writer", name:"Stealth Writer", category:"الإنتاجية", logo:"stealthwriter", status:"available",
-    description:"خدمة Humanize وإعادة صياغة النصوص.",
-    plans:[{name:"شهر", duration:"1 شهر", price:400, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد", credits:"حتى 10 Humanize يوميًا، وحتى 5,000 كلمة للعملية", notes:["لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."]}]
+    "id": "coursera",
+    "name": "Coursera",
+    "category": "التعليم",
+    "logo": "coursera",
+    "status": "available",
+    "description": "خيارات Coursera بمدد وأنواع حساب مختلفة.",
+    "plans": [
+      {
+        "name": "3 شهور",
+        "duration": "3 شهور",
+        "price": 300,
+        "activation": "يُؤكد قبل الدفع",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد"
+      },
+      {
+        "name": "سنة — حساب مشترك",
+        "duration": "12 شهر",
+        "price": 300,
+        "activation": "تسليم حساب مشترك.",
+        "account": "حساب مشترك",
+        "warranty": "غير محدد",
+        "notes": [
+          "قد تكون بعض الدورات مؤهلة لشهادة باسمك، لكن المتجر لا يضمن الشهادات في الحساب المشترك."
+        ]
+      },
+      {
+        "name": "سنة — حساب خاص",
+        "duration": "12 شهر",
+        "price": 1000,
+        "activation": "تسليم حساب خاص.",
+        "account": "حساب خاص",
+        "warranty": "غير محدد"
+      }
+    ]
   },
   {
-    id:"icloud", name:"iCloud 4TB", category:"الإنتاجية", logo:"icloud", status:"available",
-    description:"عرض مساحة iCloud إجمالية 4TB.",
-    plans:[{name:"4TB", duration:"المدة غير محددة", price:1450, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
+    "id": "quizizz",
+    "name": "Quizizz",
+    "category": "التعليم",
+    "logo": "quizizz",
+    "status": "available",
+    "description": "اشتراك Quizizz على بريد العميل.",
+    "plans": [
+      {
+        "name": "12 شهر",
+        "duration": "12 شهر",
+        "price": 1500,
+        "activation": "تفعيل على البريد الشخصي.",
+        "account": "حساب العميل",
+        "warranty": "غير محدد"
+      }
+    ]
   },
   {
-    id:"surfshark", name:"Surfshark", category:"VPN والحماية", logo:"surfshark", status:"available",
-    description:"كوبون Surfshark لمدة شهرين.",
-    plans:[{name:"كوبون شهرين", duration:"2 شهر", price:200, activation:"تفعيل كوبون ويتطلب بطاقة.", account:"حساب العميل", warranty:"No Hold Warranty"}]
+    "id": "wordwall",
+    "name": "Wordwall Pro",
+    "category": "التعليم",
+    "logo": "wordwall",
+    "status": "available",
+    "description": "اشتراك Wordwall Pro لمدة شهر أو سنة.",
+    "plans": [
+      {
+        "name": "شهر",
+        "duration": "1 شهر",
+        "price": 300,
+        "activation": "يُؤكد قبل الدفع",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد"
+      },
+      {
+        "name": "سنة",
+        "duration": "12 شهر",
+        "price": 1050,
+        "activation": "يُؤكد قبل الدفع",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد"
+      }
+    ]
   },
   {
-    id:"nordvpn", name:"NordVPN", category:"VPN والحماية", logo:"nordvpn", status:"available",
-    description:"اشتراك NordVPN لمدة 3 شهور.",
-    plans:[{name:"3 شهور", duration:"3 شهور", price:300, activation:"لا يحتاج بطاقة؛ طريقة التسليم تُؤكد قبل الدفع.", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
+    "id": "turnitin",
+    "name": "Turnitin",
+    "category": "التعليم",
+    "logo": "turnitin",
+    "status": "available",
+    "description": "خدمة فحص ملف واحد وإرسال تقرير التشابه.",
+    "plans": [
+      {
+        "name": "فحص ملف",
+        "duration": "ملف واحد",
+        "price": 250,
+        "activation": "ترسل الملف المطلوب فحصه.",
+        "account": "خدمة ملف — بدون حساب",
+        "warranty": "غير محدد",
+        "notes": [
+          "الخدمة لا تضمن درجة أكاديمية أو نتيجة معينة."
+        ]
+      }
+    ]
   },
   {
-    id:"proton-vpn", name:"Proton VPN", category:"VPN والحماية", logo:"protonvpn", status:"available",
-    description:"حساب Proton VPN لمدة سنة لجهاز واحد.",
-    plans:[{name:"سنة", duration:"12 شهر", price:800, activation:"تسليم بريد/حساب جاهز مع كود يقدمه المتجر عند الحاجة.", account:"حساب جاهز — جهاز واحد", warranty:"غير محدد"}]
+    "id": "microsoft-365",
+    "name": "Microsoft 365",
+    "category": "الإنتاجية",
+    "logo": "microsoft",
+    "status": "available",
+    "description": "اشتراك Microsoft 365 لمدة سنة.",
+    "plans": [
+      {
+        "name": "سنة",
+        "duration": "12 شهر",
+        "price": 200,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد"
+      }
+    ]
   },
   {
-    id:"hma-vpn", name:"HMA VPN", category:"VPN والحماية", logo:"hma", status:"available",
-    description:"عرض HMA قصير المدة.",
-    plans:[{name:"عرض HMA", duration:"30d - 20d (صياغة المورد؛ تُحدد المدة الفعلية قبل الدفع)", price:100, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
+    "id": "notion",
+    "name": "Notion",
+    "category": "الإنتاجية",
+    "logo": "notion",
+    "status": "available",
+    "description": "خطط Notion Plus وBusiness بمدد مختلفة.",
+    "plans": [
+      {
+        "name": "Plus — 3 شهور",
+        "duration": "3 شهور",
+        "price": 400,
+        "activation": "تفعيل على البريد الشخصي أو حساب جاهز؛ قد يحتاج OTP.",
+        "account": "شخصي أو جاهز",
+        "warranty": "غير محدد"
+      },
+      {
+        "name": "Business — 6 شهور",
+        "duration": "6 شهور",
+        "price": 600,
+        "activation": "يُؤكد قبل الدفع",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد"
+      },
+      {
+        "name": "Business — 12 شهر",
+        "duration": "12 شهر",
+        "price": 950,
+        "activation": "يُؤكد قبل الدفع",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد"
+      }
+    ]
   },
   {
-    id:"expressvpn", name:"ExpressVPN", category:"VPN والحماية", logo:"expressvpn", status:"available",
-    description:"اشتراك ExpressVPN قصير المدة.",
-    plans:[{name:"3 أيام", duration:"3 أيام", price:50, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
+    "id": "linkedin-premium",
+    "name": "LinkedIn Premium",
+    "category": "الإنتاجية",
+    "logo": "linkedin",
+    "status": "available",
+    "description": "تفعيل Premium على الحساب الشخصي عبر رابط يستخدم مرة واحدة.",
+    "plans": [
+      {
+        "name": "3 شهور",
+        "duration": "3 شهور",
+        "price": 250,
+        "activation": "رابط تفعيل لمرة واحدة ويتطلب بطاقة.",
+        "account": "حساب شخصي",
+        "warranty": "غير محدد",
+        "notes": [
+          "بعد فتح/استخدام رابط التفعيل يُعتبر مستهلكًا ولا يمكن إعادة استخدامه."
+        ]
+      }
+    ]
   },
   {
-    id:"spotify", name:"Spotify Premium", category:"الترفيه", logo:"spotify", status:"available",
-    description:"تفعيل Spotify Premium على حساب العميل الشخصي.",
-    plans:[{name:"3 شهور", duration:"3 شهور", price:100, activation:"رابط تفعيل على حساب العميل.", account:"حساب شخصي", warranty:"ضمان كامل"}]
+    "id": "zoom",
+    "name": "Zoom",
+    "category": "الإنتاجية",
+    "logo": "zoom",
+    "status": "available",
+    "description": "خيارات Zoom بحساب جاهز أو تفعيل على بريدك.",
+    "plans": [
+      {
+        "name": "شهر — حساب جاهز",
+        "duration": "1 شهر",
+        "price": 250,
+        "activation": "تسليم حساب جاهز.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "قد تعمل بعض الحسابات شهرًا كاملًا أو تتوقف بعد نحو 14 يومًا؛ الضمان الكامل يغطي العرض حسب شروط المتجر."
+        ]
+      },
+      {
+        "name": "3 شهور",
+        "duration": "3 شهور",
+        "price": 550,
+        "activation": "التسليم يُؤكد قبل الدفع.",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد"
+      },
+      {
+        "name": "سنة",
+        "duration": "12 شهر",
+        "price": 1800,
+        "activation": "التسليم يُؤكد قبل الدفع.",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "ضمان كامل"
+      },
+      {
+        "name": "شهر — على بريدك",
+        "duration": "1 شهر",
+        "price": 300,
+        "activation": "تفعيل على بريد العميل.",
+        "account": "حساب العميل",
+        "warranty": "غير محدد"
+      }
+    ]
   },
   {
-    id:"youtube", name:"YouTube Premium", category:"الترفيه", logo:"youtube", status:"available",
-    description:"تفعيل YouTube Premium على حسابك الشخصي.",
-    plans:[{name:"3 شهور", duration:"3 شهور", price:200, activation:"رابط تفعيل ويتطلب بطاقة.", account:"حساب شخصي", warranty:"غير محدد"}]
+    "id": "stealth-writer",
+    "name": "Stealth Writer",
+    "category": "الإنتاجية",
+    "logo": "stealthwriter",
+    "status": "available",
+    "description": "خدمة Humanize وإعادة صياغة النصوص.",
+    "plans": [
+      {
+        "name": "شهر",
+        "duration": "1 شهر",
+        "price": 400,
+        "activation": "يُؤكد قبل الدفع",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد",
+        "credits": "حتى 10 Humanize يوميًا، وحتى 5,000 كلمة للعملية",
+        "notes": [
+          "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
+        ]
+      }
+    ]
   },
-  {id:"kling", name:"Kling AI", category:"AI Tools", logo:"kling", status:"out", description:"المخزون منتهٍ حاليًا.", plans:[]},
-  {id:"grammarly", name:"Grammarly Premium", category:"الإنتاجية", logo:"grammarly", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
-  {id:"quillbot", name:"QuillBot Premium", category:"الإنتاجية", logo:"quillbot", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
-  {id:"envato", name:"Envato Elements", category:"التصميم", logo:"envato", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
-  {id:"motion-array", name:"Motion Array", category:"التصميم", logo:"motionarray", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
-  {id:"suno", name:"Suno AI Pro", category:"AI Tools", logo:"suno", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
-  {id:"murf", name:"Murf AI", category:"AI Tools", logo:"murf", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
-  {id:"discord", name:"Discord Nitro", category:"الترفيه", logo:"discord", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]}
+  {
+    "id": "icloud",
+    "name": "iCloud 4TB",
+    "category": "الإنتاجية",
+    "logo": "icloud",
+    "status": "available",
+    "description": "عرض مساحة iCloud إجمالية 4TB.",
+    "plans": [
+      {
+        "name": "4TB",
+        "duration": "1 شهر",
+        "price": 1450,
+        "activation": "دعوة Apple ID عبر المشاركة العائلية.",
+        "account": "مشاركة عائلية",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "surfshark",
+    "name": "Surfshark",
+    "category": "VPN والحماية",
+    "logo": "surfshark",
+    "status": "available",
+    "description": "كوبون Surfshark لمدة شهرين.",
+    "plans": [
+      {
+        "name": "كوبون شهرين",
+        "duration": "2 شهر",
+        "price": 200,
+        "activation": "تفعيل كوبون ويتطلب بطاقة.",
+        "account": "حساب العميل",
+        "warranty": "No Hold Warranty"
+      }
+    ]
+  },
+  {
+    "id": "nordvpn",
+    "name": "NordVPN",
+    "category": "VPN والحماية",
+    "logo": "nordvpn",
+    "status": "available",
+    "description": "اشتراك NordVPN لمدة 3 شهور.",
+    "plans": [
+      {
+        "name": "3 شهور",
+        "duration": "3 شهور",
+        "price": 300,
+        "activation": "لا يحتاج بطاقة؛ طريقة التسليم تُؤكد قبل الدفع.",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد"
+      }
+    ]
+  },
+  {
+    "id": "proton-vpn",
+    "name": "Proton VPN",
+    "category": "VPN والحماية",
+    "logo": "protonvpn",
+    "status": "available",
+    "description": "حساب Proton VPN لمدة سنة لجهاز واحد.",
+    "plans": [
+      {
+        "name": "سنة",
+        "duration": "12 شهر",
+        "price": 800,
+        "activation": "تسليم بريد/حساب جاهز مع كود يقدمه المتجر عند الحاجة.",
+        "account": "حساب جاهز — جهاز واحد",
+        "warranty": "غير محدد"
+      }
+    ]
+  },
+  {
+    "id": "hma-vpn",
+    "name": "HMA VPN",
+    "category": "VPN والحماية",
+    "logo": "hma",
+    "status": "available",
+    "description": "عرض HMA قصير المدة.",
+    "plans": [
+      {
+        "name": "عرض HMA",
+        "duration": "30 يوم حسب العرض",
+        "price": 100,
+        "activation": "تسليم حساب جاهز.",
+        "account": "إيميل وكلمة مرور",
+        "warranty": "حسب العرض"
+      }
+    ]
+  },
+  {
+    "id": "expressvpn",
+    "name": "ExpressVPN",
+    "category": "VPN والحماية",
+    "logo": "expressvpn",
+    "status": "available",
+    "description": "اشتراك ExpressVPN قصير المدة.",
+    "plans": [
+      {
+        "name": "3 أيام",
+        "duration": "3 أيام",
+        "price": 50,
+        "activation": "يُؤكد قبل الدفع",
+        "account": "يُؤكد قبل الدفع",
+        "warranty": "غير محدد"
+      }
+    ]
+  },
+  {
+    "id": "spotify",
+    "name": "Spotify Premium",
+    "category": "الترفيه",
+    "logo": "spotify",
+    "status": "available",
+    "description": "تفعيل Spotify Premium على حساب العميل الشخصي.",
+    "plans": [
+      {
+        "name": "3 شهور",
+        "duration": "3 شهور",
+        "price": 100,
+        "activation": "رابط تفعيل على حساب العميل.",
+        "account": "حساب شخصي",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "youtube",
+    "name": "YouTube Premium",
+    "category": "الترفيه",
+    "logo": "youtube",
+    "status": "available",
+    "description": "تفعيل YouTube Premium على حسابك الشخصي.",
+    "plans": [
+      {
+        "name": "3 شهور",
+        "duration": "3 شهور",
+        "price": 200,
+        "activation": "رابط تفعيل ويتطلب بطاقة.",
+        "account": "حساب شخصي",
+        "warranty": "غير محدد"
+      }
+    ]
+  },
+  {
+    "id": "kling",
+    "name": "Kling AI",
+    "category": "AI Tools",
+    "logo": "kling",
+    "status": "out",
+    "description": "المخزون منتهٍ حاليًا.",
+    "plans": []
+  },
+  {
+    "id": "grammarly",
+    "name": "Grammarly Premium",
+    "category": "الإنتاجية",
+    "logo": "grammarly",
+    "status": "soon",
+    "description": "قريبًا في MASTER STORE.",
+    "plans": []
+  },
+  {
+    "id": "quillbot",
+    "name": "QuillBot Premium",
+    "category": "الإنتاجية",
+    "logo": "quillbot",
+    "status": "soon",
+    "description": "قريبًا في MASTER STORE.",
+    "plans": []
+  },
+  {
+    "id": "envato",
+    "name": "Envato Elements",
+    "category": "التصميم",
+    "logo": "envato",
+    "status": "soon",
+    "description": "قريبًا في MASTER STORE.",
+    "plans": []
+  },
+  {
+    "id": "motion-array",
+    "name": "Motion Array",
+    "category": "التصميم",
+    "logo": "motionarray",
+    "status": "soon",
+    "description": "قريبًا في MASTER STORE.",
+    "plans": []
+  },
+  {
+    "id": "suno",
+    "name": "Suno AI Pro",
+    "category": "AI Tools",
+    "logo": "suno",
+    "status": "soon",
+    "description": "قريبًا في MASTER STORE.",
+    "plans": []
+  },
+  {
+    "id": "murf",
+    "name": "Murf AI",
+    "category": "AI Tools",
+    "logo": "murf",
+    "status": "soon",
+    "description": "قريبًا في MASTER STORE.",
+    "plans": []
+  },
+  {
+    "id": "discord",
+    "name": "Discord Nitro",
+    "category": "الترفيه",
+    "logo": "discord",
+    "status": "soon",
+    "description": "قريبًا في MASTER STORE.",
+    "plans": []
+  },
+  {
+    "id": "midjourney",
+    "name": "Midjourney",
+    "category": "AI Tools",
+    "logo": "midjourney",
+    "status": "out",
+    "description": "الخدمة غير متوفرة حاليًا.",
+    "plans": []
+  },
+  {
+    "id": "leonardo-ai",
+    "name": "Leonardo AI",
+    "category": "AI Tools",
+    "logo": "",
+    "status": "out",
+    "description": "الخدمة غير متوفرة حاليًا.",
+    "plans": []
+  },
+  {
+    "id": "manus",
+    "name": "Manus",
+    "category": "AI Tools",
+    "logo": "manus",
+    "status": "available",
+    "description": "وكيل ذكاء اصطناعي لتنفيذ المهام والبحث وتنظيم سير العمل.",
+    "plans": [
+      {
+        "name": "خطة سنوية",
+        "duration": "12 شهر",
+        "price": 2250,
+        "activation": "تسليم حساب خاص.",
+        "account": "حساب خاص — يُفضل عدم تغيير البيانات",
+        "warranty": "ضمان كامل",
+        "credits": "4,000 Credit شهريًا"
+      }
+    ]
+  },
+  {
+    "id": "gumloop",
+    "name": "Gumloop",
+    "category": "AI Tools",
+    "logo": "",
+    "status": "available",
+    "description": "أتمتة سير العمل وربط المهام المدعومة بالذكاء الاصطناعي.",
+    "plans": [
+      {
+        "name": "20,000 Credits",
+        "duration": "حسب الرصيد",
+        "price": 350,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان الرصيد",
+        "credits": "20,000 Credits"
+      }
+    ]
+  },
+  {
+    "id": "magic-patterns",
+    "name": "Magic Patterns",
+    "category": "AI Tools",
+    "logo": "",
+    "status": "available",
+    "description": "إنشاء واجهات وتجارب رقمية من الأوصاف النصية.",
+    "plans": [
+      {
+        "name": "Starter",
+        "duration": "12 شهر",
+        "price": 450,
+        "activation": "دعوة أو حساب جاهز.",
+        "account": "حسب المتوفر",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "factory-pro",
+    "name": "Factory Pro",
+    "category": "AI Tools",
+    "logo": "",
+    "status": "available",
+    "description": "خطة للمطورين والفرق لبناء البرمجيات بمساعدة الذكاء الاصطناعي.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 1850,
+        "activation": "Workspace.",
+        "account": "احتفظ بالبيانات الأصلية",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "framer-pro",
+    "name": "Framer Pro",
+    "category": "AI Tools",
+    "logo": "framer",
+    "status": "available",
+    "description": "تصميم ونشر المواقع التفاعلية بسرعة ومن دون تعقيد.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 600,
+        "activation": "دعوة أو حساب.",
+        "account": "حسب المتوفر",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "supabase-pro",
+    "name": "Supabase Pro",
+    "category": "AI Tools",
+    "logo": "supabase",
+    "status": "available",
+    "description": "قواعد بيانات ومصادقة وبنية خلفية للمشاريع الرقمية.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 1550,
+        "activation": "حساب أو Organization.",
+        "account": "احتفظ بالبيانات الأصلية",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "railway-hobby",
+    "name": "Railway Hobby",
+    "category": "الإنتاجية",
+    "logo": "",
+    "status": "available",
+    "description": "خطة Hobby لتشغيل ونشر المشاريع والتطبيقات.",
+    "plans": [
+      {
+        "name": "Hobby",
+        "duration": "12 شهر",
+        "price": 650,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "pangram-pro",
+    "name": "Pangram Pro",
+    "category": "الإنتاجية",
+    "logo": "",
+    "status": "available",
+    "description": "أدوات احترافية لتحليل المحتوى والعمل على النصوص.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 650,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "supercut-pro",
+    "name": "Supercut Pro",
+    "category": "الإنتاجية",
+    "logo": "",
+    "status": "available",
+    "description": "خطة Pro لأدوات صناعة وتحرير المحتوى.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 600,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "wispr-flow-pro",
+    "name": "Wispr Flow Pro",
+    "category": "الإنتاجية",
+    "logo": "",
+    "status": "available",
+    "description": "إملاء صوتي ذكي وتحويل الكلام إلى نص أثناء العمل.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 800,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "mobbin-team",
+    "name": "Mobbin Team",
+    "category": "الإنتاجية",
+    "logo": "",
+    "status": "available",
+    "description": "مكتبة مراجع لتصميم واجهات وتجارب المستخدم.",
+    "plans": [
+      {
+        "name": "Team",
+        "duration": "12 شهر",
+        "price": 600,
+        "activation": "دعوة إلى Team.",
+        "account": "احتفظ بإعدادات الفريق",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "granola-business",
+    "name": "Granola Business",
+    "category": "الإنتاجية",
+    "logo": "",
+    "status": "available",
+    "description": "تدوين وتنظيم ملاحظات الاجتماعات بمساعدة الذكاء الاصطناعي.",
+    "plans": [
+      {
+        "name": "Business",
+        "duration": "12 شهر",
+        "price": 300,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "jam-team",
+    "name": "Jam Team",
+    "category": "الإنتاجية",
+    "logo": "",
+    "status": "available",
+    "description": "تسجيل ومشاركة مشكلات المواقع والتعاون عليها مع الفريق.",
+    "plans": [
+      {
+        "name": "Team",
+        "duration": "12 شهر",
+        "price": 1550,
+        "activation": "دعوة إلى Team.",
+        "account": "احتفظ بالبيانات الأصلية",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "readwise-reader",
+    "name": "Readwise + Reader",
+    "category": "الإنتاجية",
+    "logo": "",
+    "status": "available",
+    "description": "حفظ وتنظيم ومراجعة المقالات والكتب والملاحظات.",
+    "plans": [
+      {
+        "name": "Readwise + Reader",
+        "duration": "12 شهر",
+        "price": 650,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "waking-up",
+    "name": "Waking Up",
+    "category": "الإنتاجية",
+    "logo": "",
+    "status": "available",
+    "description": "اشتراك كامل في تطبيق Waking Up.",
+    "plans": [
+      {
+        "name": "اشتراك كامل",
+        "duration": "12 شهر",
+        "price": 650,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "linear-business",
+    "name": "Linear Business",
+    "category": "الإنتاجية",
+    "logo": "",
+    "status": "available",
+    "description": "إدارة المشاريع والمهام للفرق بخطة Business.",
+    "plans": [
+      {
+        "name": "Business",
+        "duration": "5 شهور",
+        "price": 600,
+        "activation": "دعوة أو حساب.",
+        "account": "حسب المتوفر",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "posthog-scale",
+    "name": "PostHog Scale",
+    "category": "الإنتاجية",
+    "logo": "",
+    "status": "available",
+    "description": "تحليلات المنتجات وسلوك المستخدمين وفق خطة Scale.",
+    "plans": [
+      {
+        "name": "Scale",
+        "duration": "12 شهر",
+        "price": 1200,
+        "activation": "تسليم حساب.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
+    "id": "customerio-essentials",
+    "name": "Customer.io Essentials",
+    "category": "الإنتاجية",
+    "logo": "",
+    "status": "available",
+    "description": "أدوات الرسائل والتواصل الآلي مع العملاء.",
+    "plans": [
+      {
+        "name": "Essentials",
+        "duration": "حسب العرض",
+        "price": 650,
+        "activation": "تسليم حساب.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  }
 ];
+
 
 const categoryOrder = ["AI Tools","التصميم","التعليم","الإنتاجية","VPN والحماية","الترفيه"];
 
@@ -232,5 +1253,4 @@ function startingPrice(product){
 function statusLabel(status){
   return status === "available" ? "متاح" : status === "soon" ? "قريبًا" : "غير متوفر";
 }
-
 window.MasterCatalog={products,categoryOrder,getProduct,formatPrice,startingPrice,statusLabel};
