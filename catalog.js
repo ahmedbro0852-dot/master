@@ -232,3 +232,5 @@ function startingPrice(product){
 function statusLabel(status){
   return status === "available" ? "متاح" : status === "soon" ? "قريبًا" : "غير متوفر";
 }
+
+window.MasterCatalog={products,categoryOrder,getProduct,formatPrice,startingPrice,statusLabel};
