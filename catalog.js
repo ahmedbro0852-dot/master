@@ -245,16 +245,16 @@ const products = [
     "logo": "elevenlabs",
     "logoUrl": "https://cdn.simpleicons.org/elevenlabs",
     "status": "available",
-    "description": "حساب ElevenLabs جاهز مع Credits الخطة.",
+    "description": "حساب ElevenLabs جاهز بخطة Creator مع 131,000 Credit.",
     "plans": [
       {
-        "name": "خطة شهر",
+        "name": "Creator",
         "duration": "1 شهر",
         "price": 550,
         "activation": "تسليم حساب جاهز.",
         "account": "حساب جاهز",
         "warranty": "ضمان كامل",
-        "credits": "Credits الخطة — العدد الدقيق يُؤكد قبل الدفع"
+        "credits": "131,000 Credit"
       }
     ]
   },
