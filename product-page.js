@@ -53,8 +53,8 @@
       '<aside class="summary-card">'+
         '<h2>تفاصيل الباقة</h2>'+
         '<div id="planDetails"></div>'+
-        (active?'<button id="buyBtn" class="primary full" type="button">ابدأ الطلب</button>':'<button class="primary full disabled" disabled>غير متاح حاليًا</button>')+
-        '<p class="safe-note">لن يُطلب منك الدفع داخل الموقع. الطلب بيتأكد مع الدعم أولًا.</p>'+
+        (active?'<button id="buyBtn" class="primary full" type="button">اطلب الباقة</button>':'<button class="primary full disabled" disabled>غير متاح حاليًا</button>')+
+        '<p class="safe-note">بعد إرسال الطلب، فريق الدعم هيتواصل معاك لتأكيد التوفر وبيانات الدفع.</p>'+
       '</aside>'+
     '</section>';
 
@@ -92,7 +92,7 @@
 
     checkoutContent.innerHTML=
       '<button class="dialog-close" type="button" aria-label="إغلاق">×</button>'+
-      '<div class="checkout-head"><span class="eyebrow">إكمال الطلب</span><h2>بيانات الشراء</h2><p>التسجيل بيتم عند أول طلب فقط، وبعدها هنملأ بياناتك تلقائيًا على نفس الجهاز.</p></div>'+
+      '<div class="checkout-head"><span class="eyebrow">إتمام الطلب</span><h2>بيانات التواصل</h2><p>أدخل بياناتك لإرسال الطلب، وفريق الدعم هيتابع معاك لتأكيد التوفر والدفع.</p></div>'+
       '<div class="checkout-summary"><b>'+MasterStore.escapeHtml(p.name)+'</b><span>'+MasterStore.escapeHtml(plan.name)+' — '+MasterStore.escapeHtml(plan.duration)+'</span><strong>'+MasterStore.money(plan.price)+'</strong></div>'+
       '<form id="checkoutForm" class="checkout-form">'+
         '<label><span>الاسم</span><input name="name" maxlength="80" required value="'+MasterStore.escapeHtml(profile.name||'')+'" placeholder="اسمك الكامل" autocomplete="name"></label>'+
@@ -100,9 +100,9 @@
         '<label><span>البريد الإلكتروني</span><input name="email" maxlength="120" type="email" required value="'+MasterStore.escapeHtml(profile.email||'')+'" placeholder="name@example.com" autocomplete="email"></label>'+
         '<label><span>الكمية</span><select name="quantity">'+Array.from({length:maxQty},(_,i)=>'<option value="'+(i+1)+'">'+(i+1)+'</option>').join('')+'</select></label>'+
         '<label><span>طريقة الدفع المفضلة</span><select name="payment"><option>InstaPay</option><option>Vodafone Cash</option><option>Binance / USDT</option></select></label>'+
-        '<label class="terms-check"><input name="agree" type="checkbox" required><span>راجعت السعر والمدة وطريقة التفعيل والضمان المكتوبين فوق، وهأكد التوفر قبل الدفع.</span></label>'+
+        '<label class="terms-check"><input name="agree" type="checkbox" required><span>راجعت السعر والمدة وطريقة التفعيل والضمان وأوافق على تفاصيل الباقة.</span></label>'+
         '<button class="primary full" type="submit">إرسال الطلب على واتساب</button>'+
-        '<small class="form-note">الموقع لا يطلب كلمة مرور حسابك ولا بيانات البطاقة ولا OTP.</small>'+
+        '<small class="form-note">بياناتك تستخدم لإتمام الطلب والتواصل معك فقط.</small>'+
       '</form>';
 
     dialog.showModal();
@@ -145,11 +145,11 @@
         'البريد: '+customer.email,
         'طريقة الدفع المفضلة: '+order.payment,
         '',
-        'أرغب بتأكيد التوفر وطريقة الدفع قبل التحويل.'
+        'أرغب في تأكيد الطلب واستكمال الدفع.'
       ].join('\n');
 
       dialog.close();
-      showToast('تم حفظ الطلب على جهازك');
+      showToast('تم تجهيز طلبك بنجاح');
       window.open('https://wa.me/201500950624?text='+encodeURIComponent(msg),'_blank','noopener');
     };
   });
