@@ -25,6 +25,7 @@ const products = [
     "name": "Gemini Pro",
     "category": "AI Tools",
     "logo": "gemini",
+    "logoUrl": "https://cdn.simpleicons.org/googlegemini",
     "status": "available",
     "description": "عرضان لمدة 18 شهر بنفس المزايا؛ الباقة العائلية تضيف 5 دعوات إضافية بجانب حساب المتحكم.",
     "plans": [
@@ -60,6 +61,7 @@ const products = [
     "name": "Claude Pro",
     "category": "AI Tools",
     "logo": "claude",
+    "logoUrl": "https://cdn.simpleicons.org/claude",
     "status": "available",
     "description": "تفعيل Claude على حسابك الشخصي باستخدام وسيلة دفع المتجر.",
     "plans": [
@@ -81,6 +83,7 @@ const products = [
     "name": "Perplexity Pro",
     "category": "AI Tools",
     "logo": "perplexity",
+    "logoUrl": "https://cdn.simpleicons.org/perplexity",
     "status": "available",
     "description": "حساب خاص جاهز مع ضمان كامل حسب عرض المتجر.",
     "plans": [
@@ -240,6 +243,7 @@ const products = [
     "name": "ElevenLabs",
     "category": "AI Tools",
     "logo": "elevenlabs",
+    "logoUrl": "https://cdn.simpleicons.org/elevenlabs",
     "status": "available",
     "description": "حساب ElevenLabs جاهز مع Credits الخطة.",
     "plans": [
@@ -372,6 +376,7 @@ const products = [
     "name": "Figma",
     "category": "التصميم",
     "logo": "figma",
+    "logoUrl": "https://cdn.simpleicons.org/figma",
     "status": "available",
     "description": "اشتراك Figma لمدة 12 شهر.",
     "plans": [
@@ -390,6 +395,7 @@ const products = [
     "name": "Freepik",
     "category": "التصميم",
     "logo": "freepik",
+    "logoUrl": "https://cdn.simpleicons.org/freepik",
     "status": "available",
     "description": "تسليم حساب Freepik جاهز لمدة شهر.",
     "plans": [
@@ -417,6 +423,7 @@ const products = [
     "name": "Duolingo",
     "category": "التعليم",
     "logo": "duolingo",
+    "logoUrl": "https://cdn.simpleicons.org/duolingo",
     "status": "available",
     "description": "اشتراك سنة على البريد الشخصي.",
     "plans": [
@@ -461,6 +468,7 @@ const products = [
     "name": "Coursera",
     "category": "التعليم",
     "logo": "coursera",
+    "logoUrl": "https://cdn.simpleicons.org/coursera",
     "status": "available",
     "description": "خيارات Coursera بمدد وأنواع حساب مختلفة.",
     "plans": [
@@ -582,6 +590,7 @@ const products = [
     "name": "Notion",
     "category": "الإنتاجية",
     "logo": "notion",
+    "logoUrl": "https://cdn.simpleicons.org/notion",
     "status": "available",
     "description": "خطط Notion Plus وBusiness بمدد مختلفة.",
     "plans": [
@@ -637,6 +646,7 @@ const products = [
     "name": "Zoom Pro",
     "category": "الإنتاجية",
     "logo": "zoom",
+    "logoUrl": "https://cdn.simpleicons.org/zoom",
     "status": "available",
     "description": "اشتراكات Zoom Pro بعدة مدد، بحساب جاهز أو تفعيل على بريدك.",
     "plans": [
@@ -704,6 +714,7 @@ const products = [
     "name": "iCloud 4TB",
     "category": "الإنتاجية",
     "logo": "icloud",
+    "logoUrl": "https://cdn.simpleicons.org/icloud",
     "status": "available",
     "description": "عرض مساحة iCloud إجمالية 4TB.",
     "plans": [
@@ -722,6 +733,7 @@ const products = [
     "name": "Surfshark",
     "category": "VPN والحماية",
     "logo": "surfshark",
+    "logoUrl": "https://cdn.simpleicons.org/surfshark",
     "status": "available",
     "description": "كوبون Surfshark لمدة شهرين.",
     "plans": [
@@ -740,6 +752,7 @@ const products = [
     "name": "NordVPN",
     "category": "VPN والحماية",
     "logo": "nordvpn",
+    "logoUrl": "https://cdn.simpleicons.org/nordvpn",
     "status": "available",
     "description": "اشتراك NordVPN لمدة 3 شهور.",
     "plans": [
@@ -758,6 +771,7 @@ const products = [
     "name": "Proton VPN",
     "category": "VPN والحماية",
     "logo": "protonvpn",
+    "logoUrl": "https://cdn.simpleicons.org/protonvpn",
     "status": "available",
     "description": "حساب Proton VPN لمدة سنة لجهاز واحد.",
     "plans": [
@@ -794,6 +808,7 @@ const products = [
     "name": "ExpressVPN",
     "category": "VPN والحماية",
     "logo": "expressvpn",
+    "logoUrl": "https://cdn.simpleicons.org/expressvpn",
     "status": "available",
     "description": "اشتراك ExpressVPN قصير المدة.",
     "plans": [
@@ -812,6 +827,7 @@ const products = [
     "name": "Spotify Premium",
     "category": "الترفيه",
     "logo": "spotify",
+    "logoUrl": "https://cdn.simpleicons.org/spotify",
     "status": "available",
     "description": "تفعيل Spotify Premium على حساب العميل الشخصي.",
     "plans": [
@@ -830,6 +846,7 @@ const products = [
     "name": "YouTube Premium",
     "category": "الترفيه",
     "logo": "youtube",
+    "logoUrl": "https://cdn.simpleicons.org/youtube",
     "status": "available",
     "description": "تفعيل YouTube Premium على حسابك الشخصي.",
     "plans": [
@@ -857,6 +874,7 @@ const products = [
     "name": "Grammarly Premium",
     "category": "الإنتاجية",
     "logo": "grammarly",
+    "logoUrl": "https://cdn.simpleicons.org/grammarly",
     "status": "available",
     "description": "اشتراك Grammarly Premium بمميزات الكتابة المتقدمة والتصحيح والصياغة وأدوات الذكاء الاصطناعي المتاحة في الخطة.",
     "features": [
@@ -929,6 +947,7 @@ const products = [
     "name": "Envato Elements",
     "category": "التصميم",
     "logo": "envato",
+    "logoUrl": "https://cdn.simpleicons.org/envato",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -947,6 +966,7 @@ const products = [
     "name": "Suno AI Pro",
     "category": "AI Tools",
     "logo": "suno",
+    "logoUrl": "https://cdn.simpleicons.org/suno",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -965,6 +985,7 @@ const products = [
     "name": "Discord Nitro",
     "category": "الترفيه",
     "logo": "discord",
+    "logoUrl": "https://cdn.simpleicons.org/discord",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -1066,6 +1087,7 @@ const products = [
     "name": "Framer Pro",
     "category": "AI Tools",
     "logo": "framer",
+    "logoUrl": "https://cdn.simpleicons.org/framer",
     "status": "available",
     "description": "تصميم ونشر المواقع التفاعلية بسرعة ومن دون تعقيد.",
     "plans": [
@@ -1084,6 +1106,7 @@ const products = [
     "name": "Supabase Pro",
     "category": "AI Tools",
     "logo": "supabase",
+    "logoUrl": "https://cdn.simpleicons.org/supabase",
     "status": "available",
     "description": "قواعد بيانات ومصادقة وبنية خلفية للمشاريع الرقمية.",
     "plans": [
@@ -1102,6 +1125,7 @@ const products = [
     "name": "Railway Hobby",
     "category": "الإنتاجية",
     "logo": "railway",
+    "logoUrl": "https://cdn.simpleicons.org/railway",
     "status": "available",
     "description": "خطة Hobby لتشغيل ونشر المشاريع والتطبيقات.",
     "plans": [
@@ -1264,6 +1288,7 @@ const products = [
     "name": "Linear Business",
     "category": "الإنتاجية",
     "logo": "linear",
+    "logoUrl": "https://cdn.simpleicons.org/linear",
     "status": "available",
     "description": "إدارة المشاريع والمهام للفرق بخطة Business.",
     "plans": [
@@ -1282,6 +1307,7 @@ const products = [
     "name": "PostHog Scale",
     "category": "الإنتاجية",
     "logo": "posthog",
+    "logoUrl": "https://cdn.simpleicons.org/posthog",
     "status": "available",
     "description": "تحليلات المنتجات وسلوك المستخدمين وفق خطة Scale.",
     "plans": [
