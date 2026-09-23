@@ -1,5 +1,12 @@
 (function(){
   'use strict';
+  const Catalog=window.MasterCatalog;
+  const MasterStore=window.MasterStore;
+  if(!Catalog||!MasterStore)return;
+  const products=Catalog.products;
+  const categoryOrder=Catalog.categoryOrder;
+  const startingPrice=Catalog.startingPrice;
+  const statusLabel=Catalog.statusLabel;
   const grid=document.getElementById('grid');
   const filters=document.getElementById('filters');
   const search=document.getElementById('search');
