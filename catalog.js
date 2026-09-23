@@ -214,7 +214,8 @@ const products = [
         "account": "حساب جاهز",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://cdn.brandfetch.io/idAmHoFYTU/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1755052194262"
   },
   {
     "id": "gamma-account",
@@ -239,7 +240,8 @@ const products = [
           "لا تترك أي Workspace بدون إذن لأن ذلك قد يفقدك صلاحيات العرض."
         ]
       }
-    ]
+    ],
+    "logoUrl": "https://cdn.brandfetch.io/idAmHoFYTU/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1755052194262"
   },
   {
     "id": "elevenlabs",
@@ -1236,7 +1238,8 @@ const products = [
         "account": "احتفظ بإعدادات الفريق",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://cdn.brandfetch.io/idIfIyyq5-/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1744257859696"
   },
   {
     "id": "granola-business",
@@ -1254,7 +1257,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://cdn.brandfetch.io/idLkEIX7oc/theme/dark/icon.svg?c=1bxid64Mup7aczewSAYMX&t=1772699209625"
   },
   {
     "id": "jam-team",
@@ -1367,7 +1371,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://cdn.brandfetch.io/idJpwyLCiO/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1720164758624"
   }
 ];
 
