@@ -35,7 +35,28 @@
   if(!grid||!filters)return;
 
   const cards=[...grid.querySelectorAll('.product-card')];
+  const Catalog=window.MasterCatalog;
+  const Store=window.MasterStore;
   const categories=['الكل',...new Set(cards.map(c=>c.dataset.category).filter(Boolean))];
+
+  function refreshLocalizedPrices(){
+    if(!Catalog||!Store)return;
+    cards.forEach(card=>{
+      const link=card.querySelector('a[href*="product.html?id="]');
+      const price=card.querySelector('.light-meta strong');
+      if(!link||!price)return;
+      const id=new URL(link.getAttribute('href'),location.href).searchParams.get('id');
+      const product=Catalog.getProduct(id);
+      if(!product?.plans?.length)return;
+      const plan=product.plans.reduce((best,item)=>!best||Store.planAmount(item)<Store.planAmount(best)?item:best,null);
+      if(plan)price.textContent=Store.planMoney(plan);
+    });
+    const shelf=document.querySelector('.shelf-feature strong');
+    const lovable=Catalog.getProduct('lovable-lite');
+    if(shelf&&lovable?.plans?.[0])shelf.textContent=Store.planMoney(lovable.plans[0]);
+  }
+
+  document.addEventListener('masterstore:localechange',refreshLocalizedPrices);
   let selected='الكل';
 
   function apply(){
@@ -65,4 +86,5 @@
   search?.addEventListener('input',apply);
   drawFilters();
   apply();
+  refreshLocalizedPrices();
 })();
