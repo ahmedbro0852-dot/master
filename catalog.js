@@ -257,7 +257,8 @@ const products = [
         "activation": "تسليم حساب جاهز.",
         "account": "حساب جاهز",
         "warranty": "ضمان كامل",
-        "credits": "131,000 Credit"
+        "credits": "131,000 Credit",
+        "oldPrice": 1140
       }
     ]
   },
@@ -781,7 +782,8 @@ const products = [
         "price": 300,
         "activation": "تسليم حساب جاهز — لا يحتاج بطاقة",
         "account": "إيميل وكلمة مرور",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 1950
       }
     ]
   },
@@ -1118,7 +1120,8 @@ const products = [
         "price": 600,
         "activation": "دعوة أو حساب.",
         "account": "حسب المتوفر",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 18720
       }
     ]
   },
@@ -1137,7 +1140,8 @@ const products = [
         "price": 1550,
         "activation": "حساب أو Organization.",
         "account": "احتفظ بالبيانات الأصلية",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 15600
       }
     ]
   },
@@ -1156,7 +1160,8 @@ const products = [
         "price": 650,
         "activation": "تسليم حساب جاهز.",
         "account": "بيانات دخول الحساب",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 3120
       }
     ]
   },
@@ -1210,7 +1215,8 @@ const products = [
         "price": 800,
         "activation": "تسليم حساب جاهز.",
         "account": "بيانات دخول الحساب",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 7490
       }
     ]
   },
@@ -1283,7 +1289,8 @@ const products = [
         "price": 650,
         "activation": "تسليم حساب جاهز.",
         "account": "بيانات دخول الحساب",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 6230
       }
     ]
   },
@@ -1301,7 +1308,8 @@ const products = [
         "price": 650,
         "activation": "تسليم حساب جاهز.",
         "account": "بيانات دخول الحساب",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 6760
       }
     ]
   },
@@ -1362,7 +1370,6 @@ const products = [
     ]
   }
 ];
-
 
 const categoryOrder = ["AI Tools","التصميم","التعليم","الإنتاجية","VPN والحماية","الترفيه"];
 function getProduct(id){ return products.find(p => p.id === id); }
