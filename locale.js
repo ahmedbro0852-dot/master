@@ -290,18 +290,28 @@
     }
   }
 
+  function bindSwitcher(wrap){
+    if(!wrap||wrap.dataset.bound==='1')return;
+    const market=wrap.querySelector('#marketSelect');
+    const language=wrap.querySelector('#languageSelect');
+    if(market)market.addEventListener('change',e=>setMarket(e.target.value,true));
+    if(language)language.addEventListener('change',e=>setLanguage(e.target.value));
+    wrap.dataset.bound='1';
+  }
+
   function injectSwitcher(){
-    if(document.getElementById('marketSwitcher'))return;
-    const header=document.querySelector('.topbar');
-    if(!header)return;
-    const wrap=document.createElement('div');
-    wrap.className='market-switcher';
-    wrap.id='marketSwitcher';
-    wrap.innerHTML='<select id="marketSelect"></select><select id="languageSelect"></select>';
-    const account=header.querySelector('.account-link');
-    header.insertBefore(wrap,account||header.querySelector('.menu')||null);
-    wrap.querySelector('#marketSelect').addEventListener('change',e=>setMarket(e.target.value,true));
-    wrap.querySelector('#languageSelect').addEventListener('change',e=>setLanguage(e.target.value));
+    let wrap=document.getElementById('marketSwitcher');
+    if(!wrap){
+      const header=document.querySelector('.topbar');
+      if(!header)return;
+      wrap=document.createElement('div');
+      wrap.className='market-switcher';
+      wrap.id='marketSwitcher';
+      wrap.innerHTML='<select id="marketSelect"></select><select id="languageSelect"></select>';
+      const account=header.querySelector('.account-link');
+      header.insertBefore(wrap,account||header.querySelector('.menu')||null);
+    }
+    bindSwitcher(wrap);
     updateSwitcher();
   }
 

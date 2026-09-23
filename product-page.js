@@ -223,6 +223,15 @@
   radios.forEach(r=>r.onchange=renderDetails);
   renderDetails();
 
+  function refreshLocalizedProductPrices(){
+    document.querySelectorAll('.plan-option').forEach((label,i)=>{
+      const price=label.querySelector('strong');
+      if(price&&plans[i])price.textContent=MasterStore.planMoney(plans[i]);
+    });
+    renderDetails();
+  }
+  document.addEventListener('masterstore:localechange',refreshLocalizedProductPrices);
+
   document.getElementById('buyBtn')?.addEventListener('click',()=>{
     const plan=selectedPlan();
     if(!plan)return;
