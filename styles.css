@@ -962,3 +962,17 @@ footer{
     min-width:118px;
   }
 }
+
+/* Slightly larger product detail typography */
+.product-title p{font-size:12px}
+.plans-block h2,.summary-card h2{font-size:17px}
+.plan-option span b{font-size:12px}
+.plan-option span small{font-size:10px}
+.details-list dt{font-size:10px}
+.details-list dd{font-size:11px;line-height:1.8}
+.plan-notes b{font-size:12px}
+.plan-notes ul{font-size:11px}
+.safe-note{font-size:10px}
+.checkout-head p{font-size:11px}
+.checkout-form label>span{font-size:10px}
+.checkout-form input,.checkout-form select{font-size:11px}
