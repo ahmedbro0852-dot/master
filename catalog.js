@@ -474,11 +474,11 @@ const products = [
     "description": "خيارات Coursera بمدد وأنواع حساب مختلفة.",
     "plans": [
       {
-        "name": "3 شهور",
+        "name": "3 شهور — حساب خاص",
         "duration": "3 شهور",
         "price": 300,
-        "activation": "تسليم حساب",
-        "account": "نوع الحساب حسب الباقة",
+        "activation": "تسليم حساب خاص.",
+        "account": "حساب خاص",
         "warranty": "ضمان كامل"
       },
       {
