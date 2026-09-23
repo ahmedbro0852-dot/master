@@ -24,13 +24,25 @@
 
   function icon(product){
     const fallback=(product.name||'M').split(/\s+/).map(x=>x[0]).join('').slice(0,2);
-    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260924-site13':'';
+    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260924-sec19':'';
     const src=product.logoUrl||local;
-    const fallbackAttr=product.logoUrl&&local?' data-fallback="'+MasterStore.escapeHtml(local)+'"':'';
-    const onerror=product.logoUrl&&local
-      ? "if(this.dataset.fallback&&!this.dataset.usedFallback){this.dataset.usedFallback='1';this.src=this.dataset.fallback;return;}this.style.display='none';this.nextElementSibling.style.display='grid'"
-      : "this.style.display='none';this.nextElementSibling.style.display='grid'";
-    return '<span class="product-logo big">'+(src?'<img src="'+MasterStore.escapeHtml(src)+'"'+fallbackAttr+' alt="'+MasterStore.escapeHtml(product.name)+'" onerror="'+onerror+'">':'')+'<span class="logo-fallback">'+fallback+'</span></span>';
+    const fallbackAttr=local?' data-fallback="'+MasterStore.escapeHtml(local)+'"':'';
+    return '<span class="product-logo big">'+(src?'<img src="'+MasterStore.escapeHtml(src)+'"'+fallbackAttr+' alt="'+MasterStore.escapeHtml(product.name)+'" decoding="async">':'')+'<span class="logo-fallback">'+MasterStore.escapeHtml(fallback)+'</span></span>';
+  }
+
+  function bindProductLogoFallback(){
+    const img=root.querySelector('.product-logo.big img');
+    if(!img)return;
+    img.addEventListener('error',()=>{
+      const fallback=img.dataset.fallback;
+      if(fallback&&!img.dataset.usedFallback&&img.src!==new URL(fallback,location.href).href){
+        img.dataset.usedFallback='1';
+        img.src=fallback;
+        return;
+      }
+      img.hidden=true;
+      img.nextElementSibling?.classList.add('visible');
+    });
   }
 
   if(!p){
@@ -80,6 +92,8 @@
         '<p class="safe-note">'+ui('بعد إرسال الطلب، فريق الدعم هيتواصل معاك لتأكيد التوفر وبيانات الدفع.','After you send the order, support will confirm availability and payment details.')+'</p>'+
       '</aside>'+
     '</section>';
+
+  bindProductLogoFallback();
 
   const planDetails=document.getElementById('planDetails');
   const planFeatures=document.getElementById('planFeatures');
@@ -292,11 +306,18 @@
       if(name)name.textContent=tr(plan.name||plan.duration,'planName');
       if(meta)meta.textContent=tr(planTier(p,plan),'planName')+' · '+tr(plan.duration||'','duration')+' · '+tr(subscriptionType(plan),'accountType');
       const oldSaving=label.querySelector('.plan-saving');
-      const nextSaving=planSavingMarkup(plan);
       if(oldSaving)oldSaving.remove();
-      if(nextSaving){
+      const saving=plan.oldPrice&&Number(plan.oldPrice)>Number(plan.price)
+        ? MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan)
+        : 0;
+      if(saving>0){
         const holder=label.querySelector('span');
-        if(holder)holder.insertAdjacentHTML('beforeend',nextSaving);
+        if(holder){
+          const badge=document.createElement('small');
+          badge.className='plan-saving';
+          badge.textContent=ui('وفر','Save')+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency);
+          holder.appendChild(badge);
+        }
       }
       if(price)price.textContent=MasterStore.planMoney(plan);
     });
