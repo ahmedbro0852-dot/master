@@ -116,7 +116,7 @@ const products = [
     "id": "wink-ai",
     "name": "Wink AI Pro",
     "category": "AI Tools",
-    "logo": "",
+    "logo": "wink",
     "status": "available",
     "description": "حساب جاهز لأدوات Wink AI.",
     "plans": [
@@ -136,8 +136,7 @@ const products = [
         "account": "حساب جاهز",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://wink.ai"
+    ]
   },
   {
     "id": "grok",
@@ -224,7 +223,7 @@ const products = [
     "id": "heygen",
     "name": "HeyGen",
     "category": "AI Tools",
-    "logo": "",
+    "logo": "heygen",
     "status": "available",
     "description": "حساب HeyGen جاهز مع 1,250 Credit.",
     "plans": [
@@ -237,8 +236,7 @@ const products = [
         "warranty": "ضمان كامل",
         "credits": "1,250 Credit"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://heygen.com"
+    ]
   },
   {
     "id": "canva-pro",
@@ -486,7 +484,7 @@ const products = [
     "id": "wordwall",
     "name": "Wordwall Pro",
     "category": "التعليم",
-    "logo": "",
+    "logo": "wordwall",
     "status": "available",
     "description": "اشتراك Wordwall Pro لمدة شهر أو سنة.",
     "plans": [
@@ -506,14 +504,13 @@ const products = [
         "account": "إيميل وكلمة مرور",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://wordwall.net"
+    ]
   },
   {
     "id": "turnitin",
     "name": "Turnitin",
     "category": "التعليم",
-    "logo": "",
+    "logo": "turnitin",
     "status": "available",
     "description": "خدمة فحص ملف واحد وإرسال تقرير التشابه.",
     "plans": [
@@ -528,8 +525,7 @@ const products = [
           "الخدمة لا تضمن درجة أكاديمية أو نتيجة معينة."
         ]
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://turnitin.com"
+    ]
   },
   {
     "id": "microsoft-365",
@@ -653,7 +649,7 @@ const products = [
     "id": "stealth-writer",
     "name": "Stealth Writer",
     "category": "الإنتاجية",
-    "logo": "",
+    "logo": "stealthwriter",
     "status": "available",
     "description": "خدمة Humanize وإعادة صياغة النصوص.",
     "plans": [
@@ -669,8 +665,7 @@ const products = [
           "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
         ]
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://stealthwriter.ai"
+    ]
   },
   {
     "id": "icloud",
@@ -856,11 +851,10 @@ const products = [
     "id": "motion-array",
     "name": "Motion Array",
     "category": "التصميم",
-    "logo": "",
+    "logo": "motionarray",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
-    "plans": [],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://motionarray.com"
+    "plans": []
   },
   {
     "id": "suno",
@@ -875,11 +869,10 @@ const products = [
     "id": "murf",
     "name": "Murf AI",
     "category": "AI Tools",
-    "logo": "",
+    "logo": "murf",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
-    "plans": [],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://murf.ai"
+    "plans": []
   },
   {
     "id": "discord",
@@ -903,11 +896,10 @@ const products = [
     "id": "leonardo-ai",
     "name": "Leonardo AI",
     "category": "AI Tools",
-    "logo": "",
+    "logo": "leonardo",
     "status": "out",
     "description": "الخدمة غير متوفرة حاليًا.",
-    "plans": [],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://leonardo.ai"
+    "plans": []
   },
   {
     "id": "manus",
@@ -932,7 +924,7 @@ const products = [
     "id": "gumloop",
     "name": "Gumloop",
     "category": "AI Tools",
-    "logo": "",
+    "logo": "gumloop",
     "status": "available",
     "description": "أتمتة سير العمل وربط المهام المدعومة بالذكاء الاصطناعي.",
     "plans": [
@@ -945,14 +937,13 @@ const products = [
         "warranty": "ضمان كامل",
         "credits": "20,000 Credits"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://gumloop.com"
+    ]
   },
   {
     "id": "magic-patterns",
     "name": "Magic Patterns",
     "category": "AI Tools",
-    "logo": "",
+    "logo": "magicpatterns",
     "status": "available",
     "description": "إنشاء واجهات وتجارب رقمية من الأوصاف النصية.",
     "plans": [
@@ -964,14 +955,13 @@ const products = [
         "account": "حسب المتوفر",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://magicpatterns.com"
+    ]
   },
   {
     "id": "factory-pro",
     "name": "Factory Pro",
     "category": "AI Tools",
-    "logo": "",
+    "logo": "factory",
     "status": "available",
     "description": "خطة للمطورين والفرق لبناء البرمجيات بمساعدة الذكاء الاصطناعي.",
     "plans": [
@@ -983,8 +973,7 @@ const products = [
         "account": "احتفظ بالبيانات الأصلية",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://factory.ai"
+    ]
   },
   {
     "id": "framer-pro",
@@ -1026,7 +1015,7 @@ const products = [
     "id": "railway-hobby",
     "name": "Railway Hobby",
     "category": "الإنتاجية",
-    "logo": "",
+    "logo": "railway",
     "status": "available",
     "description": "خطة Hobby لتشغيل ونشر المشاريع والتطبيقات.",
     "plans": [
@@ -1038,14 +1027,13 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://railway.com"
+    ]
   },
   {
     "id": "pangram-pro",
     "name": "Pangram Pro",
     "category": "الإنتاجية",
-    "logo": "",
+    "logo": "pangram",
     "status": "available",
     "description": "أدوات احترافية لتحليل المحتوى والعمل على النصوص.",
     "plans": [
@@ -1057,14 +1045,13 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://pangram.com"
+    ]
   },
   {
     "id": "supercut-pro",
     "name": "Supercut Pro",
     "category": "الإنتاجية",
-    "logo": "",
+    "logo": "supercut",
     "status": "available",
     "description": "خطة Pro لأدوات صناعة وتحرير المحتوى.",
     "plans": [
@@ -1076,14 +1063,13 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://supercut.cc"
+    ]
   },
   {
     "id": "wispr-flow-pro",
     "name": "Wispr Flow Pro",
     "category": "الإنتاجية",
-    "logo": "",
+    "logo": "wispr",
     "status": "available",
     "description": "إملاء صوتي ذكي وتحويل الكلام إلى نص أثناء العمل.",
     "plans": [
@@ -1095,14 +1081,13 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://wisprflow.ai"
+    ]
   },
   {
     "id": "mobbin-team",
     "name": "Mobbin Team",
     "category": "الإنتاجية",
-    "logo": "",
+    "logo": "mobbin",
     "status": "available",
     "description": "مكتبة مراجع لتصميم واجهات وتجارب المستخدم.",
     "plans": [
@@ -1114,14 +1099,13 @@ const products = [
         "account": "احتفظ بإعدادات الفريق",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://mobbin.com"
+    ]
   },
   {
     "id": "granola-business",
     "name": "Granola Business",
     "category": "الإنتاجية",
-    "logo": "",
+    "logo": "granola",
     "status": "available",
     "description": "تدوين وتنظيم ملاحظات الاجتماعات بمساعدة الذكاء الاصطناعي.",
     "plans": [
@@ -1133,14 +1117,13 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://granola.ai"
+    ]
   },
   {
     "id": "jam-team",
     "name": "Jam Team",
     "category": "الإنتاجية",
-    "logo": "",
+    "logo": "jam",
     "status": "available",
     "description": "تسجيل ومشاركة مشكلات المواقع والتعاون عليها مع الفريق.",
     "plans": [
@@ -1152,14 +1135,13 @@ const products = [
         "account": "احتفظ بالبيانات الأصلية",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://jam.dev"
+    ]
   },
   {
     "id": "readwise-reader",
     "name": "Readwise + Reader",
     "category": "الإنتاجية",
-    "logo": "",
+    "logo": "readwise",
     "status": "available",
     "description": "حفظ وتنظيم ومراجعة المقالات والكتب والملاحظات.",
     "plans": [
@@ -1171,14 +1153,13 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://readwise.io"
+    ]
   },
   {
     "id": "waking-up",
     "name": "Waking Up",
     "category": "الإنتاجية",
-    "logo": "",
+    "logo": "wakingup",
     "status": "available",
     "description": "اشتراك كامل في تطبيق Waking Up.",
     "plans": [
@@ -1190,14 +1171,13 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://wakingup.com"
+    ]
   },
   {
     "id": "linear-business",
     "name": "Linear Business",
     "category": "الإنتاجية",
-    "logo": "",
+    "logo": "linear",
     "status": "available",
     "description": "إدارة المشاريع والمهام للفرق بخطة Business.",
     "plans": [
@@ -1209,14 +1189,13 @@ const products = [
         "account": "حسب المتوفر",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://linear.app"
+    ]
   },
   {
     "id": "posthog-scale",
     "name": "PostHog Scale",
     "category": "الإنتاجية",
-    "logo": "",
+    "logo": "posthog",
     "status": "available",
     "description": "تحليلات المنتجات وسلوك المستخدمين وفق خطة Scale.",
     "plans": [
@@ -1228,14 +1207,13 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://posthog.com"
+    ]
   },
   {
     "id": "customerio-essentials",
     "name": "Customer.io Essentials",
     "category": "الإنتاجية",
-    "logo": "",
+    "logo": "customerio",
     "status": "available",
     "description": "أدوات الرسائل والتواصل الآلي مع العملاء.",
     "plans": [
@@ -1247,8 +1225,7 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ],
-    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://customer.io"
+    ]
   }
 ];
 
