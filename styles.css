@@ -1098,3 +1098,15 @@ footer{
   .market-switcher select:first-child{flex:1;max-width:none}
   .market-switcher select:last-child{width:96px}
 }
+
+
+/* WhatsApp icon buttons */
+.whatsapp-icon{display:block;width:22px;height:22px;object-fit:contain}
+.hero-actions .whatsapp-only{width:46px;min-width:46px;padding:10px}
+.support-fab{min-width:unset;width:auto;justify-content:center;gap:8px}
+.support-fab .whatsapp-icon{width:24px;height:24px}
+@media(max-width:580px){
+  .hero-actions{grid-template-columns:1fr auto}
+  .support-fab{min-width:unset;width:auto;padding:10px}
+  .support-fab b{display:none}
+}
