@@ -3,34 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>اشترك الآن | MASTER STORE</title>
-  <meta name="description" content="اختار باقتك، راجع التفاصيل والشروط، وكمل طلب الاشتراك من MASTER STORE.">
+  <title>تفاصيل المنتج | MASTER STORE</title>
+  <meta name="description" content="راجع تفاصيل الباقة والتفعيل والضمان قبل الطلب من MASTER STORE.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260922-7">
+  <link rel="stylesheet" href="styles.css?v=20260923-launch1">
 </head>
-<body class="product-page-body">
-  <header class="topbar product-topbar">
-    <a class="brand" href="index.html" aria-label="MASTER STORE"><img src="master-store-logo.png" alt="MASTER STORE"></a>
-    <nav><a href="index.html#products">كل الخدمات</a><a href="index.html#how">طريقة الطلب</a><a href="index.html#terms">الشروط</a></nav>
-    <a class="nav-cta" href="index.html#products">العودة للمتجر</a>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="master-store-logo.png" alt="MASTER STORE"></a>
+    <nav><a href="index.html#products">كل المنتجات</a><a href="index.html#terms">قبل ما تدفع</a></nav>
+    <a class="account-link" href="account.html">حسابي</a>
   </header>
 
-  <main id="productPage" class="product-page">
-    <div class="product-loading">جاري تحميل تفاصيل الخدمة...</div>
-  </main>
+  <main id="productPage" class="product-page"><div class="loading">جاري تحميل المنتج...</div></main>
+
+  <dialog id="checkoutDialog" class="checkout-dialog"><div id="checkoutContent"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <footer>
     <a class="brand" href="index.html"><img src="master-store-logo.png" alt="MASTER STORE"></a>
-    <p>اختار باقتك وكمل طلبك بسهولة من MASTER STORE.</p>
+    <p>راجع كل التفاصيل قبل الدفع.</p>
     <small>© 2026 MASTER STORE</small>
   </footer>
 
-  <dialog id="purchaseDialog" class="purchase-dialog" aria-labelledby="purchaseTitle"><div id="purchaseContent"></div></dialog>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="catalog.js?v=20260922-7"></script>
-  <script src="product-page.js?v=20260922-7"></script>
-  <script src="ai-assistant.js?v=20260923-1"></script>
+  <script src="catalog.js?v=20260923-launch1"></script>
+  <script src="store.js?v=20260923-launch1"></script>
+  <script src="product-page.js?v=20260923-launch1"></script>
 </body>
 </html>
