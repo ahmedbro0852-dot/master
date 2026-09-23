@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
   <title>تفاصيل المنتج | MASTER STORE</title>
   <meta name="description" content="راجع تفاصيل الباقة والتفعيل والضمان قبل الطلب من MASTER STORE.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260924-brand11">
+  <link rel="stylesheet" href="styles.css?v=20260924-site12">
 </head>
 <body>
   <div class="offer-bar">خصومات تصل إلى 90% على عروض مختارة <a href="index.html#products">تصفح العروض</a></div>
   <header class="topbar">
-    <a class="brand" href="index.html"><img src="master-store-logo.png" alt="MASTER STORE"></a>
-    <nav><a href="index.html#products">العروض</a><a href="index.html#terms">ليه MASTER STORE؟</a></nav>
+    <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png" alt="MASTER STORE"></a>
+    <nav id="mainNav" aria-label="التنقل الرئيسي"><a href="index.html#products">العروض</a><a href="index.html#terms">ليه MASTER STORE؟</a></nav>
     <div class="market-switcher" id="marketSwitcher">
       <select id="marketSelect" aria-label="الدولة والعملة" onchange="window.MasterLocale&&window.MasterLocale.setMarket(this.value,true)">
         <option value="EG">🇪🇬 مصر · EGP</option>
@@ -38,7 +39,7 @@
       </select>
     </div>
     <a class="account-link" href="account.html">طلباتي</a>
-    <button class="menu" type="button" aria-label="فتح القائمة">☰</button>
+    <button class="menu" type="button" aria-label="فتح القائمة" aria-controls="mainNav">☰</button>
   </header>
 
   <main id="productPage" class="product-page"><div class="loading">جاري تحميل المنتج...</div></main>
@@ -47,16 +48,16 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <footer>
-    <a class="brand" href="index.html"><img src="master-store-logo.png" alt="MASTER STORE"></a>
+    <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png" alt="MASTER STORE"></a>
     <p>اختار الباقة المناسبة وسيب الباقي علينا.</p>
     <div class="footer-meta"><small>© 2026 MASTER STORE</small><small class="brand-disclaimer">الأسماء والعلامات التجارية مملوكة لأصحابها.</small></div>
   </footer>
 
-  <script src="catalog.js?v=20260924-brand11"></script>
-  <script src="locale.js?v=20260923-grammarly1"></script>
-  <script src="store.js?v=20260923-global7"></script>
-  <script src="product-page.js?v=20260924-brand11"></script>
-  <script src="app.js?v=20260924-brand11"></script>
-  <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img class="whatsapp-icon" src="logos/whatsapp.svg?v=5" alt=""></a>
+  <script src="catalog.js?v=20260924-site12"></script>
+  <script src="locale.js?v=20260924-site12"></script>
+  <script src="store.js?v=20260924-site12"></script>
+  <script src="product-page.js?v=20260924-site12"></script>
+  <script src="app.js?v=20260924-site12"></script>
+  <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img decoding="async" class="whatsapp-icon" src="logos/whatsapp.svg?v=5" alt=""></a>
 </body>
 </html>

@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
   <title>طلباتي | MASTER STORE</title>
   <meta name="description" content="تابع طلباتك وبيانات التواصل الخاصة بك في MASTER STORE.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260923-final8">
+  <link rel="stylesheet" href="styles.css?v=20260924-site12">
 </head>
 <body>
   <div class="offer-bar">خصومات تصل إلى 90% على عروض مختارة <a href="index.html#products">تصفح العروض</a></div>
   <header class="topbar">
-    <a class="brand" href="index.html"><img src="master-store-logo.png" alt="MASTER STORE"></a>
-    <nav><a href="index.html#products">العروض</a><a href="index.html#how">طريقة الطلب</a></nav>
+    <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png" alt="MASTER STORE"></a>
+    <nav id="mainNav" aria-label="التنقل الرئيسي"><a href="index.html#products">العروض</a><a href="index.html#how">طريقة الطلب</a></nav>
     <div class="market-switcher" id="marketSwitcher">
       <select id="marketSelect" aria-label="الدولة والعملة" onchange="window.MasterLocale&&window.MasterLocale.setMarket(this.value,true)">
         <option value="EG">🇪🇬 مصر · EGP</option>
@@ -38,7 +39,7 @@
       </select>
     </div>
     <a class="account-link active" href="account.html">طلباتي</a>
-    <button class="menu" type="button" aria-label="فتح القائمة">☰</button>
+    <button class="menu" type="button" aria-label="فتح القائمة" aria-controls="mainNav">☰</button>
   </header>
 
   <main class="account-page">
@@ -47,15 +48,15 @@
   </main>
 
   <footer>
-    <a class="brand" href="index.html"><img src="master-store-logo.png" alt="MASTER STORE"></a>
+    <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png" alt="MASTER STORE"></a>
     <p>رقم الطلب هو أسرع طريقة للمتابعة مع خدمة العملاء.</p>
     <div class="footer-meta"><small>© 2026 MASTER STORE</small><small class="brand-disclaimer">الطلبات والبيانات في هذه الصفحة محفوظة على هذا المتصفح فقط.</small></div>
   </footer>
 
-  <script src="locale.js?v=20260923-final8"></script>
-  <script src="store.js?v=20260923-global7"></script>
-  <script src="account.js?v=20260923-final8"></script>
-  <script src="app.js?v=20260923-final8"></script>
-  <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img class="whatsapp-icon" src="logos/whatsapp.svg?v=5" alt=""></a>
+  <script src="locale.js?v=20260924-site12"></script>
+  <script src="store.js?v=20260924-site12"></script>
+  <script src="account.js?v=20260924-site12"></script>
+  <script src="app.js?v=20260924-site12"></script>
+  <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img decoding="async" class="whatsapp-icon" src="logos/whatsapp.svg?v=5" alt=""></a>
 </body>
 </html>

@@ -1301,3 +1301,86 @@ footer p,footer small{font-size:10.5px;line-height:1.7}
   width:96%;
   height:96%;
 }
+
+
+/* ===== Site-wide final consistency pass 2026-09-24 ===== */
+html{scroll-behavior:smooth}
+body{min-width:0;overflow-x:hidden}
+img{max-width:100%}
+button,a,select,input{touch-action:manipulation}
+button,.card-btn,.primary,.ghost-btn,.account-link,.filter{min-height:44px}
+.menu{min-width:44px}
+.topbar{isolation:isolate}
+.topbar nav{z-index:30}
+.product-card.light-card{
+  content-visibility:auto;
+  contain-intrinsic-size:335px;
+}
+.light-card .status{
+  left:auto;
+  right:auto;
+  inset-inline-start:14px;
+}
+.catalog-loading,
+.empty{
+  grid-column:1/-1;
+  min-height:120px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  color:#667085;
+  font-size:12px;
+}
+.catalog-loading[hidden],
+.empty[hidden]{display:none!important}
+.logo-fallback.visible{display:grid!important}
+.product-logo img[hidden]{display:none!important}
+.filters{
+  scrollbar-width:thin;
+  overscroll-behavior-inline:contain;
+}
+.filter{white-space:nowrap}
+.search input{min-height:44px}
+.checkout-form input,
+.checkout-form select,
+.profile-form input{font-size:16px}
+.dialog-card{max-height:min(88vh,760px);overflow:auto}
+.toast{pointer-events:none}
+.back-link{min-height:40px;display:inline-flex;align-items:center}
+.product-hero>.status{
+  left:auto;
+  right:auto;
+  inset-inline-end:24px;
+}
+.support-fab{z-index:90}
+footer a{min-height:36px;display:inline-flex;align-items:center}
+
+@media(max-width:700px){
+  .topbar{position:sticky;top:0}
+  .market-switcher{grid-template-columns:minmax(0,1fr) 100px}
+  .hero-v2{padding-inline:16px}
+  .hero-v2 h1{font-size:clamp(29px,9vw,36px);line-height:1.28}
+  .hero-v2 .hero-copy>p{font-size:13px;line-height:1.9}
+  .hero-facts{gap:8px}
+  .hero-facts>div{padding:10px 7px}
+  .confidence-strip{margin-inline:14px}
+  .catalog{padding-inline:14px}
+  .section-head{gap:16px}
+  .filters{display:flex;overflow-x:auto;padding-bottom:6px;flex-wrap:nowrap}
+  .filter{flex:0 0 auto}
+  .light-card .status{inset-inline-start:12px}
+  .product-main,.account-main{padding-inline:14px}
+  .product-hero>.status{inset-inline-end:18px}
+  .dialog-card{width:calc(100% - 20px);padding:18px}
+  .checkout-form{gap:11px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}

@@ -6,155 +6,188 @@
 
   if(menu&&nav){
     menu.setAttribute('aria-expanded','false');
+
+    function closeMenu(){
+      nav.classList.remove('open');
+      menu.setAttribute('aria-expanded','false');
+    }
+
     menu.addEventListener('click',()=>{
       const open=nav.classList.toggle('open');
       menu.setAttribute('aria-expanded',String(open));
     });
-    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-      nav.classList.remove('open');
-      menu.setAttribute('aria-expanded','false');
-    }));
-    document.addEventListener('keydown',e=>{
-      if(e.key==='Escape'){
-        nav.classList.remove('open');
-        menu.setAttribute('aria-expanded','false');
-      }
-    });
+
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
     document.addEventListener('click',e=>{
-      if(!nav.contains(e.target)&&!menu.contains(e.target)){
-        nav.classList.remove('open');
-        menu.setAttribute('aria-expanded','false');
-      }
+      if(!nav.contains(e.target)&&!menu.contains(e.target))closeMenu();
     });
   }
 
   const grid=document.getElementById('grid');
   const filters=document.getElementById('filters');
-  const search=document.getElementById('search');
-  const empty=document.getElementById('empty');
   if(!grid||!filters)return;
 
-  const cards=[...grid.querySelectorAll('.product-card')];
   const Catalog=window.MasterCatalog;
   const Store=window.MasterStore;
-  const categories=['الكل',...new Set(cards.map(c=>c.dataset.category).filter(Boolean))];
+  const Locale=window.MasterLocale;
+  const search=document.getElementById('search');
+  const empty=document.getElementById('empty');
+  const loading=document.getElementById('catalogLoading');
 
-  function refreshBrandLogos(){
-    if(!Catalog)return;
-    cards.forEach(card=>{
-      const link=card.querySelector('a[href*="product.html?id="]');
-      const img=card.querySelector('.product-logo img');
-      if(!link||!img)return;
-      const id=new URL(link.getAttribute('href'),location.href).searchParams.get('id');
-      const product=Catalog.getProduct(id);
-      if(!product)return;
-      const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260924-brand11':'';
-      const src=product.logoUrl||local;
-      if(local)img.dataset.fallback=local;
-      if(src)img.src=src;
+  if(!Catalog||!Store){
+    if(loading)loading.textContent='تعذر تحميل الكتالوج. حدّث الصفحة وحاول مرة أخرى.';
+    return;
+  }
+
+  const products=Catalog.products||[];
+  const categories=['الكل',...(Catalog.categoryOrder||[...new Set(products.map(p=>p.category).filter(Boolean))])];
+  let selected='الكل';
+
+  const isEn=()=>Locale?.getState().language==='en';
+  const ui=(ar,en)=>isEn()?en:ar;
+  const tr=(value,kind,id)=>Locale?.catalogText(value,kind,id) ?? String(value??'');
+  const esc=value=>Store.escapeHtml(value);
+
+  function initials(name){
+    return String(name||'M').split(/\s+/).filter(Boolean).map(x=>x[0]).join('').slice(0,2).toUpperCase();
+  }
+
+  function logoMarkup(product){
+    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260924-site12':'';
+    const src=product.logoUrl||local;
+    const fallback=initials(product.name);
+    if(!src)return '<span class="product-logo"><span class="logo-fallback visible">'+esc(fallback)+'</span></span>';
+    return '<span class="product-logo">'+
+      '<img src="'+esc(src)+'" data-fallback="'+esc(local)+'" alt="'+esc(product.name)+'" loading="lazy" decoding="async">'+
+      '<span class="logo-fallback">'+esc(fallback)+'</span>'+
+    '</span>';
+  }
+
+  function bindLogoFallbacks(){
+    grid.querySelectorAll('.product-logo img').forEach(img=>{
+      img.addEventListener('error',()=>{
+        const fallback=img.dataset.fallback;
+        if(fallback&&!img.dataset.usedFallback&&img.src!==new URL(fallback,location.href).href){
+          img.dataset.usedFallback='1';
+          img.src=fallback;
+          return;
+        }
+        img.hidden=true;
+        img.nextElementSibling?.classList.add('visible');
+      },{once:false});
     });
   }
 
-  function refreshLocalizedPrices(){
-    if(!Catalog||!Store)return;
-    cards.forEach(card=>{
-      const link=card.querySelector('a[href*="product.html?id="]');
-      const price=card.querySelector('.light-meta strong');
-      if(!link||!price)return;
-      const id=new URL(link.getAttribute('href'),location.href).searchParams.get('id');
-      const product=Catalog.getProduct(id);
-      if(!product?.plans?.length)return;
-      const plan=product.plans.reduce((best,item)=>!best||Store.planAmount(item)<Store.planAmount(best)?item:best,null);
-      if(plan)price.textContent=Store.planMoney(plan);
+  function cheapestPlan(product){
+    const plans=product.plans||[];
+    return plans.reduce((best,plan)=>{
+      if(!best)return plan;
+      return Store.planAmount(plan)<Store.planAmount(best)?plan:best;
+    },null);
+  }
+
+  function statusClass(status){
+    return status==='available'?'ok':status==='soon'?'soon':'out';
+  }
+
+  function searchText(product){
+    return [
+      product.name,
+      tr(product.category,'category',product.id),
+      tr(product.description,'description',product.id),
+      tr(Catalog.statusLabel(product.status),'status',product.id),
+      ...(product.plans||[]).flatMap(plan=>[
+        tr(plan.name||'','planName',product.id),
+        tr(plan.duration||'','duration',product.id),
+        tr(plan.account||'','account',product.id)
+      ])
+    ].join(' ').toLowerCase();
+  }
+
+  function cardMarkup(product){
+    const active=product.status==='available'&&(product.plans||[]).length>0;
+    const plan=cheapestPlan(product);
+    const multiple=(product.plans||[]).length>1;
+    const status=tr(Catalog.statusLabel(product.status),'status',product.id);
+
+    let metaLabel=product.status==='soon'?ui('قريبًا','Coming soon'):ui('غير متوفر','Unavailable');
+    let price='—';
+    if(active&&plan){
+      metaLabel=multiple?ui('يبدأ من','From'):tr(plan.duration||'','duration',product.id);
+      price=Store.planMoney(plan);
+    }
+
+    const action=active
+      ? '<a class="card-btn soft-btn" href="product.html?id='+encodeURIComponent(product.id)+'">'+ui('شوف الباقات','View plans')+' <span aria-hidden="true">'+(isEn()?'→':'←')+'</span></a>'
+      : '<button class="card-btn disabled" type="button" disabled>'+esc(status)+'</button>';
+
+    return '<article class="product-card light-card" data-product-id="'+esc(product.id)+'" data-category="'+esc(product.category)+'" data-search="'+esc(searchText(product))+'">'+
+      '<div class="card-top">'+logoMarkup(product)+'<span class="status '+statusClass(product.status)+'">'+esc(status)+'</span></div>'+
+      '<div class="card-copy"><p class="category">'+esc(tr(product.category,'category',product.id))+'</p><h3>'+esc(product.name)+'</h3><p class="desc">'+esc(tr(product.description||'','description',product.id))+'</p></div>'+
+      '<div class="light-meta"><span>'+esc(metaLabel)+'</span><strong>'+esc(price)+'</strong></div>'+
+      '<div class="card-bottom light-bottom">'+action+'</div>'+
+    '</article>';
+  }
+
+  function renderCards(){
+    grid.setAttribute('aria-busy','true');
+    grid.innerHTML=products.map(cardMarkup).join('');
+    bindLogoFallbacks();
+    grid.setAttribute('aria-busy','false');
+    if(loading)loading.hidden=true;
+  }
+
+  function categoryLabel(category){
+    return category==='الكل'?ui('الكل','All'):tr(category,'category','');
+  }
+
+  function drawFilters(){
+    filters.innerHTML=categories.map(category=>
+      '<button class="filter '+(category===selected?'active':'')+'" type="button" data-cat="'+esc(category)+'" aria-pressed="'+(category===selected?'true':'false')+'">'+esc(categoryLabel(category))+'</button>'
+    ).join('');
+
+    filters.querySelectorAll('.filter').forEach(button=>{
+      button.addEventListener('click',()=>{
+        selected=button.dataset.cat||'الكل';
+        drawFilters();
+        applyFilters();
+      });
     });
+  }
+
+  function applyFilters(){
+    const q=(search?.value||'').trim().toLowerCase();
+    let visible=0;
+
+    grid.querySelectorAll('.product-card').forEach(card=>{
+      const categoryMatch=selected==='الكل'||card.dataset.category===selected;
+      const matches=categoryMatch&&(!q||(card.dataset.search||'').includes(q));
+      card.hidden=!matches;
+      if(matches)visible++;
+    });
+
+    if(empty){
+      empty.hidden=visible>0;
+      empty.textContent=ui('مفيش نتيجة مطابقة.','No matching results.');
+    }
+  }
+
+  function updateShelf(){
     const shelf=document.querySelector('.shelf-feature strong');
     const lovable=Catalog.getProduct('lovable-lite');
     if(shelf&&lovable?.plans?.[0])shelf.textContent=Store.planMoney(lovable.plans[0]);
   }
 
-  const categoryEn={
-    'الكل':'All','AI Tools':'AI Tools','التصميم':'Design','التعليم':'Education',
-    'الإنتاجية':'Productivity','VPN والحماية':'VPN & Security','الترفيه':'Entertainment'
-  };
-  function categoryLabel(c){
-    const en=window.MasterLocale?.getState().language==='en';
-    return en?(categoryEn[c]||c):c;
-  }
-
-  function tr(value,kind,id){
-    return window.MasterLocale?.catalogText(value,kind,id) ?? String(value??'');
-  }
-  function refreshLocalizedCards(){
-    if(!Catalog)return;
-    const en=window.MasterLocale?.getState().language==='en';
-    cards.forEach(card=>{
-      const link=card.querySelector('a[href*="product.html?id="]');
-      if(!link)return;
-      const id=new URL(link.getAttribute('href'),location.href).searchParams.get('id');
-      const product=Catalog.getProduct(id);
-      if(!product)return;
-      const desc=card.querySelector('.desc');
-      const category=card.querySelector('.category');
-      const status=card.querySelector('.status');
-      const duration=card.querySelector('.light-meta span');
-      const button=card.querySelector('.card-btn');
-      const firstPlan=product.plans?.[0];
-      if(desc)desc.textContent=tr(product.description,'description',id);
-      if(category)category.textContent=tr(product.category,'category',id);
-      if(status)status.textContent=tr(Catalog.statusLabel(product.status),'status',id);
-      if(duration)duration.textContent=firstPlan?tr(firstPlan.duration,'duration',id):(en?'Unavailable':'غير متوفر');
-      if(button)button.innerHTML=(en?'View plans':'شوف الباقات')+' <span>'+(en?'→':'←')+'</span>';
-      card.dataset.search=[
-        product.name,tr(product.description,'description',id),tr(product.category,'category',id),
-        ...(product.plans||[]).map(p=>tr(p.name||p.duration,'planName',id))
-      ].join(' ').toLowerCase();
-    });
-    if(empty)empty.textContent=en?'No matching results.':'مفيش نتيجة مطابقة.';
-  }
-  function refreshLocalizedCategories(){
-    cards.forEach(card=>{
-      const el=card.querySelector('.category');
-      if(el)el.textContent=categoryLabel(card.dataset.category||'');
-    });
+  function renderAll(){
+    renderCards();
     drawFilters();
-  }
-  document.addEventListener('masterstore:localechange',()=>{
-    refreshLocalizedPrices();
-    refreshLocalizedCategories();
-    refreshLocalizedCards();
-    apply();
-  });
-  let selected='الكل';
-
-  function apply(){
-    const q=(search?.value||'').trim().toLowerCase();
-    let visible=0;
-    cards.forEach(card=>{
-      const categoryMatch=selected==='الكل'||card.dataset.category===selected;
-      const text=(card.dataset.search||card.textContent||'').toLowerCase();
-      const matches=categoryMatch&&(!q||text.includes(q));
-      card.hidden=!matches;
-      if(matches)visible++;
-    });
-    if(empty)empty.style.display=visible?'none':'block';
+    applyFilters();
+    updateShelf();
   }
 
-  function drawFilters(){
-    filters.innerHTML=categories.map(c=>'<button class="filter '+(c===selected?'active':'')+'" type="button" data-cat="'+c+'" aria-pressed="'+(c===selected?'true':'false')+'">'+categoryLabel(c)+'</button>').join('');
-    filters.querySelectorAll('button').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        selected=btn.dataset.cat;
-        drawFilters();
-        apply();
-      });
-    });
-  }
+  search?.addEventListener('input',applyFilters);
+  document.addEventListener('masterstore:localechange',renderAll);
 
-  search?.addEventListener('input',apply);
-  drawFilters();
-  apply();
-  refreshBrandLogos();
-  refreshLocalizedCategories();
-  refreshLocalizedCards();
-  refreshLocalizedPrices();
+  renderAll();
 })();

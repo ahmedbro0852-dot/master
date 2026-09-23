@@ -24,7 +24,7 @@
 
   function icon(product){
     const fallback=(product.name||'M').split(/\s+/).map(x=>x[0]).join('').slice(0,2);
-    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260924-brand11':'';
+    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260924-site12':'';
     const src=product.logoUrl||local;
     const fallbackAttr=product.logoUrl&&local?' data-fallback="'+MasterStore.escapeHtml(local)+'"':'';
     const onerror=product.logoUrl&&local
@@ -34,7 +34,7 @@
   }
 
   if(!p){
-    root.innerHTML='<section class="not-found"><h1>المنتج غير موجود</h1><p>ارجع للمتجر واختار خدمة متاحة.</p><a class="primary" href="index.html#products">العودة للمنتجات</a></section>';
+    root.innerHTML='<section class="not-found"><h1>'+ui('المنتج غير موجود','Product not found')+'</h1><p>'+ui('ارجع للمتجر واختار خدمة متاحة.','Return to the store and choose an available service.')+'</p><a class="primary" href="index.html#products">'+ui('العودة للمنتجات','Back to products')+'</a></section>';
     return;
   }
 
@@ -45,26 +45,26 @@
 
   root.innerHTML=
     '<section class="product-hero">'+
-      '<a class="back-link" href="index.html#products">← كل المنتجات</a>'+
+      '<a class="back-link" href="index.html#products">'+ui('← كل المنتجات','← All products')+'</a>'+
       '<div class="product-title">'+icon(p)+'<div><span class="eyebrow">'+MasterStore.escapeHtml(tr(p.category,'category'))+'</span><h1>'+MasterStore.escapeHtml(p.name)+'</h1><p>'+MasterStore.escapeHtml(tr(p.description||'','description'))+'</p></div></div>'+
       '<span class="status '+(p.status==='available'?'ok':p.status==='soon'?'soon':'out')+'">'+tr(statusLabel(p.status),'status')+'</span>'+
     '</section>'+
     '<section class="product-layout">'+
-      '<div class="plans-block"><h2>اختار الباقة</h2>'+
+      '<div class="plans-block"><h2>'+ui('اختار الباقة','Choose a plan')+'</h2>'+
         (plans.length?plans.map((plan,i)=>
           '<label class="plan-option">'+
             '<input type="radio" name="plan" value="'+i+'" '+(i===0?'checked':'')+' '+(!active?'disabled':'')+'>'+
             '<span><b>'+MasterStore.escapeHtml(tr(plan.name||plan.duration,'planName'))+'</b><small>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+' · '+MasterStore.escapeHtml(tr(plan.duration||'','duration'))+' · '+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</small></span>'+
             '<strong>'+MasterStore.planMoney(plan)+'</strong>'+
           '</label>'
-        ).join(''):'<div class="notice">الخدمة غير متاحة للطلب حاليًا.</div>')+
+        ).join(''):'<div class="notice">'+ui('الخدمة غير متاحة للطلب حاليًا.','This service is currently unavailable for ordering.')+'</div>')+
         '<div id="planFeatures"></div>'+
       '</div>'+
       '<aside class="summary-card">'+
-        '<h2>تفاصيل الباقة</h2>'+
+        '<h2>'+ui('تفاصيل الباقة','Plan details')+'</h2>'+
         '<div id="planDetails"></div>'+
-        (active?'<button id="buyBtn" class="primary full" type="button">اطلب الباقة</button>':'<button class="primary full disabled" disabled>غير متاح حاليًا</button>')+
-        '<p class="safe-note">بعد إرسال الطلب، فريق الدعم هيتواصل معاك لتأكيد التوفر وبيانات الدفع.</p>'+
+        (active?'<button id="buyBtn" class="primary full" type="button">'+ui('اطلب الباقة','Order this plan')+'</button>':'<button class="primary full disabled" disabled>'+ui('غير متاح حاليًا','Currently unavailable')+'</button>')+
+        '<p class="safe-note">'+ui('بعد إرسال الطلب، فريق الدعم هيتواصل معاك لتأكيد التوفر وبيانات الدفع.','After you send the order, support will confirm availability and payment details.')+'</p>'+
       '</aside>'+
     '</section>';
 
@@ -239,18 +239,18 @@
     const saving=plan.oldPrice&&Number(plan.oldPrice)>Number(plan.price)?MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan):0;
     planDetails.innerHTML=
       '<dl class="details-list">'+
-        '<div><dt>السعر</dt><dd>'+MasterStore.planMoney(plan)+'</dd></div>'+
-        (plan.oldPrice?'<div><dt>السعر قبل العرض</dt><dd><del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>'+(saving?' <strong class="saving">وفر '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
-        '<div><dt>نوع الباقة</dt><dd>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+'</dd></div>'+
-        '<div><dt>المدة</dt><dd>'+MasterStore.escapeHtml(tr(plan.duration||'غير محددة','duration'))+'</dd></div>'+
-        '<div><dt>نوع الاشتراك</dt><dd>'+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</dd></div>'+
-        '<div><dt>طريقة الحساب</dt><dd>'+MasterStore.escapeHtml(tr(plan.account||'يُؤكد قبل الدفع','account'))+'</dd></div>'+
-        '<div><dt>التفعيل</dt><dd>'+MasterStore.escapeHtml(tr(plan.activation||'يُؤكد قبل الدفع','activation'))+'</dd></div>'+
-        '<div><dt>الضمان</dt><dd>'+MasterStore.escapeHtml(tr(plan.warranty||'غير محدد','warranty'))+'</dd></div>'+
-        (plan.credits?'<div><dt>الرصيد</dt><dd>'+MasterStore.escapeHtml(tr(plan.credits,'credits'))+'</dd></div>':'')+
+        '<div><dt>'+ui('السعر','Price')+'</dt><dd>'+MasterStore.planMoney(plan)+'</dd></div>'+
+        (plan.oldPrice?'<div><dt>'+ui('السعر قبل العرض','Before discount')+'</dt><dd><del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>'+(saving?' <strong class="saving">'+ui('وفر','Save')+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
+        '<div><dt>'+ui('نوع الباقة','Plan tier')+'</dt><dd>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+'</dd></div>'+
+        '<div><dt>'+ui('المدة','Duration')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.duration||'غير محددة','duration'))+'</dd></div>'+
+        '<div><dt>'+ui('نوع الاشتراك','Subscription type')+'</dt><dd>'+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</dd></div>'+
+        '<div><dt>'+ui('طريقة الحساب','Account method')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.account||'يُؤكد قبل الدفع','account'))+'</dd></div>'+
+        '<div><dt>'+ui('التفعيل','Activation')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.activation||'يُؤكد قبل الدفع','activation'))+'</dd></div>'+
+        '<div><dt>'+ui('الضمان','Warranty')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.warranty||'غير محدد','warranty'))+'</dd></div>'+
+        (plan.credits?'<div><dt>'+ui('الرصيد','Credits')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.credits,'credits'))+'</dd></div>':'')+
       '</dl>'+
-      (notes.length?'<div class="plan-notes"><b>ملاحظات مهمة</b><ul>'+notes.map(n=>'<li>'+MasterStore.escapeHtml(tr(n,'note'))+'</li>').join('')+'</ul></div>':'');
-    planFeatures.innerHTML=features.length?'<div class="plan-features"><b>مميزات الاشتراك</b><ul>'+features.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'';
+      (notes.length?'<div class="plan-notes"><b>'+ui('ملاحظات مهمة','Important notes')+'</b><ul>'+notes.map(n=>'<li>'+MasterStore.escapeHtml(tr(n,'note'))+'</li>').join('')+'</ul></div>':'');
+    planFeatures.innerHTML=features.length?'<div class="plan-features"><b>'+ui('مميزات الاشتراك','Subscription features')+'</b><ul>'+features.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'';
   }
   radios.forEach(r=>r.onchange=renderDetails);
   renderDetails();
@@ -285,18 +285,18 @@
     const maxQty=p.id==='gamma-account'?1:5;
 
     checkoutContent.innerHTML=
-      '<button class="dialog-close" type="button" aria-label="إغلاق">×</button>'+
-      '<div class="checkout-head"><span class="eyebrow">إتمام الطلب</span><h2>بيانات التواصل</h2><p>أدخل بياناتك لإرسال الطلب، وفريق الدعم هيتابع معاك لتأكيد التوفر والدفع.</p></div>'+
-      '<div class="checkout-summary"><b>'+MasterStore.escapeHtml(p.name)+'</b><span>'+MasterStore.escapeHtml(plan.name)+' — '+MasterStore.escapeHtml(plan.duration)+'</span><strong>'+MasterStore.planMoney(plan)+'</strong></div>'+
+      '<button class="dialog-close" type="button" aria-label="'+ui('إغلاق','Close')+'">×</button>'+
+      '<div class="checkout-head"><span class="eyebrow">'+ui('إتمام الطلب','Checkout')+'</span><h2>'+ui('بيانات التواصل','Contact details')+'</h2><p>'+ui('أدخل بياناتك لإرسال الطلب، وفريق الدعم هيتابع معاك لتأكيد التوفر والدفع.','Enter your details to send the order. Support will follow up to confirm availability and payment.')+'</p></div>'+
+      '<div class="checkout-summary"><b>'+MasterStore.escapeHtml(p.name)+'</b><span>'+MasterStore.escapeHtml(tr(plan.name,'planName'))+' — '+MasterStore.escapeHtml(tr(plan.duration,'duration'))+'</span><strong>'+MasterStore.planMoney(plan)+'</strong></div>'+
       '<form id="checkoutForm" class="checkout-form">'+
-        '<label><span>الاسم</span><input name="name" maxlength="80" required value="'+MasterStore.escapeHtml(profile.name||'')+'" placeholder="اسمك الكامل" autocomplete="name"></label>'+
-        '<label><span>رقم واتساب</span><input name="phone" maxlength="30" inputmode="tel" required value="'+MasterStore.escapeHtml(profile.phone||'')+'" placeholder="01xxxxxxxxx" autocomplete="tel"></label>'+
-        '<label><span>البريد الإلكتروني</span><input name="email" maxlength="120" type="email" required value="'+MasterStore.escapeHtml(profile.email||'')+'" placeholder="name@example.com" autocomplete="email"></label>'+
-        '<label><span>الكمية</span><select name="quantity">'+Array.from({length:maxQty},(_,i)=>'<option value="'+(i+1)+'">'+(i+1)+'</option>').join('')+'</select></label>'+
-        '<label><span>طريقة الدفع المفضلة</span><select name="payment">'+MasterStore.paymentOptions().map(x=>'<option>'+MasterStore.escapeHtml(x)+'</option>').join('')+'</select></label>'+
-        '<label class="terms-check"><input name="agree" type="checkbox" required><span>راجعت السعر والمدة وطريقة التفعيل والضمان وأوافق على تفاصيل الباقة.</span></label>'+
-        '<button class="primary full" type="submit">إرسال الطلب على واتساب</button>'+
-        '<small class="form-note">بياناتك تستخدم لإتمام الطلب والتواصل معك فقط.</small>'+
+        '<label><span>'+ui('الاسم','Name')+'</span><input name="name" maxlength="80" required value="'+MasterStore.escapeHtml(profile.name||'')+'" placeholder="'+ui('اسمك الكامل','Full name')+'" autocomplete="name"></label>'+
+        '<label><span>'+ui('رقم واتساب','WhatsApp number')+'</span><input name="phone" maxlength="30" inputmode="tel" required value="'+MasterStore.escapeHtml(profile.phone||'')+'" placeholder="'+ui('01xxxxxxxxx','Your WhatsApp number')+'" autocomplete="tel"></label>'+
+        '<label><span>'+ui('البريد الإلكتروني','Email')+'</span><input name="email" maxlength="120" type="email" required value="'+MasterStore.escapeHtml(profile.email||'')+'" placeholder="name@example.com" autocomplete="email"></label>'+
+        '<label><span>'+ui('الكمية','Quantity')+'</span><select name="quantity">'+Array.from({length:maxQty},(_,i)=>'<option value="'+(i+1)+'">'+(i+1)+'</option>').join('')+'</select></label>'+
+        '<label><span>'+ui('طريقة الدفع المفضلة','Preferred payment method')+'</span><select name="payment">'+MasterStore.paymentOptions().map(x=>'<option>'+MasterStore.escapeHtml(x)+'</option>').join('')+'</select></label>'+
+        '<label class="terms-check"><input name="agree" type="checkbox" required><span>'+ui('راجعت السعر والمدة وطريقة التفعيل والضمان وأوافق على تفاصيل الباقة.','I reviewed the price, duration, activation method, and warranty and agree to the plan details.')+'</span></label>'+
+        '<button class="primary full" type="submit">'+ui('إرسال الطلب على واتساب','Send order on WhatsApp')+'</button>'+
+        '<small class="form-note">'+ui('بياناتك تستخدم لإتمام الطلب والتواصل معك فقط.','Your details are used only to complete the order and contact you.')+'</small>'+
       '</form>';
 
     Locale?.apply();
@@ -351,7 +351,7 @@
       ].join('\n');
 
       dialog.close();
-      showToast('تم تجهيز طلبك بنجاح');
+      showToast(ui('تم تجهيز طلبك بنجاح','Your order is ready'));
       window.open('https://wa.me/201500950624?text='+encodeURIComponent(msg),'_blank','noopener');
     };
   });
