@@ -34,14 +34,42 @@
     '</section>'+
     '<section class="device-note"><b>خصوصية بياناتك</b><p>بيانات الطلبات محفوظة على المتصفح الحالي لتسهيل المتابعة، لذلك قد لا تظهر تلقائيًا عند استخدام جهاز مختلف.</p></section>';
 
-  document.getElementById('editProfile')?.addEventListener('click',()=>{
-    const name=prompt('الاسم',profile?.name||'');
-    if(name===null)return;
-    const phone=prompt('رقم واتساب',profile?.phone||'');
-    if(phone===null)return;
-    const email=prompt('البريد الإلكتروني',profile?.email||'');
-    if(email===null)return;
-    MasterStore.saveProfile({name,phone,email});
+  let profileDialog=document.getElementById('profileDialog');
+  if(!profileDialog){
+    profileDialog=document.createElement('dialog');
+    profileDialog.id='profileDialog';
+    profileDialog.className='profile-dialog';
+    profileDialog.innerHTML=
+      '<div class="profile-dialog-inner">'+
+        '<div class="profile-dialog-head"><div><h2>تعديل بيانات التواصل</h2><p>حدّث البيانات المستخدمة في متابعة طلباتك.</p></div><button class="profile-dialog-close" type="button" aria-label="إغلاق">×</button></div>'+
+        '<form id="profileForm" class="profile-form">'+
+          '<label><span>الاسم</span><input name="name" maxlength="80" required></label>'+
+          '<label><span>رقم واتساب</span><input name="phone" maxlength="30" inputmode="tel" required></label>'+
+          '<label><span>البريد الإلكتروني</span><input name="email" maxlength="120" type="email" required></label>'+
+          '<div class="profile-form-actions"><button class="ghost-btn profile-cancel" type="button">إلغاء</button><button class="primary" type="submit">حفظ التعديلات</button></div>'+
+        '</form>'+
+      '</div>';
+    document.body.appendChild(profileDialog);
+  }
+
+  function openProfileDialog(){
+    const current=MasterStore.getProfile()||{};
+    const form=profileDialog.querySelector('#profileForm');
+    form.elements.name.value=current.name||'';
+    form.elements.phone.value=current.phone||'';
+    form.elements.email.value=current.email||'';
+    profileDialog.showModal();
+  }
+
+  document.getElementById('editProfile')?.addEventListener('click',openProfileDialog);
+  profileDialog.querySelector('.profile-dialog-close')?.addEventListener('click',()=>profileDialog.close());
+  profileDialog.querySelector('.profile-cancel')?.addEventListener('click',()=>profileDialog.close());
+  profileDialog.addEventListener('click',e=>{if(e.target===profileDialog)profileDialog.close();});
+  profileDialog.querySelector('#profileForm')?.addEventListener('submit',e=>{
+    e.preventDefault();
+    const form=new FormData(e.currentTarget);
+    MasterStore.saveProfile({name:form.get('name'),phone:form.get('phone'),email:form.get('email')});
+    profileDialog.close();
     location.reload();
   });
 })();

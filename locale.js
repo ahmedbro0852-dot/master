@@ -49,7 +49,19 @@
     'رقم الطلب':'Order ID','الإجمالي':'Total','متابعة الطلب على واتساب':'Track order on WhatsApp',
     'تعديل البيانات':'Edit details','يبدأ من':'From','كل المنتجات':'All products',
     'العودة للمنتجات':'Back to products','المنتج غير موجود':'Product not found',
-    'جاري تحميل المنتج...':'Loading product...','تأكيد الطلب':'Confirm order'
+    'جاري تحميل المنتج...':'Loading product...','تأكيد الطلب':'Confirm order',
+    'اختار خدمتك':'Choose your service','حدد الباقة':'Choose a plan','أرسل الطلب':'Send your order',
+    'تصفح العروض وافتح الخدمة المناسبة ليك.':'Browse offers and open the service that fits you.',
+    'راجع السعر والمدة وطريقة التفعيل والضمان قبل الطلب.':'Review price, duration, activation and warranty before ordering.',
+    'اكتب بيانات التواصل، وفريق الدعم يتابع معاك على واتساب.':'Enter your contact details and support will follow up on WhatsApp.',
+    'تفاصيل واضحة':'Clear details','ضمان مكتوب':'Written warranty','دعم مباشر':'Direct support',
+    'اختيارات كتير':'More choices','طرق دفع متعددة':'Multiple payment methods','متابعة أسهل':'Easy order tracking',
+    'أسعار منافسة':'Competitive pricing','ضمان واضح':'Clear warranty','طلب سريع':'Fast ordering',
+    'نوع الباقة':'Plan tier','نوع الاشتراك':'Subscription type','طريقة الحساب':'Account method',
+    'غير محددة':'Not specified','يُؤكد قبل الدفع':'Confirmed before payment','بانتظار التأكيد':'Pending confirmation',
+    'بيانات التواصل':'Contact details','خصوصية بياناتك':'Your privacy',
+    'مفيش نتيجة مطابقة.':'No matching results.','اختار منتج':'Choose a product',
+    'لسه مفيش طلبات محفوظة.':'No saved orders yet.'
   };
   const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e,a]));
 

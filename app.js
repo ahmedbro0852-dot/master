@@ -56,7 +56,25 @@
     if(shelf&&lovable?.plans?.[0])shelf.textContent=Store.planMoney(lovable.plans[0]);
   }
 
-  document.addEventListener('masterstore:localechange',refreshLocalizedPrices);
+  const categoryEn={
+    'الكل':'All','AI Tools':'AI Tools','التصميم':'Design','التعليم':'Education',
+    'الإنتاجية':'Productivity','VPN والحماية':'VPN & Security','الترفيه':'Entertainment'
+  };
+  function categoryLabel(c){
+    const en=window.MasterLocale?.getState().language==='en';
+    return en?(categoryEn[c]||c):c;
+  }
+  function refreshLocalizedCategories(){
+    cards.forEach(card=>{
+      const el=card.querySelector('.category');
+      if(el)el.textContent=categoryLabel(card.dataset.category||'');
+    });
+    drawFilters();
+  }
+  document.addEventListener('masterstore:localechange',()=>{
+    refreshLocalizedPrices();
+    refreshLocalizedCategories();
+  });
   let selected='الكل';
 
   function apply(){
@@ -86,5 +104,6 @@
   search?.addEventListener('input',apply);
   drawFilters();
   apply();
+  refreshLocalizedCategories();
   refreshLocalizedPrices();
 })();

@@ -1180,3 +1180,181 @@ footer{
     height:44px;
   }
 }
+
+
+/* ===== Final UI/UX QA pass 2026-09-23 ===== */
+.offer-bar{font-size:10px;line-height:1.5}
+.topbar{gap:18px}
+.topbar nav{font-size:12px}
+.account-link{min-height:40px;display:inline-flex;align-items:center;justify-content:center}
+.menu{width:42px;height:42px;align-items:center;justify-content:center;border-radius:10px}
+.market-switcher{box-shadow:none;border-color:#e4e9f1;padding:3px}
+.market-switcher select{
+  min-height:40px;
+  font-size:11.5px;
+  font-weight:600;
+  background-color:#f8fafc;
+}
+
+.hero-facts strong{font-size:13px}
+.hero-facts span{font-size:10px;line-height:1.55}
+.confidence-strip b{font-size:11px}
+.confidence-strip span{font-size:10px;line-height:1.55}
+.shelf-head small{font-size:9px}
+.lane-track b{font-size:9.5px}
+.shelf-feature small,.shelf-feature span{font-size:9px}
+.shelf-feature b{font-size:11px}
+
+.product-card.light-card{
+  min-height:335px;
+  padding:17px;
+}
+.light-card .card-top{
+  min-height:118px;
+  align-items:flex-start;
+}
+.light-card .product-logo{
+  width:112px;
+  height:112px;
+  border-radius:18px;
+  padding:8px;
+}
+.light-card .category{font-size:10px}
+.light-card h3{font-size:15px}
+.light-card .desc{
+  font-size:11.5px;
+  line-height:1.8;
+  min-height:42px;
+}
+.light-card .status{font-size:9px;padding:5px 8px}
+.light-meta span{font-size:10px}
+.light-meta strong{font-size:17px}
+.card-btn,.soft-btn{
+  min-height:42px;
+  font-size:11px;
+  padding:10px 13px;
+}
+.filter{
+  min-height:40px;
+  display:inline-flex;
+  align-items:center;
+  font-size:11px;
+}
+.search input{font-size:12px}
+.section-sub{font-size:11px}
+.eyebrow{font-size:10px}
+
+.steps h3{font-size:15px}
+.steps p{font-size:11px}
+.value-grid b{font-size:12px}
+.value-grid p{font-size:10.5px}
+footer p,footer small{font-size:10.5px;line-height:1.7}
+
+.product-title p{font-size:13px}
+.plan-option{min-height:68px}
+.plan-option span b{font-size:14px}
+.plan-option span small{font-size:12px}
+.plan-option strong{font-size:16px}
+.details-list dt{font-size:12px}
+.details-list dd{font-size:13px}
+.safe-note{font-size:10.5px}
+.checkout-form input,.checkout-form select{min-height:44px;font-size:12px}
+.checkout-form label>span{font-size:11px}
+.primary.full{min-height:46px;font-size:12px}
+.ghost-btn,.order-follow{min-height:40px;font-size:11px}
+
+.profile-dialog{
+  width:min(520px,calc(100% - 28px));
+  border:0;
+  border-radius:18px;
+  padding:0;
+  box-shadow:0 28px 80px rgba(16,24,40,.25);
+}
+.profile-dialog::backdrop{background:rgba(7,17,39,.58)}
+.profile-dialog-inner{padding:22px}
+.profile-dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+.profile-dialog-head h2{margin:0;font-size:20px;color:var(--navy)}
+.profile-dialog-head p{margin:5px 0 0;font-size:11px;color:var(--muted)}
+.profile-dialog-close{
+  width:36px;height:36px;border:0;border-radius:50%;background:#eef2f7;
+  color:#344054;font-size:20px;cursor:pointer
+}
+.profile-form{display:grid;gap:12px}
+.profile-form label{display:grid;gap:6px}
+.profile-form label span{font-size:11px;color:#667085}
+.profile-form input{
+  min-height:44px;border:1px solid var(--line);border-radius:10px;
+  padding:10px 12px;outline:0;background:#fff
+}
+.profile-form input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(36,87,245,.08)}
+.profile-form-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:4px}
+.profile-form-actions button{min-height:42px}
+
+@media(max-width:1050px){
+  .topbar nav{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:18px;
+    right:18px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:8px;
+    box-shadow:0 16px 40px rgba(10,23,50,.12);
+  }
+  .topbar nav.open{display:grid}
+  .topbar nav a{padding:10px}
+  .menu{display:inline-flex}
+}
+
+@media(max-width:700px){
+  .topbar{
+    height:auto;
+    min-height:66px;
+    padding:9px 14px 10px;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .brand{order:1}
+  .brand img{width:124px}
+  .account-link{
+    order:2;
+    margin-inline-start:auto;
+    margin-right:0;
+    min-height:38px;
+    padding:8px 10px;
+    font-size:10px;
+  }
+  .menu{order:3;margin:0}
+  .market-switcher{
+    order:4;
+    width:100%;
+    margin:0;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 104px;
+    gap:6px;
+  }
+  .market-switcher select{
+    width:100%!important;
+    max-width:none!important;
+    min-height:42px;
+    font-size:11px;
+  }
+  .hero-v2{padding-top:32px}
+  .hero-v2 h1{font-size:34px}
+  .hero-v2 .hero-copy>p{font-size:13px}
+  .hero-facts{grid-template-columns:1fr 1fr 1fr}
+  .hero-facts strong{font-size:11px}
+  .hero-facts span{font-size:9px}
+  .confidence-strip{grid-template-columns:1fr 1fr}
+  .confidence-strip b{font-size:10.5px}
+  .confidence-strip span{font-size:9.5px}
+  .light-card .product-logo{width:100px;height:100px}
+  .light-card .card-top{min-height:106px}
+  .product-card.light-card{min-height:0}
+  .section-head h2{font-size:26px}
+  .product-title h1{font-size:27px}
+  .profile-form-actions{flex-direction:column-reverse}
+  .profile-form-actions button{width:100%}
+}
