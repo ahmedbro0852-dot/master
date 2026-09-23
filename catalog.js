@@ -74,9 +74,9 @@ const products = [
         "name": "Pro",
         "duration": "12 شهر",
         "price": 1800,
-        "activation": "يُؤكد قبل الدفع",
-        "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد",
+        "activation": "تفعيل مباشر على حساب Lovable",
+        "account": "حساب العميل الشخصي — بدون طلب كلمة مرور Gmail",
+        "warranty": "ضمان كامل",
         "notes": [
           "طريقة التسليم والضمان يتم تأكيدهما قبل التحويل."
         ]
@@ -98,7 +98,7 @@ const products = [
         "oldPrice": 750,
         "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
         "account": "حساب العميل",
-        "warranty": "غير محدد",
+        "warranty": "ضمان كامل",
         "credits": "300 Credit + 5 Credits يوميًا لمدة سنة"
       }
     ]
@@ -133,9 +133,9 @@ const products = [
         "name": "7 أيام",
         "duration": "7 أيام",
         "price": 150,
-        "activation": "بريد + كلمة مرور — بدون كود حسب العرض.",
+        "activation": "تسليم حساب جاهز خلال 5 دقائق",
         "account": "حساب جاهز",
-        "warranty": "غير محدد"
+        "warranty": "ضمان كامل"
       },
       {
         "name": "شهر",
@@ -143,7 +143,7 @@ const products = [
         "price": 400,
         "activation": "حساب جاهز؛ التفاصيل تُؤكد قبل الدفع.",
         "account": "حساب جاهز",
-        "warranty": "غير محدد"
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -223,7 +223,7 @@ const products = [
         "price": 550,
         "activation": "تسليم حساب جاهز.",
         "account": "حساب جاهز",
-        "warranty": "غير محدد",
+        "warranty": "ضمان كامل",
         "credits": "Credits الخطة — العدد الدقيق يُؤكد قبل الدفع"
       }
     ]
@@ -242,7 +242,7 @@ const products = [
         "price": 1250,
         "activation": "تسليم حساب جاهز خلال 5–6 ساعات.",
         "account": "حساب جاهز",
-        "warranty": "غير محدد",
+        "warranty": "ضمان كامل",
         "credits": "1,250 Credit"
       }
     ]
@@ -279,7 +279,7 @@ const products = [
         "price": 50,
         "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
         "account": "حساب جاهز",
-        "warranty": "غير محدد",
+        "warranty": "ضمان كامل",
         "credits": "قد لا يوجد Credits أو تكون قليلة",
         "notes": [
           "لا يوجد اعتراض على عدم وجود Credits في باقة 7 أيام."
@@ -291,7 +291,7 @@ const products = [
         "price": 150,
         "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
         "account": "حساب جاهز",
-        "warranty": "غير محدد",
+        "warranty": "ضمان كامل",
         "credits": "عادةً 500 Credit",
         "notes": [
           "يمكن الاعتراض إذا كان الرصيد المتفق عليه غير موجود."
@@ -303,7 +303,7 @@ const products = [
         "price": 300,
         "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
         "account": "حساب جاهز",
-        "warranty": "غير محدد",
+        "warranty": "ضمان كامل",
         "credits": "1,600 Credit",
         "notes": [
           "يمكن الاعتراض إذا كان الرصيد المتفق عليه غير موجود."
@@ -315,7 +315,7 @@ const products = [
         "price": 550,
         "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
         "account": "حساب جاهز",
-        "warranty": "غير محدد",
+        "warranty": "ضمان كامل",
         "credits": "يتغير عادةً بين 500–1000"
       },
       {
@@ -324,7 +324,7 @@ const products = [
         "price": 950,
         "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
         "account": "حساب جاهز",
-        "warranty": "غير محدد",
+        "warranty": "ضمان كامل",
         "credits": "500–1000 Credit شهريًا"
       },
       {
@@ -333,7 +333,7 @@ const products = [
         "price": 1400,
         "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
         "account": "حساب جاهز",
-        "warranty": "غير محدد",
+        "warranty": "ضمان كامل",
         "credits": "يتغير عادةً بين 500–1000"
       }
     ],
@@ -353,9 +353,9 @@ const products = [
         "name": "12 شهر",
         "duration": "12 شهر",
         "price": 750,
-        "activation": "يُؤكد قبل الدفع",
+        "activation": "دعوة أو حساب حسب المتوفر",
         "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد"
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -373,7 +373,7 @@ const products = [
         "price": 450,
         "activation": "ترسل روابط الملفات المطلوبة للمتجر.",
         "account": "خدمة تحميل ملفات",
-        "warranty": "غير محدد",
+        "warranty": "ضمان الملفات",
         "notes": [
           "ليست خدمة تسليم حساب كامل.",
           "عدد/حدود التحميل تُؤكد قبل الدفع."
@@ -404,7 +404,7 @@ const products = [
         "price": 300,
         "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
         "account": "حساب العميل",
-        "warranty": "غير محدد"
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -420,17 +420,17 @@ const products = [
         "name": "7 أيام",
         "duration": "7 أيام",
         "price": 90,
-        "activation": "يُؤكد قبل الدفع",
-        "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد"
+        "activation": "تسليم أو تفعيل",
+        "account": "حساب فردي",
+        "warranty": "ضمان كامل"
       },
       {
         "name": "12 شهر",
         "duration": "12 شهر",
         "price": 1900,
-        "activation": "يُؤكد قبل الدفع",
-        "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد"
+        "activation": "تسليم أو تفعيل",
+        "account": "حساب فردي",
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -446,9 +446,9 @@ const products = [
         "name": "3 شهور",
         "duration": "3 شهور",
         "price": 300,
-        "activation": "يُؤكد قبل الدفع",
-        "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد"
+        "activation": "تسليم حساب",
+        "account": "نوع الحساب حسب الباقة",
+        "warranty": "ضمان كامل"
       },
       {
         "name": "سنة — حساب مشترك",
@@ -456,7 +456,7 @@ const products = [
         "price": 300,
         "activation": "تسليم حساب مشترك.",
         "account": "حساب مشترك",
-        "warranty": "غير محدد",
+        "warranty": "ضمان كامل",
         "notes": [
           "قد تكون بعض الدورات مؤهلة لشهادة باسمك، لكن المتجر لا يضمن الشهادات في الحساب المشترك."
         ]
@@ -467,7 +467,7 @@ const products = [
         "price": 1000,
         "activation": "تسليم حساب خاص.",
         "account": "حساب خاص",
-        "warranty": "غير محدد"
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -485,7 +485,7 @@ const products = [
         "price": 1500,
         "activation": "تفعيل على البريد الشخصي.",
         "account": "حساب العميل",
-        "warranty": "غير محدد"
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -501,17 +501,17 @@ const products = [
         "name": "شهر",
         "duration": "1 شهر",
         "price": 300,
-        "activation": "يُؤكد قبل الدفع",
-        "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد"
+        "activation": "تسليم حساب جاهز",
+        "account": "إيميل وكلمة مرور",
+        "warranty": "ضمان كامل"
       },
       {
         "name": "سنة",
         "duration": "12 شهر",
         "price": 1050,
-        "activation": "يُؤكد قبل الدفع",
-        "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد"
+        "activation": "تسليم حساب جاهز",
+        "account": "إيميل وكلمة مرور",
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -548,9 +548,9 @@ const products = [
         "name": "سنة",
         "duration": "12 شهر",
         "price": 200,
-        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
-        "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد"
+        "activation": "حساب جاهز أو تفعيل",
+        "account": "احتفظ بالبيانات الأصلية عند استلام حساب جاهز",
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -568,23 +568,23 @@ const products = [
         "price": 400,
         "activation": "تفعيل على البريد الشخصي أو حساب جاهز؛ قد يحتاج OTP.",
         "account": "شخصي أو جاهز",
-        "warranty": "غير محدد"
+        "warranty": "ضمان كامل"
       },
       {
         "name": "Business — 6 شهور",
         "duration": "6 شهور",
         "price": 600,
-        "activation": "يُؤكد قبل الدفع",
-        "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد"
+        "activation": "حساب شخصي أو جاهز؛ قد يتطلب OTP",
+        "account": "شخصي أو جاهز",
+        "warranty": "ضمان كامل"
       },
       {
         "name": "Business — 12 شهر",
         "duration": "12 شهر",
         "price": 950,
-        "activation": "يُؤكد قبل الدفع",
-        "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد"
+        "activation": "حساب شخصي أو جاهز؛ قد يتطلب OTP",
+        "account": "شخصي أو جاهز",
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -602,7 +602,7 @@ const products = [
         "price": 250,
         "activation": "رابط تفعيل لمرة واحدة ويتطلب بطاقة.",
         "account": "حساب شخصي",
-        "warranty": "غير محدد",
+        "warranty": "ضمان كامل",
         "notes": [
           "بعد فتح/استخدام رابط التفعيل يُعتبر مستهلكًا ولا يمكن إعادة استخدامه."
         ]
@@ -632,16 +632,16 @@ const products = [
         "name": "3 شهور",
         "duration": "3 شهور",
         "price": 550,
-        "activation": "التسليم يُؤكد قبل الدفع.",
-        "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد"
+        "activation": "تسليم حساب جاهز",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل"
       },
       {
         "name": "سنة",
         "duration": "12 شهر",
         "price": 1800,
-        "activation": "التسليم يُؤكد قبل الدفع.",
-        "account": "يُؤكد قبل الدفع",
+        "activation": "تسليم حساب جاهز",
+        "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       },
       {
@@ -666,9 +666,9 @@ const products = [
         "name": "شهر",
         "duration": "1 شهر",
         "price": 400,
-        "activation": "يُؤكد قبل الدفع",
-        "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد",
+        "activation": "تسليم حساب",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
         "credits": "حتى 10 Humanize يوميًا، وحتى 5,000 كلمة للعملية",
         "notes": [
           "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
@@ -724,9 +724,9 @@ const products = [
         "name": "3 شهور",
         "duration": "3 شهور",
         "price": 300,
-        "activation": "لا يحتاج بطاقة؛ طريقة التسليم تُؤكد قبل الدفع.",
-        "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد"
+        "activation": "تسليم حساب جاهز — لا يحتاج بطاقة",
+        "account": "إيميل وكلمة مرور",
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -744,7 +744,7 @@ const products = [
         "price": 800,
         "activation": "تسليم بريد/حساب جاهز مع كود يقدمه المتجر عند الحاجة.",
         "account": "حساب جاهز — جهاز واحد",
-        "warranty": "غير محدد"
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -816,7 +816,7 @@ const products = [
         "price": 200,
         "activation": "رابط تفعيل ويتطلب بطاقة.",
         "account": "حساب شخصي",
-        "warranty": "غير محدد"
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -1228,7 +1228,7 @@ const products = [
     "plans": [
       {
         "name": "Essentials",
-        "duration": "حسب العرض",
+        "duration": "12 شهر",
         "price": 650,
         "activation": "تسليم حساب.",
         "account": "بيانات دخول الحساب",
@@ -1240,7 +1240,6 @@ const products = [
 
 
 const categoryOrder = ["AI Tools","التصميم","التعليم","الإنتاجية","VPN والحماية","الترفيه"];
-
 function getProduct(id){ return products.find(p => p.id === id); }
 function formatPrice(value){ return Number(value).toLocaleString("en-US") + " ج"; }
 function startingPrice(product){
