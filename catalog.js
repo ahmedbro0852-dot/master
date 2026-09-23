@@ -172,7 +172,6 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://wink.ai/_next/static/media/footer-logo.2wi_ytt27-_wh.png"
   },
   {
     "id": "grok",
@@ -537,13 +536,13 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://app.cdn.wordwall.net/static/content/images/global/logo-large.2bqpxglqwvexwcf9huxjhhg2.png"
   },
   {
     "id": "turnitin",
     "name": "Turnitin",
     "category": "التعليم",
     "logo": "turnitin",
+    "logoUrl": "https://kr.turnitin.com/assets/images/shared-assets-1/product-logos/logo-tii.svg",
     "status": "available",
     "description": "خدمة فحص ملف واحد وإرسال تقرير التشابه.",
     "plans": [
@@ -699,7 +698,6 @@ const products = [
         ]
       }
     ],
-    "logoUrl": "https://stealthwriter.ai/logo-icon.svg"
   },
   {
     "id": "icloud",
@@ -943,7 +941,6 @@ const products = [
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": [],
-    "logoUrl": "https://motionarray.com/favicon.ico"
   },
   {
     "id": "suno",
@@ -1045,7 +1042,6 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://cdn.magicpatterns.com/uploads/aGFyTh3hH3Nc3yUbKfonCA/logo-%28gradient%29.svg"
   },
   {
     "id": "factory-pro",
@@ -1136,7 +1132,6 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://www.pangram.com/favicon.ico"
   },
   {
     "id": "supercut-pro",
@@ -1155,7 +1150,6 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://supercut.cc/favicon.ico"
   },
   {
     "id": "wispr-flow-pro",
@@ -1210,7 +1204,6 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://www.granola.ai/nav-icon-ios-rebrand.png"
   },
   {
     "id": "jam-team",
@@ -1229,7 +1222,6 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://storage.googleapis.com/jam-assets/icons/jam.png"
   },
   {
     "id": "readwise-reader",

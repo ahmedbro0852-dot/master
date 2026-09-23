@@ -39,6 +39,22 @@
   const Store=window.MasterStore;
   const categories=['الكل',...new Set(cards.map(c=>c.dataset.category).filter(Boolean))];
 
+  function refreshBrandLogos(){
+    if(!Catalog)return;
+    cards.forEach(card=>{
+      const link=card.querySelector('a[href*="product.html?id="]');
+      const img=card.querySelector('.product-logo img');
+      if(!link||!img)return;
+      const id=new URL(link.getAttribute('href'),location.href).searchParams.get('id');
+      const product=Catalog.getProduct(id);
+      if(!product)return;
+      const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260924-brand7':'';
+      const src=product.logoUrl||local;
+      if(local)img.dataset.fallback=local;
+      if(src)img.src=src;
+    });
+  }
+
   function refreshLocalizedPrices(){
     if(!Catalog||!Store)return;
     cards.forEach(card=>{
@@ -137,6 +153,7 @@
   search?.addEventListener('input',apply);
   drawFilters();
   apply();
+  refreshBrandLogos();
   refreshLocalizedCategories();
   refreshLocalizedCards();
   refreshLocalizedPrices();
