@@ -13,7 +13,7 @@ const products = [
         "price": 1100,
         "activation": "تفعيل على حساب العميل.",
         "account": "حساب العميل الشخصي",
-        "warranty": "ضمان كامل لمدة شهر",
+        "warranty": "ضمان كامل",
         "notes": [
           "لا يتم تخزين بيانات دخولك داخل الموقع."
         ]
@@ -34,7 +34,7 @@ const products = [
         "price": 1250,
         "activation": "تفعيل خلال ساعة إلى ساعتين على حساب العميل.",
         "account": "حساب العميل الشخصي",
-        "warranty": "ضمان كامل لمدة شهر",
+        "warranty": "ضمان كامل",
         "notes": [
           "السعر خاص بعرض المتجر الحالي."
         ]
@@ -108,18 +108,9 @@ const products = [
     "name": "Runway Pro",
     "category": "AI Tools",
     "logo": "runway",
-    "status": "available",
-    "description": "اشتراك Runway Pro لمدة 12 شهر.",
-    "plans": [
-      {
-        "name": "Pro",
-        "duration": "12 شهر",
-        "price": 1600,
-        "activation": "يُؤكد قبل الدفع",
-        "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد"
-      }
-    ]
+    "status": "out",
+    "description": "الخدمة غير متوفرة حاليًا.",
+    "plans": []
   },
   {
     "id": "wink-ai",
@@ -162,7 +153,7 @@ const products = [
         "oldPrice": 250,
         "activation": "بريد + كلمة مرور.",
         "account": "حساب جاهز",
-        "warranty": "5 أيام"
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -194,11 +185,11 @@ const products = [
     "plans": [
       {
         "name": "10 Workspaces",
-        "duration": "حسب العرض",
+        "duration": "12 شهر",
         "price": 800,
         "activation": "تسليم حساب جاهز.",
         "account": "حساب واحد — الحد الأقصى للكمية 1",
-        "warranty": "دعم Upgrade كامل مرة واحدة خلال أول شهر",
+        "warranty": "ضمان كامل",
         "credits": "20,000 Credit إجماليًا",
         "notes": [
           "غيّر كلمة المرور فور الاستلام.",
@@ -261,7 +252,7 @@ const products = [
         "price": 50,
         "activation": "تفعيل على البريد الشخصي خلال وقت قصير.",
         "account": "حساب العميل",
-        "warranty": "سنتان"
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -373,7 +364,7 @@ const products = [
         "price": 450,
         "activation": "ترسل روابط الملفات المطلوبة للمتجر.",
         "account": "خدمة تحميل ملفات",
-        "warranty": "ضمان الملفات",
+        "warranty": "ضمان كامل",
         "notes": [
           "ليست خدمة تسليم حساب كامل.",
           "عدد/حدود التحميل تُؤكد قبل الدفع."
@@ -529,7 +520,7 @@ const products = [
         "price": 250,
         "activation": "ترسل الملف المطلوب فحصه.",
         "account": "خدمة ملف — بدون حساب",
-        "warranty": "حسب الخدمة",
+        "warranty": "ضمان كامل",
         "notes": [
           "الخدمة لا تضمن درجة أكاديمية أو نتيجة معينة."
         ]
@@ -650,7 +641,7 @@ const products = [
         "price": 300,
         "activation": "تفعيل على بريد العميل.",
         "account": "حساب العميل",
-        "warranty": "غير محدد"
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -708,7 +699,7 @@ const products = [
         "price": 200,
         "activation": "تفعيل كوبون ويتطلب بطاقة.",
         "account": "حساب العميل",
-        "warranty": "No Hold Warranty"
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -762,7 +753,7 @@ const products = [
         "price": 100,
         "activation": "تسليم حساب جاهز.",
         "account": "إيميل وكلمة مرور",
-        "warranty": "حسب العرض"
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -780,7 +771,7 @@ const products = [
         "price": 50,
         "activation": "تفعيل",
         "account": "يُؤكد قبل الدفع",
-        "warranty": "غير محدد"
+        "warranty": "ضمان كامل"
       }
     ]
   },
@@ -943,7 +934,7 @@ const products = [
         "price": 350,
         "activation": "تسليم حساب جاهز.",
         "account": "بيانات دخول الحساب",
-        "warranty": "ضمان الرصيد",
+        "warranty": "ضمان كامل",
         "credits": "20,000 Credits"
       }
     ]
