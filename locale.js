@@ -347,11 +347,6 @@
       state.language=nav.startsWith('ar')?'ar':'en';
     }
     apply();
-    const observer=new MutationObserver(()=>{
-      if(applying)return;
-      requestAnimationFrame(apply);
-    });
-    observer.observe(document.body,{childList:true,subtree:true});
     loadRates();
     detectMarket();
   }
