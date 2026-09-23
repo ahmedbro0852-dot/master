@@ -474,10 +474,10 @@ footer p,footer small{font-size:9px}
   align-items:center;
 }
 .light-card .product-logo{
-  width:68px;
-  height:68px;
-  border-radius:14px;
-  padding:5px;
+  width:136px;
+  height:136px;
+  border-radius:18px;
+  padding:8px;
   border-color:#edf0f5;
 }
 .light-card .status{
