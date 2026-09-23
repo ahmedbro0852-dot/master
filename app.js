@@ -1,10 +1,37 @@
 (function(){
   'use strict';
+
+  const menu=document.querySelector('.menu');
+  const nav=document.querySelector('.topbar nav');
+
+  if(menu&&nav){
+    menu.setAttribute('aria-expanded','false');
+    menu.addEventListener('click',()=>{
+      const open=nav.classList.toggle('open');
+      menu.setAttribute('aria-expanded',String(open));
+    });
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      nav.classList.remove('open');
+      menu.setAttribute('aria-expanded','false');
+    }));
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'){
+        nav.classList.remove('open');
+        menu.setAttribute('aria-expanded','false');
+      }
+    });
+    document.addEventListener('click',e=>{
+      if(!nav.contains(e.target)&&!menu.contains(e.target)){
+        nav.classList.remove('open');
+        menu.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
   const grid=document.getElementById('grid');
   const filters=document.getElementById('filters');
   const search=document.getElementById('search');
   const empty=document.getElementById('empty');
-  const menu=document.querySelector('.menu');
   if(!grid||!filters)return;
 
   const cards=[...grid.querySelectorAll('.product-card')];
@@ -15,29 +42,26 @@
     const q=(search?.value||'').trim().toLowerCase();
     let visible=0;
     cards.forEach(card=>{
-      const cat=selected==='الكل'||card.dataset.category===selected;
+      const categoryMatch=selected==='الكل'||card.dataset.category===selected;
       const text=(card.dataset.search||card.textContent||'').toLowerCase();
-      const ok=cat&&(!q||text.includes(q));
-      card.style.display=ok?'flex':'none';
-      if(ok)visible++;
+      const matches=categoryMatch&&(!q||text.includes(q));
+      card.hidden=!matches;
+      if(matches)visible++;
     });
     if(empty)empty.style.display=visible?'none':'block';
   }
 
   function drawFilters(){
-    filters.innerHTML=categories.map(c=>'<button class="filter '+(c===selected?'active':'')+'" type="button" data-cat="'+c+'">'+c+'</button>').join('');
+    filters.innerHTML=categories.map(c=>'<button class="filter '+(c===selected?'active':'')+'" type="button" data-cat="'+c+'" aria-pressed="'+(c===selected?'true':'false')+'">'+c+'</button>').join('');
     filters.querySelectorAll('button').forEach(btn=>{
-      btn.addEventListener('click',()=>{selected=btn.dataset.cat;drawFilters();apply();});
+      btn.addEventListener('click',()=>{
+        selected=btn.dataset.cat;
+        drawFilters();
+        apply();
+      });
     });
   }
 
-  if(menu){
-    const nav=document.querySelector('.topbar nav');
-    if(nav){
-      menu.addEventListener('click',()=>nav.classList.toggle('open'));
-      nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
-    }
-  }
   search?.addEventListener('input',apply);
   drawFilters();
   apply();
