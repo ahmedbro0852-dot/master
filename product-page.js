@@ -24,7 +24,7 @@
 
   function icon(product){
     const fallback=(product.name||'M').split(/\s+/).map(x=>x[0]).join('').slice(0,2);
-    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260924-brand10':'';
+    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260924-brand11':'';
     const src=product.logoUrl||local;
     const fallbackAttr=product.logoUrl&&local?' data-fallback="'+MasterStore.escapeHtml(local)+'"':'';
     const onerror=product.logoUrl&&local

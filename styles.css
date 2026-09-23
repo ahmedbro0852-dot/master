@@ -1283,3 +1283,21 @@ footer p,footer small{font-size:10.5px;line-height:1.7}
   .profile-form-actions{flex-direction:column-reverse}
   .profile-form-actions button{width:100%}
 }
+
+
+/* ===== Brand mark normalization 2026-09-24 ===== */
+.product-logo img[src*="mobbin.svg"],
+.product-logo img[src*="grok.svg"],
+.product-logo img[src*="gumloop.svg"],
+.product-logo img[src*="magicpatterns.svg"],
+.product-logo img[src*="wispr.svg"]{
+  width:92%;
+  height:92%;
+}
+.product-logo img[src*="readwise.svg"],
+.product-logo img[src*="grammarly.svg"],
+.product-logo img[src*="canva.svg"],
+.product-logo img[src*="gamma.svg"]{
+  width:96%;
+  height:96%;
+}
