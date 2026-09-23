@@ -1,5 +1,10 @@
 (function(){
   'use strict';
+  const Catalog=window.MasterCatalog;
+  const MasterStore=window.MasterStore;
+  if(!Catalog||!MasterStore)return;
+  const getProduct=Catalog.getProduct;
+  const statusLabel=Catalog.statusLabel;
   const root=document.getElementById('productPage');
   const dialog=document.getElementById('checkoutDialog');
   const checkoutContent=document.getElementById('checkoutContent');
