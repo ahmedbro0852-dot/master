@@ -208,7 +208,6 @@ const products = [
     description:"تفعيل YouTube Premium على حسابك الشخصي.",
     plans:[{name:"3 شهور", duration:"3 شهور", price:200, activation:"رابط تفعيل ويتطلب بطاقة.", account:"حساب شخصي", warranty:"غير محدد"}]
   },
-  {id:"adobe-out", name:"Adobe Creative Cloud", category:"التصميم", logo:"adobe", status:"out", description:"المخزون منتهٍ حاليًا.", plans:[]},
   {id:"kling", name:"Kling AI", category:"AI Tools", logo:"kling", status:"out", description:"المخزون منتهٍ حاليًا.", plans:[]},
   {id:"grammarly", name:"Grammarly Premium", category:"الإنتاجية", logo:"grammarly", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
   {id:"quillbot", name:"QuillBot Premium", category:"الإنتاجية", logo:"quillbot", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
