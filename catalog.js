@@ -39,7 +39,8 @@ const products = [
         "credits": "1,000 Credit شهريًا",
         "features": [
           "1,000 Credit شهريًا للاستخدام داخل الخدمة"
-        ]
+        ],
+        "oldPrice": 18500
       },
       {
         "name": "Gemini العائلي",
@@ -52,7 +53,8 @@ const products = [
         "features": [
           "1,000 Credit شهريًا لكل حساب",
           "5 دعوات عائلية إضافية لاستخدام Gemini"
-        ]
+        ],
+        "oldPrice": 18500
       }
     ]
   },
@@ -96,7 +98,8 @@ const products = [
         "warranty": "ضمان كامل",
         "notes": [
           "يفضل عدم تغيير كلمة المرور حتى لا تتأثر خدمة الدعم/الضمان."
-        ]
+        ],
+        "oldPrice": 1030
       }
     ]
   },
@@ -174,7 +177,7 @@ const products = [
         "account": "حساب جاهز",
         "warranty": "ضمان كامل"
       }
-    ],
+    ]
   },
   {
     "id": "grok",
@@ -291,7 +294,8 @@ const products = [
         "price": 50,
         "activation": "تفعيل على البريد الشخصي خلال وقت قصير.",
         "account": "حساب العميل",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 27770
       }
     ]
   },
@@ -386,7 +390,8 @@ const products = [
         "price": 750,
         "activation": "دعوة أو حساب",
         "account": "حسب المتوفر",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 9870
       }
     ]
   },
@@ -478,7 +483,8 @@ const products = [
         "price": 300,
         "activation": "تسليم حساب خاص.",
         "account": "حساب خاص",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 9100
       },
       {
         "name": "سنة — حساب مشترك",
@@ -497,7 +503,8 @@ const products = [
         "price": 1000,
         "activation": "تسليم حساب خاص.",
         "account": "حساب خاص",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 20520
       }
     ]
   },
@@ -533,7 +540,8 @@ const products = [
         "price": 300,
         "activation": "تسليم حساب جاهز",
         "account": "إيميل وكلمة مرور",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 560
       },
       {
         "name": "سنة",
@@ -541,9 +549,10 @@ const products = [
         "price": 1050,
         "activation": "تسليم حساب جاهز",
         "account": "إيميل وكلمة مرور",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 4440
       }
-    ],
+    ]
   },
   {
     "id": "turnitin",
@@ -581,7 +590,8 @@ const products = [
         "price": 200,
         "activation": "حساب جاهز أو تفعيل",
         "account": "احتفظ بالبيانات الأصلية عند استلام حساب جاهز",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 2400
       }
     ]
   },
@@ -600,7 +610,8 @@ const products = [
         "price": 400,
         "activation": "تفعيل على البريد الشخصي أو حساب جاهز؛ قد يحتاج OTP.",
         "account": "شخصي أو جاهز",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 1540
       },
       {
         "name": "Business — 6 شهور",
@@ -608,7 +619,8 @@ const products = [
         "price": 600,
         "activation": "حساب شخصي أو جاهز؛ قد يتطلب OTP",
         "account": "شخصي أو جاهز",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 6170
       },
       {
         "name": "Business — 12 شهر",
@@ -616,7 +628,8 @@ const products = [
         "price": 950,
         "activation": "حساب شخصي أو جاهز؛ قد يتطلب OTP",
         "account": "شخصي أو جاهز",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 12340
       }
     ]
   },
@@ -637,7 +650,8 @@ const products = [
         "warranty": "ضمان كامل",
         "notes": [
           "بعد فتح/استخدام رابط التفعيل يُعتبر مستهلكًا ولا يمكن إعادة استخدامه."
-        ]
+        ],
+        "oldPrice": 6170
       }
     ]
   },
@@ -659,7 +673,8 @@ const products = [
         "warranty": "ضمان كامل",
         "notes": [
           "قد تعمل بعض الحسابات شهرًا كاملًا أو تتوقف بعد نحو 14 يومًا؛ الضمان الكامل يغطي العرض حسب شروط المتجر."
-        ]
+        ],
+        "oldPrice": 870
       },
       {
         "name": "Zoom Pro — 3 شهور",
@@ -667,7 +682,8 @@ const products = [
         "price": 550,
         "activation": "تسليم حساب جاهز",
         "account": "بيانات دخول الحساب",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 2620
       },
       {
         "name": "Zoom Pro — سنة",
@@ -675,7 +691,8 @@ const products = [
         "price": 1800,
         "activation": "تسليم حساب جاهز",
         "account": "بيانات دخول الحساب",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 8740
       },
       {
         "name": "Zoom Pro — شهر على بريدك",
@@ -683,7 +700,8 @@ const products = [
         "price": 300,
         "activation": "تفعيل على بريد العميل.",
         "account": "حساب العميل",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 870
       }
     ]
   },
@@ -708,7 +726,7 @@ const products = [
           "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
         ]
       }
-    ],
+    ]
   },
   {
     "id": "icloud",
@@ -838,7 +856,8 @@ const products = [
         "price": 100,
         "activation": "رابط تفعيل على حساب العميل.",
         "account": "حساب شخصي",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "oldPrice": 237
       }
     ]
   },
@@ -960,7 +979,7 @@ const products = [
     "logo": "motionarray",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
-    "plans": [],
+    "plans": []
   },
   {
     "id": "suno",
@@ -1064,7 +1083,7 @@ const products = [
         "account": "حسب المتوفر",
         "warranty": "ضمان كامل"
       }
-    ],
+    ]
   },
   {
     "id": "factory-pro",
@@ -1157,7 +1176,7 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ],
+    ]
   },
   {
     "id": "supercut-pro",
@@ -1175,7 +1194,7 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ],
+    ]
   },
   {
     "id": "wispr-flow-pro",
@@ -1229,7 +1248,7 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ],
+    ]
   },
   {
     "id": "jam-team",
@@ -1248,7 +1267,7 @@ const products = [
         "account": "احتفظ بالبيانات الأصلية",
         "warranty": "ضمان كامل"
       }
-    ],
+    ]
   },
   {
     "id": "readwise-reader",
