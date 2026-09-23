@@ -54,6 +54,7 @@
             '<strong>'+MasterStore.money(plan.price)+'</strong>'+
           '</label>'
         ).join(''):'<div class="notice">الخدمة غير متاحة للطلب حاليًا.</div>')+
+        '<div id="planFeatures"></div>'+
       '</div>'+
       '<aside class="summary-card">'+
         '<h2>تفاصيل الباقة</h2>'+
@@ -64,6 +65,7 @@
     '</section>';
 
   const planDetails=document.getElementById('planDetails');
+  const planFeatures=document.getElementById('planFeatures');
   const radios=[...document.querySelectorAll('input[name="plan"]')];
 
   function selectedPlan(){
@@ -93,8 +95,8 @@
         '<div><dt>الضمان</dt><dd>'+MasterStore.escapeHtml(plan.warranty||'غير محدد')+'</dd></div>'+
         (plan.credits?'<div><dt>الرصيد</dt><dd>'+MasterStore.escapeHtml(plan.credits)+'</dd></div>':'')+
       '</dl>'+
-      (features.length?'<div class="plan-features"><b>مميزات الباقة</b><ul>'+features.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'')+
       (notes.length?'<div class="plan-notes"><b>ملاحظات مهمة</b><ul>'+notes.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'');
+    planFeatures.innerHTML=features.length?'<div class="plan-features"><b>مميزات الباقة</b><ul>'+features.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'';
   }
   radios.forEach(r=>r.onchange=renderDetails);
   renderDetails();
