@@ -1022,3 +1022,24 @@ footer{
   .details-list dt{font-size:10px}
   .details-list dd{font-size:11.5px}
 }
+
+
+/* Plan benefits placement + typography */
+.plans-block #planFeatures{margin-top:18px}
+.plan-features{margin:0;background:#f7f9ff;border:1px solid #d9e2ff;border-radius:14px;padding:16px 17px}
+.plan-features b{display:block;font-size:14px;line-height:1.5;color:var(--navy);margin-bottom:9px}
+.plan-features ul{margin:0;padding-right:21px;font-size:13px;line-height:2;color:#344054;font-weight:500}
+.plan-features li{padding-right:2px}
+.plan-option span b{font-size:14px;line-height:1.55}
+.plan-option span small{font-size:12px;line-height:1.5}
+.plan-option strong{font-size:16px}
+.details-list dt{font-size:12px}
+.details-list dd{font-size:13px}
+@media(max-width:580px){
+  .plan-features{padding:14px}
+  .plan-features b{font-size:13px}
+  .plan-features ul{font-size:12px;line-height:1.9}
+  .plan-option span b{font-size:13px}
+  .plan-option span small{font-size:11px}
+  .plan-option strong{font-size:15px}
+}
