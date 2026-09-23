@@ -345,7 +345,7 @@ const products = [
         "duration": "12 شهر",
         "price": 750,
         "activation": "دعوة أو حساب",
-        "account": "يُؤكد قبل الدفع",
+        "account": "حسب المتوفر",
         "warranty": "ضمان كامل"
       }
     ]
@@ -770,7 +770,7 @@ const products = [
         "duration": "3 أيام",
         "price": 50,
         "activation": "تفعيل",
-        "account": "يُؤكد قبل الدفع",
+        "account": "حسب العرض",
         "warranty": "ضمان كامل"
       }
     ]
