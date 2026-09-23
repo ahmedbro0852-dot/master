@@ -164,7 +164,7 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://wink.ai/favicon.ico"
+    "logoUrl": "https://wink.ai/_next/static/media/footer-logo.2wi_ytt27-_wh.png"
   },
   {
     "id": "grok",
@@ -691,7 +691,7 @@ const products = [
         ]
       }
     ],
-    "logoUrl": "https://stealthwriter.ai/favicon-196x196.png"
+    "logoUrl": "https://stealthwriter.ai/logo-icon.svg"
   },
   {
     "id": "icloud",
@@ -982,7 +982,8 @@ const products = [
         "account": "حسب المتوفر",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://cdn.magicpatterns.com/uploads/aGFyTh3hH3Nc3yUbKfonCA/logo-%28gradient%29.svg"
   },
   {
     "id": "factory-pro",
@@ -1147,7 +1148,7 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://assets.dub.co/companies/granola.svg"
+    "logoUrl": "https://www.granola.ai/nav-icon-ios-rebrand.png"
   },
   {
     "id": "jam-team",
