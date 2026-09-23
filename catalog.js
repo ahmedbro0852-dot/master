@@ -21,6 +21,24 @@ const products = [
     ]
   },
   {
+    "id": "gemini-pro",
+    "name": "Gemini Pro",
+    "category": "AI Tools",
+    "logo": "gemini",
+    "status": "available",
+    "description": "تفعيل Gemini Pro عبر رابط مباشر على البريد الشخصي، بدون بطاقة.",
+    "plans": [
+      {
+        "name": "Gemini Pro",
+        "duration": "حسب العرض",
+        "price": 150,
+        "activation": "رابط تفعيل مباشر على البريد الشخصي — بدون بطاقة أو بيانات دفع.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "ضمان كامل"
+      }
+    ]
+  },
+  {
     "id": "claude-pro",
     "name": "Claude Pro",
     "category": "AI Tools",
@@ -598,14 +616,14 @@ const products = [
   },
   {
     "id": "zoom",
-    "name": "Zoom",
+    "name": "Zoom Pro",
     "category": "الإنتاجية",
     "logo": "zoom",
     "status": "available",
-    "description": "خيارات Zoom بحساب جاهز أو تفعيل على بريدك.",
+    "description": "اشتراكات Zoom Pro بعدة مدد، بحساب جاهز أو تفعيل على بريدك.",
     "plans": [
       {
-        "name": "شهر — حساب جاهز",
+        "name": "Zoom Pro — شهر (حساب جاهز)",
         "duration": "1 شهر",
         "price": 250,
         "activation": "تسليم حساب جاهز.",
@@ -616,7 +634,7 @@ const products = [
         ]
       },
       {
-        "name": "3 شهور",
+        "name": "Zoom Pro — 3 شهور",
         "duration": "3 شهور",
         "price": 550,
         "activation": "تسليم حساب جاهز",
@@ -624,7 +642,7 @@ const products = [
         "warranty": "ضمان كامل"
       },
       {
-        "name": "سنة",
+        "name": "Zoom Pro — سنة",
         "duration": "12 شهر",
         "price": 1800,
         "activation": "تسليم حساب جاهز",
@@ -632,7 +650,7 @@ const products = [
         "warranty": "ضمان كامل"
       },
       {
-        "name": "شهر — على بريدك",
+        "name": "Zoom Pro — شهر على بريدك",
         "duration": "1 شهر",
         "price": 300,
         "activation": "تفعيل على بريد العميل.",
@@ -1233,8 +1251,7 @@ function startingPrice(product){
   if(!product.plans || !product.plans.length) return "—";
   const nums = product.plans.map(p => Number(p.price)).filter(Number.isFinite);
   if(!nums.length) return "—";
-  const min = Math.min(...nums);
-  return product.plans.length > 1 ? "من " + formatPrice(min) : formatPrice(min);
+  return formatPrice(Math.min(...nums));
 }
 function statusLabel(status){
   return status === "available" ? "متاح" : status === "soon" ? "قريبًا" : "غير متوفر";
