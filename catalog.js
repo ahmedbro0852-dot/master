@@ -116,7 +116,7 @@ const products = [
     "id": "wink-ai",
     "name": "Wink AI Pro",
     "category": "AI Tools",
-    "logo": "wink",
+    "logo": "",
     "status": "available",
     "description": "حساب جاهز لأدوات Wink AI.",
     "plans": [
@@ -223,7 +223,7 @@ const products = [
     "id": "heygen",
     "name": "HeyGen",
     "category": "AI Tools",
-    "logo": "heygen",
+    "logo": "",
     "status": "available",
     "description": "حساب HeyGen جاهز مع 1,250 Credit.",
     "plans": [
@@ -484,7 +484,7 @@ const products = [
     "id": "wordwall",
     "name": "Wordwall Pro",
     "category": "التعليم",
-    "logo": "wordwall",
+    "logo": "",
     "status": "available",
     "description": "اشتراك Wordwall Pro لمدة شهر أو سنة.",
     "plans": [
@@ -510,7 +510,7 @@ const products = [
     "id": "turnitin",
     "name": "Turnitin",
     "category": "التعليم",
-    "logo": "turnitin",
+    "logo": "",
     "status": "available",
     "description": "خدمة فحص ملف واحد وإرسال تقرير التشابه.",
     "plans": [
@@ -649,7 +649,7 @@ const products = [
     "id": "stealth-writer",
     "name": "Stealth Writer",
     "category": "الإنتاجية",
-    "logo": "stealthwriter",
+    "logo": "",
     "status": "available",
     "description": "خدمة Humanize وإعادة صياغة النصوص.",
     "plans": [
@@ -851,7 +851,7 @@ const products = [
     "id": "motion-array",
     "name": "Motion Array",
     "category": "التصميم",
-    "logo": "motionarray",
+    "logo": "",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -869,7 +869,7 @@ const products = [
     "id": "murf",
     "name": "Murf AI",
     "category": "AI Tools",
-    "logo": "murf",
+    "logo": "",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
