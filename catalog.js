@@ -341,7 +341,7 @@ const products = [
     "description": "اشتراك Figma لمدة 12 شهر.",
     "plans": [
       {
-        "name": "12 شهر",
+        "name": "Professional",
         "duration": "12 شهر",
         "price": 750,
         "activation": "دعوة أو حساب",
@@ -766,7 +766,7 @@ const products = [
     "description": "اشتراك ExpressVPN قصير المدة.",
     "plans": [
       {
-        "name": "3 أيام",
+        "name": "Basic",
         "duration": "3 أيام",
         "price": 50,
         "activation": "تفعيل",
