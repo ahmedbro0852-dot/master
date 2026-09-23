@@ -20,8 +20,13 @@
 
   function icon(product){
     const fallback=(product.name||'M').split(/\s+/).map(x=>x[0]).join('').slice(0,2);
-    const src=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg':(product.logoUrl||'');
-    return '<span class="product-logo big">'+(src?'<img src="'+MasterStore.escapeHtml(src)+'" alt="'+MasterStore.escapeHtml(product.name)+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\'">':'')+'<span class="logo-fallback">'+fallback+'</span></span>';
+    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260923-brand3':'';
+    const src=product.logoUrl||local;
+    const fallbackAttr=product.logoUrl&&local?' data-fallback="'+MasterStore.escapeHtml(local)+'"':'';
+    const onerror=product.logoUrl&&local
+      ? "if(this.dataset.fallback&&!this.dataset.usedFallback){this.dataset.usedFallback='1';this.src=this.dataset.fallback;return;}this.style.display='none';this.nextElementSibling.style.display='grid'"
+      : "this.style.display='none';this.nextElementSibling.style.display='grid'";
+    return '<span class="product-logo big">'+(src?'<img src="'+MasterStore.escapeHtml(src)+'"'+fallbackAttr+' alt="'+MasterStore.escapeHtml(product.name)+'" onerror="'+onerror+'">':'')+'<span class="logo-fallback">'+fallback+'</span></span>';
   }
 
   if(!p){
