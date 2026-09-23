@@ -22,11 +22,11 @@ const products = [
   },
   {
     "id": "gemini-pro",
-    "name": "Gemini Pro",
+    "name": "Gemini",
     "category": "AI Tools",
     "logo": "gemini",
     "status": "available",
-    "description": "تفعيل Gemini Pro عبر رابط مباشر على البريد الشخصي، بدون بطاقة.",
+    "description": "Gemini Pro على حسابك الشخصي أو باقة Gemini العائلية بعدة حسابات.",
     "plans": [
       {
         "name": "Gemini Pro",
@@ -35,6 +35,15 @@ const products = [
         "activation": "رابط تفعيل مباشر على البريد الشخصي — بدون بطاقة أو بيانات دفع.",
         "account": "حساب العميل الشخصي",
         "warranty": "ضمان كامل"
+      },
+      {
+        "name": "Gemini العائلي",
+        "duration": "18 شهر",
+        "price": 250,
+        "activation": "تفعيل عائلي عبر 5 دعوات + حساب المتحكم.",
+        "account": "5 دعوات + المتحكم",
+        "warranty": "ضمان كامل",
+        "credits": "1,000 Credit شهريًا لكل حساب"
       }
     ]
   },
