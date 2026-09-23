@@ -30,7 +30,7 @@ const products = [
     "plans": [
       {
         "name": "Gemini Pro",
-        "duration": "حسب العرض",
+        "duration": "18 شهر",
         "price": 150,
         "activation": "رابط تفعيل مباشر على البريد الشخصي — بدون بطاقة أو بيانات دفع.",
         "account": "حساب العميل الشخصي",
@@ -163,7 +163,8 @@ const products = [
         "account": "حساب جاهز",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://wink.ai/favicon.ico"
   },
   {
     "id": "grok",
@@ -527,7 +528,8 @@ const products = [
         "account": "إيميل وكلمة مرور",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://app.cdn.wordwall.net/static/content/images/global/logo-large.2bqpxglqwvexwcf9huxjhhg2.png"
   },
   {
     "id": "turnitin",
@@ -688,7 +690,8 @@ const products = [
           "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
         ]
       }
-    ]
+    ],
+    "logoUrl": "https://stealthwriter.ai/favicon-196x196.png"
   },
   {
     "id": "icloud",
@@ -877,7 +880,8 @@ const products = [
     "logo": "motionarray",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
-    "plans": []
+    "plans": [],
+    "logoUrl": "https://motionarray.com/favicon.ico"
   },
   {
     "id": "suno",
@@ -1068,7 +1072,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.pangram.com/favicon.ico"
   },
   {
     "id": "supercut-pro",
@@ -1086,7 +1091,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://supercut.cc/favicon.ico"
   },
   {
     "id": "wispr-flow-pro",
@@ -1140,7 +1146,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://assets.dub.co/companies/granola.svg"
   },
   {
     "id": "jam-team",
@@ -1158,7 +1165,8 @@ const products = [
         "account": "احتفظ بالبيانات الأصلية",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://storage.googleapis.com/jam-assets/icons/jam.png"
   },
   {
     "id": "readwise-reader",
