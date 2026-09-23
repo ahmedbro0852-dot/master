@@ -75,7 +75,13 @@
     const plan=selectedPlan();
     if(!plan){planDetails.innerHTML='';return;}
     const notes=[...(p.notes||[]),...(plan.notes||[])];
-    const features=plan.features||[];
+    const features=(plan.features&&plan.features.length)?plan.features:[
+      plan.duration?'مدة الاشتراك: '+plan.duration:'',
+      plan.account?'نوع الحساب: '+plan.account:'',
+      plan.activation?'طريقة التفعيل: '+plan.activation:'',
+      plan.credits?'الرصيد: '+plan.credits:'',
+      plan.warranty?'الضمان: '+plan.warranty:''
+    ].filter(Boolean);
     const saving=plan.oldPrice&&Number(plan.oldPrice)>Number(plan.price)?Number(plan.oldPrice)-Number(plan.price):0;
     planDetails.innerHTML=
       '<dl class="details-list">'+
