@@ -353,7 +353,7 @@ const products = [
         "name": "12 شهر",
         "duration": "12 شهر",
         "price": 750,
-        "activation": "دعوة أو حساب حسب المتوفر",
+        "activation": "دعوة أو حساب",
         "account": "يُؤكد قبل الدفع",
         "warranty": "ضمان كامل"
       }
@@ -529,7 +529,7 @@ const products = [
         "price": 250,
         "activation": "ترسل الملف المطلوب فحصه.",
         "account": "خدمة ملف — بدون حساب",
-        "warranty": "غير محدد",
+        "warranty": "حسب الخدمة",
         "notes": [
           "الخدمة لا تضمن درجة أكاديمية أو نتيجة معينة."
         ]
@@ -758,7 +758,7 @@ const products = [
     "plans": [
       {
         "name": "عرض HMA",
-        "duration": "30 يوم حسب العرض",
+        "duration": "30 يوم",
         "price": 100,
         "activation": "تسليم حساب جاهز.",
         "account": "إيميل وكلمة مرور",
@@ -778,7 +778,7 @@ const products = [
         "name": "3 أيام",
         "duration": "3 أيام",
         "price": 50,
-        "activation": "يُؤكد قبل الدفع",
+        "activation": "تفعيل",
         "account": "يُؤكد قبل الدفع",
         "warranty": "غير محدد"
       }
