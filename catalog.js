@@ -692,6 +692,7 @@ const products = [
     "name": "Stealth Writer",
     "category": "الإنتاجية",
     "logo": "stealthwriter",
+    "logoUrl": "https://stealthwriter.ai/logo-icon.svg",
     "status": "available",
     "description": "خدمة Humanize وإعادة صياغة النصوص.",
     "plans": [
@@ -1051,6 +1052,7 @@ const products = [
     "name": "Magic Patterns",
     "category": "AI Tools",
     "logo": "magicpatterns",
+    "logoUrl": "https://cdn.magicpatterns.com/uploads/aGFyTh3hH3Nc3yUbKfonCA/logo-%28gradient%29.svg",
     "status": "available",
     "description": "إنشاء واجهات وتجارب رقمية من الأوصاف النصية.",
     "plans": [
@@ -1234,6 +1236,7 @@ const products = [
     "name": "Jam Team",
     "category": "الإنتاجية",
     "logo": "jam",
+    "logoUrl": "https://storage.googleapis.com/jam-assets/icons/jam.png",
     "status": "available",
     "description": "تسجيل ومشاركة مشكلات المواقع والتعاون عليها مع الفريق.",
     "plans": [

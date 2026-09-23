@@ -48,7 +48,7 @@
       const id=new URL(link.getAttribute('href'),location.href).searchParams.get('id');
       const product=Catalog.getProduct(id);
       if(!product)return;
-      const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260924-brand9':'';
+      const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260924-brand10':'';
       const src=product.logoUrl||local;
       if(local)img.dataset.fallback=local;
       if(src)img.src=src;
