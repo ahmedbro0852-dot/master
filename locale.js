@@ -407,6 +407,7 @@
     setMarket,setLanguage,t,apply
   };
 
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
-  else init();
+  // Scripts are loaded at the end of <body>, so initialize immediately.
+  // This makes the selected market/language available before app.js/product-page.js render.
+  init();
 })();

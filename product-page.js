@@ -222,6 +222,7 @@
   }
   radios.forEach(r=>r.onchange=renderDetails);
   renderDetails();
+  if(window.MasterLocale)window.MasterLocale.apply(); // re-translate dynamic product content
 
   function refreshLocalizedProductPrices(){
     document.querySelectorAll('.plan-option').forEach((label,i)=>{
@@ -229,6 +230,7 @@
       if(price&&plans[i])price.textContent=MasterStore.planMoney(plans[i]);
     });
     renderDetails();
+    if(window.MasterLocale)window.MasterLocale.apply();
   }
   document.addEventListener('masterstore:localechange',refreshLocalizedProductPrices);
 
