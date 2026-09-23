@@ -50,7 +50,7 @@
         (plans.length?plans.map((plan,i)=>
           '<label class="plan-option">'+
             '<input type="radio" name="plan" value="'+i+'" '+(i===0?'checked':'')+' '+(!active?'disabled':'')+'>'+
-            '<span><b>'+MasterStore.escapeHtml(plan.name||plan.duration)+'</b><small>'+MasterStore.escapeHtml(plan.duration||'')+'</small></span>'+
+            '<span><b>'+MasterStore.escapeHtml(plan.name||plan.duration)+'</b><small>'+MasterStore.escapeHtml(planTier(p,plan))+' · '+MasterStore.escapeHtml(plan.duration||'')+' · '+MasterStore.escapeHtml(subscriptionType(plan))+'</small></span>'+
             '<strong>'+MasterStore.planMoney(plan)+'</strong>'+
           '</label>'
         ).join(''):'<div class="notice">الخدمة غير متاحة للطلب حاليًا.</div>')+
@@ -71,6 +71,40 @@
   function selectedPlan(){
     const r=radios.find(x=>x.checked);
     return plans[Number(r?.value||0)]||null;
+  }
+
+  function planTier(product,plan){
+    const explicit=(plan.planType||'').trim();
+    if(explicit)return explicit;
+    const source=((plan.name||'')+' '+(product.name||'')).trim();
+    const tiers=['Pro Lite','Premium','Professional','Business','Essentials','Enterprise','Team','Scale','Hobby','Starter','Plus','Pro','Basic'];
+    const found=tiers.find(t=>source.toLowerCase().includes(t.toLowerCase()));
+    if(found)return found;
+    if(/عائلي|family/i.test(source))return 'Family';
+    if(/مشترك|shared/i.test(source))return 'Shared';
+    if(/خاص|private/i.test(source))return 'Private';
+    const cleaned=(plan.name||'')
+      .replace(/\d+\s*(?:أيام?|يوم|شهور?|شهر|سنوات?|سنة)/g,'')
+      .replace(/[—-]+/g,' ')
+      .trim();
+    return cleaned || 'Standard';
+  }
+
+  function subscriptionType(plan){
+    const explicit=(plan.accountType||'').trim();
+    if(explicit)return explicit;
+    const account=(plan.account||'').trim();
+    const activation=(plan.activation||'').trim();
+    const source=account+' '+activation;
+    if(/مشترك/i.test(source))return 'مشترك';
+    if(/عائلي|مشاركة عائلية|دعوات عائلية/i.test(source))return 'عائلي';
+    if(/بدون حساب|خدمة ملف|ملف واحد/i.test(source))return 'خدمة بدون حساب';
+    if(/حساب العميل|الشخصي|حساب شخصي|بريد العميل|بريدك|البريد الشخصي/i.test(source))return 'على حسابك الشخصي';
+    if(/حساب خاص/i.test(source))return 'حساب خاص';
+    if(/حساب جاهز|بيانات دخول|إيميل وكلمة مرور|احتفظ بالبيانات|احتفظ بإعدادات/i.test(source))return 'حساب جاهز';
+    if(/دعوة/i.test(source))return 'دعوة للحساب/الفريق';
+    if(/حسب المتوفر|حسب العرض/i.test(source))return 'يُحدد حسب المتوفر';
+    return account || 'يُحدد قبل الدفع';
   }
 
   const serviceFeatures={
@@ -175,8 +209,10 @@
       '<dl class="details-list">'+
         '<div><dt>السعر</dt><dd>'+MasterStore.planMoney(plan)+'</dd></div>'+
         (plan.oldPrice?'<div><dt>السعر قبل العرض</dt><dd><del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>'+(saving?' <strong class="saving">وفر '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
+        '<div><dt>نوع الباقة</dt><dd>'+MasterStore.escapeHtml(planTier(p,plan))+'</dd></div>'+
         '<div><dt>المدة</dt><dd>'+MasterStore.escapeHtml(plan.duration||'غير محددة')+'</dd></div>'+
-        '<div><dt>نوع الحساب</dt><dd>'+MasterStore.escapeHtml(plan.account||'يُؤكد قبل الدفع')+'</dd></div>'+
+        '<div><dt>نوع الاشتراك</dt><dd>'+MasterStore.escapeHtml(subscriptionType(plan))+'</dd></div>'+
+        '<div><dt>طريقة الحساب</dt><dd>'+MasterStore.escapeHtml(plan.account||'يُؤكد قبل الدفع')+'</dd></div>'+
         '<div><dt>التفعيل</dt><dd>'+MasterStore.escapeHtml(plan.activation||'يُؤكد قبل الدفع')+'</dd></div>'+
         '<div><dt>الضمان</dt><dd>'+MasterStore.escapeHtml(plan.warranty||'غير محدد')+'</dd></div>'+
         (plan.credits?'<div><dt>الرصيد</dt><dd>'+MasterStore.escapeHtml(plan.credits)+'</dd></div>':'')+
