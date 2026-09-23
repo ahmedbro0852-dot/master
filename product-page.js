@@ -215,7 +215,8 @@
     "elevenlabs":["Text-to-speech generation","Realistic AI voices","Multi-language support where available","Voice-over creation","Professional audio tools"],
     "heygen":["AI video creation","Digital avatars","Text-to-video workflows","Voice and narration tools","Useful for marketing videos"],
     "turnitin":["Similarity checking","Similarity percentage report","Matched-source references","Pre-submission review support","Clear similarity report"],
-    "zoom":["Zoom Pro meetings","Improved meeting management","Additional host features","Useful for classes and meetings","Sharing and collaboration tools"]
+    "zoom":["Zoom Pro meetings","Improved meeting management","Additional host features","Useful for classes and meetings","Sharing and collaboration tools"],
+    "grammarly":["Advanced spelling and grammar correction","Writing style and clarity improvements","Advanced word and sentence suggestions","AI writing tools available in the plan","Useful for study, work, and professional writing","Fast activation with support during the subscription"]
   };
 
   function subscriptionFeatures(product,plan){

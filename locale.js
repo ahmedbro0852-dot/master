@@ -122,7 +122,7 @@
     "spotify":"Activate Spotify Premium on the customer's personal account.",
     "youtube":"Activate YouTube Premium on your personal account.",
     "kling":"Currently out of stock.",
-    "grammarly":"Coming soon to MASTER STORE.",
+    "grammarly":"Grammarly Premium with advanced writing, grammar correction, rewriting, and AI-powered assistance available in the plan.",
     "quillbot":"Coming soon to MASTER STORE.",
     "envato":"Coming soon to MASTER STORE.",
     "motion-array":"Coming soon to MASTER STORE.",
