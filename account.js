@@ -1,7 +1,10 @@
 (function(){
   'use strict';
+  const MasterStore=window.MasterStore;
+  if(!MasterStore)return;
+
   const root=document.getElementById('accountContent');
-  let profile=MasterStore.getProfile();
+  const profile=MasterStore.getProfile();
   const orders=MasterStore.getOrders();
 
   if(!profile && !orders.length){
@@ -11,11 +14,13 @@
 
   function orderCard(o){
     const date=new Date(o.createdAt);
+    const follow='https://wa.me/201500950624?text='+encodeURIComponent('متابعة طلب MASTER STORE رقم '+o.id);
     return '<article class="order-card">'+
       '<div class="order-top"><div><small>رقم الطلب</small><b>'+MasterStore.escapeHtml(o.id)+'</b></div><span class="status soon">'+MasterStore.escapeHtml(o.status||'بانتظار التأكيد')+'</span></div>'+
       '<h3>'+MasterStore.escapeHtml(o.product)+'</h3>'+
       '<p>'+MasterStore.escapeHtml(o.plan)+' — '+MasterStore.escapeHtml(o.duration||'')+'</p>'+
-      '<div class="order-meta"><span>الكمية: '+Number(o.quantity||1)+'</span><span>الإجمالي: '+MasterStore.money(o.total||0)+'</span><span>'+date.toLocaleDateString('ar-EG')+'</span></div>'+\n      '<a class="order-follow" target="_blank" rel="noopener" href="https://wa.me/201500950624?text='+encodeURIComponent('متابعة طلب MASTER STORE رقم '+o.id)+'">متابعة الطلب على واتساب</a>'+
+      '<div class="order-meta"><span>الكمية: '+Number(o.quantity||1)+'</span><span>الإجمالي: '+MasterStore.money(o.total||0)+'</span><span>'+date.toLocaleDateString('ar-EG')+'</span></div>'+
+      '<a class="order-follow" target="_blank" rel="noopener" href="'+follow+'">متابعة الطلب على واتساب</a>'+
     '</article>';
   }
 
