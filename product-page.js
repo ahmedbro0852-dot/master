@@ -20,7 +20,7 @@
 
   function icon(product){
     const fallback=(product.name||'M').split(/\s+/).map(x=>x[0]).join('').slice(0,2);
-    return '<span class="product-logo big">'+(product.logo?'<img src="logos/'+encodeURIComponent(product.logo)+'.svg" alt="">':'')+'<span class="logo-fallback">'+fallback+'</span></span>';
+    return '<span class="product-logo big">'+(product.logo?'<img src="logos/'+encodeURIComponent(product.logo)+'.svg" alt="" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\'">':'')+'<span class="logo-fallback">'+fallback+'</span></span>';
   }
 
   if(!p){
