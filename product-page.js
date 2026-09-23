@@ -11,6 +11,10 @@
   const toast=document.getElementById('toast');
   const params=new URLSearchParams(location.search);
   const p=getProduct(params.get('id'));
+  const Locale=window.MasterLocale;
+  const isEn=()=>Locale?.getState().language==='en';
+  const ui=(ar,en)=>isEn()?en:ar;
+  const tr=(value,kind)=>Locale?.catalogText(value,kind,p?.id) ?? String(value??'');
 
   function showToast(text){
     toast.textContent=text;
@@ -42,15 +46,15 @@
   root.innerHTML=
     '<section class="product-hero">'+
       '<a class="back-link" href="index.html#products">← كل المنتجات</a>'+
-      '<div class="product-title">'+icon(p)+'<div><span class="eyebrow">'+MasterStore.escapeHtml(p.category)+'</span><h1>'+MasterStore.escapeHtml(p.name)+'</h1><p>'+MasterStore.escapeHtml(p.description||'')+'</p></div></div>'+
-      '<span class="status '+(p.status==='available'?'ok':p.status==='soon'?'soon':'out')+'">'+statusLabel(p.status)+'</span>'+
+      '<div class="product-title">'+icon(p)+'<div><span class="eyebrow">'+MasterStore.escapeHtml(tr(p.category,'category'))+'</span><h1>'+MasterStore.escapeHtml(p.name)+'</h1><p>'+MasterStore.escapeHtml(tr(p.description||'','description'))+'</p></div></div>'+
+      '<span class="status '+(p.status==='available'?'ok':p.status==='soon'?'soon':'out')+'">'+tr(statusLabel(p.status),'status')+'</span>'+
     '</section>'+
     '<section class="product-layout">'+
       '<div class="plans-block"><h2>اختار الباقة</h2>'+
         (plans.length?plans.map((plan,i)=>
           '<label class="plan-option">'+
             '<input type="radio" name="plan" value="'+i+'" '+(i===0?'checked':'')+' '+(!active?'disabled':'')+'>'+
-            '<span><b>'+MasterStore.escapeHtml(plan.name||plan.duration)+'</b><small>'+MasterStore.escapeHtml(planTier(p,plan))+' · '+MasterStore.escapeHtml(plan.duration||'')+' · '+MasterStore.escapeHtml(subscriptionType(plan))+'</small></span>'+
+            '<span><b>'+MasterStore.escapeHtml(tr(plan.name||plan.duration,'planName'))+'</b><small>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+' · '+MasterStore.escapeHtml(tr(plan.duration||'','duration'))+' · '+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</small></span>'+
             '<strong>'+MasterStore.planMoney(plan)+'</strong>'+
           '</label>'
         ).join(''):'<div class="notice">الخدمة غير متاحة للطلب حاليًا.</div>')+
@@ -192,7 +196,34 @@
     "الترفيه":["تجربة أفضل من الخطة المجانية","مزايا Premium إضافية","تقليل القيود","سهولة الوصول للمحتوى","مناسب للهاتف والكمبيوتر","تجربة أكثر سلاسة","مزايا مشاهدة أو استماع إضافية","استخدام يومي أفضل"]
   };
 
+
+  const englishCategoryFeatures={
+    "AI Tools":["Premium AI tools and higher usage limits","Faster research, writing, and content creation","Analysis and productivity workflows","Useful for study, work, and digital projects","Premium features included with the selected plan"],
+    "التصميم":["Professional design and content-creation tools","Premium templates, assets, or editing features","Useful for social media and creative projects","Faster visual production workflows","Premium features included with the selected plan"],
+    "التعليم":["Structured learning and practice tools","Useful for students, teachers, and self-learning","Interactive study and review features","Progress-focused learning experience","Premium features included with the selected plan"],
+    "الإنتاجية":["Tools for faster everyday workflows","Better organization for tasks and projects","Useful for personal and professional work","Reduced manual work and improved productivity","Premium features included with the selected plan"],
+    "VPN والحماية":["Encrypted VPN connection","Safer use on public Wi-Fi","Multiple server locations depending on the service","Improved privacy while browsing","Premium features included with the selected plan"],
+    "الترفيه":["Premium entertainment experience","Fewer restrictions than the free tier","Extra playback, viewing, or listening features","Suitable for supported devices","Premium features included with the selected plan"]
+  };
+  const englishServiceFeatures={
+    "chatgpt-plus":["Advanced ChatGPT capabilities","File, image, and document analysis","Writing, coding, and research assistance","Content generation and summarization","Problem solving and explanations","Useful for study and professional work"],
+    "gemini-pro":["Advanced Gemini models with higher limits","Gemini Live conversations","Deep Research","File, document, and image analysis","Long-context workflows","AI image creation and editing","Google app integrations where available","NotebookLM higher limits where included","Coding and research assistance","5 TB Google One storage where included by the plan"],
+    "claude-pro":["Advanced Claude models","Long-form writing and analysis","File analysis","Coding assistance","Summarization","Editing and rewriting"],
+    "perplexity-pro":["AI-powered search","Source-backed answers","Deep research","File analysis","Result summarization","Multi-source comparison"],
+    "canva-pro":["Premium Canva templates","Larger media and asset library","Background remover","AI design tools","Quick resize tools","Brand Kit features"],
+    "capcut-pro":["Pro video editing tools","Premium effects and transitions","Professional templates","AI video tools","Audio enhancement tools","Creator-focused editing features"],
+    "elevenlabs":["Text-to-speech generation","Realistic AI voices","Multi-language support where available","Voice-over creation","Professional audio tools"],
+    "heygen":["AI video creation","Digital avatars","Text-to-video workflows","Voice and narration tools","Useful for marketing videos"],
+    "turnitin":["Similarity checking","Similarity percentage report","Matched-source references","Pre-submission review support","Clear similarity report"],
+    "zoom":["Zoom Pro meetings","Improved meeting management","Additional host features","Useful for classes and meetings","Sharing and collaboration tools"]
+  };
+
   function subscriptionFeatures(product,plan){
+    if(isEn()){
+      const base=englishServiceFeatures[product.id]||englishCategoryFeatures[product.category]||englishCategoryFeatures["AI Tools"];
+      const extra=plan.credits?[tr(plan.credits,'credits')]:[];
+      return [...new Set([product.name+' premium access',...base,...extra])].slice(0,product.id==="gemini-pro"?12:10);
+    }
     const base=[...(serviceFeatures[product.id]||[]),...(product.features||[]),...(plan.features||[])];
     const extras=categoryFeatureBoosters[product.category]||[];
     const unique=[...new Set([...base,...extras])];
@@ -209,15 +240,15 @@
       '<dl class="details-list">'+
         '<div><dt>السعر</dt><dd>'+MasterStore.planMoney(plan)+'</dd></div>'+
         (plan.oldPrice?'<div><dt>السعر قبل العرض</dt><dd><del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>'+(saving?' <strong class="saving">وفر '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
-        '<div><dt>نوع الباقة</dt><dd>'+MasterStore.escapeHtml(planTier(p,plan))+'</dd></div>'+
-        '<div><dt>المدة</dt><dd>'+MasterStore.escapeHtml(plan.duration||'غير محددة')+'</dd></div>'+
-        '<div><dt>نوع الاشتراك</dt><dd>'+MasterStore.escapeHtml(subscriptionType(plan))+'</dd></div>'+
-        '<div><dt>طريقة الحساب</dt><dd>'+MasterStore.escapeHtml(plan.account||'يُؤكد قبل الدفع')+'</dd></div>'+
-        '<div><dt>التفعيل</dt><dd>'+MasterStore.escapeHtml(plan.activation||'يُؤكد قبل الدفع')+'</dd></div>'+
-        '<div><dt>الضمان</dt><dd>'+MasterStore.escapeHtml(plan.warranty||'غير محدد')+'</dd></div>'+
-        (plan.credits?'<div><dt>الرصيد</dt><dd>'+MasterStore.escapeHtml(plan.credits)+'</dd></div>':'')+
+        '<div><dt>نوع الباقة</dt><dd>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+'</dd></div>'+
+        '<div><dt>المدة</dt><dd>'+MasterStore.escapeHtml(tr(plan.duration||'غير محددة','duration'))+'</dd></div>'+
+        '<div><dt>نوع الاشتراك</dt><dd>'+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</dd></div>'+
+        '<div><dt>طريقة الحساب</dt><dd>'+MasterStore.escapeHtml(tr(plan.account||'يُؤكد قبل الدفع','account'))+'</dd></div>'+
+        '<div><dt>التفعيل</dt><dd>'+MasterStore.escapeHtml(tr(plan.activation||'يُؤكد قبل الدفع','activation'))+'</dd></div>'+
+        '<div><dt>الضمان</dt><dd>'+MasterStore.escapeHtml(tr(plan.warranty||'غير محدد','warranty'))+'</dd></div>'+
+        (plan.credits?'<div><dt>الرصيد</dt><dd>'+MasterStore.escapeHtml(tr(plan.credits,'credits'))+'</dd></div>':'')+
       '</dl>'+
-      (notes.length?'<div class="plan-notes"><b>ملاحظات مهمة</b><ul>'+notes.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'');
+      (notes.length?'<div class="plan-notes"><b>ملاحظات مهمة</b><ul>'+notes.map(n=>'<li>'+MasterStore.escapeHtml(tr(n,'note'))+'</li>').join('')+'</ul></div>':'');
     planFeatures.innerHTML=features.length?'<div class="plan-features"><b>مميزات الاشتراك</b><ul>'+features.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'';
   }
   radios.forEach(r=>r.onchange=renderDetails);
@@ -225,12 +256,24 @@
   if(window.MasterLocale)window.MasterLocale.apply(); // re-translate dynamic product content
 
   function refreshLocalizedProductPrices(){
+    const categoryEl=document.querySelector('.product-title .eyebrow');
+    const descEl=document.querySelector('.product-title p');
+    const statusEl=document.querySelector('.product-hero>.status');
+    if(categoryEl)categoryEl.textContent=tr(p.category,'category');
+    if(descEl)descEl.textContent=tr(p.description||'','description');
+    if(statusEl)statusEl.textContent=tr(statusLabel(p.status),'status');
     document.querySelectorAll('.plan-option').forEach((label,i)=>{
+      const plan=plans[i];
+      if(!plan)return;
+      const name=label.querySelector('span b');
+      const meta=label.querySelector('span small');
       const price=label.querySelector('strong');
-      if(price&&plans[i])price.textContent=MasterStore.planMoney(plans[i]);
+      if(name)name.textContent=tr(plan.name||plan.duration,'planName');
+      if(meta)meta.textContent=tr(planTier(p,plan),'planName')+' · '+tr(plan.duration||'','duration')+' · '+tr(subscriptionType(plan),'accountType');
+      if(price)price.textContent=MasterStore.planMoney(plan);
     });
     renderDetails();
-    if(window.MasterLocale)window.MasterLocale.apply();
+    Locale?.apply();
   }
   document.addEventListener('masterstore:localechange',refreshLocalizedProductPrices);
 
@@ -255,6 +298,7 @@
         '<small class="form-note">بياناتك تستخدم لإتمام الطلب والتواصل معك فقط.</small>'+
       '</form>';
 
+    Locale?.apply();
     dialog.showModal();
     checkoutContent.querySelector('.dialog-close').onclick=()=>dialog.close();
 

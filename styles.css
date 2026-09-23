@@ -143,39 +143,6 @@ footer{max-width:1180px;margin:auto;border-top:1px solid var(--line);padding:32p
 }
 @media(prefers-reduced-motion:reduce){.lane-track{animation:none}}
 
-/* richer product cards */
-.card-specs{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 15px}
-.spec{min-width:0;border:1px solid #e6eaf1;background:#fafbfe;border-radius:10px;padding:7px 9px;display:grid;gap:2px;flex:1 1 95px}
-.spec small{font-size:7px;color:#929baa;line-height:1}
-.spec b{font-size:9px;color:#374257;line-height:1.45;white-space:normal}
-.spec.credit{background:#fff9e8;border-color:#ecd789}
-.spec.credit small{color:#9a761a}.spec.credit b{color:#725400}
-.price-box{min-width:0}.price-box del{display:block;font-size:9px;color:#a0a7b3;margin-top:1px}
-.product-card{min-height:350px}
-.product-card .desc{min-height:39px}
-@media(max-width:580px){
-  .product-card{min-height:0}
-  .card-specs{margin-bottom:13px}
-  .spec{flex-basis:88px}
-}
-
-/* product service details + durations */
-.plan-preview{margin:3px 0 10px}
-.preview-label{display:block;font-size:8px;font-weight:800;color:#7c8798;margin-bottom:6px}
-.duration-chips{display:flex;gap:6px;flex-wrap:wrap}
-.duration-chip{display:grid;grid-template-columns:auto auto;column-gap:6px;align-items:center;border:1px solid #dfe5ef;background:#f9fbff;border-radius:9px;padding:6px 8px}
-.duration-chip b{font-size:9px;color:var(--navy);line-height:1.2}
-.duration-chip small{grid-column:1/-1;font-size:7px;color:#8a93a3;line-height:1.25;margin-top:2px}
-.duration-chip em{font-style:normal;font-size:8px;font-weight:800;color:var(--blue);white-space:nowrap}
-.service-extra{display:flex;align-items:flex-start;gap:7px;border-top:1px dashed #e4e8ef;border-bottom:1px dashed #e4e8ef;padding:8px 0;margin:2px 0 10px}
-.service-extra small{font-size:8px;font-weight:800;color:#8d96a5;min-width:38px}
-.service-extra span{font-size:8px;line-height:1.55;color:#505c70}
-.product-card{min-height:430px}
-@media(max-width:580px){
-  .product-card{min-height:0}
-  .duration-chip{padding:6px 7px}
-}
-
 /* Final storefront polish */
 :root{
   --page:#fbfcfe;
@@ -699,22 +666,6 @@ footer p,footer small{font-size:9px}
   .discount-note{margin-top:-5px}
 }
 
-/* Logo consistency pass */
-.light-card .product-logo img,
-.product-logo.big img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  transform:scale(1.04);
-}
-.light-card .product-logo{
-  background:#fff;
-}
-.logo-fallback{
-  text-transform:uppercase;
-  letter-spacing:.3px;
-}
-
 /* Commercial storefront pass */
 .offer-bar{
   min-height:36px;
@@ -963,20 +914,6 @@ footer{
   }
 }
 
-/* Slightly larger product detail typography */
-.product-title p{font-size:12px}
-.plans-block h2,.summary-card h2{font-size:17px}
-.plan-option span b{font-size:12px}
-.plan-option span small{font-size:10px}
-.details-list dt{font-size:10px}
-.details-list dd{font-size:11px;line-height:1.8}
-.plan-notes b{font-size:12px}
-.plan-notes ul{font-size:11px}
-.safe-note{font-size:10px}
-.checkout-head p{font-size:11px}
-.checkout-form label>span{font-size:10px}
-.checkout-form input,.checkout-form select{font-size:11px}
-
 /* Brand asset quality pass */
 .light-card .product-logo,
 .product-logo.big{
@@ -1097,18 +1034,6 @@ footer{
   }
   .market-switcher select:first-child{flex:1;max-width:none}
   .market-switcher select:last-child{width:96px}
-}
-
-
-/* WhatsApp icon buttons */
-.whatsapp-icon{display:block;width:22px;height:22px;object-fit:contain}
-.hero-actions .whatsapp-only{width:46px;min-width:46px;padding:10px}
-.support-fab{min-width:unset;width:auto;justify-content:center;gap:8px}
-.support-fab .whatsapp-icon{width:24px;height:24px}
-@media(max-width:580px){
-  .hero-actions{grid-template-columns:1fr auto}
-  .support-fab{min-width:unset;width:auto;padding:10px}
-  .support-fab b{display:none}
 }
 
 

@@ -64,6 +64,37 @@
     const en=window.MasterLocale?.getState().language==='en';
     return en?(categoryEn[c]||c):c;
   }
+
+  function tr(value,kind,id){
+    return window.MasterLocale?.catalogText(value,kind,id) ?? String(value??'');
+  }
+  function refreshLocalizedCards(){
+    if(!Catalog)return;
+    const en=window.MasterLocale?.getState().language==='en';
+    cards.forEach(card=>{
+      const link=card.querySelector('a[href*="product.html?id="]');
+      if(!link)return;
+      const id=new URL(link.getAttribute('href'),location.href).searchParams.get('id');
+      const product=Catalog.getProduct(id);
+      if(!product)return;
+      const desc=card.querySelector('.desc');
+      const category=card.querySelector('.category');
+      const status=card.querySelector('.status');
+      const duration=card.querySelector('.light-meta span');
+      const button=card.querySelector('.card-btn');
+      const firstPlan=product.plans?.[0];
+      if(desc)desc.textContent=tr(product.description,'description',id);
+      if(category)category.textContent=tr(product.category,'category',id);
+      if(status)status.textContent=tr(Catalog.statusLabel(product.status),'status',id);
+      if(duration)duration.textContent=firstPlan?tr(firstPlan.duration,'duration',id):(en?'Unavailable':'غير متوفر');
+      if(button)button.innerHTML=(en?'View plans':'شوف الباقات')+' <span>'+(en?'→':'←')+'</span>';
+      card.dataset.search=[
+        product.name,tr(product.description,'description',id),tr(product.category,'category',id),
+        ...(product.plans||[]).map(p=>tr(p.name||p.duration,'planName',id))
+      ].join(' ').toLowerCase();
+    });
+    if(empty)empty.textContent=en?'No matching results.':'مفيش نتيجة مطابقة.';
+  }
   function refreshLocalizedCategories(){
     cards.forEach(card=>{
       const el=card.querySelector('.category');
@@ -74,6 +105,8 @@
   document.addEventListener('masterstore:localechange',()=>{
     refreshLocalizedPrices();
     refreshLocalizedCategories();
+    refreshLocalizedCards();
+    apply();
   });
   let selected='الكل';
 
@@ -91,7 +124,7 @@
   }
 
   function drawFilters(){
-    filters.innerHTML=categories.map(c=>'<button class="filter '+(c===selected?'active':'')+'" type="button" data-cat="'+c+'" aria-pressed="'+(c===selected?'true':'false')+'">'+c+'</button>').join('');
+    filters.innerHTML=categories.map(c=>'<button class="filter '+(c===selected?'active':'')+'" type="button" data-cat="'+c+'" aria-pressed="'+(c===selected?'true':'false')+'">'+categoryLabel(c)+'</button>').join('');
     filters.querySelectorAll('button').forEach(btn=>{
       btn.addEventListener('click',()=>{
         selected=btn.dataset.cat;
@@ -105,5 +138,6 @@
   drawFilters();
   apply();
   refreshLocalizedCategories();
+  refreshLocalizedCards();
   refreshLocalizedPrices();
 })();

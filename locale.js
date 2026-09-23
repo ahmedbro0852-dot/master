@@ -61,9 +61,210 @@
     'غير محددة':'Not specified','يُؤكد قبل الدفع':'Confirmed before payment','بانتظار التأكيد':'Pending confirmation',
     'بيانات التواصل':'Contact details','خصوصية بياناتك':'Your privacy',
     'مفيش نتيجة مطابقة.':'No matching results.','اختار منتج':'Choose a product',
-    'لسه مفيش طلبات محفوظة.':'No saved orders yet.'
+    'لسه مفيش طلبات محفوظة.':'No saved orders yet.',
+    'شوف الباقات':'View plans',
+    'الخدمة غير متاحة للطلب حاليًا.':'This service is currently unavailable for ordering.',
+    'بعد إرسال الطلب، فريق الدعم هيتواصل معاك لتأكيد التوفر وبيانات الدفع.':'After you send the order, support will confirm availability and payment details.',
+    'اختار الباقة المناسبة وسيب الباقي علينا.':'Choose the right plan and we will handle the rest.',
+    'اشتراكات وخدمات رقمية بأسعار مميزة ودعم مباشر قبل وبعد الطلب.':'Digital subscriptions and services at competitive prices with direct support before and after ordering.',
+    'رقم الطلب هو أسرع طريقة للمتابعة مع خدمة العملاء.':'Your order ID is the fastest way to follow up with customer support.',
+    'الأسماء والعلامات التجارية مملوكة لأصحابها.':'Names and trademarks belong to their respective owners.',
+    'الأسماء والعلامات التجارية مملوكة لأصحابها، ولا تعني عرض المنتجات وجود شراكة رسمية مع الشركات المالكة.':'Names and trademarks belong to their respective owners. Product listings do not imply an official partnership.',
+    'تعديل بيانات التواصل':'Edit contact details',
+    'حدّث البيانات المستخدمة في متابعة طلباتك.':'Update the contact details used to follow up on your orders.',
+    'إلغاء':'Cancel',
+    'حفظ التعديلات':'Save changes',
+    'لسه ماعملتش طلب':'No orders yet',
+    'اختار الخدمة المناسبة، ولما ترسل أول طلب هتقدر ترجع هنا لمتابعته بسهولة.':'Choose a service and your first order will appear here for easy tracking.',
+    'بيانات الطلبات محفوظة على المتصفح الحالي لتسهيل المتابعة، لذلك قد لا تظهر تلقائيًا عند استخدام جهاز مختلف.':'Order data is stored in this browser for easier tracking and may not appear automatically on another device.',
+    'الأكثر طلبًا':'Most requested',
+    'عروض مختارة':'Selected offers'
   };
   const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e,a]));
+
+
+  const PRODUCT_DESC_EN={
+    "chatgpt-plus":"Activate ChatGPT Plus on the customer's personal account.",
+    "gemini-pro":"Two 18-month options with the same core benefits; the family plan adds 5 extra invitations alongside the manager account.",
+    "claude-pro":"Activate Claude Pro on your personal account using the store's payment method.",
+    "perplexity-pro":"A ready private Perplexity Pro account with full warranty under the current store offer.",
+    "lovable-pro":"A 12-month Lovable Pro subscription.",
+    "lovable-lite":"An annual Lovable plan with base credits plus daily credits.",
+    "runway-pro":"This service is currently unavailable.",
+    "wink-ai":"A ready account for Wink AI tools.",
+    "grok":"A short-term ready Grok account at a promotional price.",
+    "gamma-plus":"A ready Gamma Plus account.",
+    "gamma-account":"One Gamma account with 10 workspaces, each including 2,000 credits.",
+    "elevenlabs":"A ready ElevenLabs account with the plan's included credits.",
+    "heygen":"A ready HeyGen account with 1,250 credits.",
+    "canva-pro":"Activate Canva Pro on your personal email.",
+    "capcut-pro":"Ready CapCut Pro accounts with multiple durations and different credit amounts.",
+    "figma":"A 12-month Figma subscription.",
+    "freepik":"A ready Freepik account for one month.",
+    "adobe-cc":"Currently out of stock.",
+    "duolingo":"A one-year Duolingo subscription on your personal email.",
+    "elsa":"ELSA Speak subscription for pronunciation and conversation practice.",
+    "coursera":"Coursera options with different durations and account types.",
+    "quizizz":"Quizizz subscription activated on the customer's email.",
+    "wordwall":"Wordwall Pro subscription for one month or one year.",
+    "turnitin":"One-file similarity check with a similarity report.",
+    "microsoft-365":"A one-year Microsoft 365 subscription.",
+    "notion":"Notion Plus and Business plans with different durations.",
+    "linkedin-premium":"Activate LinkedIn Premium on your personal account through a one-time activation link.",
+    "zoom":"Zoom Pro subscriptions with multiple durations, delivered as a ready account or activated on your email.",
+    "stealth-writer":"Humanize and text rewriting service.",
+    "icloud":"An iCloud storage offer with a total capacity of 4 TB.",
+    "surfshark":"A two-month Surfshark coupon.",
+    "nordvpn":"A three-month NordVPN subscription.",
+    "proton-vpn":"A one-year Proton VPN account for one device.",
+    "hma-vpn":"A short-term HMA VPN offer.",
+    "expressvpn":"A short-term ExpressVPN subscription.",
+    "spotify":"Activate Spotify Premium on the customer's personal account.",
+    "youtube":"Activate YouTube Premium on your personal account.",
+    "kling":"Currently out of stock.",
+    "grammarly":"Coming soon to MASTER STORE.",
+    "quillbot":"Coming soon to MASTER STORE.",
+    "envato":"Coming soon to MASTER STORE.",
+    "motion-array":"Coming soon to MASTER STORE.",
+    "suno":"Coming soon to MASTER STORE.",
+    "murf":"Coming soon to MASTER STORE.",
+    "discord":"Coming soon to MASTER STORE.",
+    "midjourney":"This service is currently unavailable.",
+    "leonardo-ai":"This service is currently unavailable.",
+    "manus":"An AI agent for executing tasks, research, and workflow organization.",
+    "gumloop":"Automate workflows and connect AI-powered tasks.",
+    "magic-patterns":"Create interfaces and digital experiences from text prompts.",
+    "factory-pro":"A plan for developers and teams building software with AI assistance.",
+    "framer-pro":"Design and publish interactive websites quickly with less complexity.",
+    "supabase-pro":"Database, authentication, and backend infrastructure for digital projects.",
+    "railway-hobby":"A Hobby plan for running and deploying projects and applications.",
+    "pangram-pro":"Professional tools for content analysis and text workflows.",
+    "supercut-pro":"A Pro plan for content creation and editing tools.",
+    "wispr-flow-pro":"Smart voice dictation and speech-to-text while you work.",
+    "mobbin-team":"A reference library for UI and UX design.",
+    "granola-business":"AI-assisted meeting notes, organization, and follow-up.",
+    "jam-team":"Record, share, and collaborate on website issues with your team.",
+    "readwise-reader":"Save, organize, and review articles, books, and notes.",
+    "waking-up":"Full access to the Waking Up app.",
+    "linear-business":"Project and task management for teams on the Business plan.",
+    "posthog-scale":"Product analytics and user behavior tools on the Scale plan.",
+    "customerio-essentials":"Messaging and automated customer communication tools."
+  };
+  const CATEGORY_EN={
+    "AI Tools":"AI Tools","التصميم":"Design","التعليم":"Education",
+    "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
+  };
+  const CATALOG_EXACT_EN={
+    "ضمان كامل":"Full warranty",
+    "حساب العميل الشخصي":"Customer's personal account",
+    "حساب العميل":"Customer account",
+    "حساب شخصي":"Personal account",
+    "حساب خاص":"Private account",
+    "حساب خاص جاهز":"Ready private account",
+    "حساب جاهز":"Ready-made account",
+    "بيانات دخول الحساب":"Account login credentials",
+    "إيميل وكلمة مرور":"Email and password",
+    "حسب المتوفر":"Subject to availability",
+    "حسب العرض":"According to the offer",
+    "تفعيل على حساب العميل.":"Activation on the customer's account.",
+    "تفعيل على البريد الشخصي.":"Activation on your personal email.",
+    "تفعيل على بريد العميل.":"Activation on the customer's email.",
+    "تفعيل مباشر على حساب Lovable":"Direct activation on the Lovable account.",
+    "تسليم حساب جاهز.":"Ready account delivery.",
+    "تسليم حساب جاهز":"Ready account delivery.",
+    "تسليم حساب.":"Account delivery.",
+    "تسليم حساب":"Account delivery.",
+    "تسليم حساب خاص.":"Private account delivery.",
+    "تسليم حساب مشترك.":"Shared account delivery.",
+    "دعوة أو حساب":"Invitation or account",
+    "دعوة أو حساب.":"Invitation or account.",
+    "دعوة إلى Team.":"Team invitation.",
+    "تسليم أو تفعيل":"Delivery or activation",
+    "شخصي أو جاهز":"Personal or ready-made account",
+    "مشاركة عائلية":"Family sharing",
+    "دعوة Apple ID عبر المشاركة العائلية.":"Apple ID invitation via Family Sharing.",
+    "خدمة ملف — بدون حساب":"File service — no account required",
+    "حساب فردي":"Individual account",
+    "حساب جاهز — جهاز واحد":"Ready account — one device",
+    "حساب واحد — الحد الأقصى للكمية 1":"One account — maximum quantity: 1",
+    "حساب العميل الشخصي — بدون طلب كلمة مرور Gmail":"Customer's personal account — Gmail password is not requested",
+    "احتفظ بالبيانات الأصلية":"Keep the original account details",
+    "احتفظ بإعدادات الفريق":"Keep the original team settings",
+    "احتفظ بالبيانات الأصلية عند استلام حساب جاهز":"Keep the original credentials when receiving a ready account",
+    "غير محدد":"Not specified","غير محددة":"Not specified",
+    "يُؤكد قبل الدفع":"Confirmed before payment","يُحدد قبل الدفع":"Confirmed before payment",
+    "يُحدد حسب المتوفر":"Subject to availability",
+    "على حسابك الشخصي":"On your personal account",
+    "دعوة للحساب/الفريق":"Account/team invitation",
+    "خدمة بدون حساب":"No-account service",
+    "مشترك":"Shared","عائلي":"Family",
+    "الخدمة غير متوفرة حاليًا.":"This service is currently unavailable.",
+    "المخزون غير متوفر حاليًا.":"Currently out of stock.",
+    "المخزون منتهٍ حاليًا.":"Currently out of stock.",
+    "قريبًا في MASTER STORE.":"Coming soon to MASTER STORE.",
+    "فحص ملف":"File check","ملف واحد":"One file",
+    "اشتراك كامل":"Full subscription","خطة سنوية":"Annual plan","خطة شهر":"Monthly plan",
+    "حساب Freepik":"Freepik account","كوبون شهرين":"2-month coupon",
+    "عرض HMA":"HMA offer","عرض 10 أيام":"10-day offer",
+    "300 Credit + 5 Credits يوميًا لمدة سنة":"300 credits + 5 daily credits for one year",
+    "1,000 Credit شهريًا":"1,000 credits per month",
+    "1,000 Credit شهريًا لكل حساب":"1,000 credits per month for each account",
+    "20,000 Credit إجماليًا":"20,000 total credits",
+    "Credits الخطة — العدد الدقيق يُؤكد قبل الدفع":"Plan credits — exact amount confirmed before payment",
+    "لا يتم تخزين بيانات دخولك داخل الموقع.":"Your login credentials are not stored on this website.",
+    "السعر خاص بعرض المتجر الحالي.":"This price applies to the current store offer.",
+    "يفضل عدم تغيير كلمة المرور حتى لا تتأثر خدمة الدعم/الضمان.":"Avoid changing the password so support and warranty coverage are not affected.",
+    "طريقة التسليم والضمان يتم تأكيدهما قبل التحويل.":"Delivery and warranty details are confirmed before payment.",
+    "غيّر كلمة المرور فور الاستلام.":"Change the password immediately after delivery.",
+    "لا يوجد ضمان لنسيان كلمة المرور.":"Password loss is not covered by warranty.",
+    "لا يوجد اعتراض على عدم وجود Credits في باقة 7 أيام.":"The 7-day plan does not guarantee included credits.",
+    "يمكن الاعتراض إذا كان الرصيد المتفق عليه غير موجود.":"Contact support if the agreed credit balance is missing.",
+    "الخدمة لا تضمن درجة أكاديمية أو نتيجة معينة.":"The service does not guarantee a specific academic grade or result.",
+    "بعد فتح/استخدام رابط التفعيل يُعتبر مستهلكًا ولا يمكن إعادة استخدامه.":"Once the activation link is opened or used, it is consumed and cannot be reused.",
+    "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي.":"There is no 100% guarantee of bypassing every AI-content detector."
+  };
+  function catalogText(value,kind,productId){
+    const raw=String(value??"");
+    if(state.language!=="en"||!raw)return raw;
+    if(kind==="description"&&PRODUCT_DESC_EN[productId])return PRODUCT_DESC_EN[productId];
+    if(kind==="category")return CATEGORY_EN[raw]||raw;
+    if(CATALOG_EXACT_EN[raw])return CATALOG_EXACT_EN[raw];
+    let s=raw
+      .replace(/(\d+)\s*أيام?/g,"$1 days")
+      .replace(/(\d+)\s*يوم/g,"$1 days")
+      .replace(/(\d+)\s*شهور?/g,"$1 months")
+      .replace(/(\d+)\s*شهر/g,"$1 months")
+      .replace(/(\d+)\s*سنوات?/g,"$1 years")
+      .replace(/(\d+)\s*سنة/g,"$1 years")
+      .replace(/حساب خاص/g,"Private account")
+      .replace(/حساب مشترك/g,"Shared account")
+      .replace(/حساب جاهز/g,"Ready account")
+      .replace(/حساب العميل/g,"Customer account")
+      .replace(/البريد الشخصي/g,"personal email")
+      .replace(/بريد العميل/g,"customer email")
+      .replace(/بدون بطاقة/g,"no card required")
+      .replace(/ضمان كامل/g,"Full warranty")
+      .replace(/شهريًا/g,"per month")
+      .replace(/يوميًا/g,"daily")
+      .replace(/لكل حساب/g,"for each account")
+      .replace(/دعوات عائلية/g,"family invitations")
+      .replace(/العائلي/g,"Family")
+      .replace(/عرض/g,"Offer");
+    if(!/[\u0600-\u06FF]/.test(s))return s;
+    const fallback={
+      planName:"Standard plan",
+      duration:"Selected subscription term",
+      activation:"Activation or delivery details are confirmed before payment.",
+      account:"Account type is confirmed before payment.",
+      accountType:"Account type is confirmed before payment.",
+      warranty:"Warranty details are confirmed before payment.",
+      credits:"Plan credits are confirmed before payment.",
+      note:"Important usage terms apply; confirm the details with support before payment.",
+      feature:"Premium feature included with the selected plan.",
+      status:"Unavailable"
+    };
+    return fallback[kind]||s.replace(/[\u0600-\u06FF]+/g,"").replace(/\s{2,}/g," ").trim()||"Details confirmed before payment.";
+  }
 
   let state={market:'EG',language:'ar',rates:{...FALLBACK_RATES},rateSource:'fallback'};
   let applying=false;
@@ -416,7 +617,7 @@
 
   window.MasterLocale={
     MARKETS,getState,currentMarket,money,convertEGP,autoMarketAmount,formatCurrency,planAmount,planMoney,
-    setMarket,setLanguage,t,apply
+    catalogText,setMarket,setLanguage,t,apply
   };
 
   // Scripts are loaded at the end of <body>, so initialize immediately.
