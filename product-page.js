@@ -67,7 +67,7 @@
         (plans.length?plans.map((plan,i)=>
           '<label class="plan-option">'+
             '<input type="radio" name="plan" value="'+i+'" '+(i===0?'checked':'')+' '+(!active?'disabled':'')+'>'+
-            '<span><b>'+MasterStore.escapeHtml(tr(plan.name||plan.duration,'planName'))+'</b><small>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+' · '+MasterStore.escapeHtml(tr(plan.duration||'','duration'))+' · '+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</small></span>'+
+            '<span><b>'+MasterStore.escapeHtml(tr(plan.name||plan.duration,'planName'))+'</b><small>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+' · '+MasterStore.escapeHtml(tr(plan.duration||'','duration'))+' · '+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</small>'+planSavingMarkup(plan)+'</span>'+
             '<strong>'+MasterStore.planMoney(plan)+'</strong>'+
           '</label>'
         ).join(''):'<div class="notice">'+ui('الخدمة غير متاحة للطلب حاليًا.','This service is currently unavailable for ordering.')+'</div>')+
@@ -84,6 +84,13 @@
   const planDetails=document.getElementById('planDetails');
   const planFeatures=document.getElementById('planFeatures');
   const radios=[...document.querySelectorAll('input[name="plan"]')];
+
+  function planSavingMarkup(plan){
+    if(!plan||!plan.oldPrice||Number(plan.oldPrice)<=Number(plan.price))return '';
+    const saving=MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan);
+    if(saving<=0)return '';
+    return '<small class="plan-saving">'+ui('وفر','Save')+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</small>';
+  }
 
   function selectedPlan(){
     const r=radios.find(x=>x.checked);
@@ -284,6 +291,13 @@
       const price=label.querySelector('strong');
       if(name)name.textContent=tr(plan.name||plan.duration,'planName');
       if(meta)meta.textContent=tr(planTier(p,plan),'planName')+' · '+tr(plan.duration||'','duration')+' · '+tr(subscriptionType(plan),'accountType');
+      const oldSaving=label.querySelector('.plan-saving');
+      const nextSaving=planSavingMarkup(plan);
+      if(oldSaving)oldSaving.remove();
+      if(nextSaving){
+        const holder=label.querySelector('span');
+        if(holder)holder.insertAdjacentHTML('beforeend',nextSaving);
+      }
       if(price)price.textContent=MasterStore.planMoney(plan);
     });
     renderDetails();

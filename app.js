@@ -97,6 +97,12 @@
     });
   }
 
+  function savingMoney(plan){
+    if(!plan||!plan.oldPrice||Number(plan.oldPrice)<=Number(plan.price))return '';
+    const saving=Store.planAmount(plan,'oldPrice')-Store.planAmount(plan);
+    return saving>0?Store.formatCurrency(saving,Store.getMarket().currency):'';
+  }
+
   function cheapestPlan(product){
     const plans=product.plans||[];
     return plans.reduce((best,plan)=>{
@@ -140,10 +146,13 @@
       ? '<a class="card-btn soft-btn" href="product.html?id='+encodeURIComponent(product.id)+'">'+ui('شوف الباقات','View plans')+' <span aria-hidden="true">'+(isEn()?'→':'←')+'</span></a>'
       : '<button class="card-btn disabled" type="button" disabled>'+esc(status)+'</button>';
 
+    const saveText=active&&plan?savingMoney(plan):'';
+    const saveBadge=saveText?'<span class="card-saving">'+ui('وفر','Save')+' '+esc(saveText)+'</span>':'';
+
     return '<article class="product-card light-card" data-product-id="'+esc(product.id)+'" data-category="'+esc(product.category)+'" data-search="'+esc(searchText(product))+'">'+
       '<div class="card-top">'+logoMarkup(product)+'<span class="status '+statusClass(product.status)+'">'+esc(status)+'</span></div>'+
       '<div class="card-copy"><p class="category">'+esc(tr(product.category,'category',product.id))+'</p><h3>'+esc(product.name)+'</h3><p class="desc">'+esc(tr(product.description||'','description',product.id))+'</p></div>'+
-      '<div class="light-meta"><span>'+esc(metaLabel)+'</span><strong>'+esc(price)+'</strong></div>'+
+      '<div class="light-meta"><div class="light-meta-copy"><span>'+esc(metaLabel)+'</span>'+saveBadge+'</div><strong>'+esc(price)+'</strong></div>'+
       '<div class="card-bottom light-bottom">'+action+'</div>'+
     '</article>';
   }

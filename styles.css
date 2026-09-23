@@ -1384,3 +1384,40 @@ footer a{min-height:36px;display:inline-flex;align-items:center}
     scroll-behavior:auto!important;
   }
 }
+
+
+/* ===== Savings badges 2026-09-24 ===== */
+.light-meta-copy{
+  display:grid;
+  gap:6px;
+  justify-items:start;
+}
+.light-meta-copy>span:first-child{
+  width:max-content;
+}
+.card-saving,
+.plan-saving{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  border-radius:999px;
+  background:#ecfdf3;
+  border:1px solid #abefc6;
+  color:#067647;
+  font-weight:800;
+  line-height:1.2;
+}
+.card-saving{
+  padding:4px 7px;
+  font-size:9px;
+}
+.plan-saving{
+  margin-top:6px;
+  padding:5px 8px;
+  font-size:10px!important;
+}
+[dir="ltr"] .light-meta-copy{justify-items:start}
+@media(max-width:700px){
+  .card-saving{font-size:9px}
+  .plan-saving{font-size:10px!important}
+}
