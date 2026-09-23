@@ -28,6 +28,8 @@
     return;
   }
 
+  document.title=p.name+' | MASTER STORE';
+
   const active=p.status==='available';
   const plans=p.plans||[];
 
@@ -92,13 +94,13 @@
       '<div class="checkout-head"><span class="eyebrow">إكمال الطلب</span><h2>بيانات الشراء</h2><p>التسجيل بيتم عند أول طلب فقط، وبعدها هنملأ بياناتك تلقائيًا على نفس الجهاز.</p></div>'+
       '<div class="checkout-summary"><b>'+MasterStore.escapeHtml(p.name)+'</b><span>'+MasterStore.escapeHtml(plan.name)+' — '+MasterStore.escapeHtml(plan.duration)+'</span><strong>'+MasterStore.money(plan.price)+'</strong></div>'+
       '<form id="checkoutForm" class="checkout-form">'+
-        '<label><span>الاسم</span><input name="name" maxlength="80" required value="'+MasterStore.escapeHtml(profile.name||'')+'" placeholder="اسمك الكامل"></label>'+
-        '<label><span>رقم واتساب</span><input name="phone" maxlength="30" inputmode="tel" required value="'+MasterStore.escapeHtml(profile.phone||'')+'" placeholder="01xxxxxxxxx"></label>'+
-        '<label><span>البريد الإلكتروني</span><input name="email" maxlength="120" type="email" required value="'+MasterStore.escapeHtml(profile.email||'')+'" placeholder="name@example.com"></label>'+
+        '<label><span>الاسم</span><input name="name" maxlength="80" required value="'+MasterStore.escapeHtml(profile.name||'')+'" placeholder="اسمك الكامل" autocomplete="name"></label>'+
+        '<label><span>رقم واتساب</span><input name="phone" maxlength="30" inputmode="tel" required value="'+MasterStore.escapeHtml(profile.phone||'')+'" placeholder="01xxxxxxxxx" autocomplete="tel"></label>'+
+        '<label><span>البريد الإلكتروني</span><input name="email" maxlength="120" type="email" required value="'+MasterStore.escapeHtml(profile.email||'')+'" placeholder="name@example.com" autocomplete="email"></label>'+
         '<label><span>الكمية</span><select name="quantity">'+Array.from({length:maxQty},(_,i)=>'<option value="'+(i+1)+'">'+(i+1)+'</option>').join('')+'</select></label>'+
         '<label><span>طريقة الدفع المفضلة</span><select name="payment"><option>InstaPay</option><option>Vodafone Cash</option><option>Binance / USDT</option></select></label>'+
         '<label class="terms-check"><input name="agree" type="checkbox" required><span>راجعت السعر والمدة وطريقة التفعيل والضمان المكتوبين فوق، وهأكد التوفر قبل الدفع.</span></label>'+
-        '<button class="primary full" type="submit">حفظ الطلب وفتحه على واتساب</button>'+
+        '<button class="primary full" type="submit">إرسال الطلب على واتساب</button>'+
         '<small class="form-note">الموقع لا يطلب كلمة مرور حسابك ولا بيانات البطاقة ولا OTP.</small>'+
       '</form>';
 
