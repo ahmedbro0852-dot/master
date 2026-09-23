@@ -136,7 +136,8 @@ const products = [
         "account": "حساب جاهز",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://wink.ai"
   },
   {
     "id": "grok",
@@ -236,7 +237,8 @@ const products = [
         "warranty": "ضمان كامل",
         "credits": "1,250 Credit"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://heygen.com"
   },
   {
     "id": "canva-pro",
@@ -504,7 +506,8 @@ const products = [
         "account": "إيميل وكلمة مرور",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://wordwall.net"
   },
   {
     "id": "turnitin",
@@ -525,7 +528,8 @@ const products = [
           "الخدمة لا تضمن درجة أكاديمية أو نتيجة معينة."
         ]
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://turnitin.com"
   },
   {
     "id": "microsoft-365",
@@ -665,7 +669,8 @@ const products = [
           "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
         ]
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://stealthwriter.ai"
   },
   {
     "id": "icloud",
@@ -854,7 +859,8 @@ const products = [
     "logo": "",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
-    "plans": []
+    "plans": [],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://motionarray.com"
   },
   {
     "id": "suno",
@@ -872,7 +878,8 @@ const products = [
     "logo": "",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
-    "plans": []
+    "plans": [],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://murf.ai"
   },
   {
     "id": "discord",
@@ -899,7 +906,8 @@ const products = [
     "logo": "",
     "status": "out",
     "description": "الخدمة غير متوفرة حاليًا.",
-    "plans": []
+    "plans": [],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://leonardo.ai"
   },
   {
     "id": "manus",
@@ -937,7 +945,8 @@ const products = [
         "warranty": "ضمان كامل",
         "credits": "20,000 Credits"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://gumloop.com"
   },
   {
     "id": "magic-patterns",
@@ -955,7 +964,8 @@ const products = [
         "account": "حسب المتوفر",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://magicpatterns.com"
   },
   {
     "id": "factory-pro",
@@ -973,7 +983,8 @@ const products = [
         "account": "احتفظ بالبيانات الأصلية",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://factory.ai"
   },
   {
     "id": "framer-pro",
@@ -1027,7 +1038,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://railway.com"
   },
   {
     "id": "pangram-pro",
@@ -1045,7 +1057,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://pangram.com"
   },
   {
     "id": "supercut-pro",
@@ -1063,7 +1076,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://supercut.cc"
   },
   {
     "id": "wispr-flow-pro",
@@ -1081,7 +1095,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://wisprflow.ai"
   },
   {
     "id": "mobbin-team",
@@ -1099,7 +1114,8 @@ const products = [
         "account": "احتفظ بإعدادات الفريق",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://mobbin.com"
   },
   {
     "id": "granola-business",
@@ -1117,7 +1133,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://granola.ai"
   },
   {
     "id": "jam-team",
@@ -1135,7 +1152,8 @@ const products = [
         "account": "احتفظ بالبيانات الأصلية",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://jam.dev"
   },
   {
     "id": "readwise-reader",
@@ -1153,7 +1171,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://readwise.io"
   },
   {
     "id": "waking-up",
@@ -1171,7 +1190,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://wakingup.com"
   },
   {
     "id": "linear-business",
@@ -1189,7 +1209,8 @@ const products = [
         "account": "حسب المتوفر",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://linear.app"
   },
   {
     "id": "posthog-scale",
@@ -1207,7 +1228,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://posthog.com"
   },
   {
     "id": "customerio-essentials",
@@ -1225,7 +1247,8 @@ const products = [
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل"
       }
-    ]
+    ],
+    "logoUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https://customer.io"
   }
 ];
 
