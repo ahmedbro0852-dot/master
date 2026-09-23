@@ -1,668 +1,235 @@
-const rows = [
-['Lovable Pro','AI Tools','12 شهر','1,800 ج','تفعيل مباشر على حساب Lovable','حساب العميل الشخصي — بدون طلب كلمة مرور Gmail','ضمان كامل','متاح','خطة Pro لبناء التطبيقات والمواقع بالذكاء الاصطناعي وفق الحدود الرسمية للمنصة.'],
-['Lovable Pro Lite','AI Tools','12 شهر','650 ج','رابط تفعيل على البريد الشخصي — بدون بطاقة','حساب العميل','ضمان كامل','متاح','300 Credit عند التفعيل مع 5 Credits يوميًا طوال مدة الخطة.'],
-['Runway Pro','AI Tools','—','—','—','—','—','غير متوفر','الخدمة غير متوفرة حاليًا.'],
-['Perplexity Pro','AI Tools','شهر','550 ج','تسليم حساب جاهز','حساب خاص — تغيير البيانات مسموح','ضمان كامل','متاح','محرك بحث ذكي متقدم. قد يطلب كود تسجيل دخول أول مرة، ونرسله للعميل عند الحاجة. أجهزة غير محدودة ولا يتضمن AI Credits إضافية.'],
-['Claude Pro','AI Tools','شهر','1,250 ج','تفعيل خلال ساعة إلى ساعتين','حساب العميل عبر بيانات الدخول أو كود تسجيل مؤقت','ضمان كامل لمدة شهر','متاح','تشمل الخطة جميع مزايا Claude Pro، ويتم الدفع والتفعيل من بطاقة المتجر.'],
-['ChatGPT Plus','AI Tools','شهر','1,100 ج','تفعيل على حساب العميل','بيانات الحساب أو كود تسجيل دخول مؤقت','ضمان كامل لمدة شهر','متاح','تفعيل ChatGPT Plus على الحساب الشخصي للعميل مع جميع مزايا الخطة الرسمية.'],
-['Grok','AI Tools','10 أيام','150 ج','تسليم حساب جاهز','إيميل وكلمة مرور','5 أيام','متاح','مساعد ذكاء اصطناعي للمحادثة والبحث وإنجاز المهام اليومية.'],
-['Wink AI','AI Tools','أسبوع / شهر','150–400 ج','تسليم حساب جاهز خلال 5 دقائق','تغيير البيانات مسموح','ضمان كامل','متاح','أدوات تحسين الفيديو والصور. الاستخدام وفق الحدود الرسمية للمنصة وقد تتغير هذه الحدود من مقدم الخدمة.'],
-['Gamma Plus','AI Tools','شهر','400 ج','تسليم حساب جاهز','إيميل وكلمة مرور','ضمان كامل','متاح','إنشاء عروض تقديمية ومستندات وصفحات باستخدام الذكاء الاصطناعي.'],
-['Gamma Account','AI Tools','حسب العرض','800 ج','تسليم حساب جاهز خلال 10 دقائق إلى ساعة','حساب واحد — 10 Workspaces','ضمان كامل','متاح','10 Workspaces، كل Workspace يحتوي على 2,000 Credit (إجمالي 20,000 Credit). يوجد دعم Upgrade كامل مرة واحدة خلال أول شهر وفق شروط العرض.'],
-['ElevenLabs Pro','AI Tools','شهر','550 ج','تسليم حساب جاهز خلال 10 دقائق إلى ساعة','حساب جاهز','ضمان كامل','متاح','اشتراك ElevenLabs لمدة شهر مع Credits الخطة. قيمة الرصيد الدقيقة تُراجع عند التسليم لأن الخطة/الحدود قد تتغير.'],
-['HeyGen AI','AI Tools','شهر - 1250 Credits','1,250 ج','تسليم حساب جاهز خلال 10 دقائق إلى ساعة','إيميل وكلمة مرور','ضمان كامل','متاح','1,250 Credit تُضاف مرة واحدة لإنشاء الفيديوهات والأفاتار والتعليق الصوتي.'],
-['Midjourney','AI Tools','—','—','—','—','—','غير متوفر','الخدمة غير متوفرة حاليًا.'],
-['Leonardo AI','AI Tools','—','—','—','—','—','غير متوفر','الخدمة غير متوفرة حاليًا.'],
-['Manus','AI Tools','12 شهر','2,250 ج','تسليم حساب خاص','حساب خاص — يُفضل عدم تغيير البيانات','ضمان كامل','متاح','وكيل ذكاء اصطناعي لتنفيذ المهام والبحث وتنظيم سير العمل.'],
-['Gumloop','AI Tools','20,000 Credits','350 ج','تسليم حساب جاهز','بيانات دخول الحساب','ضمان الرصيد','متاح','20 ألف Credit لأتمتة سير العمل وربط المهام المدعومة بالذكاء الاصطناعي.'],
-['Magic Patterns','AI Tools','12 شهر','450 ج','دعوة أو حساب جاهز','حسب المتوفر','ضمان كامل','متاح','أداة لإنشاء واجهات وتجارب رقمية من الأوصاف النصية.'],
-['Factory Pro','AI Tools','12 شهر','1,850 ج','Workspace','احتفظ بالبيانات الأصلية','ضمان كامل','متاح','خطة للمطورين والفرق لبناء البرمجيات بمساعدة الذكاء الاصطناعي.'],
-['Framer Pro','AI Tools','12 شهر','600 ج','دعوة أو حساب','حسب المتوفر','ضمان كامل','متاح','تصميم ونشر المواقع التفاعلية بسرعة ومن دون تعقيد.'],
-['Supabase Pro','AI Tools','12 شهر','1,550 ج','حساب أو Organization','احتفظ بالبيانات الأصلية','ضمان كامل','متاح','قواعد بيانات ومصادقة وبنية خلفية للمشاريع الرقمية.'],
-['Canva Pro','التصميم','3 سنوات','50 ج','تفعيل على البريد الشخصي','حساب العميل','ضمان سنتين','متاح','دعوة رسمية إلى Canva Pro على البريد الشخصي للعميل.'],
-['CapCut Pro','التصميم','أسبوع / شهر / 3 / 6 / 12 شهر','من 50 ج','تسليم حساب جاهز خلال دقيقة إلى ساعة','إيميل وكلمة مرور — جهازان — ممنوع تغيير البيانات','ضمان كامل','متاح','جميع الخطط مضمونة بالكامل. الاشتراكات الأطول من شهر تُسلّم بحساب جديد كل شهر طوال المدة.'],
-['Figma Pro','التصميم','12 شهر','750 ج','دعوة أو حساب','حسب المتوفر','ضمان كامل','متاح','تصميم واجهات المستخدم والتعاون على النماذج الأولية والمشاريع.'],
-['Freepik','التصميم','شهر','450 ج','خدمة تحميل ملفات','ترسل روابط الملفات المطلوبة للمتجر','ضمان الملفات','متاح','هذه خدمة تحميل وليست تسليم حساب. أرسل روابط ملفات Freepik المطلوبة وسيتم تسليم الملفات المتاحة ضمن الخدمة.'],
-['Adobe Creative Cloud','التصميم','—','—','—','—','—','انتهى المخزون','حزمة تطبيقات Adobe الإبداعية؛ الخدمة غير متوفرة حاليًا.'],
-['Duolingo Super','التعليم','سنة','300 ج','رابط تفعيل بدون بطاقة','حساب فردي على البريد الشخصي','ضمان كامل','متاح','تعلم اللغات بلا إعلانات وبقلوب غير محدودة.'],
-['ELSA Speak','التعليم','7 أيام / سنة','90–1,900 ج','تسليم أو تفعيل','حساب فردي','ضمان كامل','متاح','تدريب على نطق الإنجليزية وتطوير مهارات التحدث.'],
-['Coursera Plus','التعليم','3 شهور / سنة مشترك / سنة خاص','300–1,000 ج','تسليم حساب','مشترك أو خاص','ضمان كامل','متاح','الشهادات متاحة. في الحساب المشترك قد يستخدم أشخاص آخرون الحساب وربما صدرت شهادات سابقة لبعض الدورات بأسمائهم.'],
-['Quizizz Premium','التعليم','12 شهر','1,500 ج','تفعيل على البريد الشخصي','الخطة Premium حسب المتوفر','ضمان كامل','متاح','إنشاء اختبارات وأنشطة تعليمية تفاعلية وإدارة مشاركة الطلاب.'],
-['Wordwall Pro','التعليم','شهر / سنة','300–1,050 ج','تسليم حساب جاهز','إيميل وكلمة مرور','ضمان كامل','متاح','إنشاء أنشطة وألعاب تعليمية قابلة للمشاركة والطباعة.'],
-['Turnitin','التعليم','ملف واحد','250 ج','إرسال ملف','خدمة فحص','حسب الخدمة','متاح','فحص ملف واحد وإصدار نتيجة التشابه وفق الخدمة المتاحة.'],
-['Microsoft 365','الإنتاجية','سنة','200 ج','حساب جاهز أو تفعيل','احتفظ بالبيانات الأصلية عند استلام حساب جاهز','ضمان كامل','متاح','تطبيقات Microsoft للإنتاجية والمستندات والجداول والعروض.'],
-['Notion Plus / Business','الإنتاجية','3 / 6 شهور','400–600 ج','حساب شخصي أو جاهز','قد يتطلب كود OTP','ضمان كامل','متاح','تنظيم العمل والمشاريع والوثائق وقواعد البيانات في مساحة واحدة.'],
-['LinkedIn Premium','الإنتاجية','3 شهور','250 ج','رابط تفعيل يستخدم مرة واحدة','حساب شخصي — يلزم وجود بطاقة','ضمان كامل','متاح','مزايا مهنية إضافية للحساب الشخصي، ويُستهلك رابط التفعيل بمجرد استخدامه.'],
-['Zoom Pro','الإنتاجية','12 شهر','1,800 ج','تسليم حساب جاهز','بيانات دخول الحساب','ضمان كامل','متاح','اجتماعات بوقت غير محدود وفق خصائص خطة Zoom Pro.'],
-['Stealth Writer','الإنتاجية','شهر','400 ج','تسليم حساب','بيانات دخول الحساب','ضمان كامل','متاح','إعادة صياغة النصوص وتحسين الأسلوب، دون ضمان تجاوز أدوات كشف المحتوى.'],
-['Railway Hobby','الإنتاجية','12 شهر','650 ج','تسليم حساب جاهز','بيانات دخول الحساب','ضمان كامل','متاح','خطة Hobby لتشغيل ونشر المشاريع والتطبيقات.'],
-['Pangram Pro','الإنتاجية','12 شهر','650 ج','تسليم حساب جاهز','بيانات دخول الحساب','ضمان كامل','متاح','أدوات احترافية لتحليل المحتوى والعمل على النصوص.'],
-['Supercut Pro','الإنتاجية','12 شهر','600 ج','تسليم حساب جاهز','بيانات دخول الحساب','ضمان كامل','متاح','خطة Pro لأدوات صناعة وتحرير المحتوى.'],
-['Wispr Flow Pro','الإنتاجية','12 شهر','800 ج','تسليم حساب جاهز','بيانات دخول الحساب','ضمان كامل','متاح','إملاء صوتي ذكي وتحويل الكلام إلى نص أثناء العمل.'],
-['Mobbin Team','الإنتاجية','12 شهر','600 ج','دعوة إلى Team','احتفظ بإعدادات الفريق','ضمان كامل','متاح','مكتبة مراجع لتصميم واجهات وتجارب المستخدم.'],
-['Granola Business','الإنتاجية','12 شهر','300 ج','تسليم حساب جاهز','بيانات دخول الحساب','ضمان كامل','متاح','تدوين وتنظيم ملاحظات الاجتماعات بمساعدة الذكاء الاصطناعي.'],
-['Jam Team','الإنتاجية','12 شهر','1,550 ج','دعوة إلى Team','احتفظ بالبيانات الأصلية','ضمان كامل','متاح','تسجيل ومشاركة مشكلات المواقع والتعاون عليها مع الفريق.'],
-['Readwise + Reader','الإنتاجية','12 شهر','650 ج','تسليم حساب جاهز','بيانات دخول الحساب','ضمان كامل','متاح','حفظ وتنظيم ومراجعة المقالات والكتب والملاحظات.'],
-['Waking Up','الإنتاجية','12 شهر','650 ج','تسليم حساب جاهز','بيانات دخول الحساب','ضمان كامل','متاح','اشتراك كامل في تطبيق Waking Up.'],
-['Linear Business','الإنتاجية','5 شهور','600 ج','دعوة أو حساب','حسب المتوفر','ضمان كامل','متاح','إدارة المشاريع والمهام للفرق بخطة Business.'],
-['PostHog Scale','الإنتاجية','12 شهر','1,200 ج','تسليم حساب','بيانات دخول الحساب','ضمان كامل','متاح','تحليلات المنتجات وسلوك المستخدمين وفق خطة Scale.'],
-['Customer.io Essentials','الإنتاجية','حسب العرض','650 ج','تسليم حساب','بيانات دخول الحساب','ضمان كامل','متاح','أدوات الرسائل والتواصل الآلي مع العملاء.'],
-['iCloud+ 4TB','الإنتاجية','شهر','1,450 ج','دعوة Apple ID','مشاركة عائلية','ضمان كامل','متاح','ترقية مساحة iCloud+ إلى 4TB من خلال المشاركة العائلية.'],
-['NordVPN','VPN والحماية','3 شهور','300 ج','تسليم حساب جاهز','إيميل وكلمة مرور','ضمان كامل','متاح','اتصال VPN آمن مع الالتزام بعدم تغيير بيانات الحساب.'],
-['Proton VPN','VPN والحماية','سنة','800 ج','تسليم حساب جاهز','إيميل وكلمة مرور — جهاز واحد','ضمان كامل','متاح','خدمة VPN مخصصة للاستخدام على جهاز واحد فقط.'],
-['Surfshark','VPN والحماية','شهرين','200 ج','كود تفعيل','يتطلب بطاقة أثناء التفعيل','بدون Hold Warranty','متاح','كود ترويجي لتفعيل Surfshark وفق شروط العرض.'],
-['HMA VPN','VPN والحماية','30 يوم','100 ج','تسليم حساب جاهز','إيميل وكلمة مرور','حسب العرض','متاح','اتصال VPN بحساب جاهز لمدة شهر.'],
-['ExpressVPN','VPN والحماية','3 أيام','50 ج','تفعيل','حسب العرض','حسب العرض','متاح','خدمة VPN قصيرة المدة للتصفح والاتصال المشفر.'],
-['Spotify Premium','الترفيه','3 شهور','100 ج','رابط تفعيل على حساب العميل','حساب العميل الشخصي','ضمان كامل','متاح','تفعيل Spotify Premium لمدة 3 شهور على حساب العميل الشخصي من خلال رابط التفعيل.'],
-['YouTube Premium','الترفيه','3 شهور','200 ج','رابط تفعيل يحتاج بطاقة','حساب شخصي','ضمان كامل','متاح','مشاهدة YouTube بلا إعلانات مع YouTube Music على الحساب الشخصي.'],
-['Grammarly Premium','قريباً','—','—','—','—','—','قريباً','أدوات مساعدة للكتابة والتدقيق باللغة الإنجليزية؛ سيتم توفيرها لاحقًا.'],
-['QuillBot Premium','قريباً','—','—','—','—','—','قريباً','إعادة صياغة النصوص وأدوات كتابة مساعدة؛ سيتم توفيرها لاحقًا.'],
-['Envato Elements','قريباً','—','—','—','—','—','قريباً','مكتبة أصول رقمية وقوالب للمبدعين؛ سيتم توفيرها لاحقًا.'],
-['Motion Array','قريباً','—','—','—','—','—','قريباً','قوالب وموارد للفيديو والمونتاج؛ سيتم توفيرها لاحقًا.'],
-['Suno AI','قريباً','—','—','—','—','—','قريباً','أداة لإنشاء محتوى موسيقي بالذكاء الاصطناعي؛ سيتم توفيرها لاحقًا.'],
-['Murf AI','قريباً','—','—','—','—','—','قريباً','إنشاء أصوات وتعليقات صوتية بالذكاء الاصطناعي؛ سيتم توفيرها لاحقًا.'],
-['Discord Nitro','قريباً','—','—','—','—','—','قريباً','مزايا إضافية لحساب Discord؛ سيتم توفيرها لاحقًا.'],
-['Kling AI','قريباً','—','—','—','—','—','انتهى المخزون','أداة لإنشاء الفيديو بالذكاء الاصطناعي؛ المخزون منتهٍ حاليًا.']
+const products = [
+  {
+    id:"chatgpt-plus", name:"ChatGPT Plus", category:"AI Tools", logo:"chatgpt", status:"available",
+    description:"تفعيل ChatGPT Plus على حساب العميل الشخصي.",
+    plans:[{name:"ChatGPT Plus", duration:"المدة تُؤكد قبل الدفع", price:1100, activation:"تفعيل مباشر على حساب العميل؛ الدفع يتم بواسطة المتجر.", account:"حساب شخصي", warranty:"غير محدد", notes:["لا يتم تخزين بيانات دخولك داخل الموقع."]}]
+  },
+  {
+    id:"claude-pro", name:"Claude Pro", category:"AI Tools", logo:"claude", status:"available",
+    description:"تفعيل Claude على حسابك الشخصي باستخدام وسيلة دفع المتجر.",
+    plans:[{name:"Claude Pro", duration:"المدة تُؤكد قبل الدفع", price:1250, activation:"تفعيل على حساب العميل الشخصي.", account:"حساب شخصي", warranty:"غير محدد", notes:["السعر خاص بعرض المتجر الحالي."]}]
+  },
+  {
+    id:"perplexity-pro", name:"Perplexity Pro", category:"AI Tools", logo:"perplexity", status:"available",
+    description:"حساب خاص جاهز مع ضمان كامل حسب عرض المتجر.",
+    plans:[{name:"Perplexity Pro", duration:"المدة غير محددة", price:550, activation:"تسليم البريد وكلمة المرور، وقد يرسل المتجر كود الدخول عند الحاجة.", account:"حساب خاص جاهز", warranty:"ضمان كامل", notes:["يفضل عدم تغيير كلمة المرور حتى لا تتأثر خدمة الدعم/الضمان."]}]
+  },
+  {
+    id:"lovable-pro", name:"Lovable Pro", category:"AI Tools", logo:"lovable", status:"available",
+    description:"اشتراك Lovable Pro لمدة 12 شهر.",
+    plans:[{name:"Pro", duration:"12 شهر", price:1800, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد", notes:["طريقة التسليم والضمان يتم تأكيدهما قبل التحويل."]}]
+  },
+  {
+    id:"lovable-lite", name:"Lovable Pro Lite", category:"AI Tools", logo:"lovable", status:"available",
+    description:"خطة سنوية برصيد أساسي مع Credits يومية.",
+    plans:[{name:"Pro Lite", duration:"12 شهر", price:650, oldPrice:750, activation:"رابط تفعيل على البريد الشخصي — بدون بطاقة.", account:"حساب العميل", warranty:"غير محدد", credits:"300 Credit + 5 Credits يوميًا لمدة سنة"}]
+  },
+  {
+    id:"runway-pro", name:"Runway Pro", category:"AI Tools", logo:"runway", status:"available",
+    description:"اشتراك Runway Pro لمدة 12 شهر.",
+    plans:[{name:"Pro", duration:"12 شهر", price:1600, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
+  },
+  {
+    id:"wink-ai", name:"Wink AI Pro", category:"AI Tools", logo:"wink", status:"available",
+    description:"حساب جاهز لأدوات Wink AI.",
+    plans:[
+      {name:"7 أيام", duration:"7 أيام", price:150, activation:"بريد + كلمة مرور — بدون كود حسب العرض.", account:"حساب جاهز", warranty:"غير محدد"},
+      {name:"شهر", duration:"1 شهر", price:400, activation:"حساب جاهز؛ التفاصيل تُؤكد قبل الدفع.", account:"حساب جاهز", warranty:"غير محدد"}
+    ]
+  },
+  {
+    id:"grok", name:"Grok", category:"AI Tools", logo:"grok", status:"available",
+    description:"حساب Grok جاهز لمدة قصيرة بسعر عرض.",
+    plans:[{name:"عرض 10 أيام", duration:"10 أيام", price:150, oldPrice:250, activation:"بريد + كلمة مرور.", account:"حساب جاهز", warranty:"5 أيام"}]
+  },
+  {
+    id:"gamma-plus", name:"Gamma Plus", category:"AI Tools", logo:"gamma", status:"available",
+    description:"حساب Gamma Plus جاهز.",
+    plans:[{name:"Plus", duration:"1 شهر", price:400, activation:"تسليم حساب جاهز.", account:"حساب جاهز", warranty:"ضمان كامل"}]
+  },
+  {
+    id:"gamma-account", name:"Gamma Account", category:"AI Tools", logo:"gamma", status:"available",
+    description:"حساب واحد يحتوي على 10 Workspaces، كل Workspace به 2,000 Credit.",
+    plans:[{name:"10 Workspaces", duration:"المدة غير محددة", price:800, activation:"تسليم حساب جاهز.", account:"حساب واحد — الحد الأقصى للكمية 1", warranty:"دعم Upgrade كامل مرة واحدة خلال أول شهر", credits:"20,000 Credit إجماليًا", notes:["غيّر كلمة المرور فور الاستلام.","لا يوجد ضمان لنسيان كلمة المرور.","لـ Upgrade كامل قد يلزم تزويد الدعم بكلمة المرور، ويتم التنفيذ خلال 3 أيام.","لا تترك أي Workspace بدون إذن لأن ذلك قد يفقدك صلاحيات العرض."]}]
+  },
+  {
+    id:"elevenlabs", name:"ElevenLabs", category:"AI Tools", logo:"elevenlabs", status:"available",
+    description:"حساب ElevenLabs جاهز مع Credits الخطة.",
+    plans:[{name:"خطة شهر", duration:"1 شهر", price:550, activation:"تسليم حساب جاهز.", account:"حساب جاهز", warranty:"غير محدد", credits:"Credits الخطة — العدد الدقيق يُؤكد قبل الدفع"}]
+  },
+  {
+    id:"heygen", name:"HeyGen", category:"AI Tools", logo:"heygen", status:"available",
+    description:"حساب HeyGen جاهز مع 1,250 Credit.",
+    plans:[{name:"1,250 Credits", duration:"1 شهر", price:1250, activation:"تسليم حساب جاهز خلال 5–6 ساعات.", account:"حساب جاهز", warranty:"غير محدد", credits:"1,250 Credit"}]
+  },
+  {
+    id:"canva-pro", name:"Canva Pro", category:"التصميم", logo:"canva", status:"available",
+    description:"تفعيل Canva Pro على البريد الشخصي.",
+    plans:[{name:"Canva Pro", duration:"3 سنوات", price:50, activation:"تفعيل على البريد الشخصي خلال وقت قصير.", account:"حساب العميل", warranty:"سنتان"}]
+  },
+  {
+    id:"capcut-pro", name:"CapCut Pro", category:"التصميم", logo:"capcut", status:"available",
+    description:"حسابات CapCut Pro جاهزة بعدة مدد وCredits مختلفة.",
+    plans:[
+      {name:"7 أيام", duration:"7 أيام", price:50, activation:"بريد + كلمة مرور؛ قد يطلب كود دخول.", account:"حساب جاهز", warranty:"غير محدد", credits:"قد لا يوجد Credits أو تكون قليلة", notes:["لا يوجد اعتراض على عدم وجود Credits في باقة 7 أيام."]},
+      {name:"شهر", duration:"1 شهر", price:150, activation:"بريد + كلمة مرور؛ قد يطلب كود دخول.", account:"حساب جاهز", warranty:"غير محدد", credits:"عادةً 500 Credit", notes:["يمكن الاعتراض إذا كان الرصيد المتفق عليه غير موجود."]},
+      {name:"شهر — 1600 Credits", duration:"1 شهر", price:300, activation:"بريد + كلمة مرور؛ قد يطلب كود دخول.", account:"حساب جاهز", warranty:"غير محدد", credits:"1,600 Credit", notes:["يمكن الاعتراض إذا كان الرصيد المتفق عليه غير موجود."]},
+      {name:"3 شهور", duration:"3 شهور", price:550, activation:"بريد + كلمة مرور؛ قد يطلب كود دخول.", account:"حساب جاهز", warranty:"غير محدد", credits:"يتغير عادةً بين 500–1000"},
+      {name:"6 شهور", duration:"6 شهور", price:950, activation:"بريد + كلمة مرور؛ قد يطلب كود دخول.", account:"حساب جاهز", warranty:"غير محدد", credits:"500–1000 Credit شهريًا"},
+      {name:"سنة", duration:"12 شهر", price:1400, activation:"بريد + كلمة مرور؛ قد يطلب كود دخول.", account:"حساب جاهز", warranty:"غير محدد", credits:"يتغير عادةً بين 500–1000"}
+    ],
+    notes:["يفضل عدم تغيير كلمة المرور في الحسابات الجاهزة إلا على مسؤوليتك."]
+  },
+  {
+    id:"figma", name:"Figma", category:"التصميم", logo:"figma", status:"available",
+    description:"اشتراك Figma لمدة 12 شهر.",
+    plans:[{name:"12 شهر", duration:"12 شهر", price:750, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
+  },
+  {
+    id:"freepik", name:"Freepik", category:"التصميم", logo:"freepik", status:"available",
+    description:"خدمة تحميل ملفات Freepik فقط — لا يتم تسليم حساب.",
+    plans:[{name:"خدمة تحميل", duration:"1 شهر", price:450, activation:"ترسل روابط الملفات المطلوبة للمتجر.", account:"خدمة تحميل ملفات", warranty:"غير محدد", notes:["ليست خدمة تسليم حساب كامل.","عدد/حدود التحميل تُؤكد قبل الدفع."]}]
+  },
+  {
+    id:"adobe-cc", name:"Adobe Creative Cloud", category:"التصميم", logo:"adobe", status:"out",
+    description:"المخزون غير متوفر حاليًا.", plans:[]
+  },
+  {
+    id:"duolingo", name:"Duolingo", category:"التعليم", logo:"duolingo", status:"available",
+    description:"اشتراك سنة على البريد الشخصي.",
+    plans:[{name:"سنة", duration:"12 شهر", price:300, activation:"رابط تفعيل على البريد الشخصي — بدون بطاقة.", account:"حساب العميل", warranty:"غير محدد"}]
+  },
+  {
+    id:"elsa", name:"ELSA Speak", category:"التعليم", logo:"elsa", status:"available",
+    description:"اشتراك ELSA Speak للتدريب على النطق والمحادثة.",
+    plans:[
+      {name:"7 أيام", duration:"7 أيام", price:90, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"},
+      {name:"12 شهر", duration:"12 شهر", price:1900, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}
+    ]
+  },
+  {
+    id:"coursera", name:"Coursera", category:"التعليم", logo:"coursera", status:"available",
+    description:"خيارات Coursera بمدد وأنواع حساب مختلفة.",
+    plans:[
+      {name:"3 شهور", duration:"3 شهور", price:300, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"},
+      {name:"سنة — حساب مشترك", duration:"12 شهر", price:300, activation:"تسليم حساب مشترك.", account:"حساب مشترك", warranty:"غير محدد", notes:["قد تكون بعض الدورات مؤهلة لشهادة باسمك، لكن المتجر لا يضمن الشهادات في الحساب المشترك."]},
+      {name:"سنة — حساب خاص", duration:"12 شهر", price:1000, activation:"تسليم حساب خاص.", account:"حساب خاص", warranty:"غير محدد"}
+    ]
+  },
+  {
+    id:"quizizz", name:"Quizizz", category:"التعليم", logo:"quizizz", status:"available",
+    description:"اشتراك Quizizz على بريد العميل.",
+    plans:[{name:"12 شهر", duration:"12 شهر", price:1500, activation:"تفعيل على البريد الشخصي.", account:"حساب العميل", warranty:"غير محدد"}]
+  },
+  {
+    id:"wordwall", name:"Wordwall Pro", category:"التعليم", logo:"wordwall", status:"available",
+    description:"اشتراك Wordwall Pro لمدة شهر أو سنة.",
+    plans:[
+      {name:"شهر", duration:"1 شهر", price:300, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"},
+      {name:"سنة", duration:"12 شهر", price:1050, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}
+    ]
+  },
+  {
+    id:"turnitin", name:"Turnitin", category:"التعليم", logo:"turnitin", status:"available",
+    description:"خدمة فحص ملف واحد وإرسال تقرير التشابه.",
+    plans:[{name:"فحص ملف", duration:"ملف واحد", price:250, activation:"ترسل الملف المطلوب فحصه.", account:"خدمة ملف — بدون حساب", warranty:"غير محدد", notes:["الخدمة لا تضمن درجة أكاديمية أو نتيجة معينة."]}]
+  },
+  {
+    id:"microsoft-365", name:"Microsoft 365", category:"الإنتاجية", logo:"microsoft", status:"available",
+    description:"اشتراك Microsoft 365 لمدة سنة.",
+    plans:[{name:"سنة", duration:"12 شهر", price:200, activation:"طريقة التفعيل تُؤكد قبل الدفع.", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
+  },
+  {
+    id:"notion", name:"Notion", category:"الإنتاجية", logo:"notion", status:"available",
+    description:"خطط Notion Plus وBusiness بمدد مختلفة.",
+    plans:[
+      {name:"Plus — 3 شهور", duration:"3 شهور", price:400, activation:"تفعيل على البريد الشخصي أو حساب جاهز؛ قد يحتاج OTP.", account:"شخصي أو جاهز", warranty:"غير محدد"},
+      {name:"Business — 6 شهور", duration:"6 شهور", price:600, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"},
+      {name:"Business — 12 شهر", duration:"12 شهر", price:950, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}
+    ]
+  },
+  {
+    id:"linkedin-premium", name:"LinkedIn Premium", category:"الإنتاجية", logo:"linkedin", status:"available",
+    description:"تفعيل Premium على الحساب الشخصي عبر رابط يستخدم مرة واحدة.",
+    plans:[{name:"3 شهور", duration:"3 شهور", price:250, activation:"رابط تفعيل لمرة واحدة ويتطلب بطاقة.", account:"حساب شخصي", warranty:"غير محدد", notes:["بعد فتح/استخدام رابط التفعيل يُعتبر مستهلكًا ولا يمكن إعادة استخدامه."]}]
+  },
+  {
+    id:"zoom", name:"Zoom", category:"الإنتاجية", logo:"zoom", status:"available",
+    description:"خيارات Zoom بحساب جاهز أو تفعيل على بريدك.",
+    plans:[
+      {name:"شهر — حساب جاهز", duration:"1 شهر", price:250, activation:"تسليم حساب جاهز.", account:"حساب جاهز", warranty:"ضمان كامل", notes:["قد تعمل بعض الحسابات شهرًا كاملًا أو تتوقف بعد نحو 14 يومًا؛ الضمان الكامل يغطي العرض حسب شروط المتجر."]},
+      {name:"3 شهور", duration:"3 شهور", price:550, activation:"التسليم يُؤكد قبل الدفع.", account:"يُؤكد قبل الدفع", warranty:"غير محدد"},
+      {name:"سنة", duration:"12 شهر", price:1800, activation:"التسليم يُؤكد قبل الدفع.", account:"يُؤكد قبل الدفع", warranty:"ضمان كامل"},
+      {name:"شهر — على بريدك", duration:"1 شهر", price:300, activation:"تفعيل على بريد العميل.", account:"حساب العميل", warranty:"غير محدد"}
+    ]
+  },
+  {
+    id:"stealth-writer", name:"Stealth Writer", category:"الإنتاجية", logo:"stealthwriter", status:"available",
+    description:"خدمة Humanize وإعادة صياغة النصوص.",
+    plans:[{name:"شهر", duration:"1 شهر", price:400, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد", credits:"حتى 10 Humanize يوميًا، وحتى 5,000 كلمة للعملية", notes:["لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."]}]
+  },
+  {
+    id:"icloud", name:"iCloud 4TB", category:"الإنتاجية", logo:"icloud", status:"available",
+    description:"عرض مساحة iCloud إجمالية 4TB.",
+    plans:[{name:"4TB", duration:"المدة غير محددة", price:1450, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
+  },
+  {
+    id:"surfshark", name:"Surfshark", category:"VPN والحماية", logo:"surfshark", status:"available",
+    description:"كوبون Surfshark لمدة شهرين.",
+    plans:[{name:"كوبون شهرين", duration:"2 شهر", price:200, activation:"تفعيل كوبون ويتطلب بطاقة.", account:"حساب العميل", warranty:"No Hold Warranty"}]
+  },
+  {
+    id:"nordvpn", name:"NordVPN", category:"VPN والحماية", logo:"nordvpn", status:"available",
+    description:"اشتراك NordVPN لمدة 3 شهور.",
+    plans:[{name:"3 شهور", duration:"3 شهور", price:300, activation:"لا يحتاج بطاقة؛ طريقة التسليم تُؤكد قبل الدفع.", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
+  },
+  {
+    id:"proton-vpn", name:"Proton VPN", category:"VPN والحماية", logo:"protonvpn", status:"available",
+    description:"حساب Proton VPN لمدة سنة لجهاز واحد.",
+    plans:[{name:"سنة", duration:"12 شهر", price:800, activation:"تسليم بريد/حساب جاهز مع كود يقدمه المتجر عند الحاجة.", account:"حساب جاهز — جهاز واحد", warranty:"غير محدد"}]
+  },
+  {
+    id:"hma-vpn", name:"HMA VPN", category:"VPN والحماية", logo:"hma", status:"available",
+    description:"عرض HMA قصير المدة.",
+    plans:[{name:"عرض HMA", duration:"30d - 20d (صياغة المورد؛ تُحدد المدة الفعلية قبل الدفع)", price:100, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
+  },
+  {
+    id:"expressvpn", name:"ExpressVPN", category:"VPN والحماية", logo:"expressvpn", status:"available",
+    description:"اشتراك ExpressVPN قصير المدة.",
+    plans:[{name:"3 أيام", duration:"3 أيام", price:50, activation:"يُؤكد قبل الدفع", account:"يُؤكد قبل الدفع", warranty:"غير محدد"}]
+  },
+  {
+    id:"spotify", name:"Spotify Premium", category:"الترفيه", logo:"spotify", status:"available",
+    description:"تفعيل Spotify Premium على حساب العميل الشخصي.",
+    plans:[{name:"3 شهور", duration:"3 شهور", price:100, activation:"رابط تفعيل على حساب العميل.", account:"حساب شخصي", warranty:"ضمان كامل"}]
+  },
+  {
+    id:"youtube", name:"YouTube Premium", category:"الترفيه", logo:"youtube", status:"available",
+    description:"تفعيل YouTube Premium على حسابك الشخصي.",
+    plans:[{name:"3 شهور", duration:"3 شهور", price:200, activation:"رابط تفعيل ويتطلب بطاقة.", account:"حساب شخصي", warranty:"غير محدد"}]
+  },
+  {id:"adobe-out", name:"Adobe Creative Cloud", category:"التصميم", logo:"adobe", status:"out", description:"المخزون منتهٍ حاليًا.", plans:[]},
+  {id:"kling", name:"Kling AI", category:"AI Tools", logo:"kling", status:"out", description:"المخزون منتهٍ حاليًا.", plans:[]},
+  {id:"grammarly", name:"Grammarly Premium", category:"الإنتاجية", logo:"grammarly", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
+  {id:"quillbot", name:"QuillBot Premium", category:"الإنتاجية", logo:"quillbot", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
+  {id:"envato", name:"Envato Elements", category:"التصميم", logo:"envato", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
+  {id:"motion-array", name:"Motion Array", category:"التصميم", logo:"motionarray", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
+  {id:"suno", name:"Suno AI Pro", category:"AI Tools", logo:"suno", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
+  {id:"murf", name:"Murf AI", category:"AI Tools", logo:"murf", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]},
+  {id:"discord", name:"Discord Nitro", category:"الترفيه", logo:"discord", status:"soon", description:"قريبًا في MASTER STORE.", plans:[]}
 ];
 
-const categoryBenefits={
-'AI Tools':['الوصول إلى المزايا المتقدمة المتاحة في الخطة','مناسب للكتابة أو البحث أو الإنتاج الإبداعي حسب الأداة','شرح طريقة الدخول أو التفعيل عند التسليم'],
-'التصميم':['أدوات وموارد احترافية لصناعة المحتوى','مناسب للمصممين وصناع المحتوى','تفاصيل الخطة وحدود الاستخدام تُوضح قبل الدفع'],
-'التعليم':['تجربة تعلم أو أدوات تعليمية بمزايا إضافية','تفعيل مناسب لنوع الحساب الموضح','دعم في خطوات التفعيل الأولية'],
-'الإنتاجية':['مزايا تساعد على تنظيم وإنجاز العمل','الخطة والمدة موضحتان قبل التنفيذ','تسليم أو تفعيل حسب طبيعة الخدمة'],
-'VPN والحماية':['اتصال مشفر وفق خصائص مقدم الخدمة','مدة استخدام واضحة قبل الطلب','تعليمات دخول أو تفعيل عند التسليم'],
-'الترفيه':['مزايا Premium خلال مدة الاشتراك','تفعيل على الحساب الموضح في العرض','متابعة أولية بعد التفعيل'],
-'قريباً':['يمكن متابعة حالة التوفر مع المتجر','يتم إعلان السعر والخطة عند وصول المخزون','لا يتم الدفع قبل تأكيد التوفر']};
-const categoryTerms={
-'AI Tools':['الرصيد والحدود تخضع للخطة وسياسة مقدم الخدمة.','يُمنع تغيير بيانات الحساب الجاهز دون موافقة.','الاستخدام المخالف لسياسات المنصة غير مشمول بالضمان.'],
-'التصميم':['حدود التحميل أو التصدير تعتمد على الخطة.','لا تُشارك بيانات الحساب الجاهز مع طرف آخر.','ملكية الملفات التي ينشئها العميل مسؤوليته.'],
-'التعليم':['نوع الحساب المشترك أو الخاص يُحدد قبل الدفع.','الشهادات أو الدرجات ليست مضمونة إلا إن نُص عليها.','خدمة Turnitin تشمل الفحص ولا تشمل تعديل الملف.'],
-'الإنتاجية':['يجب توفير بريد صحيح عند طلب التفعيل.','المساحة والخصائص تعتمد على الخطة الفعلية.','أي تغيير أمني في الحساب قد يتطلب إعادة تحقق.'],
-'VPN والحماية':['جودة الاتصال تعتمد على الجهاز والشبكة والدولة.','يُمنع استخدام الخدمة في نشاط مخالف للقانون.','عدد الأجهزة يخضع للخطة الموضحة.'],
-'الترفيه':['يجب أن يكون الحساب مؤهلًا للتفعيل.','لا يتم تغيير دولة الحساب أو بياناته أثناء التفعيل.','محتوى المنصة وتوفره يخضعان لمقدم الخدمة.'],
-'قريباً':['هذا المنتج غير متاح للطلب حاليًا.','لا يتم حجزه أو دفع قيمته قبل التأكيد.','السعر والخطة النهائية يعلنان عند التوفر.']};
+const categoryOrder = ["AI Tools","التصميم","التعليم","الإنتاجية","VPN والحماية","الترفيه"];
 
-const logoSlugs={
-'Lovable Pro':'lovable','Lovable Pro Lite':'lovable','Runway Pro':'runway','Perplexity Pro':'perplexity','Claude Pro':'claude','ChatGPT Plus':'chatgpt','Grok':'grok','Gamma Plus':'gamma','Gamma Account':'gamma','ElevenLabs Pro':'elevenlabs','Midjourney':'midjourney','Manus':'manus','Framer Pro':'framer','Supabase Pro':'supabase','Canva Pro':'canva','CapCut Pro':'capcut','Figma Pro':'figma','Freepik':'freepik','Adobe Creative Cloud':'adobe','Duolingo Super':'duolingo','ELSA Speak':'elsa','Coursera Plus':'coursera','Quizizz Premium':'quizizz','Microsoft 365':'microsoft','Notion Plus / Business':'notion','LinkedIn Premium':'linkedin','Zoom Pro':'zoom','iCloud+ 4TB':'icloud','NordVPN':'nordvpn','Proton VPN':'protonvpn','Surfshark':'surfshark','HMA VPN':'hma','ExpressVPN':'expressvpn','Spotify Premium':'spotify','YouTube Premium':'youtube','Grammarly Premium':'grammarly','QuillBot Premium':'quillbot','Envato Elements':'envato','Suno AI':'suno','Discord Nitro':'discord','Kling AI':'kling'};
-const planSets={
-'Lovable Pro Lite':[
-{name:'سنة',duration:'12 شهر',price:'650 ج',credits:'300 Credit + 5 يوميًا',activation:'رابط تفعيل على البريد الشخصي — بدون بطاقة',account:'حساب العميل',warranty:'ضمان كامل'}],
-'Wink AI':[
-{name:'أسبوع',duration:'7 أيام',price:'150 ج',credits:'وفق الحدود الرسمية',activation:'تسليم خلال 5 دقائق',account:'حساب جاهز — تغيير البيانات مسموح',warranty:'ضمان كامل'},
-{name:'شهر',duration:'30 يوم',price:'400 ج',credits:'وفق الحدود الرسمية',activation:'تسليم خلال 5 دقائق',account:'حساب جاهز — تغيير البيانات مسموح',warranty:'ضمان كامل'}],
-'CapCut Pro':[
-{name:'7 أيام',duration:'7 أيام',price:'50 ج',credits:'قد يكون بدون Credits أو برصيد بسيط؛ Credits غير مضمونة',activation:'حساب جاهز — إيميل وكلمة مرور — قد يطلب كود',account:'حساب جاهز؛ يُفضّل عدم تغيير البيانات',warranty:'ضمان الخدمة؛ لا اعتراض على غياب Credits في خطة الأسبوع'},
-{name:'شهر — غالبًا 500 Credit',duration:'30 يوم',price:'150 ج',credits:'عادةً 500 Credit',activation:'حساب جاهز — إيميل وكلمة مرور — قد يطلب كود',account:'حساب جاهز؛ يُفضّل عدم تغيير البيانات',warranty:'إذا كان الرصيد متفقًا عليه ولم يوجد، يحق للعميل الاعتراض'},
-{name:'شهر — 1600 Credit',duration:'30 يوم',price:'300 ج',credits:'1600 Credit',activation:'حساب جاهز — إيميل وكلمة مرور — قد يطلب كود',account:'حساب جاهز؛ يُفضّل عدم تغيير البيانات',warranty:'الرصيد جزء من العرض ويجب مطابقته'},
-{name:'3 شهور',duration:'3 شهور',price:'550 ج',credits:'الرصيد متغير عادةً بين 500 و1000 Credit',activation:'حساب جاهز',account:'يتم توضيح آلية الاستمرار قبل الدفع',warranty:'ضمان كامل حسب شروط العرض'},
-{name:'6 شهور',duration:'6 شهور',price:'950 ج',credits:'500–1000 Credit شهريًا',activation:'حساب جاهز',account:'يتم توضيح آلية الاستمرار قبل الدفع',warranty:'ضمان كامل حسب شروط العرض'},
-{name:'سنة',duration:'12 شهر',price:'1,400 ج',credits:'الرصيد متغير عادةً بين 500 و1000 Credit',activation:'حساب جاهز',account:'يتم توضيح آلية الاستمرار قبل الدفع',warranty:'ضمان كامل حسب شروط العرض'}],
-'ELSA Speak':[
-{name:'7 أيام',duration:'7 أيام',price:'90 ج'},{name:'سنة',duration:'12 شهر',price:'1,900 ج'}],
-'Coursera Plus':[
-{name:'3 شهور',duration:'3 شهور',price:'300 ج',account:'حسب المتوفر',warranty:'ضمان كامل'},
-{name:'سنة مشتركة',duration:'12 شهر',price:'300 ج',account:'حساب مشترك — الشهادات متاحة',warranty:'ضمان كامل'},
-{name:'سنة خاصة',duration:'12 شهر',price:'1,000 ج',account:'حساب خاص — الشهادات متاحة',warranty:'ضمان كامل'}],
-'Wordwall Pro':[
-{name:'شهر',duration:'30 يوم',price:'300 ج'},{name:'سنة',duration:'12 شهر',price:'1,050 ج'}],
-'Notion Plus / Business':[
-{name:'Notion Plus — 3 شهور',duration:'3 شهور',price:'400 ج',account:'حساب شخصي أو حساب جاهز',activation:'قد يحتاج OTP أثناء التفعيل',warranty:'ضمان كامل'},
-{name:'Notion Business — 6 شهور',duration:'6 شهور',price:'600 ج',account:'حساب شخصي أو حساب جاهز',activation:'قد يحتاج OTP أثناء التفعيل',warranty:'ضمان كامل'},
-{name:'Notion Business — 12 شهر',duration:'12 شهر',price:'950 ج',account:'يتم تأكيد نوع الحساب قبل الطلب',activation:'حسب المخزون وطريقة التفعيل المتاحة',warranty:'يتم تأكيد الضمان قبل الدفع'}],
-'Zoom Pro':[
-{name:'شهر — حساب جاهز',duration:'30 يوم',price:'250 ج',account:'حساب جاهز',activation:'تسليم بيانات الحساب',warranty:'ضمان كامل؛ بعض الدُفعات قد تتوقف بعد 14 يوم ويتم التعامل معها ضمن الضمان'},
-{name:'3 شهور — حساب جاهز',duration:'3 شهور',price:'550 ج',account:'حساب جاهز',activation:'تسليم بيانات الحساب',warranty:'ضمان كامل'},
-{name:'سنة — حساب جاهز',duration:'12 شهر',price:'1,800 ج',account:'حساب جاهز',activation:'تسليم بيانات الحساب',warranty:'ضمان كامل'},
-{name:'شهر — تفعيل على بريدك',duration:'30 يوم',price:'300 ج',account:'حساب العميل',activation:'تفعيل على البريد الشخصي',warranty:'ضمان كامل'}]};
-const logoDomains={
-'Wink AI':'wink.ai','Gumloop':'gumloop.com','Magic Patterns':'magicpatterns.com','Factory Pro':'factory.ai','HeyGen AI':'heygen.com','Railway Hobby':'railway.app','Pangram Pro':'pangram.com','Supercut Pro':'supercut.ai','Wispr Flow Pro':'wisprflow.ai','Mobbin Team':'mobbin.com','Granola Business':'granola.ai','Jam Team':'jam.dev','Readwise + Reader':'readwise.io','Waking Up':'wakingup.com','Linear Business':'linear.app','PostHog Scale':'posthog.com','Customer.io Essentials':'customer.io','Stealth Writer':'stealthwriter.ai','Wordwall Pro':'wordwall.net','Turnitin':'turnitin.com','Motion Array':'motionarray.com','Murf AI':'murf.ai'
-};
-
-const serviceDeep={
-'Lovable Pro':{features:['بناء تطبيقات ومواقع من وصف نصي','تعديل الواجهة والمنطق عبر المحادثة','مناسب للنماذج الأولية والمشاريع السريعة'],best:['المطورون ورواد الأعمال','تحويل فكرة إلى MVP بسرعة'],notes:['حدود الاستخدام تخضع لخطة Pro الحالية','التفعيل يتم على الحساب الشخصي حسب العرض']},
-'Lovable Pro Lite':{features:['300 Credit عند التفعيل','5 Credits يوميًا طوال مدة العرض','تفعيل برابط على البريد الشخصي بدون بطاقة'],best:['تجربة Lovable لمدة طويلة بتكلفة أقل','مشاريع صغيرة ومتوسطة'],notes:['لا يلزم إرسال كلمة مرور البريد','الرصيد اليومي جزء أساسي من العرض']},
-'Runway Pro':{features:['أدوات إنشاء وتحرير فيديو مدعومة بالذكاء الاصطناعي','مناسبة لتجارب الفيديو التوليدي والمونتاج الذكي'],best:['صناع المحتوى والمونتاج','تجربة أدوات الفيديو بالذكاء الاصطناعي'],notes:['الخدمة غير متاحة حاليًا في المتجر','لا يتم الدفع قبل تأكيد عودة المخزون']},
-'Perplexity Pro':{features:['بحث مدعوم بالذكاء الاصطناعي مع مصادر','نماذج وأدوات متقدمة حسب الخطة الحالية','مفيد للبحث وتجميع المعلومات'],best:['البحث والدراسة','جمع مصادر ومقارنة معلومات بسرعة'],notes:['حساب خاص جاهز','قد يحتاج كود دخول أول مرة ويقدمه المتجر عند الحاجة']},
-'Claude Pro':{features:['الوصول إلى مزايا Claude Pro المتاحة رسميًا','محادثات وكتابة وتحليل ملفات وفق حدود الخطة','مناسب للكتابة والتحليل والبرمجة'],best:['الكتابة الطويلة','التحليل والبرمجة والمذاكرة'],notes:['التفعيل على حساب العميل','الدفع يتم بوسيلة دفع المتجر']},
-'ChatGPT Plus':{features:['تفعيل Plus على حساب العميل الشخصي','الوصول إلى مزايا الخطة المتاحة وقت التفعيل','مناسب للكتابة والبرمجة والتحليل والتعلم'],best:['الاستخدام اليومي المكثف','العمل والدراسة وإنشاء المحتوى'],notes:['المتجر يقوم بعملية الدفع/التفعيل','الحساب يظل حساب العميل الشخصي']},
-'Grok':{features:['محادثة ومساعدة في البحث والمهام اليومية','وصول قصير المدة مناسب للتجربة'],best:['تجربة Grok قبل الاشتراك الأطول','الاستخدام المؤقت'],notes:['حساب جاهز بإيميل وكلمة مرور','الضمان 5 أيام فقط']},
-'Wink AI':{features:['أدوات تحسين الفيديو والصور','خطط أسبوعية وشهرية'],best:['تحسين المحتوى المرئي بسرعة','صناع المحتوى على الموبايل'],notes:['الحساب جاهز','تفاصيل الحدود الفعلية تتبع الخطة المتاحة وقت التسليم']},
-'Gamma Plus':{features:['إنشاء عروض تقديمية ومستندات وصفحات بالذكاء الاصطناعي','حساب جاهز لمدة شهر'],best:['العروض الدراسية والعمل','تحويل الأفكار إلى Presentation بسرعة'],notes:['التسليم بإيميل وكلمة مرور','الضمان كامل حسب العرض']},
-'Gamma Account':{features:['10 Workspaces','2,000 Credit لكل Workspace','إجمالي 20,000 Credit على الحساب'],best:['فرق أو مستخدم يحتاج مساحات عمل متعددة','إنشاء عدد كبير من العروض'],notes:['تغيير كلمة المرور مطلوب مباشرة حسب تعليمات هذا العرض','لا تترك أي Workspace بدون إذن','دعم Upgrade كامل مرة واحدة خلال أول شهر وفق شروط العرض']},
-'ElevenLabs Pro':{features:['إنشاء أصوات وتعليق صوتي بالذكاء الاصطناعي','Credits الخطة مرفقة بالحساب'],best:['التعليق الصوتي','الفيديوهات والبودكاست والمحتوى'],notes:['قيمة Credits الدقيقة تُراجع عند التسليم','الخطة الدقيقة يجب تأكيدها قبل الدفع']},
-'HeyGen AI':{features:['1,250 Credit ضمن العرض','إنشاء فيديوهات وأفاتار وتعليق صوتي'],best:['فيديوهات التسويق والتعليم','إنشاء فيديو بدون تصوير تقليدي'],notes:['التسليم بعد 5–6 ساعات تقريبًا','الحساب جاهز']},
-'Midjourney':{features:['إنشاء صور بالذكاء الاصطناعي عبر بيئة Midjourney'],best:['التصميم والإلهام البصري','Concept Art'],notes:['غير متاح حاليًا','الأسعار القديمة لا تعتبر عرضًا نشطًا']},
-'Leonardo AI':{features:['إنشاء صور وأصول بصرية بالذكاء الاصطناعي'],best:['التصميم والمحتوى المرئي','توليد أفكار وصور'],notes:['غير متاح حاليًا','يتم إعلان الخطة والسعر عند عودة المخزون']},
-'Manus':{features:['وكيل ذكاء اصطناعي لتنفيذ مهام متعددة الخطوات','بحث وتنظيم سير عمل حسب إمكانات الخطة'],best:['المهام المركبة','البحث والتنظيم والأتمتة'],notes:['حساب خاص','يُفضّل عدم تغيير بيانات الحساب']},
-'Gumloop':{features:['20,000 Credit ضمن العرض','أتمتة سير العمل وربط خطوات مدعومة بالذكاء الاصطناعي'],best:['الأتمتة بدون كود','ربط عمليات متكررة'],notes:['تحقق من الرصيد عند أول تسجيل دخول','مدة العرض تُؤكد قبل الدفع إذا لم تكن ظاهرة']},
-'Magic Patterns':{features:['إنشاء أفكار واجهات من أوصاف نصية','تسريع تصميم النماذج الأولية'],best:['مصممو UI/UX','أفكار الواجهات السريعة'],notes:['تسليم دعوة أو حساب حسب المتوفر','الخصائص الدقيقة تُراجع مع الخطة الحالية']},
-'Factory Pro':{features:['مساعدة فرق التطوير في سير العمل البرمجي','أدوات ذكاء اصطناعي للمطورين حسب الخطة'],best:['المطورون والفرق التقنية','مشاريع البرمجيات'],notes:['Workspace مخصص وفق العرض','لا تغيّر البيانات أو الإعدادات الحساسة']},
-'Framer Pro':{features:['تصميم ونشر مواقع تفاعلية','تحرير بصري سريع للمواقع'],best:['Landing Pages','المصممون وأصحاب المشاريع'],notes:['دعوة أو حساب حسب المخزون','حدود الخطة الرسمية تتبع Framer']},
-'Supabase Pro':{features:['Backend للمشاريع','قواعد بيانات ومصادقة وخدمات مرتبطة بالمشروع'],best:['مطورون ويب وتطبيقات','مشاريع تحتاج Backend سريع'],notes:['حساب أو Organization حسب العرض','لا تغيّر بيانات المؤسسة بدون اتفاق']},
-'Canva Pro':{features:['تفعيل على البريد الشخصي','الوصول إلى أدوات وقوالب Pro المتاحة بالخطة'],best:['تصميم السوشيال ميديا','العروض والتصميم اليومي'],notes:['مدة العرض 3 سنوات','ضمان سنتين حسب عرض المتجر']},
-'CapCut Pro':{features:['أدوات تحرير ومزايا Pro','عدة مدد وخيارات Credits','خطط جاهزة لصناع الفيديو'],best:['TikTok وReels وShorts','المونتاج السريع والمحتوى اليومي'],notes:['خطة 7 أيام لا تضمن Credits','في الخطط التي يُذكر فيها الرصيد يجب أن يطابق العرض','الحسابات الجاهزة قد تطلب كود دخول']},
-'Figma Pro':{features:['تصميم واجهات وتجارب مستخدم','تعاون على ملفات ونماذج أولية حسب الخطة'],best:['UI/UX','فرق التصميم والمنتجات'],notes:['الخطة الرسمية الدقيقة تحتاج تأكيد قبل الدفع','التسليم دعوة أو حساب حسب المخزون']},
-'Freepik':{features:['خدمة تحميل ملفات Premium','لا يتم تسليم بيانات حساب للعميل'],best:['تحميل Assets محددة','مصممين يحتاجون ملفات جاهزة'],notes:['أرسل روابط الملفات المطلوبة','الضمان على تسليم الملفات المتاحة فقط']},
-'Adobe Creative Cloud':{features:['حزمة تطبيقات Adobe الإبداعية'],best:['التصميم والمونتاج والصوت'],notes:['انتهى المخزون حاليًا','لا يتم قبول دفع قبل تأكيد التوفر']},
-'Duolingo Super':{features:['تفعيل لمدة سنة','تجربة تعلم بدون إعلانات وبمزايا Super حسب الخطة'],best:['تعلم اللغات يوميًا','المبتدئون والمستمرون'],notes:['التفعيل برابط على الحساب الشخصي','لا تحتاج بطاقة حسب العرض']},
-'ELSA Speak':{features:['تدريب نطق الإنجليزية','تمارين تحدث ومسار تعلم داخل التطبيق'],best:['تحسين النطق','ممارسة الإنجليزية المحكية'],notes:['يوجد عرض 7 أيام وعرض سنة','تفاصيل الخطة الرسمية الدقيقة تُراجع وقت الطلب']},
-'Coursera Plus':{features:['الوصول إلى دورات ضمن الخطة المتاحة','خيارات 3 شهور وسنة مشتركة وسنة خاصة'],best:['التعلم المهني','الدورات الطويلة وتطوير المهارات'],notes:['الحساب المشترك لا يضمن إصدار شهادة باسمك في كل الحالات','الحساب الخاص منفصل عن المشترك','تفاصيل أهلية الشهادة تُؤكد قبل الدفع']},
-'Quizizz Premium':{features:['أدوات إنشاء اختبارات وأنشطة تعليمية','تفعيل على البريد الشخصي'],best:['المعلمين والمدربين','الأنشطة التفاعلية'],notes:['اسم الخطة الرسمية الحالي يجب تأكيده قبل الدفع','الحساب يظل تحت تحكم العميل']},
-'Wordwall Pro':{features:['إنشاء أنشطة وألعاب تعليمية','خيارات شهر وسنة'],best:['المعلمين','الفصول والأنشطة التفاعلية'],notes:['حساب جاهز','يُفضّل عدم تغيير كلمة المرور إلا بعد تأكيد السماح']},
-'Turnitin':{features:['فحص ملف واحد','تسليم تقرير/نتيجة الفحص'],best:['مراجعة التشابه قبل التسليم','الطلاب والباحثون'],notes:['هذه خدمة فحص وليست حساب Turnitin','لا يوجد ضمان لدرجة أو نتيجة أكاديمية معينة']},
-'Microsoft 365':{features:['تطبيقات Office مثل Word وExcel وPowerPoint','اشتراك لمدة سنة وفق العرض'],best:['الدراسة والعمل المكتبي','المستندات والجداول والعروض'],notes:['قد يكون حسابًا جاهزًا أو تفعيلًا حسب المتوفر','في الحساب الجاهز احتفظ بالبيانات الأصلية ما لم يُسمح بالتغيير']},
-'Notion Plus / Business':{features:['إدارة ملاحظات ومشاريع وقواعد بيانات','خطط Plus وBusiness بمدد مختلفة'],best:['تنظيم الدراسة والعمل','الفرق وإدارة المشاريع'],notes:['قد يحتاج OTP أثناء التفعيل','نوع الحساب يختلف حسب الخطة والمخزون']},
-'LinkedIn Premium':{features:['تفعيل Premium على الحساب الشخصي','رابط التفعيل يستخدم مرة واحدة'],best:['البحث عن وظائف والتواصل المهني','تطوير الملف المهني'],notes:['يلزم وجود بطاقة وفق عرض التفعيل','بعد فتح/استخدام الرابط يعتبر مستهلكًا ولا يعاد استخدامه']},
-'Zoom Pro':{features:['خطط شهر و3 شهور وسنة','خيار حساب جاهز أو تفعيل على بريدك'],best:['الاجتماعات والدروس أونلاين','فرق العمل والمدربين'],notes:['عرض الشهر الجاهز عليه ضمان كامل حتى لو توقفت دفعة مبكرًا','اختَر نوع الحساب المناسب قبل الدفع']},
-'Stealth Writer':{features:['حتى 10 عمليات Humanize يوميًا حسب العرض','حتى 5,000 كلمة للعملية الواحدة'],best:['إعادة الصياغة وتحسين الأسلوب','تحرير نصوص طويلة'],notes:['لا يوجد ضمان 100% لتجاوز جميع أدوات كشف AI','الحدود الفعلية تخضع للخدمة وقت الاستخدام']},
-'Railway Hobby':{features:['استضافة وتشغيل مشاريع وتطبيقات','إدارة Deployments وفق الخطة'],best:['المطورون','المشاريع الصغيرة والتجريبية'],notes:['حساب جاهز','تفاصيل الاستخدام الدقيقة تتبع خطة Railway الحالية']},
-'Pangram Pro':{features:['أدوات احترافية مرتبطة بتحليل/العمل على النصوص حسب الخطة'],best:['مستخدمون يحتاجون مزايا Pangram المدفوعة'],notes:['الخصائص الرسمية الدقيقة لم تُثبت داخل بيانات المتجر بعد','يجب تأكيدها قبل الدفع']},
-'Supercut Pro':{features:['الوصول إلى مزايا Supercut Pro حسب الخطة'],best:['صناع المحتوى حسب استخدام الأداة'],notes:['تفاصيل المزايا الرسمية الدقيقة تحتاج مراجعة قبل الدفع','حساب جاهز']},
-'Wispr Flow Pro':{features:['إملاء صوتي ذكي','تحويل الكلام إلى نص أثناء العمل'],best:['الكتابة السريعة بالصوت','المستخدمون الذين يكتبون كثيرًا'],notes:['حساب جاهز','الاستخدام يخضع لأنظمة وتوافق المنصة']},
-'Mobbin Team':{features:['مكتبة مراجع لتصميم واجهات وتجارب مستخدم','وصول Team حسب العرض'],best:['مصممو UI/UX','البحث عن Patterns ومرجع بصري'],notes:['دعوة إلى Team','لا تعدّل إعدادات الفريق']},
-'Granola Business':{features:['ملاحظات اجتماعات مدعومة بالذكاء الاصطناعي','تنظيم ملخصات ومعلومات الاجتماعات'],best:['الفرق والاجتماعات','توثيق المكالمات'],notes:['حساب جاهز','لا تغيّر بيانات الحساب بدون تأكيد']},
-'Jam Team':{features:['تسجيل ومشاركة مشكلات المواقع','التعاون على Feedback تقني'],best:['فرق التطوير والاختبار','QA وBug reporting'],notes:['دعوة Team','احتفظ ببيانات وإعدادات الفريق الأصلية']},
-'Readwise + Reader':{features:['حفظ وتنظيم القراءة','مراجعة Highlights ومحتوى محفوظ'],best:['القراء والباحثون','تنظيم المعرفة الشخصية'],notes:['حساب جاهز','لا تغيّر بيانات الحساب قبل التأكد من سياسة العرض']},
-'Waking Up':{features:['اشتراك في محتوى تطبيق Waking Up حسب العرض'],best:['المستخدمون المهتمون بمحتوى التطبيق'],notes:['حساب جاهز','تفاصيل المكتبة والمحتوى تتغير من مقدم الخدمة']},
-'Linear Business':{features:['إدارة مشاريع ومهام للفرق','مزايا Business حسب الخطة'],best:['فرق المنتجات والهندسة','إدارة Issues وWorkflows'],notes:['دعوة أو حساب حسب المتوفر','مدة العرض 5 شهور']},
-'PostHog Scale':{features:['تحليلات منتجات وسلوك مستخدمين','مزايا Scale حسب العرض'],best:['فرق المنتجات والتحليلات','مشاريع SaaS'],notes:['حساب جاهز','الحدود الفنية الدقيقة يجب تأكيدها قبل الدفع']},
-'Customer.io Essentials':{features:['أتمتة تواصل ورسائل للعملاء','مزايا Essentials حسب العرض'],best:['التسويق ودورة حياة العميل','فرق Growth وCRM'],notes:['مدة العرض لم تُحدد داخل بيانات المتجر','يجب تأكيد المدة قبل الدفع']},
-'iCloud+ 4TB':{features:['مساحة iCloud+ إجمالية 4TB حسب العرض','التفعيل عبر دعوة Apple ID/مشاركة'],best:['نسخ احتياطي وصور وملفات Apple','مستخدمون يحتاجون مساحة كبيرة'],notes:['مدة العرض شهر حسب قاعدة البيانات المرفوعة','التفعيل يعتمد على أهلية Apple ID']},
-'NordVPN':{features:['اتصال VPN مشفر','مدة 3 شهور'],best:['التصفح عبر VPN','الاستخدام أثناء السفر والعمل'],notes:['حساب جاهز','لا تغيّر بيانات الحساب']},
-'Proton VPN':{features:['اشتراك لمدة سنة','مخصص لجهاز واحد حسب عرض المتجر'],best:['استخدام VPN طويل المدة على جهاز واحد'],notes:['قد يحتاج كود يقدمه المتجر','لا تستخدم الحساب على أكثر من الجهاز المسموح']},
-'Surfshark':{features:['كوبون لمدة شهرين','تفعيل على الحساب المؤهل'],best:['من يفضل التفعيل على حسابه'],notes:['يتطلب بطاقة أثناء التفعيل','العرض مصنف بدون Hold Warranty']},
-'HMA VPN':{features:['وصول VPN قصير المدة'],best:['استخدام مؤقت','تجربة HMA'],notes:['مدة العرض تحتاج تأكيد نهائي قبل الدفع إذا ظهر اختلاف في المخزون']},
-'ExpressVPN':{features:['وصول VPN لمدة 3 أيام'],best:['احتياج قصير جدًا','سفر أو استخدام مؤقت'],notes:['طريقة التفعيل والضمان تُؤكد قبل الدفع']},
-'Spotify Premium':{features:['Premium لمدة 3 شهور','التفعيل على حساب العميل الشخصي'],best:['الاستماع اليومي للموسيقى والبودكاست'],notes:['التفعيل برابط','الحساب يظل حساب العميل']},
-'YouTube Premium':{features:['YouTube Premium لمدة 3 شهور','YouTube Music ضمن مزايا الخطة الرسمية'],best:['مشاهدة بدون إعلانات حسب الخطة','الموسيقى والمحتوى المرئي'],notes:['التفعيل برابط على الحساب الشخصي','يحتاج بطاقة أثناء التفعيل حسب العرض']},
-'Grammarly Premium':{features:['مزايا كتابة وتدقيق متقدمة حسب الخطة'],best:['الكتابة الإنجليزية'],notes:['قريبًا — غير متاح للطلب حاليًا']},
-'QuillBot Premium':{features:['إعادة صياغة وأدوات كتابة حسب الخطة'],best:['إعادة صياغة النصوص'],notes:['قريبًا — غير متاح للطلب حاليًا']},
-'Envato Elements':{features:['مكتبة أصول وقوالب رقمية'],best:['المصممون وصناع المحتوى'],notes:['قريبًا — السعر والخطة يعلنان عند التوفر']},
-'Motion Array':{features:['قوالب وموارد للفيديو والمونتاج'],best:['المونتير وصانع الفيديو'],notes:['قريبًا — غير متاح للطلب الآن']},
-'Suno AI':{features:['إنشاء محتوى موسيقي بالذكاء الاصطناعي'],best:['الموسيقى والمحتوى'],notes:['قريبًا — الخطة والسعر لم يحددا بعد']},
-'Murf AI':{features:['إنشاء أصوات وتعليقات صوتية بالذكاء الاصطناعي'],best:['التعليق الصوتي'],notes:['قريبًا — غير متاح للطلب الآن']},
-'Discord Nitro':{features:['مزايا Nitro الإضافية لحساب Discord'],best:['مستخدمي Discord'],notes:['قريبًا — غير متاح للطلب الآن']},
-'Kling AI':{features:['إنشاء فيديو بالذكاء الاصطناعي'],best:['صناع الفيديو'],notes:['انتهى المخزون حاليًا']}
-};
-
-function activationJourney(p,plan){
- const a=(plan.activation||p.activation||'').toLowerCase();
- if(a.includes('ملف'))return ['أرسل الملف المطلوب فحصه للمتجر','يتم تنفيذ الخدمة على الملف','يتم تسليم النتيجة أو التقرير بعد الانتهاء'];
- if(a.includes('رابط'))return ['تأكيد البريد/الحساب المطلوب قبل الدفع','استلام رابط التفعيل من المتجر','فتح الرابط وإكمال الخطوات المطلوبة ثم التأكد من ظهور الخطة'];
- if(a.includes('حساب جاهز')||a.includes('تسليم حساب'))return ['تأكيد توفر الحساب قبل الدفع','استلام بيانات الدخول أو الكود المطلوب','تسجيل الدخول وفحص المدة/الرصيد فورًا ثم إبلاغ المتجر بأي مشكلة'];
- if(a.includes('بريد')||a.includes('حساب العميل')||a.includes('تفعيل'))return ['إرسال البريد أو بيانات الحساب المطلوبة فقط','يقوم المتجر بتنفيذ التفعيل حسب العرض','التأكد من ظهور الخطة والمدة على حسابك بعد الإتمام'];
- return ['تأكيد الخطة والتوفر مع المتجر','تنفيذ طريقة التسليم الموضحة في العرض','فحص الخدمة فور الاستلام'];
+function getProduct(id){ return products.find(p => p.id === id); }
+function formatPrice(value){ return Number(value).toLocaleString("en-US") + " ج"; }
+function startingPrice(product){
+  if(!product.plans || !product.plans.length) return "—";
+  const nums = product.plans.map(p => Number(p.price)).filter(Number.isFinite);
+  if(!nums.length) return "—";
+  const min = Math.min(...nums);
+  return product.plans.length > 1 ? "من " + formatPrice(min) : formatPrice(min);
 }
-function accountSafety(p,plan){
- const txt=((plan.account||p.account||'')+' '+(plan.activation||p.activation||'')).toLowerCase();
- const out=[];
- if(txt.includes('حساب العميل')||txt.includes('شخصي')||txt.includes('البريد الشخصي'))out.push('التفعيل مرتبط بحسابك الشخصي؛ حافظ على وسائل الاسترداد الخاصة بك.');
- if(txt.includes('جاهز'))out.push('الحساب الجاهز له قواعد مختلفة عن الحساب الشخصي؛ لا تغيّر البريد أو كلمة المرور إلا إذا كان العرض يسمح بذلك صراحةً.');
- if(txt.includes('مشترك'))out.push('الحساب المشترك قد يستخدمه أكثر من شخص؛ لا تغيّر البيانات أو الملف الرئيسي للحساب.');
- if(txt.includes('otp')||txt.includes('كود'))out.push('قد يُطلب كود دخول/OTP لإكمال التفعيل؛ استخدمه فقط أثناء خطوة التفعيل المتفق عليها.');
- if(txt.includes('بطاقة'))out.push('وجود بطاقة قد يكون شرطًا لإتمام التفعيل حتى لو كان سعر الاشتراك مدفوعًا للمتجر.');
- if(!out.length)out.push('اتبع بيانات وطريقة الدخول المسلّمة مع الطلب، وأبلغ المتجر قبل إجراء أي تغيير أمني في الحساب.');
- return out;
+function statusLabel(status){
+  return status === "available" ? "متاح" : status === "soon" ? "قريبًا" : "غير متوفر";
 }
-function warrantyText(p,plan){
- const w=plan.warranty||p.warranty||'غير محدد';
- return [
-  'نوع الضمان لهذا العرض: '+w+'.',
-  'إذا ظهرت مشكلة من جهة الحساب/التفعيل خلال مدة الضمان، تواصل مع المتجر مع صورة للمشكلة.',
-  'المشكلات الناتجة عن تغيير بيانات الحساب أو مخالفة شروط الاستخدام قد لا تكون مشمولة.'
- ];
-}
-
-
-const officialResearch={
-'Lovable Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Lovable Pro',
-  facts:['100 Credit شهريًا في خطة Pro الأساسية','5 Credits يومية إضافية للبناء على الخطط المدفوعة','Custom domains وPrivate projects وCredit rollover','استهلاك Credits يختلف حسب تعقيد المهمة؛ Plan Mode يحسب 1 Credit لكل رسالة'],
-  source:'https://lovable.dev/pricing',
-  note:'دي مواصفات Lovable الرسمية الحالية. عرض MASTER STORE مدته وسعره منفصلان عن سعر Lovable الرسمي.'
-},
-'Lovable Pro Lite':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'عرض MASTER STORE مرتبط بـ Lovable',
-  facts:['Lovable Pro الرسمي يبدأ من 100 Credit شهريًا','الخطط المدفوعة تشمل 5 Credits يومية للبناء','الـCredits قد تُستهلك بمعدلات مختلفة حسب نوع المهمة'],
-  source:'https://lovable.dev/pricing',
-  note:'عرض Lite عندنا ليس اسم خطة رسمية من Lovable؛ مواصفات الرصيد المكتوبة في عرض المتجر هي المرجع للعميل.'
-},
-'Runway Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Runway Pro',
-  facts:['2,250 Credit شهريًا في Pro','Credits الخطة الشهرية لا تنتقل للشهر التالي في Pro','Gen-4.5 يستهلك 12 Credit لكل ثانية فيديو','يمكن شراء Credits إضافية على الخطط المدفوعة'],
-  source:'https://help.runwayml.com/hc/en-us/articles/15124877443219-How-do-credits-work',
-  note:'الخدمة غير متاحة للبيع حاليًا في المتجر.'
-},
-'ChatGPT Plus':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'ChatGPT Plus',
-  facts:['وصول أوسع للنماذج والأدوات مقارنة بالخطة المجانية','سرعات أعلى وأولوية أفضل وقت الضغط','Voice وImage Generation وFile Analysis وDeep Research حسب التوفر','لا يوجد رقم ثابت مضمون لعدد الرسائل؛ الحدود قد تتغير','استخدام API غير مشمول في Plus ويُحاسب منفصلًا'],
-  source:'https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus',
-  note:'لا نعرض رقم Credits ثابت لـ ChatGPT Plus لأن OpenAI لا تعتبر Plus باقة Credits ثابتة.'
-},
-'Grok':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'SuperGrok / SuperGrok Plus',
-  facts:['SuperGrok الرسمي يشمل نماذج Grok المتقدمة وحدود استخدام أعلى','البحث عبر الويب وX وVoice وConnectors ضمن المزايا الرسمية','SuperGrok Plus يضيف حدود استخدام أعلى و1080p Video Creation'],
-  source:'https://x.ai/pricing',
-  note:'عرض MASTER STORE لمدة 10 أيام هو عرض متجر وليس مدة اشتراك قياسية معلنة كخطة رسمية.'
-},
-'Gamma Plus':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Gamma Plus',
-  facts:['1,000 Credit شهريًا في Plus','Credits تتجدد شهريًا في الخطط المدفوعة','يمكن ترحيل Credits حتى ضعف حجم الخطة','إزالة Made with Gamma من المحتوى المشترك/المصدّر','إنشاء حتى 100 Slide في Prompt واحد حسب الحدود الحالية'],
-  source:'https://help.gamma.app/en/articles/8077107-how-can-i-upgrade-my-gamma-subscription',
-  note:'الرصيد الرسمي الحالي لـ Plus هو 1,000 شهريًا؛ عرض المتجر يُراجع عند التسليم للتأكد من الخطة الفعلية.'
-},
-'Gamma Account':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'عرض MASTER STORE خاص بـ Workspaces',
-  facts:['Gamma رسميًا يخصص Credits فردية في Free/Plus/Pro/Ultra/Teams','Business وEnterprise فقط يدعمان Shared Credit Pool','Pro الرسمي يتضمن 4,000 Credit شهريًا لكل مستخدم حسب Gamma'],
-  source:'https://help.gamma.app/en/articles/7834324-how-do-credits-work-in-gamma',
-  note:'عرض 10 Workspaces × 2,000 Credit هو تركيب خاص بعرض المتجر وليس اسم خطة Gamma رسمية.'
-},
-'ElevenLabs Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'خطط ElevenLabs الرسمية',
-  facts:['Starter: 30,000 Credit شهريًا','Creator: 121,000 Credit شهريًا','Pro: 600,000 Credit شهريًا','Credits مشتركة بين منتجات ElevenLabs المختلفة','الرصيد غير المستخدم يترحل حتى شهرين بحد أقصى إجمالي 3× الحصة الشهرية على الاشتراك المدفوع'],
-  source:'https://elevenlabs.io/pricing',
-  note:'اسم عرض المتجر يحتاج مطابقة الخطة الفعلية وقت التسليم؛ لا نعتمد كلمة Pro وحدها لتحديد الرصيد.'
-},
-'HeyGen AI':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'HeyGen Creator / Pro',
-  facts:['Creator الرسمي: 600 Credit شهريًا و1080p','Pro الرسمي يبدأ من 1,000 Credit شهريًا ويصل إلى مستويات أعلى','Pro يدعم 4K وفيديوهات حتى 30 دقيقة','Creator وPro لا يدعمان شراء Credit Packs منفصلة؛ الترقية تكون لمستوى أعلى'],
-  source:'https://www.heygen.com/pricing',
-  note:'عرض المتجر 1,250 Credit لا يطابق رقم باقة قياسية واحدة ظاهرة حاليًا؛ لذلك اسم الخطة النهائية يُؤكد قبل الدفع.'
-},
-'Factory Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Factory Pro',
-  facts:['Factory Pro الرسمي بسعر 20$ شهريًا','يتضمن Desktop / CLI / SDK','Cloud وLocal background agents','الاستخدام يعتمد على Rolling Rate Limits وليس Credit شهري ثابت'],
-  source:'https://factory.ai/pricing',
-  note:'أي مدة سنوية في عرض المتجر هي عرض توريد منفصل؛ الحدود الرسمية الحالية تعمل بنظام Rate Limits.'
-},
-'Framer Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Framer Pro',
-  facts:['3,000 AI Credit شهريًا في Pro','حتى 150 صفحة قبل Add-ons','10 CMS Collections','100 GB Bandwidth شهريًا','Staging وBranching with previews'],
-  source:'https://www.framer.com/pricing',
-  note:'المواصفات الرسمية تخص Site Plan Pro الحالي.'
-},
-'Supabase Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Supabase Pro',
-  facts:['يبدأ من 25$ شهريًا','100,000 Monthly Active Users ضمن الحصة الأساسية','8 GB Disk لكل Project ثم Usage إضافي','250 GB Egress و250 GB Cached Egress','10$ Compute Credits شهريًا تكفي Micro instance واحدة'],
-  source:'https://supabase.com/pricing',
-  note:'الاستهلاك فوق الحدود قد يسبب رسوم Usage إضافية عند تعطيل Spend Cap.'
-},
-'Canva Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Canva Pro',
-  facts:['حتى 100 GB Upload Storage حسب مركز مساعدة Canva','يدعم رفع Custom Fonts على Pro','يشمل أدوات وتصميمات Premium حسب الخطة الحالية'],
-  source:'https://www.canva.com/es_mx/help/upload-formats-requirements-variantb/',
-  note:'عرض MASTER STORE لمدة 3 سنوات وضمان سنتين هو عرض متجر؛ المواصفات الرسمية قد تتغير من Canva.'
-},
-'CapCut Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'CapCut Pro',
-  facts:['CapCut Credit هو رصيد منفصل لاستخدام ميزات AI','كل Credit يعادل 0.01$ حسب مركز المساعدة الحالي','Pro الجديد يصل إلى 1,200 AI Credit في الباقة الرسمية المحدثة','Cloud Storage في Pro المحدث يصل إلى 1 TB','Credits لا تُستخدم لشراء اشتراك Pro نفسه'],
-  source:'https://www.capcut.com/help/new-capcut-subscription-pricing',
-  note:'عروض MASTER STORE ذات 500/1000/1600 Credit عروض مخزون خاصة؛ الرقم المكتوب في الباقة المختارة هو الملزم.'
-},
-'Figma Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Figma Professional — Full Seat',
-  facts:['3,000 AI Credit شهريًا للـFull Seat على Professional','Unlimited files and projects لفريق واحد','Team-wide design libraries','Advanced Dev Mode inspection وMCP Server','Full Seat يشمل Figma Design وDev Mode وFigJam وSlides وغيرها'],
-  source:'https://www.figma.com/pricing/',
-  note:'نوع الـSeat لازم يتأكد قبل الدفع؛ كلمة Professional وحدها لا تعني تلقائيًا Full Seat.'
-},
-'ELSA Speak':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'ELSA Premium',
-  facts:['ELSA AI Roleplay','Speech Analyzer','Feedback على النطق والطلاقة والقواعد والمفردات','9,000+ Specialized Lessons حسب صفحة Premium الحالية','مسارات IELTS وTOEFL وTOEIC وBusiness English'],
-  source:'https://elsaspeak.com/en/product-detail/elsa-premium-one-year',
-  note:'اسم الخطة الفعلية في عرض المتجر يجب تأكيده إذا كان العرض 7 أيام.'
-},
-'Coursera Plus':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Coursera Plus',
-  facts:['وصول إلى أكثر من 10,000 Course/Project/Specialization/Professional Certificate مشمول','شهادات غير محدودة للمحتوى المشمول بعد انتهاء Trial','لا تشمل Degrees أو MasterTrack','بعض البرامج غير مشمولة؛ وجود شارة Coursera Plus هو المرجع'],
-  source:'https://www.coursera.org/courseraplus',
-  note:'في عرض الحساب المشترك بالمتجر لا نضمن شهادة باسم العميل في كل الحالات؛ ده مختلف عن اشتراك Coursera Plus شخصي قياسي.'
-},
-'Turnitin':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Similarity Report',
-  facts:['Similarity Score يقيس نسبة النص المطابق لمصادر قاعدة Turnitin','التطابق لا يعني تلقائيًا Plagiarism','التقرير يوضح Sources وMatch Groups ويمكن تنزيله PDF'],
-  source:'https://guides.turnitin.com/hc/en-us/articles/24194876779661-Overview-of-the-new-Similarity-Report-experience',
-  note:'الخدمة في المتجر هي فحص ملف وتسليم تقرير، وليست حساب Turnitin.'
-},
-'Microsoft 365':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Microsoft 365 Personal — مرجع رسمي',
-  facts:['1 TB OneDrive Storage','شخص واحد','تسجيل دخول على 5 أجهزة في نفس الوقت','Word وExcel وPowerPoint وOutlook وOneNote Desktop','ميزات Copilot وحدود AI أعلى من النسخة المجانية في الخطة الحالية'],
-  source:'https://www.microsoft.com/ar-eg/microsoft-365/p/microsoft-365-personal/cfq7ttc0k5bf',
-  note:'عرض MASTER STORE يجب تأكيد نوع الخطة/الحساب لأنه لا يوجد في بيانات المتجر حتى الآن ما يثبت أنه Personal تحديدًا.'
-},
-'Notion Plus / Business':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Notion Plus / Business',
-  facts:['Notion AI الكامل متاح حاليًا على Business وEnterprise','Plus يحصل على عدد محدود من AI responses للتجربة','Business يتضمن AI usage allowance بنوافذ استخدام 6 ساعات وشهرية','Premium AI Models قد تستهلك Notion Credits منفصلة'],
-  source:'https://www.notion.com/help/notion-ai-faqs',
-  note:'ميزة Notion AI تختلف بوضوح بين Plus وBusiness؛ لذلك اختيار الباقة في المتجر مهم.'
-},
-'Zoom Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Zoom Workplace Pro',
-  facts:['اجتماعات حتى 30 ساعة','حتى 100 Participant في الخطة القياسية الحالية','10 GB Cloud Recording Storage لكل License','AI Companion ضمن الخطة المدفوعة حسب التوفر','Unlimited Docs sharing وClips Plus وفق المقارنة الحالية'],
-  source:'https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/',
-  note:'مدة 14 يوم المذكورة في بعض دفعات حساب المتجر ليست حد Zoom Pro رسمي؛ دي حالة مخزون يعالجها ضمان المتجر.'
-},
-'Railway Hobby':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Railway Hobby',
-  facts:['5$ Minimum Usage شهريًا','يشمل 5$ Resource Usage شهريًا','حتى 48 vCPU / 48 GB RAM لكل Service كحد أقصى','حتى 5 GB Volume Storage','Single developer workspace و7-Day Log History'],
-  source:'https://railway.com/pricing',
-  note:'Railway خدمة Usage-based؛ استهلاك موارد أعلى من الحصة قد يسبب تكلفة إضافية.'
-},
-'Wispr Flow Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Wispr Flow Pro',
-  facts:['Unlimited Dictations','100+ Languages','More meetings kept for longer','Advanced AI Models وEarly feature access','يدعم Mac وWindows وiOS وAndroid للدكتation'],
-  source:'https://wisprflow.ai/pricing',
-  note:'حدود الاجتماعات الدقيقة قد تختلف؛ راجع صفحة الخطة وقت الطلب.'
-},
-'Granola Business':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Granola Business',
-  facts:['Unlimited meeting notes and history','Advanced AI thinking models','Integrations مع Notion وSlack وHubSpot وZapier وغيرها','Centralized billing وUser management','MCP Integration'],
-  source:'https://www.granola.ai/pricing',
-  note:'Business الرسمي حاليًا للأفراد أو الفرق الصغيرة.'
-},
-'NordVPN':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'NordVPN',
-  facts:['حتى 10 أجهزة في وقت واحد للحساب الرسمي','شبكة خوادم تغطي 225+ Location حسب الصفحة الحالية','NordLynx ودعم التطبيقات الرئيسية','Bandwidth غير محدود وفق وصف NordVPN الرسمي'],
-  source:'https://nordvpn.com/pricing/',
-  note:'عرض المتجر قد يكون حساب جاهز وله تعليمات مختلفة بخصوص تغيير البيانات.'
-},
-'Proton VPN':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Proton VPN Plus — مرجع رسمي',
-  facts:['حتى 10 أجهزة في نفس الوقت في VPN Plus','أعلى سرعة ضمن خطط Proton VPN','خوادم في 140+ دولة حسب الصفحة الحالية','Streaming وP2P وMalware/Ads blocker ضمن Plus'],
-  source:'https://protonvpn.com/pricing',
-  note:'عرض MASTER STORE مذكور لجهاز واحد، وده قيد خاص بالعرض وليس الحد الرسمي لـVPN Plus.'
-},
-'Surfshark':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Surfshark',
-  facts:['Unlimited devices على الاشتراك الرسمي','Ad blocker وCookie pop-up blocker','Bypasser / Split tunneling','Rotating IP وDynamic MultiHop'],
-  source:'https://surfshark.com/pricing',
-  note:'عرض الكوبون في المتجر يحتاج بطاقة وقت التفعيل حسب شروط العرض.'
-},
-'ExpressVPN':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'ExpressVPN',
-  facts:['يدعم Windows وMac وLinux وiOS وAndroid وRouters وSmart TVs وغيرها','حتى 14 جهازًا متصلًا في وقت واحد حسب السياسة الحالية','خوادم في 113 دولة حسب صفحة الأجهزة الحالية'],
-  source:'https://www.expressvpn.com/features/simultaneous-device-policy',
-  note:'عرض MASTER STORE لمدة 3 أيام هو مدة متجر قصيرة وليس Plan رسمي قياسي.'
-},
-'Spotify Premium':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Spotify Premium Individual — مرجع رسمي',
-  facts:['استماع بدون إعلانات','Download للاستماع Offline','تشغيل الأغاني بأي ترتيب','جودة صوت أعلى','Premium Individual في مصر = حساب Premium واحد'],
-  source:'https://www.spotify.com/eg-en/premium/',
-  note:'عرض MASTER STORE لمدة 3 شهور تفعيل على حساب العميل الشخصي.'
-},
-'YouTube Premium':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'YouTube Premium',
-  facts:['مشاهدة بدون إعلانات','تنزيل الفيديوهات والموسيقى للاستخدام Offline','Background Play على الموبايل','YouTube Music Premium مشمول','1080p Premium لبعض الفيديوهات المؤهلة'],
-  source:'https://support.google.com/youtube/answer/6308116?hl=ar',
-  note:'عرض MASTER STORE يحتاج بطاقة أثناء التفعيل حسب طريقة التفعيل الحالية.'
-},
-'Perplexity Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Perplexity Pro',
-  facts:['Extended access إلى Pro Search وResearch','الوصول إلى نماذج AI متقدمة متعددة داخل Perplexity','Image Generation وVideo Generation بحدود الخطة','رفع وتحليل ملفات بحدود أعلى؛ حتى 50 ملفًا لكل Project وفق المقارنة الحالية','لا يوجد رقم Credits ثابت بسيط يعبّر عن كل استخدام Pro؛ الحدود موزعة حسب نوع الأداة'],
-  source:'https://www.perplexity.ai/help-center/en/articles/10352901-what-is-perplexity-pro',
-  note:'عرض MASTER STORE هو حساب خاص جاهز بسعر المتجر. مدة العرض الفعلية تُؤكد قبل الدفع ولا نستنتجها من سعر Perplexity الرسمي.'
-},
-'Claude Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Claude Pro',
-  facts:['معدل استخدام أعلى من الخطة المجانية','أولوية أفضل وقت الضغط','وصول مبكر لمزايا جديدة','Claude Opus 5 هو أقوى Model متاح حاليًا على Claude Pro','Claude Code على Pro حصل على زيادة في حدود الاستخدام خلال 2026'],
-  source:'https://www.anthropic.com/news/claude-pro',
-  note:'Claude Pro لا يعمل بنظام Credit شهري ثابت معلن للعميل؛ حدود الاستخدام تتغير حسب النموذج والضغط. عرض المتجر تفعيل على حساب العميل بوسيلة دفع المتجر.'
-},
-'Wink AI':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Wink Creative Standard / Pro',
-  facts:['Standard الرسمي: 1,000 Credit شهريًا','Pro الرسمي: 4,000 Credit شهريًا','Credits صالحة 31 يومًا','ميزات AI المختلفة تستهلك عددًا مختلفًا من Credits حسب الأداة ومستوى المعالجة'],
-  source:'https://wink.ai/pricing',
-  note:'عروض MASTER STORE أسبوع/شهر هي عروض حسابات جاهزة؛ يجب فحص مستوى الخطة والرصيد الفعلي عند الاستلام.'
-},
-'Midjourney':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Midjourney Basic / Standard / Pro / Mega',
-  facts:['Basic: 3.3 ساعة Fast GPU شهريًا','Standard: 15 ساعة Fast GPU + Unlimited Relax Images','Pro: 30 ساعة Fast GPU + Unlimited Relax Images وSD Video','Mega: 60 ساعة Fast GPU','Stealth Mode متاح في Pro وMega فقط'],
-  source:'https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans',
-  note:'الخدمة غير متاحة حاليًا في MASTER STORE؛ أي أسعار reseller قديمة ليست عرضًا نشطًا.'
-},
-'Leonardo AI':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Leonardo Essential / Premium / Ultimate',
-  facts:['Essential: 8,500 Fast Tokens شهريًا','Premium: 25,000 Fast Tokens شهريًا + Token Bank حتى 75,000','Ultimate: 60,000 Fast Tokens شهريًا + Token Bank حتى 180,000','Premium يدعم Unlimited Relaxed Image Generation على Models مختارة','Ultimate يضيف Unlimited Relaxed Video Generation على Models مختارة'],
-  source:'https://www.leonardo.ai/pricing',
-  note:'الخدمة غير متاحة حاليًا في المتجر؛ عند عودتها يجب ربط العرض باسم الخطة الفعلية بدل استخدام رقم Tokens وحده.'
-},
-'Manus':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Manus Pro',
-  facts:['Pro يبدأ من 4,000 Credit شهريًا','الوصول إلى Manus 1.6 Max و1.6 وLite في Agent Mode حسب صفحة المساعدة الحالية','Advanced Research وWebsite Deployment وSlide Generation ضمن Pro','Credits الشهرية تُصفّر مع بداية دورة الاشتراك إذا لم تُستخدم','الاستهلاك يحدث عند تشغيل Agent للمهام وليس لمجرد فتح التطبيق'],
-  source:'https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus',
-  note:'عرض المورد/المتجر الذي يذكر 4,000 Credit شهريًا يتوافق مع نقطة بداية Pro الرسمية الحالية؛ تفاصيل الحساب الفعلي تُفحص عند التسليم.'
-},
-'Gumloop':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Gumloop Pro — Credit tiers',
-  facts:['خطة Pro تستخدم مستويات Credits شهرية','المستويات تبدأ من 20,000 Credit شهريًا وتصل لأحجام أعلى','يمكن رفع مستوى Credits أثناء دورة الاشتراك','استهلاك Credits يعتمد على Nodes/Models والخطوات المستخدمة في الـWorkflow'],
-  source:'https://support.gumloop.com/articles/9772571567-how-do-i-get-more-credits-without-enabling-overages',
-  note:'عرض MASTER STORE يذكر 20,000 Credit؛ مدة الاشتراك نفسها يجب تأكيدها قبل الدفع لأنها ليست مثبتة في بيانات العرض.'
-},
-'Magic Patterns':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Magic Patterns Starter',
-  facts:['Starter هو الاسم الحالي الذي حل محل Hobby','Design systems وShared workspace وCentralized billing متاحة في Starter','من مارس 2026 أصبح استهلاك Credits حسب تعقيد الطلب بدل Credit ثابت لكل Prompt','On-demand usage متاح للخطط المدفوعة ويمكن وضع Budget limits'],
-  source:'https://www.magicpatterns.com/blog/new-plans-and-pricing',
-  note:'عرض المتجر 12 شهر Starter متوافق مع اسم Tier الحالي، لكن عدد Credits الشهري يجب التأكد منه داخل الحساب لأن النظام أصبح Usage-based.'
-},
-'Freepik':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Freepik Premium — مرجع للمحتوى',
-  facts:['Premium الرسمي يتضمن Premium stock content','حدود AI منفصلة عن تنزيل ملفات Stock','الوثائق الحالية تعرض 20,000 AI Credit شهريًا لـPremium','Downloads للـStock لها حدود وسياسات Freepik الحالية','الترخيص التجاري وعدم الحاجة للنسب متاحان حسب الخطة والمحتوى'],
-  source:'https://www.freepik.com/ai/faq/freepik-subscriptions-plans',
-  note:'MASTER STORE لا يبيع حساب Freepik في هذا العرض؛ العميل يرسل روابط الملفات والمتجر يسلّم الملفات المتاحة فقط. لذلك Credits الحساب الرسمية لا تدخل ضمن ما يشتريه العميل.'
-},
-'Adobe Creative Cloud':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Adobe Creative Cloud Pro',
-  facts:['أكثر من 20 تطبيقًا مثل Photoshop وIllustrator وPremiere','1,000 Generative Credits شهريًا للمزايا Premium الإبداعية حسب الخطة الحالية','Unlimited access لبعض Standard AI image/vector features','100GB Cloud Storage في الخطة الفردية الحالية'],
-  source:'https://www.adobe.com/creativecloud/pricing.html',
-  note:'الخدمة غير متاحة حاليًا في MASTER STORE ولا يتم الدفع قبل رجوع المخزون.'
-},
-'Duolingo Super':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Super Duolingo',
-  facts:['إزالة الإعلانات من تجربة التعلم','Unlimited Hearts بدل الانتظار بعد الأخطاء','مزايا إضافية للتعلم والمراجعة حسب الإصدار والمنطقة','التقدم والحساب يظلان مرتبطين بحساب Duolingo الشخصي'],
-  source:'https://blog.duolingo.com/super-duolingo-launch/',
-  note:'عرض MASTER STORE سنة كاملة عبر رابط تفعيل على الحساب الشخصي وبدون بطاقة حسب العرض.'
-},
-'Quizizz Premium':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Wayground Individual (Super) — Quizizz سابقًا',
-  facts:['Quizizz تغيّر اسمه رسميًا إلى Wayground','Individual (Super) يعطي Full/Premium library access','Unlimited activity storage','حتى 1,000 participant في Session حسب مقارنة الخطط الحالية','كل Question Types متاحة في Individual (Super)'],
-  source:'https://help.wayground.com/support/solutions/articles/158000403874-understanding-wayground-plans',
-  note:'اسم Quizizz Premium في المتجر اسم قديم/تجاري. الخطة الرسمية الحالية الأقرب هي Wayground Individual (Super)، ويجب تأكيد أن التفعيل المورّد يطابقها قبل الدفع.'
-},
-'Wordwall Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Wordwall Pro',
-  facts:['Create and edit unlimited activities','Access إلى أكثر من 25 مليون Teaching resources','AI lesson content generation','Pro هو أعلى Individual tier في صفحة Wordwall الحالية','الفوترة الرسمية متاحة Monthly أو Annual'],
-  source:'https://wordwall.net/price-plans',
-  note:'عرض MASTER STORE متاح شهر أو سنة بحساب جاهز؛ لا تغيّر بيانات الحساب قبل التأكد من تعليمات العرض.'
-},
-'LinkedIn Premium':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'LinkedIn Premium — عدة أنواع',
-  facts:['Premium Career يتضمن 5 InMail شهريًا','Who viewed your profile لمدة تصل لسنة','LinkedIn Learning وأكثر من 21,000 دورة حسب صفحة المساعدة الحالية','Advanced job search filters وAI job insights وProfile Writing Assistance','LinkedIn لديه Career وBusiness وAll-in-One وغيرها؛ اسم Premium وحده لا يحدد الـTier'],
-  source:'https://www.linkedin.com/help/linkedin/answer/a7474394',
-  note:'عرض MASTER STORE لا يحدد نوع Premium الرسمي بدقة؛ رابط التفعيل يستخدم مرة واحدة ويحتاج بطاقة حسب عرض المتجر، لذلك نوع الخطة يُراجع قبل الدفع.'
-},
-'Stealth Writer':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'StealthWriter paid plans',
-  facts:['Starter الرسمي حاليًا: 50 Humanizations يوميًا','Plus: 150 يوميًا، Pro: 350 يوميًا','الخطط المدفوعة تسمح حتى 5,000 كلمة لكل Input','تتضمن Humanizer وAI Detector وDeep Scan','لا توجد خدمة يمكنها ضمان تجاوز كل أدوات كشف AI بنسبة 100%'],
-  source:'https://stealthwriter.ai/pricing',
-  note:'عرض MASTER STORE الحالي يذكر 10 Humanize يوميًا مع 5,000 كلمة للعملية؛ هذا لا يطابق Tier رسمي واحد ظاهر الآن، لذلك اسم الخطة الفعلية يجب فحصه قبل الدفع.'
-},
-'Pangram Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Pangram Professional',
-  facts:['Professional الرسمي: 1,500,000 كلمة شهريًا','500 Image detection scans شهريًا','Plagiarism detection متاح مع كل Scan','200$ Monthly API usage مذكورة للخطة Professional','يدعم AI detection لأكثر من 20 لغة'],
-  source:'https://www.pangram.com/pricing',
-  note:'اسم عرض المتجر Pangram Pro يحتاج مطابقة الحساب مع Professional الرسمي؛ لا نفترض تلقائيًا حدود 1.5M كلمة إلا بعد التأكد من Tier الحساب.'
-},
-'Supercut Pro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Supercut Pro',
-  facts:['Unlimited 4K sharing','AI Assistant','Auto chapters وSummaries','Editor وAuto-Edit وZooms','Transcription وCaptions ضمن Pro','الخطة الرسمية تبدأ من 15$ لكل Seat شهريًا عند الفوترة السنوية'],
-  source:'https://supercut.ai/pricing',
-  note:'عرض MASTER STORE لمدة سنة هو عرض توريد منفصل؛ Pro الرسمي Seat-based.'
-},
-'Mobbin Team':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Mobbin Team',
-  facts:['Team يشمل كل مزايا Pro بالإضافة للتعاون','Unlimited shared team collections','Admin tools وCentralized billing','Seat-based billing ويمكن دعوة أعضاء الفريق','Team متاح Quarterly أو Yearly رسميًا'],
-  source:'https://help.mobbin.com/en/articles/692672',
-  note:'عرض MASTER STORE يتم بدعوة Team؛ لا تعدّل إعدادات الفريق أو تضف أعضاء خارج المقاعد المتفق عليها.'
-},
-'Jam Team':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Jam Team',
-  facts:['Unlimited Jams','150 Recording Links','Recordings حتى 15 دقيقة','200 AI summaries','Access controls وBackend logging'],
-  source:'https://jam.dev/pricing',
-  note:'Team الرسمي Seat/Creator based؛ عرض المتجر يتم بدعوة فريق وفق المخزون.'
-},
-'Readwise + Reader':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Readwise + Reader',
-  facts:['اشتراك واحد يشمل Reader وReadwise','Reader يقرأ Articles وPDFs وEPUBs وNewsletters وRSS وYouTube وX threads وغيرها','Highlights تنتقل إلى Readwise تلقائيًا','Export إلى Notion وObsidian وتطبيقات ملاحظات أخرى','Reader يعمل Offline على Web/Mobile وفق طريقة المزامنة'],
-  source:'https://readwise.io/pricing/reader',
-  note:'عرض MASTER STORE حساب جاهز لمدة سنة؛ لا تغيّر بيانات الحساب قبل تأكيد السماح.'
-},
-'Waking Up':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Waking Up Membership',
-  facts:['Full access إلى مكتبة Meditations','Lessons وConversations ضمن العضوية','محتوى جديد يُضاف بانتظام','منهج Secular للتأمل ولا يتطلب التزامًا دينيًا أو فلسفيًا','Community خاصة للأعضاء حسب الموقع الرسمي'],
-  source:'https://wakingup.com/',
-  note:'عرض MASTER STORE حساب جاهز لمدة سنة؛ المحتوى داخل المكتبة يتغير بمرور الوقت.'
-},
-'Linear Business':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Linear Business',
-  facts:['Unlimited teams','Private teams and guests','Triage Intelligence وLoops وCode Intelligence','Linear Insights وLinear Asks','Zendesk وIntercom integrations','بعض AI features مثل Coding sessions وLoops قد تستخدم AI credits منفصلة'],
-  source:'https://linear.app/pricing',
-  note:'عرض MASTER STORE مدته 5 شهور. AI Credits الإضافية ليست جزءًا مضمونًا من العرض إلا إذا ذُكرت صراحة.'
-},
-'PostHog Scale':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'PostHog — Usage based products',
-  facts:['Product Analytics: أول 1M event شهريًا Free ثم Pay-per-use','Session Replay: أول 5,000 Recording شهريًا Free ثم Pay-per-use','Feature Flags: أول 1M Request شهريًا Free ثم Pay-per-use','Managed Warehouse: أول 1M Row شهريًا Free ثم Pay-per-use'],
-  source:'https://posthog.com/',
-  note:'PostHog الحالي يسعّر منتجاته بنظام Usage-based. اسم Scale في عرض المتجر قد يكون تسمية/خطة قديمة أو توريد خاص؛ يجب التحقق من الحساب قبل البيع كـScale.'
-},
-'Customer.io Essentials':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Customer.io Essentials',
-  facts:['5,000 Profiles (people + objects)','1,000,000 Email شهريًا','2 Object Types','Visual workflow builder','Unlimited API calls وUnlimited push/in-app ضمن الحدود والسياسات الحالية','الزيادة: 0.009$ لكل Profile إضافي و0.12$ لكل 1,000 Email إضافي'],
-  source:'https://customer.io/pricing',
-  note:'مدة عرض MASTER STORE غير مثبتة في بيانات المتجر؛ يجب تأكيد المدة قبل الدفع حتى لو كانت مواصفات Essentials الرسمية واضحة.'
-},
-'iCloud+ 4TB':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'iCloud+ — Apple Egypt reference',
-  facts:['Apple Egypt تعرض رسميًا 50GB و200GB و2TB و6TB و12TB','Family Sharing يسمح بالمشاركة مع حتى 5 أفراد من العائلة','Hide My Email وCustom Email Domain ضمن iCloud+','HomeKit Secure Video حسب مستوى التخزين'],
-  source:'https://www.apple.com/eg/icloud/',
-  note:'Apple لا تعرض Tier مستقل 4TB حاليًا في مصر؛ لذلك عرض MASTER STORE باسم 4TB هو ترتيب خاص/مشاركة وليس اسم خطة Apple قياسية. مدة العرض أيضًا يجب تأكيدها قبل الدفع.'
-},
-'HMA VPN':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'HMA VPN',
-  facts:['3,400+ Servers حسب صفحة التسعير الحالية','100+ Locations حول العالم','Streaming وP2P servers','Lightning Connect وSplit-Tunneling وKill Switch','الخطط الرسمية تدعم 5 أو 10 اتصالات متزامنة حسب Tier'],
-  source:'https://www.hidemyass.com/pricing-plans',
-  note:'مصدر عرض المتجر للمدة كان غير واضح بين 20/30 يوم؛ لذلك لا نثبت مدة نهائية إلا بعد تأكيد المخزون.'
-},
-'Grammarly Premium':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Grammarly Pro — الاسم الحالي',
-  facts:['Grammarly Pro يتضمن Rewrite كامل للجمل وTone adjustments','Unlimited personalized suggestions','Plagiarism وAI-generated text detection','2,000 AI prompts شهريًا لكل عضو في Pro','Premium القديم انتقل/تغير إلى Pro في التسعير الحالي'],
-  source:'https://www.grammarly.com/plans',
-  note:'الخدمة ما زالت Coming Soon في MASTER STORE؛ عند الإطلاق استخدم اسم Grammarly Pro الحالي بدل Premium إذا كانت الخطة المورّدة هي نفسها.'
-},
-'QuillBot Premium':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'QuillBot Premium',
-  facts:['Paraphrasing بدون حد كلمات داخل الأداة المدعومة','جميع 9 Paraphrasing Modes','Unlimited Custom modes','Full access إلى Humanizer وAI Detector','Advanced Grammar recommendations وPlagiarism tools ضمن Premium'],
-  source:'https://quillbot.com/premium',
-  note:'الخدمة Coming Soon؛ حدود بعض الأدوات قد تختلف حسب Platform، لذلك يتم تثبيت التفاصيل عند إضافة العرض للبيع.'
-},
-'Envato Elements':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Envato Core / Plus / Ultimate',
-  facts:['Unlimited downloads لأكثر من 29 مليون Creative Asset','Lifetime commercial license للأصول المستخدمة حسب شروط الترخيص','Core حاليًا يتضمن 20 AI Credit شهريًا','Plus يتضمن 200 AI Credit شهريًا و3 Parallel AI generations','الخطط تختلف أساسًا في حجم AI usage'],
-  source:'https://elements.envato.com/pricing',
-  note:'الخدمة Coming Soon؛ يجب اختيار Tier رسمي واضح عند إضافة السعر بدل عرض اسم Envato Elements فقط.'
-},
-'Motion Array':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Motion Array Everything',
-  facts:['Unlimited downloads من Marketplace للمشترك المدفوع','Video templates وMotion graphics وFootage','Music وSound effects وGraphics وPhotos','Plugins وPresets وLUTs','المشاريع المنشورة أثناء الاشتراك تظل مرخصة وفق شروط Motion Array حتى بعد انتهاء الاشتراك'],
-  source:'https://motionarray.com/pricing/',
-  note:'الخدمة Coming Soon؛ الخطة النهائية يجب تحديدها لأن Motion Array يقدم Everything وVideo Templates وAI Voiceover وخطط Team/Business.'
-},
-'Suno AI':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Suno Pro',
-  facts:['2,500 Credit شهريًا','20 Song downloads شهريًا في Pro','Commercial use rights','Priority queue حتى 10 Songs في وقت واحد','إمكانية شراء Credits إضافية','Subscription credits لا تترحل للشهر التالي'],
-  source:'https://suno.com/pricing',
-  note:'الخدمة Coming Soon؛ عند تفعيلها يمكن تسمية العرض Suno Pro إذا كان الحساب الفعلي يطابق الـTier الرسمي.'
-},
-'Murf AI':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Murf Creator / Business',
-  facts:['Creator: 24 ساعة Voice Generation سنويًا عند الخطة السنوية','Creator يتضمن 200+ Voices وUnlimited Downloads وCommercial Rights','Business: 96 ساعة Voice Generation سنويًا','Business يضيف Audio-to-Text وPowerPoint integration ومزايا تحكم صوتي إضافية'],
-  source:'https://murf.ai/pricing',
-  note:'الخدمة Coming Soon؛ لازم تحديد Creator أو Business قبل عرض السعر لأن الحدود مختلفة جدًا.'
-},
-'Discord Nitro':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Discord Nitro',
-  facts:['1GB File sharing حسب صفحة Nitro الحالية','HD streaming','2 Server Boosts + خصم 30% على Boosts إضافية','رسائل حتى 4,000 Character','الانضمام إلى حتى 200 Server','Custom profiles وEmojis وThemes ومزايا تخصيص إضافية'],
-  source:'https://discord.com/nitro',
-  note:'الخدمة Coming Soon؛ يتم البيع فقط إذا طريقة التفعيل قانونية ومدعومة، مع تجنب أي مصدر غير رسمي قد يؤدي لسحب Nitro.'
-},
-'Kling AI':{
-  verified:'22 سبتمبر 2026',
-  officialPlan:'Kling AI — مرجع Kuaishou الرسمي',
-  facts:['Kling AI منصة توليد فيديو وصور تابعة لـKuaishou','أعلنت Kuaishou تاريخيًا نظام Inspiration Credits وخطط مدفوعة','حدود وأسعار الخطط الحالية تحتاج تحقق مباشر من Kling وقت عودة المخزون'],
-  source:'https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-launches-full-beta-testing-kling-ai-global-users-0',
-  note:'الخدمة منتهية المخزون حاليًا. لا نعرض أرقام Credits قديمة كأنها مواصفات 2026؛ يتم تحديثها عند عودة الخدمة.'
-}
-};
-
-const products=rows.map((r,i)=>({id:i,name:r[0],category:r[1],duration:r[2],price:r[3],activation:r[4],account:r[5],warranty:r[6],status:r[7],description:r[8],benefits:categoryBenefits[r[1]],terms:categoryTerms[r[1]],deep:serviceDeep[r[0]]||{},official:officialResearch[r[0]]||null,logo:logoSlugs[r[0]]||'',domain:logoDomains[r[0]]||'',plans:planSets[r[0]]||[]}));
