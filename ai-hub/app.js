@@ -579,3 +579,9 @@ document.querySelectorAll('.reveal-item').forEach(el=>{
   if(revealObserver)revealObserver.observe(el);
   else el.classList.add('revealed');
 });
+const marketingHeader=document.querySelector('.reference-header');
+function syncHeaderScroll(){
+  marketingHeader?.classList.toggle('scrolled',window.scrollY>16);
+}
+window.addEventListener('scroll',syncHeaderScroll,{passive:true});
+syncHeaderScroll();
