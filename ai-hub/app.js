@@ -703,3 +703,24 @@ renderRecent();
 refreshOverview();
 resizeChatInput();
 renderIcons();
+const heroSlides=[...document.querySelectorAll('.reference-slide')];
+const heroDots=[...document.querySelectorAll('[data-hero-dot]')];
+let heroIndex=0;
+let heroTimer;
+
+function showHeroSlide(index){
+  if(!heroSlides.length)return;
+  heroIndex=(index+heroSlides.length)%heroSlides.length;
+  heroSlides.forEach((slide,i)=>slide.classList.toggle('active',i===heroIndex));
+  heroDots.forEach((dot,i)=>dot.classList.toggle('active',i===heroIndex));
+  renderIcons();
+}
+function scheduleHero(){
+  clearInterval(heroTimer);
+  heroTimer=setInterval(()=>showHeroSlide(heroIndex+1),6500);
+}
+heroDots.forEach(dot=>dot.addEventListener('click',()=>{
+  showHeroSlide(Number(dot.dataset.heroDot));
+  scheduleHero();
+}));
+scheduleHero();
