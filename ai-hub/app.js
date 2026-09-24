@@ -1,5 +1,17 @@
 const $=id=>document.getElementById(id);
 
+function renderIcons(root=document){
+  if(window.lucide?.createIcons){
+    window.lucide.createIcons({
+      root,
+      attrs:{
+        'stroke-width':1.7,
+        'aria-hidden':'true'
+      }
+    });
+  }
+}
+
 const views={
   home:$('homeView'),
   discover:$('discoverView'),
@@ -253,6 +265,7 @@ function renderRecent(){
       escapeHtml((item.type||'work')+' · '+formatRecentTime(item.updatedAt))+
       '</small></button>';
   }).join('');
+  renderIcons(list);
   list.querySelectorAll('[data-recent-index]').forEach(button=>{
     button.addEventListener('click',()=>{
       const item=items[Number(button.dataset.recentIndex)];
@@ -370,9 +383,10 @@ function renderFiles(files){
     return;
   }
   fileList.innerHTML=files.map(file=>{
-    return '<div class="file-row"><div><span class="file-icon"><svg class="icon"><use href="#i-doc"></use></svg></span><div><strong>'+
+    return '<div class="file-row"><div><span class="file-icon"><i data-lucide="file-text" class="icon"></i></span><div><strong>'+
       escapeHtml(file.name)+'</strong><small>'+formatBytes(file.size)+'</small></div></div><b>Ready</b></div>';
   }).join('');
+  renderIcons(fileList);
   files.forEach(file=>{
     pushRecent({
       id:'file-'+file.name+'-'+file.size,
@@ -501,3 +515,4 @@ loadDocument();
 loadSettings();
 renderRecent();
 refreshOverview();
+renderIcons();
