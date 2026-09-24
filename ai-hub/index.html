@@ -170,7 +170,7 @@
           <article>
             <span>03</span>
             <h3>Stay focused</h3>
-            <p>The complex model choices stay in the background unless you decide you want control.</p>
+            <p>The workspace stays simple so you can focus on the work itself.</p>
           </article>
         </div>
       </section>
@@ -178,7 +178,7 @@
       <section class="closing">
         <div class="closing-mark">N</div>
         <h2>One place. Your flow.</h2>
-        <p>Keep the complexity in the background. Keep moving in the foreground.</p>
+        <p>Keep your documents, files and creative work moving in one place.</p>
         <button class="primary-cta" data-viewjump="workspace">Start using Nasha</button>
       </section>
 
@@ -203,7 +203,7 @@
       <div class="page-head">
         <p class="eyebrow">EXPLORE</p>
         <h1>Choose what you want to do.</h1>
-        <p>Nasha keeps the tool choice in the background.</p>
+        <p>Everything you need, organized in one workspace.</p>
       </div>
 
       <div class="discover-list">
@@ -227,7 +227,8 @@
           <button class="new-chat" id="newChatBtn"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>New document</button>
 
           <div class="workspace-section-label">Workspace</div>
-          <button class="active" data-tool="chat"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8.5L18.5 7v13.5H6z"/><path d="M14.5 3.5V7h4M9 11h6M9 14h6M9 17h4"/></svg></span>Documents</button>
+          <button class="active" data-tool="overview"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20H4z"/><path d="M9 20v-6h6v6"/></svg></span>Home</button>
+          <button data-tool="chat"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8.5L18.5 7v13.5H6z"/><path d="M14.5 3.5V7h4M9 11h6M9 14h6M9 17h4"/></svg></span>Documents</button>
           <button data-tool="image"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 19 3.2-.7L18 8.5 15.5 6 5.7 15.8z"/><path d="m14.5 7 2.5 2.5M4 20h16"/></svg></span>Design</button>
           <button data-tool="video"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="12" height="12" rx="2"/><path d="m16 10 4-2v8l-4-2z"/></svg></span>Video</button>
           <button data-tool="voice"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V7a3 3 0 0 0-3-3z"/><path d="M6.5 11.5a5.5 5.5 0 0 0 11 0M12 17v3M9 20h6"/></svg></span>Audio</button>
@@ -245,7 +246,7 @@
             <div class="workspace-title-wrap">
               <span class="workspace-breadcrumb">Workspace</span>
               <span class="workspace-sep">/</span>
-              <span id="workspaceTitle">Documents</span>
+              <span id="workspaceTitle">Home</span>
             </div>
             <div class="workspace-top-actions">
               <span class="save-state" id="saveState">Saved</span>
@@ -255,14 +256,59 @@
           </div>
 
           <div class="mobile-toolbar" aria-label="Workspace sections">
-            <button class="active" data-tool="chat">Docs</button>
+            <button class="active" data-tool="overview">Home</button>
+            <button data-tool="chat">Docs</button>
             <button data-tool="image">Design</button>
             <button data-tool="video">Video</button>
             <button data-tool="voice">Audio</button>
             <button data-tool="translate">Translate</button>
           </div>
 
-          <div class="tool-panel active document-panel" id="chatTool">
+          <div class="tool-panel active overview-panel" id="overviewTool">
+            <div class="overview-head">
+              <div>
+                <span class="workspace-kicker">YOUR WORKSPACE</span>
+                <h1>Pick up where you left off.</h1>
+                <p>Start something new or continue your recent work.</p>
+              </div>
+              <button class="overview-new" id="overviewNewDoc">New document</button>
+            </div>
+
+            <div class="quick-create">
+              <button data-tool="chat"><span class="quick-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8.5L18.5 7v13.5H6z"/><path d="M14.5 3.5V7h4M9 11h6M9 14h6M9 17h4"/></svg></span><strong>Document</strong><small>Notes, briefs and drafts</small></button>
+              <button data-tool="image"><span class="quick-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 19 3.2-.7L18 8.5 15.5 6 5.7 15.8z"/><path d="m14.5 7 2.5 2.5M4 20h16"/></svg></span><strong>Design</strong><small>Visuals and concepts</small></button>
+              <button data-tool="video"><span class="quick-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="12" height="12" rx="2"/><path d="m16 10 4-2v8l-4-2z"/></svg></span><strong>Video</strong><small>Short-form projects</small></button>
+              <button data-tool="voice"><span class="quick-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V7a3 3 0 0 0-3-3z"/><path d="M6.5 11.5a5.5 5.5 0 0 0 11 0M12 17v3M9 20h6"/></svg></span><strong>Audio</strong><small>Voice and recordings</small></button>
+              <button data-tool="translate"><span class="quick-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.2 3.5 5 3.5 8.5S14.3 18.3 12 20.5M12 3.5C9.7 5.7 8.5 8.5 8.5 12s1.2 6.3 3.5 8.5"/></svg></span><strong>Translate</strong><small>Work across languages</small></button>
+              <button data-viewjump="files"><span class="quick-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h6l1.7 2h9.3v10H3.5z"/></svg></span><strong>Files</strong><small>Upload and organize</small></button>
+            </div>
+
+            <section class="recent-section">
+              <div class="section-row">
+                <div><span>Recent</span><strong>Your latest work</strong></div>
+                <button id="overviewRecent">View all</button>
+              </div>
+              <div class="recent-grid">
+                <button class="recent-card" id="recentDocumentCard" data-tool="chat">
+                  <span class="recent-type">DOCUMENT</span>
+                  <strong id="recentDocumentTitle">Untitled document</strong>
+                  <small id="recentDocumentMeta">Saved locally</small>
+                </button>
+                <button class="recent-card empty-recent" data-tool="image">
+                  <span class="recent-type">DESIGN</span>
+                  <strong>Start a design</strong>
+                  <small>Create your first visual project</small>
+                </button>
+                <button class="recent-card empty-recent" data-tool="video">
+                  <span class="recent-type">VIDEO</span>
+                  <strong>Start a video</strong>
+                  <small>Set up your first video project</small>
+                </button>
+              </div>
+            </section>
+          </div>
+
+          <div class="tool-panel document-panel" id="chatTool">
             <div class="document-toolbar">
               <div class="doc-tools-left">
                 <button type="button" aria-label="Bold"><strong>B</strong></button>
