@@ -280,14 +280,17 @@ function renderRecent(){
 function refreshOverview(){
   const title=$('recentDocumentTitle');
   const meta=$('recentDocumentMeta');
+  const summaryTitle=$('workspaceSummaryTitle');
   try{
     const saved=JSON.parse(localStorage.getItem(documentKey)||'null');
     if(saved){
       if(title)title.textContent=saved.title||'Untitled document';
       if(meta)meta.textContent='Edited '+formatRecentTime(saved.updatedAt);
+      if(summaryTitle)summaryTitle.textContent=saved.title||'Untitled document';
     }else{
       if(title)title.textContent='Untitled document';
       if(meta)meta.textContent='No saved document yet';
+      if(summaryTitle)summaryTitle.textContent='No document yet';
     }
   }catch{}
 }
@@ -385,7 +388,7 @@ function renderFiles(files){
   }
   fileList.innerHTML=files.map(file=>{
     return '<div class="file-row"><div><span class="file-icon"><i data-lucide="file-text" class="icon"></i></span><div><strong>'+
-      escapeHtml(file.name)+'</strong><small>'+formatBytes(file.size)+'</small></div></div><b>Ready</b></div>';
+      escapeHtml(file.name)+'</strong><small>'+formatBytes(file.size)+'</small></div></div><b>Selected</b></div>';
   }).join('');
   renderIcons(fileList);
   files.forEach(file=>{
@@ -397,6 +400,8 @@ function renderFiles(files){
       updatedAt:new Date().toISOString()
     });
   });
+  const fileCount=$('workspaceFileCount');
+  if(fileCount)fileCount.textContent=files.length+' selected';
   showToast(files.length+' file'+(files.length===1?'':'s')+' added');
 }
 
@@ -517,27 +522,6 @@ loadSettings();
 renderRecent();
 refreshOverview();
 renderIcons();
-const heroSlides=[...document.querySelectorAll('.reference-slide')];
-const heroDots=[...document.querySelectorAll('[data-hero-dot]')];
-let heroIndex=0;
-let heroTimer;
-
-function showHeroSlide(index){
-  if(!heroSlides.length)return;
-  heroIndex=(index+heroSlides.length)%heroSlides.length;
-  heroSlides.forEach((slide,i)=>slide.classList.toggle('active',i===heroIndex));
-  heroDots.forEach((dot,i)=>dot.classList.toggle('active',i===heroIndex));
-  renderIcons();
-}
-function scheduleHero(){
-  clearInterval(heroTimer);
-  heroTimer=setInterval(()=>showHeroSlide(heroIndex+1),6500);
-}
-heroDots.forEach(dot=>dot.addEventListener('click',()=>{
-  showHeroSlide(Number(dot.dataset.heroDot));
-  scheduleHero();
-}));
-scheduleHero();
 $('sidebarNewDocument')?.addEventListener('click',newDocument);
 
 const mobileMenu=$('mobileMenu');
