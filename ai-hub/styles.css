@@ -486,3 +486,116 @@ body{
   .tool-form h2,.voice-head h2,.translate-head h2{font-size:22px}
   .price-card h3{font-size:31px}
 }
+/* Compact typography pass */
+body{font-size:14px;line-height:1.5}
+.logo-type{font-size:17px}
+.desktop-nav button,.ghost{font-size:11px}
+.dark,.primary-cta{font-size:11px}
+.brand-pill{font-size:9px}
+
+.hero h1{
+  font-size:clamp(40px,4.4vw,56px);
+  line-height:1.02;
+  letter-spacing:-.04em;
+}
+.sub{font-size:13.5px;line-height:1.62;max-width:520px}
+.text-cta{font-size:10px}
+.micro-proof{font-size:9px}
+
+.mini-canvas h3{font-size:20px}
+.demo-input{font-size:10px}
+.demo-card b{font-size:10px}
+.demo-card span{font-size:8px}
+
+.brand-strip{font-size:9.5px}
+.eyebrow{font-size:8.5px}
+.section-number{font-size:9px}
+
+.story-intro h2,.brand-system h2{
+  font-size:clamp(28px,2.7vw,36px);
+  line-height:1.1;
+}
+.story-card h3{font-size:18px;line-height:1.28}
+.story-card p{font-size:11px}
+.card-tag,.card-no{font-size:8px}
+.user-msg{font-size:10px}
+.poster-preview strong{font-size:27px}
+.brand-tile b{font-size:15px}
+.ink-tile b{font-size:20px}
+
+.closing h2{font-size:clamp(30px,3.2vw,38px)}
+.closing p{font-size:11.5px}
+.footer-brand strong{font-size:10px}
+.footer-brand span,.site-footer>p,.footer-links button{font-size:8.5px}
+
+.page-head h1{
+  font-size:clamp(30px,3.5vw,40px);
+  line-height:1.08;
+}
+.page-head>p:last-child{font-size:11.5px}
+.discover-list h3{font-size:17px}
+.discover-list p{font-size:10px}
+.discover-list span{font-size:8px}
+
+.workspace-nav button{font-size:10px}
+.workspace-top{font-size:10.5px}
+.smart-button{font-size:9px}
+.chat-empty>p{font-size:21px}
+.chat-note{font-size:9px}
+.starter-row button{font-size:8.5px}
+.bubble{font-size:11.5px}
+.composer textarea{font-size:12.5px}
+.send,.black-button,.translate-action{font-size:9px}
+
+.tool-form h2,.voice-head h2,.translate-head h2{font-size:20px}
+.tool-form textarea,.translate-grid textarea{font-size:12px}
+.inline-fields select,.translate-grid select{font-size:10px}
+.voice-options strong{font-size:13px}
+.voice-options span{font-size:9px}
+.tool-output{font-size:8.5px}
+
+.upload-box strong{font-size:15px}
+.upload-box span{font-size:9px}
+.upload-box button{font-size:9px}
+.file-shortcuts span{font-size:8px}
+
+.plan-name{font-size:9px}
+.price-card h3{font-size:29px}
+.price-card h3 small{font-size:10px}
+.price-card p,.price-card li{font-size:9.5px}
+.price-card button{font-size:9px}
+.pricing-note{font-size:8px}
+
+.drawer-head strong{font-size:16px}
+.drawer-head span{font-size:8px}
+.history-entry strong{font-size:9.5px}
+.history-entry span{font-size:7.5px}
+.settings-block label{font-size:9px}
+.settings-block input,.settings-block select{font-size:10px}
+.usage-card strong{font-size:18px}
+
+@media(max-width:980px){
+  body{font-size:13.5px}
+  .hero h1{font-size:46px}
+  .sub{font-size:13px}
+  .story-card h3{font-size:17px}
+}
+@media(max-width:650px){
+  .logo-type{font-size:16px}
+  .hero h1{font-size:32px;line-height:1.05}
+  .brand-pill{font-size:8px}
+  .sub{font-size:12px;line-height:1.6}
+  .primary-cta{font-size:10px}
+  .text-cta{font-size:9px}
+  .micro-proof{font-size:8px}
+  .mini-canvas h3{font-size:16px}
+  .story-intro h2,.brand-system h2{font-size:26px}
+  .story-card h3{font-size:17px}
+  .story-card p{font-size:10.5px}
+  .closing h2{font-size:29px}
+  .page-head h1{font-size:29px}
+  .page-head>p:last-child{font-size:11px}
+  .chat-empty>p{font-size:19px}
+  .tool-form h2,.voice-head h2,.translate-head h2{font-size:19px}
+  .price-card h3{font-size:27px}
+}
