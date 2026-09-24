@@ -33,6 +33,7 @@
     </nav>
     <div class="site-actions">
       <button class="reference-menu-button" data-viewjump="workspace">Open Nasha <i data-lucide="arrow-up-right"></i></button>
+      <button class="mobile-menu-trigger" id="mobileMenuOpen" aria-label="Open menu"><i data-lucide="menu"></i></button>
       <button class="avatar-button" id="settingsOpen" aria-label="Open settings">N</button>
     </div>
   </header>
@@ -142,8 +143,50 @@
         </div>
       </section>
 
+      <section class="reference-work">
+        <div class="reference-section-head">
+          <div class="reference-section-label"><span>03</span><small>HOW IT FLOWS</small></div>
+          <h2>Work moves forward<br>without changing places.</h2>
+        </div>
+
+        <div class="reference-work-row reveal-item">
+          <div class="reference-work-photo" style="background-image:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&fm=jpg&q=80&w=1800')"></div>
+          <div class="reference-work-copy">
+            <span>01 / START</span>
+            <h3>Begin with the thing in front of you.</h3>
+            <p>A blank document, a source file, a visual direction or a translation. You choose the work first.</p>
+            <button data-viewjump="workspace">Open workspace <i data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="reference-work-row reverse reveal-item">
+          <div class="reference-work-photo" style="background-image:url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&fm=jpg&q=80&w=1800')"></div>
+          <div class="reference-work-copy">
+            <span>02 / ORGANIZE</span>
+            <h3>Keep the useful pieces together.</h3>
+            <p>Projects, notes, source material and creative work stay close enough to move between them naturally.</p>
+            <button data-workspace="files">Open files <i data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="reference-numbers reveal-item">
+        <div><strong>06</strong><span>focused workspaces</span></div>
+        <div><strong>01</strong><span>place to keep the work</span></div>
+        <div><strong>00</strong><span>extra dashboards to learn</span></div>
+      </section>
+
+      <section class="reference-process">
+        <div class="reference-section-label"><span>04</span><small>PROCESS</small></div>
+        <div class="reference-process-list">
+          <article class="reveal-item"><span>01</span><h3>Start</h3><p>Choose the kind of work you want to do.</p></article>
+          <article class="reveal-item"><span>02</span><h3>Shape</h3><p>Build the document, visual, media project or translation.</p></article>
+          <article class="reveal-item"><span>03</span><h3>Keep</h3><p>Return to recent work and keep source material close.</p></article>
+        </div>
+      </section>
+
       <section class="reference-values">
-        <div class="reference-section-label"><span>03</span><small>WHY NASHA</small></div>
+        <div class="reference-section-label"><span>05</span><small>WHY NASHA</small></div>
         <div class="reference-values-grid">
           <article><span>01</span><h3>Simple</h3><p>A quiet interface with only what you need in front of you.</p></article>
           <article><span>02</span><h3>Connected</h3><p>Your work moves between documents, media and files without feeling fragmented.</p></article>
@@ -193,10 +236,9 @@
       <div class="app-shell">
         <aside class="app-sidebar">
           <div class="app-brand"><span class="brand-mark">N</span><strong>Nasha</strong></div>
-          <button class="new-button" id="newChatBtn"><i data-lucide="plus" class="icon"></i><span>New chat</span></button>
+          <button class="new-button" id="sidebarNewDocument"><i data-lucide="plus" class="icon"></i><span>New document</span></button>
           <p class="nav-label">Workspace</p>
           <button class="app-nav active" data-tool="overview"><i data-lucide="house" class="icon"></i><span>Home</span></button>
-          <button class="app-nav" data-tool="chat"><i data-lucide="sparkles" class="icon"></i><span>Chat</span></button>
           <button class="app-nav" data-tool="documents"><i data-lucide="file-text" class="icon"></i><span>Documents</span></button>
           <button class="app-nav" data-tool="design"><i data-lucide="palette" class="icon"></i><span>Design</span></button>
           <button class="app-nav" data-tool="video"><i data-lucide="video" class="icon"></i><span>Video</span></button>
@@ -222,7 +264,6 @@
 
           <nav class="app-mobile-tabs" aria-label="Workspace sections">
             <button class="active" data-tool="overview">Home</button>
-            <button data-tool="chat">Chat</button>
             <button data-tool="documents">Docs</button>
             <button data-tool="design">Design</button>
             <button data-tool="video">Video</button>
@@ -233,11 +274,10 @@
 
           <section class="tool-panel active overview-panel" id="overviewTool">
             <div class="overview-head">
-              <div><p>YOUR WORKSPACE</p><h1>Pick up where you left off.</h1><span>Start a conversation, create a document or continue recent work.</span></div>
-              <div class="overview-actions"><button class="secondary-button" id="overviewNewDocument">New document</button><button class="primary-button" id="overviewNewChat">New chat</button></div>
+              <div><p>YOUR WORKSPACE</p><h1>Pick up where you left off.</h1><span>Start a document, open a project or continue recent work.</span></div>
+              <div class="overview-actions"><button class="primary-button" id="overviewNewDocument">New document</button></div>
             </div>
             <div class="quick-grid">
-              <button data-tool="chat"><span><i data-lucide="sparkles" class="icon"></i></span><strong>Chat</strong><small>Ask, compare and think through work</small></button>
               <button data-tool="documents"><span><i data-lucide="file-text" class="icon"></i></span><strong>Document</strong><small>Notes, briefs and drafts</small></button>
               <button data-tool="design"><span><i data-lucide="palette" class="icon"></i></span><strong>Design</strong><small>Visuals and concepts</small></button>
               <button data-tool="video"><span><i data-lucide="video" class="icon"></i></span><strong>Video</strong><small>Short-form projects</small></button>
@@ -316,7 +356,7 @@
             <div class="audio-grid">
               <button data-audio-action="Voiceover"><span><i data-lucide="mic" class="icon"></i></span><strong>Voiceover</strong><small>Turn written copy into narration.</small><b>→</b></button>
               <button data-audio-action="Transcription"><span><i data-lucide="file-text" class="icon"></i></span><strong>Transcription</strong><small>Turn recordings into clean text.</small><b>→</b></button>
-              <button data-audio-action="Audio notes"><span><i data-lucide="sparkles" class="icon"></i></span><strong>Audio notes</strong><small>Pull useful points from a recording.</small><b>→</b></button>
+              <button data-audio-action="Audio notes"><span><i data-lucide="notebook-pen" class="icon"></i></span><strong>Audio notes</strong><small>Pull useful points from a recording.</small><b>→</b></button>
             </div>
           </section>
 
@@ -383,12 +423,19 @@
 
   <div class="backdrop" id="backdrop"></div>
 
-  <nav class="mobile-site-nav" aria-label="Mobile navigation">
-    <button data-view="home" class="active">Home</button>
-    <button data-view="discover">Explore</button>
-    <button data-view="workspace">Workspace</button>
-    <button data-view="pricing">Pricing</button>
-  </nav>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-top">
+      <div class="reference-footer-brand"><span class="brand-mark">N</span><strong>Nasha</strong></div>
+      <button id="mobileMenuClose" aria-label="Close menu"><i data-lucide="x"></i></button>
+    </div>
+    <nav aria-label="Mobile menu">
+      <button data-menu-view="home"><span>01</span><strong>Home</strong></button>
+      <button data-menu-view="discover"><span>02</span><strong>Workspace</strong></button>
+      <button data-menu-view="pricing"><span>03</span><strong>Pricing</strong></button>
+      <button data-menu-workspace="overview"><span>04</span><strong>Open Nasha</strong></button>
+    </nav>
+    <small>Nasha / Your work, in one place.</small>
+  </div>
 
   <div class="legal-modal" id="legalModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
     <div class="legal-card">
