@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260924-3">
+  <link rel="stylesheet" href="./styles.css?v=20260924-4">
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Skip to content</a>
@@ -208,174 +208,164 @@
           <h1>Choose what you want to work on.</h1>
           <span>Everything opens inside the same workspace.</span>
         </header>
-        <div class="tool-list">
-          <button data-workspace="documents"><span class="tool-list-icon"><i data-lucide="file-text" class="icon"></i></span><div><strong>Documents</strong><small>Write notes, briefs, plans and longer work.</small></div><i data-lucide="arrow-right" class="icon arrow"></i></button>
-          <button data-workspace="design"><span class="tool-list-icon"><i data-lucide="palette" class="icon"></i></span><div><strong>Design</strong><small>Create visuals for products, posts and presentations.</small></div><i data-lucide="arrow-right" class="icon arrow"></i></button>
-          <button data-workspace="video"><span class="tool-list-icon"><i data-lucide="video" class="icon"></i></span><div><strong>Video</strong><small>Prepare short videos and motion projects.</small></div><i data-lucide="arrow-right" class="icon arrow"></i></button>
-          <button data-workspace="audio"><span class="tool-list-icon"><i data-lucide="mic" class="icon"></i></span><div><strong>Audio</strong><small>Voiceovers, transcription and audio notes.</small></div><i data-lucide="arrow-right" class="icon arrow"></i></button>
-          <button data-workspace="translate"><span class="tool-list-icon"><i data-lucide="languages" class="icon"></i></span><div><strong>Translate</strong><small>Work between languages in a side-by-side editor.</small></div><i data-lucide="arrow-right" class="icon arrow"></i></button>
-          <button data-workspace="files"><span class="tool-list-icon"><i data-lucide="folder" class="icon"></i></span><div><strong>Files</strong><small>Upload and keep source material with your work.</small></div><i data-lucide="arrow-right" class="icon arrow"></i></button>
+        <div class="tool-list focused-tool-list">
+          <button data-workspace="chat"><span class="tool-list-icon"><i data-lucide="message-square" class="icon"></i></span><div><strong>Chat</strong><small>Write, plan, compare and work through ideas.</small></div><i data-lucide="arrow-right" class="icon arrow"></i></button>
+          <button data-workspace="images"><span class="tool-list-icon"><i data-lucide="image" class="icon"></i></span><div><strong>Images</strong><small>Set up image ideas, formats and visual drafts.</small></div><i data-lucide="arrow-right" class="icon arrow"></i></button>
+          <button data-workspace="video"><span class="tool-list-icon"><i data-lucide="video" class="icon"></i></span><div><strong>Video</strong><small>Plan video scenes, formats and projects.</small></div><i data-lucide="arrow-right" class="icon arrow"></i></button>
         </div>
       </div>
     </section>
 
     <section class="view" id="workspaceView">
-      <div class="app-shell">
-        <aside class="app-sidebar">
+      <div class="app-shell focused-app">
+        <aside class="app-sidebar focused-sidebar">
           <div class="app-brand"><span class="brand-mark">N</span><strong>Nasha</strong></div>
-          <button class="new-button" id="sidebarNewDocument"><i data-lucide="plus" class="icon"></i><span>New document</span></button>
-          <p class="nav-label">Workspace</p>
-          <button class="app-nav active" data-tool="overview"><i data-lucide="house" class="icon"></i><span>Home</span></button>
-          <button class="app-nav" data-tool="documents"><i data-lucide="file-text" class="icon"></i><span>Documents</span></button>
-          <button class="app-nav" data-tool="design"><i data-lucide="palette" class="icon"></i><span>Design</span></button>
-          <button class="app-nav" data-tool="video"><i data-lucide="video" class="icon"></i><span>Video</span></button>
-          <button class="app-nav" data-tool="audio"><i data-lucide="mic" class="icon"></i><span>Audio</span></button>
-          <button class="app-nav" data-tool="translate"><i data-lucide="languages" class="icon"></i><span>Translate</span></button>
-          <button class="app-nav" data-tool="files"><i data-lucide="folder" class="icon"></i><span>Files</span></button>
+
+          <button class="new-button" id="newChatButton">
+            <i data-lucide="plus" class="icon"></i><span>New chat</span>
+          </button>
+
+          <p class="nav-label">Create</p>
+          <button class="app-nav active" data-tool="chat">
+            <i data-lucide="message-square" class="icon"></i><span>Chat</span>
+          </button>
+          <button class="app-nav" data-tool="images">
+            <i data-lucide="image" class="icon"></i><span>Images</span>
+          </button>
+          <button class="app-nav" data-tool="video">
+            <i data-lucide="video" class="icon"></i><span>Video</span>
+          </button>
+
           <div class="app-nav-bottom">
-            <button id="workspaceRecent"><i data-lucide="clock" class="icon"></i><span>Recent</span></button>
-            <button id="workspaceSettings"><i data-lucide="settings" class="icon"></i><span>Settings</span></button>
+            <button id="workspaceHistory">
+              <i data-lucide="history" class="icon"></i><span>History</span>
+            </button>
+            <button id="workspaceSettings">
+              <i data-lucide="settings-2" class="icon"></i><span>Settings</span>
+            </button>
+
+            <button class="account-card" id="accountOpen">
+              <span class="account-avatar" id="accountAvatar">N</span>
+              <span class="account-copy"><strong id="accountName">Guest</strong><small>Sign in or register</small></span>
+              <i data-lucide="chevron-right" class="icon"></i>
+            </button>
           </div>
         </aside>
 
-        <div class="app-main">
-          <header class="app-topbar">
-            <div class="app-breadcrumb"><span>Workspace</span><i>/</i><strong id="workspaceTitle">Home</strong></div>
+        <div class="app-main focused-main">
+          <header class="app-topbar focused-topbar">
+            <div class="app-breadcrumb"><span>Nasha</span><i>/</i><strong id="workspaceTitle">Chat</strong></div>
             <div class="app-top-actions">
               <button class="back-site" data-viewjump="home"><i data-lucide="arrow-left" class="icon"></i><span>Website</span></button>
-              <span class="save-state" id="saveState">Saved</span>
-              <button class="icon-button" id="topRecent" aria-label="Open recent work"><i data-lucide="clock" class="icon"></i></button>
-              <button class="icon-button" id="topSettings" aria-label="Open settings"><i data-lucide="settings" class="icon"></i></button>
+              <button class="top-action-button" id="topHistory" aria-label="Open history">
+                <i data-lucide="history"></i><span>History</span>
+              </button>
+              <button class="top-icon-large" id="topSettings" aria-label="Open settings">
+                <i data-lucide="settings-2"></i>
+              </button>
+              <button class="top-account-button" id="topAccount" aria-label="Open account">
+                <span id="topAccountAvatar">N</span>
+              </button>
             </div>
           </header>
 
-          <nav class="app-mobile-tabs" aria-label="Workspace sections">
-            <button class="active" data-tool="overview">Home</button>
-            <button data-tool="documents">Docs</button>
-            <button data-tool="design">Design</button>
-            <button data-tool="video">Video</button>
-            <button data-tool="audio">Audio</button>
-            <button data-tool="translate">Translate</button>
-            <button data-tool="files">Files</button>
+          <nav class="app-mobile-tabs focused-mobile-tabs" aria-label="Workspace sections">
+            <button class="active" data-tool="chat"><i data-lucide="message-square"></i><span>Chat</span></button>
+            <button data-tool="images"><i data-lucide="image"></i><span>Images</span></button>
+            <button data-tool="video"><i data-lucide="video"></i><span>Video</span></button>
           </nav>
 
-          <section class="tool-panel active overview-panel" id="overviewTool">
-            <div class="overview-head">
-              <div><p>YOUR WORKSPACE</p><h1>Pick up where you left off.</h1><span>Start a document, open a project or continue recent work.</span></div>
-              <div class="overview-actions"><button class="primary-button" id="overviewNewDocument">New document</button></div>
-            </div>
-            <div class="workspace-summary">
-              <div><span>RECENT</span><strong id="workspaceSummaryTitle">No document yet</strong><small>Your latest document</small></div>
-              <div><span>FILES</span><strong id="workspaceFileCount">0 selected</strong><small>In this session</small></div>
-              <div class="summary-accent"><span>WORKSPACE</span><strong>Ready</strong><small>Start wherever you want</small></div>
-            </div>
-            <div class="quick-grid">
-              <button data-tool="documents"><span><i data-lucide="file-text" class="icon"></i></span><strong>Document</strong><small>Notes, briefs and drafts</small></button>
-              <button data-tool="design"><span><i data-lucide="palette" class="icon"></i></span><strong>Design</strong><small>Visuals and concepts</small></button>
-              <button data-tool="video"><span><i data-lucide="video" class="icon"></i></span><strong>Video</strong><small>Short-form projects</small></button>
-              <button data-tool="audio"><span><i data-lucide="mic" class="icon"></i></span><strong>Audio</strong><small>Voice and recordings</small></button>
-              <button data-tool="translate"><span><i data-lucide="languages" class="icon"></i></span><strong>Translate</strong><small>Work across languages</small></button>
-              <button data-tool="files"><span><i data-lucide="folder" class="icon"></i></span><strong>Files</strong><small>Upload and organize</small></button>
-            </div>
-            <div class="recent-block">
-              <div class="block-heading"><div><p>RECENT</p><strong>Your latest work</strong></div><button id="overviewRecent">View all</button></div>
-              <div class="recent-grid">
-                <button class="recent-card" data-tool="documents"><span>DOCUMENT</span><strong id="recentDocumentTitle">Untitled document</strong><small id="recentDocumentMeta">No saved document yet</small></button>
-                <button class="recent-card quiet" data-tool="design"><span>DESIGN</span><strong>Start a design</strong><small>Create your first visual project</small></button>
-                <button class="recent-card quiet" data-tool="video"><span>VIDEO</span><strong>Start a video</strong><small>Set up your first video project</small></button>
-              </div>
-            </div>
-          </section>
+          <section class="tool-panel active chat-workspace" id="chatTool">
+            <div class="chat-layout">
+              <aside class="chat-history-column">
+                <div class="chat-history-head">
+                  <div><span>HISTORY</span><strong>Recent chats</strong></div>
+                  <button id="historyFromChat" aria-label="Open full history"><i data-lucide="clock-3"></i></button>
+                </div>
+                <div class="chat-session-list" id="chatSessionList">
+                  <button class="chat-session active"><i data-lucide="message-square"></i><span><strong>New conversation</strong><small>Just now</small></span></button>
+                </div>
+              </aside>
 
+              <div class="chat-main-column">
+                <div class="chat-content" id="chatContent">
+                  <div class="chat-empty" id="chatEmpty">
+                    <span class="chat-empty-icon"><i data-lucide="message-square-text"></i></span>
+                    <h1>What do you want to work on?</h1>
+                    <p>Start a conversation. Your messages are kept locally in this preview.</p>
+                    <div class="chat-suggestions">
+                      <button data-chat-suggestion="Help me organize an idea">Organize an idea</button>
+                      <button data-chat-suggestion="Help me write something clearly">Write clearly</button>
+                      <button data-chat-suggestion="Help me compare two options">Compare options</button>
+                    </div>
+                  </div>
+                  <div class="chat-messages" id="chatMessages"></div>
+                </div>
 
-          <section class="tool-panel document-panel" id="documentsTool">
-            <div class="document-toolbar" role="toolbar" aria-label="Document formatting">
-              <div>
-                <button id="newDocumentBtn" type="button">New</button>
-                <i></i>
-                <button data-command="bold" aria-label="Bold"><strong>B</strong></button>
-                <button data-command="italic" aria-label="Italic"><em>I</em></button>
-                <button data-command="formatBlock" data-value="h2">Heading</button>
-                <i></i>
-                <button data-command="insertUnorderedList">List</button>
-                <button id="insertLinkButton"><i data-lucide="link" class="icon"></i><span>Link</span></button>
-              </div>
-              <div><button id="attachFromDocument">Attach</button><button class="share-button" id="shareDocument">Share</button></div>
-            </div>
-            <article class="document-page">
-              <input class="document-title" id="documentTitle" value="Untitled document" maxlength="120" aria-label="Document title">
-              <div class="document-body" id="documentBody" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Start writing..."></div>
-            </article>
-            <div class="document-footer"><span id="wordCount">0 words</span><span>Saved in this browser</span></div>
-          </section>
-
-          <section class="tool-panel studio-panel" id="designTool">
-            <div class="studio-heading">
-              <div><p>DESIGN</p><h2>New design</h2><span>Set the format and direction for your visual.</span></div>
-              <button class="primary-button" id="designCreate">Create draft</button>
-            </div>
-            <div class="studio-grid">
-              <div class="control-card">
-                <label>Project brief<textarea id="designPrompt" placeholder="Describe the visual, product, campaign or idea..."></textarea></label>
-                <div class="two-fields">
-                  <label>Format<select id="designRatio"><option>Square</option><option>Landscape</option><option>Portrait</option></select></label>
-                  <label>Look<select id="designStyle"><option>Automatic</option><option>Photography</option><option>Illustration</option></select></label>
+                <div class="chat-composer-wrap">
+                  <div class="chat-composer">
+                    <button class="composer-attach" id="composerAttach" aria-label="Attach"><i data-lucide="paperclip"></i></button>
+                    <textarea id="chatInput" rows="1" placeholder="Message Nasha"></textarea>
+                    <button class="composer-send" id="chatSend" aria-label="Send"><i data-lucide="arrow-up"></i></button>
+                  </div>
+                  <small>Live responses will be connected with the service layer later.</small>
                 </div>
               </div>
-              <div class="studio-canvas" id="designOutput"><div class="canvas-empty"><span><i data-lucide="palette" class="icon"></i></span><strong>Design canvas</strong><small>Your draft will appear here.</small></div></div>
             </div>
           </section>
 
-          <section class="tool-panel studio-panel" id="videoTool">
-            <div class="studio-heading">
-              <div><p>VIDEO</p><h2>New video</h2><span>Prepare the format, notes and visual direction.</span></div>
-              <button class="primary-button" id="videoCreate">Create draft</button>
+          <section class="tool-panel image-workspace" id="imagesTool">
+            <div class="creation-head">
+              <div><span>IMAGES</span><h1>Create an image</h1><p>Describe what you want, choose the format, and keep the draft in your history.</p></div>
+              <button class="primary-button" id="imageCreateButton">Create</button>
             </div>
-            <div class="studio-grid">
-              <div class="control-card">
-                <label>Project notes<textarea id="videoPrompt" placeholder="Describe the idea, scenes, pacing or references..."></textarea></label>
-                <div class="two-fields">
-                  <label>Format<select id="videoRatio"><option>9:16</option><option>16:9</option><option>1:1</option></select></label>
-                  <label>Source<select id="videoMode"><option>New project</option><option>From image</option></select></label>
+
+            <div class="creation-layout">
+              <div class="creation-controls">
+                <label>Describe the image
+                  <textarea id="imagePrompt" placeholder="Describe the scene, subject, composition and details..."></textarea>
+                </label>
+                <div class="creation-options">
+                  <label>Format<select id="imageRatio"><option>Square 1:1</option><option>Portrait 4:5</option><option>Landscape 16:9</option></select></label>
+                  <label>Type<select id="imageType"><option>Photo</option><option>Illustration</option><option>Graphic</option></select></label>
                 </div>
               </div>
-              <div class="studio-canvas" id="videoOutput"><div class="canvas-empty"><span><i data-lucide="video" class="icon"></i></span><strong>Video canvas</strong><small>Your draft will appear here.</small></div></div>
+
+              <div class="creation-stage image-stage" id="imageStage">
+                <div class="stage-empty">
+                  <span><i data-lucide="image"></i></span>
+                  <strong>Your image appears here</strong>
+                  <small>Set up the draft on the left, then create.</small>
+                </div>
+              </div>
             </div>
           </section>
 
-          <section class="tool-panel audio-panel" id="audioTool">
-            <div class="studio-heading"><div><p>AUDIO</p><h2>Audio workspace</h2><span>Choose what you want to work on.</span></div></div>
-            <div class="audio-grid">
-              <button data-audio-action="Voiceover"><span><i data-lucide="mic" class="icon"></i></span><strong>Voiceover</strong><small>Turn written copy into narration.</small><b>→</b></button>
-              <button data-audio-action="Transcription"><span><i data-lucide="file-text" class="icon"></i></span><strong>Transcription</strong><small>Turn recordings into clean text.</small><b>→</b></button>
-              <button data-audio-action="Audio notes"><span><i data-lucide="notebook-pen" class="icon"></i></span><strong>Audio notes</strong><small>Pull useful points from a recording.</small><b>→</b></button>
+          <section class="tool-panel video-workspace" id="videoTool">
+            <div class="creation-head">
+              <div><span>VIDEO</span><h1>Create a video</h1><p>Plan the scene, choose the frame, and save the project to history.</p></div>
+              <button class="primary-button" id="videoCreateButton">Create</button>
             </div>
-          </section>
 
-          <section class="tool-panel translate-panel" id="translateTool">
-            <div class="studio-heading">
-              <div><p>TRANSLATE</p><h2>Translation</h2><span>Work between languages in a simple side-by-side editor.</span></div>
-              <button class="primary-button" id="translateButton">Translate</button>
-            </div>
-            <div class="translate-grid">
-              <div><select id="sourceLanguage"><option>Detect language</option><option>English</option><option>Arabic</option><option>German</option><option>French</option></select><textarea id="translateSource" placeholder="Type or paste text"></textarea></div>
-              <div><select id="targetLanguage"><option>English</option><option>Arabic</option><option>German</option><option>French</option></select><textarea id="translateResult" placeholder="Translation" readonly></textarea></div>
-            </div>
-          </section>
+            <div class="creation-layout">
+              <div class="creation-controls">
+                <label>Describe the video
+                  <textarea id="videoPrompt" placeholder="Describe the scene, movement, camera and pacing..."></textarea>
+                </label>
+                <div class="creation-options">
+                  <label>Format<select id="videoRatio"><option>Vertical 9:16</option><option>Landscape 16:9</option><option>Square 1:1</option></select></label>
+                  <label>Length<select id="videoLength"><option>5 seconds</option><option>10 seconds</option><option>15 seconds</option></select></label>
+                </div>
+              </div>
 
-          <section class="tool-panel files-panel" id="filesTool">
-            <div class="studio-heading">
-              <div><p>FILES</p><h2>Your files</h2><span>Keep source material close to the work.</span></div>
-              <button class="primary-button" id="chooseFiles">Upload files</button>
+              <div class="creation-stage video-stage" id="videoStage">
+                <div class="stage-empty">
+                  <span><i data-lucide="clapperboard"></i></span>
+                  <strong>Your video appears here</strong>
+                  <small>Set up the project on the left, then create.</small>
+                </div>
+              </div>
             </div>
-            <input type="file" id="fileInput" hidden multiple>
-            <div class="upload-area" id="uploadArea">
-              <span><i data-lucide="upload" class="icon"></i></span>
-              <strong>Drop files here</strong>
-              <small>PDF, DOCX, PPTX, XLSX, images and more</small>
-            </div>
-            <div class="file-list" id="fileList"></div>
-            <div class="file-hints"><span>Summarize</span><span>Explain</span><span>Compare</span><span>Extract</span><span>Ask questions</span></div>
           </section>
         </div>
       </div>
@@ -398,19 +388,64 @@
     </section>
   </main>
 
-  <aside class="drawer" id="recentDrawer" aria-hidden="true">
-    <div class="drawer-head"><div><small>RECENT</small><strong>Recent work</strong></div><button data-close aria-label="Close">×</button></div>
-    <div class="drawer-content" id="recentList"></div>
-    <button class="drawer-footer-button" id="clearRecent">Clear recent</button>
+  <aside class="drawer history-drawer" id="historyDrawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div><small>HISTORY</small><strong>Your activity</strong></div>
+      <button data-close aria-label="Close"><i data-lucide="x"></i></button>
+    </div>
+    <div class="history-filter">
+      <button class="active" data-history-filter="all">All</button>
+      <button data-history-filter="chat">Chat</button>
+      <button data-history-filter="image">Images</button>
+      <button data-history-filter="video">Video</button>
+    </div>
+    <div class="drawer-content" id="historyList"></div>
+    <button class="drawer-footer-button" id="clearHistory">Clear history</button>
   </aside>
 
-  <aside class="drawer" id="settingsDrawer" aria-hidden="true">
-    <div class="drawer-head"><div><small>ACCOUNT</small><strong>Settings</strong></div><button data-close aria-label="Close">×</button></div>
+  <aside class="drawer settings-drawer" id="settingsDrawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div><small>PREFERENCES</small><strong>Settings</strong></div>
+      <button data-close aria-label="Close"><i data-lucide="x"></i></button>
+    </div>
+    <div class="settings-hero-icon"><i data-lucide="settings-2"></i></div>
     <div class="settings-form">
       <label>Display name<input id="displayName" placeholder="Your name" autocomplete="name"></label>
       <label>Language<select id="languageSetting"><option>English</option><option>العربية</option><option>Deutsch</option><option>Français</option></select></label>
     </div>
     <button class="primary-button settings-save" id="saveSettings">Save settings</button>
+  </aside>
+
+  <aside class="drawer account-drawer" id="accountDrawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div><small>ACCOUNT</small><strong>Welcome to Nasha</strong></div>
+      <button data-close aria-label="Close"><i data-lucide="x"></i></button>
+    </div>
+
+    <div class="account-profile-preview">
+      <span class="account-avatar large-avatar" id="drawerAccountAvatar">N</span>
+      <div><strong id="drawerAccountName">Guest</strong><small id="drawerAccountEmail">Not signed in</small></div>
+    </div>
+
+    <div class="auth-tabs">
+      <button class="active" data-auth-tab="signin">Sign in</button>
+      <button data-auth-tab="register">Register</button>
+    </div>
+
+    <form class="auth-form active" id="signinForm" data-auth-panel="signin">
+      <label>Email<input type="email" id="signinEmail" placeholder="you@example.com" autocomplete="email"></label>
+      <label>Password<input type="password" id="signinPassword" placeholder="Password" autocomplete="current-password"></label>
+      <button class="primary-button" type="submit">Sign in</button>
+      <small>Account sync will be connected with the backend later.</small>
+    </form>
+
+    <form class="auth-form" id="registerForm" data-auth-panel="register">
+      <label>Name<input type="text" id="registerName" placeholder="Your name" autocomplete="name"></label>
+      <label>Email<input type="email" id="registerEmail" placeholder="you@example.com" autocomplete="email"></label>
+      <label>Password<input type="password" id="registerPassword" placeholder="Create password" autocomplete="new-password"></label>
+      <button class="primary-button" type="submit">Create account</button>
+      <small>This preview only saves your display profile locally.</small>
+    </form>
   </aside>
 
   <div class="backdrop" id="backdrop"></div>
@@ -440,6 +475,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
-  <script src="./app.js?v=20260924-3"></script>
+  <script src="./app.js?v=20260924-4"></script>
 </body>
 </html>
