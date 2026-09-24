@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260924-4">
+  <link rel="stylesheet" href="./styles.css?v=20260924-5">
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Skip to content</a>
@@ -237,8 +237,8 @@
           </button>
 
           <div class="app-nav-bottom">
-            <button id="workspaceHistory">
-              <i data-lucide="history" class="icon"></i><span>History</span>
+            <button id="workspaceHistory" class="history-nav-button">
+              <i data-lucide="history" class="icon"></i><span>History</span><b id="historyCount">0</b>
             </button>
             <button id="workspaceSettings">
               <i data-lucide="settings-2" class="icon"></i><span>Settings</span>
@@ -258,7 +258,7 @@
             <div class="app-top-actions">
               <button class="back-site" data-viewjump="home"><i data-lucide="arrow-left" class="icon"></i><span>Website</span></button>
               <button class="top-action-button" id="topHistory" aria-label="Open history">
-                <i data-lucide="history"></i><span>History</span>
+                <i data-lucide="history"></i><span>History</span><b id="topHistoryCount">0</b>
               </button>
               <button class="top-icon-large" id="topSettings" aria-label="Open settings">
                 <i data-lucide="settings-2"></i>
@@ -380,7 +380,7 @@
         </header>
         <article class="pricing-card">
           <div><p>EARLY ACCESS</p><h2>Free during preview.</h2><span>Explore the workspace while the product is being prepared for public access.</span></div>
-          <ul><li>Documents</li><li>Files</li><li>Design, video and audio workspace</li><li>Translation workspace</li></ul>
+          <ul><li>Chat workspace</li><li>Image workspace</li><li>Video workspace</li><li>Local history and profile</li></ul>
           <button class="primary-button" data-viewjump="workspace">Open Nasha</button>
         </article>
         <p class="pricing-note">No payment is requested in this preview.</p>
@@ -476,6 +476,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
-  <script src="./app.js?v=20260924-4"></script>
+  <script src="./app.js?v=20260924-5"></script>
 </body>
 </html>
