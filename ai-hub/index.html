@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260924-8">
+  <link rel="stylesheet" href="./styles.css?v=20260924-9">
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Skip to content</a>
@@ -288,6 +288,13 @@
               </aside>
 
               <div class="chat-main-column">
+                <div class="chat-threadbar">
+                  <div class="chat-thread-title"><span class="thread-status-dot"></span><div><strong id="chatThreadTitle">New conversation</strong><small id="chatThreadMeta">Local draft</small></div></div>
+                  <div class="chat-thread-actions">
+                    <button id="copyConversation" aria-label="Copy conversation"><i data-lucide="copy"></i></button>
+                    <button id="clearConversation" aria-label="Clear conversation"><i data-lucide="trash-2"></i></button>
+                  </div>
+                </div>
                 <div class="chat-content" id="chatContent">
                   <div class="chat-empty" id="chatEmpty">
                     <span class="chat-empty-icon"><i data-lucide="message-square-text"></i></span>
@@ -303,6 +310,10 @@
                 </div>
 
                 <div class="chat-composer-wrap">
+                  <input type="file" id="chatFileInput" hidden>
+                  <div class="attachment-row" id="attachmentRow" hidden>
+                    <div class="attachment-chip"><i data-lucide="paperclip"></i><span id="attachmentName">File</span><button id="removeAttachment" aria-label="Remove attachment"><i data-lucide="x"></i></button></div>
+                  </div>
                   <div class="chat-status-line" id="chatStatusLine" aria-live="polite"></div>
                   <div class="chat-composer">
                     <button class="composer-attach" id="composerAttach" aria-label="Attach"><i data-lucide="paperclip"></i></button>
@@ -328,12 +339,13 @@
               <div class="creation-controls">
                 <div class="creation-panel-head"><span><i data-lucide="sliders-horizontal"></i></span><div><strong>Image setup</strong><small>Prompt and output format</small></div></div>
                 <label>Describe the image
-                  <textarea id="imagePrompt" placeholder="Describe the scene, subject, composition and details..."></textarea>
+                  <textarea id="imagePrompt" maxlength="1500" placeholder="Describe the scene, subject, composition and details..."></textarea>
                 </label>
                 <div class="creation-options">
                   <label>Format<select id="imageRatio"><option>Square 1:1</option><option>Portrait 4:5</option><option>Landscape 16:9</option></select></label>
                   <label>Type<select id="imageType"><option>Photo</option><option>Illustration</option><option>Graphic</option></select></label>
                 </div>
+                <div class="creation-control-footer"><span id="imagePromptCount">0 / 1500</span><button id="resetImagePrompt">Reset</button></div>
               </div>
 
               <div class="creation-stage image-stage" id="imageStage">
@@ -357,12 +369,13 @@
               <div class="creation-controls">
                 <div class="creation-panel-head"><span><i data-lucide="sliders-horizontal"></i></span><div><strong>Video setup</strong><small>Prompt, frame and length</small></div></div>
                 <label>Describe the video
-                  <textarea id="videoPrompt" placeholder="Describe the scene, movement, camera and pacing..."></textarea>
+                  <textarea id="videoPrompt" maxlength="1500" placeholder="Describe the scene, movement, camera and pacing..."></textarea>
                 </label>
                 <div class="creation-options">
                   <label>Format<select id="videoRatio"><option>Vertical 9:16</option><option>Landscape 16:9</option><option>Square 1:1</option></select></label>
                   <label>Length<select id="videoLength"><option>5 seconds</option><option>10 seconds</option><option>15 seconds</option></select></label>
                 </div>
+                <div class="creation-control-footer"><span id="videoPromptCount">0 / 1500</span><button id="resetVideoPrompt">Reset</button></div>
               </div>
 
               <div class="creation-stage video-stage" id="videoStage">
@@ -401,6 +414,7 @@
       <div><small>HISTORY</small><strong>Your activity</strong></div>
       <button data-close aria-label="Close"><i data-lucide="x"></i></button>
     </div>
+    <div class="history-search"><i data-lucide="search"></i><input id="historySearch" type="search" placeholder="Search history"></div>
     <div class="history-filter">
       <button class="active" data-history-filter="all">All</button>
       <button data-history-filter="chat">Chat</button>
@@ -506,6 +520,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
-  <script src="./app.js?v=20260924-7"></script>
+  <script src="./app.js?v=20260924-9"></script>
 </body>
 </html>
