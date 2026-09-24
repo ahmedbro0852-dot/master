@@ -231,7 +231,7 @@
           <section class="tool-panel active overview-panel" id="overviewTool">
             <div class="overview-head">
               <div><p>YOUR WORKSPACE</p><h1>Pick up where you left off.</h1><span>Start a conversation, create a document or continue recent work.</span></div>
-              <button class="primary-button" id="overviewNewChat">New chat</button>
+              <div class="overview-actions"><button class="secondary-button" id="overviewNewDocument">New document</button><button class="primary-button" id="overviewNewChat">New chat</button></div>
             </div>
             <div class="quick-grid">
               <button data-tool="chat"><span><svg class="icon"><use href="#i-spark"/></svg></span><strong>Chat</strong><small>Ask, compare and think through work</small></button>
@@ -322,6 +322,8 @@
           <section class="tool-panel document-panel" id="documentsTool">
             <div class="document-toolbar" role="toolbar" aria-label="Document formatting">
               <div>
+                <button id="newDocumentBtn" type="button">New</button>
+                <i></i>
                 <button data-command="bold" aria-label="Bold"><strong>B</strong></button>
                 <button data-command="italic" aria-label="Italic"><em>I</em></button>
                 <button data-command="formatBlock" data-value="h2">Heading</button>
