@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260924-7">
+  <link rel="stylesheet" href="./styles.css?v=20260924-8">
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Skip to content</a>
@@ -326,6 +326,7 @@
 
             <div class="creation-layout">
               <div class="creation-controls">
+                <div class="creation-panel-head"><span><i data-lucide="sliders-horizontal"></i></span><div><strong>Image setup</strong><small>Prompt and output format</small></div></div>
                 <label>Describe the image
                   <textarea id="imagePrompt" placeholder="Describe the scene, subject, composition and details..."></textarea>
                 </label>
@@ -336,6 +337,7 @@
               </div>
 
               <div class="creation-stage image-stage" id="imageStage">
+                <div class="stage-topbar"><span>PREVIEW</span><b>Image</b></div>
                 <div class="stage-empty">
                   <span><i data-lucide="image"></i></span>
                   <strong>Your image appears here</strong>
@@ -353,6 +355,7 @@
 
             <div class="creation-layout">
               <div class="creation-controls">
+                <div class="creation-panel-head"><span><i data-lucide="sliders-horizontal"></i></span><div><strong>Video setup</strong><small>Prompt, frame and length</small></div></div>
                 <label>Describe the video
                   <textarea id="videoPrompt" placeholder="Describe the scene, movement, camera and pacing..."></textarea>
                 </label>
@@ -363,6 +366,7 @@
               </div>
 
               <div class="creation-stage video-stage" id="videoStage">
+                <div class="stage-topbar"><span>PREVIEW</span><b>Video</b></div>
                 <div class="stage-empty">
                   <span><i data-lucide="clapperboard"></i></span>
                   <strong>Your video appears here</strong>
