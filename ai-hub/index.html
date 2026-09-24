@@ -1,172 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nasha</title>
-  <meta name="description" content="A simple place to ask, create, translate and work with files." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nasha — Make more happen</title>
+  <meta name="description" content="Create, learn, write, translate, work with files and get things done from one place.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="wordmark" href="#" data-viewjump="home">Nasha</a>
-    <nav class="main-nav">
+  <header class="topbar">
+    <a href="#" class="logo" data-viewjump="home">Nasha<span>.</span></a>
+    <nav class="desktop-nav">
       <button data-view="home" class="active">Home</button>
-      <button data-view="chat">Chat</button>
-      <button data-view="images">Images</button>
-      <button data-view="video">Video</button>
-      <button data-view="voice">Voice</button>
+      <button data-view="discover">Discover</button>
+      <button data-view="workspace">Workspace</button>
       <button data-view="files">Files</button>
-      <button data-view="translate">Translate</button>
     </nav>
-    <div class="header-actions">
-      <button class="model-button" id="modelPicker">Auto <span>⌄</span></button>
-      <button class="account-button">Sign in</button>
+    <div class="top-actions">
+      <button class="ghost">Pricing</button>
+      <button class="dark">Get started</button>
     </div>
   </header>
 
   <main>
-    <section class="view active home-view" id="homeView">
-      <div class="hero-wrap">
+    <section class="view active" id="homeView">
+      <div class="hero">
         <div class="hero-copy">
-          <p class="kicker">One place for whatever you need to get done.</p>
-          <h1>Ask. Make. Translate.<br>Keep moving.</h1>
-          <p class="hero-text">Use one clean workspace for everyday questions, school, work, writing, images, video, audio and files.</p>
-        </div>
-
-        <div class="command-box">
-          <textarea id="homePrompt" rows="2" placeholder="What do you want to do?"></textarea>
-          <div class="command-footer">
-            <div class="command-actions">
-              <button title="Attach file">＋</button>
-              <button title="Voice">◉</button>
-            </div>
-            <button class="submit-button" id="homeSend">Send</button>
+          <p class="eyebrow">YOUR SPACE TO GET THINGS DONE</p>
+          <h1>Less switching.<br>More doing.</h1>
+          <p class="sub">Write, study, create, translate, work with documents and move between ideas without jumping across apps.</p>
+          <div class="hero-actions">
+            <button class="primary-cta" data-viewjump="workspace">Open Nasha</button>
+            <button class="text-cta" data-viewjump="discover">See what you can do →</button>
           </div>
         </div>
 
-        <div class="prompt-row">
-          <button data-prompt="Explain this topic simply for me.">Explain something</button>
-          <button data-prompt="Help me write this better.">Write better</button>
-          <button data-viewjump="images">Make an image</button>
-          <button data-viewjump="translate">Translate text</button>
+        <div class="showcase">
+          <div class="showcase-top">
+            <div class="window-dots"><i></i><i></i><i></i></div>
+            <span>nasha / workspace</span>
+          </div>
+          <div class="showcase-body">
+            <div class="mini-sidebar">
+              <strong>N</strong>
+              <button class="active"></button>
+              <button></button>
+              <button></button>
+              <button></button>
+            </div>
+            <div class="mini-canvas">
+              <p class="small-label">TODAY</p>
+              <h3>What are you working on?</h3>
+              <div class="demo-input">Plan my trip to Istanbul <span>↗</span></div>
+              <div class="demo-list">
+                <div><b>Plan</b><span>Organize ideas and next steps</span></div>
+                <div><b>Create</b><span>Make visuals, video or audio</span></div>
+                <div><b>Understand</b><span>Learn from files and information</span></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <section class="capabilities">
-        <div class="capability-row" data-viewjump="chat">
-          <div><span>01</span><h2>Chat</h2></div>
-          <p>Questions, ideas, planning, learning and writing.</p>
-          <b>→</b>
+      <section class="brand-strip">
+        <p>Made for everyday work, study and creativity.</p>
+        <div><span>Students</span><span>Creators</span><span>Teams</span><span>Freelancers</span><span>Everyone</span></div>
+      </section>
+
+      <section class="story">
+        <div class="story-intro">
+          <p class="eyebrow">ONE HOME FOR YOUR WORK</p>
+          <h2>Start with what you want to do, not which tool to open.</h2>
         </div>
-        <div class="capability-row" data-viewjump="images">
-          <div><span>02</span><h2>Images</h2></div>
-          <p>Create visuals, concepts, ads and artwork.</p>
-          <b>→</b>
+
+        <div class="story-grid">
+          <article class="story-card tall">
+            <div class="card-tag">Think</div>
+            <h3>Ask, learn and plan in one conversation.</h3>
+            <p>From homework to travel plans to business ideas.</p>
+            <div class="card-visual lines">
+              <i></i><i></i><i></i><i></i>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <div class="card-tag">Create</div>
+            <h3>Turn a rough idea into something you can see or share.</h3>
+            <div class="poster-preview">Make it<br>visual.</div>
+          </article>
+
+          <article class="story-card">
+            <div class="card-tag">Understand</div>
+            <h3>Drop in a file. Pull out what matters.</h3>
+            <div class="doc-preview"><b>Quarterly report.pdf</b><span>42 pages</span><hr><hr><hr></div>
+          </article>
         </div>
-        <div class="capability-row" data-viewjump="video">
-          <div><span>03</span><h2>Video</h2></div>
-          <p>Turn a prompt or image into short video.</p>
-          <b>→</b>
-        </div>
-        <div class="capability-row" data-viewjump="files">
-          <div><span>04</span><h2>Files</h2></div>
-          <p>Read, summarize and work with your documents.</p>
-          <b>→</b>
-        </div>
+      </section>
+
+      <section class="closing">
+        <h2>One place. Your way.</h2>
+        <p>Nasha keeps the complexity out of sight so you can focus on the outcome.</p>
+        <button class="primary-cta" data-viewjump="workspace">Start using Nasha</button>
       </section>
     </section>
 
-    <section class="view workspace" id="chatView">
-      <div class="workspace-head">
-        <div><p>Chat</p><h1>Start with a question.</h1></div>
-        <button class="subtle" id="newChatBtn">New chat</button>
+    <section class="view" id="discoverView">
+      <div class="page-head">
+        <p class="eyebrow">DISCOVER</p>
+        <h1>Everything you can do.</h1>
+        <p>Choose the outcome. Nasha handles the rest.</p>
       </div>
-      <div class="chat-stream" id="chatStream"></div>
-      <div class="chat-compose">
-        <textarea id="promptInput" rows="2" placeholder="Message Nasha"></textarea>
-        <div>
-          <span>Shift + Enter for a new line</span>
-          <button id="sendBtn">Send</button>
-        </div>
+
+      <div class="discover-list">
+        <button data-workspace="chat"><span>01</span><div><h3>Ask & write</h3><p>Questions, research, ideas, planning and writing.</p></div><b>↗</b></button>
+        <button data-workspace="image"><span>02</span><div><h3>Create images</h3><p>Visuals for social, products, ideas and stories.</p></div><b>↗</b></button>
+        <button data-workspace="video"><span>03</span><div><h3>Make video</h3><p>Short-form video from text or images.</p></div><b>↗</b></button>
+        <button data-workspace="voice"><span>04</span><div><h3>Voice & audio</h3><p>Narration, transcription and speech tools.</p></div><b>↗</b></button>
+        <button data-viewjump="files"><span>05</span><div><h3>Work with files</h3><p>Read, summarize and understand documents.</p></div><b>↗</b></button>
+        <button data-workspace="translate"><span>06</span><div><h3>Translate</h3><p>Natural translation that keeps meaning and tone.</p></div><b>↗</b></button>
       </div>
     </section>
 
-    <section class="view workspace" id="imagesView">
-      <div class="workspace-head"><div><p>Images</p><h1>Make something visual.</h1></div></div>
-      <div class="editor-layout">
-        <div class="editor-panel">
-          <label>Prompt</label>
-          <textarea placeholder="Describe what you want to see..."></textarea>
-          <div class="two-col">
-            <label>Style<select><option>Auto</option><option>Photoreal</option><option>Illustration</option><option>Editorial</option></select></label>
-            <label>Size<select><option>Square</option><option>Landscape</option><option>Portrait</option></select></label>
+    <section class="view" id="workspaceView">
+      <div class="workspace-shell">
+        <aside class="workspace-nav">
+          <div class="workspace-brand">N</div>
+          <button class="active" data-tool="chat">Chat</button>
+          <button data-tool="image">Image</button>
+          <button data-tool="video">Video</button>
+          <button data-tool="voice">Voice</button>
+          <button data-tool="translate">Translate</button>
+          <div class="workspace-bottom">
+            <button>History</button>
+            <button>Settings</button>
           </div>
-          <button class="primary-action">Create image</button>
-        </div>
-        <div class="output-panel"><span>Image output</span></div>
-      </div>
-    </section>
+        </aside>
 
-    <section class="view workspace" id="videoView">
-      <div class="workspace-head"><div><p>Video</p><h1>Turn an idea into motion.</h1></div></div>
-      <div class="editor-layout">
-        <div class="editor-panel">
-          <label>Prompt</label>
-          <textarea placeholder="Describe the scene, movement and mood..."></textarea>
-          <div class="two-col">
-            <label>Mode<select><option>Text to video</option><option>Image to video</option></select></label>
-            <label>Format<select><option>9:16</option><option>16:9</option><option>1:1</option></select></label>
+        <div class="workspace-main">
+          <div class="workspace-top">
+            <span id="workspaceTitle">Chat</span>
+            <button id="modelPicker" class="smart-button">Smart mode <span>⌄</span></button>
           </div>
-          <button class="primary-action">Create video</button>
+
+          <div class="tool-panel active" id="chatTool">
+            <div class="chat-empty">
+              <p>What do you want to do?</p>
+              <div class="starter-row">
+                <button data-prompt="Explain this simply">Explain</button>
+                <button data-prompt="Help me write this better">Write</button>
+                <button data-prompt="Help me plan this">Plan</button>
+                <button data-prompt="Research this topic">Research</button>
+              </div>
+            </div>
+            <div class="chat-stream" id="chatStream"></div>
+            <div class="composer">
+              <textarea id="promptInput" rows="2" placeholder="Ask anything"></textarea>
+              <div><button class="small-round">＋</button><button id="sendBtn" class="send">Send</button></div>
+            </div>
+          </div>
+
+          <div class="tool-panel" id="imageTool">
+            <div class="tool-grid">
+              <div class="tool-form">
+                <p class="tool-label">IMAGE</p>
+                <h2>Describe what you want to see.</h2>
+                <textarea placeholder="A modern product photo on a warm studio background..."></textarea>
+                <div class="inline-fields">
+                  <select><option>Square</option><option>Landscape</option><option>Portrait</option></select>
+                  <select><option>Auto style</option><option>Photo</option><option>Illustration</option></select>
+                </div>
+                <button class="black-button">Create</button>
+              </div>
+              <div class="tool-output">Your image will appear here.</div>
+            </div>
+          </div>
+
+          <div class="tool-panel" id="videoTool">
+            <div class="tool-grid">
+              <div class="tool-form">
+                <p class="tool-label">VIDEO</p>
+                <h2>Describe the moment.</h2>
+                <textarea placeholder="A cinematic shot moving through a city at sunset..."></textarea>
+                <div class="inline-fields">
+                  <select><option>9:16</option><option>16:9</option><option>1:1</option></select>
+                  <select><option>Text to video</option><option>Image to video</option></select>
+                </div>
+                <button class="black-button">Create</button>
+              </div>
+              <div class="tool-output">Your video will appear here.</div>
+            </div>
+          </div>
+
+          <div class="tool-panel" id="voiceTool">
+            <div class="voice-options">
+              <button><strong>Text to speech</strong><span>Natural narration from text</span><b>→</b></button>
+              <button><strong>Transcribe audio</strong><span>Turn speech into clean text</span><b>→</b></button>
+              <button><strong>Summarize audio</strong><span>Get the important points from recordings</span><b>→</b></button>
+            </div>
+          </div>
+
+          <div class="tool-panel" id="translateTool">
+            <div class="translate-grid">
+              <div><select><option>Detect language</option><option>English</option><option>Arabic</option><option>German</option><option>French</option></select><textarea placeholder="Type or paste text"></textarea></div>
+              <div><select><option>English</option><option>Arabic</option><option>German</option><option>French</option></select><textarea placeholder="Translation" readonly></textarea></div>
+            </div>
+          </div>
         </div>
-        <div class="output-panel"><span>Video output</span></div>
       </div>
     </section>
 
-    <section class="view workspace" id="voiceView">
-      <div class="workspace-head"><div><p>Voice</p><h1>Work with speech and audio.</h1></div></div>
-      <div class="simple-list">
-        <button><div><strong>Text to speech</strong><span>Turn writing into natural narration.</span></div><b>→</b></button>
-        <button><div><strong>Transcribe audio</strong><span>Convert speech into clean text.</span></div><b>→</b></button>
-        <button><div><strong>Summarize audio</strong><span>Pull out the useful parts from a recording.</span></div><b>→</b></button>
+    <section class="view" id="filesView">
+      <div class="page-head">
+        <p class="eyebrow">FILES</p>
+        <h1>Bring your own material.</h1>
+        <p>Drop in a document and work with it from there.</p>
       </div>
-    </section>
-
-    <section class="view workspace" id="filesView">
-      <div class="workspace-head"><div><p>Files</p><h1>Bring your documents in.</h1></div></div>
-      <div class="dropzone">
+      <div class="upload-box">
+        <div class="upload-icon">＋</div>
         <strong>Drop files here</strong>
-        <span>PDF, DOCX, PPTX, XLSX and images</span>
+        <span>PDF, DOCX, PPTX, XLSX, images and more</span>
         <button>Choose files</button>
-      </div>
-    </section>
-
-    <section class="view workspace" id="translateView">
-      <div class="workspace-head"><div><p>Translate</p><h1>Say it naturally in another language.</h1></div></div>
-      <div class="translate-layout">
-        <div class="translate-pane">
-          <select><option>Detect language</option><option>English</option><option>Arabic</option><option>German</option><option>French</option><option>Spanish</option></select>
-          <textarea placeholder="Type or paste text"></textarea>
-        </div>
-        <div class="translate-pane">
-          <select><option>English</option><option>Arabic</option><option>German</option><option>French</option><option>Spanish</option></select>
-          <textarea placeholder="Translation" readonly></textarea>
-        </div>
       </div>
     </section>
   </main>
 
   <div class="model-menu" id="modelMenu">
-    <button data-model="Auto"><strong>Auto</strong><span>Pick the right model for the task</span></button>
+    <p>Smart mode</p>
+    <button data-model="Smart mode"><strong>Automatic</strong><span>Choose the best option for the task</span></button>
     <button data-model="GPT"><strong>GPT</strong><span>General purpose</span></button>
     <button data-model="Claude"><strong>Claude</strong><span>Writing and documents</span></button>
     <button data-model="Gemini"><strong>Gemini</strong><span>Multimodal</span></button>
     <button data-model="Grok"><strong>Grok</strong><span>General purpose</span></button>
-    <button data-model="DeepSeek"><strong>DeepSeek</strong><span>Reasoning and technical work</span></button>
+    <button data-model="DeepSeek"><strong>DeepSeek</strong><span>Reasoning</span></button>
   </div>
 
   <script src="./app.js"></script>
