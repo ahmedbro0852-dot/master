@@ -186,3 +186,37 @@ button,a{transition:.18s ease}
   .page-head h1{font-size:44px}.workspace-shell{display:block}.workspace-nav{display:none}.workspace-top{padding:0 16px}.tool-panel{padding:34px 18px}.chat-empty{padding-top:45px}
   .inline-fields,.translate-grid{grid-template-columns:1fr}.translate-grid>div+div{border-left:0;border-top:1px solid #DBDAD5}.discover-list button{grid-template-columns:42px 1fr 24px}.discover-list h3{font-size:20px}
 }
+.account-pill{width:36px;height:36px;border:1px solid var(--line);background:#fff;border-radius:50%;font-size:11px;font-weight:800;cursor:pointer}
+.translate-action{display:block;margin:16px auto 0;border:0;background:var(--ink);color:#fff;border-radius:999px;padding:10px 16px;font-size:10px;font-weight:700;cursor:pointer}
+.black-button.loading,.translate-action.loading{opacity:.62;pointer-events:none}
+.upload-box.drag{border-color:var(--coral);background:#FFF5F0}
+.file-queue{max-width:960px;margin:0 auto 16px;display:grid;gap:8px}
+.file-item{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+.file-item div{display:flex;gap:10px;align-items:center}.file-item strong,.file-item span{display:block}.file-item strong{font-size:10px}.file-item span{font-size:8px;color:#8B857C;margin-top:2px}.file-item b{font-size:9px;color:#3C765A}
+.pricing-head{text-align:center}.pricing-head h1{margin-left:auto;margin-right:auto}
+.pricing-grid{max-width:1160px;margin:0 auto 24px;padding:0 42px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.price-card{background:#FFFDF8;border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;min-height:460px;flex-direction:column;position:relative}
+.price-card.featured{border-color:var(--coral);box-shadow:0 16px 45px rgba(255,98,64,.1)}
+.popular{position:absolute;right:16px;top:16px;background:#FFDAD1;color:#8F311D;border-radius:999px;padding:6px 8px;font-size:8px;font-weight:800}
+.plan-name{font-size:11px;font-weight:800;color:#787169}.price-card h3{font-size:42px;letter-spacing:-.05em;margin:16px 0 8px}.price-card h3 small{font-size:12px;color:#777;font-weight:500}
+.price-card p{font-size:11px;color:#777168;line-height:1.6}.price-card ul{list-style:none;padding:0;margin:28px 0;display:grid;gap:12px}.price-card li{font-size:11px}.price-card li:before{content:"✓";margin-right:8px;color:#34745A}
+.price-card button{margin-top:auto;border:0;background:var(--ink);color:#fff;border-radius:999px;padding:11px;font-size:10px;font-weight:700;cursor:pointer}.price-card.featured button{background:var(--coral)}
+.pricing-note{text-align:center;font-size:9px;color:#8B857C;margin:0 20px 90px}
+.drawer{position:fixed;top:0;right:-390px;width:370px;max-width:92vw;height:100vh;background:#FFFDF8;border-left:1px solid var(--line);z-index:60;padding:22px;transition:right .25s ease;display:flex;flex-direction:column}
+.drawer.open{right:0}.drawer-head{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:18px;border-bottom:1px solid var(--line)}.drawer-head span,.drawer-head strong{display:block}.drawer-head span{font-size:9px;letter-spacing:.12em;color:#928C83;text-transform:uppercase}.drawer-head strong{font-size:20px;margin-top:5px}.drawer-close{width:32px;height:32px;border:1px solid var(--line);background:#fff;border-radius:50%;font-size:18px;cursor:pointer}
+.backdrop{position:fixed;inset:0;background:rgba(18,19,19,.22);backdrop-filter:blur(2px);z-index:55;display:none}.backdrop.show{display:block}
+.history-list{display:grid;gap:8px;margin-top:18px;overflow:auto}.history-entry{border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px;text-align:left;cursor:pointer}.history-entry strong,.history-entry span{display:block}.history-entry strong{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.history-entry span{font-size:8px;color:#918B82;margin-top:4px}.history-empty{font-size:11px;color:#8B857D;text-align:center;margin:50px 0}
+.clear-history{margin-top:auto;border:1px solid var(--line);background:transparent;border-radius:999px;padding:10px;font-size:10px;cursor:pointer}
+.settings-block{display:grid;gap:16px;margin-top:22px}.settings-block label{font-size:10px;font-weight:700;color:#706A62}.settings-block input,.settings-block select{width:100%;margin-top:7px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px;outline:0}
+.usage-card{margin-top:24px;background:#F0EBE2;border-radius:15px;padding:15px}.usage-card span,.usage-card strong,.usage-card small{display:block}.usage-card span{font-size:9px;color:#827C73}.usage-card strong{font-size:22px;margin:6px 0}.usage-card>div{height:6px;background:#DDD5CA;border-radius:99px;overflow:hidden}.usage-card i{display:block;width:18%;height:100%;background:var(--coral)}.usage-card small{font-size:8px;color:#938C83;margin-top:8px}
+.save-settings{margin-top:16px;border:0;background:var(--ink);color:#fff;border-radius:999px;padding:11px;font-size:10px;font-weight:700;cursor:pointer}
+.mobile-nav{display:none}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:#111;color:#fff;border-radius:999px;padding:10px 14px;font-size:10px;opacity:0;pointer-events:none;transition:.2s;z-index:80}.toast.show{opacity:1;transform:translate(-50%,0)}
+.generating{animation:pulse 1.2s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+@media(max-width:980px){.pricing-grid{padding:0 24px;grid-template-columns:1fr}.price-card{min-height:auto}.top-actions .ghost{display:none}}
+@media(max-width:650px){
+  body{padding-bottom:72px}.top-actions .dark{display:none}.account-pill{display:grid;place-items:center}
+  .mobile-nav{display:flex;position:fixed;left:12px;right:12px;bottom:12px;background:var(--ink);border-radius:999px;padding:5px;z-index:50;box-shadow:0 12px 34px rgba(0,0,0,.2)}
+  .mobile-nav button{flex:1;border:0;background:transparent;color:#999;border-radius:999px;padding:10px 6px;font-size:9px;cursor:pointer}.mobile-nav button.active{background:#fff;color:#111}
+  .pricing-grid{padding:0 18px}.drawer{width:100%;max-width:100%}
+}
