@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260924-10">
+  <link rel="stylesheet" href="./styles.css?v=20260924-11">
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Skip to content</a>
@@ -346,6 +346,9 @@
             <div class="creation-layout">
               <div class="creation-controls">
                 <div class="creation-panel-head"><span><i data-lucide="sliders-horizontal"></i></span><div><strong>Image setup</strong><small>Prompt and output format</small></div></div>
+                <label>Image model
+                  <button class="creative-model-picker image-model-picker" id="imageModelPicker"><span class="model-provider-dot openai-dot"></span><span><strong id="imageModelName">GPT-Image-2.5 Sunburst</strong><small id="imageModelMeta">OpenAI · highest quality</small></span><i data-lucide="chevrons-up-down"></i></button>
+                </label>
                 <label>Describe the image
                   <textarea id="imagePrompt" maxlength="1500" placeholder="Describe the scene, subject, composition and details..."></textarea>
                 </label>
@@ -376,6 +379,9 @@
             <div class="creation-layout">
               <div class="creation-controls">
                 <div class="creation-panel-head"><span><i data-lucide="sliders-horizontal"></i></span><div><strong>Video setup</strong><small>Prompt, frame and length</small></div></div>
+                <label>Video model
+                  <button class="creative-model-picker video-model-picker" id="videoModelPicker"><span class="model-provider-dot google-dot"></span><span><strong id="videoModelName">Veo 3.1</strong><small id="videoModelMeta">Google · cinematic + native audio</small></span><i data-lucide="chevrons-up-down"></i></button>
+                </label>
                 <label>Describe the video
                   <textarea id="videoPrompt" maxlength="1500" placeholder="Describe the scene, movement, camera and pacing..."></textarea>
                 </label>
@@ -431,6 +437,23 @@
     </div>
     <div class="drawer-content" id="historyList"></div>
     <button class="drawer-footer-button" id="clearHistory">Clear history</button>
+  </aside>
+
+  <aside class="drawer creative-model-drawer" id="imageModelDrawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div><small>IMAGE MODELS</small><strong>Choose image engine</strong></div>
+      <button data-close aria-label="Close"><i data-lucide="x"></i></button>
+    </div>
+    <div class="creative-model-list" id="imageModelList"></div>
+  </aside>
+
+  <aside class="drawer creative-model-drawer" id="videoModelDrawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div><small>VIDEO MODELS</small><strong>Choose video engine</strong></div>
+      <button data-close aria-label="Close"><i data-lucide="x"></i></button>
+    </div>
+    <div class="creative-model-list" id="videoModelList"></div>
+    <div class="retired-note"><i data-lucide="archive"></i><span><strong>Sora 2 API is retired</strong><small>OpenAI retired Sora 2 and the Videos API on September 24, 2026, so it is not offered as an active engine here.</small></span></div>
   </aside>
 
   <aside class="drawer model-drawer" id="modelDrawer" aria-hidden="true">
@@ -582,6 +605,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
-  <script src="./app.js?v=20260924-10"></script>
+  <script src="./app.js?v=20260924-11"></script>
 </body>
 </html>
