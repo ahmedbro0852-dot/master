@@ -19,25 +19,7 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <svg class="icon-sprite" aria-hidden="true">
-    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20H4z"/><path d="M9 20v-6h6v6"/></symbol>
-    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3.5h8.5L18.5 7v13.5H6z"/><path d="M14.5 3.5V7h4M9 11h6M9 14h6M9 17h4"/></symbol>
-    <symbol id="i-design" viewBox="0 0 24 24"><path d="m5 19 3.2-.7L18 8.5 15.5 6 5.7 15.8z"/><path d="m14.5 7 2.5 2.5M4 20h16"/></symbol>
-    <symbol id="i-video" viewBox="0 0 24 24"><rect x="4" y="6" width="12" height="12" rx="2"/><path d="m16 10 4-2v8l-4-2z"/></symbol>
-    <symbol id="i-audio" viewBox="0 0 24 24"><path d="M12 4a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V7a3 3 0 0 0-3-3z"/><path d="M6.5 11.5a5.5 5.5 0 0 0 11 0M12 17v3M9 20h6"/></symbol>
-    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.2 3.5 5 3.5 8.5S14.3 18.3 12 20.5M12 3.5C9.7 5.7 8.5 8.5 8.5 12s1.2 6.3 3.5 8.5"/></symbol>
-    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 6.5h6l1.7 2h9.3v10H3.5z"/></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.2 2"/></symbol>
-    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2M12 18.5v2M3.5 12h2M18.5 12h2M6 6l1.4 1.4M16.6 16.6 18 18M18 6l-1.4 1.4M7.4 16.6 6 18"/></symbol>
-    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
-    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V5M8 9l4-4 4 4"/><path d="M5 14v5h14v-5"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></symbol>
-    <symbol id="i-back" viewBox="0 0 24 24"><path d="m10 6-6 6 6 6"/><path d="M4 12h16"/></symbol>
-    <symbol id="i-link" viewBox="0 0 24 24"><path d="M9.5 14.5 14.5 9.5"/><path d="M7.5 16.5 6 18a3 3 0 0 1-4.2-4.2l3-3A3 3 0 0 1 9 10"/><path d="M15 14a3 3 0 0 1 4.2-.2l3-3A3 3 0 0 0 18 6.6l-1.5 1.5"/></symbol>
-    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.4 4.1L17.5 8.5l-4.1 1.4L12 14l-1.4-4.1-4.1-1.4 4.1-1.4z"/><path d="m18 14 .8 2.2 2.2.8-2.2.8L18 20l-.8-2.2-2.2-.8 2.2-.8z"/></symbol>
-  </svg>
-
-  <a class="skip-link" href="#mainContent">Skip to content</a>
+<a class="skip-link" href="#mainContent">Skip to content</a>
 
   <header class="site-header">
     <a class="brand" href="#" data-viewjump="home" aria-label="Nasha home">
@@ -60,12 +42,12 @@
     <section class="view active" id="homeView">
       <section class="hero">
         <div class="hero-copy">
-          <div class="eyebrow-pill"><svg class="icon"><use href="#i-spark"/></svg><span>One workspace for the work that matters</span></div>
+          <div class="eyebrow-pill"><i data-lucide="sparkles" class="icon"></i><span>One workspace for the work that matters</span></div>
           <h1>Everything you make,<br><em>in one place.</em></h1>
           <p>Write documents, shape visuals, prepare video and audio, translate content, and keep your files together without jumping between tools.</p>
           <div class="hero-actions">
             <button class="primary-button large" data-viewjump="workspace">Open Nasha</button>
-            <button class="link-button" data-viewjump="discover">See the workspace <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <button class="link-button" data-viewjump="discover">See the workspace <i data-lucide="arrow-right" class="icon"></i></button>
           </div>
           <div class="hero-meta"><span>For study</span><span>For work</span><span>For creative projects</span><span>For everyday tasks</span></div>
         </div>
@@ -77,11 +59,11 @@
           </div>
           <div class="preview-body">
             <aside class="preview-sidebar">
-              <button class="active"><svg class="icon"><use href="#i-home"/></svg></button>
-              <button><svg class="icon"><use href="#i-doc"/></svg></button>
-              <button><svg class="icon"><use href="#i-design"/></svg></button>
-              <button><svg class="icon"><use href="#i-video"/></svg></button>
-              <button><svg class="icon"><use href="#i-folder"/></svg></button>
+              <button class="active"><i data-lucide="house" class="icon"></i></button>
+              <button><i data-lucide="file-text" class="icon"></i></button>
+              <button><i data-lucide="palette" class="icon"></i></button>
+              <button><i data-lucide="video" class="icon"></i></button>
+              <button><i data-lucide="folder" class="icon"></i></button>
             </aside>
             <div class="preview-content">
               <div class="preview-heading">
@@ -89,14 +71,14 @@
                 <span>New</span>
               </div>
               <div class="preview-actions">
-                <div><svg class="icon"><use href="#i-doc"/></svg><strong>Document</strong><small>Briefs and drafts</small></div>
-                <div><svg class="icon"><use href="#i-design"/></svg><strong>Design</strong><small>Visual projects</small></div>
-                <div><svg class="icon"><use href="#i-video"/></svg><strong>Video</strong><small>Short-form work</small></div>
+                <div><i data-lucide="file-text" class="icon"></i><strong>Document</strong><small>Briefs and drafts</small></div>
+                <div><i data-lucide="palette" class="icon"></i><strong>Design</strong><small>Visual projects</small></div>
+                <div><i data-lucide="video" class="icon"></i><strong>Video</strong><small>Short-form work</small></div>
               </div>
               <div class="preview-recent">
                 <small>RECENT</small>
-                <div class="preview-file"><span><svg class="icon"><use href="#i-doc"/></svg></span><div><strong>Campaign brief</strong><small>Edited today</small></div><b>•••</b></div>
-                <div class="preview-file"><span><svg class="icon"><use href="#i-design"/></svg></span><div><strong>Product visuals</strong><small>8 items</small></div><b>•••</b></div>
+                <div class="preview-file"><span><i data-lucide="file-text" class="icon"></i></span><div><strong>Campaign brief</strong><small>Edited today</small></div><b>•••</b></div>
+                <div class="preview-file"><span><i data-lucide="palette" class="icon"></i></span><div><strong>Product visuals</strong><small>8 items</small></div><b>•••</b></div>
               </div>
             </div>
           </div>
@@ -130,7 +112,7 @@
           <article class="feature-card">
             <span class="feature-label">Files</span>
             <h3>Keep source material close to the work.</h3>
-            <div class="file-mock"><svg class="icon"><use href="#i-folder"/></svg><div><strong>Research folder</strong><small>12 files</small></div></div>
+            <div class="file-mock"><i data-lucide="folder" class="icon"></i><div><strong>Research folder</strong><small>12 files</small></div></div>
           </article>
         </div>
       </section>
@@ -176,12 +158,12 @@
           <span>Everything opens inside the same workspace.</span>
         </header>
         <div class="tool-list">
-          <button data-workspace="documents"><span class="tool-list-icon"><svg class="icon"><use href="#i-doc"/></svg></span><div><strong>Documents</strong><small>Write notes, briefs, plans and longer work.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
-          <button data-workspace="design"><span class="tool-list-icon"><svg class="icon"><use href="#i-design"/></svg></span><div><strong>Design</strong><small>Create visuals for products, posts and presentations.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
-          <button data-workspace="video"><span class="tool-list-icon"><svg class="icon"><use href="#i-video"/></svg></span><div><strong>Video</strong><small>Prepare short videos and motion projects.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
-          <button data-workspace="audio"><span class="tool-list-icon"><svg class="icon"><use href="#i-audio"/></svg></span><div><strong>Audio</strong><small>Voiceovers, transcription and audio notes.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
-          <button data-workspace="translate"><span class="tool-list-icon"><svg class="icon"><use href="#i-globe"/></svg></span><div><strong>Translate</strong><small>Work between languages in a side-by-side editor.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
-          <button data-workspace="files"><span class="tool-list-icon"><svg class="icon"><use href="#i-folder"/></svg></span><div><strong>Files</strong><small>Upload and keep source material with your work.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
+          <button data-workspace="documents"><span class="tool-list-icon"><i data-lucide="file-text" class="icon"></i></span><div><strong>Documents</strong><small>Write notes, briefs, plans and longer work.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
+          <button data-workspace="design"><span class="tool-list-icon"><i data-lucide="palette" class="icon"></i></span><div><strong>Design</strong><small>Create visuals for products, posts and presentations.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
+          <button data-workspace="video"><span class="tool-list-icon"><i data-lucide="video" class="icon"></i></span><div><strong>Video</strong><small>Prepare short videos and motion projects.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
+          <button data-workspace="audio"><span class="tool-list-icon"><i data-lucide="mic" class="icon"></i></span><div><strong>Audio</strong><small>Voiceovers, transcription and audio notes.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
+          <button data-workspace="translate"><span class="tool-list-icon"><i data-lucide="languages" class="icon"></i></span><div><strong>Translate</strong><small>Work between languages in a side-by-side editor.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
+          <button data-workspace="files"><span class="tool-list-icon"><i data-lucide="folder" class="icon"></i></span><div><strong>Files</strong><small>Upload and keep source material with your work.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
         </div>
       </div>
     </section>
@@ -190,18 +172,18 @@
       <div class="app-shell">
         <aside class="app-sidebar">
           <div class="app-brand"><span class="brand-mark">N</span><strong>Nasha</strong></div>
-          <button class="new-button" id="newDocumentBtn"><svg class="icon"><use href="#i-plus"/></svg><span>New document</span></button>
+          <button class="new-button" id="newDocumentBtn"><i data-lucide="plus" class="icon"></i><span>New document</span></button>
           <p class="nav-label">Workspace</p>
-          <button class="app-nav active" data-tool="overview"><svg class="icon"><use href="#i-home"/></svg><span>Home</span></button>
-          <button class="app-nav" data-tool="documents"><svg class="icon"><use href="#i-doc"/></svg><span>Documents</span></button>
-          <button class="app-nav" data-tool="design"><svg class="icon"><use href="#i-design"/></svg><span>Design</span></button>
-          <button class="app-nav" data-tool="video"><svg class="icon"><use href="#i-video"/></svg><span>Video</span></button>
-          <button class="app-nav" data-tool="audio"><svg class="icon"><use href="#i-audio"/></svg><span>Audio</span></button>
-          <button class="app-nav" data-tool="translate"><svg class="icon"><use href="#i-globe"/></svg><span>Translate</span></button>
-          <button class="app-nav" data-tool="files"><svg class="icon"><use href="#i-folder"/></svg><span>Files</span></button>
+          <button class="app-nav active" data-tool="overview"><i data-lucide="house" class="icon"></i><span>Home</span></button>
+          <button class="app-nav" data-tool="documents"><i data-lucide="file-text" class="icon"></i><span>Documents</span></button>
+          <button class="app-nav" data-tool="design"><i data-lucide="palette" class="icon"></i><span>Design</span></button>
+          <button class="app-nav" data-tool="video"><i data-lucide="video" class="icon"></i><span>Video</span></button>
+          <button class="app-nav" data-tool="audio"><i data-lucide="mic" class="icon"></i><span>Audio</span></button>
+          <button class="app-nav" data-tool="translate"><i data-lucide="languages" class="icon"></i><span>Translate</span></button>
+          <button class="app-nav" data-tool="files"><i data-lucide="folder" class="icon"></i><span>Files</span></button>
           <div class="app-nav-bottom">
-            <button id="workspaceRecent"><svg class="icon"><use href="#i-clock"/></svg><span>Recent</span></button>
-            <button id="workspaceSettings"><svg class="icon"><use href="#i-settings"/></svg><span>Settings</span></button>
+            <button id="workspaceRecent"><i data-lucide="clock" class="icon"></i><span>Recent</span></button>
+            <button id="workspaceSettings"><i data-lucide="settings" class="icon"></i><span>Settings</span></button>
           </div>
         </aside>
 
@@ -209,10 +191,10 @@
           <header class="app-topbar">
             <div class="app-breadcrumb"><span>Workspace</span><i>/</i><strong id="workspaceTitle">Home</strong></div>
             <div class="app-top-actions">
-              <button class="back-site" data-viewjump="home"><svg class="icon"><use href="#i-back"/></svg><span>Website</span></button>
+              <button class="back-site" data-viewjump="home"><i data-lucide="arrow-left" class="icon"></i><span>Website</span></button>
               <span class="save-state" id="saveState">Saved</span>
-              <button class="icon-button" id="topRecent" aria-label="Open recent work"><svg class="icon"><use href="#i-clock"/></svg></button>
-              <button class="icon-button" id="topSettings" aria-label="Open settings"><svg class="icon"><use href="#i-settings"/></svg></button>
+              <button class="icon-button" id="topRecent" aria-label="Open recent work"><i data-lucide="clock" class="icon"></i></button>
+              <button class="icon-button" id="topSettings" aria-label="Open settings"><i data-lucide="settings" class="icon"></i></button>
             </div>
           </header>
 
@@ -232,12 +214,12 @@
               <button class="primary-button" id="overviewNewDocument">New document</button>
             </div>
             <div class="quick-grid">
-              <button data-tool="documents"><span><svg class="icon"><use href="#i-doc"/></svg></span><strong>Document</strong><small>Notes, briefs and drafts</small></button>
-              <button data-tool="design"><span><svg class="icon"><use href="#i-design"/></svg></span><strong>Design</strong><small>Visuals and concepts</small></button>
-              <button data-tool="video"><span><svg class="icon"><use href="#i-video"/></svg></span><strong>Video</strong><small>Short-form projects</small></button>
-              <button data-tool="audio"><span><svg class="icon"><use href="#i-audio"/></svg></span><strong>Audio</strong><small>Voice and recordings</small></button>
-              <button data-tool="translate"><span><svg class="icon"><use href="#i-globe"/></svg></span><strong>Translate</strong><small>Work across languages</small></button>
-              <button data-tool="files"><span><svg class="icon"><use href="#i-folder"/></svg></span><strong>Files</strong><small>Upload and organize</small></button>
+              <button data-tool="documents"><span><i data-lucide="file-text" class="icon"></i></span><strong>Document</strong><small>Notes, briefs and drafts</small></button>
+              <button data-tool="design"><span><i data-lucide="palette" class="icon"></i></span><strong>Design</strong><small>Visuals and concepts</small></button>
+              <button data-tool="video"><span><i data-lucide="video" class="icon"></i></span><strong>Video</strong><small>Short-form projects</small></button>
+              <button data-tool="audio"><span><i data-lucide="mic" class="icon"></i></span><strong>Audio</strong><small>Voice and recordings</small></button>
+              <button data-tool="translate"><span><i data-lucide="languages" class="icon"></i></span><strong>Translate</strong><small>Work across languages</small></button>
+              <button data-tool="files"><span><i data-lucide="folder" class="icon"></i></span><strong>Files</strong><small>Upload and organize</small></button>
             </div>
             <div class="recent-block">
               <div class="block-heading"><div><p>RECENT</p><strong>Your latest work</strong></div><button id="overviewRecent">View all</button></div>
@@ -257,7 +239,7 @@
                 <button data-command="formatBlock" data-value="h2">Heading</button>
                 <i></i>
                 <button data-command="insertUnorderedList">List</button>
-                <button id="insertLinkButton"><svg class="icon"><use href="#i-link"/></svg><span>Link</span></button>
+                <button id="insertLinkButton"><i data-lucide="link" class="icon"></i><span>Link</span></button>
               </div>
               <div><button id="attachFromDocument">Attach</button><button class="share-button" id="shareDocument">Share</button></div>
             </div>
@@ -281,7 +263,7 @@
                   <label>Look<select id="designStyle"><option>Automatic</option><option>Photography</option><option>Illustration</option></select></label>
                 </div>
               </div>
-              <div class="studio-canvas" id="designOutput"><div class="canvas-empty"><span><svg class="icon"><use href="#i-design"/></svg></span><strong>Design canvas</strong><small>Your draft will appear here.</small></div></div>
+              <div class="studio-canvas" id="designOutput"><div class="canvas-empty"><span><i data-lucide="palette" class="icon"></i></span><strong>Design canvas</strong><small>Your draft will appear here.</small></div></div>
             </div>
           </section>
 
@@ -298,16 +280,16 @@
                   <label>Source<select id="videoMode"><option>New project</option><option>From image</option></select></label>
                 </div>
               </div>
-              <div class="studio-canvas" id="videoOutput"><div class="canvas-empty"><span><svg class="icon"><use href="#i-video"/></svg></span><strong>Video canvas</strong><small>Your draft will appear here.</small></div></div>
+              <div class="studio-canvas" id="videoOutput"><div class="canvas-empty"><span><i data-lucide="video" class="icon"></i></span><strong>Video canvas</strong><small>Your draft will appear here.</small></div></div>
             </div>
           </section>
 
           <section class="tool-panel audio-panel" id="audioTool">
             <div class="studio-heading"><div><p>AUDIO</p><h2>Audio workspace</h2><span>Choose what you want to work on.</span></div></div>
             <div class="audio-grid">
-              <button data-audio-action="Voiceover"><span><svg class="icon"><use href="#i-audio"/></svg></span><strong>Voiceover</strong><small>Turn written copy into narration.</small><b>→</b></button>
-              <button data-audio-action="Transcription"><span><svg class="icon"><use href="#i-doc"/></svg></span><strong>Transcription</strong><small>Turn recordings into clean text.</small><b>→</b></button>
-              <button data-audio-action="Audio notes"><span><svg class="icon"><use href="#i-spark"/></svg></span><strong>Audio notes</strong><small>Pull useful points from a recording.</small><b>→</b></button>
+              <button data-audio-action="Voiceover"><span><i data-lucide="mic" class="icon"></i></span><strong>Voiceover</strong><small>Turn written copy into narration.</small><b>→</b></button>
+              <button data-audio-action="Transcription"><span><i data-lucide="file-text" class="icon"></i></span><strong>Transcription</strong><small>Turn recordings into clean text.</small><b>→</b></button>
+              <button data-audio-action="Audio notes"><span><i data-lucide="sparkles" class="icon"></i></span><strong>Audio notes</strong><small>Pull useful points from a recording.</small><b>→</b></button>
             </div>
           </section>
 
@@ -329,7 +311,7 @@
             </div>
             <input type="file" id="fileInput" hidden multiple>
             <div class="upload-area" id="uploadArea">
-              <span><svg class="icon"><use href="#i-upload"/></svg></span>
+              <span><i data-lucide="upload" class="icon"></i></span>
               <strong>Drop files here</strong>
               <small>PDF, DOCX, PPTX, XLSX, images and more</small>
             </div>
@@ -391,6 +373,7 @@
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>
