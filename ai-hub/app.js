@@ -30,34 +30,54 @@ const profileKey='nasha-profile-v1';
 const modelPrefsKey='nasha-model-prefs-v1';
 
 const modelCatalog=[
-  {id:'gpt-5.6-sol',provider:'OpenAI',name:'GPT-5.6 Sol',tag:'Flagship',speed:'Balanced',reasoning:'High',best:'Complex work, coding, research',description:'Flagship GPT-5.6 model for complex knowledge work, coding, research, science and design.'},
-  {id:'gpt-5.6-terra',provider:'OpenAI',name:'GPT-5.6 Terra',tag:'Balanced',speed:'Fast',reasoning:'Medium',best:'Everyday work',description:'Balanced GPT-5.6 option for capability, speed and cost in everyday work.'},
-  {id:'gpt-5.6-luna',provider:'OpenAI',name:'GPT-5.6 Luna',tag:'Fastest',speed:'Very fast',reasoning:'Think',best:'Quick chat and routine tasks',description:'Fastest and lowest-cost GPT-5.6 family option, also used for default Free and Go chat.'},
-  {id:'gpt-5.6-sol-pro',provider:'OpenAI',name:'GPT-5.6 Sol Pro',tag:'Pro',speed:'Deliberate',reasoning:'Maximum',best:'Hard, long-running tasks',description:'Higher-capability GPT-5.6 option for difficult tasks and longer-running workflows.'},
-  {id:'gpt-6-pro',provider:'OpenAI',name:'GPT-6 Pro',tag:'Astra',speed:'Deliberate',reasoning:'Maximum',best:'Frontier difficult work',description:'GPT-6 Pro, powered by Astra. Access depends on plan and product.'},
-  {id:'gpt-6-astra',provider:'OpenAI',name:'GPT-6 Astra',tag:'Flagship API',speed:'Balanced',reasoning:'Maximum',best:'Hard end-to-end work',description:'OpenAI flagship API model for the hardest end-to-end work.'},
-  {id:'gpt-6-sol',provider:'OpenAI',name:'GPT-6 Sol',tag:'Agentic',speed:'Balanced',reasoning:'High',best:'Coding and agents',description:'OpenAI model built for complex coding and agentic workflows.'},
-  {id:'gpt-6-luna',provider:'OpenAI',name:'GPT-6 Luna',tag:'Efficient',speed:'Very fast',reasoning:'Medium',best:'High-volume focused tasks',description:'Efficient GPT-6 option for focused, high-volume work.'},
+  {id:'gpt-5.6-sol',provider:'OpenAI',name:'GPT-5.6 Sol',tag:'Flagship',speed:'Balanced',reasoning:'High',best:'Complex work, coding, research',description:'OpenAI flagship model for complex professional work, coding and reasoning.'},
+  {id:'gpt-5.6-terra',provider:'OpenAI',name:'GPT-5.6 Terra',tag:'Balanced',speed:'Fast',reasoning:'High',best:'Everyday professional work',description:'Balances intelligence, latency and cost for broad production workloads.'},
+  {id:'gpt-5.6-luna',provider:'OpenAI',name:'GPT-5.6 Luna',tag:'Efficient',speed:'Very fast',reasoning:'High',best:'Fast high-volume work',description:'Cost-efficient GPT-5.6 model for quick and high-volume tasks.'},
 
-  {id:'claude-fable-5.1',provider:'Anthropic',name:'Claude Fable 5.1',tag:'Latest',speed:'Fast',reasoning:'Adaptive',best:'General work',description:'September 2026 Claude 5.1 family model.'},
-  {id:'claude-mythos-5.1',provider:'Anthropic',name:'Claude Mythos 5.1',tag:'Latest',speed:'Balanced',reasoning:'High',best:'Reasoning and long tasks',description:'September 2026 Claude 5.1 family model.'},
-  {id:'claude-opus-5',provider:'Anthropic',name:'Claude Opus 5',tag:'Opus',speed:'Deliberate',reasoning:'High',best:'Complex tasks',description:'Claude Opus 5 family model released in 2026.'},
-  {id:'claude-sonnet-5',provider:'Anthropic',name:'Claude Sonnet 5',tag:'Sonnet',speed:'Fast',reasoning:'High',best:'Coding and daily work',description:'Claude Sonnet 5 family model released in 2026.'},
+  {id:'claude-fable-5',provider:'Anthropic',name:'Claude Fable 5',tag:'Adaptive',speed:'Fast',reasoning:'Adaptive',best:'General and agentic work',description:'Current Claude model with adaptive reasoning for broad workflows.'},
+  {id:'claude-mythos-5',provider:'Anthropic',name:'Claude Mythos 5',tag:'Deep',speed:'Balanced',reasoning:'Adaptive',best:'Long, difficult tasks',description:'Claude model aimed at deeper reasoning and long-running work.'},
+  {id:'claude-opus-5',provider:'Anthropic',name:'Claude Opus 5',tag:'Opus',speed:'Deliberate',reasoning:'High',best:'Complex professional tasks',description:'High-capability Claude model for difficult reasoning and agentic work.'},
+  {id:'claude-sonnet-5',provider:'Anthropic',name:'Claude Sonnet 5',tag:'Sonnet',speed:'Fast',reasoning:'High',best:'Coding and daily work',description:'Strong Claude model for coding, writing and professional workflows.'},
 
-  {id:'gemini-3.8-flash',provider:'Google',name:'Gemini 3.8 Flash',tag:'Latest Flash',speed:'Very fast',reasoning:'High',best:'Agents, coding, multimodal',description:'Google model for long-horizon software engineering, autonomous agents and complex workflows.'},
-  {id:'gemini-3.7-flash',provider:'Google',name:'Gemini 3.7 Flash',tag:'Previous',speed:'Fast',reasoning:'High',best:'Coding and agentic tasks',description:'Previous-generation Flash model for complex coding and reliable multi-step execution.'},
-  {id:'gemini-3.6-flash',provider:'Google',name:'Gemini 3.6 Flash',tag:'Multimodal',speed:'Fast',reasoning:'Medium',best:'Everyday multimodal tasks',description:'Flash generation balancing speed and multimodal capability.'},
-  {id:'gemini-3.5-flash-lite',provider:'Google',name:'Gemini 3.5 Flash-Lite',tag:'Lite',speed:'Very fast',reasoning:'Light',best:'High-throughput tasks',description:'Fast, cost-efficient Gemini option for high-throughput workloads.'},
+  {id:'gemini-3.8-flash',provider:'Google',name:'Gemini 3.8 Flash',tag:'Latest',speed:'Very fast',reasoning:'High',best:'Multimodal and agentic work',description:'Latest Gemini Flash generation for fast multimodal and agentic workloads.'},
+  {id:'gemini-3.6-flash',provider:'Google',name:'Gemini 3.6 Flash',tag:'Flash',speed:'Fast',reasoning:'High',best:'Balanced multimodal tasks',description:'Fast Gemini model balancing intelligence and latency.'},
+  {id:'gemini-3.5-flash',provider:'Google',name:'Gemini 3.5 Flash',tag:'Flash',speed:'Fast',reasoning:'High',best:'General production work',description:'Frontier-class Gemini Flash model for broad workloads.'},
+  {id:'gemini-3.5-flash-lite',provider:'Google',name:'Gemini 3.5 Flash-Lite',tag:'Lite',speed:'Very fast',reasoning:'Medium',best:'High-volume tasks',description:'Low-latency Gemini model optimized for high-throughput workloads.'},
+  {id:'gemini-3.1-pro',provider:'Google',name:'Gemini 3.1 Pro',tag:'Pro',speed:'Deliberate',reasoning:'High',best:'Complex multimodal understanding',description:'High-capability Gemini Pro model for complex multimodal work.'},
 
-  {id:'grok-4.7',provider:'xAI',name:'Grok 4.7',tag:'Latest',speed:'Fast',reasoning:'High',best:'Coding and knowledge work',description:'Current Grok flagship for coding and knowledge work with stronger long-task verification.'},
-  {id:'grok-4.6',provider:'xAI',name:'Grok 4.6',tag:'Agentic',speed:'Balanced',reasoning:'High',best:'Long-running agents',description:'Grok generation focused on long-running agents and interactive visual work.'},
-  {id:'grok-4.5',provider:'xAI',name:'Grok 4.5',tag:'General',speed:'Balanced',reasoning:'High',best:'Engineering and agentic work',description:'Grok model for coding, agentic tasks and knowledge work.'},
+  {id:'grok-4.7',provider:'xAI',name:'Grok 4.7',tag:'Latest',speed:'Fast',reasoning:'High',best:'Coding and knowledge work',description:'xAI frontier model for coding, agentic tasks and knowledge work.'},
+  {id:'grok-4.6',provider:'xAI',name:'Grok 4.6',tag:'Agentic',speed:'Fast',reasoning:'High',best:'Long-running agents',description:'xAI model for coding, reasoning and long-running agent workflows.'},
+  {id:'grok-4.5',provider:'xAI',name:'Grok 4.5',tag:'General',speed:'Fast',reasoning:'High',best:'Engineering and agentic work',description:'xAI model for coding, agentic tasks and knowledge work.'},
 
-  {id:'deepseek-v4.1-flash',provider:'DeepSeek',name:'DeepSeek V4.1 Flash',tag:'Latest Flash',speed:'Very fast',reasoning:'High',best:'Multimodal and high throughput',description:'Latest Flash model with native multimodal visual understanding and higher throughput.'},
-  {id:'deepseek-v4-pro',provider:'DeepSeek',name:'DeepSeek V4 Pro',tag:'Pro',speed:'Balanced',reasoning:'High',best:'Advanced tasks',description:'Higher-tier DeepSeek V4 model that remains available through the API.'}
+  {id:'deepseek-flash',provider:'DeepSeek',name:'DeepSeek V4.1 Flash',tag:'Latest',speed:'Very fast',reasoning:'High',best:'Reasoning and multimodal work',description:'Current DeepSeek Flash API model with native multimodal support.'},
+  {id:'deepseek-v4-pro',provider:'DeepSeek',name:'DeepSeek V4 Pro',tag:'Pro',speed:'Balanced',reasoning:'High',best:'Advanced text tasks',description:'DeepSeek V4 Pro API model for advanced text workloads.'}
 ];
 
 const providerClass={OpenAI:'openai',Anthropic:'anthropic',Google:'google',xAI:'xai',DeepSeek:'deepseek'};
+let providerStatus={OpenAI:false,Anthropic:false,Google:false,xAI:false,DeepSeek:false};
+async function loadProviderStatus(){
+  try{
+    const response=await fetch('/api/nasha-status',{headers:{Accept:'application/json'}});
+    if(!response.ok)throw new Error('status unavailable');
+    const data=await response.json();
+    providerStatus={...providerStatus,...(data.providers||{})};
+  }catch{}
+  syncProviderStatusUI();
+}
+function syncProviderStatusUI(){
+  const model=selectedModel();
+  const connected=Boolean(providerStatus[model.provider]);
+  if($('selectedProviderStatus')){
+    $('selectedProviderStatus').textContent=connected?'Connected':'Needs key';
+    $('selectedProviderStatus').className='provider-status '+(connected?'connected':'missing');
+  }
+  document.querySelectorAll('[data-provider-status]').forEach(el=>{
+    const provider=el.dataset.providerStatus;
+    const ready=Boolean(providerStatus[provider]);
+    el.textContent=ready?'Connected':'Needs key';
+    el.className='provider-status '+(ready?'connected':'missing');
+  });
+}
 
 const creativeModelPrefsKey='nasha-creative-models-v1';
 const imageModelCatalog=[
@@ -171,6 +191,7 @@ function syncModelUI(){
   document.querySelectorAll('[data-mode]').forEach(btn=>btn.classList.toggle('active',btn.dataset.mode===prefs.mode));
   document.querySelectorAll('[data-reasoning]').forEach(btn=>btn.classList.toggle('active',btn.dataset.reasoning===prefs.reasoning));
   renderModelList();
+  syncProviderStatusUI();
 }
 let providerFilter='all';
 let modelQuery='';
@@ -189,7 +210,7 @@ function renderModelList(){
     return '<button class="model-card'+active+'" data-model-id="'+escapeHtml(model.id)+'">'+
       '<span class="model-provider-dot '+cls+'-dot"></span>'+
       '<div class="model-card-copy"><div><strong>'+escapeHtml(model.name)+'</strong><b>'+escapeHtml(model.tag)+'</b></div>'+
-      '<small>'+escapeHtml(model.provider)+' · '+escapeHtml(model.best)+'</small>'+
+      '<small>'+escapeHtml(model.provider)+' · '+escapeHtml(model.best)+'</small><span class="provider-status '+(providerStatus[model.provider]?'connected':'missing')+'" data-provider-status="'+escapeHtml(model.provider)+'">'+(providerStatus[model.provider]?'Connected':'Needs key')+'</span>'+
       '<p>'+escapeHtml(model.description)+'</p>'+
       '<div class="model-meta"><span><i data-lucide="gauge"></i>'+escapeHtml(model.speed)+'</span><span><i data-lucide="brain"></i>'+escapeHtml(model.reasoning)+'</span></div></div>'+
       '<i class="model-check" data-lucide="'+(active?'check':'chevron-right')+'"></i></button>';
@@ -307,10 +328,12 @@ $('chatMessages')?.addEventListener('click',async event=>{
   }
 });
 
-function sendChat(text){
+async function sendChat(text){
   const value=String(text||'').trim();
   if(!value)return;
   const settings=getSettings();
+  const model=selectedModel();
+  const prefs=getModelPrefs();
   const items=getChat();
   const now=new Date().toISOString();
   items.push({role:'user',text:value,time:now,attachment:pendingAttachment?.name||''});
@@ -323,22 +346,48 @@ function sendChat(text){
   updateComposerState();
   renderChat();
   renderChatSessions();
-  setChatStatus('Sending…','sending');
-  clearTimeout(replyTimer);
-  replyTimer=setTimeout(()=>{
-    setChatStatus('Nasha is preparing a reply…','replying');
-    replyTimer=setTimeout(()=>{
-      const updated=getChat();
-      updated.push({
-        role:'assistant',
-        text:'Preview response · '+selectedModel().name+' · '+getModelPrefs().mode+' mode. Live model responses will start here once the provider connection is added.',
-        time:new Date().toISOString()
-      });
-      setChat(updated);
-      renderChat();
-      setChatStatus('');
-    },650);
-  },280);
+
+  if(!providerStatus[model.provider]){
+    setChatStatus(model.provider+' needs an API key in the server environment.','error');
+    showToast(model.provider+' is not connected');
+    return;
+  }
+
+  setChatStatus('Sending to '+model.name+'…','sending');
+  const sendButton=$('chatSend');
+  if(sendButton)sendButton.disabled=true;
+
+  try{
+    const response=await fetch('/api/nasha-chat',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        provider:model.provider,
+        model:model.id,
+        mode:prefs.mode,
+        reasoning:prefs.reasoning,
+        messages:getChat().map(item=>({role:item.role,text:item.text})).slice(-24)
+      })
+    });
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'The provider request failed.');
+    const updated=getChat();
+    updated.push({
+      role:'assistant',
+      text:String(data.text||'').trim()||'No text response was returned.',
+      time:new Date().toISOString(),
+      provider:model.provider,
+      model:model.id
+    });
+    setChat(updated);
+    renderChat();
+    setChatStatus('');
+  }catch(error){
+    setChatStatus(error?.message||'Could not reach the model.','error');
+    showToast('Model request failed');
+  }finally{
+    updateComposerState();
+  }
 }
 function newChat(){
   localStorage.removeItem(chatKey);
@@ -566,7 +615,8 @@ $('videoModelPicker')?.addEventListener('click',()=>{
   renderCreativeModels('video');
   openDrawer('videoModelDrawer');
 });
-['modelPickerOpen','modePickerOpen','settingsModelOpen'].forEach(id=>$(id)?.addEventListener('click',()=>{
+['modelPickerOpen','modePickerOpen','settingsModelOpen'].forEach(id=>$(id)?.addEventListener('click',async()=>{
+  await loadProviderStatus();
   renderModelList();
   openDrawer('modelDrawer');
 }));
@@ -799,5 +849,6 @@ syncHistoryCounts();
 updateComposerState();
 syncModelUI();
 syncCreativeModelUI();
+loadProviderStatus();
 renderIcons();
 syncHeaderScroll();
