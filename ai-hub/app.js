@@ -1,193 +1,393 @@
 const $=id=>document.getElementById(id);
 
-const navButtons=[...document.querySelectorAll('[data-view]')];
 const views={
   home:$('homeView'),
   discover:$('discoverView'),
   workspace:$('workspaceView'),
-  files:$('filesView'),
   pricing:$('pricingView')
 };
 
+const toolPanels={
+  overview:$('overviewTool'),
+  documents:$('documentsTool'),
+  design:$('designTool'),
+  video:$('videoTool'),
+  audio:$('audioTool'),
+  translate:$('translateTool'),
+  files:$('filesTool')
+};
+
+const toolLabels={
+  overview:'Home',
+  documents:'Documents',
+  design:'Design',
+  video:'Video',
+  audio:'Audio',
+  translate:'Translate',
+  files:'Files'
+};
+
+const recentKey='nasha-recent-v2';
+const documentKey='nasha-document-v2';
+const settingsKey='nasha-settings-v2';
+
 function switchView(name){
   document.body.classList.toggle('app-view',name==='workspace');
-  navButtons.forEach(b=>b.classList.toggle('active',b.dataset.view===name));
-  Object.entries(views).forEach(([key,view])=>view&&view.classList.toggle('active',key===name));
+  Object.entries(views).forEach(([key,view])=>{
+    if(view)view.classList.toggle('active',key===name);
+  });
+  document.querySelectorAll('[data-view]').forEach(button=>{
+    button.classList.toggle('active',button.dataset.view===name);
+  });
   window.scrollTo({top:0,behavior:'smooth'});
 }
-navButtons.forEach(b=>b.addEventListener('click',()=>switchView(b.dataset.view)));
-document.querySelectorAll('[data-viewjump]').forEach(b=>b.addEventListener('click',e=>{
-  e.preventDefault();
-  const target=b.dataset.viewjump;
-  if(target==='workspace') openTool('overview');
-  else switchView(target);
-}));
-
-const toolButtons=[...document.querySelectorAll('[data-tool]')];
-const tools={
-  overview:$('overviewTool'),
-  chat:$('chatTool'),
-  image:$('imageTool'),
-  video:$('videoTool'),
-  voice:$('voiceTool'),
-  translate:$('translateTool')
-};
-const workspaceTitle=$('workspaceTitle');
 
 function openTool(name){
+  if(!toolPanels[name])name='overview';
   switchView('workspace');
-  toolButtons.forEach(b=>b.classList.toggle('active',b.dataset.tool===name));
-  Object.entries(tools).forEach(([key,panel])=>panel&&panel.classList.toggle('active',key===name));
-  const labels={overview:'Home',chat:'Documents',image:'Design',video:'Video',voice:'Audio',translate:'Translate'};
-  if(workspaceTitle)workspaceTitle.textContent=labels[name]||name;
-}
-toolButtons.forEach(b=>b.addEventListener('click',()=>openTool(b.dataset.tool)));
-document.querySelectorAll('[data-workspace]').forEach(b=>b.addEventListener('click',()=>openTool(b.dataset.workspace)));
-
-const historyKey='nasha-history-v1';
-const settingsKey='nasha-settings-v1';
-const historyList=$('historyList');
-const promptInput=$('promptInput');
-const chatStream=$('chatStream');
-const chatEmpty=$('chatEmpty');
-
-function escapeHtml(str){
-  return String(str).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-}
-function getHistory(){
-  try{return JSON.parse(localStorage.getItem(historyKey)||'[]')}catch{return[]}
-}
-function saveHistory(text){
-  const all=getHistory();
-  all.unshift({text,type:'chat',at:new Date().toISOString()});
-  localStorage.setItem(historyKey,JSON.stringify(all.slice(0,30)));
-  renderHistory();
-}
-function renderHistory(){
-  if(!historyList)return;
-  const all=getHistory();
-  historyList.innerHTML=all.length
-    ?all.map((x,i)=>`<button class="history-entry" data-history-index="${i}"><strong>${escapeHtml(x.text)}</strong><span>${new Date(x.at).toLocaleString()}</span></button>`).join('')
-    :'<div class="history-empty">Nothing here yet.</div>';
-  historyList.querySelectorAll('[data-history-index]').forEach(b=>b.addEventListener('click',()=>{
-    const item=all[Number(b.dataset.historyIndex)];
-    closeDrawers();
-    openTool('chat');
-    if(promptInput){promptInput.value=item.text;promptInput.focus();}
-    const body=$('documentBody');
-    if(body){body.value=item.text;body.focus();updateDocumentMeta();}
-  }));
+  Object.entries(toolPanels).forEach(([key,panel])=>{
+    if(panel)panel.classList.toggle('active',key===name);
+  });
+  document.querySelectorAll('[data-tool]').forEach(button=>{
+    button.classList.toggle('active',button.dataset.tool===name);
+  });
+  const title=$('workspaceTitle');
+  if(title)title.textContent=toolLabels[name]||name;
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function sendPrompt(text){
-  const value=String(text||promptInput.value).trim();
-  if(!value)return;
-  openTool('chat');
-  if(chatEmpty)chatEmpty.style.display='none';
-
-  const user=document.createElement('div');
-  user.className='bubble user';
-  user.textContent=value;
-  chatStream.appendChild(user);
-  promptInput.value='';
-  saveHistory(value);
-
-  const reply=document.createElement('div');
-  reply.className='bubble ai generating';
-  reply.textContent='Preparing…';
-  chatStream.appendChild(reply);
-
-  setTimeout(()=>{
-    reply.classList.remove('generating');
-    reply.textContent='This action will be available when the workspace opens access.';
-    reply.scrollIntoView({behavior:'smooth',block:'end'});
-  },650);
-}
-$('sendBtn')?.addEventListener('click',()=>sendPrompt());
-promptInput?.addEventListener('keydown',e=>{
-  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendPrompt();}
+document.querySelectorAll('[data-view]').forEach(button=>{
+  button.addEventListener('click',()=>{
+    const target=button.dataset.view;
+    if(target==='workspace')openTool('overview');
+    else switchView(target);
+  });
 });
-document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>sendPrompt(b.dataset.prompt)));
 
-function fakeGenerate(button,output,label){
+document.querySelectorAll('[data-viewjump]').forEach(button=>{
+  button.addEventListener('click',event=>{
+    event.preventDefault();
+    const target=button.dataset.viewjump;
+    if(target==='workspace')openTool('overview');
+    else switchView(target);
+  });
+});
+
+document.querySelectorAll('[data-tool]').forEach(button=>{
+  button.addEventListener('click',()=>openTool(button.dataset.tool));
+});
+
+document.querySelectorAll('[data-workspace]').forEach(button=>{
+  button.addEventListener('click',event=>{
+    event.preventDefault();
+    openTool(button.dataset.workspace);
+  });
+});
+
+function escapeHtml(value){
+  return String(value).replace(/[&<>"']/g,char=>({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#39;'
+  })[char]);
+}
+
+/* document */
+const documentTitle=$('documentTitle');
+const documentBody=$('documentBody');
+const saveState=$('saveState');
+const wordCount=$('wordCount');
+let saveTimer;
+
+function documentPlainText(){
+  return (documentBody?.innerText||'').trim();
+}
+
+function updateWordCount(){
+  const words=documentPlainText().match(/\S+/g)||[];
+  if(wordCount)wordCount.textContent=words.length+' word'+(words.length===1?'':'s');
+}
+
+function getRecent(){
+  try{
+    const parsed=JSON.parse(localStorage.getItem(recentKey)||'[]');
+    return Array.isArray(parsed)?parsed:[];
+  }catch{
+    return [];
+  }
+}
+
+function setRecent(items){
+  localStorage.setItem(recentKey,JSON.stringify(items.slice(0,12)));
+  renderRecent();
+  refreshOverview();
+}
+
+function pushRecent(item){
+  const items=getRecent().filter(existing=>existing.id!==item.id);
+  items.unshift(item);
+  setRecent(items);
+}
+
+function saveDocument(){
+  if(!documentTitle||!documentBody)return;
+  const payload={
+    title:documentTitle.value.trim()||'Untitled document',
+    html:documentBody.innerHTML,
+    text:documentPlainText(),
+    updatedAt:new Date().toISOString()
+  };
+  localStorage.setItem(documentKey,JSON.stringify(payload));
+  pushRecent({
+    id:'document-main',
+    type:'document',
+    title:payload.title,
+    detail:payload.text?payload.text.slice(0,80):'Document',
+    updatedAt:payload.updatedAt
+  });
+  if(saveState){
+    saveState.textContent='Saved';
+    saveState.classList.remove('saving');
+  }
+  updateWordCount();
+}
+
+function queueDocumentSave(){
+  if(saveState){
+    saveState.textContent='Saving…';
+    saveState.classList.add('saving');
+  }
+  updateWordCount();
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(saveDocument,450);
+}
+
+function loadDocument(){
+  try{
+    const saved=JSON.parse(localStorage.getItem(documentKey)||'null');
+    if(saved&&documentTitle&&documentBody){
+      documentTitle.value=saved.title||'Untitled document';
+      documentBody.innerHTML=saved.html||'';
+    }
+  }catch{}
+  updateWordCount();
+}
+
+function newDocument(){
+  openTool('documents');
+  if(documentTitle)documentTitle.value='Untitled document';
+  if(documentBody){
+    documentBody.innerHTML='';
+    documentBody.focus();
+  }
+  localStorage.removeItem(documentKey);
+  if(saveState){
+    saveState.textContent='Saved';
+    saveState.classList.remove('saving');
+  }
+  updateWordCount();
+  refreshOverview();
+}
+
+documentTitle?.addEventListener('input',queueDocumentSave);
+documentBody?.addEventListener('input',queueDocumentSave);
+$('newDocumentBtn')?.addEventListener('click',newDocument);
+$('overviewNewDocument')?.addEventListener('click',newDocument);
+
+document.querySelectorAll('[data-command]').forEach(button=>{
+  button.addEventListener('click',()=>{
+    const command=button.dataset.command;
+    const value=button.dataset.value||null;
+    documentBody?.focus();
+    try{document.execCommand(command,false,value)}catch{}
+    queueDocumentSave();
+  });
+});
+
+$('insertLinkButton')?.addEventListener('click',()=>{
+  documentBody?.focus();
+  const url=window.prompt('Paste a link');
+  if(!url)return;
+  try{document.execCommand('createLink',false,url)}catch{}
+  queueDocumentSave();
+});
+
+$('attachFromDocument')?.addEventListener('click',()=>openTool('files'));
+
+$('shareDocument')?.addEventListener('click',async()=>{
+  const shareText=(documentTitle?.value||'Untitled document')+'\n\n'+documentPlainText();
+  try{
+    if(navigator.share){
+      await navigator.share({title:documentTitle?.value||'Nasha document',text:shareText});
+      return;
+    }
+    await navigator.clipboard.writeText(shareText);
+    showToast('Document copied');
+  }catch{
+    showToast('Share cancelled');
+  }
+});
+
+/* recent */
+function formatRecentTime(value){
+  const date=new Date(value);
+  if(Number.isNaN(date.getTime()))return 'Saved locally';
+  return date.toLocaleString([],{
+    month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'
+  });
+}
+
+function renderRecent(){
+  const list=$('recentList');
+  if(!list)return;
+  const items=getRecent();
+  if(!items.length){
+    list.innerHTML='<div class="empty-state">Nothing here yet.</div>';
+    return;
+  }
+  list.innerHTML=items.map((item,index)=>{
+    return '<button class="recent-entry" data-recent-index="'+index+'"><strong>'+
+      escapeHtml(item.title||'Untitled')+'</strong><small>'+
+      escapeHtml((item.type||'work')+' · '+formatRecentTime(item.updatedAt))+
+      '</small></button>';
+  }).join('');
+  list.querySelectorAll('[data-recent-index]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const item=items[Number(button.dataset.recentIndex)];
+      closeDrawers();
+      if(item?.type==='file')openTool('files');
+      else openTool('documents');
+    });
+  });
+}
+
+function refreshOverview(){
+  const title=$('recentDocumentTitle');
+  const meta=$('recentDocumentMeta');
+  try{
+    const saved=JSON.parse(localStorage.getItem(documentKey)||'null');
+    if(saved){
+      if(title)title.textContent=saved.title||'Untitled document';
+      if(meta)meta.textContent='Edited '+formatRecentTime(saved.updatedAt);
+    }else{
+      if(title)title.textContent='Untitled document';
+      if(meta)meta.textContent='No saved document yet';
+    }
+  }catch{}
+}
+
+$('clearRecent')?.addEventListener('click',()=>{
+  localStorage.removeItem(recentKey);
+  renderRecent();
+  refreshOverview();
+  showToast('Recent work cleared');
+});
+
+$('overviewRecent')?.addEventListener('click',()=>openDrawer('recentDrawer'));
+
+/* studio preview actions */
+function previewAction(button,output,label){
   if(!button||!output)return;
   button.addEventListener('click',()=>{
     button.classList.add('loading');
-    const old=button.textContent;
+    const original=button.textContent;
     button.textContent='Preparing…';
-    output.classList.add('generating');
     setTimeout(()=>{
       button.classList.remove('loading');
-      button.textContent=label||old;
-      output.classList.remove('generating');
-      output.innerHTML='<div class="canvas-empty"><strong>Draft ready area</strong><small>This action will be available when the workspace opens access.</small></div>';
-      showToast('Preview prepared');
-    },700);
+      button.textContent=original;
+      output.innerHTML='<div class="canvas-empty"><strong>'+escapeHtml(label)+'</strong><small>Creation is not active in this preview yet.</small></div>';
+      showToast('Draft area prepared');
+    },500);
   });
 }
-fakeGenerate($('imageCreate'),$('imageOutput'),'Create image');
-fakeGenerate($('videoCreate'),$('videoOutput'),'Create video');
 
-document.querySelectorAll('[data-voice-action]').forEach(b=>b.addEventListener('click',()=>{
-  showToast(b.dataset.voiceAction+' will be available in this workspace');
-}));
+previewAction($('designCreate'),$('designOutput'),'Design draft');
+previewAction($('videoCreate'),$('videoOutput'),'Video draft');
 
-$('translateBtn')?.addEventListener('click',()=>{
+document.querySelectorAll('[data-audio-action]').forEach(button=>{
+  button.addEventListener('click',()=>{
+    showToast(button.dataset.audioAction+' is not active in this preview yet');
+  });
+});
+
+$('translateButton')?.addEventListener('click',()=>{
   const source=$('translateSource');
   const result=$('translateResult');
-  const button=$('translateBtn');
-  if(!source.value.trim())return showToast('Add text to translate');
+  const button=$('translateButton');
+  if(!source?.value.trim()){
+    showToast('Add text to translate');
+    source?.focus();
+    return;
+  }
   button.classList.add('loading');
+  const original=button.textContent;
   button.textContent='Translating…';
   setTimeout(()=>{
     button.classList.remove('loading');
-    button.textContent='Translate';
-    result.value='Translation will be available when this workspace opens access.';
-  },550);
+    button.textContent=original;
+    if(result)result.value='Translation is not active in this preview yet.';
+  },450);
 });
 
-const modelPicker=$('modelPicker');
-const modelMenu=null;
-modelPicker?.addEventListener('click',e=>{
-  e.stopPropagation();
-  modelMenu?.classList.toggle('open');
-});
-document.addEventListener('click',()=>modelMenu?.classList.remove('open'));
-modelMenu?.addEventListener('click',e=>e.stopPropagation());
-modelMenu?.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
-  if(modelPicker&&modelPicker.childNodes.length) modelPicker.childNodes[0].nodeValue=b.dataset.model+' ';
-  modelMenu.classList.remove('open');
-  showToast(b.dataset.model+' selected');
-}));
-
+/* files */
 const fileInput=$('fileInput');
 const chooseFiles=$('chooseFiles');
-const uploadBox=$('uploadBox');
-const fileQueue=$('fileQueue');
-chooseFiles?.addEventListener('click',()=>fileInput.click());
-fileInput?.addEventListener('change',()=>renderFiles([...fileInput.files]));
-['dragenter','dragover'].forEach(evt=>uploadBox?.addEventListener(evt,e=>{
-  e.preventDefault();
-  uploadBox.classList.add('drag');
-}));
-['dragleave','drop'].forEach(evt=>uploadBox?.addEventListener(evt,e=>{
-  e.preventDefault();
-  uploadBox.classList.remove('drag');
-}));
-uploadBox?.addEventListener('drop',e=>renderFiles([...e.dataTransfer.files]));
+const uploadArea=$('uploadArea');
+const fileList=$('fileList');
+
+chooseFiles?.addEventListener('click',()=>fileInput?.click());
+uploadArea?.addEventListener('click',()=>fileInput?.click());
+fileInput?.addEventListener('change',()=>renderFiles([...(fileInput.files||[])]));
+
+['dragenter','dragover'].forEach(eventName=>{
+  uploadArea?.addEventListener(eventName,event=>{
+    event.preventDefault();
+    uploadArea.classList.add('drag');
+  });
+});
+['dragleave','drop'].forEach(eventName=>{
+  uploadArea?.addEventListener(eventName,event=>{
+    event.preventDefault();
+    uploadArea.classList.remove('drag');
+  });
+});
+uploadArea?.addEventListener('drop',event=>{
+  renderFiles([...(event.dataTransfer?.files||[])]);
+});
+
+function formatBytes(bytes){
+  if(bytes<1024)return bytes+' B';
+  if(bytes<1048576)return (bytes/1024).toFixed(1)+' KB';
+  return (bytes/1048576).toFixed(1)+' MB';
+}
 
 function renderFiles(files){
-  if(!fileQueue)return;
-  fileQueue.innerHTML=files.map(f=>`<div class="file-item"><div><span>▤</span><div><strong>${escapeHtml(f.name)}</strong><span>${formatBytes(f.size)}</span></div></div><b>Ready</b></div>`).join('');
-  if(files.length)showToast(files.length+' file'+(files.length>1?'s':'')+' added');
-}
-function formatBytes(n){
-  if(n<1024)return n+' B';
-  if(n<1048576)return (n/1024).toFixed(1)+' KB';
-  return (n/1048576).toFixed(1)+' MB';
+  if(!fileList)return;
+  if(!files.length){
+    fileList.innerHTML='';
+    return;
+  }
+  fileList.innerHTML=files.map(file=>{
+    return '<div class="file-row"><div><span class="file-icon"><svg class="icon"><use href="#i-doc"></use></svg></span><div><strong>'+
+      escapeHtml(file.name)+'</strong><small>'+formatBytes(file.size)+'</small></div></div><b>Ready</b></div>';
+  }).join('');
+  files.forEach(file=>{
+    pushRecent({
+      id:'file-'+file.name+'-'+file.size,
+      type:'file',
+      title:file.name,
+      detail:formatBytes(file.size),
+      updatedAt:new Date().toISOString()
+    });
+  });
+  showToast(files.length+' file'+(files.length===1?'':'s')+' added');
 }
 
+/* drawers */
 const backdrop=$('backdrop');
+
 function openDrawer(id){
   const drawer=$(id);
   if(!drawer)return;
@@ -195,47 +395,91 @@ function openDrawer(id){
   drawer.setAttribute('aria-hidden','false');
   backdrop?.classList.add('show');
 }
+
 function closeDrawers(){
-  document.querySelectorAll('.drawer.open').forEach(d=>{
-    d.classList.remove('open');
-    d.setAttribute('aria-hidden','true');
+  document.querySelectorAll('.drawer.open').forEach(drawer=>{
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden','true');
   });
   backdrop?.classList.remove('show');
 }
-$('historyOpen')?.addEventListener('click',()=>openDrawer('historyDrawer'));
-$('settingsOpen')?.addEventListener('click',()=>openDrawer('settingsDrawer'));
-$('workspaceHistory')?.addEventListener('click',()=>openDrawer('historyDrawer'));
-$('workspaceSettings')?.addEventListener('click',()=>openDrawer('settingsDrawer'));
-backdrop?.addEventListener('click',closeDrawers);
-document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',closeDrawers));
-$('clearHistory')?.addEventListener('click',()=>{
-  localStorage.removeItem(historyKey);
-  renderHistory();
-  showToast('History cleared');
-});
 
+$('settingsOpen')?.addEventListener('click',()=>openDrawer('settingsDrawer'));
+$('workspaceRecent')?.addEventListener('click',()=>openDrawer('recentDrawer'));
+$('workspaceSettings')?.addEventListener('click',()=>openDrawer('settingsDrawer'));
+$('topRecent')?.addEventListener('click',()=>openDrawer('recentDrawer'));
+$('topSettings')?.addEventListener('click',()=>openDrawer('settingsDrawer'));
+backdrop?.addEventListener('click',closeDrawers);
+document.querySelectorAll('[data-close]').forEach(button=>button.addEventListener('click',closeDrawers));
+
+/* settings */
 const displayName=$('displayName');
-const defaultMode=null;
+const languageSetting=$('languageSetting');
+
 function loadSettings(){
   try{
-    const s=JSON.parse(localStorage.getItem(settingsKey)||'{}');
-    if(s.name&&displayName)displayName.value=s.name;
-    if(s.mode&&defaultMode){
-      defaultMode.value=s.mode;
-      if(modelPicker)modelPicker.childNodes[0].nodeValue=s.mode+' ';
-    }
+    const settings=JSON.parse(localStorage.getItem(settingsKey)||'{}');
+    if(displayName&&settings.name)displayName.value=settings.name;
+    if(languageSetting&&settings.language)languageSetting.value=settings.language;
   }catch{}
 }
+
 $('saveSettings')?.addEventListener('click',()=>{
   localStorage.setItem(settingsKey,JSON.stringify({
     name:displayName?.value.trim()||'',
-    mode:'workspace'
+    language:languageSetting?.value||'English'
   }));
-  if(modelPicker)modelPicker.childNodes[0].nodeValue=(defaultMode?.value||'Smart mode')+' ';
   closeDrawers();
   showToast('Settings saved');
 });
 
+/* legal */
+const legalModal=$('legalModal');
+const legalTitle=$('legalTitle');
+const legalBody=$('legalBody');
+const legalClose=$('legalClose');
+
+const legalCopy={
+  privacy:{
+    title:'Privacy',
+    body:[
+      'Nasha is currently a product preview. Before public launch, this page will explain what data is collected, why it is used, how long it is retained, and which service providers process it.',
+      'Until live services are connected, avoid entering sensitive personal, financial, medical, or confidential information.'
+    ]
+  },
+  terms:{
+    title:'Terms',
+    body:[
+      'Nasha is currently an early product preview. Public terms of service, acceptable-use rules, billing terms, and account policies will be published before paid access opens.',
+      'Features and plan limits shown in this preview may change before launch.'
+    ]
+  }
+};
+
+function openLegal(type){
+  const copy=legalCopy[type];
+  if(!copy||!legalModal)return;
+  if(legalTitle)legalTitle.textContent=copy.title;
+  if(legalBody)legalBody.innerHTML=copy.body.map(text=>'<p>'+escapeHtml(text)+'</p>').join('');
+  legalModal.classList.add('open');
+  legalModal.setAttribute('aria-hidden','false');
+  legalClose?.focus();
+}
+
+function closeLegal(){
+  legalModal?.classList.remove('open');
+  legalModal?.setAttribute('aria-hidden','true');
+}
+
+document.querySelectorAll('[data-legal]').forEach(button=>{
+  button.addEventListener('click',()=>openLegal(button.dataset.legal));
+});
+legalClose?.addEventListener('click',closeLegal);
+legalModal?.addEventListener('click',event=>{
+  if(event.target===legalModal)closeLegal();
+});
+
+/* toast */
 const toast=$('toast');
 let toastTimer;
 function showToast(message){
@@ -246,122 +490,14 @@ function showToast(message){
   toastTimer=setTimeout(()=>toast.classList.remove('show'),1800);
 }
 
-renderHistory();
-loadSettings();
-const legalModal=$('legalModal');
-const legalTitle=$('legalTitle');
-const legalBody=$('legalBody');
-const legalClose=$('legalClose');
-
-const legalCopy={
-  privacy:{
-    title:'Privacy',
-    body:[
-      'Nasha is being prepared for public access. Before launch, this page will describe exactly what data is collected, why it is used, how long it is retained, and which service providers process it.',
-      'Until live services are connected, avoid entering sensitive personal, financial, medical, or confidential information into this preview.'
-    ]
-  },
-  terms:{
-    title:'Terms',
-    body:[
-      'Nasha is currently an early product preview. Public terms of service, acceptable-use rules, billing terms, and account policies will be published before paid or live access opens.',
-      'Features and plan limits shown during this preview may change before launch.'
-    ]
-  }
-};
-
-function openLegal(type){
-  const copy=legalCopy[type];
-  if(!copy||!legalModal)return;
-  legalTitle.textContent=copy.title;
-  legalBody.innerHTML=copy.body.map(p=>'<p>'+p+'</p>').join('');
-  legalModal.classList.add('open');
-  legalModal.setAttribute('aria-hidden','false');
-  legalClose?.focus();
-}
-function closeLegal(){
-  legalModal?.classList.remove('open');
-  legalModal?.setAttribute('aria-hidden','true');
-}
-document.querySelectorAll('[data-legal]').forEach(b=>b.addEventListener('click',()=>openLegal(b.dataset.legal)));
-legalClose?.addEventListener('click',closeLegal);
-legalModal?.addEventListener('click',e=>{if(e.target===legalModal)closeLegal()});
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){
-    closeLegal();
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'){
     closeDrawers();
-    modelMenu?.classList.remove('open');
+    closeLegal();
   }
 });
-$('newChatBtn')?.addEventListener('click',()=>{
-  openTool('chat');
-  const title=$('documentTitle');
-  const body=$('documentBody');
-  if(title)title.value='Untitled document';
-  if(body){body.value='';body.focus();}
-  localStorage.removeItem('nasha-document-v1');
-  updateDocumentMeta();
-});
-$('topHistory')?.addEventListener('click',()=>openDrawer('historyDrawer'));
-$('topSettings')?.addEventListener('click',()=>openDrawer('settingsDrawer'));
-$('chatAttach')?.addEventListener('click',()=>switchView('files'));
 
-const documentTitle=$('documentTitle');
-const documentBody=$('documentBody');
-const saveState=$('saveState');
-const wordCount=$('wordCount');
-const documentKey='nasha-document-v1';
-let documentSaveTimer;
-
-function updateDocumentMeta(){
-  const words=(documentBody?.value.trim().match(/\S+/g)||[]).length;
-  if(wordCount)wordCount.textContent=words+' word'+(words===1?'':'s');
-}
-function saveDocument(){
-  if(!documentTitle||!documentBody)return;
-  localStorage.setItem(documentKey,JSON.stringify({
-    title:documentTitle.value||'Untitled document',
-    body:documentBody.value,
-    updatedAt:new Date().toISOString()
-  }));
-  if(saveState){saveState.textContent='Saved';saveState.classList.remove('saving');}
-  updateDocumentMeta();
-}
-function queueDocumentSave(){
-  if(saveState){saveState.textContent='Saving…';saveState.classList.add('saving');}
-  clearTimeout(documentSaveTimer);
-  documentSaveTimer=setTimeout(saveDocument,350);
-}
-try{
-  const saved=JSON.parse(localStorage.getItem(documentKey)||'null');
-  if(saved&&documentTitle&&documentBody){
-    documentTitle.value=saved.title||'Untitled document';
-    documentBody.value=saved.body||'';
-  }
-}catch{}
-documentTitle?.addEventListener('input',queueDocumentSave);
-documentBody?.addEventListener('input',queueDocumentSave);
-updateDocumentMeta();
-$('overviewNewDoc')?.addEventListener('click',()=>$('newChatBtn')?.click());
-$('overviewRecent')?.addEventListener('click',()=>openDrawer('historyDrawer'));
-
-function refreshOverview(){
-  const title=$('recentDocumentTitle');
-  const meta=$('recentDocumentMeta');
-  try{
-    const saved=JSON.parse(localStorage.getItem('nasha-document-v1')||'null');
-    if(saved){
-      if(title)title.textContent=saved.title||'Untitled document';
-      if(meta){
-        const d=saved.updatedAt?new Date(saved.updatedAt):null;
-        meta.textContent=d&&!Number.isNaN(d.getTime())?'Edited '+d.toLocaleDateString(): 'Saved locally';
-      }
-    }else{
-      if(title)title.textContent='Untitled document';
-      if(meta)meta.textContent='No saved document yet';
-    }
-  }catch{}
-}
+loadDocument();
+loadSettings();
+renderRecent();
 refreshOverview();
-documentTitle?.addEventListener('input',refreshOverview);
-documentBody?.addEventListener('input',refreshOverview);
