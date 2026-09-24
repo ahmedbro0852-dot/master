@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260924-12">
+  <link rel="stylesheet" href="./styles.css?v=20260924-13">
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Skip to content</a>
@@ -293,7 +293,7 @@
                   <div class="chat-thread-center">
                     <button class="model-picker-button" id="modelPickerOpen" aria-label="Choose model">
                       <span class="model-provider-dot openai-dot"></span>
-                      <span><small id="selectedProviderLabel">OpenAI</small><strong id="selectedModelLabel">GPT-5.6 Sol</strong></span>
+                      <span><small id="selectedProviderLabel">OpenAI</small><strong id="selectedModelLabel">GPT-5.6 Sol</strong><em id="selectedProviderStatus" class="provider-status missing">Needs key</em></span>
                       <i data-lucide="chevrons-up-down"></i>
                     </button>
                     <button class="mode-picker-button" id="modePickerOpen"><i data-lucide="briefcase-business"></i><span id="selectedModeLabel">Chat</span><i data-lucide="chevron-down"></i></button>
@@ -526,6 +526,18 @@
     </div>
 
     <div class="settings-section">
+      <div class="settings-section-head"><span>CONNECTIONS</span><strong>Server API keys</strong></div>
+      <div class="connection-grid">
+        <div><span class="model-provider-dot openai-dot"></span><strong>OpenAI</strong><em class="provider-status missing" data-provider-status="OpenAI">Needs key</em></div>
+        <div><span class="model-provider-dot anthropic-dot"></span><strong>Anthropic</strong><em class="provider-status missing" data-provider-status="Anthropic">Needs key</em></div>
+        <div><span class="model-provider-dot google-dot"></span><strong>Google</strong><em class="provider-status missing" data-provider-status="Google">Needs key</em></div>
+        <div><span class="model-provider-dot xai-dot"></span><strong>xAI</strong><em class="provider-status missing" data-provider-status="xAI">Needs key</em></div>
+        <div><span class="model-provider-dot deepseek-dot"></span><strong>DeepSeek</strong><em class="provider-status missing" data-provider-status="DeepSeek">Needs key</em></div>
+      </div>
+      <small class="connection-note">Keys are read only from server environment variables and are never stored in this browser.</small>
+    </div>
+
+    <div class="settings-section">
       <div class="settings-section-head"><span>CHAT</span><strong>Message behavior</strong></div>
       <label class="setting-toggle"><span><strong>Enter to send</strong><small>Use Shift + Enter for a new line</small></span><input type="checkbox" id="enterToSend" checked><i></i></label>
       <label class="setting-toggle"><span><strong>Show message time</strong><small>Display a timestamp below messages</small></span><input type="checkbox" id="showMessageTime" checked><i></i></label>
@@ -605,6 +617,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
-  <script src="./app.js?v=20260924-11"></script>
+  <script src="./app.js?v=20260924-13"></script>
 </body>
 </html>
