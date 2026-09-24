@@ -10,6 +10,7 @@ const views={
 };
 
 function switchView(name){
+  document.body.classList.toggle('app-view',name==='workspace');
   navButtons.forEach(b=>b.classList.toggle('active',b.dataset.view===name));
   Object.entries(views).forEach(([key,view])=>view&&view.classList.toggle('active',key===name));
   window.scrollTo({top:0,behavior:'smooth'});
@@ -17,11 +18,14 @@ function switchView(name){
 navButtons.forEach(b=>b.addEventListener('click',()=>switchView(b.dataset.view)));
 document.querySelectorAll('[data-viewjump]').forEach(b=>b.addEventListener('click',e=>{
   e.preventDefault();
-  switchView(b.dataset.viewjump);
+  const target=b.dataset.viewjump;
+  if(target==='workspace') openTool('overview');
+  else switchView(target);
 }));
 
 const toolButtons=[...document.querySelectorAll('[data-tool]')];
 const tools={
+  overview:$('overviewTool'),
   chat:$('chatTool'),
   image:$('imageTool'),
   video:$('videoTool'),
@@ -34,7 +38,7 @@ function openTool(name){
   switchView('workspace');
   toolButtons.forEach(b=>b.classList.toggle('active',b.dataset.tool===name));
   Object.entries(tools).forEach(([key,panel])=>panel&&panel.classList.toggle('active',key===name));
-  const labels={chat:'Documents',image:'Design',video:'Video',voice:'Audio',translate:'Translate'};
+  const labels={overview:'Home',chat:'Documents',image:'Design',video:'Video',voice:'Audio',translate:'Translate'};
   if(workspaceTitle)workspaceTitle.textContent=labels[name]||name;
 }
 toolButtons.forEach(b=>b.addEventListener('click',()=>openTool(b.dataset.tool)));
@@ -338,3 +342,26 @@ try{
 documentTitle?.addEventListener('input',queueDocumentSave);
 documentBody?.addEventListener('input',queueDocumentSave);
 updateDocumentMeta();
+$('overviewNewDoc')?.addEventListener('click',()=>$('newChatBtn')?.click());
+$('overviewRecent')?.addEventListener('click',()=>openDrawer('historyDrawer'));
+
+function refreshOverview(){
+  const title=$('recentDocumentTitle');
+  const meta=$('recentDocumentMeta');
+  try{
+    const saved=JSON.parse(localStorage.getItem('nasha-document-v1')||'null');
+    if(saved){
+      if(title)title.textContent=saved.title||'Untitled document';
+      if(meta){
+        const d=saved.updatedAt?new Date(saved.updatedAt):null;
+        meta.textContent=d&&!Number.isNaN(d.getTime())?'Edited '+d.toLocaleDateString(): 'Saved locally';
+      }
+    }else{
+      if(title)title.textContent='Untitled document';
+      if(meta)meta.textContent='No saved document yet';
+    }
+  }catch{}
+}
+refreshOverview();
+documentTitle?.addEventListener('input',refreshOverview);
+documentBody?.addEventListener('input',refreshOverview);
