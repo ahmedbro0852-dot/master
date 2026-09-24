@@ -273,11 +273,33 @@ function syncProfile(){
   const name=profile.name||'Guest';
   const email=profile.email||'Not signed in';
   const initial=getProfileInitial();
-  ['accountAvatar','topAccountAvatar','drawerAccountAvatar'].forEach(id=>{if($(id))$(id).textContent=initial});
+  ['accountAvatar','topAccountAvatar','drawerAccountAvatar'].forEach(id=>{
+    const el=$(id);
+    if(!el)return;
+    el.textContent=profile.photo?'':initial;
+    el.style.backgroundImage=profile.photo?'url("'+profile.photo+'")':'';
+    el.classList.toggle('has-photo',Boolean(profile.photo));
+  });
   if($('accountName'))$('accountName').textContent=name;
   if($('drawerAccountName'))$('drawerAccountName').textContent=name;
   if($('drawerAccountEmail'))$('drawerAccountEmail').textContent=email;
 }
+$('changeProfilePhoto')?.addEventListener('click',()=>$('profilePhotoInput')?.click());
+$('profilePhotoInput')?.addEventListener('change',event=>{
+  const file=event.target.files?.[0];
+  if(!file)return;
+  if(!file.type.startsWith('image/')){showToast('Choose an image file');return}
+  if(file.size>2*1024*1024){showToast('Choose an image under 2 MB');return}
+  const reader=new FileReader();
+  reader.onload=()=>{
+    const profile=getProfile();
+    profile.photo=String(reader.result||'');
+    localStorage.setItem(profileKey,JSON.stringify(profile));
+    syncProfile();
+    showToast('Profile photo updated');
+  };
+  reader.readAsDataURL(file);
+});
 document.querySelectorAll('[data-auth-tab]').forEach(button=>button.addEventListener('click',()=>{
   const tab=button.dataset.authTab;
   document.querySelectorAll('[data-auth-tab]').forEach(item=>item.classList.toggle('active',item.dataset.authTab===tab));
