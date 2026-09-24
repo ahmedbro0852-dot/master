@@ -867,3 +867,87 @@ body{font-size:15px;line-height:1.55}
   .tool-form h2,.voice-head h2,.translate-head h2{font-size:19px}
   .price-card h3{font-size:27px}
 }
+/* Small text readability pass */
+body{font-size:15.5px;color:#171717}
+.desktop-nav button,.ghost{font-size:12.5px;color:#5f5b55}
+.dark,.primary-cta{font-size:12px}
+.brand-pill{font-size:10.5px;color:#625e58}
+.text-cta{font-size:11.5px;color:#504c47}
+.micro-proof{font-size:10.5px;color:#6f6a63}
+
+.sub{font-size:15px;color:#5f5b55}
+
+.showcase-top{font-size:10.5px}
+.showcase-status{color:#c8c8c4}
+.mini-kicker{font-size:9.5px;color:#7f7b75}
+.demo-input{font-size:11.5px}
+.demo-card small{font-size:9px}
+.demo-card b{font-size:11.5px}
+.demo-card span{font-size:9px;color:#625f5a}
+
+.brand-strip{font-size:11px;color:#625e57}
+.eyebrow{font-size:9.5px;color:#625e57}
+.section-number{font-size:10px;color:#8b857c}
+.story-card p{font-size:12px;color:#625e57}
+.card-tag,.card-no{font-size:9px}
+.user-msg{font-size:11px}
+.doc-head b{font-size:10px}
+.doc-head span,.doc-chip{font-size:8.5px}
+
+.closing p{font-size:12.5px;color:#615d57}
+.footer-brand strong{font-size:11.5px}
+.footer-brand span,.footer-links button,.site-footer>p{font-size:9.5px}
+
+.page-head>p:last-child{font-size:12.5px;color:#625e57}
+.discover-list p{font-size:11px;color:#625e57}
+.discover-list span{font-size:9px}
+
+.workspace-nav button{font-size:11px;color:#b5b5b0}
+.workspace-top{font-size:11px}
+.smart-button{font-size:10px;color:#4f4d49}
+.chat-note{font-size:10px;color:#716d66}
+.starter-row button{font-size:9.5px;color:#4f4c47}
+.bubble{font-size:12.5px}
+.composer textarea{font-size:13.5px;color:#202020}
+.send,.black-button,.translate-action{font-size:10px}
+
+.tool-form textarea,.translate-grid textarea{font-size:13px;color:#222}
+.inline-fields select,.translate-grid select{font-size:11px;color:#333}
+.voice-options strong{font-size:14px}
+.voice-options span{font-size:10px;color:#66625d}
+.tool-output{font-size:9.5px;color:#7b7771}
+
+.upload-box strong{font-size:15.5px}
+.upload-box span{font-size:10px;color:#6a655e}
+.upload-box button{font-size:9.5px}
+.file-shortcuts span{font-size:9px;color:#625e57}
+
+.plan-name{font-size:9.5px}
+.price-card h3 small{font-size:10.5px}
+.price-card p,.price-card li{font-size:10.5px;color:#625e57}
+.price-card button{font-size:9.5px}
+.pricing-note{font-size:8.5px;color:#746f68}
+
+.drawer-head span{font-size:8.5px}
+.history-entry strong{font-size:10.5px}
+.history-entry span{font-size:8.5px}
+.settings-block label{font-size:9.5px;color:#625e57}
+.settings-block input,.settings-block select{font-size:11px}
+.usage-card span{font-size:9px}
+.usage-card small{font-size:8.5px}
+
+@media(max-width:650px){
+  body{font-size:14.5px}
+  .brand-pill{font-size:9.5px}
+  .sub{font-size:13px}
+  .text-cta{font-size:10px}
+  .micro-proof{font-size:9px}
+  .story-card p{font-size:11px}
+  .page-head>p:last-child{font-size:11.5px}
+  .discover-list p{font-size:10px}
+  .workspace-nav button{font-size:10.5px}
+  .chat-note{font-size:9.5px}
+  .bubble{font-size:12px}
+  .tool-form textarea,.translate-grid textarea{font-size:12px}
+  .inline-fields select,.translate-grid select{font-size:10.5px}
+}
