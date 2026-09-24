@@ -34,7 +34,8 @@ function openTool(name){
   switchView('workspace');
   toolButtons.forEach(b=>b.classList.toggle('active',b.dataset.tool===name));
   Object.entries(tools).forEach(([key,panel])=>panel&&panel.classList.toggle('active',key===name));
-  if(workspaceTitle)workspaceTitle.textContent=name.charAt(0).toUpperCase()+name.slice(1);
+  const labels={chat:'Documents',image:'Design',video:'Video',voice:'Audio',translate:'Translate'};
+  if(workspaceTitle)workspaceTitle.textContent=labels[name]||name;
 }
 toolButtons.forEach(b=>b.addEventListener('click',()=>openTool(b.dataset.tool)));
 document.querySelectorAll('[data-workspace]').forEach(b=>b.addEventListener('click',()=>openTool(b.dataset.workspace)));
@@ -68,8 +69,9 @@ function renderHistory(){
     const item=all[Number(b.dataset.historyIndex)];
     closeDrawers();
     openTool('chat');
-    promptInput.value=item.text;
-    promptInput.focus();
+    if(promptInput){promptInput.value=item.text;promptInput.focus();}
+    const body=$('documentBody');
+    if(body){body.value=item.text;body.focus();updateDocumentMeta();}
   }));
 }
 
@@ -88,12 +90,12 @@ function sendPrompt(text){
 
   const reply=document.createElement('div');
   reply.className='bubble ai generating';
-  reply.textContent='Preparing preview…';
+  reply.textContent='Preparing…';
   chatStream.appendChild(reply);
 
   setTimeout(()=>{
     reply.classList.remove('generating');
-    reply.textContent='This workspace is ready for launch. Live responses will be available when Nasha opens access.';
+    reply.textContent='This action will be available when the workspace opens access.';
     reply.scrollIntoView({behavior:'smooth',block:'end'});
   },650);
 }
@@ -114,7 +116,7 @@ function fakeGenerate(button,output,label){
       button.classList.remove('loading');
       button.textContent=label||old;
       output.classList.remove('generating');
-      output.innerHTML='<span>This tool will be available when Nasha opens access.</span>';
+      output.innerHTML='<div class="canvas-empty"><strong>Draft ready area</strong><small>This action will be available when the workspace opens access.</small></div>';
       showToast('Preview prepared');
     },700);
   });
@@ -123,7 +125,7 @@ fakeGenerate($('imageCreate'),$('imageOutput'),'Create image');
 fakeGenerate($('videoCreate'),$('videoOutput'),'Create video');
 
 document.querySelectorAll('[data-voice-action]').forEach(b=>b.addEventListener('click',()=>{
-  showToast(b.dataset.voiceAction+' will be available at launch');
+  showToast(b.dataset.voiceAction+' will be available in this workspace');
 }));
 
 $('translateBtn')?.addEventListener('click',()=>{
@@ -136,12 +138,12 @@ $('translateBtn')?.addEventListener('click',()=>{
   setTimeout(()=>{
     button.classList.remove('loading');
     button.textContent='Translate';
-    result.value='Translation will be available when Nasha opens access.';
+    result.value='Translation will be available when this workspace opens access.';
   },550);
 });
 
 const modelPicker=$('modelPicker');
-const modelMenu=$('modelMenu');
+const modelMenu=null;
 modelPicker?.addEventListener('click',e=>{
   e.stopPropagation();
   modelMenu?.classList.toggle('open');
@@ -209,7 +211,7 @@ $('clearHistory')?.addEventListener('click',()=>{
 });
 
 const displayName=$('displayName');
-const defaultMode=$('defaultMode');
+const defaultMode=null;
 function loadSettings(){
   try{
     const s=JSON.parse(localStorage.getItem(settingsKey)||'{}');
@@ -223,7 +225,7 @@ function loadSettings(){
 $('saveSettings')?.addEventListener('click',()=>{
   localStorage.setItem(settingsKey,JSON.stringify({
     name:displayName?.value.trim()||'',
-    mode:defaultMode?.value||'Smart mode'
+    mode:'workspace'
   }));
   if(modelPicker)modelPicker.childNodes[0].nodeValue=(defaultMode?.value||'Smart mode')+' ';
   closeDrawers();
@@ -288,11 +290,51 @@ document.addEventListener('keydown',e=>{
   }
 });
 $('newChatBtn')?.addEventListener('click',()=>{
-  if(chatStream)chatStream.innerHTML='';
-  if(chatEmpty)chatEmpty.style.display='';
-  if(promptInput){promptInput.value='';promptInput.focus();}
   openTool('chat');
+  const title=$('documentTitle');
+  const body=$('documentBody');
+  if(title)title.value='Untitled document';
+  if(body){body.value='';body.focus();}
+  localStorage.removeItem('nasha-document-v1');
+  updateDocumentMeta();
 });
 $('topHistory')?.addEventListener('click',()=>openDrawer('historyDrawer'));
 $('topSettings')?.addEventListener('click',()=>openDrawer('settingsDrawer'));
 $('chatAttach')?.addEventListener('click',()=>switchView('files'));
+
+const documentTitle=$('documentTitle');
+const documentBody=$('documentBody');
+const saveState=$('saveState');
+const wordCount=$('wordCount');
+const documentKey='nasha-document-v1';
+let documentSaveTimer;
+
+function updateDocumentMeta(){
+  const words=(documentBody?.value.trim().match(/\S+/g)||[]).length;
+  if(wordCount)wordCount.textContent=words+' word'+(words===1?'':'s');
+}
+function saveDocument(){
+  if(!documentTitle||!documentBody)return;
+  localStorage.setItem(documentKey,JSON.stringify({
+    title:documentTitle.value||'Untitled document',
+    body:documentBody.value,
+    updatedAt:new Date().toISOString()
+  }));
+  if(saveState){saveState.textContent='Saved';saveState.classList.remove('saving');}
+  updateDocumentMeta();
+}
+function queueDocumentSave(){
+  if(saveState){saveState.textContent='Saving…';saveState.classList.add('saving');}
+  clearTimeout(documentSaveTimer);
+  documentSaveTimer=setTimeout(saveDocument,350);
+}
+try{
+  const saved=JSON.parse(localStorage.getItem(documentKey)||'null');
+  if(saved&&documentTitle&&documentBody){
+    documentTitle.value=saved.title||'Untitled document';
+    documentBody.value=saved.body||'';
+  }
+}catch{}
+documentTitle?.addEventListener('input',queueDocumentSave);
+documentBody?.addEventListener('input',queueDocumentSave);
+updateDocumentMeta();
