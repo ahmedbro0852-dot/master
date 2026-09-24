@@ -35,6 +35,9 @@ const modelCatalog=[
   {id:'gpt-5.6-luna',provider:'OpenAI',name:'GPT-5.6 Luna',tag:'Fastest',speed:'Very fast',reasoning:'Think',best:'Quick chat and routine tasks',description:'Fastest and lowest-cost GPT-5.6 family option, also used for default Free and Go chat.'},
   {id:'gpt-5.6-sol-pro',provider:'OpenAI',name:'GPT-5.6 Sol Pro',tag:'Pro',speed:'Deliberate',reasoning:'Maximum',best:'Hard, long-running tasks',description:'Higher-capability GPT-5.6 option for difficult tasks and longer-running workflows.'},
   {id:'gpt-6-pro',provider:'OpenAI',name:'GPT-6 Pro',tag:'Astra',speed:'Deliberate',reasoning:'Maximum',best:'Frontier difficult work',description:'GPT-6 Pro, powered by Astra. Access depends on plan and product.'},
+  {id:'gpt-6-astra',provider:'OpenAI',name:'GPT-6 Astra',tag:'Flagship API',speed:'Balanced',reasoning:'Maximum',best:'Hard end-to-end work',description:'OpenAI flagship API model for the hardest end-to-end work.'},
+  {id:'gpt-6-sol',provider:'OpenAI',name:'GPT-6 Sol',tag:'Agentic',speed:'Balanced',reasoning:'High',best:'Coding and agents',description:'OpenAI model built for complex coding and agentic workflows.'},
+  {id:'gpt-6-luna',provider:'OpenAI',name:'GPT-6 Luna',tag:'Efficient',speed:'Very fast',reasoning:'Medium',best:'High-volume focused tasks',description:'Efficient GPT-6 option for focused, high-volume work.'},
 
   {id:'claude-fable-5.1',provider:'Anthropic',name:'Claude Fable 5.1',tag:'Latest',speed:'Fast',reasoning:'Adaptive',best:'General work',description:'September 2026 Claude 5.1 family model.'},
   {id:'claude-mythos-5.1',provider:'Anthropic',name:'Claude Mythos 5.1',tag:'Latest',speed:'Balanced',reasoning:'High',best:'Reasoning and long tasks',description:'September 2026 Claude 5.1 family model.'},
@@ -55,6 +58,80 @@ const modelCatalog=[
 ];
 
 const providerClass={OpenAI:'openai',Anthropic:'anthropic',Google:'google',xAI:'xai',DeepSeek:'deepseek'};
+
+const creativeModelPrefsKey='nasha-creative-models-v1';
+const imageModelCatalog=[
+  {id:'gpt-image-2.5-sunburst',provider:'OpenAI',name:'GPT-Image-2.5 Sunburst',tag:'Best quality',best:'High-end generation and editing',description:'OpenAI’s most capable image generation and editing model.'},
+  {id:'gpt-image-2.5-flare',provider:'OpenAI',name:'GPT-Image-2.5 Flare',tag:'Fast',best:'Everyday image creation',description:'Fast, high-quality image generation for everyday workflows.'},
+  {id:'gpt-image-2',provider:'OpenAI',name:'GPT-Image-2',tag:'Standard',best:'General generation',description:'State-of-the-art OpenAI image generation model.'},
+  {id:'gemini-3.1-flash-image',provider:'Google',name:'Gemini 3.1 Flash Image',tag:'Nano Banana 2',best:'Balanced image work',description:'Google’s go-to image model balancing quality, intelligence, latency and cost.'},
+  {id:'gemini-3.1-flash-lite-image',provider:'Google',name:'Gemini 3.1 Flash Lite Image',tag:'Nano Banana 2 Lite',best:'Fast, low-cost editing',description:'Ultra-low-latency image generation and editing.'},
+  {id:'gemini-3-pro-image',provider:'Google',name:'Gemini 3 Pro Image',tag:'Nano Banana Pro',best:'Professional 4K assets',description:'Professional design engine for complex instructions, text rendering and up to 4K output.'},
+  {id:'gemini-2.5-flash-image',provider:'Google',name:'Gemini 2.5 Flash Image',tag:'Nano Banana',best:'High-volume creation',description:'Fast and efficient native image generation and editing.'},
+  {id:'grok-imagine-image-2',provider:'xAI',name:'Grok Imagine Image 2.0',tag:'Quality',best:'Precise editing and design',description:'Precise generation and editing with strong typography, layout and iterative editing.'}
+];
+const videoModelCatalog=[
+  {id:'veo-3.1',provider:'Google',name:'Veo 3.1',tag:'Cinematic',best:'4K video + native audio',description:'Cinematic video generation with advanced controls and natively synchronized audio.'},
+  {id:'veo-3.1-lite',provider:'Google',name:'Veo 3.1 Lite',tag:'Efficient',best:'Lower-cost video workflows',description:'Efficient Veo 3.1 family option for video generation, editing and control.'},
+  {id:'gemini-omni-1.1-flash',provider:'Google',name:'Gemini Omni Flash',tag:'Fast',best:'Generation and editing',description:'Fast video generation, editing, keyframe interpolation and extension with native audio.'},
+  {id:'grok-imagine-video-1.5',provider:'xAI',name:'Grok Imagine Video 1.5',tag:'Imagine',best:'Image-to-video + audio',description:'xAI video model with improved motion, physics, audio and speech synchronization.'}
+];
+
+function getCreativePrefs(){
+  try{
+    const saved=JSON.parse(localStorage.getItem(creativeModelPrefsKey)||'{}')||{};
+    return {
+      imageModelId:saved.imageModelId||'gpt-image-2.5-sunburst',
+      videoModelId:saved.videoModelId||'veo-3.1'
+    };
+  }catch{return {imageModelId:'gpt-image-2.5-sunburst',videoModelId:'veo-3.1'}}
+}
+function saveCreativePrefs(next){
+  const value={...getCreativePrefs(),...next};
+  localStorage.setItem(creativeModelPrefsKey,JSON.stringify(value));
+  syncCreativeModelUI();
+}
+function getCreativeModel(type){
+  const prefs=getCreativePrefs();
+  const catalog=type==='image'?imageModelCatalog:videoModelCatalog;
+  const id=type==='image'?prefs.imageModelId:prefs.videoModelId;
+  return catalog.find(model=>model.id===id)||catalog[0];
+}
+function renderCreativeModels(type){
+  const list=$(type==='image'?'imageModelList':'videoModelList');
+  if(!list)return;
+  const catalog=type==='image'?imageModelCatalog:videoModelCatalog;
+  const selected=getCreativeModel(type);
+  list.innerHTML=catalog.map(model=>{
+    const cls=providerClass[model.provider]||'openai';
+    const active=model.id===selected.id?' active':'';
+    return '<button class="creative-model-card'+active+'" data-creative-type="'+type+'" data-creative-model="'+escapeHtml(model.id)+'">'+
+      '<span class="model-provider-dot '+cls+'-dot"></span>'+
+      '<div><div><strong>'+escapeHtml(model.name)+'</strong><b>'+escapeHtml(model.tag)+'</b></div><small>'+escapeHtml(model.provider)+' · '+escapeHtml(model.best)+'</small><p>'+escapeHtml(model.description)+'</p></div>'+
+      '<i data-lucide="'+(active?'check':'chevron-right')+'"></i></button>';
+  }).join('');
+  renderIcons(list);
+  list.querySelectorAll('[data-creative-model]').forEach(button=>button.addEventListener('click',()=>{
+    if(button.dataset.creativeType==='image')saveCreativePrefs({imageModelId:button.dataset.creativeModel});
+    else saveCreativePrefs({videoModelId:button.dataset.creativeModel});
+    closeDrawers();
+    showToast('Model set to '+getCreativeModel(button.dataset.creativeType).name);
+  }));
+}
+function syncCreativeModelUI(){
+  const imageModel=getCreativeModel('image');
+  const videoModel=getCreativeModel('video');
+  const pairs=[
+    {type:'image',model:imageModel,name:$('imageModelName'),meta:$('imageModelMeta'),button:$('imageModelPicker')},
+    {type:'video',model:videoModel,name:$('videoModelName'),meta:$('videoModelMeta'),button:$('videoModelPicker')}
+  ];
+  pairs.forEach(({model,name,meta,button})=>{
+    if(name)name.textContent=model.name;
+    if(meta)meta.textContent=model.provider+' · '+model.best;
+    const dot=button?.querySelector('.model-provider-dot');
+    if(dot)dot.className='model-provider-dot '+(providerClass[model.provider]||'openai')+'-dot';
+  });
+}
 
 function getModelPrefs(){
   try{
@@ -442,18 +519,21 @@ function saveCreation(type,prompt){
     showToast('Add a description first');
     return false;
   }
-  if(getSettings().saveHistory!==false)addActivity(type,value.slice(0,52),value);
+  if(getSettings().saveHistory!==false){
+    const model=getCreativeModel(type);
+    addActivity(type,value.slice(0,52),value+' · '+model.name);
+  }
   return true;
 }
 $('imageCreateButton')?.addEventListener('click',()=>{
   if(!saveCreation('image',$('imagePrompt')?.value))return;
-  $('imageStage').innerHTML='<div class="stage-empty saved-draft"><span><i data-lucide="check"></i></span><strong>Image draft saved</strong><small>Live image creation will connect with the service layer later.</small></div>';
+  $('imageStage').innerHTML='<div class="stage-topbar"><span>PREVIEW</span><b>Image</b></div><div class="stage-empty saved-draft"><span><i data-lucide="check"></i></span><strong>Image draft saved</strong><small>'+escapeHtml(getCreativeModel('image').name)+' selected. Live image creation will connect with the service layer later.</small></div>';
   renderIcons($('imageStage'));
   showToast('Image draft saved to history');
 });
 $('videoCreateButton')?.addEventListener('click',()=>{
   if(!saveCreation('video',$('videoPrompt')?.value))return;
-  $('videoStage').innerHTML='<div class="stage-empty saved-draft"><span><i data-lucide="check"></i></span><strong>Video draft saved</strong><small>Live video creation will connect with the service layer later.</small></div>';
+  $('videoStage').innerHTML='<div class="stage-topbar"><span>PREVIEW</span><b>Video</b></div><div class="stage-empty saved-draft"><span><i data-lucide="check"></i></span><strong>Video draft saved</strong><small>'+escapeHtml(getCreativeModel('video').name)+' selected. Live video creation will connect with the service layer later.</small></div>';
   renderIcons($('videoStage'));
   showToast('Video draft saved to history');
 });
@@ -478,6 +558,14 @@ function closeDrawers(){
   renderHistory();openDrawer('historyDrawer');
 }));
 ['workspaceSettings','topSettings','settingsOpen'].forEach(id=>$(id)?.addEventListener('click',()=>openDrawer('settingsDrawer')));
+$('imageModelPicker')?.addEventListener('click',()=>{
+  renderCreativeModels('image');
+  openDrawer('imageModelDrawer');
+});
+$('videoModelPicker')?.addEventListener('click',()=>{
+  renderCreativeModels('video');
+  openDrawer('videoModelDrawer');
+});
 ['modelPickerOpen','modePickerOpen','settingsModelOpen'].forEach(id=>$(id)?.addEventListener('click',()=>{
   renderModelList();
   openDrawer('modelDrawer');
@@ -548,6 +636,7 @@ $('clearLocalData')?.addEventListener('click',()=>{
   localStorage.removeItem(activityKey);
   localStorage.removeItem(profileKey);
   localStorage.removeItem(modelPrefsKey);
+  localStorage.removeItem(creativeModelPrefsKey);
   renderChat();
   renderHistory();
   renderChatSessions();
@@ -709,5 +798,6 @@ renderChatSessions();
 syncHistoryCounts();
 updateComposerState();
 syncModelUI();
+syncCreativeModelUI();
 renderIcons();
 syncHeaderScroll();
