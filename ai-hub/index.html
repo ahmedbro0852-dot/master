@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260924-6">
+  <link rel="stylesheet" href="./styles.css?v=20260924-7">
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Skip to content</a>
@@ -303,12 +303,16 @@
                 </div>
 
                 <div class="chat-composer-wrap">
+                  <div class="chat-status-line" id="chatStatusLine" aria-live="polite"></div>
                   <div class="chat-composer">
                     <button class="composer-attach" id="composerAttach" aria-label="Attach"><i data-lucide="paperclip"></i></button>
-                    <textarea id="chatInput" rows="1" placeholder="Message Nasha"></textarea>
-                    <button class="composer-send" id="chatSend" aria-label="Send"><i data-lucide="arrow-up"></i></button>
+                    <textarea id="chatInput" rows="1" maxlength="4000" placeholder="Message Nasha"></textarea>
+                    <button class="composer-send" id="chatSend" aria-label="Send" disabled><i data-lucide="arrow-up"></i></button>
                   </div>
-                  <small>Live responses will be connected with the service layer later.</small>
+                  <div class="composer-meta">
+                    <span id="composerHint">Enter to send · Shift + Enter for new line</span>
+                    <span id="chatCharCount">0 / 4000</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -409,10 +413,32 @@
       <button data-close aria-label="Close"><i data-lucide="x"></i></button>
     </div>
     <div class="settings-hero-icon"><i data-lucide="settings-2"></i></div>
-    <div class="settings-form">
-      <label>Display name<input id="displayName" placeholder="Your name" autocomplete="name"></label>
-      <label>Language<select id="languageSetting"><option>English</option><option>العربية</option><option>Deutsch</option><option>Français</option></select></label>
+
+    <div class="settings-section">
+      <div class="settings-section-head"><span>GENERAL</span><strong>Profile & language</strong></div>
+      <div class="settings-form">
+        <label>Display name<input id="displayName" placeholder="Your name" autocomplete="name"></label>
+        <label>Interface language<select id="languageSetting"><option>English</option><option>العربية</option><option>Deutsch</option><option>Français</option></select></label>
+      </div>
     </div>
+
+    <div class="settings-section">
+      <div class="settings-section-head"><span>CHAT</span><strong>Message behavior</strong></div>
+      <label class="setting-toggle"><span><strong>Enter to send</strong><small>Use Shift + Enter for a new line</small></span><input type="checkbox" id="enterToSend" checked><i></i></label>
+      <label class="setting-toggle"><span><strong>Show message time</strong><small>Display a timestamp below messages</small></span><input type="checkbox" id="showMessageTime" checked><i></i></label>
+      <label class="setting-toggle"><span><strong>Save local history</strong><small>Keep chat, image and video activity in this browser</small></span><input type="checkbox" id="saveHistorySetting" checked><i></i></label>
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-section-head"><span>APPEARANCE</span><strong>Workspace density</strong></div>
+      <label class="setting-toggle"><span><strong>Compact mode</strong><small>Reduce spacing in chats and side panels</small></span><input type="checkbox" id="compactMode"><i></i></label>
+    </div>
+
+    <div class="settings-section settings-data-section">
+      <div class="settings-section-head"><span>DATA</span><strong>Local preview data</strong></div>
+      <button class="settings-danger-button" id="clearLocalData"><i data-lucide="trash-2"></i><span><strong>Clear local workspace data</strong><small>Removes chat, history and local profile from this browser</small></span></button>
+    </div>
+
     <button class="primary-button settings-save" id="saveSettings">Save settings</button>
   </aside>
 
@@ -476,6 +502,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
-  <script src="./app.js?v=20260924-5"></script>
+  <script src="./app.js?v=20260924-7"></script>
 </body>
 </html>
