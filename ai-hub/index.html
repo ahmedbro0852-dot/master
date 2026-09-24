@@ -21,116 +21,148 @@
 <body>
 <a class="skip-link" href="#mainContent">Skip to content</a>
 
-  <header class="site-header">
+  <header class="site-header reference-header">
     <a class="brand" href="#" data-viewjump="home" aria-label="Nasha home">
       <span class="brand-mark">N</span>
       <span>Nasha</span>
     </a>
     <nav class="site-nav" aria-label="Main navigation">
       <button data-view="home" class="active">Home</button>
-      <button data-view="discover">Explore</button>
+      <button data-view="discover">Workspace</button>
       <button data-view="pricing">Pricing</button>
     </nav>
     <div class="site-actions">
-      <button class="text-button" data-viewjump="workspace">Open workspace</button>
-      <button class="primary-button" data-viewjump="workspace">Get started</button>
+      <button class="reference-menu-button" data-viewjump="workspace">Open Nasha <i data-lucide="arrow-up-right"></i></button>
       <button class="avatar-button" id="settingsOpen" aria-label="Open settings">N</button>
     </div>
   </header>
 
   <main id="mainContent">
-    <section class="view active" id="homeView">
-      <section class="hero">
-        <div class="hero-copy">
-          <div class="eyebrow-pill"><span>Nasha workspace</span></div>
-          <h1>One place to<br><em>get work done.</em></h1>
-          <p>Chat, write, create, translate and work with files from one clean workspace built to stay out of your way.</p>
-          <div class="hero-actions">
-            <button class="primary-button large" data-viewjump="workspace">Open Nasha</button>
-            <button class="link-button" data-viewjump="discover">See the workspace <i data-lucide="arrow-right" class="icon"></i></button>
-          </div>
-          <div class="hero-meta"><span>Chat</span><span>Documents</span><span>Design</span><span>Video</span><span>Files</span></div>
-        </div>
-
-        <div class="product-preview" aria-label="Nasha workspace preview">
-          <div class="preview-bar">
-            <div class="preview-brand"><span>N</span><strong>Nasha</strong></div>
-            <small>Chat · Auto</small>
-          </div>
-          <div class="preview-chat">
-            <div class="preview-chat-top">
-              <div><small>NEW CONVERSATION</small><strong>What are you working on?</strong></div>
-              <span>Auto</span>
-            </div>
-            <div class="preview-chat-body">
-              <div class="preview-message user"><small>YOU</small><p>Turn these rough notes into a clear launch plan.</p></div>
-              <div class="preview-message assistant"><small>NASHA</small><p>Here’s a cleaner structure with priorities, owners and a simple rollout sequence.</p></div>
-            </div>
-            <div class="preview-composer">
-              <span>Message Nasha...</span>
-              <button aria-label="Send preview"><i data-lucide="arrow-up" class="icon"></i></button>
-            </div>
+    <section class="view active reference-home" id="homeView">
+      <section class="reference-hero" id="referenceHero">
+        <div class="reference-slide active" data-slide="0" style="--hero-image:url('https://images.unsplash.com/photo-1760611656615-db3fad24a314?auto=format&fit=crop&fm=jpg&q=82&w=2200')">
+          <div class="reference-overlay"></div>
+          <div class="reference-hero-inner">
+            <span class="reference-kicker">NASHA / WORKSPACE</span>
+            <h1>Everything you need.<br><strong>One clear place.</strong></h1>
+            <p>Documents, design, video, audio, translation and files — organized around the work, not the software.</p>
+            <button class="reference-cta" data-viewjump="workspace">Open workspace <i data-lucide="arrow-right"></i></button>
           </div>
         </div>
+
+        <div class="reference-slide" data-slide="1" style="--hero-image:url('https://images.unsplash.com/photo-1724402022672-7591482b0509?auto=format&fit=crop&fm=jpg&q=82&w=2200')">
+          <div class="reference-overlay"></div>
+          <div class="reference-hero-inner">
+            <span class="reference-kicker">CREATE</span>
+            <h1>Ideas become<br><strong>finished work.</strong></h1>
+            <p>Move from a rough thought to documents, visuals and production without rebuilding your workflow every time.</p>
+            <button class="reference-cta" data-workspace="design">Start creating <i data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="reference-slide" data-slide="2" style="--hero-image:url('https://images.unsplash.com/photo-1604085558041-55eab7044eaf?auto=format&fit=crop&fm=jpg&q=82&w=2200')">
+          <div class="reference-overlay"></div>
+          <div class="reference-hero-inner">
+            <span class="reference-kicker">VIDEO</span>
+            <h1>Build, refine<br><strong>and keep moving.</strong></h1>
+            <p>A focused studio for planning creative projects without a crowded dashboard or technical clutter.</p>
+            <button class="reference-cta" data-workspace="video">Open video <i data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="reference-slide" data-slide="3" style="--hero-image:url('https://images.unsplash.com/photo-1634041323797-b9fdef9d18f7?auto=format&fit=crop&fm=jpg&q=82&w=2200')">
+          <div class="reference-overlay"></div>
+          <div class="reference-hero-inner">
+            <span class="reference-kicker">AUDIO</span>
+            <h1>Keep every part<br><strong>of the project close.</strong></h1>
+            <p>Voice, recordings, notes and source files stay inside the same working environment.</p>
+            <button class="reference-cta" data-workspace="audio">Open audio <i data-lucide="arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="reference-pagination" aria-label="Hero slides">
+          <button class="active" data-hero-dot="0" aria-label="Slide 1"></button>
+          <button data-hero-dot="1" aria-label="Slide 2"></button>
+          <button data-hero-dot="2" aria-label="Slide 3"></button>
+          <button data-hero-dot="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="reference-scroll">SCROLL <span></span></div>
       </section>
 
-      <section class="audience-strip">
-        <p>Built for focused work.</p>
-        <div><span>No clutter</span><span>Fast switching</span><span>One workspace</span><span>Local drafts</span></div>
-      </section>
-
-      <section class="feature-section">
-        <header class="section-heading">
-          <span>01</span>
-          <div><p>ONE WORKSPACE</p><h2>Everything important stays close.</h2></div>
-        </header>
-        <div class="feature-grid">
-          <article class="feature-card feature-wide">
-            <span class="feature-label">Documents</span>
-            <h3>A clean place to think, write and organize.</h3>
-            <p>Notes, briefs, plans and longer documents stay together in one focused editor.</p>
-            <div class="document-mock">
-              <span class="mock-title"></span><span></span><span></span><span class="short"></span>
-            </div>
-          </article>
-          <article class="feature-card">
-            <span class="feature-label">Create</span>
-            <h3>Move from idea to visual project.</h3>
-            <div class="visual-mock"><strong>MAKE<br>IT CLEAR.</strong><span></span></div>
-          </article>
-          <article class="feature-card">
-            <span class="feature-label">Files</span>
-            <h3>Keep source material close to the work.</h3>
-            <div class="file-mock"><i data-lucide="folder" class="icon"></i><div><strong>Research folder</strong><small>12 files</small></div></div>
-          </article>
+      <section class="reference-about">
+        <div class="reference-section-label"><span>01</span><small>ABOUT NASHA</small></div>
+        <div class="reference-about-copy">
+          <h2>One workspace built around simplicity.</h2>
+          <div>
+            <p>Nasha brings the everyday tools people use for writing, creating, translating and working with files into one focused place.</p>
+            <p>The goal is simple: fewer switches, less clutter, and a workspace that feels natural from the first click.</p>
+            <button class="reference-text-link" data-viewjump="discover">Explore what you can do <i data-lucide="arrow-right"></i></button>
+          </div>
         </div>
       </section>
 
-      <section class="principles">
-        <header class="section-heading">
-          <span>02</span>
-          <div><p>DESIGNED TO STAY QUIET</p><h2>Less interface. More work.</h2></div>
-        </header>
-        <div class="principles-grid">
-          <article><span>01</span><h3>Start anywhere</h3><p>Open a document, upload a file, begin a design or jump straight into translation.</p></article>
-          <article><span>02</span><h3>Keep context together</h3><p>Your documents, files and creative projects stay inside the same workspace.</p></article>
-          <article><span>03</span><h3>Stay focused</h3><p>The interface stays quiet so the work stays in front of you.</p></article>
+      <section class="reference-tools">
+        <div class="reference-section-head">
+          <div class="reference-section-label"><span>02</span><small>WORKSPACES</small></div>
+          <h2>Choose the work.<br>Everything else stays connected.</h2>
+        </div>
+
+        <div class="reference-tool-grid">
+          <button class="reference-tool-card large" data-workspace="documents">
+            <div class="reference-tool-photo" style="background-image:url('https://images.unsplash.com/photo-1760611656615-db3fad24a314?auto=format&fit=crop&fm=jpg&q=78&w=1600')"></div>
+            <div class="reference-tool-caption"><span>01</span><div><strong>Documents</strong><small>Write, structure and organize.</small></div><i data-lucide="arrow-up-right"></i></div>
+          </button>
+
+          <button class="reference-tool-card" data-workspace="design">
+            <div class="reference-tool-photo" style="background-image:url('https://images.unsplash.com/photo-1724402022672-7591482b0509?auto=format&fit=crop&fm=jpg&q=78&w=1500')"></div>
+            <div class="reference-tool-caption"><span>02</span><div><strong>Design</strong><small>Build visuals and concepts.</small></div><i data-lucide="arrow-up-right"></i></div>
+          </button>
+
+          <button class="reference-tool-card" data-workspace="video">
+            <div class="reference-tool-photo" style="background-image:url('https://images.unsplash.com/photo-1604085558041-55eab7044eaf?auto=format&fit=crop&fm=jpg&q=78&w=1500')"></div>
+            <div class="reference-tool-caption"><span>03</span><div><strong>Video</strong><small>Plan and prepare projects.</small></div><i data-lucide="arrow-up-right"></i></div>
+          </button>
+
+          <button class="reference-tool-card wide" data-workspace="audio">
+            <div class="reference-tool-photo" style="background-image:url('https://images.unsplash.com/photo-1634041323797-b9fdef9d18f7?auto=format&fit=crop&fm=jpg&q=78&w=1600')"></div>
+            <div class="reference-tool-caption"><span>04</span><div><strong>Audio</strong><small>Voice, recordings and notes.</small></div><i data-lucide="arrow-up-right"></i></div>
+          </button>
+
+          <button class="reference-tool-card plain" data-workspace="translate">
+            <div class="reference-tool-number">05</div>
+            <div class="reference-tool-text"><strong>Translate</strong><p>Work between languages without leaving the project.</p></div>
+            <i data-lucide="arrow-up-right"></i>
+          </button>
+
+          <button class="reference-tool-card plain dark-card" data-workspace="files">
+            <div class="reference-tool-number">06</div>
+            <div class="reference-tool-text"><strong>Files</strong><p>Keep source material close to the work.</p></div>
+            <i data-lucide="arrow-up-right"></i>
+          </button>
         </div>
       </section>
 
-      <section class="final-cta">
-        <div class="brand-mark large-mark">N</div>
-        <h2>One place. Your flow.</h2>
-        <p>Keep your documents, files and creative work moving together.</p>
-        <button class="primary-button large" data-viewjump="workspace">Open the workspace</button>
+      <section class="reference-values">
+        <div class="reference-section-label"><span>03</span><small>WHY NASHA</small></div>
+        <div class="reference-values-grid">
+          <article><span>01</span><h3>Simple</h3><p>A quiet interface with only what you need in front of you.</p></article>
+          <article><span>02</span><h3>Connected</h3><p>Your work moves between documents, media and files without feeling fragmented.</p></article>
+          <article><span>03</span><h3>Focused</h3><p>Less dashboard noise. More space for the task itself.</p></article>
+        </div>
       </section>
 
-      <footer class="site-footer">
-        <div class="footer-brand"><span class="brand-mark">N</span><div><strong>Nasha</strong><small>Your work, in one place.</small></div></div>
-        <div class="footer-links">
+      <section class="reference-final">
+        <span>NASHA WORKSPACE</span>
+        <h2>Make room for the work.</h2>
+        <p>Start with a document, a file, a visual or a blank project.</p>
+        <button class="reference-cta dark-cta" data-viewjump="workspace">Open Nasha <i data-lucide="arrow-right"></i></button>
+      </section>
+
+      <footer class="reference-footer">
+        <div class="reference-footer-brand"><span class="brand-mark">N</span><strong>Nasha</strong></div>
+        <div class="reference-footer-links">
           <button data-viewjump="discover">Explore</button>
           <button data-viewjump="workspace">Workspace</button>
-          <button data-workspace="files">Files</button>
           <button data-viewjump="pricing">Pricing</button>
           <button data-legal="privacy">Privacy</button>
           <button data-legal="terms">Terms</button>
