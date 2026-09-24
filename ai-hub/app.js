@@ -37,27 +37,42 @@ document.querySelectorAll('[data-workspace]').forEach(b=>b.addEventListener('cli
 
 const input=document.getElementById('promptInput');
 const stream=document.getElementById('chatStream');
+
 function sendPrompt(text){
   const value=(text||input.value).trim();
   if(!value)return;
   openTool('chat');
-  const u=document.createElement('div');
-  u.className='bubble user';
-  u.textContent=value;
-  stream.appendChild(u);
+
+  const user=document.createElement('div');
+  user.className='bubble user';
+  user.textContent=value;
+  stream.appendChild(user);
   input.value='';
-  const a=document.createElement('div');
-  a.className='bubble ai';
-  a.textContent='Preview mode. Live responses will appear here when the service backend is connected.';
-  setTimeout(()=>{stream.appendChild(a);a.scrollIntoView({behavior:'smooth',block:'end'})},180);
+
+  const reply=document.createElement('div');
+  reply.className='bubble ai';
+  reply.textContent='Preview mode. Live responses will appear here when the service backend is connected.';
+  setTimeout(()=>{
+    stream.appendChild(reply);
+    reply.scrollIntoView({behavior:'smooth',block:'end'});
+  },180);
 }
+
 document.getElementById('sendBtn').addEventListener('click',()=>sendPrompt());
-input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendPrompt()}});
+input.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendPrompt();}
+});
 document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>sendPrompt(b.dataset.prompt)));
 
 const modelPicker=document.getElementById('modelPicker');
 const modelMenu=document.getElementById('modelMenu');
-modelPicker.addEventListener('click',e=>{e.stopPropagation();modelMenu.classList.toggle('open')});
+modelPicker.addEventListener('click',e=>{
+  e.stopPropagation();
+  modelMenu.classList.toggle('open');
+});
 document.addEventListener('click',()=>modelMenu.classList.remove('open'));
 modelMenu.addEventListener('click',e=>e.stopPropagation());
-modelMenu.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{modelPicker.firstChild.textContent=b.dataset.model+' ';modelMenu.classList.remove('open')}));
+modelMenu.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+  modelPicker.firstChild.textContent=b.dataset.model+' ';
+  modelMenu.classList.remove('open');
+}));
