@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260924-2">
+  <link rel="stylesheet" href="./styles.css?v=20260924-3">
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Skip to content</a>
@@ -40,54 +40,41 @@
 
   <main id="mainContent">
     <section class="view active reference-home" id="homeView">
-      <section class="reference-hero" id="referenceHero">
-        <div class="reference-slide active" data-slide="0" style="--hero-image:url('https://images.unsplash.com/photo-1760611656615-db3fad24a314?auto=format&fit=crop&fm=jpg&q=82&w=2200')">
-          <div class="reference-overlay"></div>
-          <div class="reference-hero-inner">
-            <span class="reference-kicker">NASHA / WORKSPACE</span>
-            <h1>Everything you need.<br><strong>One clear place.</strong></h1>
-            <p>Documents, design, video, audio, translation and files — organized around the work, not the software.</p>
-            <button class="reference-cta" data-viewjump="workspace">Open workspace <i data-lucide="arrow-right"></i></button>
+      <section class="clean-hero">
+        <div class="clean-hero-copy">
+          <span class="clean-eyebrow">NASHA WORKSPACE</span>
+          <h1>One place for the work <strong>you actually do.</strong></h1>
+          <p>Write, create, translate, organize files and move projects forward without switching between a dozen tools.</p>
+          <div class="clean-hero-actions">
+            <button class="clean-primary" data-viewjump="workspace">Open workspace <i data-lucide="arrow-right"></i></button>
+            <button class="clean-secondary" data-viewjump="discover">Explore workspace</button>
+          </div>
+          <div class="clean-hero-tags">
+            <span>Documents</span><span>Design</span><span>Video</span><span>Audio</span><span>Translate</span><span>Files</span>
           </div>
         </div>
 
-        <div class="reference-slide" data-slide="1" style="--hero-image:url('https://images.unsplash.com/photo-1724402022672-7591482b0509?auto=format&fit=crop&fm=jpg&q=82&w=2200')">
-          <div class="reference-overlay"></div>
-          <div class="reference-hero-inner">
-            <span class="reference-kicker">CREATE</span>
-            <h1>Ideas become<br><strong>finished work.</strong></h1>
-            <p>Move from a rough thought to documents, visuals and production without rebuilding your workflow every time.</p>
-            <button class="reference-cta" data-workspace="design">Start creating <i data-lucide="arrow-right"></i></button>
+        <div class="clean-hero-visual">
+          <div class="clean-photo-main" style="background-image:url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&fm=jpg&q=82&w=1700')"></div>
+          <div class="clean-color-card yellow-card">
+            <span>WORK</span>
+            <strong>Stay in flow.</strong>
+          </div>
+          <div class="clean-color-card blue-card">
+            <i data-lucide="folder-kanban"></i>
+            <span>Projects stay together</span>
+          </div>
+          <div class="clean-floating-card">
+            <div><i data-lucide="file-text"></i></div>
+            <span><strong>Project brief</strong><small>Edited today</small></span>
+            <i data-lucide="arrow-up-right"></i>
           </div>
         </div>
+      </section>
 
-        <div class="reference-slide" data-slide="2" style="--hero-image:url('https://images.unsplash.com/photo-1604085558041-55eab7044eaf?auto=format&fit=crop&fm=jpg&q=82&w=2200')">
-          <div class="reference-overlay"></div>
-          <div class="reference-hero-inner">
-            <span class="reference-kicker">VIDEO</span>
-            <h1>Build, refine<br><strong>and keep moving.</strong></h1>
-            <p>A focused studio for planning creative projects without a crowded dashboard or technical clutter.</p>
-            <button class="reference-cta" data-workspace="video">Open video <i data-lucide="arrow-right"></i></button>
-          </div>
-        </div>
-
-        <div class="reference-slide" data-slide="3" style="--hero-image:url('https://images.unsplash.com/photo-1634041323797-b9fdef9d18f7?auto=format&fit=crop&fm=jpg&q=82&w=2200')">
-          <div class="reference-overlay"></div>
-          <div class="reference-hero-inner">
-            <span class="reference-kicker">AUDIO</span>
-            <h1>Keep every part<br><strong>of the project close.</strong></h1>
-            <p>Voice, recordings, notes and source files stay inside the same working environment.</p>
-            <button class="reference-cta" data-workspace="audio">Open audio <i data-lucide="arrow-right"></i></button>
-          </div>
-        </div>
-
-        <div class="reference-pagination" aria-label="Hero slides">
-          <button class="active" data-hero-dot="0" aria-label="Slide 1"></button>
-          <button data-hero-dot="1" aria-label="Slide 2"></button>
-          <button data-hero-dot="2" aria-label="Slide 3"></button>
-          <button data-hero-dot="3" aria-label="Slide 4"></button>
-        </div>
-        <div class="reference-scroll">SCROLL <span></span></div>
+      <section class="clean-strip">
+        <span>Made for everyday work</span>
+        <div><b>Students</b><b>Creators</b><b>Freelancers</b><b>Teams</b></div>
       </section>
 
       <section class="reference-about">
@@ -277,6 +264,11 @@
               <div><p>YOUR WORKSPACE</p><h1>Pick up where you left off.</h1><span>Start a document, open a project or continue recent work.</span></div>
               <div class="overview-actions"><button class="primary-button" id="overviewNewDocument">New document</button></div>
             </div>
+            <div class="workspace-summary">
+              <div><span>RECENT</span><strong id="workspaceSummaryTitle">No document yet</strong><small>Your latest document</small></div>
+              <div><span>FILES</span><strong id="workspaceFileCount">0 selected</strong><small>In this session</small></div>
+              <div class="summary-accent"><span>WORKSPACE</span><strong>Ready</strong><small>Start wherever you want</small></div>
+            </div>
             <div class="quick-grid">
               <button data-tool="documents"><span><i data-lucide="file-text" class="icon"></i></span><strong>Document</strong><small>Notes, briefs and drafts</small></button>
               <button data-tool="design"><span><i data-lucide="palette" class="icon"></i></span><strong>Design</strong><small>Visuals and concepts</small></button>
@@ -448,6 +440,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
-  <script src="./app.js?v=20260924-2"></script>
+  <script src="./app.js?v=20260924-3"></script>
 </body>
 </html>
