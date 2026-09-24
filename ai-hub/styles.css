@@ -599,3 +599,139 @@ body{font-size:14px;line-height:1.5}
   .tool-form h2,.voice-head h2,.translate-head h2{font-size:19px}
   .price-card h3{font-size:27px}
 }
+/* Ultra-compact scale */
+body{font-size:13px;line-height:1.45}
+.topbar{height:66px}
+.logo-type{font-size:16px}
+.logo-mark{width:28px;height:28px;font-size:13px}
+.desktop-nav button,.ghost{font-size:10.5px}
+.dark,.primary-cta{font-size:10px;padding:9px 14px}
+.brand-pill{font-size:8.5px}
+
+.hero{padding:64px 44px 60px;gap:56px}
+.hero h1{
+  font-size:clamp(34px,3.6vw,44px);
+  line-height:1.04;
+  letter-spacing:-.034em;
+  max-width:560px;
+}
+.sub{font-size:12.5px;line-height:1.58;max-width:500px;margin-top:20px}
+.hero-actions{margin-top:24px}
+.text-cta{font-size:9.5px}
+.micro-proof{font-size:8.5px;margin-top:18px}
+.hero-stage{min-height:420px}
+.showcase{width:90%}
+.showcase-body{height:340px}
+.mini-canvas{padding:34px 30px}
+.mini-canvas h3{font-size:18px;margin-bottom:18px}
+.demo-input{height:48px;font-size:9.5px}
+.demo-card{min-height:96px;padding:11px}
+.demo-card b{font-size:9.5px}
+.demo-card span{font-size:7.5px}
+
+.brand-strip{font-size:9px;padding-top:17px;padding-bottom:17px}
+.story{padding-top:72px;padding-bottom:72px}
+.story-intro{margin-bottom:36px}
+.story-intro h2,.brand-system h2{
+  font-size:clamp(24px,2.3vw,30px);
+  line-height:1.12;
+}
+.story-card{padding:20px}
+.story-main{min-height:470px}
+.story-card h3{font-size:16px;line-height:1.3;margin-top:18px}
+.story-card p{font-size:10px}
+.conversation-preview{margin-top:42px;padding:22px}
+.poster-preview strong{font-size:23px}
+.brand-system{padding-top:64px;padding-bottom:64px;gap:44px}
+.brand-board{min-height:290px}
+.ink-tile span{font-size:82px}
+.brand-tile b{font-size:13px}
+.ink-tile b{font-size:17px}
+
+.closing{padding-top:64px;padding-bottom:72px}
+.closing-mark{width:42px;height:42px;font-size:18px}
+.closing h2{font-size:clamp(26px,2.8vw,32px)}
+.closing p{font-size:10.5px}
+.site-footer{padding-top:20px;padding-bottom:24px}
+
+.page-head{padding-top:58px;padding-bottom:36px}
+.page-head h1{
+  font-size:clamp(27px,3vw,34px);
+  line-height:1.12;
+}
+.page-head>p:last-child{font-size:10.5px}
+.discover-list button{padding-top:19px;padding-bottom:19px}
+.discover-list h3{font-size:15px}
+.discover-list p{font-size:9px}
+.discover-list span{font-size:7.5px}
+
+.workspace-shell{min-height:calc(100vh - 66px)}
+.workspace-top{height:52px;font-size:9.5px}
+.workspace-nav button{font-size:9.5px}
+.smart-button{font-size:8.5px;padding:7px 9px}
+.tool-panel{padding-top:34px}
+.chat-empty{padding-top:44px}
+.chat-brandmark{width:40px;height:40px;font-size:13px}
+.chat-empty>p{font-size:18px}
+.chat-note{font-size:8.5px}
+.starter-row button{font-size:8px;padding:7px 10px}
+.bubble{font-size:10.5px}
+.composer textarea{font-size:11.5px;min-height:62px}
+.send,.black-button,.translate-action{font-size:8.5px}
+
+.tool-form h2,.voice-head h2,.translate-head h2{font-size:18px}
+.tool-form textarea,.translate-grid textarea{font-size:11px}
+.inline-fields select,.translate-grid select{font-size:9.5px}
+.voice-options strong{font-size:12px}
+.voice-options span{font-size:8.5px}
+
+.upload-box{padding-top:64px;padding-bottom:64px}
+.upload-box strong{font-size:13px}
+.upload-box span{font-size:8.5px}
+.upload-box button{font-size:8.5px}
+.file-shortcuts span{font-size:7.5px}
+
+.price-card{padding:20px;min-height:390px}
+.plan-name{font-size:8.5px}
+.price-card h3{font-size:25px}
+.price-card h3 small{font-size:9px}
+.price-card p,.price-card li{font-size:9px}
+.price-card button{font-size:8.5px}
+.pricing-note{font-size:7.5px}
+
+.drawer-head strong{font-size:15px}
+.drawer-head span{font-size:7.5px}
+.settings-block label{font-size:8.5px}
+.settings-block input,.settings-block select{font-size:9.5px}
+.usage-card strong{font-size:17px}
+
+@media(max-width:980px){
+  .hero h1{font-size:40px}
+  .hero{padding-top:56px}
+  .story-card h3{font-size:15px}
+}
+@media(max-width:650px){
+  body{font-size:12.5px}
+  .topbar{height:60px}
+  .logo-type{font-size:15px}
+  .hero{padding-top:36px;padding-bottom:44px}
+  .hero h1{font-size:28px;line-height:1.08}
+  .sub{font-size:11.5px}
+  .primary-cta{font-size:9.5px}
+  .text-cta{font-size:8.5px}
+  .micro-proof{font-size:7.5px}
+  .hero-stage{min-height:270px}
+  .showcase-body{height:230px}
+  .mini-canvas{padding:22px 15px}
+  .mini-canvas h3{font-size:15px}
+  .story{padding-top:54px;padding-bottom:54px}
+  .story-intro h2,.brand-system h2{font-size:23px}
+  .story-card h3{font-size:15px}
+  .story-card p{font-size:9.5px}
+  .closing h2{font-size:25px}
+  .page-head h1{font-size:26px}
+  .page-head>p:last-child{font-size:10px}
+  .chat-empty>p{font-size:17px}
+  .tool-form h2,.voice-head h2,.translate-head h2{font-size:17px}
+  .price-card h3{font-size:24px}
+}
