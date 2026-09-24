@@ -144,12 +144,12 @@ const modelPicker=$('modelPicker');
 const modelMenu=$('modelMenu');
 modelPicker?.addEventListener('click',e=>{
   e.stopPropagation();
-  modelMenu.classList.toggle('open');
+  modelMenu?.classList.toggle('open');
 });
 document.addEventListener('click',()=>modelMenu?.classList.remove('open'));
 modelMenu?.addEventListener('click',e=>e.stopPropagation());
 modelMenu?.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
-  modelPicker.childNodes[0].nodeValue=b.dataset.model+' ';
+  if(modelPicker&&modelPicker.childNodes.length) modelPicker.childNodes[0].nodeValue=b.dataset.model+' ';
   modelMenu.classList.remove('open');
   showToast(b.dataset.model+' selected');
 }));
@@ -287,3 +287,12 @@ document.addEventListener('keydown',e=>{
     modelMenu?.classList.remove('open');
   }
 });
+$('newChatBtn')?.addEventListener('click',()=>{
+  if(chatStream)chatStream.innerHTML='';
+  if(chatEmpty)chatEmpty.style.display='';
+  if(promptInput){promptInput.value='';promptInput.focus();}
+  openTool('chat');
+});
+$('topHistory')?.addEventListener('click',()=>openDrawer('historyDrawer'));
+$('topSettings')?.addEventListener('click',()=>openDrawer('settingsDrawer'));
+$('chatAttach')?.addEventListener('click',()=>switchView('files'));
