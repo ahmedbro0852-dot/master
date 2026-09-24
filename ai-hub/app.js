@@ -27,6 +27,102 @@ const activityKey='nasha-activity-v1';
 const chatKey='nasha-chat-v1';
 const settingsKey='nasha-settings-v4';
 const profileKey='nasha-profile-v1';
+const modelPrefsKey='nasha-model-prefs-v1';
+
+const modelCatalog=[
+  {id:'gpt-5.6-sol',provider:'OpenAI',name:'GPT-5.6 Sol',tag:'Flagship',speed:'Balanced',reasoning:'High',best:'Complex work, coding, research',description:'Flagship GPT-5.6 model for complex knowledge work, coding, research, science and design.'},
+  {id:'gpt-5.6-terra',provider:'OpenAI',name:'GPT-5.6 Terra',tag:'Balanced',speed:'Fast',reasoning:'Medium',best:'Everyday work',description:'Balanced GPT-5.6 option for capability, speed and cost in everyday work.'},
+  {id:'gpt-5.6-luna',provider:'OpenAI',name:'GPT-5.6 Luna',tag:'Fastest',speed:'Very fast',reasoning:'Think',best:'Quick chat and routine tasks',description:'Fastest and lowest-cost GPT-5.6 family option, also used for default Free and Go chat.'},
+  {id:'gpt-5.6-sol-pro',provider:'OpenAI',name:'GPT-5.6 Sol Pro',tag:'Pro',speed:'Deliberate',reasoning:'Maximum',best:'Hard, long-running tasks',description:'Higher-capability GPT-5.6 option for difficult tasks and longer-running workflows.'},
+  {id:'gpt-6-pro',provider:'OpenAI',name:'GPT-6 Pro',tag:'Astra',speed:'Deliberate',reasoning:'Maximum',best:'Frontier difficult work',description:'GPT-6 Pro, powered by Astra. Access depends on plan and product.'},
+
+  {id:'claude-fable-5.1',provider:'Anthropic',name:'Claude Fable 5.1',tag:'Latest',speed:'Fast',reasoning:'Adaptive',best:'General work',description:'September 2026 Claude 5.1 family model.'},
+  {id:'claude-mythos-5.1',provider:'Anthropic',name:'Claude Mythos 5.1',tag:'Latest',speed:'Balanced',reasoning:'High',best:'Reasoning and long tasks',description:'September 2026 Claude 5.1 family model.'},
+  {id:'claude-opus-5',provider:'Anthropic',name:'Claude Opus 5',tag:'Opus',speed:'Deliberate',reasoning:'High',best:'Complex tasks',description:'Claude Opus 5 family model released in 2026.'},
+  {id:'claude-sonnet-5',provider:'Anthropic',name:'Claude Sonnet 5',tag:'Sonnet',speed:'Fast',reasoning:'High',best:'Coding and daily work',description:'Claude Sonnet 5 family model released in 2026.'},
+
+  {id:'gemini-3.8-flash',provider:'Google',name:'Gemini 3.8 Flash',tag:'Latest Flash',speed:'Very fast',reasoning:'High',best:'Agents, coding, multimodal',description:'Google model for long-horizon software engineering, autonomous agents and complex workflows.'},
+  {id:'gemini-3.7-flash',provider:'Google',name:'Gemini 3.7 Flash',tag:'Previous',speed:'Fast',reasoning:'High',best:'Coding and agentic tasks',description:'Previous-generation Flash model for complex coding and reliable multi-step execution.'},
+  {id:'gemini-3.6-flash',provider:'Google',name:'Gemini 3.6 Flash',tag:'Multimodal',speed:'Fast',reasoning:'Medium',best:'Everyday multimodal tasks',description:'Flash generation balancing speed and multimodal capability.'},
+  {id:'gemini-3.5-flash-lite',provider:'Google',name:'Gemini 3.5 Flash-Lite',tag:'Lite',speed:'Very fast',reasoning:'Light',best:'High-throughput tasks',description:'Fast, cost-efficient Gemini option for high-throughput workloads.'},
+
+  {id:'grok-4.7',provider:'xAI',name:'Grok 4.7',tag:'Latest',speed:'Fast',reasoning:'High',best:'Coding and knowledge work',description:'Current Grok flagship for coding and knowledge work with stronger long-task verification.'},
+  {id:'grok-4.6',provider:'xAI',name:'Grok 4.6',tag:'Agentic',speed:'Balanced',reasoning:'High',best:'Long-running agents',description:'Grok generation focused on long-running agents and interactive visual work.'},
+  {id:'grok-4.5',provider:'xAI',name:'Grok 4.5',tag:'General',speed:'Balanced',reasoning:'High',best:'Engineering and agentic work',description:'Grok model for coding, agentic tasks and knowledge work.'},
+
+  {id:'deepseek-v4.1-flash',provider:'DeepSeek',name:'DeepSeek V4.1 Flash',tag:'Latest Flash',speed:'Very fast',reasoning:'High',best:'Multimodal and high throughput',description:'Latest Flash model with native multimodal visual understanding and higher throughput.'},
+  {id:'deepseek-v4-pro',provider:'DeepSeek',name:'DeepSeek V4 Pro',tag:'Pro',speed:'Balanced',reasoning:'High',best:'Advanced tasks',description:'Higher-tier DeepSeek V4 model that remains available through the API.'}
+];
+
+const providerClass={OpenAI:'openai',Anthropic:'anthropic',Google:'google',xAI:'xai',DeepSeek:'deepseek'};
+
+function getModelPrefs(){
+  try{
+    const saved=JSON.parse(localStorage.getItem(modelPrefsKey)||'{}')||{};
+    return {
+      modelId:saved.modelId||'gpt-5.6-sol',
+      mode:saved.mode||'Chat',
+      reasoning:saved.reasoning||'Medium'
+    };
+  }catch{return {modelId:'gpt-5.6-sol',mode:'Chat',reasoning:'Medium'}}
+}
+function saveModelPrefs(next){
+  const current=getModelPrefs();
+  const value={...current,...next};
+  localStorage.setItem(modelPrefsKey,JSON.stringify(value));
+  syncModelUI();
+}
+function selectedModel(){
+  const prefs=getModelPrefs();
+  return modelCatalog.find(model=>model.id===prefs.modelId)||modelCatalog[0];
+}
+function syncModelUI(){
+  const model=selectedModel();
+  const prefs=getModelPrefs();
+  const cls=providerClass[model.provider]||'openai';
+  if($('selectedProviderLabel'))$('selectedProviderLabel').textContent=model.provider;
+  if($('selectedModelLabel'))$('selectedModelLabel').textContent=model.name;
+  if($('currentModelName'))$('currentModelName').textContent=model.name;
+  if($('currentModelDescription'))$('currentModelDescription').textContent=model.description;
+  if($('selectedModeLabel'))$('selectedModeLabel').textContent=prefs.mode;
+  if($('settingsModelName'))$('settingsModelName').textContent=model.name;
+  if($('settingsModeName'))$('settingsModeName').textContent=prefs.mode+' mode';
+  ['currentModelDot'].forEach(id=>{
+    const el=$(id); if(el)el.className='model-provider-dot '+cls+'-dot';
+  });
+  document.querySelectorAll('.model-picker-button .model-provider-dot').forEach(el=>el.className='model-provider-dot '+cls+'-dot');
+  document.querySelectorAll('[data-mode]').forEach(btn=>btn.classList.toggle('active',btn.dataset.mode===prefs.mode));
+  document.querySelectorAll('[data-reasoning]').forEach(btn=>btn.classList.toggle('active',btn.dataset.reasoning===prefs.reasoning));
+  renderModelList();
+}
+let providerFilter='all';
+let modelQuery='';
+function renderModelList(){
+  const list=$('modelList');
+  if(!list)return;
+  const prefs=getModelPrefs();
+  const q=modelQuery.trim().toLowerCase();
+  const items=modelCatalog.filter(model=>
+    (providerFilter==='all'||model.provider===providerFilter)&&
+    (!q||(model.name+' '+model.provider+' '+model.best+' '+model.description).toLowerCase().includes(q))
+  );
+  list.innerHTML=items.map(model=>{
+    const cls=providerClass[model.provider]||'openai';
+    const active=model.id===prefs.modelId?' active':'';
+    return '<button class="model-card'+active+'" data-model-id="'+escapeHtml(model.id)+'">'+
+      '<span class="model-provider-dot '+cls+'-dot"></span>'+
+      '<div class="model-card-copy"><div><strong>'+escapeHtml(model.name)+'</strong><b>'+escapeHtml(model.tag)+'</b></div>'+
+      '<small>'+escapeHtml(model.provider)+' · '+escapeHtml(model.best)+'</small>'+
+      '<p>'+escapeHtml(model.description)+'</p>'+
+      '<div class="model-meta"><span><i data-lucide="gauge"></i>'+escapeHtml(model.speed)+'</span><span><i data-lucide="brain"></i>'+escapeHtml(model.reasoning)+'</span></div></div>'+
+      '<i class="model-check" data-lucide="'+(active?'check':'chevron-right')+'"></i></button>';
+  }).join('')||'<div class="empty-state">No models match your search.</div>';
+  renderIcons(list);
+  list.querySelectorAll('[data-model-id]').forEach(button=>button.addEventListener('click',()=>{
+    saveModelPrefs({modelId:button.dataset.modelId});
+    showToast('Model set to '+selectedModel().name);
+  }));
+}
 
 function switchView(name){
   document.body.classList.toggle('app-view',name==='workspace');
@@ -90,7 +186,7 @@ function renderChat(){
   empty?.classList.toggle('hidden',items.length>0);
   const settings=getSettings();
   messages.innerHTML=items.map((item,index)=>
-    '<div class="chat-message '+escapeHtml(item.role)+'"><span class="message-avatar">'+(item.role==='user'?getProfileInitial():'N')+'</span><div class="message-body"><div class="message-topline"><small class="message-author">'+(item.role==='user'?'You':'Nasha')+'</small><button class="message-copy" data-copy-message="'+index+'" aria-label="Copy message"><i data-lucide="copy"></i></button></div><p>'+escapeHtml(item.text)+'</p>'+(settings.showMessageTime===false?'':'<time>'+formatMessageTime(item.time)+'</time>')+'</div></div>'
+    '<div class="chat-message '+escapeHtml(item.role)+'"><span class="message-avatar">'+(item.role==='user'?getProfileInitial():'N')+'</span><div class="message-body"><div class="message-topline"><small class="message-author">'+(item.role==='user'?'You':'Nasha · '+selectedModel().name)+'</small><button class="message-copy" data-copy-message="'+index+'" aria-label="Copy message"><i data-lucide="copy"></i></button></div><p>'+escapeHtml(item.text)+'</p>'+(settings.showMessageTime===false?'':'<time>'+formatMessageTime(item.time)+'</time>')+'</div></div>'
   ).join('');
   renderIcons(messages);
   const firstUser=items.find(item=>item.role==='user');
@@ -158,7 +254,7 @@ function sendChat(text){
       const updated=getChat();
       updated.push({
         role:'assistant',
-        text:'Your message is saved. Live replies will start here once the response service is connected.',
+        text:'Preview response · '+selectedModel().name+' · '+getModelPrefs().mode+' mode. Live model responses will start here once the provider connection is added.',
         time:new Date().toISOString()
       });
       setChat(updated);
@@ -382,9 +478,31 @@ function closeDrawers(){
   renderHistory();openDrawer('historyDrawer');
 }));
 ['workspaceSettings','topSettings','settingsOpen'].forEach(id=>$(id)?.addEventListener('click',()=>openDrawer('settingsDrawer')));
+['modelPickerOpen','modePickerOpen','settingsModelOpen'].forEach(id=>$(id)?.addEventListener('click',()=>{
+  renderModelList();
+  openDrawer('modelDrawer');
+}));
 ['accountOpen','topAccount'].forEach(id=>$(id)?.addEventListener('click',()=>openDrawer('accountDrawer')));
 backdrop?.addEventListener('click',closeDrawers);
 document.querySelectorAll('[data-close]').forEach(button=>button.addEventListener('click',closeDrawers));
+
+$('modelSearch')?.addEventListener('input',event=>{
+  modelQuery=event.currentTarget.value||'';
+  renderModelList();
+});
+document.querySelectorAll('[data-provider-filter]').forEach(button=>button.addEventListener('click',()=>{
+  providerFilter=button.dataset.providerFilter;
+  document.querySelectorAll('[data-provider-filter]').forEach(item=>item.classList.toggle('active',item===button));
+  renderModelList();
+}));
+document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{
+  saveModelPrefs({mode:button.dataset.mode});
+  showToast(button.dataset.mode+' mode selected');
+}));
+document.querySelectorAll('[data-reasoning]').forEach(button=>button.addEventListener('click',()=>{
+  saveModelPrefs({reasoning:button.dataset.reasoning});
+  showToast(button.dataset.reasoning+' reasoning selected');
+}));
 
 /* settings */
 const displayName=$('displayName');
@@ -429,6 +547,7 @@ $('clearLocalData')?.addEventListener('click',()=>{
   localStorage.removeItem(chatKey);
   localStorage.removeItem(activityKey);
   localStorage.removeItem(profileKey);
+  localStorage.removeItem(modelPrefsKey);
   renderChat();
   renderHistory();
   renderChatSessions();
@@ -589,5 +708,6 @@ renderHistory();
 renderChatSessions();
 syncHistoryCounts();
 updateComposerState();
+syncModelUI();
 renderIcons();
 syncHeaderScroll();
