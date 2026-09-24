@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F2E8">
   <title>Nasha — Make more happen</title>
   <meta name="description" content="Create, learn, write, translate, work with files and get things done from one place.">
+  <link rel="icon" href="./nasha-mark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,16 +14,21 @@
 </head>
 <body>
   <header class="topbar">
-    <a href="#" class="logo" data-viewjump="home">Nasha<span>.</span></a>
+    <a href="#" class="logo" data-viewjump="home" aria-label="Nasha home">
+      <span class="logo-mark">N</span>
+      <span class="logo-type">Nasha</span>
+    </a>
+
     <nav class="desktop-nav">
       <button data-view="home" class="active">Home</button>
-      <button data-view="discover">Discover</button>
+      <button data-view="discover">Explore</button>
       <button data-view="workspace">Workspace</button>
       <button data-view="files">Files</button>
     </nav>
+
     <div class="top-actions">
       <button class="ghost">Pricing</button>
-      <button class="dark">Get started</button>
+      <button class="dark" data-viewjump="workspace">Get started</button>
     </div>
   </header>
 
@@ -29,36 +36,44 @@
     <section class="view active" id="homeView">
       <div class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">YOUR SPACE TO GET THINGS DONE</p>
-          <h1>Less switching.<br>More doing.</h1>
+          <div class="brand-pill"><span></span> One workspace, many possibilities</div>
+          <h1>Make more.<br><em>Switch less.</em></h1>
           <p class="sub">Write, study, create, translate, work with documents and move between ideas without jumping across apps.</p>
+
           <div class="hero-actions">
             <button class="primary-cta" data-viewjump="workspace">Open Nasha</button>
-            <button class="text-cta" data-viewjump="discover">See what you can do →</button>
+            <button class="text-cta" data-viewjump="discover">Explore what you can do <span>→</span></button>
+          </div>
+
+          <div class="micro-proof">
+            <span>For study</span><i></i><span>For work</span><i></i><span>For creating</span><i></i><span>For everyday life</span>
           </div>
         </div>
 
-        <div class="showcase">
-          <div class="showcase-top">
-            <div class="window-dots"><i></i><i></i><i></i></div>
-            <span>nasha / workspace</span>
-          </div>
-          <div class="showcase-body">
-            <div class="mini-sidebar">
-              <strong>N</strong>
-              <button class="active"></button>
-              <button></button>
-              <button></button>
-              <button></button>
+        <div class="hero-stage" aria-label="Nasha workspace preview">
+          <div class="shape shape-yellow"></div>
+          <div class="shape shape-mint"></div>
+          <div class="showcase">
+            <div class="showcase-top">
+              <div class="showcase-brand"><span class="tiny-mark">N</span> nasha</div>
+              <span class="showcase-status">Smart mode</span>
             </div>
-            <div class="mini-canvas">
-              <p class="small-label">TODAY</p>
-              <h3>What are you working on?</h3>
-              <div class="demo-input">Plan my trip to Istanbul <span>↗</span></div>
-              <div class="demo-list">
-                <div><b>Plan</b><span>Organize ideas and next steps</span></div>
-                <div><b>Create</b><span>Make visuals, video or audio</span></div>
-                <div><b>Understand</b><span>Learn from files and information</span></div>
+            <div class="showcase-body">
+              <div class="mini-sidebar">
+                <strong>N</strong>
+                <button class="active">⌁</button>
+                <button>□</button>
+                <button>▶</button>
+                <button>文</button>
+              </div>
+              <div class="mini-canvas">
+                <span class="mini-kicker">TODAY</span>
+                <h3>What are we making?</h3>
+                <div class="demo-input">Plan a 4-day trip to Istanbul <span>↑</span></div>
+                <div class="demo-cards">
+                  <div class="demo-card coral"><small>PLAN</small><b>Trip outline</b><span>4 days · food · culture</span></div>
+                  <div class="demo-card mint"><small>CREATE</small><b>Visual moodboard</b><span>Places · colors · ideas</span></div>
+                </div>
               </div>
             </div>
           </div>
@@ -66,52 +81,106 @@
       </div>
 
       <section class="brand-strip">
-        <p>Made for everyday work, study and creativity.</p>
-        <div><span>Students</span><span>Creators</span><span>Teams</span><span>Freelancers</span><span>Everyone</span></div>
+        <p>Built around what you want to finish.</p>
+        <div><span>Students</span><span>Creators</span><span>Teams</span><span>Freelancers</span><span>Everyday use</span></div>
       </section>
 
       <section class="story">
         <div class="story-intro">
-          <p class="eyebrow">ONE HOME FOR YOUR WORK</p>
-          <h2>Start with what you want to do, not which tool to open.</h2>
+          <span class="section-number">01</span>
+          <div>
+            <p class="eyebrow">START WITH THE OUTCOME</p>
+            <h2>You bring the task.<br>Nasha brings the tools.</h2>
+          </div>
         </div>
 
         <div class="story-grid">
-          <article class="story-card tall">
-            <div class="card-tag">Think</div>
-            <h3>Ask, learn and plan in one conversation.</h3>
-            <p>From homework to travel plans to business ideas.</p>
-            <div class="card-visual lines">
-              <i></i><i></i><i></i><i></i>
+          <article class="story-card story-main">
+            <div class="card-top">
+              <span class="card-tag coral-tag">Think</span>
+              <span class="card-no">01</span>
+            </div>
+            <h3>Ask, learn and plan without changing apps.</h3>
+            <p>From homework and research to planning a trip or shaping a business idea.</p>
+            <div class="conversation-preview">
+              <div class="msg user-msg">Explain this in a simpler way.</div>
+              <div class="msg answer-msg">
+                <i></i><i></i><i></i>
+              </div>
             </div>
           </article>
 
-          <article class="story-card">
-            <div class="card-tag">Create</div>
-            <h3>Turn a rough idea into something you can see or share.</h3>
-            <div class="poster-preview">Make it<br>visual.</div>
+          <article class="story-card visual-card">
+            <div class="card-top">
+              <span class="card-tag yellow-tag">Create</span>
+              <span class="card-no">02</span>
+            </div>
+            <h3>Turn an idea into something you can see and share.</h3>
+            <div class="poster-preview">
+              <span>MAKE</span>
+              <strong>IT<br>VISIBLE.</strong>
+              <small>Nasha create</small>
+            </div>
           </article>
 
-          <article class="story-card">
-            <div class="card-tag">Understand</div>
+          <article class="story-card file-card">
+            <div class="card-top">
+              <span class="card-tag mint-tag">Understand</span>
+              <span class="card-no">03</span>
+            </div>
             <h3>Drop in a file. Pull out what matters.</h3>
-            <div class="doc-preview"><b>Quarterly report.pdf</b><span>42 pages</span><hr><hr><hr></div>
+            <div class="doc-preview">
+              <div class="doc-head"><span class="doc-icon">▤</span><div><b>Quarterly report.pdf</b><span>42 pages</span></div></div>
+              <div class="doc-line long"></div><div class="doc-line"></div><div class="doc-line short"></div>
+              <div class="doc-chip">Summarize this</div>
+            </div>
           </article>
+        </div>
+      </section>
+
+      <section class="brand-system">
+        <div class="brand-system-copy">
+          <span class="section-number">02</span>
+          <p class="eyebrow">ONE LANGUAGE ACROSS EVERYTHING</p>
+          <h2>Simple outside.<br>Powerful underneath.</h2>
+          <p>Chat, images, video, voice, translation and files all feel like parts of the same product — because they are.</p>
+        </div>
+
+        <div class="brand-board">
+          <div class="brand-tile ink-tile"><span>N</span><b>Nasha</b></div>
+          <div class="brand-tile coral-tile"><small>PRIMARY</small><b>#FF6240</b></div>
+          <div class="brand-tile mint-tile"><small>SECONDARY</small><b>#B8E2CF</b></div>
+          <div class="brand-tile yellow-tile"><small>ACCENT</small><b>#F2D35C</b></div>
         </div>
       </section>
 
       <section class="closing">
-        <h2>One place. Your way.</h2>
-        <p>Nasha keeps the complexity out of sight so you can focus on the outcome.</p>
+        <div class="closing-mark">N</div>
+        <h2>One place. Your flow.</h2>
+        <p>Keep the complexity in the background. Keep moving in the foreground.</p>
         <button class="primary-cta" data-viewjump="workspace">Start using Nasha</button>
       </section>
+
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <div class="logo-mark">N</div>
+          <div><strong>Nasha</strong><span>Make more happen.</span></div>
+        </div>
+        <div class="footer-links">
+          <button data-viewjump="discover">Explore</button>
+          <button data-viewjump="workspace">Workspace</button>
+          <button data-viewjump="files">Files</button>
+          <button>Pricing</button>
+        </div>
+        <p>© 2026 Nasha</p>
+      </footer>
     </section>
 
     <section class="view" id="discoverView">
       <div class="page-head">
-        <p class="eyebrow">DISCOVER</p>
-        <h1>Everything you can do.</h1>
-        <p>Choose the outcome. Nasha handles the rest.</p>
+        <p class="eyebrow">EXPLORE</p>
+        <h1>Choose what you want to do.</h1>
+        <p>Nasha keeps the tool choice in the background.</p>
       </div>
 
       <div class="discover-list">
@@ -128,26 +197,29 @@
       <div class="workspace-shell">
         <aside class="workspace-nav">
           <div class="workspace-brand">N</div>
-          <button class="active" data-tool="chat">Chat</button>
-          <button data-tool="image">Image</button>
-          <button data-tool="video">Video</button>
-          <button data-tool="voice">Voice</button>
-          <button data-tool="translate">Translate</button>
+          <button class="active" data-tool="chat"><span>⌁</span>Chat</button>
+          <button data-tool="image"><span>□</span>Image</button>
+          <button data-tool="video"><span>▶</span>Video</button>
+          <button data-tool="voice"><span>◉</span>Voice</button>
+          <button data-tool="translate"><span>文</span>Translate</button>
+
           <div class="workspace-bottom">
-            <button>History</button>
-            <button>Settings</button>
+            <button><span>↺</span>History</button>
+            <button><span>⚙</span>Settings</button>
           </div>
         </aside>
 
         <div class="workspace-main">
           <div class="workspace-top">
-            <span id="workspaceTitle">Chat</span>
+            <div><span class="workspace-dot"></span><span id="workspaceTitle">Chat</span></div>
             <button id="modelPicker" class="smart-button">Smart mode <span>⌄</span></button>
           </div>
 
           <div class="tool-panel active" id="chatTool">
             <div class="chat-empty">
+              <div class="chat-brandmark">N</div>
               <p>What do you want to do?</p>
+              <span class="chat-note">Start with the outcome. Nasha will take care of the rest.</span>
               <div class="starter-row">
                 <button data-prompt="Explain this simply">Explain</button>
                 <button data-prompt="Help me write this better">Write</button>
@@ -155,7 +227,9 @@
                 <button data-prompt="Research this topic">Research</button>
               </div>
             </div>
+
             <div class="chat-stream" id="chatStream"></div>
+
             <div class="composer">
               <textarea id="promptInput" rows="2" placeholder="Ask anything"></textarea>
               <div><button class="small-round">＋</button><button id="sendBtn" class="send">Send</button></div>
@@ -165,44 +239,52 @@
           <div class="tool-panel" id="imageTool">
             <div class="tool-grid">
               <div class="tool-form">
-                <p class="tool-label">IMAGE</p>
+                <div class="tool-chip coral-chip">IMAGE</div>
                 <h2>Describe what you want to see.</h2>
                 <textarea placeholder="A modern product photo on a warm studio background..."></textarea>
                 <div class="inline-fields">
                   <select><option>Square</option><option>Landscape</option><option>Portrait</option></select>
                   <select><option>Auto style</option><option>Photo</option><option>Illustration</option></select>
                 </div>
-                <button class="black-button">Create</button>
+                <button class="black-button">Create image</button>
               </div>
-              <div class="tool-output">Your image will appear here.</div>
+              <div class="tool-output image-output"><span>Image preview</span></div>
             </div>
           </div>
 
           <div class="tool-panel" id="videoTool">
             <div class="tool-grid">
               <div class="tool-form">
-                <p class="tool-label">VIDEO</p>
+                <div class="tool-chip yellow-chip">VIDEO</div>
                 <h2>Describe the moment.</h2>
                 <textarea placeholder="A cinematic shot moving through a city at sunset..."></textarea>
                 <div class="inline-fields">
                   <select><option>9:16</option><option>16:9</option><option>1:1</option></select>
                   <select><option>Text to video</option><option>Image to video</option></select>
                 </div>
-                <button class="black-button">Create</button>
+                <button class="black-button">Create video</button>
               </div>
-              <div class="tool-output">Your video will appear here.</div>
+              <div class="tool-output video-output"><span>Video preview</span></div>
             </div>
           </div>
 
           <div class="tool-panel" id="voiceTool">
+            <div class="voice-head">
+              <div class="tool-chip mint-chip">VOICE</div>
+              <h2>Work with speech and audio.</h2>
+            </div>
             <div class="voice-options">
-              <button><strong>Text to speech</strong><span>Natural narration from text</span><b>→</b></button>
-              <button><strong>Transcribe audio</strong><span>Turn speech into clean text</span><b>→</b></button>
-              <button><strong>Summarize audio</strong><span>Get the important points from recordings</span><b>→</b></button>
+              <button><div><strong>Text to speech</strong><span>Natural narration from text</span></div><b>→</b></button>
+              <button><div><strong>Transcribe audio</strong><span>Turn speech into clean text</span></div><b>→</b></button>
+              <button><div><strong>Summarize audio</strong><span>Get the important points from recordings</span></div><b>→</b></button>
             </div>
           </div>
 
           <div class="tool-panel" id="translateTool">
+            <div class="translate-head">
+              <div class="tool-chip mint-chip">TRANSLATE</div>
+              <h2>Say it naturally.</h2>
+            </div>
             <div class="translate-grid">
               <div><select><option>Detect language</option><option>English</option><option>Arabic</option><option>German</option><option>French</option></select><textarea placeholder="Type or paste text"></textarea></div>
               <div><select><option>English</option><option>Arabic</option><option>German</option><option>French</option></select><textarea placeholder="Translation" readonly></textarea></div>
@@ -218,11 +300,16 @@
         <h1>Bring your own material.</h1>
         <p>Drop in a document and work with it from there.</p>
       </div>
+
       <div class="upload-box">
         <div class="upload-icon">＋</div>
         <strong>Drop files here</strong>
         <span>PDF, DOCX, PPTX, XLSX, images and more</span>
         <button>Choose files</button>
+      </div>
+
+      <div class="file-shortcuts">
+        <span>Summarize</span><span>Explain</span><span>Compare</span><span>Extract</span><span>Ask questions</span>
       </div>
     </section>
   </main>
