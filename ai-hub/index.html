@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260924-9">
+  <link rel="stylesheet" href="./styles.css?v=20260924-10">
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Skip to content</a>
@@ -290,6 +290,14 @@
               <div class="chat-main-column">
                 <div class="chat-threadbar">
                   <div class="chat-thread-title"><span class="thread-status-dot"></span><div><strong id="chatThreadTitle">New conversation</strong><small id="chatThreadMeta">Local draft</small></div></div>
+                  <div class="chat-thread-center">
+                    <button class="model-picker-button" id="modelPickerOpen" aria-label="Choose model">
+                      <span class="model-provider-dot openai-dot"></span>
+                      <span><small id="selectedProviderLabel">OpenAI</small><strong id="selectedModelLabel">GPT-5.6 Sol</strong></span>
+                      <i data-lucide="chevrons-up-down"></i>
+                    </button>
+                    <button class="mode-picker-button" id="modePickerOpen"><i data-lucide="briefcase-business"></i><span id="selectedModeLabel">Chat</span><i data-lucide="chevron-down"></i></button>
+                  </div>
                   <div class="chat-thread-actions">
                     <button id="copyConversation" aria-label="Copy conversation"><i data-lucide="copy"></i></button>
                     <button id="clearConversation" aria-label="Clear conversation"><i data-lucide="trash-2"></i></button>
@@ -425,6 +433,55 @@
     <button class="drawer-footer-button" id="clearHistory">Clear history</button>
   </aside>
 
+  <aside class="drawer model-drawer" id="modelDrawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div><small>MODEL LIBRARY</small><strong>Choose how Nasha works</strong></div>
+      <button data-close aria-label="Close"><i data-lucide="x"></i></button>
+    </div>
+
+    <div class="model-current-card">
+      <span class="model-provider-dot openai-dot" id="currentModelDot"></span>
+      <div><small>CURRENT MODEL</small><strong id="currentModelName">GPT-5.6 Sol</strong><p id="currentModelDescription">Strong for complex work, coding and research.</p></div>
+    </div>
+
+    <div class="model-search">
+      <i data-lucide="search"></i>
+      <input id="modelSearch" type="search" placeholder="Search models">
+    </div>
+
+    <div class="provider-tabs" id="providerTabs">
+      <button class="active" data-provider-filter="all">All</button>
+      <button data-provider-filter="OpenAI">OpenAI</button>
+      <button data-provider-filter="Anthropic">Claude</button>
+      <button data-provider-filter="Google">Gemini</button>
+      <button data-provider-filter="xAI">Grok</button>
+      <button data-provider-filter="DeepSeek">DeepSeek</button>
+    </div>
+
+    <div class="model-list" id="modelList"></div>
+
+    <div class="model-mode-section">
+      <div class="settings-section-head"><span>MODE</span><strong>Workspace behavior</strong></div>
+      <div class="mode-grid" id="modeGrid">
+        <button class="active" data-mode="Chat"><i data-lucide="message-square"></i><span><strong>Chat</strong><small>Everyday conversation</small></span></button>
+        <button data-mode="Work"><i data-lucide="briefcase-business"></i><span><strong>Work</strong><small>Longer multi-step tasks</small></span></button>
+        <button data-mode="Research"><i data-lucide="search-check"></i><span><strong>Research</strong><small>Source-driven exploration</small></span></button>
+        <button data-mode="Code"><i data-lucide="code-2"></i><span><strong>Code</strong><small>Software and technical work</small></span></button>
+      </div>
+    </div>
+
+    <div class="reasoning-section">
+      <div class="settings-section-head"><span>REASONING</span><strong>Thinking level</strong></div>
+      <div class="reasoning-options" id="reasoningOptions">
+        <button data-reasoning="Instant">Instant</button>
+        <button class="active" data-reasoning="Medium">Medium</button>
+        <button data-reasoning="High">High</button>
+        <button data-reasoning="Extra High">Extra High</button>
+      </div>
+      <small id="reasoningHint">Reasoning availability depends on the selected model and connected provider.</small>
+    </div>
+  </aside>
+
   <aside class="drawer settings-drawer" id="settingsDrawer" aria-hidden="true">
     <div class="drawer-head">
       <div><small>PREFERENCES</small><strong>Settings</strong></div>
@@ -438,6 +495,11 @@
         <label>Display name<input id="displayName" placeholder="Your name" autocomplete="name"></label>
         <label>Interface language<select id="languageSetting"><option>English</option><option>العربية</option><option>Deutsch</option><option>Français</option></select></label>
       </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-section-head"><span>MODEL</span><strong>Default workspace model</strong></div>
+      <button class="settings-model-summary" id="settingsModelOpen"><span class="model-provider-dot openai-dot"></span><span><strong id="settingsModelName">GPT-5.6 Sol</strong><small id="settingsModeName">Chat mode</small></span><i data-lucide="chevron-right"></i></button>
     </div>
 
     <div class="settings-section">
@@ -520,6 +582,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
-  <script src="./app.js?v=20260924-9"></script>
+  <script src="./app.js?v=20260924-10"></script>
 </body>
 </html>
