@@ -89,9 +89,13 @@ function renderChat(){
   const items=getChat();
   empty?.classList.toggle('hidden',items.length>0);
   const settings=getSettings();
-  messages.innerHTML=items.map(item=>
-    '<div class="chat-message '+escapeHtml(item.role)+'"><span class="message-avatar">'+(item.role==='user'?getProfileInitial():'N')+'</span><div class="message-body"><small class="message-author">'+(item.role==='user'?'You':'Nasha')+'</small><p>'+escapeHtml(item.text)+'</p>'+(settings.showMessageTime===false?'':'<time>'+formatMessageTime(item.time)+'</time>')+'</div></div>'
+  messages.innerHTML=items.map((item,index)=>
+    '<div class="chat-message '+escapeHtml(item.role)+'"><span class="message-avatar">'+(item.role==='user'?getProfileInitial():'N')+'</span><div class="message-body"><div class="message-topline"><small class="message-author">'+(item.role==='user'?'You':'Nasha')+'</small><button class="message-copy" data-copy-message="'+index+'" aria-label="Copy message"><i data-lucide="copy"></i></button></div><p>'+escapeHtml(item.text)+'</p>'+(settings.showMessageTime===false?'':'<time>'+formatMessageTime(item.time)+'</time>')+'</div></div>'
   ).join('');
+  renderIcons(messages);
+  const firstUser=items.find(item=>item.role==='user');
+  if($('chatThreadTitle'))$('chatThreadTitle').textContent=firstUser?.text?.slice(0,42)||'New conversation';
+  if($('chatThreadMeta'))$('chatThreadMeta').textContent=items.length?items.length+' message'+(items.length===1?'':'s'):'Local draft';
   messages.scrollTop=messages.scrollHeight;
 }
 function formatMessageTime(value){
@@ -117,16 +121,32 @@ function updateComposerState(){
   input.style.height='auto';
   input.style.height=Math.min(input.scrollHeight,140)+'px';
 }
+$('chatMessages')?.addEventListener('click',async event=>{
+  const button=event.target.closest('[data-copy-message]');
+  if(!button)return;
+  const item=getChat()[Number(button.dataset.copyMessage)];
+  if(!item)return;
+  try{
+    await navigator.clipboard.writeText(item.text);
+    showToast('Message copied');
+  }catch{
+    showToast('Could not copy message');
+  }
+});
+
 function sendChat(text){
   const value=String(text||'').trim();
   if(!value)return;
   const settings=getSettings();
   const items=getChat();
   const now=new Date().toISOString();
-  items.push({role:'user',text:value,time:now});
+  items.push({role:'user',text:value,time:now,attachment:pendingAttachment?.name||''});
   setChat(items);
   if(settings.saveHistory!==false)addActivity('chat',value.slice(0,52),value);
   if($('chatInput'))$('chatInput').value='';
+  pendingAttachment=null;
+  if(chatFileInput)chatFileInput.value='';
+  if($('attachmentRow'))$('attachmentRow').hidden=true;
   updateComposerState();
   renderChat();
   renderChatSessions();
@@ -163,11 +183,45 @@ $('chatInput')?.addEventListener('keydown',event=>{
   }
 });
 $('newChatButton')?.addEventListener('click',newChat);
+$('clearConversation')?.addEventListener('click',()=>{
+  localStorage.removeItem(chatKey);
+  setChatStatus('');
+  renderChat();
+  updateComposerState();
+  showToast('Conversation cleared');
+});
+$('copyConversation')?.addEventListener('click',async()=>{
+  const items=getChat();
+  if(!items.length){showToast('Nothing to copy');return}
+  const text=items.map(item=>(item.role==='user'?'You':'Nasha')+': '+item.text).join('\n\n');
+  try{
+    await navigator.clipboard.writeText(text);
+    showToast('Conversation copied');
+  }catch{
+    showToast('Could not copy conversation');
+  }
+});
 document.querySelectorAll('[data-chat-suggestion]').forEach(button=>button.addEventListener('click',()=>{
   if($('chatInput'))$('chatInput').value=button.dataset.chatSuggestion;
   $('chatInput')?.focus();
 }));
-$('composerAttach')?.addEventListener('click',()=>showToast('Attachments will be connected later'));
+const chatFileInput=$('chatFileInput');
+let pendingAttachment=null;
+$('composerAttach')?.addEventListener('click',()=>chatFileInput?.click());
+chatFileInput?.addEventListener('change',event=>{
+  const file=event.target.files?.[0];
+  if(!file)return;
+  pendingAttachment=file;
+  if($('attachmentName'))$('attachmentName').textContent=file.name;
+  if($('attachmentRow'))$('attachmentRow').hidden=false;
+  renderIcons($('attachmentRow'));
+});
+$('removeAttachment')?.addEventListener('click',()=>{
+  pendingAttachment=null;
+  if(chatFileInput)chatFileInput.value='';
+  if($('attachmentRow'))$('attachmentRow').hidden=true;
+});
+
 
 /* history */
 function getActivity(){
@@ -196,11 +250,14 @@ function formatTime(value){
   return date.toLocaleString([], {month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
 }
 let historyFilter='all';
+let historyQuery='';
 function renderHistory(){
   const list=$('historyList');
   if(!list)return;
   const all=getActivity();
-  const items=historyFilter==='all'?all:all.filter(item=>item.type===historyFilter);
+  const filtered=historyFilter==='all'?all:all.filter(item=>item.type===historyFilter);
+  const query=historyQuery.trim().toLowerCase();
+  const items=query?filtered.filter(item=>(item.title+' '+item.detail).toLowerCase().includes(query)):filtered;
   if(!items.length){
     list.innerHTML='<div class="empty-state">No history here yet.</div>';
     return;
@@ -245,6 +302,10 @@ function renderChatSessions(){
     $('chatInput')?.focus();
   }));
 }
+$('historySearch')?.addEventListener('input',event=>{
+  historyQuery=event.currentTarget.value||'';
+  renderHistory();
+});
 document.querySelectorAll('[data-history-filter]').forEach(button=>button.addEventListener('click',()=>{
   historyFilter=button.dataset.historyFilter;
   document.querySelectorAll('[data-history-filter]').forEach(item=>item.classList.toggle('active',item===button));
@@ -264,6 +325,20 @@ function syncHistoryCounts(){
   if($('topHistoryCount'))$('topHistoryCount').textContent=String(count);
 }
  
+function bindPromptCounter(inputId,countId,resetId){
+  const input=$(inputId);
+  const count=$(countId);
+  const update=()=>{if(count)count.textContent=(input?.value.length||0)+' / 1500'};
+  input?.addEventListener('input',update);
+  $(resetId)?.addEventListener('click',()=>{
+    if(input){input.value='';input.focus()}
+    update();
+  });
+  update();
+}
+bindPromptCounter('imagePrompt','imagePromptCount','resetImagePrompt');
+bindPromptCounter('videoPrompt','videoPromptCount','resetVideoPrompt');
+
 /* image/video drafts */
 function saveCreation(type,prompt){
   const value=String(prompt||'').trim();
