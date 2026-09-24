@@ -1278,3 +1278,121 @@ body.menu-open{overflow:hidden}
   color:var(--green);font-size:8px;font-weight:700;
 }
 .account-profile-copy button:hover{text-decoration:underline}
+
+/* App finishing pass */
+.focused-topbar{
+  min-height:72px;
+  height:72px;
+}
+.top-icon-large{
+  width:46px;
+  height:46px;
+  border-radius:13px;
+  box-shadow:0 6px 18px rgba(15,71,52,.05);
+}
+.top-icon-large [data-lucide]{
+  width:24px;
+  height:24px;
+}
+.top-account-button{
+  width:48px;
+  height:48px;
+  border-radius:15px;
+  font-size:14px;
+}
+.account-card{
+  grid-template-columns:44px 1fr 16px;
+  min-height:66px!important;
+}
+.account-avatar{
+  width:44px;
+  height:44px;
+  border-radius:13px;
+  font-size:14px;
+}
+.history-nav-button{
+  position:relative;
+}
+.history-nav-button b,
+.top-action-button b{
+  min-width:18px;
+  height:18px;
+  display:inline-grid;
+  place-items:center;
+  padding:0 5px;
+  border-radius:999px;
+  background:var(--yellow);
+  color:#4b421f;
+  font-size:7px;
+  font-weight:800;
+  line-height:1;
+}
+.history-nav-button b{
+  margin-left:auto;
+}
+.top-action-button b{
+  margin-left:1px;
+}
+.history-entry{
+  transition:transform .16s ease,background .16s ease,border-color .16s ease;
+}
+.history-entry:hover{
+  transform:translateX(-2px);
+}
+.chat-session{
+  transition:background .16s ease,transform .16s ease;
+}
+.chat-session:hover{
+  transform:translateX(2px);
+}
+.drawer{
+  width:420px;
+}
+.settings-drawer .drawer-head strong,
+.account-drawer .drawer-head strong,
+.history-drawer .drawer-head strong{
+  font-size:20px;
+}
+.settings-hero-icon{
+  width:84px;
+  height:84px;
+  border-radius:23px;
+}
+.settings-hero-icon [data-lucide]{
+  width:40px;
+  height:40px;
+}
+.account-profile-preview{
+  padding:16px;
+}
+.large-avatar{
+  width:64px;
+  height:64px;
+  border-radius:18px;
+  font-size:20px;
+}
+
+@media(max-width:650px){
+  .focused-topbar{
+    min-height:58px;
+    height:58px;
+  }
+  .focused-mobile-tabs{
+    top:58px;
+  }
+  .chat-workspace{
+    height:calc(100svh - 103px);
+  }
+  .top-icon-large{
+    width:42px;
+    height:42px;
+  }
+  .top-account-button{
+    width:42px;
+    height:42px;
+  }
+  .drawer{
+    width:100%;
+    max-width:100%;
+  }
+}
