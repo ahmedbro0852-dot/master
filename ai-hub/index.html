@@ -190,9 +190,10 @@
       <div class="app-shell">
         <aside class="app-sidebar">
           <div class="app-brand"><span class="brand-mark">N</span><strong>Nasha</strong></div>
-          <button class="new-button" id="newDocumentBtn"><svg class="icon"><use href="#i-plus"/></svg><span>New document</span></button>
+          <button class="new-button" id="newChatBtn"><svg class="icon"><use href="#i-plus"/></svg><span>New chat</span></button>
           <p class="nav-label">Workspace</p>
           <button class="app-nav active" data-tool="overview"><svg class="icon"><use href="#i-home"/></svg><span>Home</span></button>
+          <button class="app-nav" data-tool="chat"><svg class="icon"><use href="#i-spark"/></svg><span>Chat</span></button>
           <button class="app-nav" data-tool="documents"><svg class="icon"><use href="#i-doc"/></svg><span>Documents</span></button>
           <button class="app-nav" data-tool="design"><svg class="icon"><use href="#i-design"/></svg><span>Design</span></button>
           <button class="app-nav" data-tool="video"><svg class="icon"><use href="#i-video"/></svg><span>Video</span></button>
@@ -218,6 +219,7 @@
 
           <nav class="app-mobile-tabs" aria-label="Workspace sections">
             <button class="active" data-tool="overview">Home</button>
+            <button data-tool="chat">Chat</button>
             <button data-tool="documents">Docs</button>
             <button data-tool="design">Design</button>
             <button data-tool="video">Video</button>
@@ -228,10 +230,11 @@
 
           <section class="tool-panel active overview-panel" id="overviewTool">
             <div class="overview-head">
-              <div><p>YOUR WORKSPACE</p><h1>Pick up where you left off.</h1><span>Start something new or continue your recent work.</span></div>
-              <button class="primary-button" id="overviewNewDocument">New document</button>
+              <div><p>YOUR WORKSPACE</p><h1>Pick up where you left off.</h1><span>Start a conversation, create a document or continue recent work.</span></div>
+              <button class="primary-button" id="overviewNewChat">New chat</button>
             </div>
             <div class="quick-grid">
+              <button data-tool="chat"><span><svg class="icon"><use href="#i-spark"/></svg></span><strong>Chat</strong><small>Ask, compare and think through work</small></button>
               <button data-tool="documents"><span><svg class="icon"><use href="#i-doc"/></svg></span><strong>Document</strong><small>Notes, briefs and drafts</small></button>
               <button data-tool="design"><span><svg class="icon"><use href="#i-design"/></svg></span><strong>Design</strong><small>Visuals and concepts</small></button>
               <button data-tool="video"><span><svg class="icon"><use href="#i-video"/></svg></span><strong>Video</strong><small>Short-form projects</small></button>
@@ -245,6 +248,73 @@
                 <button class="recent-card" data-tool="documents"><span>DOCUMENT</span><strong id="recentDocumentTitle">Untitled document</strong><small id="recentDocumentMeta">No saved document yet</small></button>
                 <button class="recent-card quiet" data-tool="design"><span>DESIGN</span><strong>Start a design</strong><small>Create your first visual project</small></button>
                 <button class="recent-card quiet" data-tool="video"><span>VIDEO</span><strong>Start a video</strong><small>Set up your first video project</small></button>
+              </div>
+            </div>
+          </section>
+
+
+          <section class="tool-panel chat-panel" id="chatTool">
+            <div class="chat-shell">
+              <header class="chat-head">
+                <div>
+                  <p>CHAT</p>
+                  <h2 id="chatTitle">New conversation</h2>
+                </div>
+                <div class="model-control">
+                  <span class="model-label">Model</span>
+                  <button class="model-picker" id="modelPicker" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="model-dot"></span>
+                    <span class="model-picker-copy"><strong id="modelName">Auto</strong><small id="modelProvider">Best model for the task</small></span>
+                    <span class="model-chevron">⌄</span>
+                  </button>
+                  <div class="model-menu" id="modelMenu" role="listbox" aria-label="Choose a model">
+                    <button type="button" data-model="auto" data-name="Auto" data-provider="Best model for the task">
+                      <span class="model-option-icon">A</span><span><strong>Auto</strong><small>Routes each request to the best fit</small></span><b>Recommended</b>
+                    </button>
+                    <button type="button" data-model="openai" data-name="OpenAI" data-provider="OpenAI models">
+                      <span class="model-option-icon">O</span><span><strong>OpenAI</strong><small>General reasoning, writing and coding</small></span>
+                    </button>
+                    <button type="button" data-model="claude" data-name="Claude" data-provider="Anthropic models">
+                      <span class="model-option-icon">C</span><span><strong>Claude</strong><small>Long-form work and careful analysis</small></span>
+                    </button>
+                    <button type="button" data-model="gemini" data-name="Gemini" data-provider="Google models">
+                      <span class="model-option-icon">G</span><span><strong>Gemini</strong><small>Multimodal work and broad context</small></span>
+                    </button>
+                    <button type="button" data-model="grok" data-name="Grok" data-provider="xAI models">
+                      <span class="model-option-icon">X</span><span><strong>Grok</strong><small>Fast general-purpose responses</small></span>
+                    </button>
+                  </div>
+                </div>
+              </header>
+
+              <div class="chat-content" id="chatContent">
+                <div class="chat-empty-state" id="chatEmpty">
+                  <span class="chat-mark">N</span>
+                  <h3>What do you want to work on?</h3>
+                  <p>Ask a question, compare ideas, plan something, or bring a file into the conversation.</p>
+                  <div class="chat-suggestions">
+                    <button type="button" data-chat-prompt="Explain a difficult idea in simple steps">Explain something</button>
+                    <button type="button" data-chat-prompt="Help me compare two options clearly">Compare options</button>
+                    <button type="button" data-chat-prompt="Turn my rough notes into a clear plan">Make a plan</button>
+                    <button type="button" data-chat-prompt="Help me improve a piece of writing">Improve writing</button>
+                  </div>
+                </div>
+                <div class="chat-stream" id="chatStream" aria-live="polite"></div>
+              </div>
+
+              <div class="chat-composer-wrap">
+                <div class="chat-composer">
+                  <textarea id="chatInput" rows="1" maxlength="12000" placeholder="Message Nasha..." aria-label="Message"></textarea>
+                  <div class="chat-composer-bottom">
+                    <div class="chat-composer-actions">
+                      <button type="button" id="chatAttach" aria-label="Attach files">＋</button>
+                      <span id="activeModelMini">Auto</span>
+                    </div>
+                    <span class="chat-hint">Enter to send · Shift + Enter for a new line</span>
+                    <button class="chat-send" id="chatSend" type="button" aria-label="Send message">↑</button>
+                  </div>
+                </div>
+                <small class="chat-disclaimer">Nasha can make mistakes. Check important information.</small>
               </div>
             </div>
           </section>
