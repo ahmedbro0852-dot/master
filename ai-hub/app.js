@@ -93,7 +93,7 @@ function sendPrompt(text){
 
   setTimeout(()=>{
     reply.classList.remove('generating');
-    reply.textContent='Preview mode is ready. The final live response will come from the connected provider once API keys are added.';
+    reply.textContent='This workspace is ready for launch. Live responses will be available when Nasha opens access.';
     reply.scrollIntoView({behavior:'smooth',block:'end'});
   },650);
 }
@@ -114,7 +114,7 @@ function fakeGenerate(button,output,label){
       button.classList.remove('loading');
       button.textContent=label||old;
       output.classList.remove('generating');
-      output.innerHTML='<span>Ready for live generation when the provider is connected.</span>';
+      output.innerHTML='<span>This tool will be available when Nasha opens access.</span>';
       showToast('Preview prepared');
     },700);
   });
@@ -123,7 +123,7 @@ fakeGenerate($('imageCreate'),$('imageOutput'),'Create image');
 fakeGenerate($('videoCreate'),$('videoOutput'),'Create video');
 
 document.querySelectorAll('[data-voice-action]').forEach(b=>b.addEventListener('click',()=>{
-  showToast(b.dataset.voiceAction+' is ready for backend connection');
+  showToast(b.dataset.voiceAction+' will be available at launch');
 }));
 
 $('translateBtn')?.addEventListener('click',()=>{
@@ -136,7 +136,7 @@ $('translateBtn')?.addEventListener('click',()=>{
   setTimeout(()=>{
     button.classList.remove('loading');
     button.textContent='Translate';
-    result.value='Preview only — live translation will appear here after provider connection.';
+    result.value='Translation will be available when Nasha opens access.';
   },550);
 });
 
@@ -242,3 +242,48 @@ function showToast(message){
 
 renderHistory();
 loadSettings();
+const legalModal=$('legalModal');
+const legalTitle=$('legalTitle');
+const legalBody=$('legalBody');
+const legalClose=$('legalClose');
+
+const legalCopy={
+  privacy:{
+    title:'Privacy',
+    body:[
+      'Nasha is being prepared for public access. Before launch, this page will describe exactly what data is collected, why it is used, how long it is retained, and which service providers process it.',
+      'Until live services are connected, avoid entering sensitive personal, financial, medical, or confidential information into this preview.'
+    ]
+  },
+  terms:{
+    title:'Terms',
+    body:[
+      'Nasha is currently an early product preview. Public terms of service, acceptable-use rules, billing terms, and account policies will be published before paid or live access opens.',
+      'Features and plan limits shown during this preview may change before launch.'
+    ]
+  }
+};
+
+function openLegal(type){
+  const copy=legalCopy[type];
+  if(!copy||!legalModal)return;
+  legalTitle.textContent=copy.title;
+  legalBody.innerHTML=copy.body.map(p=>'<p>'+p+'</p>').join('');
+  legalModal.classList.add('open');
+  legalModal.setAttribute('aria-hidden','false');
+  legalClose?.focus();
+}
+function closeLegal(){
+  legalModal?.classList.remove('open');
+  legalModal?.setAttribute('aria-hidden','true');
+}
+document.querySelectorAll('[data-legal]').forEach(b=>b.addEventListener('click',()=>openLegal(b.dataset.legal)));
+legalClose?.addEventListener('click',closeLegal);
+legalModal?.addEventListener('click',e=>{if(e.target===legalModal)closeLegal()});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    closeLegal();
+    closeDrawers();
+    modelMenu?.classList.remove('open');
+  }
+});
