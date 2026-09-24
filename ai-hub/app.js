@@ -132,6 +132,7 @@ function saveActivity(items){
   localStorage.setItem(activityKey,JSON.stringify(items.slice(0,60)));
   renderHistory();
   renderChatSessions();
+  syncHistoryCounts();
 }
 function addActivity(type,title,detail=''){
   const items=getActivity();
@@ -158,12 +159,26 @@ function renderHistory(){
   }
   const icon={chat:'message-square',image:'image',video:'video'};
   list.innerHTML=items.map(item=>
-    '<button class="history-entry" data-history-type="'+escapeHtml(item.type)+'"><span><i data-lucide="'+icon[item.type]+'"></i></span><div><strong>'+escapeHtml(item.title||'Untitled')+'</strong><small>'+escapeHtml(item.type)+' · '+formatTime(item.updatedAt)+'</small></div><i data-lucide="chevron-right"></i></button>'
+    '<button class="history-entry" data-history-id="'+escapeHtml(item.id)+'" data-history-type="'+escapeHtml(item.type)+'"><span><i data-lucide="'+icon[item.type]+'"></i></span><div><strong>'+escapeHtml(item.title||'Untitled')+'</strong><small>'+escapeHtml(item.type)+' · '+formatTime(item.updatedAt)+'</small></div><i data-lucide="chevron-right"></i></button>'
   ).join('');
   renderIcons(list);
-  list.querySelectorAll('[data-history-type]').forEach(button=>button.addEventListener('click',()=>{
+  list.querySelectorAll('[data-history-id]').forEach(button=>button.addEventListener('click',()=>{
+    const item=getActivity().find(entry=>entry.id===button.dataset.historyId);
+    if(!item)return;
     closeDrawers();
-    openTool(button.dataset.historyType==='image'?'images':button.dataset.historyType);
+    if(item.type==='chat'){
+      openTool('chat');
+      if($('chatInput'))$('chatInput').value=item.detail||item.title||'';
+      $('chatInput')?.focus();
+    }else if(item.type==='image'){
+      openTool('images');
+      if($('imagePrompt'))$('imagePrompt').value=item.detail||item.title||'';
+      $('imagePrompt')?.focus();
+    }else if(item.type==='video'){
+      openTool('video');
+      if($('videoPrompt'))$('videoPrompt').value=item.detail||item.title||'';
+      $('videoPrompt')?.focus();
+    }
   }));
 }
 function renderChatSessions(){
@@ -172,9 +187,15 @@ function renderChatSessions(){
   const chats=getActivity().filter(item=>item.type==='chat').slice(0,7);
   const base='<button class="chat-session active" id="sessionNew"><i data-lucide="message-square"></i><span><strong>Current conversation</strong><small>Open now</small></span></button>';
   list.innerHTML=base+chats.map(item=>
-    '<button class="chat-session"><i data-lucide="clock-3"></i><span><strong>'+escapeHtml(item.title)+'</strong><small>'+formatTime(item.updatedAt)+'</small></span></button>'
+    '<button class="chat-session" data-chat-history-id="'+escapeHtml(item.id)+'"><i data-lucide="clock-3"></i><span><strong>'+escapeHtml(item.title)+'</strong><small>'+formatTime(item.updatedAt)+'</small></span></button>'
   ).join('');
   renderIcons(list);
+  list.querySelectorAll('[data-chat-history-id]').forEach(button=>button.addEventListener('click',()=>{
+    const item=getActivity().find(entry=>entry.id===button.dataset.chatHistoryId);
+    if(!item)return;
+    if($('chatInput'))$('chatInput').value=item.detail||item.title||'';
+    $('chatInput')?.focus();
+  }));
 }
 document.querySelectorAll('[data-history-filter]').forEach(button=>button.addEventListener('click',()=>{
   historyFilter=button.dataset.historyFilter;
@@ -185,9 +206,16 @@ $('clearHistory')?.addEventListener('click',()=>{
   localStorage.removeItem(activityKey);
   renderHistory();
   renderChatSessions();
+  syncHistoryCounts();
   showToast('History cleared');
 });
 
+function syncHistoryCounts(){
+  const count=getActivity().length;
+  if($('historyCount'))$('historyCount').textContent=String(count);
+  if($('topHistoryCount'))$('topHistoryCount').textContent=String(count);
+}
+ 
 /* image/video drafts */
 function saveCreation(type,prompt){
   const value=String(prompt||'').trim();
@@ -409,5 +437,6 @@ syncProfile();
 renderChat();
 renderHistory();
 renderChatSessions();
+syncHistoryCounts();
 renderIcons();
 syncHeaderScroll();
