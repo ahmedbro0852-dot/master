@@ -825,3 +825,63 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
   .audio-grid button{min-height:130px}
   .translate-panel .translate-grid textarea{height:240px}
 }
+/* Friendly icon pass */
+.brand-pill>span{
+  width:auto;height:auto;background:transparent!important;
+  font-size:14px;line-height:1
+}
+.micro-proof span,.brand-strip span{
+  display:inline-flex;align-items:center;gap:5px
+}
+.mini-sidebar button{
+  font-size:15px;line-height:1;
+}
+.explore-icon{
+  width:36px;height:36px!important;
+  display:grid!important;place-items:center;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+  font-size:16px!important;
+  color:inherit!important
+}
+.discover-list button{
+  grid-template-columns:54px 1fr 30px;
+}
+.nav-emoji{
+  width:24px!important;
+  font-size:15px!important;
+  line-height:1;
+  filter:saturate(.85)
+}
+.workspace-nav button{
+  min-height:38px;
+}
+.workspace-nav button:hover .nav-emoji,
+.workspace-nav button.active .nav-emoji{
+  transform:scale(1.06)
+}
+.mobile-toolbar button{
+  display:inline-flex;align-items:center;gap:4px
+}
+.workspace-kicker{
+  display:flex;align-items:center;gap:5px
+}
+.canvas-empty>span{
+  font-size:22px;
+}
+.audio-grid span{
+  font-size:20px;
+}
+.upload-icon{
+  font-size:20px;
+  background:#f7f7f3;
+}
+.file-shortcuts span{
+  display:inline-flex;align-items:center;gap:4px;
+}
+@media(max-width:650px){
+  .explore-icon{width:32px;height:32px!important;font-size:15px!important}
+  .discover-list button{grid-template-columns:42px 1fr 22px}
+  .mobile-toolbar button{font-size:9.5px}
+}
