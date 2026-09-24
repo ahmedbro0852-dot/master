@@ -25,7 +25,7 @@ const toolPanels={
 const toolLabels={chat:'Chat',images:'Images',video:'Video'};
 const activityKey='nasha-activity-v1';
 const chatKey='nasha-chat-v1';
-const settingsKey='nasha-settings-v3';
+const settingsKey='nasha-settings-v4';
 const profileKey='nasha-profile-v1';
 
 function switchView(name){
@@ -76,6 +76,9 @@ function getChat(){
     return Array.isArray(value)?value:[];
   }catch{return []}
 }
+function getSettings(){
+  try{return JSON.parse(localStorage.getItem(settingsKey)||'{}')||{}}catch{return {}}
+}
 function setChat(items){
   localStorage.setItem(chatKey,JSON.stringify(items.slice(-60)));
 }
@@ -85,21 +88,64 @@ function renderChat(){
   if(!messages)return;
   const items=getChat();
   empty?.classList.toggle('hidden',items.length>0);
+  const settings=getSettings();
   messages.innerHTML=items.map(item=>
-    '<div class="chat-message '+escapeHtml(item.role)+'"><span class="message-avatar">'+(item.role==='user'?getProfileInitial():'N')+'</span><div><small>'+(item.role==='user'?'You':'Nasha')+'</small><p>'+escapeHtml(item.text)+'</p></div></div>'
+    '<div class="chat-message '+escapeHtml(item.role)+'"><span class="message-avatar">'+(item.role==='user'?getProfileInitial():'N')+'</span><div class="message-body"><small class="message-author">'+(item.role==='user'?'You':'Nasha')+'</small><p>'+escapeHtml(item.text)+'</p>'+(settings.showMessageTime===false?'':'<time>'+formatMessageTime(item.time)+'</time>')+'</div></div>'
   ).join('');
   messages.scrollTop=messages.scrollHeight;
+}
+function formatMessageTime(value){
+  const date=new Date(value);
+  if(Number.isNaN(date.getTime()))return '';
+  return date.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+}
+let replyTimer;
+function setChatStatus(text,state=''){
+  const line=$('chatStatusLine');
+  if(!line)return;
+  line.className='chat-status-line '+state;
+  line.innerHTML=text?'<span class="status-dot"></span><span>'+escapeHtml(text)+'</span>':'';
+}
+function updateComposerState(){
+  const input=$('chatInput');
+  const send=$('chatSend');
+  const count=$('chatCharCount');
+  if(!input)return;
+  const length=input.value.length;
+  if(count)count.textContent=length+' / 4000';
+  if(send)send.disabled=!input.value.trim();
+  input.style.height='auto';
+  input.style.height=Math.min(input.scrollHeight,140)+'px';
 }
 function sendChat(text){
   const value=String(text||'').trim();
   if(!value)return;
+  const settings=getSettings();
   const items=getChat();
-  items.push({role:'user',text:value,time:new Date().toISOString()});
+  const now=new Date().toISOString();
+  items.push({role:'user',text:value,time:now});
   setChat(items);
-  addActivity('chat',value.slice(0,52),value);
+  if(settings.saveHistory!==false)addActivity('chat',value.slice(0,52),value);
   if($('chatInput'))$('chatInput').value='';
+  updateComposerState();
   renderChat();
   renderChatSessions();
+  setChatStatus('Sending…','sending');
+  clearTimeout(replyTimer);
+  replyTimer=setTimeout(()=>{
+    setChatStatus('Nasha is preparing a reply…','replying');
+    replyTimer=setTimeout(()=>{
+      const updated=getChat();
+      updated.push({
+        role:'assistant',
+        text:'Your message is saved. Live replies will start here once the response service is connected.',
+        time:new Date().toISOString()
+      });
+      setChat(updated);
+      renderChat();
+      setChatStatus('');
+    },650);
+  },280);
 }
 function newChat(){
   localStorage.removeItem(chatKey);
@@ -108,8 +154,10 @@ function newChat(){
   $('chatInput')?.focus();
 }
 $('chatSend')?.addEventListener('click',()=>sendChat($('chatInput')?.value));
+$('chatInput')?.addEventListener('input',updateComposerState);
 $('chatInput')?.addEventListener('keydown',event=>{
-  if(event.key==='Enter'&&!event.shiftKey){
+  const settings=getSettings();
+  if(event.key==='Enter'&&!event.shiftKey&&settings.enterToSend!==false){
     event.preventDefault();
     sendChat(event.currentTarget.value);
   }
@@ -223,7 +271,7 @@ function saveCreation(type,prompt){
     showToast('Add a description first');
     return false;
   }
-  addActivity(type,value.slice(0,52),value);
+  if(getSettings().saveHistory!==false)addActivity(type,value.slice(0,52),value);
   return true;
 }
 $('imageCreateButton')?.addEventListener('click',()=>{
@@ -266,26 +314,53 @@ document.querySelectorAll('[data-close]').forEach(button=>button.addEventListene
 /* settings */
 const displayName=$('displayName');
 const languageSetting=$('languageSetting');
+function applySettings(settings=getSettings()){
+  if($('enterToSend'))$('enterToSend').checked=settings.enterToSend!==false;
+  if($('showMessageTime'))$('showMessageTime').checked=settings.showMessageTime!==false;
+  if($('saveHistorySetting'))$('saveHistorySetting').checked=settings.saveHistory!==false;
+  if($('compactMode'))$('compactMode').checked=Boolean(settings.compactMode);
+  document.body.classList.toggle('compact-workspace',Boolean(settings.compactMode));
+  const hint=$('composerHint');
+  if(hint)hint.textContent=settings.enterToSend===false?'Use the send button · Enter makes a new line':'Enter to send · Shift + Enter for new line';
+  renderChat();
+}
 function loadSettings(){
-  try{
-    const settings=JSON.parse(localStorage.getItem(settingsKey)||'{}');
-    if(displayName&&settings.name)displayName.value=settings.name;
-    if(languageSetting&&settings.language)languageSetting.value=settings.language;
-  }catch{}
+  const settings=getSettings();
+  if(displayName&&settings.name)displayName.value=settings.name;
+  if(languageSetting&&settings.language)languageSetting.value=settings.language;
+  applySettings(settings);
 }
 $('saveSettings')?.addEventListener('click',()=>{
-  localStorage.setItem(settingsKey,JSON.stringify({
+  const settings={
     name:displayName?.value.trim()||'',
-    language:languageSetting?.value||'English'
-  }));
-  if(displayName?.value.trim()){
+    language:languageSetting?.value||'English',
+    enterToSend:$('enterToSend')?.checked!==false,
+    showMessageTime:$('showMessageTime')?.checked!==false,
+    saveHistory:$('saveHistorySetting')?.checked!==false,
+    compactMode:Boolean($('compactMode')?.checked)
+  };
+  localStorage.setItem(settingsKey,JSON.stringify(settings));
+  if(settings.name){
     const profile=getProfile();
-    profile.name=displayName.value.trim();
+    profile.name=settings.name;
     localStorage.setItem(profileKey,JSON.stringify(profile));
     syncProfile();
   }
+  applySettings(settings);
   closeDrawers();
   showToast('Settings saved');
+});
+$('clearLocalData')?.addEventListener('click',()=>{
+  localStorage.removeItem(chatKey);
+  localStorage.removeItem(activityKey);
+  localStorage.removeItem(profileKey);
+  renderChat();
+  renderHistory();
+  renderChatSessions();
+  syncHistoryCounts();
+  syncProfile();
+  closeDrawers();
+  showToast('Local workspace data cleared');
 });
 
 /* account */
@@ -438,5 +513,6 @@ renderChat();
 renderHistory();
 renderChatSessions();
 syncHistoryCounts();
+updateComposerState();
 renderIcons();
 syncHeaderScroll();
