@@ -1627,3 +1627,131 @@ body.menu-open{overflow:hidden}
     background:transparent;
   }
 }
+
+/* Interaction and settings detail pass */
+.chat-status-line{
+  min-height:20px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:0 5px 5px;
+  color:#7c8982;
+  font-size:8px;
+}
+.chat-status-line:empty{min-height:0;padding:0}
+.status-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 0 4px rgba(15,107,80,.08);
+  animation:statusPulse 1s ease-in-out infinite;
+}
+.chat-status-line.sending .status-dot{background:var(--blue);box-shadow:0 0 0 4px rgba(47,111,228,.08)}
+.chat-status-line.replying .status-dot{background:var(--yellow);box-shadow:0 0 0 4px rgba(243,201,77,.12)}
+@keyframes statusPulse{50%{transform:scale(.72);opacity:.65}}
+
+.composer-send:disabled{
+  cursor:not-allowed;
+  opacity:.38;
+  transform:none!important;
+}
+.composer-meta{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:6px 5px 0;color:#9aa59f;font-size:7.5px;
+}
+.message-body{min-width:0}
+.chat-message .message-author{font-weight:800}
+.chat-message time{
+  display:block;margin-top:7px;color:#a3ada8;font-size:7px;
+}
+.chat-message.user .message-body{
+  max-width:720px;
+}
+.chat-message.assistant .message-body{
+  max-width:760px;
+}
+.chat-message.assistant p{
+  color:#33413b;
+}
+.chat-message.assistant .message-body{
+  padding:12px 14px;
+  border:1px solid #dfe9e3;
+  border-radius:0 12px 12px 12px;
+  background:#f8fbf9;
+}
+.chat-message.user .message-body{
+  padding:12px 14px;
+  border:1px solid #dce6fb;
+  border-radius:12px 0 12px 12px;
+  background:#f4f7ff;
+}
+
+.settings-section{
+  padding:18px 0;
+  border-top:1px solid var(--line);
+}
+.settings-section:first-of-type{margin-top:12px}
+.settings-section-head{
+  margin-bottom:13px;
+}
+.settings-section-head span,
+.settings-section-head strong{display:block}
+.settings-section-head span{
+  margin-bottom:3px;color:#9ba7a1;font-size:7px;font-weight:800;letter-spacing:.13em;
+}
+.settings-section-head strong{
+  font-size:11px;
+}
+.setting-toggle{
+  position:relative;
+  min-height:58px;
+  display:grid!important;
+  grid-template-columns:1fr 42px;
+  gap:14px;align-items:center;
+  padding:10px 0;
+  cursor:pointer;
+}
+.setting-toggle+.setting-toggle{border-top:1px solid #edf2ef}
+.setting-toggle>span strong,
+.setting-toggle>span small{display:block}
+.setting-toggle>span strong{font-size:9.5px;color:#526059}
+.setting-toggle>span small{margin-top:3px;color:#929e98;font-size:7.5px;line-height:1.45}
+.setting-toggle input{
+  position:absolute;opacity:0;pointer-events:none;
+}
+.setting-toggle>i{
+  justify-self:end;
+  width:38px;height:22px;border-radius:999px;
+  background:#d8e2dd;position:relative;transition:.18s ease;
+}
+.setting-toggle>i:after{
+  content:"";position:absolute;left:3px;top:3px;
+  width:16px;height:16px;border-radius:50%;
+  background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.12);
+  transition:.18s ease;
+}
+.setting-toggle input:checked+i{background:var(--green)}
+.setting-toggle input:checked+i:after{transform:translateX(16px)}
+.settings-data-section{padding-bottom:8px}
+.settings-danger-button{
+  width:100%;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;
+  padding:11px;border:1px solid #eadbdb;border-radius:10px;background:#fffafa;color:#7c4a4a;text-align:left;
+}
+.settings-danger-button:hover{background:#fff5f5;border-color:#dfc2c2}
+.settings-danger-button>[data-lucide]{width:17px;height:17px}
+.settings-danger-button span strong,
+.settings-danger-button span small{display:block}
+.settings-danger-button span strong{font-size:9px}
+.settings-danger-button span small{margin-top:2px;color:#a47d7d;font-size:7.3px;line-height:1.4}
+
+.compact-workspace .chat-messages{gap:12px}
+.compact-workspace .chat-message .message-body{padding:8px 11px}
+.compact-workspace .chat-session{min-height:42px}
+.compact-workspace .chat-history-column{padding-top:14px}
+.compact-workspace .history-entry{min-height:52px}
+.compact-workspace .focused-sidebar .app-nav{min-height:38px}
+
+@media(max-width:650px){
+  .composer-meta{font-size:7px}
+  .composer-meta span:first-child{max-width:72%}
+  .chat-message.user .message-body,
+  .chat-message.assistant .message-body{padding:10px 11px}
+}
