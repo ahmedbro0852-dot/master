@@ -538,3 +538,44 @@ heroDots.forEach(dot=>dot.addEventListener('click',()=>{
   scheduleHero();
 }));
 scheduleHero();
+$('sidebarNewDocument')?.addEventListener('click',newDocument);
+
+const mobileMenu=$('mobileMenu');
+function openMobileMenu(){
+  mobileMenu?.classList.add('open');
+  mobileMenu?.setAttribute('aria-hidden','false');
+  document.body.classList.add('menu-open');
+  renderIcons();
+}
+function closeMobileMenu(){
+  mobileMenu?.classList.remove('open');
+  mobileMenu?.setAttribute('aria-hidden','true');
+  document.body.classList.remove('menu-open');
+}
+$('mobileMenuOpen')?.addEventListener('click',openMobileMenu);
+$('mobileMenuClose')?.addEventListener('click',closeMobileMenu);
+document.querySelectorAll('[data-menu-view]').forEach(button=>button.addEventListener('click',()=>{
+  closeMobileMenu();
+  switchView(button.dataset.menuView);
+}));
+document.querySelectorAll('[data-menu-workspace]').forEach(button=>button.addEventListener('click',()=>{
+  closeMobileMenu();
+  openTool(button.dataset.menuWorkspace);
+}));
+
+const referenceHero=$('referenceHero');
+referenceHero?.addEventListener('mouseenter',()=>clearInterval(heroTimer));
+referenceHero?.addEventListener('mouseleave',scheduleHero);
+
+const revealObserver='IntersectionObserver' in window?new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('revealed');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.14}):null;
+document.querySelectorAll('.reveal-item').forEach(el=>{
+  if(revealObserver)revealObserver.observe(el);
+  else el.classList.add('revealed');
+});
