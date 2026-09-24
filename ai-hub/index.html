@@ -1,19 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#F6F4EF">
-  <title>Nasha — Make more happen</title>
-  <meta name="description" content="Create, learn, write, translate and work with files from one focused workspace.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#F7F7F4">
+  <title>Nasha — Your work, in one place</title>
+  <meta name="description" content="Documents, design, video, audio, translation and files in one focused workspace.">
   <meta name="robots" content="index,follow">
-  <meta property="og:title" content="Nasha — Make more happen">
-  <meta property="og:description" content="One focused workspace for writing, creating, translating and working with files.">
+  <meta property="og:title" content="Nasha — Your work, in one place">
+  <meta property="og:description" content="A focused workspace for documents, design, video, audio, translation and files.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://master-pi-six.vercel.app/ai-hub/">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Nasha — Make more happen">
-  <meta name="twitter:description" content="One focused workspace for writing, creating, translating and working with files.">
   <link rel="icon" href="./nasha-mark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,484 +19,378 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#mainContent">Skip to content</a>
-  <header class="topbar">
-    <a href="#" class="logo" data-viewjump="home" aria-label="Nasha home">
-      <span class="logo-mark">N</span>
-      <span class="logo-type">Nasha</span>
-    </a>
+  <svg class="icon-sprite" aria-hidden="true">
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20H4z"/><path d="M9 20v-6h6v6"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3.5h8.5L18.5 7v13.5H6z"/><path d="M14.5 3.5V7h4M9 11h6M9 14h6M9 17h4"/></symbol>
+    <symbol id="i-design" viewBox="0 0 24 24"><path d="m5 19 3.2-.7L18 8.5 15.5 6 5.7 15.8z"/><path d="m14.5 7 2.5 2.5M4 20h16"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="4" y="6" width="12" height="12" rx="2"/><path d="m16 10 4-2v8l-4-2z"/></symbol>
+    <symbol id="i-audio" viewBox="0 0 24 24"><path d="M12 4a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V7a3 3 0 0 0-3-3z"/><path d="M6.5 11.5a5.5 5.5 0 0 0 11 0M12 17v3M9 20h6"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.2 3.5 5 3.5 8.5S14.3 18.3 12 20.5M12 3.5C9.7 5.7 8.5 8.5 8.5 12s1.2 6.3 3.5 8.5"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 6.5h6l1.7 2h9.3v10H3.5z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.2 2"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2M12 18.5v2M3.5 12h2M18.5 12h2M6 6l1.4 1.4M16.6 16.6 18 18M18 6l-1.4 1.4M7.4 16.6 6 18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V5M8 9l4-4 4 4"/><path d="M5 14v5h14v-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="m10 6-6 6 6 6"/><path d="M4 12h16"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M9.5 14.5 14.5 9.5"/><path d="M7.5 16.5 6 18a3 3 0 0 1-4.2-4.2l3-3A3 3 0 0 1 9 10"/><path d="M15 14a3 3 0 0 1 4.2-.2l3-3A3 3 0 0 0 18 6.6l-1.5 1.5"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.4 4.1L17.5 8.5l-4.1 1.4L12 14l-1.4-4.1-4.1-1.4 4.1-1.4z"/><path d="m18 14 .8 2.2 2.2.8-2.2.8L18 20l-.8-2.2-2.2-.8 2.2-.8z"/></symbol>
+  </svg>
 
-    <nav class="desktop-nav" aria-label="Main navigation">
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#" data-viewjump="home" aria-label="Nasha home">
+      <span class="brand-mark">N</span>
+      <span>Nasha</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
       <button data-view="home" class="active">Home</button>
-      <button data-view="discover">What you can do</button>
+      <button data-view="discover">Explore</button>
       <button data-view="pricing">Pricing</button>
     </nav>
-
-    <div class="top-actions">
-      <button class="ghost" data-viewjump="workspace">Open app</button>
-      <button class="dark" data-viewjump="workspace">Get started</button>
-      <button class="account-pill" id="settingsOpen" aria-label="Open settings">N</button>
+    <div class="site-actions">
+      <button class="text-button" data-viewjump="workspace">Open workspace</button>
+      <button class="primary-button" data-viewjump="workspace">Get started</button>
+      <button class="avatar-button" id="settingsOpen" aria-label="Open settings">N</button>
     </div>
   </header>
 
   <main id="mainContent">
     <section class="view active" id="homeView">
-      <div class="hero">
+      <section class="hero">
         <div class="hero-copy">
-          <div class="brand-pill"><span class="brand-symbol"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.4 4.1L17.5 8.5l-4.1 1.4L12 14l-1.4-4.1-4.1-1.4 4.1-1.4z"/><path d="m18 14 .8 2.2 2.2.8-2.2.8L18 20l-.8-2.2-2.2-.8 2.2-.8z"/></svg></span> One workspace, many possibilities</div>
-          <h1>Make more.<br><em>Switch less.</em></h1>
-          <p class="sub">Write, study, create, translate, work with documents and move between ideas without jumping across apps.</p>
-
+          <div class="eyebrow-pill"><svg class="icon"><use href="#i-spark"/></svg><span>One workspace for the work that matters</span></div>
+          <h1>Everything you make,<br><em>in one place.</em></h1>
+          <p>Write documents, shape visuals, prepare video and audio, translate content, and keep your files together without jumping between tools.</p>
           <div class="hero-actions">
-            <button class="primary-cta" data-viewjump="workspace">Open Nasha</button>
-            <button class="text-cta" data-viewjump="discover">Explore what you can do <span>→</span></button>
+            <button class="primary-button large" data-viewjump="workspace">Open Nasha</button>
+            <button class="link-button" data-viewjump="discover">See the workspace <svg class="icon"><use href="#i-arrow"/></svg></button>
           </div>
-
-          <div class="micro-proof">
-            <span>Study</span><i></i><span>Work</span><i></i><span>Create</span><i></i><span>Everyday</span>
-          </div>
+          <div class="hero-meta"><span>For study</span><span>For work</span><span>For creative projects</span><span>For everyday tasks</span></div>
         </div>
 
-        <div class="hero-stage" aria-label="Nasha workspace preview">
-          <div class="shape shape-yellow"></div>
-          <div class="shape shape-mint"></div>
-          <div class="showcase">
-            <div class="showcase-top">
-              <div class="showcase-brand"><span class="tiny-mark">N</span> nasha</div>
-              <span class="showcase-status">Workspace</span>
-            </div>
-            <div class="showcase-body">
-              <div class="mini-sidebar">
-                <strong>N</strong>
-                <button class="active" aria-label="Documents"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8.5L18.5 7v13.5H6z"/><path d="M14.5 3.5V7h4M9 11h6M9 14h6M9 17h4"/></svg></button>
-                <button aria-label="Design"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 19 3.2-.7L18 8.5 15.5 6 5.7 15.8z"/><path d="m14.5 7 2.5 2.5M4 20h16"/></svg></button>
-                <button aria-label="Video"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="12" height="12" rx="2"/><path d="m16 10 4-2v8l-4-2z"/></svg></button>
-                <button aria-label="Translate"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.2 3.5 5 3.5 8.5S14.3 18.3 12 20.5M12 3.5C9.7 5.7 8.5 8.5 8.5 12s1.2 6.3 3.5 8.5"/></svg></button>
+        <div class="product-preview" aria-label="Nasha workspace preview">
+          <div class="preview-bar">
+            <div class="preview-brand"><span>N</span><strong>Nasha</strong></div>
+            <small>Workspace</small>
+          </div>
+          <div class="preview-body">
+            <aside class="preview-sidebar">
+              <button class="active"><svg class="icon"><use href="#i-home"/></svg></button>
+              <button><svg class="icon"><use href="#i-doc"/></svg></button>
+              <button><svg class="icon"><use href="#i-design"/></svg></button>
+              <button><svg class="icon"><use href="#i-video"/></svg></button>
+              <button><svg class="icon"><use href="#i-folder"/></svg></button>
+            </aside>
+            <div class="preview-content">
+              <div class="preview-heading">
+                <div><small>YOUR WORKSPACE</small><h3>Pick up where you left off.</h3></div>
+                <span>New</span>
               </div>
-              <div class="mini-canvas">
-                <span class="mini-kicker">RECENT</span>
-                <h3>Your work, in one place.</h3>
-                <div class="demo-input">Launch plan <span>•••</span></div>
-                <div class="demo-cards">
-                  <div class="demo-card coral"><small>DOCUMENT</small><b>Campaign brief</b><span>Edited today</span></div>
-                  <div class="demo-card mint"><small>DESIGN</small><b>Product visuals</b><span>8 items</span></div>
-                </div>
+              <div class="preview-actions">
+                <div><svg class="icon"><use href="#i-doc"/></svg><strong>Document</strong><small>Briefs and drafts</small></div>
+                <div><svg class="icon"><use href="#i-design"/></svg><strong>Design</strong><small>Visual projects</small></div>
+                <div><svg class="icon"><use href="#i-video"/></svg><strong>Video</strong><small>Short-form work</small></div>
+              </div>
+              <div class="preview-recent">
+                <small>RECENT</small>
+                <div class="preview-file"><span><svg class="icon"><use href="#i-doc"/></svg></span><div><strong>Campaign brief</strong><small>Edited today</small></div><b>•••</b></div>
+                <div class="preview-file"><span><svg class="icon"><use href="#i-design"/></svg></span><div><strong>Product visuals</strong><small>8 items</small></div><b>•••</b></div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <section class="brand-strip">
-        <p>Built around what you want to finish.</p>
+      <section class="audience-strip">
+        <p>Made for the way people actually work.</p>
         <div><span>Students</span><span>Creators</span><span>Teams</span><span>Freelancers</span><span>Everyday use</span></div>
       </section>
 
-      <section class="story">
-        <div class="story-intro">
-          <span class="section-number">01</span>
-          <div>
-            <p class="eyebrow">START WITH THE OUTCOME</p>
-            <h2>You bring the task.<br>Nasha brings the tools.</h2>
-          </div>
-        </div>
-
-        <div class="story-grid">
-          <article class="story-card story-main">
-            <div class="card-top">
-              <span class="card-tag coral-tag">Write</span>
-              <span class="card-no">01</span>
-            </div>
-            <h3>Write, organize and shape your work in one place.</h3>
-            <p>From class notes and project briefs to plans, drafts and everyday work.</p>
-            <div class="conversation-preview">
-              <div class="msg user-msg">Explain this in a simpler way.</div>
-              <div class="msg answer-msg">
-                <i></i><i></i><i></i>
-              </div>
+      <section class="feature-section">
+        <header class="section-heading">
+          <span>01</span>
+          <div><p>ONE WORKSPACE</p><h2>Start with the work,<br>not the tool.</h2></div>
+        </header>
+        <div class="feature-grid">
+          <article class="feature-card feature-wide">
+            <span class="feature-label">Documents</span>
+            <h3>A clean place to think, write and organize.</h3>
+            <p>Notes, briefs, plans and longer documents stay together in one focused editor.</p>
+            <div class="document-mock">
+              <span class="mock-title"></span><span></span><span></span><span class="short"></span>
             </div>
           </article>
-
-          <article class="story-card visual-card">
-            <div class="card-top">
-              <span class="card-tag yellow-tag">Create</span>
-              <span class="card-no">02</span>
-            </div>
-            <h3>Turn an idea into something you can see and share.</h3>
-            <div class="poster-preview">
-              <span>MAKE</span>
-              <strong>IT<br>VISIBLE.</strong>
-              <small>Nasha create</small>
-            </div>
+          <article class="feature-card">
+            <span class="feature-label">Create</span>
+            <h3>Move from idea to visual project.</h3>
+            <div class="visual-mock"><strong>MAKE<br>IT CLEAR.</strong><span></span></div>
           </article>
-
-          <article class="story-card file-card">
-            <div class="card-top">
-              <span class="card-tag mint-tag">Files</span>
-              <span class="card-no">03</span>
-            </div>
-            <h3>Drop in a file. Pull out what matters.</h3>
-            <div class="doc-preview">
-              <div class="doc-head"><span class="doc-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8.5L18.5 7v13.5H6z"/><path d="M14.5 3.5V7h4M9 11h6M9 14h6M9 17h4"/></svg></span><div><b>Quarterly report.pdf</b><span>42 pages</span></div></div>
-              <div class="doc-line long"></div><div class="doc-line"></div><div class="doc-line short"></div>
-              <div class="doc-chip">Summarize this</div>
-            </div>
+          <article class="feature-card">
+            <span class="feature-label">Files</span>
+            <h3>Keep source material close to the work.</h3>
+            <div class="file-mock"><svg class="icon"><use href="#i-folder"/></svg><div><strong>Research folder</strong><small>12 files</small></div></div>
           </article>
         </div>
       </section>
 
-      <section class="product-values">
-        <div class="values-head">
-          <span class="section-number">02</span>
-          <div>
-            <p class="eyebrow">BUILT FOR REAL WORK</p>
-            <h2>One place that stays out of your way.</h2>
-          </div>
-        </div>
-
-        <div class="values-grid">
-          <article>
-            <span>01</span>
-            <h3>Start anywhere</h3>
-            <p>Start with a document, a file, a visual, or a blank project.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Keep your flow</h3>
-            <p>Move between writing, visuals, voice and translation without rebuilding your context every time.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Stay focused</h3>
-            <p>The workspace stays simple so you can focus on the work itself.</p>
-          </article>
+      <section class="principles">
+        <header class="section-heading">
+          <span>02</span>
+          <div><p>BUILT TO STAY SIMPLE</p><h2>A workspace that gets out of your way.</h2></div>
+        </header>
+        <div class="principles-grid">
+          <article><span>01</span><h3>Start anywhere</h3><p>Open a document, upload a file, begin a design or jump straight into translation.</p></article>
+          <article><span>02</span><h3>Keep context together</h3><p>Your documents, files and creative projects stay inside the same workspace.</p></article>
+          <article><span>03</span><h3>Stay focused</h3><p>The interface stays quiet so the work stays in front of you.</p></article>
         </div>
       </section>
 
-      <section class="closing">
-        <div class="closing-mark">N</div>
+      <section class="final-cta">
+        <div class="brand-mark large-mark">N</div>
         <h2>One place. Your flow.</h2>
-        <p>Keep your documents, files and creative work moving in one place.</p>
-        <button class="primary-cta" data-viewjump="workspace">Start using Nasha</button>
+        <p>Keep your documents, files and creative work moving together.</p>
+        <button class="primary-button large" data-viewjump="workspace">Open the workspace</button>
       </section>
 
       <footer class="site-footer">
-        <div class="footer-brand">
-          <div class="logo-mark">N</div>
-          <div><strong>Nasha</strong><span>Make more happen.</span></div>
-        </div>
+        <div class="footer-brand"><span class="brand-mark">N</span><div><strong>Nasha</strong><small>Your work, in one place.</small></div></div>
         <div class="footer-links">
           <button data-viewjump="discover">Explore</button>
           <button data-viewjump="workspace">Workspace</button>
-          <button data-viewjump="files">Files</button>
+          <button data-workspace="files">Files</button>
           <button data-viewjump="pricing">Pricing</button>
           <button data-legal="privacy">Privacy</button>
           <button data-legal="terms">Terms</button>
         </div>
-        <p>© 2026 Nasha</p>
+        <small>© 2026 Nasha</small>
       </footer>
     </section>
 
     <section class="view" id="discoverView">
-      <div class="page-head">
-        <p class="eyebrow">EXPLORE</p>
-        <h1>Choose what you want to do.</h1>
-        <p>Everything you need, organized in one workspace.</p>
-      </div>
-
-      <div class="discover-list">
-        <button data-workspace="chat"><span class="explore-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8.5L18.5 7v13.5H6z"/><path d="M14.5 3.5V7h4M9 11h6M9 14h6M9 17h4"/></svg></span><div><h3>Documents</h3><p>Write notes, briefs, plans and longer documents.</p></div><b>↗</b></button>
-        <button data-workspace="image"><span class="explore-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 19 3.2-.7L18 8.5 15.5 6 5.7 15.8z"/><path d="m14.5 7 2.5 2.5M4 20h16"/></svg></span><div><h3>Design</h3><p>Create visuals for products, posts, ideas and presentations.</p></div><b>↗</b></button>
-        <button data-workspace="video"><span class="explore-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="12" height="12" rx="2"/><path d="m16 10 4-2v8l-4-2z"/></svg></span><div><h3>Video</h3><p>Prepare short videos and motion projects in one studio.</p></div><b>↗</b></button>
-        <button data-workspace="voice"><span class="explore-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V7a3 3 0 0 0-3-3z"/><path d="M6.5 11.5a5.5 5.5 0 0 0 11 0M12 17v3M9 20h6"/></svg></span><div><h3>Audio</h3><p>Voiceovers, transcription and audio notes.</p></div><b>↗</b></button>
-        <button data-viewjump="files"><span class="explore-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h6l1.7 2h9.3v10H3.5z"/></svg></span><div><h3>Work with files</h3><p>Read, summarize and understand documents.</p></div><b>↗</b></button>
-        <button data-workspace="translate"><span class="explore-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.2 3.5 5 3.5 8.5S14.3 18.3 12 20.5M12 3.5C9.7 5.7 8.5 8.5 8.5 12s1.2 6.3 3.5 8.5"/></svg></span><div><h3>Translate</h3><p>Work between languages without leaving your workspace.</p></div><b>↗</b></button>
-      </div>
-    </section>
-
-    <section class="view" id="workspaceView">
-      <div class="workspace-shell">
-        <aside class="workspace-nav">
-          <div class="workspace-brand-row">
-            <div class="workspace-brand">N</div>
-            <strong>Nasha</strong>
-          </div>
-
-          <button class="new-chat" id="newChatBtn"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>New document</button>
-
-          <div class="workspace-section-label">Workspace</div>
-          <button class="active" data-tool="overview"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20H4z"/><path d="M9 20v-6h6v6"/></svg></span>Home</button>
-          <button data-tool="chat"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8.5L18.5 7v13.5H6z"/><path d="M14.5 3.5V7h4M9 11h6M9 14h6M9 17h4"/></svg></span>Documents</button>
-          <button data-tool="image"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 19 3.2-.7L18 8.5 15.5 6 5.7 15.8z"/><path d="m14.5 7 2.5 2.5M4 20h16"/></svg></span>Design</button>
-          <button data-tool="video"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="12" height="12" rx="2"/><path d="m16 10 4-2v8l-4-2z"/></svg></span>Video</button>
-          <button data-tool="voice"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V7a3 3 0 0 0-3-3z"/><path d="M6.5 11.5a5.5 5.5 0 0 0 11 0M12 17v3M9 20h6"/></svg></span>Audio</button>
-          <button data-tool="translate"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.2 3.5 5 3.5 8.5S14.3 18.3 12 20.5M12 3.5C9.7 5.7 8.5 8.5 8.5 12s1.2 6.3 3.5 8.5"/></svg></span>Translate</button>
-          <button data-viewjump="files"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h6l1.7 2h9.3v10H3.5z"/></svg></span>Files</button>
-
-          <div class="workspace-bottom">
-            <button id="workspaceHistory"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.2 2"/></svg></span>Recent</button>
-            <button id="workspaceSettings"><span class="nav-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2M12 18.5v2M3.5 12h2M18.5 12h2M6 6l1.4 1.4M16.6 16.6 18 18M18 6l-1.4 1.4M7.4 16.6 6 18"/></svg></span>Settings</button>
-          </div>
-        </aside>
-
-        <div class="workspace-main">
-          <div class="workspace-top">
-            <div class="workspace-title-wrap">
-              <span class="workspace-breadcrumb">Workspace</span>
-              <span class="workspace-sep">/</span>
-              <span id="workspaceTitle">Home</span>
-            </div>
-            <div class="workspace-top-actions">
-              <button class="exit-app" data-viewjump="home" aria-label="Back to website"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6-6 6 6 6"/><path d="M4 12h16"/></svg><span>Website</span></button>
-              <span class="save-state" id="saveState">Saved</span>
-              <button class="icon-action" id="topHistory" aria-label="Open recent work">◷</button>
-              <button class="icon-action" id="topSettings" aria-label="Open settings">⚙</button>
-            </div>
-          </div>
-
-          <div class="mobile-toolbar" aria-label="Workspace sections">
-            <button class="active" data-tool="overview">Home</button>
-            <button data-tool="chat">Docs</button>
-            <button data-tool="image">Design</button>
-            <button data-tool="video">Video</button>
-            <button data-tool="voice">Audio</button>
-            <button data-tool="translate">Translate</button>
-            <button data-viewjump="files"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h6l1.7 2h9.3v10H3.5z"/></svg><span>Files</span></button>
-          </div>
-
-          <div class="tool-panel active overview-panel" id="overviewTool">
-            <div class="overview-head">
-              <div>
-                <span class="workspace-kicker">YOUR WORKSPACE</span>
-                <h1>Pick up where you left off.</h1>
-                <p>Start something new or continue your recent work.</p>
-              </div>
-              <button class="overview-new" id="overviewNewDoc">New document</button>
-            </div>
-
-            <div class="quick-create">
-              <button data-tool="chat"><span class="quick-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8.5L18.5 7v13.5H6z"/><path d="M14.5 3.5V7h4M9 11h6M9 14h6M9 17h4"/></svg></span><strong>Document</strong><small>Notes, briefs and drafts</small></button>
-              <button data-tool="image"><span class="quick-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 19 3.2-.7L18 8.5 15.5 6 5.7 15.8z"/><path d="m14.5 7 2.5 2.5M4 20h16"/></svg></span><strong>Design</strong><small>Visuals and concepts</small></button>
-              <button data-tool="video"><span class="quick-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="12" height="12" rx="2"/><path d="m16 10 4-2v8l-4-2z"/></svg></span><strong>Video</strong><small>Short-form projects</small></button>
-              <button data-tool="voice"><span class="quick-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V7a3 3 0 0 0-3-3z"/><path d="M6.5 11.5a5.5 5.5 0 0 0 11 0M12 17v3M9 20h6"/></svg></span><strong>Audio</strong><small>Voice and recordings</small></button>
-              <button data-tool="translate"><span class="quick-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.2 3.5 5 3.5 8.5S14.3 18.3 12 20.5M12 3.5C9.7 5.7 8.5 8.5 8.5 12s1.2 6.3 3.5 8.5"/></svg></span><strong>Translate</strong><small>Work across languages</small></button>
-              <button data-viewjump="files"><span class="quick-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h6l1.7 2h9.3v10H3.5z"/></svg></span><strong>Files</strong><small>Upload and organize</small></button>
-            </div>
-
-            <section class="recent-section">
-              <div class="section-row">
-                <div><span>Recent</span><strong>Your latest work</strong></div>
-                <button id="overviewRecent">View all</button>
-              </div>
-              <div class="recent-grid">
-                <button class="recent-card" id="recentDocumentCard" data-tool="chat">
-                  <span class="recent-type">DOCUMENT</span>
-                  <strong id="recentDocumentTitle">Untitled document</strong>
-                  <small id="recentDocumentMeta">Saved locally</small>
-                </button>
-                <button class="recent-card empty-recent" data-tool="image">
-                  <span class="recent-type">DESIGN</span>
-                  <strong>Start a design</strong>
-                  <small>Create your first visual project</small>
-                </button>
-                <button class="recent-card empty-recent" data-tool="video">
-                  <span class="recent-type">VIDEO</span>
-                  <strong>Start a video</strong>
-                  <small>Set up your first video project</small>
-                </button>
-              </div>
-            </section>
-          </div>
-
-          <div class="tool-panel document-panel" id="chatTool">
-            <div class="document-toolbar">
-              <div class="doc-tools-left">
-                <button type="button" aria-label="Bold"><strong>B</strong></button>
-                <button type="button" aria-label="Italic"><em>I</em></button>
-                <button type="button">Heading</button>
-                <span></span>
-                <button type="button">Checklist</button>
-                <button type="button">Link</button>
-              </div>
-              <div class="doc-tools-right">
-                <button type="button" id="chatAttach">Attach</button>
-                <button type="button" class="share-button">Share</button>
-              </div>
-            </div>
-
-            <div class="document-page">
-              <input id="documentTitle" class="document-title" maxlength="120" value="Untitled document" aria-label="Document title">
-              <textarea id="documentBody" class="document-body" aria-label="Document content" placeholder="Start writing..."></textarea>
-            </div>
-
-            <div class="document-footer">
-              <span id="wordCount">0 words</span>
-              <span>Private workspace</span>
-            </div>
-          </div>
-
-          <div class="tool-panel studio-panel" id="imageTool">
-            <div class="studio-header">
-              <div>
-                <span class="workspace-kicker">DESIGN</span>
-                <h2>New design</h2>
-                <p>Set up the format and direction for your visual.</p>
-              </div>
-              <button class="black-button studio-primary" id="imageCreate">Create draft</button>
-            </div>
-            <div class="studio-layout">
-              <div class="studio-controls">
-                <label>Project brief<textarea id="imagePrompt" placeholder="Describe the visual, product, campaign or idea..."></textarea></label>
-                <div class="inline-fields">
-                  <label>Format<select id="imageRatio"><option>Square</option><option>Landscape</option><option>Portrait</option></select></label>
-                  <label>Look<select id="imageStyle"><option>Automatic</option><option>Photography</option><option>Illustration</option></select></label>
-                </div>
-              </div>
-              <div class="studio-canvas image-output" id="imageOutput">
-                <div class="canvas-empty"><span><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 19 3.2-.7L18 8.5 15.5 6 5.7 15.8z"/><path d="m14.5 7 2.5 2.5M4 20h16"/></svg></span><strong>Design canvas</strong><small>Your draft will appear here.</small></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tool-panel studio-panel" id="videoTool">
-            <div class="studio-header">
-              <div>
-                <span class="workspace-kicker">VIDEO</span>
-                <h2>New video</h2>
-                <p>Prepare the format, notes and visual direction.</p>
-              </div>
-              <button class="black-button studio-primary" id="videoCreate">Create draft</button>
-            </div>
-            <div class="studio-layout">
-              <div class="studio-controls">
-                <label>Project notes<textarea id="videoPrompt" placeholder="What is the video about? Add scenes, pacing or references..."></textarea></label>
-                <div class="inline-fields">
-                  <label>Format<select id="videoRatio"><option>9:16</option><option>16:9</option><option>1:1</option></select></label>
-                  <label>Source<select id="videoMode"><option>New project</option><option>From image</option></select></label>
-                </div>
-              </div>
-              <div class="studio-canvas video-output" id="videoOutput">
-                <div class="canvas-empty"><span><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="12" height="12" rx="2"/><path d="m16 10 4-2v8l-4-2z"/></svg></span><strong>Video canvas</strong><small>Your draft will appear here.</small></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tool-panel audio-panel" id="voiceTool">
-            <div class="studio-header">
-              <div>
-                <span class="workspace-kicker">AUDIO</span>
-                <h2>Audio workspace</h2>
-                <p>Choose what you want to work on.</p>
-              </div>
-            </div>
-            <div class="audio-grid">
-              <button data-voice-action="Voiceover"><span><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V7a3 3 0 0 0-3-3z"/><path d="M6.5 11.5a5.5 5.5 0 0 0 11 0M12 17v3M9 20h6"/></svg></span><strong>Voiceover</strong><small>Turn written copy into narration.</small><b>→</b></button>
-              <button data-voice-action="Transcription"><span><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8.5L18.5 7v13.5H6z"/><path d="M14.5 3.5V7h4M9 11h6M9 14h6M9 17h4"/></svg></span><strong>Transcription</strong><small>Turn recordings into clean text.</small><b>→</b></button>
-              <button data-voice-action="Audio notes"><span><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.4 4.1L17.5 8.5l-4.1 1.4L12 14l-1.4-4.1-4.1-1.4 4.1-1.4z"/><path d="m18 14 .8 2.2 2.2.8-2.2.8L18 20l-.8-2.2-2.2-.8 2.2-.8z"/></svg></span><strong>Audio notes</strong><small>Pull the useful points from a recording.</small><b>→</b></button>
-            </div>
-          </div>
-
-          <div class="tool-panel translate-panel" id="translateTool">
-            <div class="studio-header">
-              <div>
-                <span class="workspace-kicker">TRANSLATE</span>
-                <h2>Translation</h2>
-                <p>Work between languages in a simple side-by-side editor.</p>
-              </div>
-              <button class="black-button studio-primary" id="translateBtn">Translate</button>
-            </div>
-            <div class="translate-grid">
-              <div><select id="sourceLang"><option>Detect language</option><option>English</option><option>Arabic</option><option>German</option><option>French</option></select><textarea id="translateSource" placeholder="Type or paste text"></textarea></div>
-              <div><select id="targetLang"><option>English</option><option>Arabic</option><option>German</option><option>French</option></select><textarea id="translateResult" placeholder="Translation" readonly></textarea></div>
-            </div>
-          </div>
+      <div class="page-shell">
+        <header class="page-heading">
+          <p>EXPLORE</p>
+          <h1>Choose what you want to work on.</h1>
+          <span>Everything opens inside the same workspace.</span>
+        </header>
+        <div class="tool-list">
+          <button data-workspace="documents"><span class="tool-list-icon"><svg class="icon"><use href="#i-doc"/></svg></span><div><strong>Documents</strong><small>Write notes, briefs, plans and longer work.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
+          <button data-workspace="design"><span class="tool-list-icon"><svg class="icon"><use href="#i-design"/></svg></span><div><strong>Design</strong><small>Create visuals for products, posts and presentations.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
+          <button data-workspace="video"><span class="tool-list-icon"><svg class="icon"><use href="#i-video"/></svg></span><div><strong>Video</strong><small>Prepare short videos and motion projects.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
+          <button data-workspace="audio"><span class="tool-list-icon"><svg class="icon"><use href="#i-audio"/></svg></span><div><strong>Audio</strong><small>Voiceovers, transcription and audio notes.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
+          <button data-workspace="translate"><span class="tool-list-icon"><svg class="icon"><use href="#i-globe"/></svg></span><div><strong>Translate</strong><small>Work between languages in a side-by-side editor.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
+          <button data-workspace="files"><span class="tool-list-icon"><svg class="icon"><use href="#i-folder"/></svg></span><div><strong>Files</strong><small>Upload and keep source material with your work.</small></div><svg class="icon arrow"><use href="#i-arrow"/></svg></button>
         </div>
       </div>
     </section>
 
-    <section class="view" id="filesView">
-      <div class="page-head">
-        <p class="eyebrow">FILES</p>
-        <h1>Bring your own material.</h1>
-        <p>Upload a file, then summarize it, explain it, compare it, or ask questions about it.</p>
-      </div>
+    <section class="view" id="workspaceView">
+      <div class="app-shell">
+        <aside class="app-sidebar">
+          <div class="app-brand"><span class="brand-mark">N</span><strong>Nasha</strong></div>
+          <button class="new-button" id="newDocumentBtn"><svg class="icon"><use href="#i-plus"/></svg><span>New document</span></button>
+          <p class="nav-label">Workspace</p>
+          <button class="app-nav active" data-tool="overview"><svg class="icon"><use href="#i-home"/></svg><span>Home</span></button>
+          <button class="app-nav" data-tool="documents"><svg class="icon"><use href="#i-doc"/></svg><span>Documents</span></button>
+          <button class="app-nav" data-tool="design"><svg class="icon"><use href="#i-design"/></svg><span>Design</span></button>
+          <button class="app-nav" data-tool="video"><svg class="icon"><use href="#i-video"/></svg><span>Video</span></button>
+          <button class="app-nav" data-tool="audio"><svg class="icon"><use href="#i-audio"/></svg><span>Audio</span></button>
+          <button class="app-nav" data-tool="translate"><svg class="icon"><use href="#i-globe"/></svg><span>Translate</span></button>
+          <button class="app-nav" data-tool="files"><svg class="icon"><use href="#i-folder"/></svg><span>Files</span></button>
+          <div class="app-nav-bottom">
+            <button id="workspaceRecent"><svg class="icon"><use href="#i-clock"/></svg><span>Recent</span></button>
+            <button id="workspaceSettings"><svg class="icon"><use href="#i-settings"/></svg><span>Settings</span></button>
+          </div>
+        </aside>
 
-      <div class="upload-box" id="uploadBox">
-        <input type="file" id="fileInput" hidden multiple>
-        <div class="upload-icon"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V5M8 9l4-4 4 4"/><path d="M5 14v5h14v-5"/></svg></div>
-        <strong>Drop files here</strong>
-        <span>PDF, DOCX, PPTX, XLSX, images and more</span>
-        <button id="chooseFiles">Choose files</button>
-      </div>
+        <div class="app-main">
+          <header class="app-topbar">
+            <div class="app-breadcrumb"><span>Workspace</span><i>/</i><strong id="workspaceTitle">Home</strong></div>
+            <div class="app-top-actions">
+              <button class="back-site" data-viewjump="home"><svg class="icon"><use href="#i-back"/></svg><span>Website</span></button>
+              <span class="save-state" id="saveState">Saved</span>
+              <button class="icon-button" id="topRecent" aria-label="Open recent work"><svg class="icon"><use href="#i-clock"/></svg></button>
+              <button class="icon-button" id="topSettings" aria-label="Open settings"><svg class="icon"><use href="#i-settings"/></svg></button>
+            </div>
+          </header>
 
-      <div class="file-queue" id="fileQueue"></div>
+          <nav class="app-mobile-tabs" aria-label="Workspace sections">
+            <button class="active" data-tool="overview">Home</button>
+            <button data-tool="documents">Docs</button>
+            <button data-tool="design">Design</button>
+            <button data-tool="video">Video</button>
+            <button data-tool="audio">Audio</button>
+            <button data-tool="translate">Translate</button>
+            <button data-tool="files">Files</button>
+          </nav>
 
-      <div class="file-shortcuts">
-        <span>Summarize</span><span>Explain</span><span>Compare</span><span>Extract</span><span>Ask questions</span>
+          <section class="tool-panel active overview-panel" id="overviewTool">
+            <div class="overview-head">
+              <div><p>YOUR WORKSPACE</p><h1>Pick up where you left off.</h1><span>Start something new or continue your recent work.</span></div>
+              <button class="primary-button" id="overviewNewDocument">New document</button>
+            </div>
+            <div class="quick-grid">
+              <button data-tool="documents"><span><svg class="icon"><use href="#i-doc"/></svg></span><strong>Document</strong><small>Notes, briefs and drafts</small></button>
+              <button data-tool="design"><span><svg class="icon"><use href="#i-design"/></svg></span><strong>Design</strong><small>Visuals and concepts</small></button>
+              <button data-tool="video"><span><svg class="icon"><use href="#i-video"/></svg></span><strong>Video</strong><small>Short-form projects</small></button>
+              <button data-tool="audio"><span><svg class="icon"><use href="#i-audio"/></svg></span><strong>Audio</strong><small>Voice and recordings</small></button>
+              <button data-tool="translate"><span><svg class="icon"><use href="#i-globe"/></svg></span><strong>Translate</strong><small>Work across languages</small></button>
+              <button data-tool="files"><span><svg class="icon"><use href="#i-folder"/></svg></span><strong>Files</strong><small>Upload and organize</small></button>
+            </div>
+            <div class="recent-block">
+              <div class="block-heading"><div><p>RECENT</p><strong>Your latest work</strong></div><button id="overviewRecent">View all</button></div>
+              <div class="recent-grid">
+                <button class="recent-card" data-tool="documents"><span>DOCUMENT</span><strong id="recentDocumentTitle">Untitled document</strong><small id="recentDocumentMeta">No saved document yet</small></button>
+                <button class="recent-card quiet" data-tool="design"><span>DESIGN</span><strong>Start a design</strong><small>Create your first visual project</small></button>
+                <button class="recent-card quiet" data-tool="video"><span>VIDEO</span><strong>Start a video</strong><small>Set up your first video project</small></button>
+              </div>
+            </div>
+          </section>
+
+          <section class="tool-panel document-panel" id="documentsTool">
+            <div class="document-toolbar" role="toolbar" aria-label="Document formatting">
+              <div>
+                <button data-command="bold" aria-label="Bold"><strong>B</strong></button>
+                <button data-command="italic" aria-label="Italic"><em>I</em></button>
+                <button data-command="formatBlock" data-value="h2">Heading</button>
+                <i></i>
+                <button data-command="insertUnorderedList">List</button>
+                <button id="insertLinkButton"><svg class="icon"><use href="#i-link"/></svg><span>Link</span></button>
+              </div>
+              <div><button id="attachFromDocument">Attach</button><button class="share-button" id="shareDocument">Share</button></div>
+            </div>
+            <article class="document-page">
+              <input class="document-title" id="documentTitle" value="Untitled document" maxlength="120" aria-label="Document title">
+              <div class="document-body" id="documentBody" contenteditable="true" role="textbox" aria-multiline="true" data-placeholder="Start writing..."></div>
+            </article>
+            <div class="document-footer"><span id="wordCount">0 words</span><span>Saved in this browser</span></div>
+          </section>
+
+          <section class="tool-panel studio-panel" id="designTool">
+            <div class="studio-heading">
+              <div><p>DESIGN</p><h2>New design</h2><span>Set the format and direction for your visual.</span></div>
+              <button class="primary-button" id="designCreate">Create draft</button>
+            </div>
+            <div class="studio-grid">
+              <div class="control-card">
+                <label>Project brief<textarea id="designPrompt" placeholder="Describe the visual, product, campaign or idea..."></textarea></label>
+                <div class="two-fields">
+                  <label>Format<select id="designRatio"><option>Square</option><option>Landscape</option><option>Portrait</option></select></label>
+                  <label>Look<select id="designStyle"><option>Automatic</option><option>Photography</option><option>Illustration</option></select></label>
+                </div>
+              </div>
+              <div class="studio-canvas" id="designOutput"><div class="canvas-empty"><span><svg class="icon"><use href="#i-design"/></svg></span><strong>Design canvas</strong><small>Your draft will appear here.</small></div></div>
+            </div>
+          </section>
+
+          <section class="tool-panel studio-panel" id="videoTool">
+            <div class="studio-heading">
+              <div><p>VIDEO</p><h2>New video</h2><span>Prepare the format, notes and visual direction.</span></div>
+              <button class="primary-button" id="videoCreate">Create draft</button>
+            </div>
+            <div class="studio-grid">
+              <div class="control-card">
+                <label>Project notes<textarea id="videoPrompt" placeholder="Describe the idea, scenes, pacing or references..."></textarea></label>
+                <div class="two-fields">
+                  <label>Format<select id="videoRatio"><option>9:16</option><option>16:9</option><option>1:1</option></select></label>
+                  <label>Source<select id="videoMode"><option>New project</option><option>From image</option></select></label>
+                </div>
+              </div>
+              <div class="studio-canvas" id="videoOutput"><div class="canvas-empty"><span><svg class="icon"><use href="#i-video"/></svg></span><strong>Video canvas</strong><small>Your draft will appear here.</small></div></div>
+            </div>
+          </section>
+
+          <section class="tool-panel audio-panel" id="audioTool">
+            <div class="studio-heading"><div><p>AUDIO</p><h2>Audio workspace</h2><span>Choose what you want to work on.</span></div></div>
+            <div class="audio-grid">
+              <button data-audio-action="Voiceover"><span><svg class="icon"><use href="#i-audio"/></svg></span><strong>Voiceover</strong><small>Turn written copy into narration.</small><b>→</b></button>
+              <button data-audio-action="Transcription"><span><svg class="icon"><use href="#i-doc"/></svg></span><strong>Transcription</strong><small>Turn recordings into clean text.</small><b>→</b></button>
+              <button data-audio-action="Audio notes"><span><svg class="icon"><use href="#i-spark"/></svg></span><strong>Audio notes</strong><small>Pull useful points from a recording.</small><b>→</b></button>
+            </div>
+          </section>
+
+          <section class="tool-panel translate-panel" id="translateTool">
+            <div class="studio-heading">
+              <div><p>TRANSLATE</p><h2>Translation</h2><span>Work between languages in a simple side-by-side editor.</span></div>
+              <button class="primary-button" id="translateButton">Translate</button>
+            </div>
+            <div class="translate-grid">
+              <div><select id="sourceLanguage"><option>Detect language</option><option>English</option><option>Arabic</option><option>German</option><option>French</option></select><textarea id="translateSource" placeholder="Type or paste text"></textarea></div>
+              <div><select id="targetLanguage"><option>English</option><option>Arabic</option><option>German</option><option>French</option></select><textarea id="translateResult" placeholder="Translation" readonly></textarea></div>
+            </div>
+          </section>
+
+          <section class="tool-panel files-panel" id="filesTool">
+            <div class="studio-heading">
+              <div><p>FILES</p><h2>Your files</h2><span>Keep source material close to the work.</span></div>
+              <button class="primary-button" id="chooseFiles">Upload files</button>
+            </div>
+            <input type="file" id="fileInput" hidden multiple>
+            <div class="upload-area" id="uploadArea">
+              <span><svg class="icon"><use href="#i-upload"/></svg></span>
+              <strong>Drop files here</strong>
+              <small>PDF, DOCX, PPTX, XLSX, images and more</small>
+            </div>
+            <div class="file-list" id="fileList"></div>
+            <div class="file-hints"><span>Summarize</span><span>Explain</span><span>Compare</span><span>Extract</span><span>Ask questions</span></div>
+          </section>
+        </div>
       </div>
     </section>
 
     <section class="view" id="pricingView">
-      <div class="page-head pricing-head">
-        <p class="eyebrow">PRICING</p>
-        <h1>Choose the level that fits how you work.</h1>
-        <p>Plans and limits will be published before paid access opens.</p>
-      </div>
-      <div class="pricing-single">
-        <article class="price-card launch-plan">
-          <div class="launch-plan-main">
-            <span class="plan-name">EARLY ACCESS</span>
-            <h3>Free while Nasha is in preview.</h3>
-            <p>Use the workspace and explore the product. Paid plans will only appear once pricing and usage limits are final.</p>
-          </div>
-          <div class="launch-plan-features">
-            <span>Documents</span>
-            <span>File workspace</span>
-            <span>Design, video and audio tools</span>
-            <span>Translation workspace</span>
-          </div>
-          <button data-viewjump="workspace">Open Nasha</button>
+      <div class="page-shell">
+        <header class="page-heading centered">
+          <p>PRICING</p>
+          <h1>Simple access while Nasha is in preview.</h1>
+          <span>Paid plans and limits will be published before billing opens.</span>
+        </header>
+        <article class="pricing-card">
+          <div><p>EARLY ACCESS</p><h2>Free during preview.</h2><span>Explore the workspace while the product is being prepared for public access.</span></div>
+          <ul><li>Documents</li><li>Files</li><li>Design, video and audio workspace</li><li>Translation workspace</li></ul>
+          <button class="primary-button" data-viewjump="workspace">Open Nasha</button>
         </article>
+        <p class="pricing-note">No payment is requested in this preview.</p>
       </div>
-      <p class="pricing-note">No payment is requested in this preview.</p>
     </section>
   </main>
 
-  <aside class="drawer" id="historyDrawer" aria-hidden="true">
-    <div class="drawer-head"><div><span>History</span><strong>Recent work</strong></div><button class="drawer-close" data-close="historyDrawer">×</button></div>
-    <div class="history-list" id="historyList"></div>
-    <button class="clear-history" id="clearHistory">Clear history</button>
+  <aside class="drawer" id="recentDrawer" aria-hidden="true">
+    <div class="drawer-head"><div><small>RECENT</small><strong>Recent work</strong></div><button data-close aria-label="Close">×</button></div>
+    <div class="drawer-content" id="recentList"></div>
+    <button class="drawer-footer-button" id="clearRecent">Clear recent</button>
   </aside>
 
   <aside class="drawer" id="settingsDrawer" aria-hidden="true">
-    <div class="drawer-head"><div><span>Account</span><strong>Settings</strong></div><button class="drawer-close" data-close="settingsDrawer">×</button></div>
-    <div class="settings-block">
+    <div class="drawer-head"><div><small>ACCOUNT</small><strong>Settings</strong></div><button data-close aria-label="Close">×</button></div>
+    <div class="settings-form">
       <label>Display name<input id="displayName" placeholder="Your name" autocomplete="name"></label>
       <label>Language<select id="languageSetting"><option>English</option><option>العربية</option><option>Deutsch</option><option>Français</option></select></label>
     </div>
-    <button class="save-settings" id="saveSettings">Save settings</button>
+    <button class="primary-button settings-save" id="saveSettings">Save settings</button>
   </aside>
 
   <div class="backdrop" id="backdrop"></div>
 
-  <nav class="mobile-nav" aria-label="Mobile navigation">
+  <nav class="mobile-site-nav" aria-label="Mobile navigation">
     <button data-view="home" class="active">Home</button>
     <button data-view="discover">Explore</button>
-    <button data-view="workspace">App</button>
-    <button data-view="files">Files</button>
+    <button data-view="workspace">Workspace</button>
+    <button data-view="pricing">Pricing</button>
   </nav>
 
   <div class="legal-modal" id="legalModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
     <div class="legal-card">
       <button class="legal-close" id="legalClose" aria-label="Close">×</button>
-      <p class="eyebrow" id="legalEyebrow">Nasha</p>
+      <p>Nasha</p>
       <h2 id="legalTitle">Privacy</h2>
       <div id="legalBody"></div>
     </div>
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
   <script src="./app.js"></script>
 </body>
 </html>
