@@ -735,3 +735,135 @@ body{font-size:13px;line-height:1.45}
   .tool-form h2,.voice-head h2,.translate-head h2{font-size:17px}
   .price-card h3{font-size:24px}
 }
+/* Balanced type scale */
+body{font-size:15px;line-height:1.55}
+.topbar{height:70px}
+.logo-type{font-size:18px}
+.logo-mark{width:30px;height:30px;font-size:14px}
+.desktop-nav button,.ghost{font-size:12px}
+.dark,.primary-cta{font-size:11.5px;padding:10px 16px}
+.brand-pill{font-size:9.5px}
+
+.hero{padding:74px 44px 70px;gap:64px}
+.hero h1{
+  font-size:clamp(46px,4.6vw,58px);
+  line-height:1;
+  letter-spacing:-.042em;
+  max-width:640px;
+}
+.sub{font-size:14.5px;line-height:1.65;max-width:540px;margin-top:24px}
+.hero-actions{margin-top:28px}
+.text-cta{font-size:10.5px}
+.micro-proof{font-size:9.5px;margin-top:21px}
+.hero-stage{min-height:470px}
+.showcase{width:92%}
+.showcase-body{height:375px}
+.mini-canvas{padding:38px 34px}
+.mini-canvas h3{font-size:22px}
+.demo-input{height:52px;font-size:10.5px}
+.demo-card{min-height:108px}
+.demo-card b{font-size:10.5px}
+.demo-card span{font-size:8px}
+
+.brand-strip{font-size:10px;padding-top:19px;padding-bottom:19px}
+.story{padding-top:84px;padding-bottom:84px}
+.story-intro{margin-bottom:42px}
+.story-intro h2,.brand-system h2{
+  font-size:clamp(30px,2.9vw,38px);
+  line-height:1.1;
+}
+.story-card{padding:22px}
+.story-main{min-height:515px}
+.story-card h3{font-size:19px;line-height:1.28}
+.story-card p{font-size:11.5px}
+.conversation-preview{margin-top:54px;padding:25px}
+.poster-preview strong{font-size:27px}
+.brand-system{padding-top:72px;padding-bottom:72px}
+.brand-board{min-height:315px}
+.ink-tile span{font-size:92px}
+.brand-tile b{font-size:14px}
+.ink-tile b{font-size:19px}
+
+.closing{padding-top:72px;padding-bottom:82px}
+.closing-mark{width:46px;height:46px;font-size:20px}
+.closing h2{font-size:clamp(32px,3.4vw,40px)}
+.closing p{font-size:12px}
+.site-footer{padding-top:23px;padding-bottom:27px}
+
+.page-head{padding-top:66px;padding-bottom:42px}
+.page-head h1{
+  font-size:clamp(32px,3.6vw,42px);
+  line-height:1.1;
+}
+.page-head>p:last-child{font-size:12px}
+.discover-list button{padding-top:21px;padding-bottom:21px}
+.discover-list h3{font-size:17px}
+.discover-list p{font-size:10.5px}
+.discover-list span{font-size:8.5px}
+
+.workspace-shell{min-height:calc(100vh - 70px)}
+.workspace-top{height:56px;font-size:10.5px}
+.workspace-nav button{font-size:10.5px}
+.smart-button{font-size:9.5px}
+.tool-panel{padding-top:38px}
+.chat-empty{padding-top:50px}
+.chat-brandmark{width:42px;height:42px;font-size:14px}
+.chat-empty>p{font-size:22px}
+.chat-note{font-size:9.5px}
+.starter-row button{font-size:8.5px}
+.bubble{font-size:12px}
+.composer textarea{font-size:13px}
+.send,.black-button,.translate-action{font-size:9.5px}
+
+.tool-form h2,.voice-head h2,.translate-head h2{font-size:21px}
+.tool-form textarea,.translate-grid textarea{font-size:12.5px}
+.inline-fields select,.translate-grid select{font-size:10.5px}
+.voice-options strong{font-size:13.5px}
+.voice-options span{font-size:9.5px}
+
+.upload-box strong{font-size:15px}
+.upload-box span{font-size:9.5px}
+.upload-box button{font-size:9px}
+.file-shortcuts span{font-size:8.5px}
+
+.plan-name{font-size:9px}
+.price-card h3{font-size:30px}
+.price-card h3 small{font-size:10px}
+.price-card p,.price-card li{font-size:10px}
+.price-card button{font-size:9px}
+.pricing-note{font-size:8px}
+
+.drawer-head strong{font-size:17px}
+.settings-block label{font-size:9px}
+.settings-block input,.settings-block select{font-size:10.5px}
+.usage-card strong{font-size:19px}
+
+@media(max-width:980px){
+  .hero h1{font-size:50px}
+  .sub{font-size:14px}
+  .story-card h3{font-size:18px}
+}
+@media(max-width:650px){
+  body{font-size:14px}
+  .topbar{height:64px}
+  .logo-type{font-size:17px}
+  .hero{padding-top:42px;padding-bottom:50px}
+  .hero h1{font-size:34px;line-height:1.05}
+  .sub{font-size:12.5px}
+  .primary-cta{font-size:10.5px}
+  .text-cta{font-size:9.5px}
+  .micro-proof{font-size:8.5px}
+  .hero-stage{min-height:300px}
+  .showcase-body{height:255px}
+  .mini-canvas{padding:24px 17px}
+  .mini-canvas h3{font-size:17px}
+  .story-intro h2,.brand-system h2{font-size:27px}
+  .story-card h3{font-size:17px}
+  .story-card p{font-size:10.5px}
+  .closing h2{font-size:30px}
+  .page-head h1{font-size:30px}
+  .page-head>p:last-child{font-size:11px}
+  .chat-empty>p{font-size:20px}
+  .tool-form h2,.voice-head h2,.translate-head h2{font-size:19px}
+  .price-card h3{font-size:27px}
+}
