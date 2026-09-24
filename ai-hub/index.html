@@ -42,7 +42,7 @@
     <section class="view active" id="homeView">
       <section class="hero">
         <div class="hero-copy">
-          <div class="eyebrow-pill"><i data-lucide="boxes" class="icon"></i><span>One workspace for the work that matters</span></div>
+          <div class="eyebrow-pill"><i data-lucide="sparkles" class="icon"></i><span>One workspace for the work that matters</span></div>
           <h1>Everything you make,<br><em>in one place.</em></h1>
           <p>Write documents, shape visuals, prepare video and audio, translate content, and keep your files together without jumping between tools.</p>
           <div class="hero-actions">
@@ -172,9 +172,10 @@
       <div class="app-shell">
         <aside class="app-sidebar">
           <div class="app-brand"><span class="brand-mark">N</span><strong>Nasha</strong></div>
-          <button class="new-button" id="newDocumentBtn"><i data-lucide="plus" class="icon"></i><span>New document</span></button>
+          <button class="new-button" id="newChatBtn"><i data-lucide="plus" class="icon"></i><span>New chat</span></button>
           <p class="nav-label">Workspace</p>
           <button class="app-nav active" data-tool="overview"><i data-lucide="house" class="icon"></i><span>Home</span></button>
+          <button class="app-nav" data-tool="chat"><i data-lucide="sparkles" class="icon"></i><span>Chat</span></button>
           <button class="app-nav" data-tool="documents"><i data-lucide="file-text" class="icon"></i><span>Documents</span></button>
           <button class="app-nav" data-tool="design"><i data-lucide="palette" class="icon"></i><span>Design</span></button>
           <button class="app-nav" data-tool="video"><i data-lucide="video" class="icon"></i><span>Video</span></button>
@@ -200,6 +201,7 @@
 
           <nav class="app-mobile-tabs" aria-label="Workspace sections">
             <button class="active" data-tool="overview">Home</button>
+            <button data-tool="chat">Chat</button>
             <button data-tool="documents">Docs</button>
             <button data-tool="design">Design</button>
             <button data-tool="video">Video</button>
@@ -210,10 +212,11 @@
 
           <section class="tool-panel active overview-panel" id="overviewTool">
             <div class="overview-head">
-              <div><p>YOUR WORKSPACE</p><h1>Pick up where you left off.</h1><span>Start something new or continue your recent work.</span></div>
-              <button class="primary-button" id="overviewNewDocument">New document</button>
+              <div><p>YOUR WORKSPACE</p><h1>Pick up where you left off.</h1><span>Start a conversation, create a document or continue recent work.</span></div>
+              <div class="overview-actions"><button class="secondary-button" id="overviewNewDocument">New document</button><button class="primary-button" id="overviewNewChat">New chat</button></div>
             </div>
             <div class="quick-grid">
+              <button data-tool="chat"><span><i data-lucide="sparkles" class="icon"></i></span><strong>Chat</strong><small>Ask, compare and think through work</small></button>
               <button data-tool="documents"><span><i data-lucide="file-text" class="icon"></i></span><strong>Document</strong><small>Notes, briefs and drafts</small></button>
               <button data-tool="design"><span><i data-lucide="palette" class="icon"></i></span><strong>Design</strong><small>Visuals and concepts</small></button>
               <button data-tool="video"><span><i data-lucide="video" class="icon"></i></span><strong>Video</strong><small>Short-form projects</small></button>
@@ -231,9 +234,78 @@
             </div>
           </section>
 
+
+          <section class="tool-panel chat-panel" id="chatTool">
+            <div class="chat-shell">
+              <header class="chat-head">
+                <div>
+                  <p>CHAT</p>
+                  <h2 id="chatTitle">New conversation</h2>
+                </div>
+                <div class="model-control">
+                  <span class="model-label">Model</span>
+                  <button class="model-picker" id="modelPicker" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="model-dot"></span>
+                    <span class="model-picker-copy"><strong id="modelName">Auto</strong><small id="modelProvider">Best model for the task</small></span>
+                    <i data-lucide="chevron-down" class="icon model-chevron"></i>
+                  </button>
+                  <div class="model-menu" id="modelMenu" role="listbox" aria-label="Choose a model">
+                    <button type="button" data-model="auto" data-name="Auto" data-provider="Best model for the task">
+                      <span class="model-option-icon">A</span><span><strong>Auto</strong><small>Routes each request to the best fit</small></span><b>Recommended</b>
+                    </button>
+                    <button type="button" data-model="openai" data-name="OpenAI" data-provider="OpenAI models">
+                      <span class="model-option-icon">O</span><span><strong>OpenAI</strong><small>General reasoning, writing and coding</small></span>
+                    </button>
+                    <button type="button" data-model="claude" data-name="Claude" data-provider="Anthropic models">
+                      <span class="model-option-icon">C</span><span><strong>Claude</strong><small>Long-form work and careful analysis</small></span>
+                    </button>
+                    <button type="button" data-model="gemini" data-name="Gemini" data-provider="Google models">
+                      <span class="model-option-icon">G</span><span><strong>Gemini</strong><small>Multimodal work and broad context</small></span>
+                    </button>
+                    <button type="button" data-model="grok" data-name="Grok" data-provider="xAI models">
+                      <span class="model-option-icon">X</span><span><strong>Grok</strong><small>Fast general-purpose responses</small></span>
+                    </button>
+                  </div>
+                </div>
+              </header>
+
+              <div class="chat-content" id="chatContent">
+                <div class="chat-empty-state" id="chatEmpty">
+                  <span class="chat-mark">N</span>
+                  <h3>What do you want to work on?</h3>
+                  <p>Ask a question, compare ideas, plan something, or bring a file into the conversation.</p>
+                  <div class="chat-suggestions">
+                    <button type="button" data-chat-prompt="Explain a difficult idea in simple steps">Explain something</button>
+                    <button type="button" data-chat-prompt="Help me compare two options clearly">Compare options</button>
+                    <button type="button" data-chat-prompt="Turn my rough notes into a clear plan">Make a plan</button>
+                    <button type="button" data-chat-prompt="Help me improve a piece of writing">Improve writing</button>
+                  </div>
+                </div>
+                <div class="chat-stream" id="chatStream" aria-live="polite"></div>
+              </div>
+
+              <div class="chat-composer-wrap">
+                <div class="chat-composer">
+                  <textarea id="chatInput" rows="1" maxlength="12000" placeholder="Message Nasha..." aria-label="Message"></textarea>
+                  <div class="chat-composer-bottom">
+                    <div class="chat-composer-actions">
+                      <button type="button" id="chatAttach" aria-label="Attach files"><i data-lucide="paperclip" class="icon"></i></button>
+                      <span id="activeModelMini">Auto</span>
+                    </div>
+                    <span class="chat-hint">Enter to send · Shift + Enter for a new line</span>
+                    <button class="chat-send" id="chatSend" type="button" aria-label="Send message"><i data-lucide="arrow-up" class="icon"></i></button>
+                  </div>
+                </div>
+                <small class="chat-disclaimer">Nasha can make mistakes. Check important information.</small>
+              </div>
+            </div>
+          </section>
+
           <section class="tool-panel document-panel" id="documentsTool">
             <div class="document-toolbar" role="toolbar" aria-label="Document formatting">
               <div>
+                <button id="newDocumentBtn" type="button">New</button>
+                <i></i>
                 <button data-command="bold" aria-label="Bold"><strong>B</strong></button>
                 <button data-command="italic" aria-label="Italic"><em>I</em></button>
                 <button data-command="formatBlock" data-value="h2">Heading</button>
@@ -289,7 +361,7 @@
             <div class="audio-grid">
               <button data-audio-action="Voiceover"><span><i data-lucide="mic" class="icon"></i></span><strong>Voiceover</strong><small>Turn written copy into narration.</small><b>→</b></button>
               <button data-audio-action="Transcription"><span><i data-lucide="file-text" class="icon"></i></span><strong>Transcription</strong><small>Turn recordings into clean text.</small><b>→</b></button>
-              <button data-audio-action="Audio notes"><span><i data-lucide="boxes" class="icon"></i></span><strong>Audio notes</strong><small>Pull useful points from a recording.</small><b>→</b></button>
+              <button data-audio-action="Audio notes"><span><i data-lucide="sparkles" class="icon"></i></span><strong>Audio notes</strong><small>Pull useful points from a recording.</small><b>→</b></button>
             </div>
           </section>
 
