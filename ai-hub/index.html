@@ -5,7 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#F6F4EF">
   <title>Nasha — Make more happen</title>
-  <meta name="description" content="Create, learn, write, translate, work with files and get things done from one place.">
+  <meta name="description" content="Create, learn, write, translate and work with files from one focused workspace.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Nasha — Make more happen">
+  <meta property="og:description" content="One focused workspace for writing, creating, translating and working with files.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://master-pi-six.vercel.app/ai-hub/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nasha — Make more happen">
+  <meta name="twitter:description" content="One focused workspace for writing, creating, translating and working with files.">
   <link rel="icon" href="./nasha-mark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +21,7 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
   <header class="topbar">
     <a href="#" class="logo" data-viewjump="home" aria-label="Nasha home">
       <span class="logo-mark">N</span>
@@ -30,11 +39,11 @@
     <div class="top-actions">
       <button class="ghost" id="historyOpen">History</button>
       <button class="dark" data-viewjump="workspace">Get started</button>
-      <button class="account-pill" id="settingsOpen" aria-label="Open settings">A</button>
+      <button class="account-pill" id="settingsOpen" aria-label="Open settings">N</button>
     </div>
   </header>
 
-  <main>
+  <main id="mainContent">
     <section class="view active" id="homeView">
       <div class="hero">
         <div class="hero-copy">
