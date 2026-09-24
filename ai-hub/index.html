@@ -28,16 +28,14 @@
       <span class="logo-type">Nasha</span>
     </a>
 
-    <nav class="desktop-nav">
+    <nav class="desktop-nav" aria-label="Main navigation">
       <button data-view="home" class="active">Home</button>
-      <button data-view="discover">Explore</button>
-      <button data-view="workspace">Workspace</button>
-      <button data-view="files">Files</button>
+      <button data-view="discover">What you can do</button>
       <button data-view="pricing">Pricing</button>
     </nav>
 
     <div class="top-actions">
-      <button class="ghost" id="historyOpen">History</button>
+      <button class="ghost" data-viewjump="workspace">Open app</button>
       <button class="dark" data-viewjump="workspace">Get started</button>
       <button class="account-pill" id="settingsOpen" aria-label="Open settings">N</button>
     </div>
@@ -221,7 +219,12 @@
     <section class="view" id="workspaceView">
       <div class="workspace-shell">
         <aside class="workspace-nav">
-          <div class="workspace-brand">N</div>
+          <div class="workspace-brand-row">
+            <div class="workspace-brand">N</div>
+            <strong>Nasha</strong>
+          </div>
+          <button class="new-chat" id="newChatBtn"><span>＋</span>New chat</button>
+          <div class="workspace-section-label">Tools</div>
           <button class="active" data-tool="chat"><span>⌁</span>Chat</button>
           <button data-tool="image"><span>□</span>Image</button>
           <button data-tool="video"><span>▶</span>Video</button>
@@ -236,28 +239,44 @@
 
         <div class="workspace-main">
           <div class="workspace-top">
-            <div><span class="workspace-dot"></span><span id="workspaceTitle">Chat</span></div>
-            <button id="modelPicker" class="smart-button">Smart mode <span>⌄</span></button>
+            <div class="workspace-title-wrap"><span class="workspace-dot"></span><span id="workspaceTitle">Chat</span></div>
+            <div class="workspace-top-actions">
+              <span class="smart-status">Smart mode</span>
+              <button class="icon-action" id="topHistory" aria-label="Open history">↺</button>
+              <button class="icon-action" id="topSettings" aria-label="Open settings">⚙</button>
+            </div>
+          </div>
+
+          <div class="mobile-toolbar" aria-label="Workspace tools">
+            <button class="active" data-tool="chat">Chat</button>
+            <button data-tool="image">Image</button>
+            <button data-tool="video">Video</button>
+            <button data-tool="voice">Voice</button>
+            <button data-tool="translate">Translate</button>
           </div>
 
           <div class="tool-panel active" id="chatTool">
             <div class="chat-empty" id="chatEmpty">
               <div class="chat-brandmark">N</div>
-              <p>What do you want to do?</p>
-              <span class="chat-note">Start with the outcome. Nasha will take care of the rest.</span>
-              <div class="starter-row">
-                <button data-prompt="Explain this simply">Explain</button>
-                <button data-prompt="Help me write this better">Write</button>
-                <button data-prompt="Help me plan this">Plan</button>
-                <button data-prompt="Research this topic">Research</button>
+              <p>What are you working on?</p>
+              <span class="chat-note">Ask a question, draft something, plan a task, or start with a file.</span>
+              <div class="starter-grid">
+                <button data-prompt="Explain this simply"><strong>Explain something</strong><span>Break a topic down clearly</span></button>
+                <button data-prompt="Help me write this better"><strong>Write or rewrite</strong><span>Improve tone, structure and clarity</span></button>
+                <button data-prompt="Help me plan this"><strong>Make a plan</strong><span>Turn an idea into clear next steps</span></button>
+                <button data-prompt="Research this topic"><strong>Research a topic</strong><span>Organize what matters first</span></button>
               </div>
             </div>
 
             <div class="chat-stream" id="chatStream"></div>
 
             <div class="composer">
-              <textarea id="promptInput" rows="2" placeholder="Ask anything"></textarea>
-              <div><button class="small-round" id="chatAttach">＋</button><button id="sendBtn" class="send">Send</button></div>
+              <textarea id="promptInput" rows="2" maxlength="8000" aria-label="Message Nasha" placeholder="Message Nasha"></textarea>
+              <div class="composer-bottom">
+                <button class="small-round" id="chatAttach" aria-label="Attach file">＋</button>
+                <span class="composer-hint">Enter to send · Shift + Enter for a new line</span>
+                <button id="sendBtn" class="send">Send</button>
+              </div>
             </div>
           </div>
 
@@ -324,7 +343,7 @@
       <div class="page-head">
         <p class="eyebrow">FILES</p>
         <h1>Bring your own material.</h1>
-        <p>Drop in a document and work with it from there.</p>
+        <p>Upload a file, then summarize it, explain it, compare it, or ask questions about it.</p>
       </div>
 
       <div class="upload-box" id="uploadBox">
@@ -348,29 +367,27 @@
         <h1>Choose the level that fits how you work.</h1>
         <p>Plans and limits will be published before paid access opens.</p>
       </div>
-      <div class="pricing-grid">
-        <article class="price-card">
-          <div><span class="plan-name">Free</span><h3>Free</h3><p>For getting started and everyday light use.</p></div>
-          <ul><li>Chat workspace</li><li>Basic file tools</li><li>Limited creative generations</li><li>Smart mode</li></ul>
-          <button data-viewjump="workspace">Start free</button>
-        </article>
-        <article class="price-card featured">
-          <div class="popular">MOST POPULAR</div>
-          <div><span class="plan-name">Plus</span><h3>Soon</h3><p>For regular study, work and creative use.</p></div>
-          <ul><li>Higher usage limits</li><li>Image, video and voice tools</li><li>Priority generations</li><li>Full file workflows</li><li>Model selection</li></ul>
-          <button disabled aria-disabled="true">Coming soon</button>
-        </article>
-        <article class="price-card">
-          <div><span class="plan-name">Pro</span><h3>Soon</h3><p>For heavy users and professionals.</p></div>
-          <ul><li>Highest usage limits</li><li>Advanced models</li><li>Longer files and context</li><li>Priority processing</li><li>Early access features</li></ul>
-          <button disabled aria-disabled="true">Coming soon</button>
+      <div class="pricing-single">
+        <article class="price-card launch-plan">
+          <div class="launch-plan-main">
+            <span class="plan-name">EARLY ACCESS</span>
+            <h3>Free while Nasha is in preview.</h3>
+            <p>Use the workspace and explore the product. Paid plans will only appear once pricing and usage limits are final.</p>
+          </div>
+          <div class="launch-plan-features">
+            <span>Chat workspace</span>
+            <span>File workspace</span>
+            <span>Creative tools preview</span>
+            <span>Smart mode</span>
+          </div>
+          <button data-viewjump="workspace">Open Nasha</button>
         </article>
       </div>
-      <p class="pricing-note">Paid plans are not open yet. Final pricing and limits will be shown here before launch.</p>
+      <p class="pricing-note">No payment is requested in this preview.</p>
     </section>
   </main>
 
-  <div class="model-menu" id="modelMenu">
+  <div class="model-menu" id="modelMenu" hidden>
     <p>Smart mode</p>
     <button data-model="Smart mode"><strong>Automatic</strong><span>Choose the best option for the task</span></button>
     <button data-model="GPT"><strong>GPT</strong><span>General purpose</span></button>
@@ -399,10 +416,10 @@
 
   <div class="backdrop" id="backdrop"></div>
 
-  <nav class="mobile-nav">
+  <nav class="mobile-nav" aria-label="Mobile navigation">
     <button data-view="home" class="active">Home</button>
     <button data-view="discover">Explore</button>
-    <button data-view="workspace">Create</button>
+    <button data-view="workspace">App</button>
     <button data-view="files">Files</button>
   </nav>
 
