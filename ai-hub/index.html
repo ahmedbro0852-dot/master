@@ -45,7 +45,7 @@
     <section class="view active" id="homeView">
       <div class="hero">
         <div class="hero-copy">
-          <div class="brand-pill"><span></span> One workspace, many possibilities</div>
+          <div class="brand-pill"><span>✨</span> One workspace, many possibilities</div>
           <h1>Make more.<br><em>Switch less.</em></h1>
           <p class="sub">Write, study, create, translate, work with documents and move between ideas without jumping across apps.</p>
 
@@ -55,7 +55,7 @@
           </div>
 
           <div class="micro-proof">
-            <span>For study</span><i></i><span>For work</span><i></i><span>For creating</span><i></i><span>For everyday life</span>
+            <span>📚 Study</span><i></i><span>💼 Work</span><i></i><span>🎨 Create</span><i></i><span>🌍 Everyday</span>
           </div>
         </div>
 
@@ -70,10 +70,10 @@
             <div class="showcase-body">
               <div class="mini-sidebar">
                 <strong>N</strong>
-                <button class="active">⌁</button>
-                <button>□</button>
-                <button>▶</button>
-                <button>文</button>
+                <button class="active" aria-label="Documents">📝</button>
+                <button aria-label="Design">🎨</button>
+                <button aria-label="Video">🎬</button>
+                <button aria-label="Translate">🌐</button>
               </div>
               <div class="mini-canvas">
                 <span class="mini-kicker">RECENT</span>
@@ -91,7 +91,7 @@
 
       <section class="brand-strip">
         <p>Built around what you want to finish.</p>
-        <div><span>Students</span><span>Creators</span><span>Teams</span><span>Freelancers</span><span>Everyday use</span></div>
+        <div><span>🎓 Students</span><span>🎨 Creators</span><span>👥 Teams</span><span>💻 Freelancers</span><span>🌿 Everyday use</span></div>
       </section>
 
       <section class="story">
@@ -106,7 +106,7 @@
         <div class="story-grid">
           <article class="story-card story-main">
             <div class="card-top">
-              <span class="card-tag coral-tag">Think</span>
+              <span class="card-tag coral-tag">📝 Write</span>
               <span class="card-no">01</span>
             </div>
             <h3>Ask, learn and plan without changing apps.</h3>
@@ -121,7 +121,7 @@
 
           <article class="story-card visual-card">
             <div class="card-top">
-              <span class="card-tag yellow-tag">Create</span>
+              <span class="card-tag yellow-tag">🎨 Create</span>
               <span class="card-no">02</span>
             </div>
             <h3>Turn an idea into something you can see and share.</h3>
@@ -134,12 +134,12 @@
 
           <article class="story-card file-card">
             <div class="card-top">
-              <span class="card-tag mint-tag">Understand</span>
+              <span class="card-tag mint-tag">📄 Files</span>
               <span class="card-no">03</span>
             </div>
             <h3>Drop in a file. Pull out what matters.</h3>
             <div class="doc-preview">
-              <div class="doc-head"><span class="doc-icon">▤</span><div><b>Quarterly report.pdf</b><span>42 pages</span></div></div>
+              <div class="doc-head"><span class="doc-icon">📄</span><div><b>Quarterly report.pdf</b><span>42 pages</span></div></div>
               <div class="doc-line long"></div><div class="doc-line"></div><div class="doc-line short"></div>
               <div class="doc-chip">Summarize this</div>
             </div>
@@ -207,12 +207,12 @@
       </div>
 
       <div class="discover-list">
-        <button data-workspace="chat"><span>01</span><div><h3>Documents</h3><p>Write notes, briefs, plans and longer documents.</p></div><b>↗</b></button>
-        <button data-workspace="image"><span>02</span><div><h3>Design</h3><p>Create visuals for products, posts, ideas and presentations.</p></div><b>↗</b></button>
-        <button data-workspace="video"><span>03</span><div><h3>Video</h3><p>Prepare short videos and motion projects in one studio.</p></div><b>↗</b></button>
-        <button data-workspace="voice"><span>04</span><div><h3>Audio</h3><p>Voiceovers, transcription and audio notes.</p></div><b>↗</b></button>
-        <button data-viewjump="files"><span>05</span><div><h3>Work with files</h3><p>Read, summarize and understand documents.</p></div><b>↗</b></button>
-        <button data-workspace="translate"><span>06</span><div><h3>Translate</h3><p>Work between languages without leaving your workspace.</p></div><b>↗</b></button>
+        <button data-workspace="chat"><span class="explore-icon">📝</span><div><h3>Documents</h3><p>Write notes, briefs, plans and longer documents.</p></div><b>↗</b></button>
+        <button data-workspace="image"><span class="explore-icon">🎨</span><div><h3>Design</h3><p>Create visuals for products, posts, ideas and presentations.</p></div><b>↗</b></button>
+        <button data-workspace="video"><span class="explore-icon">🎬</span><div><h3>Video</h3><p>Prepare short videos and motion projects in one studio.</p></div><b>↗</b></button>
+        <button data-workspace="voice"><span class="explore-icon">🎙️</span><div><h3>Audio</h3><p>Voiceovers, transcription and audio notes.</p></div><b>↗</b></button>
+        <button data-viewjump="files"><span class="explore-icon">📁</span><div><h3>Work with files</h3><p>Read, summarize and understand documents.</p></div><b>↗</b></button>
+        <button data-workspace="translate"><span class="explore-icon">🌐</span><div><h3>Translate</h3><p>Work between languages without leaving your workspace.</p></div><b>↗</b></button>
       </div>
     </section>
 
@@ -227,16 +227,16 @@
           <button class="new-chat" id="newChatBtn"><span>＋</span>New document</button>
 
           <div class="workspace-section-label">Workspace</div>
-          <button class="active" data-tool="chat"><span>▤</span>Documents</button>
-          <button data-tool="image"><span>□</span>Design</button>
-          <button data-tool="video"><span>▷</span>Video</button>
-          <button data-tool="voice"><span>◉</span>Audio</button>
-          <button data-tool="translate"><span>文</span>Translate</button>
-          <button data-viewjump="files"><span>⌑</span>Files</button>
+          <button class="active" data-tool="chat"><span class="nav-emoji">📝</span>Documents</button>
+          <button data-tool="image"><span class="nav-emoji">🎨</span>Design</button>
+          <button data-tool="video"><span class="nav-emoji">🎬</span>Video</button>
+          <button data-tool="voice"><span class="nav-emoji">🎙️</span>Audio</button>
+          <button data-tool="translate"><span class="nav-emoji">🌐</span>Translate</button>
+          <button data-viewjump="files"><span class="nav-emoji">📁</span>Files</button>
 
           <div class="workspace-bottom">
-            <button id="workspaceHistory"><span>◷</span>Recent</button>
-            <button id="workspaceSettings"><span>⚙</span>Settings</button>
+            <button id="workspaceHistory"><span class="nav-emoji">🕘</span>Recent</button>
+            <button id="workspaceSettings"><span class="nav-emoji">⚙️</span>Settings</button>
           </div>
         </aside>
 
@@ -255,11 +255,11 @@
           </div>
 
           <div class="mobile-toolbar" aria-label="Workspace sections">
-            <button class="active" data-tool="chat">Docs</button>
-            <button data-tool="image">Design</button>
-            <button data-tool="video">Video</button>
-            <button data-tool="voice">Audio</button>
-            <button data-tool="translate">Translate</button>
+            <button class="active" data-tool="chat">📝 Docs</button>
+            <button data-tool="image">🎨 Design</button>
+            <button data-tool="video">🎬 Video</button>
+            <button data-tool="voice">🎙️ Audio</button>
+            <button data-tool="translate">🌐 Translate</button>
           </div>
 
           <div class="tool-panel active document-panel" id="chatTool">
@@ -292,7 +292,7 @@
           <div class="tool-panel studio-panel" id="imageTool">
             <div class="studio-header">
               <div>
-                <span class="workspace-kicker">DESIGN</span>
+                <span class="workspace-kicker">🎨 DESIGN</span>
                 <h2>New design</h2>
                 <p>Set up the format and direction for your visual.</p>
               </div>
@@ -307,7 +307,7 @@
                 </div>
               </div>
               <div class="studio-canvas image-output" id="imageOutput">
-                <div class="canvas-empty"><span>□</span><strong>Design canvas</strong><small>Your draft will appear here.</small></div>
+                <div class="canvas-empty"><span>🎨</span><strong>Design canvas</strong><small>Your draft will appear here.</small></div>
               </div>
             </div>
           </div>
@@ -315,7 +315,7 @@
           <div class="tool-panel studio-panel" id="videoTool">
             <div class="studio-header">
               <div>
-                <span class="workspace-kicker">VIDEO</span>
+                <span class="workspace-kicker">🎬 VIDEO</span>
                 <h2>New video</h2>
                 <p>Prepare the format, notes and visual direction.</p>
               </div>
@@ -330,7 +330,7 @@
                 </div>
               </div>
               <div class="studio-canvas video-output" id="videoOutput">
-                <div class="canvas-empty"><span>▷</span><strong>Video canvas</strong><small>Your draft will appear here.</small></div>
+                <div class="canvas-empty"><span>🎬</span><strong>Video canvas</strong><small>Your draft will appear here.</small></div>
               </div>
             </div>
           </div>
@@ -338,22 +338,22 @@
           <div class="tool-panel audio-panel" id="voiceTool">
             <div class="studio-header">
               <div>
-                <span class="workspace-kicker">AUDIO</span>
+                <span class="workspace-kicker">🎙️ AUDIO</span>
                 <h2>Audio workspace</h2>
                 <p>Choose what you want to work on.</p>
               </div>
             </div>
             <div class="audio-grid">
-              <button data-voice-action="Voiceover"><span>01</span><strong>Voiceover</strong><small>Turn written copy into narration.</small><b>→</b></button>
-              <button data-voice-action="Transcription"><span>02</span><strong>Transcription</strong><small>Turn recordings into clean text.</small><b>→</b></button>
-              <button data-voice-action="Audio notes"><span>03</span><strong>Audio notes</strong><small>Pull the useful points from a recording.</small><b>→</b></button>
+              <button data-voice-action="Voiceover"><span>🎙️</span><strong>Voiceover</strong><small>Turn written copy into narration.</small><b>→</b></button>
+              <button data-voice-action="Transcription"><span>📝</span><strong>Transcription</strong><small>Turn recordings into clean text.</small><b>→</b></button>
+              <button data-voice-action="Audio notes"><span>💡</span><strong>Audio notes</strong><small>Pull the useful points from a recording.</small><b>→</b></button>
             </div>
           </div>
 
           <div class="tool-panel translate-panel" id="translateTool">
             <div class="studio-header">
               <div>
-                <span class="workspace-kicker">TRANSLATE</span>
+                <span class="workspace-kicker">🌐 TRANSLATE</span>
                 <h2>Translation</h2>
                 <p>Work between languages in a simple side-by-side editor.</p>
               </div>
@@ -377,7 +377,7 @@
 
       <div class="upload-box" id="uploadBox">
         <input type="file" id="fileInput" hidden multiple>
-        <div class="upload-icon">＋</div>
+        <div class="upload-icon">📁</div>
         <strong>Drop files here</strong>
         <span>PDF, DOCX, PPTX, XLSX, images and more</span>
         <button id="chooseFiles">Choose files</button>
@@ -386,7 +386,7 @@
       <div class="file-queue" id="fileQueue"></div>
 
       <div class="file-shortcuts">
-        <span>Summarize</span><span>Explain</span><span>Compare</span><span>Extract</span><span>Ask questions</span>
+        <span>🧾 Summarize</span><span>💡 Explain</span><span>⚖️ Compare</span><span>📌 Extract</span><span>❓ Ask questions</span>
       </div>
     </section>
 
