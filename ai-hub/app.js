@@ -9,6 +9,7 @@ const views={
 
 const toolPanels={
   overview:$('overviewTool'),
+  chat:$('chatTool'),
   documents:$('documentsTool'),
   design:$('designTool'),
   video:$('videoTool'),
@@ -19,6 +20,7 @@ const toolPanels={
 
 const toolLabels={
   overview:'Home',
+  chat:'Chat',
   documents:'Documents',
   design:'Design',
   video:'Video',
@@ -30,6 +32,8 @@ const toolLabels={
 const recentKey='nasha-recent-v2';
 const documentKey='nasha-document-v2';
 const settingsKey='nasha-settings-v2';
+const chatKey='nasha-chat-v1';
+const modelKey='nasha-model-v1';
 
 function switchView(name){
   document.body.classList.toggle('app-view',name==='workspace');
@@ -93,6 +97,195 @@ function escapeHtml(value){
     "'":'&#39;'
   })[char]);
 }
+
+
+/* chat */
+const chatInput=$('chatInput');
+const chatStream=$('chatStream');
+const chatEmpty=$('chatEmpty');
+const chatTitle=$('chatTitle');
+const modelPicker=$('modelPicker');
+const modelMenu=$('modelMenu');
+const modelName=$('modelName');
+const modelProvider=$('modelProvider');
+const activeModelMini=$('activeModelMini');
+
+let activeModel={
+  id:'auto',
+  name:'Auto',
+  provider:'Best model for the task'
+};
+
+function getChat(){
+  try{
+    const parsed=JSON.parse(localStorage.getItem(chatKey)||'null');
+    if(parsed&&Array.isArray(parsed.messages))return parsed;
+  }catch{}
+  return {id:'chat-main',title:'New conversation',messages:[],updatedAt:null};
+}
+
+function saveChat(chat){
+  localStorage.setItem(chatKey,JSON.stringify(chat));
+  if(chat.messages.length){
+    pushRecent({
+      id:chat.id||'chat-main',
+      type:'chat',
+      title:chat.title||'Conversation',
+      detail:chat.messages[0]?.content?.slice(0,80)||'Chat',
+      updatedAt:chat.updatedAt||new Date().toISOString()
+    });
+  }
+}
+
+function renderChat(){
+  if(!chatStream)return;
+  const chat=getChat();
+  if(chatTitle)chatTitle.textContent=chat.title||'New conversation';
+  if(chatEmpty)chatEmpty.hidden=chat.messages.length>0;
+  chatStream.innerHTML=chat.messages.map(message=>{
+    const role=message.role==='user'?'user':'assistant';
+    const label=role==='user'?'You':(message.modelName||'Nasha');
+    return '<article class="chat-message '+role+'"><div class="chat-message-label">'+
+      escapeHtml(label)+'</div><div class="chat-message-body">'+
+      escapeHtml(message.content).replace(/\n/g,'<br>')+'</div></article>';
+  }).join('');
+  requestAnimationFrame(()=>{
+    const content=$('chatContent');
+    if(content)content.scrollTop=content.scrollHeight;
+  });
+}
+
+function setModel(model){
+  activeModel=model;
+  localStorage.setItem(modelKey,JSON.stringify(model));
+  if(modelName)modelName.textContent=model.name;
+  if(modelProvider)modelProvider.textContent=model.provider;
+  if(activeModelMini)activeModelMini.textContent=model.name;
+  modelMenu?.querySelectorAll('[data-model]').forEach(button=>{
+    button.classList.toggle('selected',button.dataset.model===model.id);
+  });
+}
+
+function loadModel(){
+  try{
+    const saved=JSON.parse(localStorage.getItem(modelKey)||'null');
+    if(saved?.id&&saved?.name&&saved?.provider){
+      setModel(saved);
+      return;
+    }
+  }catch{}
+  setModel(activeModel);
+}
+
+function closeModelMenu(){
+  modelMenu?.classList.remove('open');
+  modelPicker?.setAttribute('aria-expanded','false');
+}
+
+modelPicker?.addEventListener('click',event=>{
+  event.stopPropagation();
+  const open=!modelMenu?.classList.contains('open');
+  modelMenu?.classList.toggle('open',open);
+  modelPicker.setAttribute('aria-expanded',String(open));
+});
+
+modelMenu?.addEventListener('click',event=>{
+  event.stopPropagation();
+  const button=event.target.closest('[data-model]');
+  if(!button)return;
+  setModel({
+    id:button.dataset.model,
+    name:button.dataset.name,
+    provider:button.dataset.provider
+  });
+  closeModelMenu();
+});
+
+document.addEventListener('click',closeModelMenu);
+
+function newChat(){
+  const chat={
+    id:'chat-'+Date.now(),
+    title:'New conversation',
+    messages:[],
+    updatedAt:new Date().toISOString()
+  };
+  localStorage.setItem(chatKey,JSON.stringify(chat));
+  openTool('chat');
+  renderChat();
+  if(chatInput){
+    chatInput.value='';
+    resizeChatInput();
+    chatInput.focus();
+  }
+}
+
+function resizeChatInput(){
+  if(!chatInput)return;
+  chatInput.style.height='auto';
+  chatInput.style.height=Math.min(chatInput.scrollHeight,180)+'px';
+}
+
+function sendChat(text){
+  const value=String(text??chatInput?.value??'').trim();
+  if(!value)return;
+  const chat=getChat();
+  if(!chat.messages.length){
+    chat.title=value.length>52?value.slice(0,49)+'…':value;
+  }
+  chat.messages.push({
+    role:'user',
+    content:value,
+    createdAt:new Date().toISOString()
+  });
+  chat.updatedAt=new Date().toISOString();
+  saveChat(chat);
+
+  if(chatInput){
+    chatInput.value='';
+    resizeChatInput();
+  }
+  openTool('chat');
+  renderChat();
+
+  const pending=document.createElement('article');
+  pending.className='chat-message assistant pending';
+  pending.innerHTML='<div class="chat-message-label">'+escapeHtml(activeModel.name)+'</div><div class="chat-message-body"><span class="typing-dots"><i></i><i></i><i></i></span></div>';
+  chatStream?.appendChild(pending);
+  const content=$('chatContent');
+  if(content)content.scrollTop=content.scrollHeight;
+
+  setTimeout(()=>{
+    const latest=getChat();
+    latest.messages.push({
+      role:'assistant',
+      modelId:activeModel.id,
+      modelName:activeModel.name,
+      content:'The chat interface is ready. Live responses from '+activeModel.name+' will appear here after the provider connection is added.',
+      createdAt:new Date().toISOString()
+    });
+    latest.updatedAt=new Date().toISOString();
+    saveChat(latest);
+    renderChat();
+  },520);
+}
+
+$('chatSend')?.addEventListener('click',()=>sendChat());
+$('newChatBtn')?.addEventListener('click',newChat);
+$('overviewNewChat')?.addEventListener('click',newChat);
+$('chatAttach')?.addEventListener('click',()=>openTool('files'));
+
+chatInput?.addEventListener('input',resizeChatInput);
+chatInput?.addEventListener('keydown',event=>{
+  if(event.key==='Enter'&&!event.shiftKey){
+    event.preventDefault();
+    sendChat();
+  }
+});
+
+document.querySelectorAll('[data-chat-prompt]').forEach(button=>{
+  button.addEventListener('click',()=>sendChat(button.dataset.chatPrompt));
+});
 
 /* document */
 const documentTitle=$('documentTitle');
@@ -258,6 +451,7 @@ function renderRecent(){
       const item=items[Number(button.dataset.recentIndex)];
       closeDrawers();
       if(item?.type==='file')openTool('files');
+      else if(item?.type==='chat')openTool('chat');
       else openTool('documents');
     });
   });
@@ -494,10 +688,14 @@ document.addEventListener('keydown',event=>{
   if(event.key==='Escape'){
     closeDrawers();
     closeLegal();
+    closeModelMenu();
   }
 });
 
 loadDocument();
 loadSettings();
+loadModel();
+renderChat();
 renderRecent();
 refreshOverview();
+resizeChatInput();
