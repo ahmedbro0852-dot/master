@@ -1096,3 +1096,16 @@ body.app-view .workspace-shell{min-height:100vh}
   .quick-create{gap:8px}
   .quick-create button{min-height:112px}
 }
+.exit-app{
+  height:30px;display:inline-flex;align-items:center;gap:6px;
+  border:0;background:transparent;color:#777770;
+  padding:0 7px;border-radius:7px;font-size:9.5px
+}
+.exit-app .ui-icon{width:14px;height:14px}
+.exit-app:hover{background:#efefeb;color:#171717}
+.mobile-toolbar button .ui-icon{width:13px;height:13px}
+.mobile-toolbar button[data-viewjump="files"]{gap:5px}
+@media(max-width:650px){
+  .exit-app span{display:none}
+  .exit-app{width:30px;padding:0;justify-content:center;border:1px solid var(--line);background:#fff}
+}
