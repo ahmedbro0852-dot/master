@@ -1264,3 +1264,17 @@ body.menu-open{overflow:hidden}
   .creation-stage{min-height:360px}
   .history-drawer{width:100%;max-width:100%}
 }
+.account-avatar.has-photo,
+.top-account-button span.has-photo{
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  color:transparent!important;
+}
+.account-profile-copy{min-width:0}
+.account-profile-copy strong,.account-profile-copy small{display:block}
+.account-profile-copy button{
+  margin-top:7px;padding:0;border:0;background:transparent;
+  color:var(--green);font-size:8px;font-weight:700;
+}
+.account-profile-copy button:hover{text-decoration:underline}
