@@ -270,7 +270,7 @@
   let applying=false;
 
   function safeJSON(value,fallback){try{return JSON.parse(value) ?? fallback;}catch{return fallback;}}
-  function getPref(){return safeJSON(localStorage.getItem(PREF_KEY),{});}
+  function getPref(){return safeJSON(localStorage.getItem(PREF_KEY),{}) || {};}
   function savePref(extra){
     const prev=getPref();
     localStorage.setItem(PREF_KEY,JSON.stringify({...prev,market:state.market,language:state.language,...extra}));
