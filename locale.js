@@ -269,7 +269,7 @@
   let state={market:'EG',language:'ar',rates:{...FALLBACK_RATES},rateSource:'fallback'};
   let applying=false;
 
-  function safeJSON(value,fallback){try{return JSON.parse(value);}catch{return fallback;}}
+  function safeJSON(value,fallback){try{return JSON.parse(value) ?? fallback;}catch{return fallback;}}
   function getPref(){return safeJSON(localStorage.getItem(PREF_KEY),{});}
   function savePref(extra){
     const prev=getPref();
