@@ -78,7 +78,20 @@
     'اختار الخدمة المناسبة، ولما ترسل أول طلب هتقدر ترجع هنا لمتابعته بسهولة.':'Choose a service and your first order will appear here for easy tracking.',
     'بيانات الطلبات محفوظة على المتصفح الحالي لتسهيل المتابعة، لذلك قد لا تظهر تلقائيًا عند استخدام جهاز مختلف.':'Order data is stored in this browser for easier tracking and may not appear automatically on another device.',
     'الأكثر طلبًا':'Most requested',
-    'عروض مختارة':'Selected offers'
+    'عروض مختارة':'Selected offers',
+    'عروض مختارة بتوفير كبير':'Selected offers with great savings',
+    'تفاصيل الضمان داخل كل باقة':'Warranty details are listed in each plan',
+    'متابعة سريعة على واتساب':'Quick follow-up on WhatsApp',
+    'اختار الباقة وأرسل طلبك خلال دقائق':'Choose a plan and send your order in minutes',
+    'السعر والمدة ونوع الحساب والتفعيل موجودين قبل إرسال الطلب.':'Review price, duration, account type and activation before ordering.',
+    'تفاصيل الضمان بتظهر مع الباقة عشان تعرف حقوقك بوضوح.':'Warranty details are listed with each plan so you know your coverage.',
+    'فريق الدعم متاح على واتساب لمتابعة الطلب والاستفسارات.':'Support is available on WhatsApp for orders and questions.',
+    'كتالوج يضم أكثر من 60 خدمة بين AI وتصميم وتعليم وترفيه وVPN.':'Over 60 services for AI, design, education, entertainment and VPN.',
+    'InstaPay وVodafone Cash وBinance / USDT حسب طريقة الدفع المناسبة ليك.':'Choose the payment method that suits you: InstaPay, Vodafone Cash or Binance / USDT.',
+    'كل طلب له رقم واضح تقدر تستخدمه في المتابعة مع خدمة العملاء.':'Every order has an ID you can use to follow up with support.',
+    'عرض سنوي':'Annual offer',
+    '300 Credit + 5 يوميًا':'300 credits + 5 daily',
+    'الطلبات والبيانات في هذه الصفحة محفوظة على هذا المتصفح فقط.':'Orders and details on this page are stored only in this browser.'
   };
   const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e,a]));
 
@@ -203,7 +216,7 @@
     "المخزون منتهٍ حاليًا.":"Currently out of stock.",
     "قريبًا في MASTER STORE.":"Coming soon to MASTER STORE.",
     "فحص ملف":"File check","ملف واحد":"One file",
-    "اشتراك كامل":"Full subscription","خطة سنوية":"Annual plan","خطة شهر":"Monthly plan",
+    "اشتراك واحد":"Single subscription","بريد + كلمة مرور.":"Email and password.","اشتراك كامل":"Full subscription","خطة سنوية":"Annual plan","خطة شهر":"Monthly plan",
     "حساب Freepik":"Freepik account","كوبون شهرين":"2-month coupon",
     "عرض HMA":"HMA offer","عرض 10 أيام":"10-day offer",
     "300 Credit + 5 Credits يوميًا لمدة سنة":"300 credits + 5 daily credits for one year",
@@ -449,9 +462,13 @@
       setText('.hero-copy > p','من أدوات الذكاء الاصطناعي والتصميم للتعليم والترفيه — اختار خدمتك واطلبها بسهولة مع دعم مباشر على واتساب.','AI, design, education and entertainment subscriptions — choose your service and order easily with direct WhatsApp support.');
       const acts=document.querySelectorAll('.hero-actions a');
       if(acts[0])acts[0].textContent=en?'Browse offers':'تصفح العروض';
-      if(acts[1])acts[1].textContent=en?'Customer support':'خدمة العملاء';
+      if(acts[1]){
+        acts[1].setAttribute('aria-label',en?'WhatsApp support':'دعم واتساب');
+        acts[1].title=en?'WhatsApp support':'دعم واتساب';
+        if(!acts[1].classList.contains('whatsapp-only'))acts[1].textContent=en?'Customer support':'خدمة العملاء';
+      }
       const facts=document.querySelectorAll('.hero-facts > div');
-      if(facts[0])facts[0].innerHTML=en?'<strong>65+</strong><span>services in the catalog</span>':'<strong>+65</strong><span>خدمة في الكتالوج</span>';
+      if(facts[0])facts[0].innerHTML=en?'<strong data-catalog-count>65+</strong><span>services in the catalog</span>':'<strong data-catalog-count>+65</strong><span>خدمة في الكتالوج</span>';
       if(facts[1])facts[1].innerHTML=en?'<strong>Full warranty</strong><span>on available services</span>':'<strong>ضمان كامل</strong><span>على الخدمات المتاحة</span>';
       if(facts[2])facts[2].innerHTML=en?'<strong>Direct support</strong><span>before and after ordering</span>':'<strong>دعم مباشر</strong><span>قبل وبعد الطلب</span>';
       setText('#products .eyebrow','العروض والخدمات','Offers & services');
@@ -593,8 +610,10 @@
         if(/^[A-Z]{2}$/.test(text))country=text;
       }
     }catch(_){}
+    const latest=getPref();
+    if(latest.manualMarket&&MARKETS[latest.market])return;
     state.market=marketFromCountry(country);
-    if(!pref.language){
+    if(!latest.language){
       state.language=state.market==='INTL'?'en':'ar';
     }
     savePref({manualMarket:false,detectedAt:Date.now()});

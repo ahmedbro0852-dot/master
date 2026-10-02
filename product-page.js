@@ -322,10 +322,23 @@
       if(price)price.textContent=MasterStore.planMoney(plan);
     });
     renderDetails();
+    const back=root.querySelector('.back-link');
+    if(back)back.textContent=ui('← كل المنتجات','← All products');
+    const buy=document.getElementById('buyBtn');
+    if(buy)buy.textContent=ui('اطلب الباقة','Order this plan');
+    refreshCheckoutTotal();
     updateProductMetadata();
     Locale?.apply();
   }
   document.addEventListener('masterstore:localechange',refreshLocalizedProductPrices);
+
+  function refreshCheckoutTotal(){
+    const form=checkoutContent.querySelector('#checkoutForm');
+    if(!form)return;
+    const total=checkoutContent.querySelector('.checkout-summary strong');
+    const quantity=Number(form.elements.quantity.value)||1;
+    total.textContent=ui('الإجمالي: ','Total: ')+MasterStore.formatCurrency(MasterStore.planAmount(selectedPlan())*quantity,MasterStore.getMarket().currency);
+  }
 
   document.getElementById('buyBtn')?.addEventListener('click',()=>{
     const plan=selectedPlan();
@@ -349,6 +362,8 @@
       '</form>';
 
     Locale?.apply();
+    refreshCheckoutTotal();
+    checkoutContent.querySelector('[name=quantity]').addEventListener('change',refreshCheckoutTotal);
     dialog.showModal();
     checkoutContent.querySelector('.dialog-close').onclick=()=>dialog.close();
 

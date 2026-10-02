@@ -14,7 +14,7 @@
     const date=new Date(o.createdAt);
     const follow='https://wa.me/201500950624?text='+encodeURIComponent('متابعة طلب MASTER STORE رقم '+o.id);
     const statusRaw=o.status||'بانتظار التأكيد';
-    const statusText=en()?(Locale?.t?.(statusRaw)||statusRaw):statusRaw;
+    const statusText=statusRaw==='بانتظار التأكيد'?ui('بانتظار التأكيد','Pending confirmation'):statusRaw;
     return '<article class="order-card">'+
       '<div class="order-top"><div><small>'+ui('رقم الطلب','Order ID')+'</small><b>'+Store.escapeHtml(o.id)+'</b></div><span class="status soon">'+Store.escapeHtml(statusText)+'</span></div>'+
       '<h3>'+Store.escapeHtml(o.product)+'</h3>'+
@@ -92,6 +92,12 @@
   render();
   document.addEventListener('masterstore:localechange',()=>{
     render();
-    if(profileDialog?.open)renderDialog();
+    if(profileDialog?.open){
+      const form=profileDialog.querySelector('#profileForm');
+      const draft=Object.fromEntries(new FormData(form));
+      renderDialog();
+      const updated=profileDialog.querySelector('#profileForm');
+      ['name','phone','email'].forEach(key=>{updated.elements[key].value=draft[key]||'';});
+    }
   });
 })();
