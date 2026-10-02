@@ -188,13 +188,13 @@ const products = [
     "description": "حساب Grok جاهز لمدة قصيرة بسعر عرض.",
     "plans": [
       {
-        "name": "عرض 10 أيام",
+        "name": "اشتراك واحد",
         "duration": "10 أيام",
-        "price": 220,
+        "price": 240,
         "oldPrice": 250,
         "activation": "بريد + كلمة مرور.",
         "account": "حساب جاهز",
-        "warranty": "ضمان كامل"
+        "warranty": "5 أيام"
       }
     ]
   },
