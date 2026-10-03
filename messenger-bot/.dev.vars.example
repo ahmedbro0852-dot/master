@@ -1,6 +1,4 @@
-OPENAI_API_KEY=replace-in-cloudflare-secrets
-META_APP_SECRET=replace-in-cloudflare-secrets
-PAGE_ACCESS_TOKEN=replace-in-cloudflare-secrets
-PAGE_ID=replace-with-page-id
-VERIFY_TOKEN=generate-long-random-value
-ADMIN_TOKEN=generate-different-long-random-value
+# Set this as a Cloudflare secret. Choose a long private value.
+ADMIN_TOKEN=replace-with-a-private-admin-password
+# Optional now: add the intermediary API key when ready for testing.
+OPENAI_API_KEY=add-later-in-cloudflare-secrets
