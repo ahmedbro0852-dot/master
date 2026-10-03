@@ -173,6 +173,8 @@
     "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
   };
   const CATALOG_EXACT_EN={
+    "تسليم Gmail + كلمة المرور + بيانات التحقق الثنائي (2FA).":"Delivery: Gmail, password, and two-factor authentication (2FA) details.",
+    "حساب خاص غير مشترك":"Private, non-shared account",
     "ChatGPT Plus — بدون ضمان":"ChatGPT Plus — No warranty",
     "بدون ضمان":"No warranty",
     "طريقة التفعيل تُؤكد قبل الدفع.":"Activation method is confirmed before payment.",
