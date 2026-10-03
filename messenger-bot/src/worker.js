@@ -1,5 +1,6 @@
 import home from './dashboard.js';
 import portal from './portal.js';
+import guide from './guide.js';
 import {commerceRoute,commerceStorage} from './commerce.js';
 const enc=new TextEncoder();
 export const defaults={enabled:false,businessName:'',knowledge:'',dailyReplies:100,monthlyReplies:3000,maxOutputTokens:250,plan:'أساسية',monthlyPrice:0,setupPrice:0,currency:'EGP',status:'draft',expiresAt:'',phone:'',ownerName:'',pageId:''};
@@ -31,7 +32,7 @@ export async function generateReply(env,c,text,history=[]){const p=await provide
 export default {async fetch(req,env){
  const url=new URL(req.url),p=url.pathname;
  try{
-  if(['/','/account','/admin'].includes(p))return new Response(p==='/admin'?home:portal,{headers:{'content-type':'text/html; charset=utf-8','cache-control':'no-store','content-security-policy':"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'",'x-content-type-options':'nosniff'}});
+  if(['/','/account','/admin','/guide'].includes(p))return new Response(p==='/admin'?home:p==='/guide'?guide:portal,{headers:{'content-type':'text/html; charset=utf-8','cache-control':'no-store','content-security-policy':"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'",'x-content-type-options':'nosniff'}});
   if(p==='/health')return json({service:'messenger-client-manager',version:'2.0',adminConfigured:!!env.ADMIN_TOKEN});
   if(p.startsWith('/api/')&&req.method!=='GET'&&req.headers.get('origin')&&req.headers.get('origin')!==url.origin)return json({error:'طلب غير مسموح'},403);
   const commerce=await commerceRoute(req,env,{rpc,json,body,hmac,verifySignature,authorized,defaults});if(commerce)return commerce;
