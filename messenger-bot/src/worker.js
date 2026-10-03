@@ -32,6 +32,12 @@ export default {async fetch(req,env){
   if(p==='/')return new Response(home,{headers:{'content-type':'text/html; charset=utf-8','cache-control':'no-store','content-security-policy':"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'",'x-content-type-options':'nosniff'}});
   if(p==='/health')return json({service:'messenger-client-manager',version:'2.0',adminConfigured:!!env.ADMIN_TOKEN});
   if(p.startsWith('/api/')&&req.method!=='GET'&&req.headers.get('origin')&&req.headers.get('origin')!==url.origin)return json({error:'طلب غير مسموح'},403);
+  if(p==='/api/magic-login'&&req.method==='POST'){
+   const d=await body(req);const parts=String(d.ticket||'').split('.');const [expires,nonce,signature]=parts;
+   if(parts.length!==3||!env.ADMIN_TOKEN||!/^\d+$/.test(expires)||!validId(nonce)||Number(expires)<Date.now()||Number(expires)>Date.now()+20*60000||!await verifySignature(expires+'.'+nonce,'sha256='+signature,env.ADMIN_TOKEN))return json({error:'رابط الدخول غير صالح أو انتهت صلاحيته'},401);
+   const claim=await rpc(env,'registry','/consume-ticket',{nonce,expires:Number(expires)});if(!claim.allowed)return json({error:'رابط الدخول استُخدم بالفعل؛ استخدم كلمة الإدارة'},401);
+   return json({ok:true},200,{'set-cookie':`session=${await sessionValue(env)}; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=28800`});
+  }
   if(p==='/api/login'&&req.method==='POST'){
    const ip=req.headers.get('cf-connecting-ip')||'local';const gate=await rpc(env,'registry','/login-limit',{ip});if(!gate.allowed)return json({error:'محاولات كثيرة؛ انتظر ١٥ دقيقة'},429);
    const d=await body(req);if(!env.ADMIN_TOKEN||d.password!==env.ADMIN_TOKEN)return json({error:'كلمة الدخول غير صحيحة'},401);
@@ -83,6 +89,9 @@ export class BotState{
  constructor(ctx,env){this.ctx=ctx;this.env=env;this.s=ctx.storage;}
  async fetch(req){return this.ctx.blockConcurrencyWhile(async()=>{
   const p=new URL(req.url).pathname;const d=req.method==='POST'?await req.json():null;
+  if(p==='/consume-ticket'){
+   const tickets=(await this.s.get('usedTickets')||[]).filter(t=>t.expires>Date.now());if(tickets.some(t=>t.nonce===d.nonce))return json({allowed:false});tickets.push(d);await this.s.put('usedTickets',tickets.slice(-500));return json({allowed:true});
+  }
   if(p==='/login-limit'){
    const key='login:'+d.ip;const previous=await this.s.get(key);const now=Date.now();const v=previous&&now-previous.start<900000?previous:{start:now,count:0};v.count++;await this.s.put(key,v);return json({allowed:v.count<=10});
   }
