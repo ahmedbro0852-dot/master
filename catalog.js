@@ -5,8 +5,19 @@ const products = [
     "category": "AI Tools",
     "logo": "chatgpt",
     "status": "available",
-    "description": "تفعيل ChatGPT Plus على حساب العميل الشخصي.",
+    "description": "باقات ChatGPT Plus لمدة شهر؛ باقة 250 جنيه بدون ضمان، وباقة التفعيل على حسابك بضمان كامل.",
     "plans": [
+      {
+        "name": "ChatGPT Plus — بدون ضمان",
+        "duration": "1 شهر",
+        "price": 250,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "بدون ضمان",
+        "notes": [
+          "هذه الباقة لمدة شهر وبدون ضمان."
+        ]
+      },
       {
         "name": "ChatGPT Plus",
         "duration": "1 شهر",

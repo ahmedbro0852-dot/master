@@ -101,7 +101,7 @@
 
 
   const PRODUCT_DESC_EN={
-    "chatgpt-plus":"Activate ChatGPT Plus on the customer's personal account.",
+    "chatgpt-plus":"Monthly ChatGPT Plus plans: EGP 250 without warranty, or activation on your personal account with full warranty.",
     "gemini-pro":"Two 18-month options; the family plan adds 5 invitations. Its 1,000 monthly credits are for the main account only.",
     "claude-pro":"Activate Claude Pro on your personal account using the store's payment method.",
     "perplexity-pro":"A ready private Perplexity Pro account with full warranty under the current store offer.",
@@ -173,6 +173,11 @@
     "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
   };
   const CATALOG_EXACT_EN={
+    "ChatGPT Plus — بدون ضمان":"ChatGPT Plus — No warranty",
+    "بدون ضمان":"No warranty",
+    "طريقة التفعيل تُؤكد قبل الدفع.":"Activation method is confirmed before payment.",
+    "نوع الحساب يُؤكد قبل الدفع":"Account type is confirmed before payment",
+    "هذه الباقة لمدة شهر وبدون ضمان.":"This plan lasts one month and has no warranty.",
     "2,250 Credit شهريًا":"2,250 credits per month",
     "رصيد كود التفعيل يُؤكد قبل الدفع":"Activation-code credits are confirmed before payment",
     "الرصيد الشهري يتجدد كل دورة فوترة، ولا ينتقل الرصيد غير المستخدم للشهر التالي.":"Monthly credits reset each billing cycle; unused credits do not roll over.",
