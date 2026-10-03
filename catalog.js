@@ -5,7 +5,7 @@ const products = [
     "category": "AI Tools",
     "logo": "chatgpt",
     "status": "available",
-    "description": "باقات ChatGPT Plus لمدة شهر؛ باقة 250 جنيه بدون ضمان، وباقة التفعيل على حسابك بضمان كامل.",
+    "description": "باقات ChatGPT Plus لمدة شهر؛ حساب خاص بدون ضمان بـ250 جنيه، أو تفعيل على حسابك بضمان كامل بـ700 جنيه.",
     "plans": [
       {
         "name": "ChatGPT Plus — بدون ضمان",
@@ -21,12 +21,35 @@ const products = [
       {
         "name": "ChatGPT Plus",
         "duration": "1 شهر",
-        "price": 1100,
+        "price": 700,
         "activation": "تفعيل على حساب العميل.",
         "account": "حساب العميل الشخصي",
         "warranty": "ضمان كامل",
         "notes": [
           "لا يتم تخزين بيانات دخولك داخل الموقع."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "chatgpt-teachers-k12",
+    "name": "ChatGPT للمعلمين K12",
+    "category": "AI Tools",
+    "logo": "chatgpt",
+    "status": "available",
+    "description": "باقة ChatGPT مخصصة للمعلمين K12 لمدة سنتين بـ5000 جنيه، بدون ضمان.",
+    "plans": [
+      {
+        "name": "ChatGPT للمعلمين K12 — بدون ضمان",
+        "planType": "K12 Teachers",
+        "duration": "24 شهر",
+        "price": 5000,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "بدون ضمان",
+        "notes": [
+          "الباقة مخصصة للمعلمين K12؛ شروط الأهلية والتفعيل تُؤكد قبل الدفع.",
+          "مدة الباقة سنتان وبدون ضمان."
         ]
       }
     ]

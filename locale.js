@@ -101,7 +101,8 @@
 
 
   const PRODUCT_DESC_EN={
-    "chatgpt-plus":"Monthly ChatGPT Plus plans: EGP 250 without warranty, or activation on your personal account with full warranty.",
+    "chatgpt-teachers-k12":"A ChatGPT plan for K12 teachers lasting two years at EGP 5,000, without warranty.",
+    "chatgpt-plus":"Monthly ChatGPT Plus plans: a private account at EGP 250 without warranty, or activation on your own account at EGP 700 with full warranty.",
     "gemini-pro":"Two 18-month options; the family plan adds 5 invitations. Its 1,000 monthly credits are for the main account only.",
     "claude-pro":"Activate Claude Pro on your personal account using the store's payment method.",
     "perplexity-pro":"A ready private Perplexity Pro account with full warranty under the current store offer.",
@@ -173,6 +174,10 @@
     "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
   };
   const CATALOG_EXACT_EN={
+    "ChatGPT للمعلمين K12":"ChatGPT for K12 Teachers",
+    "ChatGPT للمعلمين K12 — بدون ضمان":"ChatGPT for K12 Teachers — No warranty",
+    "الباقة مخصصة للمعلمين K12؛ شروط الأهلية والتفعيل تُؤكد قبل الدفع.":"This plan is for K12 teachers; eligibility and activation requirements are confirmed before payment.",
+    "مدة الباقة سنتان وبدون ضمان.":"The plan lasts two years and has no warranty.",
     "تسليم Gmail + كلمة المرور + بيانات التحقق الثنائي (2FA).":"Delivery: Gmail, password, and two-factor authentication (2FA) details.",
     "حساب خاص غير مشترك":"Private, non-shared account",
     "ChatGPT Plus — بدون ضمان":"ChatGPT Plus — No warranty",
