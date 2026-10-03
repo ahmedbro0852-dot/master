@@ -158,8 +158,30 @@ const products = [
         "price": 4600,
         "activation": "تفعيل على حسابك عبر كود استرداد.",
         "account": "حساب العميل الشخصي",
-        "warranty": "6 شهور"
+        "warranty": "6 شهور",
+        "officialPrice": {
+          "amount": 336,
+          "currency": "USD",
+          "months": 12,
+          "source": "https://runwayml.com/pricing",
+          "checkedAt": "2026-10-03",
+          "basis": "annual"
+        },
+        "credits": "2,250 Credit شهريًا",
+        "notes": [
+          "الرصيد الشهري يتجدد كل دورة فوترة، ولا ينتقل الرصيد غير المستخدم للشهر التالي."
+        ]
       }
+    ],
+    "features": [
+      "إنشاء الفيديو والصور بالذكاء الاصطناعي",
+      "رصيد 2,250 Credit يتجدد شهريًا",
+      "رفع دقة الفيديو إلى 4K"
+    ],
+    "featuresEn": [
+      "AI video and image generation",
+      "2,250 credits refreshed each month",
+      "4K video upscaling"
     ]
   },
   {
@@ -1075,8 +1097,33 @@ const products = [
         "price": 6000,
         "activation": "تفعيل على حسابك الشخصي عبر كود تفعيل.",
         "account": "حساب العميل الشخصي",
-        "warranty": "يُؤكد قبل الدفع"
+        "warranty": "يُؤكد قبل الدفع",
+        "officialPrice": {
+          "amount": 204,
+          "currency": "USD",
+          "months": 12,
+          "source": "https://manus.im/blog/best-ai-app-builders",
+          "checkedAt": "2026-10-03",
+          "basis": "entry-reference",
+          "monthlyEquivalent": 17,
+          "referenceCredits": 4000
+        },
+        "credits": "رصيد كود التفعيل يُؤكد قبل الدفع",
+        "notes": [
+          "مرجع المقارنة هو خطة Manus Pro الأساسية: 4,000 Credit شهريًا، بسعر معلن 17 دولارًا شهريًا عند الدفع السنوي؛ الإجمالي المحسوب 204 دولارات.",
+          "اسم Pro يشمل مستويات رصيد مختلفة؛ رصيد كود المتجر يُؤكد قبل الدفع."
+        ]
       }
+    ],
+    "features": [
+      "البحث المتقدم وجمع المعلومات",
+      "إنشاء مواقع وعروض تقديمية",
+      "تنفيذ مهام متعددة الخطوات"
+    ],
+    "featuresEn": [
+      "Advanced research and information gathering",
+      "Website and presentation creation",
+      "Multi-step task execution"
     ]
   },
   {

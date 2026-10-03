@@ -98,7 +98,7 @@
   }
 
   function savingMoney(plan){
-    if(!plan||!plan.oldPrice||Number(plan.oldPrice)<=Number(plan.price))return '';
+    if(!plan||(!plan.oldPrice&&!plan.officialPrice))return '';
     const saving=Store.planAmount(plan,'oldPrice')-Store.planAmount(plan);
     return saving>0?Store.formatCurrency(saving,Store.getMarket().currency):'';
   }
@@ -147,7 +147,7 @@
       : '<button class="card-btn disabled" type="button" disabled>'+esc(status)+'</button>';
 
     const saveText=active&&plan?savingMoney(plan):'';
-    const saveBadge=saveText?'<span class="card-saving">'+ui('وفر','Save')+' '+esc(saveText)+'</span>':'';
+    const saveBadge=saveText?'<span class="card-saving">'+(plan.officialPrice?.basis==='entry-reference'?ui('فرق عن الخطة الأساسية','Vs entry plan'):ui('وفر','Save'))+' '+esc(saveText)+'</span>':'';
 
     return '<article class="product-card light-card" data-product-id="'+esc(product.id)+'" data-category="'+esc(product.category)+'" data-search="'+esc(searchText(product))+'">'+
       '<div class="card-top">'+logoMarkup(product)+'<span class="status '+statusClass(product.status)+'">'+esc(status)+'</span></div>'+

@@ -1422,3 +1422,5 @@ footer a{min-height:36px;display:inline-flex;align-items:center}
   .plan-saving{font-size:10px!important}
 }
 
+
+.reference-note{font-size:12px;line-height:1.8;color:var(--muted);padding:12px;border:1px solid var(--line);border-radius:10px;overflow-wrap:anywhere}.reference-note a{color:var(--blue);text-decoration:underline}

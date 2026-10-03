@@ -173,6 +173,11 @@
     "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
   };
   const CATALOG_EXACT_EN={
+    "2,250 Credit شهريًا":"2,250 credits per month",
+    "رصيد كود التفعيل يُؤكد قبل الدفع":"Activation-code credits are confirmed before payment",
+    "الرصيد الشهري يتجدد كل دورة فوترة، ولا ينتقل الرصيد غير المستخدم للشهر التالي.":"Monthly credits reset each billing cycle; unused credits do not roll over.",
+    "مرجع المقارنة هو خطة Manus Pro الأساسية: 4,000 Credit شهريًا، بسعر معلن 17 دولارًا شهريًا عند الدفع السنوي؛ الإجمالي المحسوب 204 دولارات.":"Reference: entry-level Manus Pro with 4,000 monthly credits, advertised at $17/month billed annually; calculated total $204.",
+    "اسم Pro يشمل مستويات رصيد مختلفة؛ رصيد كود المتجر يُؤكد قبل الدفع.":"Pro includes multiple credit tiers; confirm the store activation-code allowance before payment.",
     "ضمان كامل":"Full warranty",
     "حساب العميل الشخصي":"Customer's personal account",
     "حساب العميل":"Customer account",
@@ -374,6 +379,12 @@
   function planAmount(plan,key){
     if(!plan)return 0;
     const k=key||'price';
+    if(k==='oldPrice'&&plan.officialPrice){
+      const ref=plan.officialPrice;
+      const amount=Number(ref.amount);
+      if(!(amount>0)||ref.currency!=='USD')return 0;
+      return Number((amount*currencyRate(currentMarket().currency)/currencyRate('USD')).toFixed(decimalCount(currentMarket().currency)));
+    }
     const table=k==='oldPrice'?plan.marketOldPrices:plan.marketPrices;
     if(table&&table[state.market]!=null){
       const amount=Number(table[state.market])||0;

@@ -100,10 +100,10 @@
   const radios=[...document.querySelectorAll('input[name="plan"]')];
 
   function planSavingMarkup(plan){
-    if(!plan||!plan.oldPrice||Number(plan.oldPrice)<=Number(plan.price))return '';
+    if(!plan||(!plan.oldPrice&&!plan.officialPrice))return '';
     const saving=MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan);
     if(saving<=0)return '';
-    return '<small class="plan-saving">'+ui('وفر','Save')+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</small>';
+    return '<small class="plan-saving">'+(plan.officialPrice?.basis==='entry-reference'?ui('فرق السعر التقديري','Estimated price difference'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</small>';
   }
 
   function selectedPlan(){
@@ -254,6 +254,7 @@
   };
 
   function subscriptionFeatures(product,plan){
+    if(product.featuresEn&&product.features)return isEn()?product.featuresEn:product.features;
     if(isEn()){
       const base=englishServiceFeatures[product.id]||englishCategoryFeatures[product.category]||englishCategoryFeatures["AI Tools"];
       const extra=plan.credits?[tr(plan.credits,'credits')]:[];
@@ -265,16 +266,27 @@
     return unique.slice(0,product.id==="gemini-pro"?20:12);
   }
 
+
+  function referenceMarkup(plan){
+    const ref=plan.officialPrice;
+    if(!ref)return '';
+    const amount=MasterStore.formatCurrency(ref.amount,'USD');
+    const basis=ref.basis==='entry-reference'
+      ? ui('مرجع أقل شريحة Pro، محسوب من 17 دولارًا × 12 شهرًا. رصيد كود المتجر يُؤكد قبل الدفع.','Entry Pro reference, calculated as $17 × 12 months. Store-code credits are confirmed before payment.')
+      : ui('سعر Pro عند الدفع السنوي: 28 دولارًا × 12 شهرًا.','Pro billed annually: $28 × 12 months.');
+    return '<p class="reference-note">'+MasterStore.escapeHtml(amount)+' — '+basis+'<br>'+ui('القيمة المحلية تقريبية حسب سعر الصرف، دون إضافة هامش المتجر. الضرائب المحلية قد تختلف.','Local equivalent is approximate at the exchange rate, without store markups. Local taxes may vary.')+'<br><a href="'+MasterStore.escapeHtml(ref.source)+'" target="_blank" rel="noopener">'+ui('المصدر الرسمي','Official source')+'</a> · '+ui('تمت المراجعة: ','Checked: ')+ref.checkedAt+'</p>';
+  }
+
   function renderDetails(){
     const plan=selectedPlan();
     if(!plan){planDetails.innerHTML='';return;}
     const notes=[...(p.notes||[]),...(plan.notes||[])];
     const features=subscriptionFeatures(p,plan);
-    const saving=plan.oldPrice&&Number(plan.oldPrice)>Number(plan.price)?MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan):0;
+    const saving=Math.max(0,(plan.oldPrice||plan.officialPrice)?MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan):0);
     planDetails.innerHTML=
       '<dl class="details-list">'+
         '<div><dt>'+ui('السعر','Price')+'</dt><dd>'+MasterStore.planMoney(plan)+'</dd></div>'+
-        (plan.oldPrice?'<div><dt>'+ui('السعر قبل العرض','Before discount')+'</dt><dd><del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>'+(saving?' <strong class="saving">'+ui('وفر','Save')+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
+        ((plan.oldPrice||plan.officialPrice)?'<div><dt>'+(plan.officialPrice?(plan.officialPrice.basis==='entry-reference'?ui('مرجع Pro الأساسي السنوي','Annual entry Pro reference'):ui('السعر الرسمي السنوي','Official annual price')):ui('السعر قبل العرض','Before discount'))+'</dt><dd><del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>'+(saving?' <strong class="saving">'+(plan.officialPrice?.basis==='entry-reference'?ui('فرق السعر التقديري','Estimated price difference'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
         '<div><dt>'+ui('نوع الباقة','Plan tier')+'</dt><dd>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+'</dd></div>'+
         '<div><dt>'+ui('المدة','Duration')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.duration||'غير محددة','duration'))+'</dd></div>'+
         '<div><dt>'+ui('نوع الاشتراك','Subscription type')+'</dt><dd>'+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</dd></div>'+
@@ -283,6 +295,7 @@
         '<div><dt>'+ui('الضمان','Warranty')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.warranty||'غير محدد','warranty'))+'</dd></div>'+
         (plan.credits?'<div><dt>'+ui('الرصيد','Credits')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.credits,'credits'))+'</dd></div>':'')+
       '</dl>'+
+      referenceMarkup(plan)+
       (notes.length?'<div class="plan-notes"><b>'+ui('ملاحظات مهمة','Important notes')+'</b><ul>'+notes.map(n=>'<li>'+MasterStore.escapeHtml(tr(n,'note'))+'</li>').join('')+'</ul></div>':'');
     planFeatures.innerHTML=features.length?'<div class="plan-features"><b>'+ui('مميزات الاشتراك','Subscription features')+'</b><ul>'+features.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'';
   }
@@ -307,7 +320,7 @@
       if(meta)meta.textContent=tr(planTier(p,plan),'planName')+' · '+tr(plan.duration||'','duration')+' · '+tr(subscriptionType(plan),'accountType');
       const oldSaving=label.querySelector('.plan-saving');
       if(oldSaving)oldSaving.remove();
-      const saving=plan.oldPrice&&Number(plan.oldPrice)>Number(plan.price)
+      const saving=(plan.oldPrice||plan.officialPrice)
         ? MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan)
         : 0;
       if(saving>0){
@@ -315,7 +328,7 @@
         if(holder){
           const badge=document.createElement('small');
           badge.className='plan-saving';
-          badge.textContent=ui('وفر','Save')+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency);
+          badge.textContent=(plan.officialPrice?.basis==='entry-reference'?ui('فرق السعر التقديري','Estimated price difference'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency);
           holder.appendChild(badge);
         }
       }
