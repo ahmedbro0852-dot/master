@@ -27,7 +27,7 @@ const products = [
     "logo": "gemini",
     "logoUrl": "https://cdn.simpleicons.org/googlegemini",
     "status": "available",
-    "description": "عرضان لمدة 18 شهر بنفس المزايا؛ الباقة العائلية تضيف 5 دعوات إضافية بجانب حساب المتحكم.",
+    "description": "عرضان لمدة 18 شهر؛ الباقة العائلية تضيف 5 دعوات إضافية، ورصيد 1,000 Credit شهريًا مخصص للحساب الرئيسي فقط.",
     "plans": [
       {
         "name": "Gemini Pro",
@@ -49,9 +49,9 @@ const products = [
         "activation": "نفس تفعيل Gemini Pro + 5 دعوات عائلية إضافية.",
         "account": "حساب المتحكم + 5 دعوات إضافية",
         "warranty": "ضمان كامل",
-        "credits": "1,000 Credit شهريًا لكل حساب",
+        "credits": "1,000 Credit شهريًا للحساب الرئيسي فقط",
         "features": [
-          "1,000 Credit شهريًا لكل حساب",
+          "1,000 Credit شهريًا للحساب الرئيسي فقط",
           "5 دعوات عائلية إضافية لاستخدام Gemini"
         ],
         "oldPrice": 18500
@@ -149,9 +149,18 @@ const products = [
     "name": "Runway Pro",
     "category": "AI Tools",
     "logo": "runway",
-    "status": "out",
-    "description": "الخدمة غير متوفرة حاليًا.",
-    "plans": []
+    "status": "available",
+    "description": "اشتراك Runway Pro لمدة 12 شهر، يُفعّل على حسابك عبر كود استرداد، بضمان 6 شهور.",
+    "plans": [
+      {
+        "name": "Runway Pro",
+        "duration": "12 شهر",
+        "price": 4600,
+        "activation": "تفعيل على حسابك عبر كود استرداد.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "6 شهور"
+      }
+    ]
   },
   {
     "id": "wink-ai",
@@ -1049,6 +1058,24 @@ const products = [
         "account": "حساب خاص — يُفضل عدم تغيير البيانات",
         "warranty": "ضمان كامل",
         "credits": "4,000 Credit شهريًا"
+      }
+    ]
+  },
+  {
+    "id": "manus-pro",
+    "name": "Manus Pro",
+    "category": "AI Tools",
+    "logo": "manus",
+    "status": "available",
+    "description": "اشتراك Manus Pro لمدة 12 شهر، يُفعّل على حسابك الشخصي عبر كود تفعيل.",
+    "plans": [
+      {
+        "name": "Manus Pro",
+        "duration": "12 شهر",
+        "price": 6000,
+        "activation": "تفعيل على حسابك الشخصي عبر كود تفعيل.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "يُؤكد قبل الدفع"
       }
     ]
   },

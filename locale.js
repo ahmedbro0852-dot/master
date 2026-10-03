@@ -32,6 +32,10 @@
 
   const DECIMALS={EGP:0,IQD:0,KWD:3,BHD:3,OMR:3,JOD:3,TND:3};
   const AUTO_PRICE_BUFFER=1.05;
+  const NON_EGYPT_PRICE_INCREASE=1.05;
+  function increaseForeignPrice(amount,currency){
+    return Number((Number(amount)*NON_EGYPT_PRICE_INCREASE).toFixed(decimalCount(currency)));
+  }
   const SYMBOLS_AR={EGP:'ج.م',LYD:'د.ل',AED:'د.إ',SAR:'ر.س',KWD:'د.ك',QAR:'ر.ق',BHD:'د.ب',OMR:'ر.ع',JOD:'د.أ',IQD:'د.ع',MAD:'د.م',DZD:'د.ج',TND:'د.ت',USD:'$'};
   const SYMBOLS_EN={EGP:'EGP',LYD:'LYD',AED:'AED',SAR:'SAR',KWD:'KWD',QAR:'QAR',BHD:'BHD',OMR:'OMR',JOD:'JOD',IQD:'IQD',MAD:'MAD',DZD:'DZD',TND:'TND',USD:'$'};
 
@@ -98,12 +102,12 @@
 
   const PRODUCT_DESC_EN={
     "chatgpt-plus":"Activate ChatGPT Plus on the customer's personal account.",
-    "gemini-pro":"Two 18-month options with the same core benefits; the family plan adds 5 extra invitations alongside the manager account.",
+    "gemini-pro":"Two 18-month options; the family plan adds 5 invitations. Its 1,000 monthly credits are for the main account only.",
     "claude-pro":"Activate Claude Pro on your personal account using the store's payment method.",
     "perplexity-pro":"A ready private Perplexity Pro account with full warranty under the current store offer.",
     "lovable-pro":"A 12-month Lovable Pro subscription.",
     "lovable-lite":"An annual Lovable plan with base credits plus daily credits.",
-    "runway-pro":"This service is currently unavailable.",
+    "runway-pro":"A 12-month Runway Pro subscription activated on your account with a redemption code, with a 6-month warranty.",
     "wink-ai":"A ready account for Wink AI tools.",
     "grok":"A short-term ready Grok account at a promotional price.",
     "gamma-plus":"A ready Gamma Plus account.",
@@ -144,6 +148,7 @@
     "discord":"Coming soon to MASTER STORE.",
     "midjourney":"This service is currently unavailable.",
     "leonardo-ai":"This service is currently unavailable.",
+    "manus-pro":"A 12-month Manus Pro subscription activated on your personal account with an activation code.",
     "manus":"An AI agent for executing tasks, research, and workflow organization.",
     "gumloop":"Automate workflows and connect AI-powered tasks.",
     "magic-patterns":"Create interfaces and digital experiences from text prompts.",
@@ -221,7 +226,9 @@
     "عرض HMA":"HMA offer","عرض 10 أيام":"10-day offer",
     "300 Credit + 5 Credits يوميًا لمدة سنة":"300 credits + 5 daily credits for one year",
     "1,000 Credit شهريًا":"1,000 credits per month",
-    "1,000 Credit شهريًا لكل حساب":"1,000 credits per month for each account",
+    "1,000 Credit شهريًا للحساب الرئيسي فقط":"1,000 credits per month for the main account only",
+    "تفعيل على حسابك عبر كود استرداد.":"Activated on your account with a redemption code.",
+    "تفعيل على حسابك الشخصي عبر كود تفعيل.":"Activated on your personal account with an activation code.",
     "20,000 Credit إجماليًا":"20,000 total credits",
     "Credits الخطة — العدد الدقيق يُؤكد قبل الدفع":"Plan credits — exact amount confirmed before payment",
     "لا يتم تخزين بيانات دخولك داخل الموقع.":"Your login credentials are not stored on this website.",
@@ -354,7 +361,8 @@
   function autoMarketAmount(value,marketCode){
     const market=MARKETS[marketCode||state.market]||MARKETS.INTL;
     if(market.code==='EG')return Number(value)||0;
-    return roundUpSmart(convertEGP(value,market.code)*AUTO_PRICE_BUFFER,market.currency);
+    const currentPrice=roundUpSmart(convertEGP(value,market.code)*AUTO_PRICE_BUFFER,market.currency);
+    return increaseForeignPrice(currentPrice,market.currency);
   }
 
   function money(value){
@@ -362,12 +370,15 @@
     return formatCurrency(autoMarketAmount(value,market.code),market.currency);
   }
 
-  // Manual country prices always win. Otherwise use live FX + 5% safety buffer + smart rounding.
+  // Increase existing non-Egypt prices by 5%, including manual prices; keep EGP unchanged.
   function planAmount(plan,key){
     if(!plan)return 0;
     const k=key||'price';
     const table=k==='oldPrice'?plan.marketOldPrices:plan.marketPrices;
-    if(table&&table[state.market]!=null) return Number(table[state.market])||0;
+    if(table&&table[state.market]!=null){
+      const amount=Number(table[state.market])||0;
+      return state.market==='EG'?amount:increaseForeignPrice(amount,currentMarket().currency);
+    }
     return autoMarketAmount(plan[k]||0,state.market);
   }
   function planMoney(plan,key){
