@@ -1,4 +1,6 @@
 import home from './dashboard.js';
+import portal from './portal.js';
+import {commerceRoute,commerceStorage} from './commerce.js';
 const enc=new TextEncoder();
 export const defaults={enabled:false,businessName:'',knowledge:'',dailyReplies:100,monthlyReplies:3000,maxOutputTokens:250,plan:'أساسية',monthlyPrice:0,setupPrice:0,currency:'EGP',status:'draft',expiresAt:'',phone:'',ownerName:'',pageId:''};
 const providerDefault={baseURL:'https://api.openai.com/v1',model:'gpt-4o-mini',outputParameter:'max_tokens'};
@@ -29,9 +31,10 @@ export async function generateReply(env,c,text,history=[]){const p=await provide
 export default {async fetch(req,env){
  const url=new URL(req.url),p=url.pathname;
  try{
-  if(p==='/')return new Response(home,{headers:{'content-type':'text/html; charset=utf-8','cache-control':'no-store','content-security-policy':"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'",'x-content-type-options':'nosniff'}});
+  if(['/','/account','/admin'].includes(p))return new Response(p==='/admin'?home:portal,{headers:{'content-type':'text/html; charset=utf-8','cache-control':'no-store','content-security-policy':"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'",'x-content-type-options':'nosniff'}});
   if(p==='/health')return json({service:'messenger-client-manager',version:'2.0',adminConfigured:!!env.ADMIN_TOKEN});
   if(p.startsWith('/api/')&&req.method!=='GET'&&req.headers.get('origin')&&req.headers.get('origin')!==url.origin)return json({error:'طلب غير مسموح'},403);
+  const commerce=await commerceRoute(req,env,{rpc,json,body,hmac,verifySignature,authorized,defaults});if(commerce)return commerce;
   if(p==='/api/magic-login'&&req.method==='POST'){
    const d=await body(req);const parts=String(d.ticket||'').split('.');const [expires,nonce,signature]=parts;
    if(parts.length!==3||!env.ADMIN_TOKEN||!/^\d+$/.test(expires)||!validId(nonce)||Number(expires)<Date.now()||Number(expires)>Date.now()+20*60000||!await verifySignature(expires+'.'+nonce,'sha256='+signature,env.ADMIN_TOKEN))return json({error:'رابط الدخول غير صالح أو انتهت صلاحيته'},401);
@@ -61,7 +64,7 @@ export default {async fetch(req,env){
    if(m&&validId(m[1])){
     const id=m[1],action=m[2];const c=await rpc(env,'registry','/client/'+id);if(!c)return json({error:'العميل غير موجود'},404);
     if(!action&&req.method==='GET')return json({...c,usage:await rpc(env,'tenant:'+id,'/usage')});
-    if(!action&&req.method==='PUT'){const d={...defaults,...await body(req),id,createdAt:c.createdAt};if(!validateClient(d))return json({error:'راجع بيانات العميل'},400);return json(await rpc(env,'registry','/client',d));}
+    if(!action&&req.method==='PUT'){const d={...defaults,...await body(req),id,ownerUserId:c.ownerUserId,createdAt:c.createdAt};if(!validateClient(d))return json({error:'راجع بيانات العميل'},400);return json(await rpc(env,'registry','/client',d));}
     if(action==='preview'&&req.method==='POST'){
      const d=await body(req);if(typeof d.text!=='string'||!d.text.trim())return json({error:'اكتب رسالة للاختبار'},400);
      if(!env.OPENAI_API_KEY)return json({error:'النظام جاهز للاختبار بعد إضافة مفتاح المزود. لن يتم إرسال شيء إلى ماسنجر.'},409);
@@ -89,6 +92,7 @@ export class BotState{
  constructor(ctx,env){this.ctx=ctx;this.env=env;this.s=ctx.storage;}
  async fetch(req){return this.ctx.blockConcurrencyWhile(async()=>{
   const p=new URL(req.url).pathname;const d=req.method==='POST'?await req.json():null;
+  const commerce=await commerceStorage(this.s,p,d,json);if(commerce)return commerce;
   if(p==='/consume-ticket'){
    const tickets=(await this.s.get('usedTickets')||[]).filter(t=>t.expires>Date.now());if(tickets.some(t=>t.nonce===d.nonce))return json({allowed:false});tickets.push(d);await this.s.put('usedTickets',tickets.slice(-500));return json({allowed:true});
   }
