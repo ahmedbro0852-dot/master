@@ -1,0 +1,6 @@
+OPENAI_API_KEY=replace-in-cloudflare-secrets
+META_APP_SECRET=replace-in-cloudflare-secrets
+PAGE_ACCESS_TOKEN=replace-in-cloudflare-secrets
+PAGE_ID=replace-with-page-id
+VERIFY_TOKEN=generate-long-random-value
+ADMIN_TOKEN=generate-different-long-random-value
