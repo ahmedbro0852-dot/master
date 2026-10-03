@@ -73,3 +73,13 @@ npm run dev
 - فشل إرسال ميتا أو غموضه يوقف المحادثة، ولا توجد إعادة إرسال تلقائية. قد يُفقد رد إذا تعطلت العملية بين إخراج المهمة من المخزن والإرسال؛ لا يوجد ضمان تسليم مرة واحدة.
 - لا توجد تنبيهات أو لوحة تفاصيل لكل الرسائل في هذه النسخة.
 - الخطة المجانية خاضعة لحدود حساب Cloudflare؛ استهلاك الوسيط مدفوع، ولا توجد ضمانة استخدام مجاني بلا حدود.
+
+## Storefront and customer accounts
+
+- `/`: public Arabic storefront; `/account`: customer dashboard; `/admin`: owner dashboard.
+- Initial editable plans: 500/1000/2000 EGP per month, setup 1500/2500/5000 EGP. These are configurable sales prices, not payment processing fees.
+- Customers register using email, phone and password (minimum 10 characters). Passwords use PBKDF2-SHA256 with individual salts and 100,000 iterations. Separate signed HttpOnly cookies isolate customer and owner sessions.
+- Subscription requests snapshot the published plan server-side. Manual owner approval creates a 30-day subscription and preserves customer ownership. Activation stays disabled until page linking is configured. No online charge is made.
+- Customer support threads are stored with each order. Owner can configure a WhatsApp contact number on the storefront settings page. Customer email is not yet verified; password reset and automated email notifications are not implemented.
+- Limits: 1,000 registered accounts, 2,000 orders, 500 businesses, 100 messages per order. Accounts and order records use separate Durable Object storage keys.
+- Run `npm test` and `node scripts/verify-runtime.mjs` to verify the bot and complete commerce flow inside the Cloudflare runtime.
