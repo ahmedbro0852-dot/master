@@ -138,7 +138,7 @@
       ? '<a class="card-btn soft-btn" aria-label="'+esc(product.name+' — '+ui('شوف الباقات','View plans'))+'" href="product.html?id='+encodeURIComponent(product.id)+'">'+ui('شوف الباقات','View plans')+' <span aria-hidden="true">'+(isEn()?'→':'←')+'</span></a>'
       : '<button class="card-btn disabled" type="button" disabled>'+esc(status)+'</button>';
     return '<article class="product-card light-card simple-service-card" aria-label="'+esc(product.name)+'" data-product-id="'+esc(product.id)+'" data-category="'+esc(product.category)+'" data-search="'+esc(searchText(product))+'">'+
-      '<div class="card-top">'+logoMarkup(product)+'</div>'+
+      '<div class="card-top">'+logoMarkup(product)+'<h3 class="service-name">'+esc(product.name)+'</h3></div>'+
       '<div class="light-meta"><strong>'+esc(price)+'</strong></div>'+
       '<div class="card-bottom light-bottom">'+action+'</div>'+
     '</article>';

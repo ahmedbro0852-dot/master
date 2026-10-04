@@ -1680,3 +1680,7 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
 .simple-service-card .card-btn{width:100%;min-height:46px}
 .simple-service-card .light-meta strong{font-variant-numeric:tabular-nums;line-height:1.5}
 @media(hover:none){.simple-service-card:hover{transform:none}}
+
+.simple-service-card .card-top{display:flex;align-items:center;gap:12px}
+.simple-service-card .service-name{font-size:16px;line-height:1.5;margin:0;min-width:0;overflow-wrap:anywhere}
+@media(max-width:700px){.simple-service-card{grid-template-columns:minmax(0,1fr) auto!important}.simple-service-card .card-top{flex-direction:row;justify-content:flex-start}.simple-service-card .product-logo{flex-shrink:0}.simple-service-card .service-name{font-size:14px}.simple-service-card .light-meta{width:auto}.simple-service-card .light-meta strong{font-size:18px}}
