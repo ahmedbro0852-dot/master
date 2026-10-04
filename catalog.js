@@ -257,7 +257,7 @@ const products = [
   },
   {
     "id": "grok",
-    "name": "Grok",
+    "name": "Super Grok",
     "category": "AI Tools",
     "logo": "grok",
     "status": "available",
@@ -321,7 +321,7 @@ const products = [
   },
   {
     "id": "elevenlabs",
-    "name": "ElevenLabs",
+    "name": "ElevenLabs Creator",
     "category": "AI Tools",
     "logo": "elevenlabs",
     "logoUrl": "https://cdn.simpleicons.org/elevenlabs",
@@ -465,7 +465,7 @@ const products = [
   },
   {
     "id": "figma",
-    "name": "Figma",
+    "name": "Figma Professional",
     "category": "التصميم",
     "logo": "figma",
     "logoUrl": "https://cdn.simpleicons.org/figma",
@@ -685,7 +685,7 @@ const products = [
   },
   {
     "id": "notion",
-    "name": "Notion",
+    "name": "Notion Plus / Business",
     "category": "الإنتاجية",
     "logo": "notion",
     "logoUrl": "https://cdn.simpleicons.org/notion",
@@ -914,7 +914,7 @@ const products = [
   },
   {
     "id": "expressvpn",
-    "name": "ExpressVPN",
+    "name": "ExpressVPN Basic",
     "category": "VPN والحماية",
     "logo": "expressvpn",
     "logoUrl": "https://cdn.simpleicons.org/expressvpn",
@@ -1235,7 +1235,7 @@ const products = [
   },
   {
     "id": "magic-patterns",
-    "name": "Magic Patterns",
+    "name": "Magic Patterns Starter",
     "category": "AI Tools",
     "logo": "magicpatterns",
     "logoUrl": "https://cdn.magicpatterns.com/uploads/aGFyTh3hH3Nc3yUbKfonCA/logo-%28gradient%29.svg",
