@@ -141,7 +141,7 @@
     "youtube":"Activate YouTube Premium on your personal account.",
     "kling":"Currently out of stock.",
     "grammarly":"Grammarly Premium with advanced writing, grammar correction, rewriting, and AI-powered assistance available in the plan.",
-    "quillbot":"A three-month QuillBot Premium subscription for EGP 500.",
+    "quillbot":"QuillBot Premium plans for 1, 3, 6, or 12 months. The annual plan costs EGP 1,200, averaging EGP 100 per month.",
     "envato":"Coming soon to MASTER STORE.",
     "motion-array":"Coming soon to MASTER STORE.",
     "suno":"Coming soon to MASTER STORE.",

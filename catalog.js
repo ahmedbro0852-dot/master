@@ -1038,13 +1038,37 @@ const products = [
     "category": "الإنتاجية",
     "logo": "quillbot",
     "status": "available",
-    "description": "اشتراك QuillBot Premium لمدة 3 شهور بسعر 500 جنيه.",
+    "description": "باقات QuillBot Premium لمدة شهر، 3 شهور، 6 شهور أو سنة. الباقة السنوية بـ1200 جنيه، بمتوسط 100 جنيه للشهر.",
     "plans": [
+      {
+        "name": "QuillBot Premium",
+        "duration": "1 شهر",
+        "price": 250,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "الضمان يُؤكد قبل الدفع"
+      },
       {
         "name": "QuillBot Premium",
         "duration": "3 شهور",
         "price": 500,
-        "oldPrice": 3000,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "oldPrice": 3000
+      },
+      {
+        "name": "QuillBot Premium",
+        "duration": "6 شهور",
+        "price": 800,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "الضمان يُؤكد قبل الدفع"
+      },
+      {
+        "name": "QuillBot Premium",
+        "duration": "12 شهر",
+        "price": 1200,
         "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
         "account": "نوع الحساب يُؤكد قبل الدفع",
         "warranty": "الضمان يُؤكد قبل الدفع"
