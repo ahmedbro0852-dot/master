@@ -132,27 +132,14 @@
   function cardMarkup(product){
     const active=product.status==='available'&&(product.plans||[]).length>0;
     const plan=cheapestPlan(product);
-    const multiple=(product.plans||[]).length>1;
     const status=tr(Catalog.statusLabel(product.status),'status',product.id);
-
-    let metaLabel=product.status==='soon'?ui('قريبًا','Coming soon'):ui('غير متوفر','Unavailable');
-    let price='—';
-    if(active&&plan){
-      metaLabel=multiple?ui('يبدأ من','From'):tr(plan.duration||'','duration',product.id);
-      price=Store.planMoney(plan);
-    }
-
+    const price=active&&plan?Store.planMoney(plan):'—';
     const action=active
-      ? '<a class="card-btn soft-btn" href="product.html?id='+encodeURIComponent(product.id)+'">'+ui('شوف الباقات','View plans')+' <span aria-hidden="true">'+(isEn()?'→':'←')+'</span></a>'
+      ? '<a class="card-btn soft-btn" aria-label="'+esc(product.name+' — '+ui('شوف الباقات','View plans'))+'" href="product.html?id='+encodeURIComponent(product.id)+'">'+ui('شوف الباقات','View plans')+' <span aria-hidden="true">'+(isEn()?'→':'←')+'</span></a>'
       : '<button class="card-btn disabled" type="button" disabled>'+esc(status)+'</button>';
-
-    const saveText=active&&plan?savingMoney(plan):'';
-    const saveBadge=saveText?'<span class="card-saving">'+(plan.officialPrice?.basis==='entry-reference'?ui('فرق عن الخطة الأساسية','Vs entry plan'):ui('وفر','Save'))+' '+esc(saveText)+'</span>':'';
-
-    return '<article class="product-card light-card" data-product-id="'+esc(product.id)+'" data-category="'+esc(product.category)+'" data-search="'+esc(searchText(product))+'">'+
-      '<div class="card-top">'+logoMarkup(product)+'<span class="status '+statusClass(product.status)+'">'+esc(status)+'</span></div>'+
-      '<div class="card-copy"><p class="category">'+esc(tr(product.category,'category',product.id))+'</p><h3>'+esc(product.name)+'</h3><p class="desc">'+esc(tr(product.description||'','description',product.id))+'</p></div>'+
-      '<div class="light-meta"><div class="light-meta-copy"><span>'+esc(metaLabel)+'</span>'+saveBadge+'</div><strong>'+esc(price)+'</strong></div>'+
+    return '<article class="product-card light-card simple-service-card" aria-label="'+esc(product.name)+'" data-product-id="'+esc(product.id)+'" data-category="'+esc(product.category)+'" data-search="'+esc(searchText(product))+'">'+
+      '<div class="card-top">'+logoMarkup(product)+'</div>'+
+      '<div class="light-meta"><strong>'+esc(price)+'</strong></div>'+
       '<div class="card-bottom light-bottom">'+action+'</div>'+
     '</article>';
   }

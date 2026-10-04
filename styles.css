@@ -1644,3 +1644,39 @@ footer p,footer small{font-size:12px}
   .plan-option span small{font-size:12px}
   .value-grid b{font-size:14px}.value-grid p{font-size:13px}
 }
+
+/* Small mobile refinements, preserving the published storefront design. */
+button,a,input,select{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+@media(max-width:700px){
+ .filters{scroll-padding-inline:12px;overscroll-behavior-inline:contain}
+ .filter{min-height:44px;flex-shrink:0}
+ .search input{font-size:16px;min-height:46px}
+ .card-btn{min-height:44px;display:flex;align-items:center;justify-content:center}
+ .product-title>div,.plan-option span{min-width:0}
+ .plan-option{gap:10px;line-height:1.65}
+ .plan-option input{width:20px;height:20px;flex-shrink:0}
+ .plan-option span small{line-height:1.7}
+ .details-list dd{overflow-wrap:anywhere}
+ .checkout-form{gap:14px}
+ .checkout-form input:not([type=checkbox]),.checkout-form select{min-height:48px;font-size:16px}
+ .checkout-dialog{scroll-padding-block:18px}
+ .mobile-order-bar .primary{min-width:126px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Homepage cards show only the service logo, starting price and plan link. */
+.simple-service-card{display:flex!important;flex-direction:column;gap:16px!important;min-height:0!important}
+.simple-service-card .card-top{width:100%;margin:0}
+.simple-service-card .light-meta{width:100%;margin:0;padding-top:0;justify-content:center}
+.simple-service-card .light-bottom{width:100%;margin:0;padding-top:0}
+@media(max-width:700px){
+ .simple-service-card{display:grid!important;grid-template-columns:72px minmax(0,1fr)!important;gap:12px!important;contain-intrinsic-size:150px!important}
+ .simple-service-card .card-top{grid-column:1;grid-row:1;align-self:center}
+ .simple-service-card .light-meta{grid-column:2;grid-row:1;align-self:center;justify-content:flex-start}
+ .simple-service-card .light-bottom{grid-column:1/-1;grid-row:2}
+}
+
+.simple-service-card .card-btn{width:100%;min-height:46px}
+.simple-service-card .light-meta strong{font-variant-numeric:tabular-nums;line-height:1.5}
+@media(hover:none){.simple-service-card:hover{transform:none}}
