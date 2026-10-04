@@ -315,8 +315,17 @@ const products = [
     "logo": "elevenlabs",
     "logoUrl": "https://cdn.simpleicons.org/elevenlabs",
     "status": "available",
-    "description": "حساب ElevenLabs جاهز بخطة Creator مع 131,000 Credit.",
+    "description": "باقات ElevenLabs Creator: حساب جاهز لمدة شهر، أو تفعيل لمدة 3 شهور على حسابك الشخصي بضمان كامل.",
     "plans": [
+      {
+        "name": "Creator — تفعيل على حسابك",
+        "duration": "3 شهور",
+        "price": 1500,
+        "activation": "تفعيل على حساب العميل.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "ضمان كامل",
+        "credits": "131 Credit شهريًا"
+      },
       {
         "name": "Creator",
         "duration": "1 شهر",
@@ -1028,9 +1037,19 @@ const products = [
     "name": "QuillBot Premium",
     "category": "الإنتاجية",
     "logo": "quillbot",
-    "status": "soon",
-    "description": "قريبًا في MASTER STORE.",
-    "plans": []
+    "status": "available",
+    "description": "اشتراك QuillBot Premium لمدة 3 شهور بسعر 500 جنيه.",
+    "plans": [
+      {
+        "name": "QuillBot Premium",
+        "duration": "3 شهور",
+        "price": 500,
+        "oldPrice": 3000,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "الضمان يُؤكد قبل الدفع"
+      }
+    ]
   },
   {
     "id": "envato",

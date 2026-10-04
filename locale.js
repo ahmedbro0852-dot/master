@@ -113,7 +113,7 @@
     "grok":"A short-term ready Grok account at a promotional price.",
     "gamma-plus":"A ready Gamma Plus account.",
     "gamma-account":"One Gamma account with 10 workspaces, each including 2,000 credits.",
-    "elevenlabs":"A ready ElevenLabs account with the plan's included credits.",
+    "elevenlabs":"ElevenLabs Creator plans: a one-month ready account, or three-month activation on your personal account with full warranty.",
     "heygen":"A ready HeyGen account with 1,250 credits.",
     "canva-pro":"Activate Canva Pro on your personal email.",
     "capcut-pro":"Ready CapCut Pro accounts with multiple durations and different credit amounts.",
@@ -141,7 +141,7 @@
     "youtube":"Activate YouTube Premium on your personal account.",
     "kling":"Currently out of stock.",
     "grammarly":"Grammarly Premium with advanced writing, grammar correction, rewriting, and AI-powered assistance available in the plan.",
-    "quillbot":"Coming soon to MASTER STORE.",
+    "quillbot":"A three-month QuillBot Premium subscription for EGP 500.",
     "envato":"Coming soon to MASTER STORE.",
     "motion-array":"Coming soon to MASTER STORE.",
     "suno":"Coming soon to MASTER STORE.",
@@ -174,6 +174,9 @@
     "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
   };
   const CATALOG_EXACT_EN={
+    "الضمان يُؤكد قبل الدفع":"Warranty is confirmed before payment",
+    "Creator — تفعيل على حسابك":"Creator — Activation on your account",
+    "131 Credit شهريًا":"131 credits per month",
     "ChatGPT للمعلمين K12":"ChatGPT for K12 Teachers",
     "ChatGPT للمعلمين K12 — بدون ضمان":"ChatGPT for K12 Teachers — No warranty",
     "الباقة مخصصة للمعلمين K12؛ شروط الأهلية والتفعيل تُؤكد قبل الدفع.":"This plan is for K12 teachers; eligibility and activation requirements are confirmed before payment.",
