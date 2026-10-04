@@ -93,6 +93,14 @@
       '</aside>'+
     '</section>';
 
+  if(active&&plans.length){
+    const bar=document.createElement('div');
+    bar.className='mobile-order-bar';
+    bar.innerHTML='<div><small>'+ui('الباقة المختارة','Selected plan')+'</small><strong id="mobilePlanPrice"></strong></div><button class="primary" id="mobileBuyBtn" type="button">'+ui('اطلب الباقة','Order this plan')+'</button>';
+    root.appendChild(bar);
+    document.getElementById('mobileBuyBtn').addEventListener('click',()=>document.getElementById('buyBtn')?.click());
+  }
+
   bindProductLogoFallback();
 
   const planDetails=document.getElementById('planDetails');
@@ -280,6 +288,12 @@
   function renderDetails(){
     const plan=selectedPlan();
     if(!plan){planDetails.innerHTML='';return;}
+    const mobilePrice=document.getElementById('mobilePlanPrice');
+    if(mobilePrice)mobilePrice.textContent=MasterStore.planMoney(plan);
+    const mobileBuy=document.getElementById('mobileBuyBtn');
+    if(mobileBuy)mobileBuy.textContent=ui('اطلب الباقة','Order this plan');
+    const mobileLabel=root.querySelector('.mobile-order-bar small');
+    if(mobileLabel)mobileLabel.textContent=ui('الباقة المختارة','Selected plan');
     const notes=[...(p.notes||[]),...(plan.notes||[])];
     const features=subscriptionFeatures(p,plan);
     const saving=Math.max(0,(plan.oldPrice||plan.officialPrice)?MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan):0);
@@ -365,7 +379,7 @@
       '<div class="checkout-summary"><b>'+MasterStore.escapeHtml(p.name)+'</b><span>'+MasterStore.escapeHtml(tr(plan.name,'planName'))+' — '+MasterStore.escapeHtml(tr(plan.duration,'duration'))+'</span><strong>'+MasterStore.planMoney(plan)+'</strong></div>'+
       '<form id="checkoutForm" class="checkout-form">'+
         '<label><span>'+ui('الاسم','Name')+'</span><input name="name" maxlength="80" required value="'+MasterStore.escapeHtml(profile.name||'')+'" placeholder="'+ui('اسمك الكامل','Full name')+'" autocomplete="name"></label>'+
-        '<label><span>'+ui('رقم واتساب','WhatsApp number')+'</span><input name="phone" maxlength="30" inputmode="tel" required value="'+MasterStore.escapeHtml(profile.phone||'')+'" placeholder="'+ui('01xxxxxxxxx','Your WhatsApp number')+'" autocomplete="tel"></label>'+
+        '<label><span>'+ui('رقم واتساب','WhatsApp number')+'</span><input name="phone" type="tel" maxlength="30" inputmode="tel" required value="'+MasterStore.escapeHtml(profile.phone||'')+'" placeholder="'+ui('01xxxxxxxxx','Your WhatsApp number')+'" autocomplete="tel"></label>'+
         '<label><span>'+ui('البريد الإلكتروني','Email')+'</span><input name="email" maxlength="120" type="email" required value="'+MasterStore.escapeHtml(profile.email||'')+'" placeholder="name@example.com" autocomplete="email"></label>'+
         '<label><span>'+ui('الكمية','Quantity')+'</span><select name="quantity">'+Array.from({length:maxQty},(_,i)=>'<option value="'+(i+1)+'">'+(i+1)+'</option>').join('')+'</select></label>'+
         '<label><span>'+ui('طريقة الدفع المفضلة','Preferred payment method')+'</span><select name="payment">'+MasterStore.paymentOptions().map(x=>'<option>'+MasterStore.escapeHtml(x)+'</option>').join('')+'</select></label>'+
