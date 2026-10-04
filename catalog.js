@@ -351,7 +351,7 @@ const products = [
   },
   {
     "id": "heygen",
-    "name": "HeyGen",
+    "name": "HeyGen Creator",
     "category": "AI Tools",
     "logo": "heygen",
     "status": "available",
@@ -485,15 +485,16 @@ const products = [
   },
   {
     "id": "freepik",
-    "name": "Freepik",
+    "name": "Freepik Premium",
     "category": "التصميم",
     "logo": "freepik",
     "logoUrl": "https://cdn.simpleicons.org/freepik",
     "status": "available",
-    "description": "تسليم حساب Freepik جاهز لمدة شهر.",
+    "description": "Freepik Premium للتحميل فقط لمدة شهر؛ لا يشمل أدوات أو توليد الذكاء الاصطناعي.",
     "plans": [
       {
-        "name": "حساب Freepik",
+        "name": "Freepik Premium — تحميل فقط",
+        "notes": ["يشمل تحميل الموارد فقط؛ لا يشمل أدوات أو توليد الذكاء الاصطناعي."],
         "duration": "1 شهر",
         "price": 450,
         "activation": "تسليم حساب جاهز.",
@@ -513,7 +514,7 @@ const products = [
   },
   {
     "id": "duolingo",
-    "name": "Duolingo",
+    "name": "Super Duolingo",
     "category": "التعليم",
     "logo": "duolingo",
     "logoUrl": "https://cdn.simpleicons.org/duolingo",
@@ -532,7 +533,7 @@ const products = [
   },
   {
     "id": "elsa",
-    "name": "ELSA Speak",
+    "name": "ELSA Speak Pro",
     "category": "التعليم",
     "logo": "elsa",
     "status": "available",
@@ -558,7 +559,7 @@ const products = [
   },
   {
     "id": "coursera",
-    "name": "Coursera",
+    "name": "Coursera Plus",
     "category": "التعليم",
     "logo": "coursera",
     "logoUrl": "https://cdn.simpleicons.org/coursera",
