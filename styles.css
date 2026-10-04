@@ -1718,3 +1718,5 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
 .simple-service-card:has(a.card-btn){cursor:pointer}
 .empty p{margin:0 0 14px;line-height:1.8}
 .empty .filter{min-height:44px;padding-inline:20px}
+
+.footer-facebook{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1px solid var(--line);border-radius:12px;color:var(--blue);background:#fff;font-size:14px;font-weight:700;text-decoration:none}.footer-facebook:hover{background:#f0f5ff}
