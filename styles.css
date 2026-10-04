@@ -1684,3 +1684,31 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
 .simple-service-card .card-top{display:flex;align-items:center;gap:12px}
 .simple-service-card .service-name{font-size:16px;line-height:1.5;margin:0;min-width:0;overflow-wrap:anywhere}
 @media(max-width:700px){.simple-service-card{grid-template-columns:minmax(0,1fr) auto!important}.simple-service-card .card-top{flex-direction:row;justify-content:flex-start}.simple-service-card .product-logo{flex-shrink:0}.simple-service-card .service-name{font-size:14px}.simple-service-card .light-meta{width:auto}.simple-service-card .light-meta strong{font-size:18px}}
+
+/* Consistent compact service cards on phones and larger screens. */
+.simple-service-card{padding:18px;gap:14px!important}
+.simple-service-card .card-top{min-height:126px;justify-content:flex-start}
+.simple-service-card .service-name{font-weight:700;letter-spacing:0}
+.simple-service-card .light-meta{min-height:36px}
+.simple-service-card .light-bottom{margin-top:auto}
+.simple-service-card .card-btn{gap:8px;border-radius:12px;font-size:14px;font-weight:700;line-height:1.5;transition:background-color .15s ease,box-shadow .15s ease}
+.simple-service-card .card-btn:active{box-shadow:inset 0 0 0 2px rgba(31,94,255,.15)}
+@media(max-width:700px){
+ .grid{gap:12px}
+ .simple-service-card{padding:16px;grid-template-columns:minmax(0,1fr) auto!important;gap:14px!important;border-radius:16px}
+ .simple-service-card .card-top{min-height:64px;padding:0;gap:10px;background:none;border:0;border-radius:0}
+ .simple-service-card .card-top::after{display:none}
+ .simple-service-card .product-logo{width:56px;height:56px;padding:10px;border-radius:14px}
+ .simple-service-card .service-name{font-size:14px;line-height:1.6;margin:0}
+ .simple-service-card .light-meta{min-height:0;justify-content:flex-end;max-width:112px}
+ .simple-service-card .light-meta strong{font-size:18px;line-height:1.5;white-space:normal;text-align:end;overflow-wrap:anywhere}
+ .simple-service-card .card-btn{min-height:46px;padding:10px 14px}
+}
+@media(max-width:359px){
+ .simple-service-card{padding:12px;gap:12px!important}
+ .simple-service-card .product-logo{width:46px;height:46px;padding:8px}
+ .simple-service-card .card-top{gap:8px}
+ .simple-service-card .service-name{font-size:13px}
+ .simple-service-card .light-meta{max-width:90px}
+ .simple-service-card .light-meta strong{font-size:16px}
+}
