@@ -102,7 +102,7 @@
 
   const PRODUCT_DESC_EN={
     "chatgpt-teachers-k12":"A ChatGPT plan for K12 teachers lasting two years at EGP 500, without warranty.",
-    "chatgpt-plus":"Monthly ChatGPT Plus plans: a private account at EGP 250 without warranty, or activation on your own account at EGP 700 with full warranty.",
+    "chatgpt-plus":"Monthly ChatGPT Plus: no-warranty account for EGP 250, ready-made account with full warranty for EGP 700, or activation on your personal account for EGP 1,040.",
     "gemini-pro":"Two 18-month options; the family plan adds 5 invitations. Its 1,000 monthly credits are for the main account only.",
     "claude-pro":"Activate Claude Pro on your personal account using the store's payment method.",
     "perplexity-pro":"A ready private Perplexity Pro account with full warranty under the current store offer.",
@@ -174,6 +174,13 @@
     "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
   };
   const CATALOG_EXACT_EN={
+    "متاح":"Available",
+    "قريبًا":"Coming soon",
+    "غير متوفر":"Unavailable",
+    "ChatGPT Plus — حساب جاهز":"ChatGPT Plus — Ready-made account",
+    "ChatGPT Plus — على حسابك الشخصي":"ChatGPT Plus — On your personal account",
+    "تسليم بيانات حساب جاهز.":"Delivery of ready-made account credentials.",
+    "يتم تسليم حساب جاهز؛ لا يتم التفعيل على حساب العميل في هذه الباقة.":"A ready-made account is delivered; this plan does not activate your own account.",
     "الضمان يُؤكد قبل الدفع":"Warranty is confirmed before payment",
     "Creator — تفعيل على حسابك":"Creator — Activation on your account",
     "131 Credit شهريًا":"131 credits per month",

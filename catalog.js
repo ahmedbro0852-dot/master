@@ -5,10 +5,11 @@ const products = [
     "category": "AI Tools",
     "logo": "chatgpt",
     "status": "available",
-    "description": "باقات ChatGPT Plus لمدة شهر؛ حساب خاص بدون ضمان بـ250 جنيه، أو تفعيل على حسابك بضمان كامل بـ700 جنيه.",
+    "description": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ250 جنيه، حساب جاهز بضمان كامل بـ700 جنيه، أو تفعيل على حسابك الشخصي بـ1040 جنيه.",
     "plans": [
       {
         "name": "ChatGPT Plus — بدون ضمان",
+        "accountType": "حساب خاص",
         "duration": "1 شهر",
         "price": 250,
         "activation": "تسليم Gmail + كلمة المرور + بيانات التحقق الثنائي (2FA).",
@@ -19,15 +20,25 @@ const products = [
         ]
       },
       {
-        "name": "ChatGPT Plus",
+        "name": "ChatGPT Plus — حساب جاهز",
+        "accountType": "حساب جاهز",
         "duration": "1 شهر",
         "price": 700,
+        "activation": "تسليم بيانات حساب جاهز.",
+        "account": "حساب خاص جاهز",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يتم تسليم حساب جاهز؛ لا يتم التفعيل على حساب العميل في هذه الباقة."
+        ]
+      },
+      {
+        "name": "ChatGPT Plus — على حسابك الشخصي",
+        "duration": "1 شهر",
+        "price": 1040,
         "activation": "تفعيل على حساب العميل.",
         "account": "حساب العميل الشخصي",
         "warranty": "ضمان كامل",
-        "notes": [
-          "لا يتم تخزين بيانات دخولك داخل الموقع."
-        ]
+        "notes": ["لا يتم تخزين بيانات دخولك داخل الموقع."]
       }
     ]
   },
