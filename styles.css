@@ -1720,3 +1720,25 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
 .empty .filter{min-height:44px;padding-inline:20px}
 
 .footer-facebook{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1px solid var(--line);border-radius:12px;color:var(--blue);background:#fff;font-size:14px;font-weight:700;text-decoration:none}.footer-facebook:hover{background:#f0f5ff}
+
+/* Give the subscription name its own space, away from the price. */
+.simple-service-card .service-name{overflow-wrap:normal;word-break:normal;text-wrap:balance;unicode-bidi:plaintext}
+@media(min-width:701px){
+ .simple-service-card .card-top{flex-direction:column;justify-content:center;align-items:center;gap:14px;padding:18px 12px;min-height:190px}
+ .simple-service-card .service-name{text-align:center;width:100%;font-size:16px;line-height:1.65;margin:0;min-height:53px;display:flex;align-items:center;justify-content:center}
+}
+@media(max-width:700px){
+ .simple-service-card{grid-template-columns:minmax(0,1fr) minmax(130px,1fr)!important;grid-template-rows:auto auto;column-gap:12px!important;row-gap:16px!important}
+ .simple-service-card .card-top{grid-column:1/-1;grid-row:1;display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;align-items:center;min-height:56px}
+ .simple-service-card .service-name{font-size:16px;line-height:1.6;text-align:start;margin:0;max-width:100%;text-wrap:pretty}
+ .simple-service-card .light-meta{grid-column:1;grid-row:2;justify-content:flex-start;max-width:none;width:100%;align-self:center}
+ .simple-service-card .light-meta strong{text-align:start;font-size:20px;overflow-wrap:normal}
+ .simple-service-card .light-bottom{grid-column:2;grid-row:2;margin:0;align-self:center}
+ .simple-service-card .card-btn{font-size:13px;white-space:nowrap;padding-inline:10px}
+}
+@media(max-width:359px){
+ .simple-service-card{grid-template-columns:minmax(0,1fr) 130px!important}
+ .simple-service-card .card-top{grid-template-columns:46px minmax(0,1fr);gap:12px}
+ .simple-service-card .service-name{font-size:14px}
+ .simple-service-card .light-meta strong{font-size:18px}
+}
