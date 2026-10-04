@@ -1712,3 +1712,9 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
  .simple-service-card .light-meta{max-width:90px}
  .simple-service-card .light-meta strong{font-size:16px}
 }
+
+/* Keep filtering reliable despite responsive card display overrides. */
+.product-card[hidden],.empty[hidden],.catalog-loading[hidden]{display:none!important}
+.simple-service-card:has(a.card-btn){cursor:pointer}
+.empty p{margin:0 0 14px;line-height:1.8}
+.empty .filter{min-height:44px;padding-inline:20px}

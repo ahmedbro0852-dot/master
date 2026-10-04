@@ -183,7 +183,7 @@
 
     if(empty){
       empty.hidden=visible>0;
-      empty.textContent=ui('مفيش نتيجة مطابقة.','No matching results.');
+      empty.innerHTML='<p>'+ui('مفيش نتيجة مطابقة. جرّب اسم تاني أو اعرض كل الخدمات.','No matching results. Try another name or browse all services.')+'</p><button type="button" class="filter" data-reset-search>'+ui('عرض كل الخدمات','Show all services')+'</button>';
     }
   }
 
@@ -206,6 +206,17 @@
     updateCatalogCount();
   }
 
+  grid.addEventListener('click',event=>{
+    if(event.target.closest('a,button,input,select'))return;
+    const link=event.target.closest('.product-card')?.querySelector('a.card-btn');
+    if(link)link.click();
+  });
+  empty?.addEventListener('click',event=>{
+    if(!event.target.closest('[data-reset-search]'))return;
+    if(search)search.value='';
+    selected='الكل';drawFilters();applyFilters();search?.focus();
+  });
+  search?.setAttribute('aria-label',ui('ابحث عن خدمة','Search services'));
   search?.addEventListener('input',applyFilters);
   document.addEventListener('masterstore:localechange',renderAll);
 
