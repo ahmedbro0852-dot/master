@@ -101,7 +101,7 @@
 
 
   const PRODUCT_DESC_EN={
-    "chatgpt-teachers-k12":"A ChatGPT plan for K12 teachers lasting two years at EGP 5,000, without warranty.",
+    "chatgpt-teachers-k12":"A ChatGPT plan for K12 teachers lasting two years at EGP 500, without warranty.",
     "chatgpt-plus":"Monthly ChatGPT Plus plans: a private account at EGP 250 without warranty, or activation on your own account at EGP 700 with full warranty.",
     "gemini-pro":"Two 18-month options; the family plan adds 5 invitations. Its 1,000 monthly credits are for the main account only.",
     "claude-pro":"Activate Claude Pro on your personal account using the store's payment method.",
