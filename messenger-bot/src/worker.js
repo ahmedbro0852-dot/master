@@ -1,3 +1,6 @@
+import {channelOf,contactName,getLink,configured,channelEnabled,channelWebhook,channelStorage} from './channels.js';
+import toolsUI from './tools-ui.js';
+import {messagingRoute,messagingStorage,campaignAlarm,validateMessage,sendMessage,fastReply} from './messaging.js';
 import home from './dashboard.js';
 import portal from './portal.js';
 import guide from './guide.js';
@@ -7,7 +10,7 @@ export const defaults={enabled:false,businessName:'',knowledge:'',dailyReplies:1
 const providerDefault={baseURL:'https://api.openai.com/v1',model:'gpt-4o-mini',outputParameter:'max_tokens'};
 export const json=(data,status=200,extra={})=>new Response(JSON.stringify(data),{status,headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store','x-content-type-options':'nosniff',...extra}});
 function stub(env,name){return env.STATE.get(env.STATE.idFromName(name));}
-export async function rpc(env,name,path,data){const r=await stub(env,name).fetch(new Request('https://internal'+path,{method:data===undefined?'GET':'POST',headers:{'content-type':'application/json'},body:data===undefined?undefined:JSON.stringify(data)}));const d=await r.json();if(!r.ok)throw new Error(d.error||'تعذر حفظ البيانات');return d;}
+export async function rpc(env,name,path,data){const r=await stub(env,name).fetch(new Request('https://internal'+path,{method:data===undefined?'GET':'POST',headers:{'content-type':'application/json'},body:data===undefined?undefined:JSON.stringify(data)}));const d=await r.json();if(!r.ok){const error=new Error(d.error||'تعذر حفظ البيانات');error.status=r.status;throw error;}return d;}
 export async function verifySignature(raw,signature,secret){
  if(!secret||!/^sha256=[a-f0-9]{64}$/.test(signature||''))return false;
  const key=await crypto.subtle.importKey('raw',enc.encode(secret),{name:'HMAC',hash:'SHA-256'},false,['verify']);
@@ -32,10 +35,11 @@ export async function generateReply(env,c,text,history=[]){const p=await provide
 export default {async fetch(req,env){
  const url=new URL(req.url),p=url.pathname;
  try{
-  if(['/','/account','/admin','/guide'].includes(p))return new Response(p==='/admin'?home:p==='/guide'?guide:portal,{headers:{'content-type':'text/html; charset=utf-8','cache-control':'no-store','content-security-policy':"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'",'x-content-type-options':'nosniff'}});
-  if(p==='/health')return json({service:'messenger-client-manager',version:'2.0',adminConfigured:!!env.ADMIN_TOKEN});
+  if(['/','/account','/admin','/guide','/tools'].includes(p))return new Response(p==='/tools'?toolsUI:p==='/admin'?home:p==='/guide'?guide:portal,{headers:{'content-type':'text/html; charset=utf-8','cache-control':'no-store','content-security-policy':"default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'",'x-content-type-options':'nosniff'}});
+  if(p==='/health')return json({service:'messenger-client-manager',version:'4.0',adminConfigured:!!env.ADMIN_TOKEN});
   if(p.startsWith('/api/')&&req.method!=='GET'&&req.headers.get('origin')&&req.headers.get('origin')!==url.origin)return json({error:'طلب غير مسموح'},403);
-  const commerce=await commerceRoute(req,env,{rpc,json,body,hmac,verifySignature,authorized,defaults});if(commerce)return commerce;
+  const messaging=await messagingRoute(req,env,{rpc,json,body,authorized,isActive});if(messaging)return messaging;
+  const commerce=await commerceRoute(req,env,{rpc,json,body,hmac,verifySignature,authorized,defaults,messagingRoute,isActive});if(commerce)return commerce;
   if(p==='/api/magic-login'&&req.method==='POST'){
    const d=await body(req);const parts=String(d.ticket||'').split('.');const [expires,nonce,signature]=parts;
    if(parts.length!==3||!env.ADMIN_TOKEN||!/^\d+$/.test(expires)||!validId(nonce)||Number(expires)<Date.now()||Number(expires)>Date.now()+20*60000||!await verifySignature(expires+'.'+nonce,'sha256='+signature,env.ADMIN_TOKEN))return json({error:'رابط الدخول غير صالح أو انتهت صلاحيته'},401);
@@ -72,10 +76,11 @@ export default {async fetch(req,env){
      const reservation=await rpc(env,'tenant:'+id,'/reserve',{daily:c.dailyReplies,monthly:c.monthlyReplies});if(!reservation.allowed)return json({error:'وصل العميل إلى حد الاستخدام'},429);
      const result=await generateReply(env,c,d.text);await rpc(env,'tenant:'+id,'/record',{tokens:result.tokens,preview:true});return json(result);
     }
-    if(['pause','contact-delete'].includes(action)&&req.method==='POST'){const d=await body(req);if(!/^\d{1,40}$/.test(d.sender||''))return json({error:'معرف المحادثة غير صحيح'},400);return json(await rpc(env,`contact:${id}:${d.sender}`,action==='pause'?'/pause':'/delete',d));}
+    if(['pause','contact-delete'].includes(action)&&req.method==='POST'){const d=await body(req);if(!/^\d{1,40}$/.test(d.sender||''))return json({error:'معرف المحادثة غير صحيح'},400);return json(await rpc(env,contactName(id,channelOf(d.channel),d.sender),action==='pause'?'/pause':'/delete',d));}
    }
    return json({error:'غير موجود'},404);
   }
+  const channelHook=await channelWebhook(req,env,{rpc,verifySignature});if(channelHook)return channelHook;
   const wm=p.match(/^\/webhook\/([a-f0-9-]{36})$/);
   if(wm){
    const c=await rpc(env,'registry','/client/'+wm[1]);if(!c)return new Response('Not found',{status:404});
@@ -87,12 +92,14 @@ export default {async fetch(req,env){
    for(const e of extractEvents(JSON.parse(raw),c.pageId))await rpc(env,`contact:${c.id}:${e.sender}`,'/enqueue',{...e,tenantId:c.id});return new Response('EVENT_RECEIVED');
   }
   return json({error:'غير موجود'},404);
- }catch(e){return json({error:p.startsWith('/api/')?e.message:'Service unavailable'},503);}
+ }catch(e){return json({error:p.startsWith('/api/')?e.message:'Service unavailable'},e.status||503);}
 }};
 export class BotState{
  constructor(ctx,env){this.ctx=ctx;this.env=env;this.s=ctx.storage;}
  async fetch(req){return this.ctx.blockConcurrencyWhile(async()=>{
   const p=new URL(req.url).pathname;const d=req.method==='POST'?await req.json():null;
+  const channelData=await channelStorage(this.s,p,d,json);if(channelData)return channelData;
+  const messaging=await messagingStorage(this,p,d,{rpc,json});if(messaging)return messaging;
   const commerce=await commerceStorage(this.s,p,d,json);if(commerce)return commerce;
   if(p==='/consume-ticket'){
    const tickets=(await this.s.get('usedTickets')||[]).filter(t=>t.expires>Date.now());if(tickets.some(t=>t.nonce===d.nonce))return json({allowed:false});tickets.push(d);await this.s.put('usedTickets',tickets.slice(-500));return json({allowed:true});
@@ -106,7 +113,7 @@ export class BotState{
    const ids=await this.s.get('clientIds')||[];if(!ids.includes(d.id)){if(ids.length>=500)return json({error:'الحد الأقصى ٥٠٠ عميل'},400);ids.push(d.id);}await this.s.put({['client:'+d.id]:d,clientIds:ids});return json(d);
   }
   if(p.startsWith('/client/'))return json(await this.s.get('client:'+p.slice(8))||null);
-  if(p==='/link')return json(await this.s.get('link')||null);
+  if(p==='/link'){if(d)await this.s.put('link',d);return json(await this.s.get('link')||null);}
   if(p==='/usage'||p==='/reserve'||p==='/record'){
    const day=new Date().toISOString().slice(0,10),month=day.slice(0,7);let u=await this.s.get('usage')||{day,month,daily:0,monthly:0,tokens:0,previews:0};if(u.month!==month)u={day,month,daily:0,monthly:0,tokens:0,previews:0};if(u.day!==day){u.day=day;u.daily=0;}
    if(p==='/reserve'){if(u.daily>=d.daily||u.monthly>=d.monthly)return json({allowed:false,...u});u.daily++;u.monthly++;}
@@ -116,17 +123,22 @@ export class BotState{
   if(p==='/pause'){await this.s.put('paused',!!d.paused);return json({paused:!!d.paused});}
   if(p==='/delete'){await this.s.deleteAll();await this.s.deleteAlarm();return json({deleted:true});}
   if(p==='/enqueue'){
-   const seen=await this.s.get('seen')||[];if(seen.includes(d.id))return json({duplicate:true});const pending=await this.s.get('pending')||[];if(pending.length>=20)return json({error:'Busy'},503);pending.push(d);await this.s.put({seen:[...seen,d.id].slice(-200),pending});if(!await this.s.getAlarm())await this.s.setAlarm(Date.now()+1000);return json({queued:true});
+   const seen=await this.s.get('seen')||[];if(seen.includes(d.id))return json({duplicate:true});
+   if(!d.outbound){await this.s.put('lastInbound',d.timestamp);await rpc(this.env,'tenant:'+d.tenantId,'/contact-update',{sender:d.sender,channel:channelOf(d.channel),timestamp:d.timestamp,text:d.text});}
+const pending=await this.s.get('pending')||[];if(pending.length>=20)return json({error:'Busy'},503);pending.push(d);await this.s.put({seen:[...seen,d.id].slice(-200),pending});if(!await this.s.getAlarm())await this.s.setAlarm(Date.now()+50);return json({queued:true});
   }
   return json({error:'Not found'},404);
  });}
  async alarm(){return this.ctx.blockConcurrencyWhile(async()=>{
-  const q=await this.s.get('pending')||[],e=q.shift();if(!e)return;await this.s.put('pending',q);if(q.length)await this.s.setAlarm(Date.now()+1000);
-  if(await this.s.get('paused')||!Number.isFinite(e.timestamp)||Date.now()-e.timestamp>23*3600000||e.timestamp>Date.now()+300000)return;
-  const c=await rpc(this.env,'registry','/client/'+e.tenantId);if(!c||!isActive(c))return;const link=await rpc(this.env,'tenant:'+c.id,'/link');if(!link?.pageToken)return;
-  let answer;
+  if(await campaignAlarm(this,{rpc,isActive}))return;
+  const q=await this.s.get('pending')||[],e=q.shift();if(!e)return;await this.s.put('pending',q);if(q.length)await this.s.setAlarm(Date.now()+50);
+  if((!e.outbound&&await this.s.get('paused'))||!Number.isFinite(e.timestamp)||Date.now()-e.timestamp>23*3600000||e.timestamp>Date.now()+300000)return;
+  const c=await rpc(this.env,'registry','/client/'+e.tenantId);const channel=channelOf(e.channel);const link=c?await getLink(this.env,c.id,channel,rpc):null;
+  if(e.outbound){let status='skipped';const contact=await rpc(this.env,'tenant:'+e.tenantId,'/contact-get',{sender:e.sender,channel});const campaign=await rpc(this.env,'tenant:'+e.tenantId,'/campaign-get',{id:e.campaignId});if(c&&isActive(c)&&configured(c,link,channel)&&channelEnabled(c,link,channel)&&campaign?.status==='running'&&!await this.s.get('paused')&&contact?.consent&&(e.outbound.type==='template'&&channel==='whatsapp'||Date.now()-contact.lastInbound<24*3600000)){const quota=await rpc(this.env,'tenant:'+c.id,'/reserve',{daily:c.dailyReplies,monthly:c.monthlyReplies});if(quota.allowed){try{await sendMessage(this.env,c,link,e.sender,e.outbound,channel);status='sent';}catch{status='failed_or_unknown';}}}await rpc(this.env,'tenant:'+e.tenantId,'/campaign-result',{id:e.campaignId,sender:e.sender,status});return;}
+  if(!c||!isActive(c)||!configured(c,link,channel)||!channelEnabled(c,link,channel))return;
+  let answer;let media=null;
   if(!e.text||/موظف|خدمة العملاء|human|agent/i.test(e.text)){await this.s.put('paused',true);answer='تم إيقاف الرد الآلي. اترك تفاصيل طلبك ليراجعها فريق الصفحة.';}
-  else{const quota=await rpc(this.env,'tenant:'+c.id,'/reserve',{daily:c.dailyReplies,monthly:c.monthlyReplies});if(!quota.allowed)return;const history=await this.s.get('history')||[];try{const r=await generateReply(this.env,c,e.text,history);answer=r.answer;await rpc(this.env,'tenant:'+c.id,'/record',{tokens:r.tokens});await this.s.put('history',[...history,{role:'user',content:e.text},{role:'assistant',content:answer}].slice(-6));}catch{await this.s.put('paused',true);answer='الرد الآلي غير متاح حاليًا. اترك تفاصيل طلبك لفريق الصفحة.';}}
-  try{const r=await fetch(`https://graph.facebook.com/${this.env.GRAPH_VERSION}/${c.pageId}/messages`,{method:'POST',headers:{authorization:`Bearer ${link.pageToken}`,'content-type':'application/json'},signal:AbortSignal.timeout(10000),body:JSON.stringify({recipient:{id:e.sender},messaging_type:'RESPONSE',message:{text:answer}})});if(!r.ok)throw Error('Delivery failed');await this.s.put('lastDelivery',{at:Date.now(),status:'sent'});}catch{await this.s.put('lastDelivery',{at:Date.now(),status:'failed_or_unknown'});await this.s.put('paused',true);}
+  else{const config=await rpc(this.env,'tenant:'+c.id,'/messaging-config');const quick=/^(اشترك|اشتراك|subscribe)$/i.test(e.text.trim())?{message:{type:'text',text:'تم تسجيل موافقتك على الرسائل. لإلغائها أرسل توقف.'}}:/^(إلغاء|الغاء|توقف|stop)$/i.test(e.text.trim())?{message:{type:'text',text:'تم إيقاف الرسائل الجماعية لك.'}}:fastReply(config.rules,e.text);media=quick?.message;const quota=await rpc(this.env,'tenant:'+c.id,'/reserve',{daily:c.dailyReplies,monthly:c.monthlyReplies});if(!quota.allowed)return;const history=await this.s.get('history')||[];try{const r=quick?{answer:quick.message.text||'تفضل التفاصيل',tokens:0}:await generateReply(this.env,c,e.text,history);answer=r.answer;await rpc(this.env,'tenant:'+c.id,'/record',{tokens:r.tokens});await this.s.put('history',[...history,{role:'user',content:e.text},{role:'assistant',content:answer}].slice(-6));}catch{await this.s.put('paused',true);answer='الرد الآلي غير متاح حاليًا. اترك تفاصيل طلبك لفريق الصفحة.';}}
+  try{await sendMessage(this.env,c,link,e.sender,media||{type:'text',text:answer},channel);await this.s.put('lastDelivery',{at:Date.now(),status:'sent'});}catch{await this.s.put('lastDelivery',{at:Date.now(),status:'failed_or_unknown'});await this.s.put('paused',true);}
  });}
 }

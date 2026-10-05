@@ -1,7 +1,7 @@
 import {Miniflare} from 'miniflare';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-const mf=new Miniflare({workers:[{config:{name:'bot',compatibilityDate:'2026-10-03',manifest:{mainModule:'worker.js',modulesRoot:new URL('../src/',import.meta.url).pathname,modules:{'worker.js':{type:'esm',contents:readFileSync('src/worker.js','utf8')},...Object.fromEntries(['dashboard.js','portal.js','commerce.js','guide.js'].map(n=>[n,{type:'esm',contents:readFileSync('src/'+n,'utf8')}]))}},env:{STATE:{type:'durable-object',worker:'bot',exportName:'BotState'},ADMIN_TOKEN:{type:'json',value:'runtime-test-only'},GRAPH_VERSION:{type:'json',value:'v25.0'}},exports:{BotState:{type:'durable-object',storage:'sqlite'}}}}]});
+const mf=new Miniflare({workers:[{config:{name:'bot',compatibilityDate:'2026-10-03',manifest:{mainModule:'worker.js',modulesRoot:new URL('../src/',import.meta.url).pathname,modules:{'worker.js':{type:'esm',contents:readFileSync('src/worker.js','utf8')},...Object.fromEntries(['dashboard.js','portal.js','commerce.js','guide.js','messaging.js','tools-ui.js','channels.js'].map(n=>[n,{type:'esm',contents:readFileSync('src/'+n,'utf8')}]))}},env:{STATE:{type:'durable-object',worker:'bot',exportName:'BotState'},ADMIN_TOKEN:{type:'json',value:'runtime-test-only'},GRAPH_VERSION:{type:'json',value:'v25.0'}},exports:{BotState:{type:'durable-object',storage:'sqlite'}}}}]});
 async function call(path,data,method='GET'){
  const r=await mf.dispatchFetch('https://bot.example'+path,{method,headers:{authorization:'Bearer runtime-test-only','content-type':'application/json'},body:data?JSON.stringify(data):undefined});
  const d=await r.json();assert.ok(r.ok,JSON.stringify(d));return d;
@@ -28,12 +28,20 @@ try{
  assert.equal((await customer('account/clients/'+approved.clientId,{businessName:'نشاطي',knowledge:'الشحن ٥٠ جنيه',monthlyReplies:999999},0,'PUT')).r.status,400);
  assert.equal((await customer('account/clients/'+approved.clientId,{businessName:'نشاطي',knowledge:'الشحن ٥٠ جنيه'},0,'PUT')).r.status,200);
  await call('/api/clients/'+approved.clientId,{...own.d[0],knowledge:'تعديل الإدارة'},'PUT');assert.equal((await customer('account/clients')).d.length,1);
+ const msgPath='account/messaging/'+approved.clientId+'/config';
+ assert.equal((await customer(msgPath,undefined,1)).r.status,403);
+ assert.equal((await customer(msgPath,{rules:[{name:'صور',keywords:['صور'],message:{type:'image',text:'المنتج',url:'https://cdn.example.com/a.jpg'}}]},0,'PUT')).r.status,200);
+ assert.equal((await customer('account/messaging/'+approved.clientId+'/connection',{pageId:'123'},0,'PUT')).r.status,403);
+ assert.equal((await customer('account/messaging/'+approved.clientId+'/connection')).d.configured,false);
+ const draftCampaign=await customer('account/messaging/'+approved.clientId+'/campaigns',{name:'مسودة',message:{type:'text',text:'تجربة'}});assert.equal(draftCampaign.r.status,201);
+ assert.equal((await customer('account/messaging/'+approved.clientId+'/start',{id:draftCampaign.d.id})).r.status,409);
+ for(const channel of ['whatsapp','instagram']){const endpoint='account/messaging/'+approved.clientId+'/connection?channel='+channel;assert.equal((await customer(endpoint)).d.configured,false);assert.equal((await customer(endpoint,undefined,1)).r.status,403);}
  const forbidden=await mf.dispatchFetch('https://bot.example/api/commerce/users',{headers:{cookie:cookies[0]}});assert.equal(forbidden.status,401);
  const login=await customer('shop/login',{email:'customer0@example.com',password:'correct-password-0'});assert.equal(login.r.status,200);assert.equal((await customer('shop/login',{email:'customer0@example.com',password:'wrong-password'})).r.status,401);
  const users=await call('/api/commerce/users');assert.equal(users.length,2);assert.ok(users.every(u=>!u.hash&&!u.salt));
  await call('/api/commerce/orders/'+order.d.id+'/message',{text:'تم تأكيد الدفع'},'POST');const thread=(await customer('account/orders')).d[0];assert.equal(thread.messages[1].role,'admin');
  const xss='</script><script>alert(1)</script>';await call('/api/commerce/store',{...store,plans:store.plans.map((p,i)=>({...p,name:i===0?xss:p.name}))},'PUT');
- for(const route of ['/','/account','/admin','/guide']){const response=await mf.dispatchFetch('https://bot.example'+route);assert.equal(response.status,200);assert.match(response.headers.get('content-security-policy'),/frame-ancestors 'none'/);}
+ for(const route of ['/','/account','/admin','/guide','/tools']){const response=await mf.dispatchFetch('https://bot.example'+route);assert.equal(response.status,200);assert.match(response.headers.get('content-security-policy'),/frame-ancestors 'none'/);}
  console.log('Commerce runtime: signup, hashed login, order pricing, manual approval, idempotency, customer/admin isolation, protected plan limits and support thread passed.');
  console.log('Cloudflare runtime: create, update, tenant isolation, provider settings and dashboard HTML passed.');
 }finally{await mf.dispose();}
