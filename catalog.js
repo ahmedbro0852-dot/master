@@ -394,8 +394,17 @@ const products = [
     "category": "AI Tools",
     "logo": "lovable",
     "status": "available",
-    "description": "اشتراك Lovable Pro لمدة 12 شهر.",
+    "description": "باقات Lovable Pro على حسابك الشخصي: شهر بـ300 جنيه أو سنة بـ1800 جنيه.",
     "plans": [
+      {
+        "name": "Pro — شهر",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 300,
+        "activation": "تفعيل على حسابك الشخصي في Lovable.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "يُؤكد قبل الدفع"
+      },
       {
         "name": "Pro",
         "duration": "12 شهر",

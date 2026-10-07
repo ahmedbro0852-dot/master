@@ -84,8 +84,8 @@
     '</span>';
   }
 
-  function bindLogoFallbacks(){
-    grid.querySelectorAll('.product-logo img').forEach(img=>{
+  function bindLogoFallbacks(container=grid){
+    container.querySelectorAll('.product-logo img').forEach(img=>{
       const recoverLogo=()=>{
         const fallback=img.dataset.fallback;
         if(fallback&&!img.dataset.usedFallback&&img.src!==new URL(fallback,location.href).href){
@@ -203,7 +203,21 @@
     if(shelf&&lovable?.plans?.[0])shelf.textContent=Store.planMoney(lovable.plans[0]);
   }
 
+
+  function renderBestOffers(){
+    const target=document.getElementById('bestOffersGrid');
+    if(!target)return;
+    const picks=[['lovable-pro',0],['gemini-pro',0],['capcut-pro',1],['grok',0],['ilovepdf',0]];
+    target.innerHTML=picks.map(([id,index])=>{
+      const product=Catalog.getProduct(id),plan=product?.plans?.[index];
+      if(!plan)return '';
+      return '<article class="best-offer">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3><small>'+esc(tr(plan.duration,'duration',id))+'</small></div><strong>'+Store.planMoney(plan)+'</strong><a class="card-btn soft-btn" href="product.html?id='+encodeURIComponent(id)+'&plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
+    }).join('');
+    bindLogoFallbacks(target);
+  }
+
   function renderAll(){
+    renderBestOffers();
     renderCards();
     drawFilters();
     applyFilters();
