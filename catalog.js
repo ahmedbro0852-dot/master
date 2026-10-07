@@ -1,12 +1,12 @@
 const products = [
   {
     "id": "academic-pro",
-    "name": "أكاديمي — Turnitin Pro",
+    "name": "Academi Pro",
     "category": "التعليم",
-    "logo": "turnitin",
-    "logoUrl": "https://kr.turnitin.com/assets/images/shared-assets-1/product-logos/logo-tii.svg",
+    "logo": "academi",
+    "logoUrl": "https://academi.cx/includes/components/favicons/apple-touch-icon.png",
     "status": "available",
-    "description": "اشتراك أكاديمي بخطة Pro لمدة شهر بسعر 750 جنيه، باشتراك خاص.",
+    "description": "اشتراك Academi Pro لفحص الملفات لمدة شهر بسعر 750 جنيه، باشتراك خاص.",
     "plans": [
       {
         "name": "Pro — اشتراك خاص",
