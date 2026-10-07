@@ -878,7 +878,7 @@ const products = [
     "name": "StealthWriter",
     "category": "الإنتاجية",
     "logo": "stealthwriter",
-    "logoUrl": "logos/stealthwriter.svg",
+    "logoUrl": "logos/stealthwriter-official.svg",
     "status": "available",
     "description": "باقات StealthWriter لمدة شهر: Starter بسعر 950 جنيه بدلًا من 1050 جنيه، وPlus بسعر 2100 جنيه بدلًا من 2600 جنيه.",
     "plans": [
