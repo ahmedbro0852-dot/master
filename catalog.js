@@ -505,12 +505,33 @@ const products = [
   },
   {
     "id": "adobe-cc",
-    "name": "Adobe Creative Cloud",
+    "name": "Adobe Creative Cloud Pro",
     "category": "التصميم",
     "logo": "adobe",
-    "status": "out",
-    "description": "المخزون غير متوفر حاليًا.",
-    "plans": []
+    "status": "available",
+    "description": "اشتراك Adobe Creative Cloud Pro لمدة شهر: دعوة على حسابك الشخصي بـ450 جنيه، أو تفعيل رسمي على حسابك الشخصي بـ850 جنيه.",
+    "plans": [
+      {
+        "name": "Creative Cloud Pro — دعوة",
+        "planType": "Creative Cloud Pro",
+        "accountType": "دعوة على حسابك الشخصي",
+        "duration": "1 شهر",
+        "price": 450,
+        "activation": "دعوة تُرسل إلى حسابك الشخصي.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "الضمان يُؤكد قبل الدفع"
+      },
+      {
+        "name": "Creative Cloud Pro — تفعيل رسمي",
+        "planType": "Creative Cloud Pro",
+        "accountType": "تفعيل رسمي على حسابك الشخصي",
+        "duration": "1 شهر",
+        "price": 850,
+        "activation": "تفعيل رسمي على حسابك الشخصي.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "الضمان يُؤكد قبل الدفع"
+      }
+    ]
   },
   {
     "id": "duolingo",
