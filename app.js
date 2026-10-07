@@ -211,7 +211,7 @@
     target.innerHTML=picks.map(([id,index])=>{
       const product=Catalog.getProduct(id),plan=product?.plans?.[index];
       if(!plan)return '';
-      return '<article class="best-offer">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3><small>'+esc(id==='lovable-pro'&&index===1?ui('شهر · 100 كريدت + 5 يوميًا · متاح 39 اشتراكًا','Month · 100 credits + 5 daily · 39 available'):tr(plan.duration,'duration',id))+'</small></div><strong>'+Store.planMoney(plan)+(plan.oldPrice?' <del>'+Store.planMoney({...plan,price:plan.oldPrice})+'</del>':'')+'</strong><a class="card-btn soft-btn" href="product.html?id='+encodeURIComponent(id)+'&plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
+      return '<article class="best-offer">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3><small>'+esc(id==='lovable-pro'&&index===1?ui('شهر · 100 كريدت + 5 يوميًا','Month · 100 credits + 5 daily'):tr(plan.duration,'duration',id))+'</small></div><strong>'+Store.planMoney(plan)+(plan.oldPrice?' <del>'+Store.planMoney({...plan,price:plan.oldPrice})+'</del>':'')+'</strong><a class="card-btn soft-btn" href="product.html?id='+encodeURIComponent(id)+'&plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
     }).join('');
     bindLogoFallbacks(target);
   }
