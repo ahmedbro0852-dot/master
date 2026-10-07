@@ -40,7 +40,7 @@
     return;
   }
 
-  const popularityOrder=["chatgpt-plus","gemini-pro","canva-pro","adobe-cc","capcut-pro","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","kling","runway-pro","elevenlabs","academic-pro","humanizeai-standard","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus-pro","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account","chatgpt-teachers-k12"];
+  const popularityOrder=["chatgpt-plus","gemini-pro","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus-pro","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account","chatgpt-teachers-k12"];
   const popularityRank=new Map(popularityOrder.map((id,index)=>[id,index]));
   const statusRank={available:0,soon:1,out:2};
   const products=[...(Catalog.products||[])].sort((a,b)=>{
@@ -120,6 +120,7 @@
   function searchText(product){
     return normalizeSearch([
       product.name,
+      product.id==='kling'?'كلينج كيلنج Kling':'' ,
       tr(product.category,'category',product.id),
       tr(product.description,'description',product.id),
       tr(Catalog.statusLabel(product.status),'status',product.id),
