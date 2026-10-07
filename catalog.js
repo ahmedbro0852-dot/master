@@ -1,5 +1,26 @@
 const products = [
   {
+    "id": "academic-pro",
+    "name": "أكاديمي — Turnitin Pro",
+    "category": "التعليم",
+    "logo": "turnitin",
+    "logoUrl": "https://kr.turnitin.com/assets/images/shared-assets-1/product-logos/logo-tii.svg",
+    "status": "available",
+    "description": "اشتراك أكاديمي بخطة Pro لمدة شهر بسعر 750 جنيه، باشتراك خاص.",
+    "plans": [
+      {
+        "name": "Pro — اشتراك خاص",
+        "planType": "Pro",
+        "accountType": "اشتراك خاص",
+        "duration": "1 شهر",
+        "price": 750,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "اشتراك خاص",
+        "warranty": "الضمان يُؤكد قبل الدفع"
+      }
+    ]
+  },
+  {
     "id": "chatgpt-plus",
     "name": "ChatGPT Plus",
     "category": "AI Tools",
