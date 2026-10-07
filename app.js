@@ -40,10 +40,12 @@
     return;
   }
 
+  const popularityOrder=["chatgpt-plus","gemini-pro","canva-pro","adobe-cc","capcut-pro","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","kling","runway-pro","elevenlabs","academic-pro","humanizeai-standard","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus-pro","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account","chatgpt-teachers-k12"];
+  const popularityRank=new Map(popularityOrder.map((id,index)=>[id,index]));
   const statusRank={available:0,soon:1,out:2};
   const products=[...(Catalog.products||[])].sort((a,b)=>{
     const rank=(statusRank[a.status]??9)-(statusRank[b.status]??9);
-    return rank||0;
+    return rank||((popularityRank.get(a.id)??999)-(popularityRank.get(b.id)??999));
   });
   const categories=['الكل',...(Catalog.categoryOrder||[...new Set(products.map(p=>p.category).filter(Boolean))])];
   let selected='الكل';
