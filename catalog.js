@@ -1,5 +1,150 @@
 const products = [
   {
+    "category": "الإنتاجية",
+    "status": "available",
+    "id": "ilovepdf",
+    "name": "iLovePDF",
+    "logo": "ilovepdf",
+    "logoUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHIAAAByCAMAAAC4A3VPAAAASFBMVEX///+fn5/kMy7nR0L89/frYl706+vtdnPzpaP62Nj3wsHxkI4/Pz+NjY0vLy/Y2NiwsLAAAACpqakODg5wcHBTU1PAwMAfHx8a1A/tAAADAUlEQVR4XuzXaW6EMAyAUctbFmD2ae9/02pUaczQCpfi5k/zXeApOFYE/JN6vV6v1+OaCBEpZY4Bjqdlb69gJnw2GJqHX5PTedl9LhbBeVQ+ARXE9DdkxWX1ARRCFDMjyWLU3FRCxGJmIKmEX6MC8qCVE6ZwMuF3yYCPFB4mw/aO0zTOvMM0neyzrqVg5ub4YKSCNTjkHvP+FN9hFjmkmVEko0OaGUUWjzQziqwOafdauB1pZrsPa2a762NmBAnikAszgswOuTQDSKY1csgvEdYAEjJuSCCCZNlAaghpD6ZfhRgSyk/NDAHkJrNCHAmcfJAKRJLA2QHjXhJLZQ2kChBJ+gs6MESSlopzxDjSyt4U40mo5CxjAOmuaIVY0h9o2SEer+dnpzWTZcf6W5dxnInn62G8rZjknDHg/3KZks2xEQnF7moL0vZToCUJgki6i7yMy27rpNogm5UFWscK8fV6vY/262THVRgIwyhIVlYeMDX4/d/0okjh7+uyGbohK75dSKITDAWEqkqMwjPmba7fL1F4TP8DnvpZMrfznxv0mJsR64Bi7rdPAk0gm0W9mswlgWzH7iISpgPZzrvfkKqyGsLMQgB4IV86FWxgFk/2hqrKWG8RYREWD7LOrYS+X+Lb5KrD+Xp/YI4wgzmc/AESSBOBfMfVc+X0k6x/1WecvCHdCTJhHwxpnrC5Sw7lOIkN0iNfhMXvknKCjFtkvfjaJWcRFrmM1AyiQb7SEj59YmG5SzrMZov0OBP+fvqYoSgtMoI8OSTJkvacbZF0jgyrEIcdEhtBZlrKR0kOIUjJa7pBcodE+6SNh2+SEPcX1l1FRh2OkTRcQpIA3BuSWJEyLR0mPS+FMCVwXZJWojUk5Sg5gtkg7eXCkv4GEsObWmSQpelS0hUcSkOiK0ns5PglEluKu4WcK9IFc008SYa8TToPICUdmRrTrvk4SZTXaGmuwBkAMs9alBERbbMA23s69kEae/9J7iIlDV8liQHeTlLxEuB1yfM9PT09PT09/QO6FrmDCO8ueAAAAABJRU5ErkJggg==",
+    "description": "اشتراك iLovePDF لمدة سنة بسعر 500 جنيه، يشمل 2,000 كريدت حسب عرض المتجر.",
+    "plans": [
+      {
+        "name": "اشتراك سنوي — 2,000 Credits",
+        "duration": "12 شهر",
+        "price": 500,
+        "credits": "2,000 كريدت",
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "يشمل العرض 2,000 كريدت؛ تفاصيل استخدامها وتجددها تُؤكد قبل الدفع."
+        ]
+      }
+    ]
+  },
+  {
+    "category": "الإنتاجية",
+    "status": "available",
+    "id": "bdf-egypt-pro",
+    "name": "BDF Egypt Pro",
+    "logo": "bdf-egypt",
+    "logoUrl": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2096%2096%22%20role%3D%22img%22%20aria-label%3D%22BDF%20Egypt%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2224%22%20fill%3D%22%23142d52%22%2F%3E%3Cpath%20d%3D%22M25%2022h30l17%2017v35H25z%22%20fill%3D%22%23fff%22%2F%3E%3Cpath%20d%3D%22M55%2022v17h17%22%20fill%3D%22%23b9d4ff%22%2F%3E%3Cpath%20d%3D%22M35%2049h26M35%2058h17%22%20stroke%3D%22%232465dc%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%2F%3E%3Crect%20x%3D%2249%22%20y%3D%2261%22%20width%3D%2230%22%20height%3D%2221%22%20rx%3D%227%22%20fill%3D%22%2310b8a6%22%2F%3E%3Cpath%20d%3D%22m57%2071%205%204%209-9%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E%0A",
+    "description": "موقعنا لمعالجة ملفات PDF. باقات Pro لفتح الأدوات المدفوعة ومعالجة الدفعات وحفظ الإعدادات. جرّب الموقع: https://bdf-egypt.vercel.app",
+    "features": [
+      "فتح الأدوات المدفوعة",
+      "معالجة عدة ملفات بنفس الإعدادات للأدوات المدعومة",
+      "حفظ واستعادة إعداداتك",
+      "حدود Pro: حتى 40 ملفًا و100 ميجابايت حسب الأداة"
+    ],
+    "plans": [
+      {
+        "name": "Pro",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 42,
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "اشتراكك في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "باقة الأدوات لا تشمل رصيد Pro AI؛ باقات الذكاء الاصطناعي متاحة بشكل منفصل.",
+          "افتح موقعنا: https://bdf-egypt.vercel.app"
+        ]
+      },
+      {
+        "name": "Pro",
+        "planType": "Pro",
+        "duration": "3 شهر",
+        "price": 108,
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "اشتراكك في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "باقة الأدوات لا تشمل رصيد Pro AI؛ باقات الذكاء الاصطناعي متاحة بشكل منفصل.",
+          "افتح موقعنا: https://bdf-egypt.vercel.app"
+        ]
+      },
+      {
+        "name": "Pro",
+        "planType": "Pro",
+        "duration": "6 شهر",
+        "price": 196,
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "اشتراكك في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "باقة الأدوات لا تشمل رصيد Pro AI؛ باقات الذكاء الاصطناعي متاحة بشكل منفصل.",
+          "افتح موقعنا: https://bdf-egypt.vercel.app"
+        ]
+      },
+      {
+        "name": "Pro",
+        "planType": "Pro",
+        "duration": "12 شهر",
+        "price": 328,
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "اشتراكك في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "باقة الأدوات لا تشمل رصيد Pro AI؛ باقات الذكاء الاصطناعي متاحة بشكل منفصل.",
+          "افتح موقعنا: https://bdf-egypt.vercel.app"
+        ]
+      }
+    ]
+  },
+  {
+    "category": "الإنتاجية",
+    "status": "available",
+    "id": "bdf-egypt-ai",
+    "name": "BDF Egypt Pro AI",
+    "logo": "bdf-egypt",
+    "logoUrl": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2096%2096%22%20role%3D%22img%22%20aria-label%3D%22BDF%20Egypt%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2224%22%20fill%3D%22%23142d52%22%2F%3E%3Cpath%20d%3D%22M25%2022h30l17%2017v35H25z%22%20fill%3D%22%23fff%22%2F%3E%3Cpath%20d%3D%22M55%2022v17h17%22%20fill%3D%22%23b9d4ff%22%2F%3E%3Cpath%20d%3D%22M35%2049h26M35%2058h17%22%20stroke%3D%22%232465dc%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%2F%3E%3Crect%20x%3D%2249%22%20y%3D%2261%22%20width%3D%2230%22%20height%3D%2221%22%20rx%3D%227%22%20fill%3D%22%2310b8a6%22%2F%3E%3Cpath%20d%3D%22m57%2071%205%204%209-9%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E%0A",
+    "description": "رصيد ملفات لأدوات الذكاء الاصطناعي في موقعنا BDF Egypt، مع فتح صلاحيات Pro.",
+    "plans": [
+      {
+        "name": "Pro AI — 100 ملف",
+        "planType": "Pro AI",
+        "duration": "حسب الرصيد",
+        "price": 300,
+        "credits": "100 ملف",
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "رصيد AI في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "رصيد الملفات منفصل عن الاشتراك الزمني للأدوات.",
+          "موقع الخدمة: https://bdf-egypt.vercel.app"
+        ]
+      },
+      {
+        "name": "Pro AI — 500 ملف",
+        "planType": "Pro AI",
+        "duration": "حسب الرصيد",
+        "price": 1200,
+        "credits": "500 ملف",
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "رصيد AI في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "رصيد الملفات منفصل عن الاشتراك الزمني للأدوات.",
+          "موقع الخدمة: https://bdf-egypt.vercel.app"
+        ]
+      },
+      {
+        "name": "Pro AI — 1000 ملف",
+        "planType": "Pro AI",
+        "duration": "حسب الرصيد",
+        "price": 2000,
+        "credits": "1000 ملف",
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "رصيد AI في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "رصيد الملفات منفصل عن الاشتراك الزمني للأدوات.",
+          "موقع الخدمة: https://bdf-egypt.vercel.app"
+        ]
+      }
+    ]
+  },
+  {
     "id": "we-gold-discount",
     "name": "WE Gold — خصم الإنترنت المنزلي",
     "category": "الاتصالات والإنترنت",
