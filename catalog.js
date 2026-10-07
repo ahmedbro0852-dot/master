@@ -1055,9 +1055,19 @@ const products = [
     "name": "Kling AI",
     "category": "AI Tools",
     "logo": "kling",
-    "status": "out",
-    "description": "المخزون منتهٍ حاليًا.",
-    "plans": []
+    "status": "available",
+    "description": "باقة Kling AI برصيد 1,100 كريدت بسعر 700 جنيه، بضمان 5 أيام.",
+    "plans": [
+      {
+        "name": "Kling AI — 1,100 Credits",
+        "duration": "حسب الرصيد",
+        "price": 700,
+        "credits": "1,100 كريدت",
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "5 أيام"
+      }
+    ]
   },
   {
     "id": "grammarly",
