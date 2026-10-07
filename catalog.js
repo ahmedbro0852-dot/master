@@ -875,24 +875,66 @@ const products = [
   },
   {
     "id": "stealth-writer",
-    "name": "Stealth Writer",
+    "name": "StealthWriter",
     "category": "الإنتاجية",
     "logo": "stealthwriter",
     "logoUrl": "logos/stealthwriter.svg",
     "status": "available",
-    "description": "خدمة Humanize وإعادة صياغة النصوص.",
+    "description": "باقات StealthWriter لمدة شهر: Starter بسعر يعادل 20 دولارًا، وPlus بسعر يعادل 45 دولارًا.",
     "plans": [
       {
-        "name": "شهر",
+        "name": "Starter",
+        "planType": "Starter",
         "duration": "1 شهر",
-        "price": 400,
+        "price": 1048.8,
         "activation": "تسليم حساب",
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل",
-        "credits": "حتى 10 Humanize يوميًا، وحتى 5,000 كلمة للعملية",
+        "credits": "50 عملية إعادة صياغة يوميًا",
+        "features": [
+          "50 عملية إعادة صياغة يوميًا",
+          "50 فحص AI يوميًا",
+          "حتى 5,000 كلمة للعملية",
+          "Ghost 5.2 Pro وLegacy"
+        ],
         "notes": [
           "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
-        ]
+        ],
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "source": "https://stealthwriter.ai/pricing",
+          "checkedAt": "2026-10-07",
+          "basis": "monthly"
+        }
+      },
+      {
+        "name": "Plus",
+        "planType": "Plus",
+        "duration": "1 شهر",
+        "price": 2359.8,
+        "activation": "تسليم حساب",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "credits": "150 عملية إعادة صياغة يوميًا",
+        "features": [
+          "150 عملية إعادة صياغة يوميًا",
+          "150 فحص AI يوميًا",
+          "حتى 5,000 كلمة للعملية",
+          "Ghost 5.2 Pro وLegacy"
+        ],
+        "notes": [
+          "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
+        ],
+        "officialPrice": {
+          "amount": 50,
+          "currency": "USD",
+          "months": 1,
+          "source": "https://stealthwriter.ai/pricing",
+          "checkedAt": "2026-10-07",
+          "basis": "monthly"
+        }
       }
     ]
   },
