@@ -1,21 +1,58 @@
 const products = [
   {
+    "id": "humanizeai-standard",
+    "name": "HumanizeAI Standard",
+    "category": "AI Tools",
+    "logo": "humanizeai",
+    "logoUrl": "https://humanizeai.com/static/logo-icon-dark.png",
+    "status": "available",
+    "description": "اشتراك HumanizeAI.com بخطة Standard لمدة شهر، بحساب خاص.",
+    "plans": [
+      {
+        "name": "Standard — حساب خاص",
+        "planType": "Standard",
+        "accountType": "حساب خاص",
+        "duration": "1 شهر",
+        "price": 943.92,
+        "activation": "تسليم حساب خاص.",
+        "account": "حساب خاص غير مشترك",
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "credits": "75,000 كلمة HumanizeAI شهريًا",
+        "officialPrice": {
+          "amount": 24,
+          "currency": "USD",
+          "months": 1,
+          "source": "https://humanizeai.com/pricing/",
+          "checkedAt": "2026-10-07",
+          "basis": "monthly"
+        },
+        "features": [
+          "75,000 كلمة لإعادة صياغة النص شهريًا",
+          "200,000 كلمة للكتابة بالذكاء الاصطناعي شهريًا",
+          "300,000 كلمة لفحص الذكاء الاصطناعي شهريًا",
+          "50,000 كلمة لفحص التشابه شهريًا",
+          "تدقيق لغوي وإعادة صياغة"
+        ]
+      }
+    ]
+  },
+  {
     "id": "academic-pro",
     "name": "Academi Pro",
     "category": "التعليم",
     "logo": "academi",
     "logoUrl": "https://academi.cx/includes/components/favicons/apple-touch-icon.png",
     "status": "available",
-    "description": "اشتراك Academi Pro لفحص الملفات لمدة شهر بسعر 750 جنيه، باشتراك خاص.",
+    "description": "اشتراك Academi.cx Pro لفحص الملفات لمدة شهر بسعر 750 جنيه، بتفعيل على حسابك الشخصي.",
     "plans": [
       {
-        "name": "Pro — اشتراك خاص",
+        "name": "Pro — تفعيل على حسابك الشخصي",
         "planType": "Pro",
-        "accountType": "اشتراك خاص",
+        "accountType": "تفعيل على حسابك الشخصي",
         "duration": "1 شهر",
         "price": 750,
-        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
-        "account": "اشتراك خاص",
+        "activation": "تفعيل اشتراك Pro على حسابك الشخصي في Academi.cx.",
+        "account": "حساب العميل الشخصي",
         "warranty": "الضمان يُؤكد قبل الدفع"
       }
     ]
