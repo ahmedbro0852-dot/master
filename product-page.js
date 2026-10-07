@@ -33,7 +33,7 @@
   function bindProductLogoFallback(){
     const img=root.querySelector('.product-logo.big img');
     if(!img)return;
-    img.addEventListener('error',()=>{
+    const recoverLogo=()=>{
       const fallback=img.dataset.fallback;
       if(fallback&&!img.dataset.usedFallback&&img.src!==new URL(fallback,location.href).href){
         img.dataset.usedFallback='1';
@@ -42,7 +42,9 @@
       }
       img.hidden=true;
       img.nextElementSibling?.classList.add('visible');
-    });
+    };
+    img.addEventListener('error',recoverLogo);
+    if(img.complete&&img.naturalWidth===0)recoverLogo();
   }
 
   if(!p){
