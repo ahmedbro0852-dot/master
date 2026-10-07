@@ -207,11 +207,11 @@
   function renderBestOffers(){
     const target=document.getElementById('bestOffersGrid');
     if(!target)return;
-    const picks=[['lovable-pro',0],['gemini-pro',0],['capcut-pro',1],['grok',0],['ilovepdf',0]];
+    const picks=[['lovable-pro',0],['gemini-pro',0],['capcut-pro',1],['grok',0],['lovable-pro',1]];
     target.innerHTML=picks.map(([id,index])=>{
       const product=Catalog.getProduct(id),plan=product?.plans?.[index];
       if(!plan)return '';
-      return '<article class="best-offer">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3><small>'+esc(tr(plan.duration,'duration',id))+'</small></div><strong>'+Store.planMoney(plan)+'</strong><a class="card-btn soft-btn" href="product.html?id='+encodeURIComponent(id)+'&plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
+      return '<article class="best-offer">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3><small>'+esc(id==='lovable-pro'&&index===1?ui('شهر · 100 كريدت + 5 يوميًا · متاح 1 فقط','Month · 100 credits + 5 daily · Only 1 available'):tr(plan.duration,'duration',id))+'</small></div><strong>'+Store.planMoney(plan)+(plan.oldPrice?' <del>'+Store.planMoney({...plan,price:plan.oldPrice})+'</del>':'')+'</strong><a class="card-btn soft-btn" href="product.html?id='+encodeURIComponent(id)+'&plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
     }).join('');
     bindLogoFallbacks(target);
   }

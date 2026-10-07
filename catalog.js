@@ -394,7 +394,7 @@ const products = [
     "category": "AI Tools",
     "logo": "lovable",
     "status": "available",
-    "description": "باقات Lovable Pro على حسابك الشخصي: شهر بـ300 جنيه أو سنة بـ1800 جنيه.",
+    "description": "باقات Lovable Pro الشهرية والسنوية، وعرض شهر برصيد 100 كريدت + 5 كريدت يوميًا بـ230 جنيه بدل 1200 جنيه.",
     "plans": [
       {
         "name": "Pro — شهر",
@@ -404,6 +404,21 @@ const products = [
         "activation": "تفعيل على حسابك الشخصي في Lovable.",
         "account": "حساب العميل الشخصي",
         "warranty": "يُؤكد قبل الدفع"
+      },
+      {
+        "name": "Pro — شهر — 100 كريدت + 5 يوميًا",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 230,
+        "oldPrice": 1200,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "100 كريدت + 5 كريدت يوميًا.",
+          "عرض خاص: 230 جنيه فقط بدل 1200 جنيه.",
+          "متاح اشتراك واحد فقط."
+        ]
       },
       {
         "name": "Pro",
