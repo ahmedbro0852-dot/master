@@ -4,7 +4,7 @@ const products = [
     "name": "HumanizeAI Standard",
     "category": "AI Tools",
     "logo": "humanizeai",
-    "logoUrl": "https://humanizeai.com/static/logo-icon-dark.png",
+    "logoUrl": "data:image/png;base64,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SAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAnNBdAbJ559arkOy2Lwo0rEKIAdEwDQE88/9/S7tdblEgC7zxYA9MDC0cNL3eIfAHtEAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAHpguww3A2APCQDogfX1jdUa5XQA7JG5AHph7cKlUwtHn16JUkfBjyol3pz+GAWwIwIAemTtk0srwV0tHDvyyjQCRgHsiC0AAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEIC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",
     "status": "available",
     "description": "اشتراك HumanizeAI.com بخطة Standard لمدة شهر، بحساب خاص.",
     "plans": [
@@ -41,7 +41,7 @@ const products = [
     "name": "Academi Pro",
     "category": "التعليم",
     "logo": "academi",
-    "logoUrl": "https://academi.cx/includes/components/favicons/apple-touch-icon.png",
+    "logoUrl": "data:image/png;base64,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",
     "status": "available",
     "description": "اشتراك Academi.cx Pro لفحص الملفات لمدة شهر بسعر 750 جنيه، بتفعيل على حسابك الشخصي.",
     "plans": [
@@ -128,7 +128,7 @@ const products = [
     "name": "Gemini Pro",
     "category": "AI Tools",
     "logo": "gemini",
-    "logoUrl": "https://cdn.simpleicons.org/googlegemini",
+    "logoUrl": "logos/gemini.svg",
     "status": "available",
     "description": "عرضان لمدة 18 شهر؛ الباقة العائلية تضيف 5 دعوات إضافية، ورصيد 1,000 Credit شهريًا مخصص للحساب الرئيسي فقط.",
     "plans": [
@@ -166,7 +166,7 @@ const products = [
     "name": "Claude Pro",
     "category": "AI Tools",
     "logo": "claude",
-    "logoUrl": "https://cdn.simpleicons.org/claude",
+    "logoUrl": "logos/claude.svg",
     "status": "available",
     "description": "تفعيل Claude على حسابك الشخصي باستخدام وسيلة دفع المتجر.",
     "plans": [
@@ -188,7 +188,7 @@ const products = [
     "name": "Perplexity Pro",
     "category": "AI Tools",
     "logo": "perplexity",
-    "logoUrl": "https://cdn.simpleicons.org/perplexity",
+    "logoUrl": "logos/perplexity.svg",
     "status": "available",
     "description": "حساب خاص جاهز مع ضمان كامل حسب عرض المتجر.",
     "plans": [
@@ -349,7 +349,7 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://cdn.brandfetch.io/idAmHoFYTU/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1755052194262"
+    "logoUrl": "logos/gamma.svg"
   },
   {
     "id": "gamma-account",
@@ -375,14 +375,14 @@ const products = [
         ]
       }
     ],
-    "logoUrl": "https://cdn.brandfetch.io/idAmHoFYTU/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1755052194262"
+    "logoUrl": "logos/gamma.svg"
   },
   {
     "id": "elevenlabs",
     "name": "ElevenLabs Creator",
     "category": "AI Tools",
     "logo": "elevenlabs",
-    "logoUrl": "https://cdn.simpleicons.org/elevenlabs",
+    "logoUrl": "logos/elevenlabs.svg",
     "status": "available",
     "description": "باقات ElevenLabs Creator: حساب جاهز لمدة شهر، أو تفعيل لمدة 3 شهور على حسابك الشخصي بضمان كامل.",
     "plans": [
@@ -526,7 +526,7 @@ const products = [
     "name": "Figma Professional",
     "category": "التصميم",
     "logo": "figma",
-    "logoUrl": "https://cdn.simpleicons.org/figma",
+    "logoUrl": "logos/figma.svg",
     "status": "available",
     "description": "اشتراك Figma لمدة 12 شهر.",
     "plans": [
@@ -546,7 +546,7 @@ const products = [
     "name": "Freepik Premium",
     "category": "التصميم",
     "logo": "freepik",
-    "logoUrl": "https://cdn.simpleicons.org/freepik",
+    "logoUrl": "logos/freepik.svg",
     "status": "available",
     "description": "Freepik Premium للتحميل فقط لمدة شهر؛ لا يشمل أدوات أو توليد الذكاء الاصطناعي.",
     "plans": [
@@ -596,7 +596,7 @@ const products = [
     "name": "Super Duolingo",
     "category": "التعليم",
     "logo": "duolingo",
-    "logoUrl": "https://cdn.simpleicons.org/duolingo",
+    "logoUrl": "logos/duolingo.svg",
     "status": "available",
     "description": "اشتراك سنة على البريد الشخصي.",
     "plans": [
@@ -641,7 +641,7 @@ const products = [
     "name": "Coursera Plus",
     "category": "التعليم",
     "logo": "coursera",
-    "logoUrl": "https://cdn.simpleicons.org/coursera",
+    "logoUrl": "logos/coursera.svg",
     "status": "available",
     "description": "خيارات Coursera بمدد وأنواع حساب مختلفة.",
     "plans": [
@@ -727,7 +727,7 @@ const products = [
     "name": "Turnitin",
     "category": "التعليم",
     "logo": "turnitin",
-    "logoUrl": "https://kr.turnitin.com/assets/images/shared-assets-1/product-logos/logo-tii.svg",
+    "logoUrl": "logos/turnitin.svg",
     "status": "available",
     "description": "خدمة فحص ملف واحد وإرسال تقرير التشابه.",
     "plans": [
@@ -768,7 +768,7 @@ const products = [
     "name": "Notion Plus / Business",
     "category": "الإنتاجية",
     "logo": "notion",
-    "logoUrl": "https://cdn.simpleicons.org/notion",
+    "logoUrl": "logos/notion.svg",
     "status": "available",
     "description": "خطط Notion Plus وBusiness بمدد مختلفة.",
     "plans": [
@@ -828,7 +828,7 @@ const products = [
     "name": "Zoom Pro",
     "category": "الإنتاجية",
     "logo": "zoom",
-    "logoUrl": "https://cdn.simpleicons.org/zoom",
+    "logoUrl": "logos/zoom.svg",
     "status": "available",
     "description": "اشتراكات Zoom Pro بعدة مدد، بحساب جاهز أو تفعيل على بريدك.",
     "plans": [
@@ -878,7 +878,7 @@ const products = [
     "name": "Stealth Writer",
     "category": "الإنتاجية",
     "logo": "stealthwriter",
-    "logoUrl": "https://stealthwriter.ai/logo-icon.svg",
+    "logoUrl": "logos/stealthwriter.svg",
     "status": "available",
     "description": "خدمة Humanize وإعادة صياغة النصوص.",
     "plans": [
@@ -901,7 +901,7 @@ const products = [
     "name": "iCloud 4TB",
     "category": "الإنتاجية",
     "logo": "icloud",
-    "logoUrl": "https://cdn.simpleicons.org/icloud",
+    "logoUrl": "logos/icloud.svg",
     "status": "available",
     "description": "عرض مساحة iCloud إجمالية 4TB.",
     "plans": [
@@ -920,7 +920,7 @@ const products = [
     "name": "Surfshark",
     "category": "VPN والحماية",
     "logo": "surfshark",
-    "logoUrl": "https://cdn.simpleicons.org/surfshark",
+    "logoUrl": "logos/surfshark.svg",
     "status": "available",
     "description": "كوبون Surfshark لمدة شهرين.",
     "plans": [
@@ -939,7 +939,7 @@ const products = [
     "name": "NordVPN",
     "category": "VPN والحماية",
     "logo": "nordvpn",
-    "logoUrl": "https://cdn.simpleicons.org/nordvpn",
+    "logoUrl": "logos/nordvpn.svg",
     "status": "available",
     "description": "اشتراك NordVPN لمدة 3 شهور.",
     "plans": [
@@ -959,7 +959,7 @@ const products = [
     "name": "Proton VPN",
     "category": "VPN والحماية",
     "logo": "protonvpn",
-    "logoUrl": "https://cdn.simpleicons.org/protonvpn",
+    "logoUrl": "logos/protonvpn.svg",
     "status": "available",
     "description": "حساب Proton VPN لمدة سنة لجهاز واحد.",
     "plans": [
@@ -990,14 +990,14 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://mma.prnewswire.com/media/996864/HMA_Logo.jpg?p=facebook"
+    "logoUrl": "logos/hma.svg"
   },
   {
     "id": "expressvpn",
     "name": "ExpressVPN Basic",
     "category": "VPN والحماية",
     "logo": "expressvpn",
-    "logoUrl": "https://cdn.simpleicons.org/expressvpn",
+    "logoUrl": "logos/expressvpn.svg",
     "status": "available",
     "description": "اشتراك ExpressVPN قصير المدة.",
     "plans": [
@@ -1016,7 +1016,7 @@ const products = [
     "name": "Spotify Premium",
     "category": "الترفيه",
     "logo": "spotify",
-    "logoUrl": "https://cdn.simpleicons.org/spotify",
+    "logoUrl": "logos/spotify.svg",
     "status": "available",
     "description": "تفعيل Spotify Premium على حساب العميل الشخصي.",
     "plans": [
@@ -1036,7 +1036,7 @@ const products = [
     "name": "YouTube Premium",
     "category": "الترفيه",
     "logo": "youtube",
-    "logoUrl": "https://cdn.simpleicons.org/youtube",
+    "logoUrl": "logos/youtube.svg",
     "status": "available",
     "description": "تفعيل YouTube Premium على حسابك الشخصي.",
     "plans": [
@@ -1074,7 +1074,7 @@ const products = [
     "name": "Grammarly Premium",
     "category": "الإنتاجية",
     "logo": "grammarly",
-    "logoUrl": "https://cdn.simpleicons.org/grammarly",
+    "logoUrl": "logos/grammarly.svg",
     "status": "available",
     "description": "اشتراك Grammarly Premium بمميزات الكتابة المتقدمة والتصحيح والصياغة وأدوات الذكاء الاصطناعي المتاحة في الخطة.",
     "features": [
@@ -1181,7 +1181,7 @@ const products = [
     "name": "Envato Elements",
     "category": "التصميم",
     "logo": "envato",
-    "logoUrl": "https://cdn.simpleicons.org/envato",
+    "logoUrl": "logos/envato.svg",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -1200,7 +1200,7 @@ const products = [
     "name": "Suno AI Pro",
     "category": "AI Tools",
     "logo": "suno",
-    "logoUrl": "https://cdn.simpleicons.org/suno",
+    "logoUrl": "logos/suno.svg",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -1219,7 +1219,7 @@ const products = [
     "name": "Discord Nitro",
     "category": "الترفيه",
     "logo": "discord",
-    "logoUrl": "https://cdn.simpleicons.org/discord",
+    "logoUrl": "logos/discord.svg",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -1328,7 +1328,7 @@ const products = [
     "name": "Magic Patterns Starter",
     "category": "AI Tools",
     "logo": "magicpatterns",
-    "logoUrl": "https://cdn.magicpatterns.com/uploads/aGFyTh3hH3Nc3yUbKfonCA/logo-%28gradient%29.svg",
+    "logoUrl": "logos/magicpatterns.svg",
     "status": "available",
     "description": "إنشاء واجهات وتجارب رقمية من الأوصاف النصية.",
     "plans": [
@@ -1365,7 +1365,7 @@ const products = [
     "name": "Framer Pro",
     "category": "AI Tools",
     "logo": "framer",
-    "logoUrl": "https://cdn.simpleicons.org/framer",
+    "logoUrl": "logos/framer.svg",
     "status": "available",
     "description": "تصميم ونشر المواقع التفاعلية بسرعة ومن دون تعقيد.",
     "plans": [
@@ -1385,7 +1385,7 @@ const products = [
     "name": "Supabase Pro",
     "category": "AI Tools",
     "logo": "supabase",
-    "logoUrl": "https://cdn.simpleicons.org/supabase",
+    "logoUrl": "logos/supabase.svg",
     "status": "available",
     "description": "قواعد بيانات ومصادقة وبنية خلفية للمشاريع الرقمية.",
     "plans": [
@@ -1405,7 +1405,7 @@ const products = [
     "name": "Railway Hobby",
     "category": "الإنتاجية",
     "logo": "railway",
-    "logoUrl": "https://cdn.simpleicons.org/railway",
+    "logoUrl": "logos/railway.svg",
     "status": "available",
     "description": "خطة Hobby لتشغيل ونشر المشاريع والتطبيقات.",
     "plans": [
@@ -1492,7 +1492,7 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://cdn.brandfetch.io/idIfIyyq5-/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1744257859696"
+    "logoUrl": "logos/mobbin.svg"
   },
   {
     "id": "granola-business",
@@ -1511,14 +1511,14 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://cdn.brandfetch.io/idLkEIX7oc/theme/dark/icon.svg?c=1bxid64Mup7aczewSAYMX&t=1772699209625"
+    "logoUrl": "logos/granola.svg"
   },
   {
     "id": "jam-team",
     "name": "Jam Team",
     "category": "الإنتاجية",
     "logo": "jam",
-    "logoUrl": "https://storage.googleapis.com/jam-assets/icons/jam.png",
+    "logoUrl": "logos/jam.svg",
     "status": "available",
     "description": "تسجيل ومشاركة مشكلات المواقع والتعاون عليها مع الفريق.",
     "plans": [
@@ -1575,7 +1575,7 @@ const products = [
     "name": "Linear Business",
     "category": "الإنتاجية",
     "logo": "linear",
-    "logoUrl": "https://cdn.simpleicons.org/linear",
+    "logoUrl": "logos/linear.svg",
     "status": "available",
     "description": "إدارة المشاريع والمهام للفرق بخطة Business.",
     "plans": [
@@ -1594,7 +1594,7 @@ const products = [
     "name": "PostHog Scale",
     "category": "الإنتاجية",
     "logo": "posthog",
-    "logoUrl": "https://cdn.simpleicons.org/posthog",
+    "logoUrl": "logos/posthog.svg",
     "status": "available",
     "description": "تحليلات المنتجات وسلوك المستخدمين وفق خطة Scale.",
     "plans": [
@@ -1625,7 +1625,7 @@ const products = [
         "warranty": "ضمان كامل"
       }
     ],
-    "logoUrl": "https://cdn.brandfetch.io/idJpwyLCiO/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1720164758624"
+    "logoUrl": "logos/customerio.svg"
   }
 ];
 
