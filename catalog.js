@@ -880,13 +880,13 @@ const products = [
     "logo": "stealthwriter",
     "logoUrl": "logos/stealthwriter.svg",
     "status": "available",
-    "description": "باقات StealthWriter لمدة شهر: Starter بسعر يعادل 20 دولارًا، وPlus بسعر يعادل 45 دولارًا.",
+    "description": "باقات StealthWriter لمدة شهر: Starter بسعر 950 جنيه بدلًا من 1050 جنيه، وPlus بسعر 2100 جنيه بدلًا من 2600 جنيه.",
     "plans": [
       {
         "name": "Starter",
         "planType": "Starter",
         "duration": "1 شهر",
-        "price": 1048.8,
+        "price": 950,
         "activation": "تسليم حساب",
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل",
@@ -900,20 +900,13 @@ const products = [
         "notes": [
           "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
         ],
-        "officialPrice": {
-          "amount": 20,
-          "currency": "USD",
-          "months": 1,
-          "source": "https://stealthwriter.ai/pricing",
-          "checkedAt": "2026-10-07",
-          "basis": "monthly"
-        }
+        "oldPrice": 1050
       },
       {
         "name": "Plus",
         "planType": "Plus",
         "duration": "1 شهر",
-        "price": 2359.8,
+        "price": 2100,
         "activation": "تسليم حساب",
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل",
@@ -927,14 +920,7 @@ const products = [
         "notes": [
           "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
         ],
-        "officialPrice": {
-          "amount": 50,
-          "currency": "USD",
-          "months": 1,
-          "source": "https://stealthwriter.ai/pricing",
-          "checkedAt": "2026-10-07",
-          "basis": "monthly"
-        }
+        "oldPrice": 2600
       }
     ]
   },
