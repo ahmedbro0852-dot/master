@@ -207,7 +207,7 @@
   function renderBestOffers(){
     const target=document.getElementById('bestOffersGrid');
     if(!target)return;
-    const picks=[['lovable-pro',0],['gemini-pro',0],['capcut-pro',1],['grok',0],['lovable-pro',1]];
+    const picks=[['lovable-pro',1],['gemini-pro',0],['capcut-pro',1],['grok',0]];
     target.innerHTML=picks.map(([id,index])=>{
       const product=Catalog.getProduct(id),plan=product?.plans?.[index];
       if(!plan)return '';
