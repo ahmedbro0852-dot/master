@@ -3,8 +3,8 @@ const products = [
   "id": "king-cobra-iptv",
   "name": "King Cobra IPTV",
   "category": "الترفيه",
-  "logo": "iptv",
-  "logoUrl": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2096%2096%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2224%22%20fill%3D%22%231746a2%22%2F%3E%3Ctext%20x%3D%2248%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-size%3D%2264%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%E2%9A%BD%3C%2Ftext%3E%3C%2Fsvg%3E",
+  "logo": "premier-league",
+  "logoUrl": "logos/premier-league.svg?v=20261008",
   "status": "available",
   "description": "اشتراك IPTV فردي لمدة شهر لمتابعة القنوات والمحتوى المتاح على السيرفر. تسليم بيانات التفعيل لكل عميل بشكل مستقل.",
   "features": [
@@ -36,8 +36,8 @@ const products = [
   "id": "dino-iptv",
   "name": "Dino IPTV",
   "category": "الترفيه",
-  "logo": "iptv",
-  "logoUrl": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2096%2096%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2224%22%20fill%3D%22%236426a5%22%2F%3E%3Ctext%20x%3D%2248%22%20y%3D%2270%22%20text-anchor%3D%22middle%22%20font-size%3D%2264%22%20font-family%3D%22Arial%2C%20sans-serif%22%3E%E2%9A%BD%3C%2Ftext%3E%3C%2Fsvg%3E",
+  "logo": "champions-league",
+  "logoUrl": "logos/champions-league.svg?v=20261008",
   "status": "available",
   "description": "اشتراك IPTV فردي لمدة ٦ شهور أو سنة، يشمل القنوات ومكتبة المحتوى المتاحة على السيرفر. بيانات دخول مستقلة لكل عميل.",
   "features": [
