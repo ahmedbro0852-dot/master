@@ -1783,3 +1783,52 @@ button,a,input,select{-webkit-tap-highlight-color:transparent}
 .best-offer .card-btn{width:100%;font-size:12px}
 @media(max-width:900px){.best-offers-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:700px){.best-offers{margin:20px 14px 0;padding:16px}.best-offers-grid{grid-template-columns:1fr}.best-offer{display:grid;grid-template-columns:64px minmax(0,1fr) auto;text-align:start;gap:10px;padding:14px}.best-offer .card-btn{grid-column:1/-1}.best-offer strong{margin:0;font-size:18px}.best-offers h2{font-size:23px}}
+
+/* Store palette: navy, blue and restrained amber offer accents. */
+:root{--blue:#2459cf;--blue-dark:#1945a8;--navy:#142b4d;--ink:#182a43;--muted:#5d6e84;--line:#dce5f0;--soft:#f2f6fc;--gold:#bc7a10;--gold-soft:#fff5df}
+body{background:#f5f8fc;color:var(--ink)}
+.topbar{background:#fff;border-bottom-color:#dce5f0}
+.topbar nav{color:#344b69}
+.account-link,.market-switcher select{background:#f2f6fd;border-color:#d3dff0;color:#24466f}
+.offer-bar{background:#142b4d;color:#fff}
+.offer-bar a{color:#ffe1a0}
+.hero-v2{background:#edf3fc}
+.hero-v2 h1{color:#142b4d}
+.hero-v2 h1 em{color:#2459cf}
+.hero-kicker,.eyebrow{color:#8b5b0d}
+.hero-v2 .hero-copy>p,.section-sub{color:#536781}
+.subscription-shelf{background:#fff;border-color:#cddcf0;box-shadow:0 10px 30px rgba(20,43,77,.06)}
+.logo-lane{background:#e6eefb;border-color:#d3dff0}
+.shelf-feature{background:#fff4da;border-color:#e7cf96}
+.confidence-strip{background:#fff;border-color:#d6e2f1}
+.primary,.card-btn,.soft-btn{background:#2459cf;color:#fff;border-color:#2459cf}
+.primary:hover,.card-btn:hover,.soft-btn:hover{background:#1945a8;border-color:#1945a8}
+.primary.disabled,.card-btn.disabled{background:#c4cbd8;border-color:#c4cbd8;color:#263950}
+.ghost,.ghost-btn{background:#fff;border-color:#cbd9ed;color:#24466f}
+.filter{background:#fff;border-color:#cbd9ed;color:#344b69}
+.filter.active{background:#142b4d;border-color:#142b4d;color:#fff}
+.search{background:#fff;border-color:#cbd9ed}
+.product-card.light-card{background:#fff;border-color:#d7e2f0;box-shadow:0 4px 16px rgba(20,43,77,.04)}
+.product-card.light-card:hover{border-color:#91afe2}
+.light-meta strong,.service-name,.section-head h2{color:#142b4d}
+.simple-service-card .card-top{background:#edf3fc;border-color:#dce6f4}
+.simple-service-card .product-logo,.product-title .product-logo.big{background:#fff}
+.best-offers{background:#fff5e6;border-color:#ecd3a7}
+.best-offer{background:#fff;border-color:#e7d8bf}
+.best-offer:first-child{border-color:#c98514}
+.best-offer strong{color:#142b4d}
+.how{background:#eaf1fb}
+.steps article,.value-grid article{background:#fff;border-color:#d7e2f0}
+.steps i{background:#e5edff;color:#1945a8}
+.product-hero{background:#eaf1fb;border-color:#d0dff3}
+.summary-card,.plans-block,.profile-card,.order-card{background:#fff;border-color:#d7e2f0}
+.plan-option{background:#fff;border-color:#d2deef}
+.plan-option:has(input:checked){background:#eaf1ff;border-color:#2459cf;box-shadow:0 0 0 1px #2459cf}
+.plan-option input{accent-color:#2459cf}
+.plan-saving,.saving{color:#116443}
+.plan-features{background:#eef7f3;border-color:#c7e2d4}
+.plan-notes{background:#fff6e6;border-color:#ecd5ae}
+.mobile-order-bar{background:#fff;border-color:#d3dff0}
+.checkout-dialog{background:#fff;color:#182a43}
+.checkout-form input,.checkout-form select,.profile-form input{background:#f8faff;border-color:#cbd9ed;color:#182a43}
+@media(max-width:700px){.simple-service-card .card-top{background:transparent}}
