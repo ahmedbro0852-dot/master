@@ -401,6 +401,9 @@
   function planAmount(plan,key){
     if(!plan)return 0;
     const k=key||'price';
+    if(k==='price'&&Number(plan.basePriceUSD)>0){
+      return Math.round(Number(plan.basePriceUSD)*currencyRate(currentMarket().currency)/currencyRate('USD'));
+    }
     if(k==='oldPrice'&&plan.officialPrice){
       const ref=plan.officialPrice;
       const amount=Number(ref.amount);
@@ -415,6 +418,12 @@
     return autoMarketAmount(plan[k]||0,state.market);
   }
   function planMoney(plan,key){
+    if(plan.wholePrice){
+      const market=currentMarket();
+      const n=Math.round(planAmount(plan,key)).toLocaleString('en-US');
+      const symbol=(state.language==='ar'?SYMBOLS_AR:SYMBOLS_EN)[market.currency]||market.currency;
+      return market.currency==='USD'?'$'+n:n+' '+symbol;
+    }
     return formatCurrency(planAmount(plan,key),currentMarket().currency);
   }
 
