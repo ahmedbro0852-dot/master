@@ -18,7 +18,23 @@ const products = [
         "warranty": "يُؤكد قبل الدفع",
         "notes": [
           "يشمل العرض 2,000 كريدت؛ تفاصيل استخدامها وتجددها تُؤكد قبل الدفع."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "Premium",
+          "source": "https://www.ilovepdf.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "مرجع Premium السنوي لا يثبت أن رصيد 2,000 كريدت جزء من الباقة الرسمية.",
+          "billingLabel": "Premium السنوي"
+        },
+        "officialPrice": {
+          "amount": 48,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.ilovepdf.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -48,7 +64,14 @@ const products = [
         "notes": [
           "باقة الأدوات لا تشمل رصيد Pro AI؛ باقات الذكاء الاصطناعي متاحة بشكل منفصل.",
           "افتح موقعنا: https://bdf-egypt.vercel.app"
-        ]
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "خدمة المتجر؛ لا يوجد سعر خارجي مستقل موثق للمقارنة."
+        }
       },
       {
         "name": "Pro",
@@ -61,7 +84,14 @@ const products = [
         "notes": [
           "باقة الأدوات لا تشمل رصيد Pro AI؛ باقات الذكاء الاصطناعي متاحة بشكل منفصل.",
           "افتح موقعنا: https://bdf-egypt.vercel.app"
-        ]
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "خدمة المتجر؛ لا يوجد سعر خارجي مستقل موثق للمقارنة."
+        }
       },
       {
         "name": "Pro",
@@ -74,7 +104,14 @@ const products = [
         "notes": [
           "باقة الأدوات لا تشمل رصيد Pro AI؛ باقات الذكاء الاصطناعي متاحة بشكل منفصل.",
           "افتح موقعنا: https://bdf-egypt.vercel.app"
-        ]
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "خدمة المتجر؛ لا يوجد سعر خارجي مستقل موثق للمقارنة."
+        }
       },
       {
         "name": "Pro",
@@ -87,7 +124,14 @@ const products = [
         "notes": [
           "باقة الأدوات لا تشمل رصيد Pro AI؛ باقات الذكاء الاصطناعي متاحة بشكل منفصل.",
           "افتح موقعنا: https://bdf-egypt.vercel.app"
-        ]
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "خدمة المتجر؛ لا يوجد سعر خارجي مستقل موثق للمقارنة."
+        }
       }
     ]
   },
@@ -112,7 +156,14 @@ const products = [
         "notes": [
           "رصيد الملفات منفصل عن الاشتراك الزمني للأدوات.",
           "موقع الخدمة: https://bdf-egypt.vercel.app"
-        ]
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro AI",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "رصيد ملفات من خدمة المتجر، وليس اشتراكًا زمنيًا."
+        }
       },
       {
         "name": "Pro AI — 500 ملف",
@@ -126,7 +177,14 @@ const products = [
         "notes": [
           "رصيد الملفات منفصل عن الاشتراك الزمني للأدوات.",
           "موقع الخدمة: https://bdf-egypt.vercel.app"
-        ]
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro AI",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "رصيد ملفات من خدمة المتجر، وليس اشتراكًا زمنيًا."
+        }
       },
       {
         "name": "Pro AI — 1000 ملف",
@@ -140,7 +198,14 @@ const products = [
         "notes": [
           "رصيد الملفات منفصل عن الاشتراك الزمني للأدوات.",
           "موقع الخدمة: https://bdf-egypt.vercel.app"
-        ]
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro AI",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "رصيد ملفات من خدمة المتجر، وليس اشتراكًا زمنيًا."
+        }
       }
     ]
   },
@@ -177,7 +242,14 @@ const products = [
           "السعر 700 جنيه لشراء كود العرض، وليس قيمة فاتورة الإنترنت.",
           "مدة الخصم واستمراره مرتبطة بشروط العرض وأهلية الاشتراك.",
           "صيغة طلب الكود كاملة وشروط الضمان تُؤكد مع الدعم قبل الدفع."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "WE Gold — عرض الإنترنت المنزلي",
+          "source": "https://te.eg",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "50% تخص الفاتورة الأساسية حسب أهلية العرض، وليست خصمًا على سعر كود الـ700 جنيه. لا يوجد سعر رسمي موثق لهذا الكود."
+        }
       }
     ]
   },
@@ -200,21 +272,29 @@ const products = [
         "account": "حساب خاص غير مشترك",
         "warranty": "الضمان يُؤكد قبل الدفع",
         "credits": "75,000 كلمة HumanizeAI شهريًا",
-        "officialPrice": {
-          "amount": 24,
-          "currency": "USD",
-          "months": 1,
-          "source": "https://humanizeai.com/pricing/",
-          "checkedAt": "2026-10-07",
-          "basis": "monthly"
-        },
         "features": [
           "75,000 كلمة لإعادة صياغة النص شهريًا",
           "200,000 كلمة للكتابة بالذكاء الاصطناعي شهريًا",
           "300,000 كلمة لفحص الذكاء الاصطناعي شهريًا",
           "50,000 كلمة لفحص التشابه شهريًا",
           "تدقيق لغوي وإعادة صياغة"
-        ]
+        ],
+        "priceComparison": {
+          "planName": "Standard — 75,000 كلمة شهريًا",
+          "source": "https://humanizeai.com/pricing/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 24,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://humanizeai.com/pricing/",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -235,7 +315,23 @@ const products = [
         "price": 750,
         "activation": "تفعيل اشتراك Pro على حسابك الشخصي في Academi.cx.",
         "account": "حساب العميل الشخصي",
-        "warranty": "الضمان يُؤكد قبل الدفع"
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "Pro",
+          "source": "https://academi.cx/pricing/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 15,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://academi.cx/pricing/",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -257,7 +353,23 @@ const products = [
         "warranty": "بدون ضمان",
         "notes": [
           "هذه الباقة لمدة شهر وبدون ضمان."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "ChatGPT Plus",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "ChatGPT Plus — حساب جاهز",
@@ -269,7 +381,23 @@ const products = [
         "warranty": "ضمان كامل",
         "notes": [
           "يتم تسليم حساب جاهز؛ لا يتم التفعيل على حساب العميل في هذه الباقة."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "ChatGPT Plus",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "ChatGPT Plus — على حسابك الشخصي",
@@ -278,7 +406,25 @@ const products = [
         "activation": "تفعيل على حساب العميل.",
         "account": "حساب العميل الشخصي",
         "warranty": "ضمان كامل",
-        "notes": ["لا يتم تخزين بيانات دخولك داخل الموقع."]
+        "notes": [
+          "لا يتم تخزين بيانات دخولك داخل الموقع."
+        ],
+        "priceComparison": {
+          "planName": "ChatGPT Plus",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -301,7 +447,19 @@ const products = [
         "notes": [
           "الباقة مخصصة للمعلمين K12؛ شروط الأهلية والتفعيل تُؤكد قبل الدفع.",
           "مدة الباقة سنتان وبدون ضمان."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "ChatGPT for Teachers",
+          "source": "https://help.openai.com/en/articles/12844995-chatgpt-for-teachers",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "مجاني رسميًا للمعلمين الأمريكيين K–12 المؤهلين حتى يونيو 2028. سعر المتجر ليس خصمًا من اشتراك رسمي مدفوع، ومدة 24 شهرًا تحتاج تأكيدًا قبل الدفع.",
+          "rawPrice": {
+            "amount": 0,
+            "currency": "USD",
+            "label": "مجاني للمؤهلين حتى يونيو 2028"
+          }
+        }
       }
     ]
   },
@@ -325,7 +483,22 @@ const products = [
         "features": [
           "1,000 Credit شهريًا للاستخدام داخل الخدمة"
         ],
-        "oldPrice": 18500
+        "priceComparison": {
+          "planName": "Google AI Pro — اشتراك فردي",
+          "source": "https://gemini.google/subscriptions/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة محسوبة بسعر الاشتراك الشهري الأمريكي المعتاد ×18؛ لا توجد باقة رسمية مستقلة 18 شهرًا. العروض التعليمية والتجارب المجانية ليست ضمن المقارنة، والدعوات العائلية ليست 6 اشتراكات منفصلة.",
+          "billingLabel": "19.99 دولارًا ×18 شهرًا"
+        },
+        "officialPrice": {
+          "amount": 359.82,
+          "currency": "USD",
+          "months": 18,
+          "basis": "reference",
+          "source": "https://gemini.google/subscriptions/",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "Gemini العائلي",
@@ -339,7 +512,22 @@ const products = [
           "1,000 Credit شهريًا للحساب الرئيسي فقط",
           "5 دعوات عائلية إضافية لاستخدام Gemini"
         ],
-        "oldPrice": 18500
+        "priceComparison": {
+          "planName": "Google AI Pro — اشتراك فردي",
+          "source": "https://gemini.google/subscriptions/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة محسوبة بسعر الاشتراك الشهري الأمريكي المعتاد ×18؛ لا توجد باقة رسمية مستقلة 18 شهرًا. العروض التعليمية والتجارب المجانية ليست ضمن المقارنة، والدعوات العائلية ليست 6 اشتراكات منفصلة.",
+          "billingLabel": "19.99 دولارًا ×18 شهرًا"
+        },
+        "officialPrice": {
+          "amount": 359.82,
+          "currency": "USD",
+          "months": 18,
+          "basis": "reference",
+          "source": "https://gemini.google/subscriptions/",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -361,7 +549,23 @@ const products = [
         "warranty": "ضمان كامل",
         "notes": [
           "السعر خاص بعرض المتجر الحالي."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "Claude Pro",
+          "source": "https://claude.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://claude.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -384,7 +588,22 @@ const products = [
         "notes": [
           "يفضل عدم تغيير كلمة المرور حتى لا تتأثر خدمة الدعم/الضمان."
         ],
-        "oldPrice": 1030
+        "priceComparison": {
+          "planName": "Perplexity Pro",
+          "source": "https://www.perplexity.ai/hub",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.perplexity.ai/hub",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -394,7 +613,7 @@ const products = [
     "category": "AI Tools",
     "logo": "lovable",
     "status": "available",
-    "description": "باقات Lovable Pro الشهرية والسنوية، وعرض شهر برصيد 100 كريدت + 5 كريدت يوميًا بـ230 جنيه بدل 1200 جنيه.",
+    "description": "باقات Lovable Pro الشهرية والسنوية، وعرض شهر برصيد 100 كريدت + 5 كريدت يوميًا بـ230 جنيه.",
     "plans": [
       {
         "name": "Pro — شهر",
@@ -403,21 +622,52 @@ const products = [
         "price": 300,
         "activation": "تفعيل على حسابك الشخصي في Lovable.",
         "account": "حساب العميل الشخصي",
-        "warranty": "يُؤكد قبل الدفع"
+        "warranty": "يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "Lovable Pro — 100 كريدت شهريًا",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر. رصيد هذه الباقة في المتجر يُؤكد قبل الدفع.",
+          "billingLabel": "Pro — 100 كريدت شهريًا"
+        },
+        "officialPrice": {
+          "amount": 25,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "Pro — شهر — 100 كريدت + 5 يوميًا",
         "planType": "Pro",
         "duration": "1 شهر",
         "price": 230,
-        "oldPrice": 1200,
         "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
         "account": "نوع الحساب يُؤكد قبل الدفع",
         "warranty": "يُؤكد قبل الدفع",
         "notes": [
           "100 كريدت + 5 كريدت يوميًا.",
-          "عرض خاص: 230 جنيه فقط بدل 1200 جنيه."
-        ]
+          "عرض خاص: 230 جنيه فقط. المقارنة مع السعر الرسمي لأقرب باقة موضحة أدناه."
+        ],
+        "priceComparison": {
+          "planName": "Lovable Pro — 100 كريدت شهريًا",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر. الرصيد اليومي لا يتراكم وقد تختلف حدوده حسب المنطقة.",
+          "billingLabel": "Pro — 100 كريدت شهريًا + 5 كريدت بناء يوميًا"
+        },
+        "officialPrice": {
+          "amount": 25,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "Pro",
@@ -428,7 +678,23 @@ const products = [
         "warranty": "ضمان كامل",
         "notes": [
           "طريقة التسليم والضمان يتم تأكيدهما قبل التحويل."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "Lovable Pro — 100 كريدت شهريًا",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر. الرصيد الشهري لعرض المتجر يُؤكد قبل الدفع.",
+          "billingLabel": "250 دولارًا إجمالي السنة — Pro 100"
+        },
+        "officialPrice": {
+          "amount": 250,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -444,11 +710,17 @@ const products = [
         "name": "Pro Lite",
         "duration": "12 شهر",
         "price": 650,
-        "oldPrice": 750,
         "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
         "account": "حساب العميل",
         "warranty": "ضمان كامل",
-        "credits": "300 Credit + 5 Credits يوميًا لمدة سنة"
+        "credits": "300 Credit + 5 Credits يوميًا لمدة سنة",
+        "priceComparison": {
+          "planName": "Lovable Pro / Lite — تحتاج مطابقة الرصيد",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "300 كريدت إجماليًا + رصيد يومي لا يطابق تلقائيًا Pro الذي يبدأ من 100 كريدت كل شهر. لم تتأكد باقة رسمية مطابقة لهذا العرض."
+        }
       }
     ]
   },
@@ -467,18 +739,26 @@ const products = [
         "activation": "تفعيل على حسابك عبر كود استرداد.",
         "account": "حساب العميل الشخصي",
         "warranty": "6 شهور",
+        "credits": "2,250 Credit شهريًا",
+        "notes": [
+          "الرصيد الشهري يتجدد كل دورة فوترة، ولا ينتقل الرصيد غير المستخدم للشهر التالي."
+        ],
+        "priceComparison": {
+          "planName": "Runway Pro — 2,250 كريدت شهريًا",
+          "source": "https://runway.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "28 دولارًا ×12 عند الدفع السنوي"
+        },
         "officialPrice": {
           "amount": 336,
           "currency": "USD",
           "months": 12,
-          "source": "https://runwayml.com/pricing",
-          "checkedAt": "2026-10-03",
-          "basis": "annual"
-        },
-        "credits": "2,250 Credit شهريًا",
-        "notes": [
-          "الرصيد الشهري يتجدد كل دورة فوترة، ولا ينتقل الرصيد غير المستخدم للشهر التالي."
-        ]
+          "basis": "reference",
+          "source": "https://runway.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ],
     "features": [
@@ -506,7 +786,14 @@ const products = [
         "price": 150,
         "activation": "تسليم حساب جاهز خلال 5 دقائق",
         "account": "حساب جاهز",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Wink Pro",
+          "source": "https://wink.ai",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "السعر والمدة يختلفان حسب التطبيق والمنطقة؛ لم يتأكد سعر رسمي مطابق من صفحة عامة."
+        }
       },
       {
         "name": "شهر",
@@ -514,7 +801,14 @@ const products = [
         "price": 400,
         "activation": "حساب جاهز؛ التفاصيل تُؤكد قبل الدفع.",
         "account": "حساب جاهز",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Wink Pro",
+          "source": "https://wink.ai",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "السعر والمدة يختلفان حسب التطبيق والمنطقة؛ لم يتأكد سعر رسمي مطابق من صفحة عامة."
+        }
       }
     ]
   },
@@ -530,10 +824,21 @@ const products = [
         "name": "اشتراك واحد",
         "duration": "10 أيام",
         "price": 240,
-        "oldPrice": 250,
         "activation": "بريد + كلمة مرور.",
         "account": "حساب جاهز",
-        "warranty": "5 أيام"
+        "warranty": "5 أيام",
+        "priceComparison": {
+          "planName": "SuperGrok — شهر",
+          "source": "https://x.ai/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "المرجع الرسمي 30 دولارًا لشهر كامل؛ عرض المتجر 10 أيام، لذلك لا نحسب خصم شهر مقابل 10 أيام.",
+          "rawPrice": {
+            "amount": 30,
+            "currency": "USD",
+            "label": "سعر الشهر الكامل"
+          }
+        }
       }
     ]
   },
@@ -551,7 +856,14 @@ const products = [
         "price": 400,
         "activation": "تسليم حساب جاهز.",
         "account": "حساب جاهز",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Gamma Plus",
+          "source": "https://gamma.app/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "اسم الباقة مؤكد، لكن السعر لم يظهر في الصفحة العامة؛ لا نحسب نسبة خصم غير موثقة."
+        }
       }
     ],
     "logoUrl": "logos/gamma.svg"
@@ -577,7 +889,14 @@ const products = [
           "لا يوجد ضمان لنسيان كلمة المرور.",
           "لـ Upgrade كامل قد يلزم تزويد الدعم بكلمة المرور، ويتم التنفيذ خلال 3 أيام.",
           "لا تترك أي Workspace بدون إذن لأن ذلك قد يفقدك صلاحيات العرض."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "Gamma — باقة أرصدة / Workspaces تحتاج تحديد",
+          "source": "https://gamma.app/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "10 Workspaces و20,000 كريدت لا تحدد باقة Plus أو Pro رسمية مطابقة، لذلك المقارنة السعرية غير متاحة."
+        }
       }
     ],
     "logoUrl": "logos/gamma.svg"
@@ -598,7 +917,23 @@ const products = [
         "activation": "تفعيل على حساب العميل.",
         "account": "حساب العميل الشخصي",
         "warranty": "ضمان كامل",
-        "credits": "131 Credit شهريًا"
+        "credits": "131 Credit شهريًا",
+        "priceComparison": {
+          "planName": "ElevenLabs Creator",
+          "source": "https://elevenlabs.io/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع المعتاد 22 دولارًا شهريًا، مع عرض أول شهر بـ11 دولارًا للمؤهلين. الرصيد الرسمي الحالي 121,000 شهريًا؛ رصيد عرض المتجر المختلف يُؤكد قبل الدفع.",
+          "billingLabel": "22 دولارًا ×3 شهور بالسعر المعتاد"
+        },
+        "officialPrice": {
+          "amount": 66,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://elevenlabs.io/pricing",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "Creator",
@@ -608,7 +943,22 @@ const products = [
         "account": "حساب جاهز",
         "warranty": "ضمان كامل",
         "credits": "131,000 Credit",
-        "oldPrice": 1140
+        "priceComparison": {
+          "planName": "ElevenLabs Creator",
+          "source": "https://elevenlabs.io/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع المعتاد 22 دولارًا شهريًا، مع عرض أول شهر بـ11 دولارًا للمؤهلين. الرصيد الرسمي الحالي 121,000 شهريًا؛ رصيد عرض المتجر المختلف يُؤكد قبل الدفع.",
+          "billingLabel": "السعر المعتاد؛ أول شهر للمؤهلين 11 دولارًا"
+        },
+        "officialPrice": {
+          "amount": 22,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://elevenlabs.io/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -627,7 +977,23 @@ const products = [
         "activation": "تسليم حساب جاهز خلال 5–6 ساعات.",
         "account": "حساب جاهز",
         "warranty": "ضمان كامل",
-        "credits": "1,250 Credit"
+        "credits": "1,250 Credit",
+        "priceComparison": {
+          "planName": "HeyGen Creator — 600 كريدت شهريًا",
+          "source": "https://www.heygen.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع Creator بـ29 دولارًا و600 كريدت شهريًا. عرض المتجر 1,250 كريدت لا يطابق الرصيد الرسمي، لذلك السعر مرجع فقط.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 29,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.heygen.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -646,7 +1012,22 @@ const products = [
         "activation": "تفعيل على البريد الشخصي خلال وقت قصير.",
         "account": "حساب العميل",
         "warranty": "ضمان كامل",
-        "oldPrice": 27770
+        "priceComparison": {
+          "planName": "Canva Pro — سنة واحدة",
+          "source": "https://www.canva.com/pricing/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "القيمة لثلاث سنوات محسوبة من السعر السنوي المعتاد ×3، وليست باقة رسمية مدفوعة مسبقًا لثلاث سنوات. تفعيل التعليم أو دعوة فريق قد يختلف عن Pro الفردي.",
+          "billingLabel": "144 دولارًا للسنة ×3 سنوات"
+        },
+        "officialPrice": {
+          "amount": 432,
+          "currency": "USD",
+          "months": 36,
+          "basis": "reference",
+          "source": "https://www.canva.com/pricing/",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -668,7 +1049,14 @@ const products = [
         "credits": "قد لا يوجد Credits أو تكون قليلة",
         "notes": [
           "لا يوجد اعتراض على عدم وجود Credits في باقة 7 أيام."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "CapCut Pro",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "عرض 7 أيام لا يطابق اشتراك Pro الشهري، لذلك لا نحسب خصمًا على سعر الشهر."
+        }
       },
       {
         "name": "شهر",
@@ -680,7 +1068,23 @@ const products = [
         "credits": "عادةً 500 Credit",
         "notes": [
           "يمكن الاعتراض إذا كان الرصيد المتفق عليه غير موجود."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "CapCut Pro",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع من صفحة CapCut الرسمية: 19.99 دولارًا للشهر و179.99 دولارًا للسنة. السعر النهائي والرصيد يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "billingLabel": "Pro الشهري"
+        },
+        "officialPrice": {
+          "amount": 19.99,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "شهر — 1600 Credits",
@@ -692,7 +1096,23 @@ const products = [
         "credits": "1,600 Credit",
         "notes": [
           "يمكن الاعتراض إذا كان الرصيد المتفق عليه غير موجود."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "CapCut Pro",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع من صفحة CapCut الرسمية: 19.99 دولارًا للشهر و179.99 دولارًا للسنة. السعر النهائي والرصيد يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "billingLabel": "Pro الشهري"
+        },
+        "officialPrice": {
+          "amount": 19.99,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "3 شهور",
@@ -701,7 +1121,23 @@ const products = [
         "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
         "account": "حساب جاهز",
         "warranty": "ضمان كامل",
-        "credits": "يتغير عادةً بين 500–1000"
+        "credits": "يتغير عادةً بين 500–1000",
+        "priceComparison": {
+          "planName": "CapCut Pro",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع من صفحة CapCut الرسمية: 19.99 دولارًا للشهر و179.99 دولارًا للسنة. السعر النهائي والرصيد يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "billingLabel": "19.99 دولارًا للشهر ×3"
+        },
+        "officialPrice": {
+          "amount": 59.97,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "6 شهور",
@@ -710,7 +1146,23 @@ const products = [
         "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
         "account": "حساب جاهز",
         "warranty": "ضمان كامل",
-        "credits": "500–1000 Credit شهريًا"
+        "credits": "500–1000 Credit شهريًا",
+        "priceComparison": {
+          "planName": "CapCut Pro",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع من صفحة CapCut الرسمية: 19.99 دولارًا للشهر و179.99 دولارًا للسنة. السعر النهائي والرصيد يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "billingLabel": "19.99 دولارًا للشهر ×6"
+        },
+        "officialPrice": {
+          "amount": 119.94,
+          "currency": "USD",
+          "months": 6,
+          "basis": "reference",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "سنة",
@@ -719,7 +1171,23 @@ const products = [
         "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
         "account": "حساب جاهز",
         "warranty": "ضمان كامل",
-        "credits": "يتغير عادةً بين 500–1000"
+        "credits": "يتغير عادةً بين 500–1000",
+        "priceComparison": {
+          "planName": "CapCut Pro",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع من صفحة CapCut الرسمية: 19.99 دولارًا للشهر و179.99 دولارًا للسنة. السعر النهائي والرصيد يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "billingLabel": "Pro السنوي"
+        },
+        "officialPrice": {
+          "amount": 179.99,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08"
+        }
       }
     ],
     "notes": [
@@ -742,7 +1210,22 @@ const products = [
         "activation": "دعوة أو حساب",
         "account": "حسب المتوفر",
         "warranty": "ضمان كامل",
-        "oldPrice": 9870
+        "priceComparison": {
+          "planName": "Figma Professional — Full seat",
+          "source": "https://www.figma.com/pricing/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع لمقعد Full بسعر 16 دولارًا شهريًا عند الدفع السنوي. مقاعد Dev وCollab لها أسعار ومميزات مختلفة؛ نوع المقعد يُؤكد قبل الدفع.",
+          "billingLabel": "16 دولارًا للمقعد شهريًا ×12، فوترة سنوية"
+        },
+        "officialPrice": {
+          "amount": 192,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.figma.com/pricing/",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -757,12 +1240,30 @@ const products = [
     "plans": [
       {
         "name": "Freepik Premium — تحميل فقط",
-        "notes": ["يشمل تحميل الموارد فقط؛ لا يشمل أدوات أو توليد الذكاء الاصطناعي."],
+        "notes": [
+          "يشمل تحميل الموارد فقط؛ لا يشمل أدوات أو توليد الذكاء الاصطناعي."
+        ],
         "duration": "1 شهر",
         "price": 450,
         "activation": "تسليم حساب جاهز.",
         "account": "حساب جاهز",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Magnific (Freepik) Premium",
+          "source": "https://www.magnific.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع Premium الشهري يشمل مزايا أوسع من التحميل فقط؛ أدوات AI ليست ضمن عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.magnific.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -782,7 +1283,23 @@ const products = [
         "price": 450,
         "activation": "دعوة تُرسل إلى حسابك الشخصي.",
         "account": "حساب العميل الشخصي",
-        "warranty": "الضمان يُؤكد قبل الدفع"
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "Creative Cloud Pro — فردي شهر بشهر",
+          "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع الأمريكي للشهر دون التزام سنوي 104.99 دولارًا. خطة 69.99 دولارًا شهريًا تتطلب عقدًا سنويًا. الدعوة المؤسسية ليست نفس عقد الاشتراك الفردي.",
+          "billingLabel": "الشهر دون عقد سنوي — السعر الأمريكي المعتاد"
+        },
+        "officialPrice": {
+          "amount": 104.99,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "Creative Cloud Pro — تفعيل رسمي",
@@ -792,7 +1309,23 @@ const products = [
         "price": 850,
         "activation": "تفعيل رسمي على حسابك الشخصي.",
         "account": "حساب العميل الشخصي",
-        "warranty": "الضمان يُؤكد قبل الدفع"
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "Creative Cloud Pro — فردي شهر بشهر",
+          "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع الأمريكي للشهر دون التزام سنوي 104.99 دولارًا. خطة 69.99 دولارًا شهريًا تتطلب عقدًا سنويًا. الدعوة المؤسسية ليست نفس عقد الاشتراك الفردي.",
+          "billingLabel": "الشهر دون عقد سنوي — السعر الأمريكي المعتاد"
+        },
+        "officialPrice": {
+          "amount": 104.99,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -811,7 +1344,14 @@ const products = [
         "price": 300,
         "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
         "account": "حساب العميل",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Super Duolingo — فردي سنوي",
+          "source": "https://www.duolingo.com/super",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "لم يتأكد سعر سنوي رسمي محدد للمنطقة؛ يُراجع داخل التطبيق. الدعوة العائلية تختلف عن الاشتراك الفردي."
+        }
       }
     ]
   },
@@ -829,7 +1369,14 @@ const products = [
         "price": 90,
         "activation": "تسليم أو تفعيل",
         "account": "حساب فردي",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "ELSA Pro — حسب التطبيق",
+          "source": "https://elsaspeak.com/en/elsa-subscription",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "لم يتأكد سعر رسمي مطابق لمدد العرض، وقد تختلف الخطط الإقليمية وأسماء الباقات."
+        }
       },
       {
         "name": "12 شهر",
@@ -837,7 +1384,14 @@ const products = [
         "price": 1900,
         "activation": "تسليم أو تفعيل",
         "account": "حساب فردي",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "ELSA Pro — حسب التطبيق",
+          "source": "https://elsaspeak.com/en/elsa-subscription",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "لم يتأكد سعر رسمي مطابق لمدد العرض، وقد تختلف الخطط الإقليمية وأسماء الباقات."
+        }
       }
     ]
   },
@@ -857,7 +1411,22 @@ const products = [
         "activation": "تسليم حساب خاص.",
         "account": "حساب خاص",
         "warranty": "ضمان كامل",
-        "oldPrice": 9100
+        "priceComparison": {
+          "planName": "Coursera Plus",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع 59 دولارًا للشهر و399 دولارًا للسنة بالسعر الأمريكي المعتاد. الحساب المشترك ليس اشتراكًا فرديًا مستقلًا.",
+          "billingLabel": "59 دولارًا ×3 شهور"
+        },
+        "officialPrice": {
+          "amount": 177,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "سنة — حساب مشترك",
@@ -868,7 +1437,23 @@ const products = [
         "warranty": "ضمان كامل",
         "notes": [
           "قد تكون بعض الدورات مؤهلة لشهادة باسمك، لكن المتجر لا يضمن الشهادات في الحساب المشترك."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "Coursera Plus",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع 59 دولارًا للشهر و399 دولارًا للسنة بالسعر الأمريكي المعتاد. الحساب المشترك ليس اشتراكًا فرديًا مستقلًا.",
+          "billingLabel": "Plus السنوي"
+        },
+        "officialPrice": {
+          "amount": 399,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "سنة — حساب خاص",
@@ -877,7 +1462,22 @@ const products = [
         "activation": "تسليم حساب خاص.",
         "account": "حساب خاص",
         "warranty": "ضمان كامل",
-        "oldPrice": 20520
+        "priceComparison": {
+          "planName": "Coursera Plus",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع 59 دولارًا للشهر و399 دولارًا للسنة بالسعر الأمريكي المعتاد. الحساب المشترك ليس اشتراكًا فرديًا مستقلًا.",
+          "billingLabel": "Plus السنوي"
+        },
+        "officialPrice": {
+          "amount": 399,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -895,7 +1495,14 @@ const products = [
         "price": 1500,
         "activation": "تفعيل على البريد الشخصي.",
         "account": "حساب العميل",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Wayground (Quizizz) — باقة المعلم تحتاج تحديد",
+          "source": "https://wayground.com/home/plans",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "اسم Quizizz وحده لا يحدد الباقة المدفوعة أو المقعد، لذلك لا يوجد خصم موثق لهذا العرض."
+        }
       }
     ]
   },
@@ -914,7 +1521,18 @@ const products = [
         "activation": "تسليم حساب جاهز",
         "account": "إيميل وكلمة مرور",
         "warranty": "ضمان كامل",
-        "oldPrice": 560
+        "priceComparison": {
+          "planName": "Wordwall Pro",
+          "source": "https://wordwall.net/price-plans",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "الصفحة العامة عرضت سعرًا إقليميًا بالزلوتي البولندي، ولم يتأكد سعر مصري مطابق؛ أُزيلت المقارنة القديمة.",
+          "rawPrice": {
+            "amount": 24,
+            "currency": "PLN",
+            "label": "السعر الشهري المعروض إقليميًا؛ لا يُستخدم كنسبة خصم"
+          }
+        }
       },
       {
         "name": "سنة",
@@ -923,7 +1541,18 @@ const products = [
         "activation": "تسليم حساب جاهز",
         "account": "إيميل وكلمة مرور",
         "warranty": "ضمان كامل",
-        "oldPrice": 4440
+        "priceComparison": {
+          "planName": "Wordwall Pro",
+          "source": "https://wordwall.net/price-plans",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "الصفحة العامة عرضت سعرًا إقليميًا بالزلوتي البولندي، ولم يتأكد سعر مصري مطابق؛ أُزيلت المقارنة القديمة.",
+          "rawPrice": {
+            "amount": 24,
+            "currency": "PLN",
+            "label": "السعر الشهري المعروض إقليميًا؛ لا يُستخدم كنسبة خصم"
+          }
+        }
       }
     ]
   },
@@ -945,7 +1574,14 @@ const products = [
         "warranty": "ضمان كامل",
         "notes": [
           "الخدمة لا تضمن درجة أكاديمية أو نتيجة معينة."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "Turnitin Similarity — ترخيص مؤسسة",
+          "source": "https://www.turnitin.com",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "خدمة فحص ملف واحد من المتجر لا تطابق ترخيص المؤسسة. لا يوجد سعر تجزئة رسمي موثق لكل ملف."
+        }
       }
     ]
   },
@@ -964,7 +1600,22 @@ const products = [
         "activation": "حساب جاهز أو تفعيل",
         "account": "احتفظ بالبيانات الأصلية عند استلام حساب جاهز",
         "warranty": "ضمان كامل",
-        "oldPrice": 2400
+        "priceComparison": {
+          "planName": "Microsoft 365 Personal — سنة",
+          "source": "https://www.microsoft.com/en-eg/microsoft-365/p/microsoft-365-personal/cfq7ttc0k5bf",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر الرسمي المصري لـPersonal؛ نوع ترخيص المتجر غير محدد، وقد يختلف الحساب التعليمي أو دعوة Family.",
+          "billingLabel": "Personal السنوي — مصر"
+        },
+        "officialPrice": {
+          "amount": 2399,
+          "currency": "EGP",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.microsoft.com/en-eg/microsoft-365/p/microsoft-365-personal/cfq7ttc0k5bf",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -984,7 +1635,18 @@ const products = [
         "activation": "تفعيل على البريد الشخصي أو حساب جاهز؛ قد يحتاج OTP.",
         "account": "شخصي أو جاهز",
         "warranty": "ضمان كامل",
-        "oldPrice": 1540
+        "priceComparison": {
+          "planName": "Notion Plus / Business — مقعد واحد",
+          "source": "https://www.notion.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "المقارنة على مقعد واحد. اشتراكات 3 و6 شهور محسوبة من الفوترة الشهرية؛ الاشتراك السنوي بسعر الفوترة السنوية.",
+          "rawPrice": {
+            "amount": 114,
+            "currency": "EUR",
+            "label": "Plus — سنة كاملة بالفوترة السنوية"
+          }
+        }
       },
       {
         "name": "Business — 6 شهور",
@@ -993,7 +1655,18 @@ const products = [
         "activation": "حساب شخصي أو جاهز؛ قد يتطلب OTP",
         "account": "شخصي أو جاهز",
         "warranty": "ضمان كامل",
-        "oldPrice": 6170
+        "priceComparison": {
+          "planName": "Notion Plus / Business — مقعد واحد",
+          "source": "https://www.notion.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "المقارنة على مقعد واحد. اشتراكات 3 و6 شهور محسوبة من الفوترة الشهرية؛ الاشتراك السنوي بسعر الفوترة السنوية.",
+          "rawPrice": {
+            "amount": 234,
+            "currency": "EUR",
+            "label": "Business — سنة كاملة بالفوترة السنوية"
+          }
+        }
       },
       {
         "name": "Business — 12 شهر",
@@ -1002,7 +1675,22 @@ const products = [
         "activation": "حساب شخصي أو جاهز؛ قد يتطلب OTP",
         "account": "شخصي أو جاهز",
         "warranty": "ضمان كامل",
-        "oldPrice": 12340
+        "priceComparison": {
+          "planName": "Notion Plus / Business — مقعد واحد",
+          "source": "https://www.notion.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر الظاهر إقليمي باليورو، لمقعد Business واحد. طريقة التفعيل في المتجر قد تختلف.",
+          "billingLabel": "19.50 يورو شهريًا ×12، فوترة سنوية — Business"
+        },
+        "officialPrice": {
+          "amount": 234,
+          "currency": "EUR",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.notion.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1024,7 +1712,22 @@ const products = [
         "notes": [
           "بعد فتح/استخدام رابط التفعيل يُعتبر مستهلكًا ولا يمكن إعادة استخدامه."
         ],
-        "oldPrice": 6170
+        "priceComparison": {
+          "planName": "LinkedIn Premium Career — فردي",
+          "source": "https://premium.linkedin.com/careers/career",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع Career الفردي. نوع Premium في رابط المتجر غير محدد؛ يجب تأكيده قبل الدفع.",
+          "billingLabel": "39.99 دولارًا ×3 شهور — Career"
+        },
+        "officialPrice": {
+          "amount": 119.97,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://premium.linkedin.com/careers/career",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1047,7 +1750,22 @@ const products = [
         "notes": [
           "قد تعمل بعض الحسابات شهرًا كاملًا أو تتوقف بعد نحو 14 يومًا؛ الضمان الكامل يغطي العرض حسب شروط المتجر."
         ],
-        "oldPrice": 870
+        "priceComparison": {
+          "planName": "Zoom Workplace Pro — مقعد واحد",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 15.99,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "Zoom Pro — 3 شهور",
@@ -1056,7 +1774,22 @@ const products = [
         "activation": "تسليم حساب جاهز",
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل",
-        "oldPrice": 2620
+        "priceComparison": {
+          "planName": "Zoom Workplace Pro — مقعد واحد",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "15.99 دولارًا ×3 شهور"
+        },
+        "officialPrice": {
+          "amount": 47.97,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "Zoom Pro — سنة",
@@ -1065,7 +1798,22 @@ const products = [
         "activation": "تسليم حساب جاهز",
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل",
-        "oldPrice": 8740
+        "priceComparison": {
+          "planName": "Zoom Workplace Pro — مقعد واحد",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "Workplace Pro السنوي"
+        },
+        "officialPrice": {
+          "amount": 159.9,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "Zoom Pro — شهر على بريدك",
@@ -1074,7 +1822,22 @@ const products = [
         "activation": "تفعيل على بريد العميل.",
         "account": "حساب العميل",
         "warranty": "ضمان كامل",
-        "oldPrice": 870
+        "priceComparison": {
+          "planName": "Zoom Workplace Pro — مقعد واحد",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 15.99,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1105,7 +1868,22 @@ const products = [
         "notes": [
           "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
         ],
-        "oldPrice": 1050
+        "priceComparison": {
+          "planName": "StealthWriter Starter",
+          "source": "https://stealthwriter.ai/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://stealthwriter.ai/pricing",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "Plus",
@@ -1125,7 +1903,22 @@ const products = [
         "notes": [
           "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
         ],
-        "oldPrice": 2600
+        "priceComparison": {
+          "planName": "StealthWriter Plus",
+          "source": "https://stealthwriter.ai/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 50,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://stealthwriter.ai/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1144,7 +1937,19 @@ const products = [
         "price": 1450,
         "activation": "دعوة Apple ID عبر المشاركة العائلية.",
         "account": "مشاركة عائلية",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "iCloud+ — 6TB، أقرب سعة أعلى",
+          "source": "https://support.apple.com/en-eg/108047",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "لا توجد باقة iCloud+ مستقلة 4TB ضمن الباقات الرسمية. أقرب سعة أعلى 6TB بسعر 1,799.99 جنيه شهريًا في مصر؛ المشاركة العائلية لا تعني سعة مستقلة مضمونة.",
+          "rawPrice": {
+            "amount": 1799.99,
+            "currency": "EGP",
+            "label": "6TB / شهر"
+          }
+        }
       }
     ]
   },
@@ -1163,7 +1968,14 @@ const products = [
         "price": 200,
         "activation": "تفعيل كوبون ويتطلب بطاقة.",
         "account": "حساب العميل",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Surfshark Starter — اشتراك VPN",
+          "source": "https://surfshark.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "كوبون شهرين قد يكون عرضًا ترويجيًا مشروطًا ولا يطابق باقة رسمية مستقلة؛ لم نحسب خصمًا."
+        }
       }
     ]
   },
@@ -1183,7 +1995,22 @@ const products = [
         "activation": "تسليم حساب جاهز — لا يحتاج بطاقة",
         "account": "إيميل وكلمة مرور",
         "warranty": "ضمان كامل",
-        "oldPrice": 1950
+        "priceComparison": {
+          "planName": "NordVPN Basic — اشتراك شهري",
+          "source": "https://nordvpn.com/pricing/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع Basic؛ فئة الحساب الجاهز غير محددة. قيمة 3 شهور محسوبة من سعر الشهر ×3.",
+          "billingLabel": "14.99 دولارًا ×3 شهور — Basic"
+        },
+        "officialPrice": {
+          "amount": 44.97,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://nordvpn.com/pricing/",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1202,7 +2029,14 @@ const products = [
         "price": 800,
         "activation": "تسليم بريد/حساب جاهز مع كود يقدمه المتجر عند الحاجة.",
         "account": "حساب جاهز — جهاز واحد",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Proton VPN Plus — سنة",
+          "source": "https://protonvpn.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "الأسعار في الصفحة ديناميكية ولم يظهر سعر موثوق قابل للمقارنة. عرض جهاز واحد يختلف عن عدد الأجهزة بالاشتراك الرسمي."
+        }
       }
     ]
   },
@@ -1220,7 +2054,14 @@ const products = [
         "price": 100,
         "activation": "تسليم حساب جاهز.",
         "account": "إيميل وكلمة مرور",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "HMA VPN — شهر",
+          "source": "https://www.hidemyass.com/pricing-plans",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "السعر يتغير حسب المنطقة والعروض؛ لم يتأكد مرجع رسمي مطابق."
+        }
       }
     ],
     "logoUrl": "logos/hma.svg"
@@ -1240,7 +2081,14 @@ const products = [
         "price": 50,
         "activation": "تفعيل",
         "account": "حسب العرض",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "ExpressVPN Basic — شهر",
+          "source": "https://www.expressvpn.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "عرض 3 أيام لا يطابق الاشتراك الشهري، لذلك لا نستخدم سعر شهر كخصم على 3 أيام."
+        }
       }
     ]
   },
@@ -1260,7 +2108,22 @@ const products = [
         "activation": "رابط تفعيل على حساب العميل.",
         "account": "حساب شخصي",
         "warranty": "ضمان كامل",
-        "oldPrice": 237
+        "priceComparison": {
+          "planName": "Spotify Premium Individual — 3 شهور",
+          "source": "https://www.spotify.com/eg-en/premium/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع الرسمي المصري المعتاد للمدفوع مقدمًا؛ عروض التجربة المجانية لها أهلية منفصلة.",
+          "billingLabel": "Premium Individual — مدفوع مقدمًا، مصر"
+        },
+        "officialPrice": {
+          "amount": 237,
+          "currency": "EGP",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://www.spotify.com/eg-en/premium/",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1279,7 +2142,14 @@ const products = [
         "price": 200,
         "activation": "رابط تفعيل ويتطلب بطاقة.",
         "account": "حساب شخصي",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "YouTube Premium Individual",
+          "source": "https://www.youtube.com/premium",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "السعر يعتمد على البلد والمنصة ويظهر عند الاشتراك؛ لم يتأكد مرجع مصري مطابق لثلاثة شهور."
+        }
       }
     ]
   },
@@ -1298,7 +2168,14 @@ const products = [
         "credits": "1,100 كريدت",
         "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
         "account": "نوع الحساب يُؤكد قبل الدفع",
-        "warranty": "5 أيام"
+        "warranty": "5 أيام",
+        "priceComparison": {
+          "planName": "Kling AI — حزمة رصيد تحتاج تحديد",
+          "source": "https://kling.ai",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "عرض 1,100 كريدت لا يحدد باقة عضوية رسمية أو مدة أو صلاحية الرصيد؛ لم تتأكد حزمة مطابقة لذلك لا يظهر خصم رسمي."
+        }
       }
     ]
   },
@@ -1323,46 +2200,121 @@ const products = [
         "name": "شهر واحد",
         "duration": "1 شهر",
         "price": 300,
-        "oldPrice": 1500,
         "activation": "تفعيل سريع وتسليم التفاصيل بعد تأكيد الطلب.",
         "account": "حسب العرض المتوفر",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Grammarly Pro (بديل Premium)",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر المعتاد بالدولار: شهر 30، ثلاثة شهور 60، سنة 144. المدد الأخرى محسوبة من الدورات المتاحة؛ أسعار المنطقة قد تختلف.",
+          "billingLabel": "شهر واحد: 30 دولارًا"
+        },
+        "officialPrice": {
+          "amount": 30,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "شهرين",
         "duration": "2 شهر",
         "price": 450,
-        "oldPrice": 3000,
         "activation": "تفعيل سريع وتسليم التفاصيل بعد تأكيد الطلب.",
         "account": "حسب العرض المتوفر",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Grammarly Pro (بديل Premium)",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر المعتاد بالدولار: شهر 30، ثلاثة شهور 60، سنة 144. المدد الأخرى محسوبة من الدورات المتاحة؛ أسعار المنطقة قد تختلف.",
+          "billingLabel": "شهران: شهر ×2، لا توجد دورة مستقلة لشهرين"
+        },
+        "officialPrice": {
+          "amount": 60,
+          "currency": "USD",
+          "months": 2,
+          "basis": "reference",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "3 أشهر",
         "duration": "3 شهور",
         "price": 750,
-        "oldPrice": 4500,
         "activation": "تفعيل سريع وتسليم التفاصيل بعد تأكيد الطلب.",
         "account": "حسب العرض المتوفر",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Grammarly Pro (بديل Premium)",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر المعتاد بالدولار: شهر 30، ثلاثة شهور 60، سنة 144. المدد الأخرى محسوبة من الدورات المتاحة؛ أسعار المنطقة قد تختلف.",
+          "billingLabel": "دورة 3 شهور: 60 دولارًا"
+        },
+        "officialPrice": {
+          "amount": 60,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "6 أشهر",
         "duration": "6 شهور",
         "price": 1100,
-        "oldPrice": 9000,
         "activation": "تفعيل سريع وتسليم التفاصيل بعد تأكيد الطلب.",
         "account": "حسب العرض المتوفر",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Grammarly Pro (بديل Premium)",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر المعتاد بالدولار: شهر 30، ثلاثة شهور 60، سنة 144. المدد الأخرى محسوبة من الدورات المتاحة؛ أسعار المنطقة قد تختلف.",
+          "billingLabel": "دورتان ربع سنويتان: 60 ×2"
+        },
+        "officialPrice": {
+          "amount": 120,
+          "currency": "USD",
+          "months": 6,
+          "basis": "reference",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08"
+        }
       },
       {
         "name": "12 شهر — سنة كاملة",
         "duration": "12 شهر",
         "price": 1700,
-        "oldPrice": 18000,
         "activation": "تفعيل سريع وتسليم التفاصيل بعد تأكيد الطلب.",
         "account": "حسب العرض المتوفر",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Grammarly Pro (بديل Premium)",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر المعتاد بالدولار: شهر 30، ثلاثة شهور 60، سنة 144. المدد الأخرى محسوبة من الدورات المتاحة؛ أسعار المنطقة قد تختلف.",
+          "billingLabel": "السنة: 144 دولارًا"
+        },
+        "officialPrice": {
+          "amount": 144,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1380,7 +2332,14 @@ const products = [
         "price": 250,
         "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
         "account": "نوع الحساب يُؤكد قبل الدفع",
-        "warranty": "الضمان يُؤكد قبل الدفع"
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "QuillBot Premium",
+          "source": "https://quillbot.com/premium",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "المتاح في الصفحة العامة 4.17 دولارًا شهريًا عند الدفع السنوي؛ إجمالي السنة تقريبي لأن الرقم الشهري مقرب. سعر المدد الأقصر لم يتأكد."
+        }
       },
       {
         "name": "QuillBot Premium",
@@ -1389,7 +2348,13 @@ const products = [
         "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
         "account": "نوع الحساب يُؤكد قبل الدفع",
         "warranty": "الضمان يُؤكد قبل الدفع",
-        "oldPrice": 3000
+        "priceComparison": {
+          "planName": "QuillBot Premium",
+          "source": "https://quillbot.com/premium",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "المتاح في الصفحة العامة 4.17 دولارًا شهريًا عند الدفع السنوي؛ إجمالي السنة تقريبي لأن الرقم الشهري مقرب. سعر المدد الأقصر لم يتأكد."
+        }
       },
       {
         "name": "QuillBot Premium",
@@ -1397,7 +2362,14 @@ const products = [
         "price": 800,
         "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
         "account": "نوع الحساب يُؤكد قبل الدفع",
-        "warranty": "الضمان يُؤكد قبل الدفع"
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "QuillBot Premium",
+          "source": "https://quillbot.com/premium",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "المتاح في الصفحة العامة 4.17 دولارًا شهريًا عند الدفع السنوي؛ إجمالي السنة تقريبي لأن الرقم الشهري مقرب. سعر المدد الأقصر لم يتأكد."
+        }
       },
       {
         "name": "QuillBot Premium",
@@ -1405,7 +2377,23 @@ const products = [
         "price": 1200,
         "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
         "account": "نوع الحساب يُؤكد قبل الدفع",
-        "warranty": "الضمان يُؤكد قبل الدفع"
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "QuillBot Premium",
+          "source": "https://quillbot.com/premium",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المتاح في الصفحة العامة 4.17 دولارًا شهريًا عند الدفع السنوي؛ إجمالي السنة تقريبي لأن الرقم الشهري مقرب. سعر المدد الأقصر لم يتأكد.",
+          "billingLabel": "تقدير 4.17 دولارًا ×12؛ الرقم الشهري مقرب"
+        },
+        "officialPrice": {
+          "amount": 50.04,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://quillbot.com/premium",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1490,7 +2478,19 @@ const products = [
         "activation": "تسليم حساب خاص.",
         "account": "حساب خاص — يُفضل عدم تغيير البيانات",
         "warranty": "ضمان كامل",
-        "credits": "4,000 Credit شهريًا"
+        "credits": "4,000 Credit شهريًا",
+        "priceComparison": {
+          "planName": "Manus Pro — أقل شريحة",
+          "source": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "السعر يبدأ من 20 دولارًا شهريًا، مع خصم سنوي معلن 17%. لم يتأكد إجمالي سنوي دقيق لشريحة 4,000 كريدت من الصفحة، لذلك أُزيلت المقارنة الرقمية القديمة.",
+          "rawPrice": {
+            "amount": 20,
+            "currency": "USD",
+            "label": "بداية أقل شريحة Pro / شهر؛ الخصم السنوي المعلن 17%"
+          }
+        }
       }
     ]
   },
@@ -1509,21 +2509,23 @@ const products = [
         "activation": "تفعيل على حسابك الشخصي عبر كود تفعيل.",
         "account": "حساب العميل الشخصي",
         "warranty": "يُؤكد قبل الدفع",
-        "officialPrice": {
-          "amount": 204,
-          "currency": "USD",
-          "months": 12,
-          "source": "https://manus.im/blog/best-ai-app-builders",
-          "checkedAt": "2026-10-03",
-          "basis": "entry-reference",
-          "monthlyEquivalent": 17,
-          "referenceCredits": 4000
-        },
         "credits": "رصيد كود التفعيل يُؤكد قبل الدفع",
         "notes": [
           "مرجع المقارنة هو خطة Manus Pro الأساسية: 4,000 Credit شهريًا، بسعر معلن 17 دولارًا شهريًا عند الدفع السنوي؛ الإجمالي المحسوب 204 دولارات.",
           "اسم Pro يشمل مستويات رصيد مختلفة؛ رصيد كود المتجر يُؤكد قبل الدفع."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "Manus Pro — الشريحة تُحدد بالرصيد",
+          "source": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "اسم Pro يشمل شرائح مختلفة. رصيد كود المتجر غير محدد، لذلك لا نقارن بسعر أقل شريحة على أنه مطابق.",
+          "rawPrice": {
+            "amount": 20,
+            "currency": "USD",
+            "label": "بداية أقل شريحة Pro / شهر؛ الخصم السنوي المعلن 17%"
+          }
+        }
       }
     ],
     "features": [
@@ -1552,7 +2554,19 @@ const products = [
         "activation": "تسليم حساب جاهز.",
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل",
-        "credits": "20,000 Credits"
+        "credits": "20,000 Credits",
+        "priceComparison": {
+          "planName": "Gumloop Pro — 20,000 كريدت شهريًا",
+          "source": "https://www.gumloop.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "الخطة تبدأ من 37 دولارًا شهريًا؛ عرض المتجر رصيد دون مدة محددة، فلا يُحسب خصم اشتراك شهري.",
+          "rawPrice": {
+            "amount": 37,
+            "currency": "USD",
+            "label": "بداية سعر Pro / شهر"
+          }
+        }
       }
     ]
   },
@@ -1571,7 +2585,23 @@ const products = [
         "price": 450,
         "activation": "دعوة أو حساب جاهز.",
         "account": "حسب المتوفر",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Magic Patterns Starter — مقعد واحد",
+          "source": "https://www.magicpatterns.com/blog/new-plans-and-pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر القياسي الجديد لخطة Starter بعد يونيو 2026؛ إجمالي محسوب من الفوترة الشهرية، وليس سعرًا سنويًا مستقلًا.",
+          "billingLabel": "20 دولارًا للمقعد شهريًا ×12"
+        },
+        "officialPrice": {
+          "amount": 240,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.magicpatterns.com/blog/new-plans-and-pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1589,7 +2619,23 @@ const products = [
         "price": 1850,
         "activation": "Workspace.",
         "account": "احتفظ بالبيانات الأصلية",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Factory Pro",
+          "source": "https://factory.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع محسوب من 20 دولارًا شهريًا ×12؛ لا نفترض وجود باقة سنوية مستقلة بهذا الإجمالي.",
+          "billingLabel": "20 دولارًا شهريًا ×12"
+        },
+        "officialPrice": {
+          "amount": 240,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://factory.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1609,7 +2655,22 @@ const products = [
         "activation": "دعوة أو حساب.",
         "account": "حسب المتوفر",
         "warranty": "ضمان كامل",
-        "oldPrice": 18720
+        "priceComparison": {
+          "planName": "Framer Pro — موقع واحد",
+          "source": "https://www.framer.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع لفوترة سنوية بسعر 30 دولارًا شهريًا، والمقعد في فريق لا يعني تلقائيًا خطة استضافة Pro لموقعك.",
+          "billingLabel": "30 دولارًا ×12 — موقع Pro بالفوترة السنوية"
+        },
+        "officialPrice": {
+          "amount": 360,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.framer.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1629,7 +2690,22 @@ const products = [
         "activation": "حساب أو Organization.",
         "account": "احتفظ بالبيانات الأصلية",
         "warranty": "ضمان كامل",
-        "oldPrice": 15600
+        "priceComparison": {
+          "planName": "Supabase Pro — مؤسسة، مشروع أساسي",
+          "source": "https://supabase.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع الأساسي 25 دولارًا شهريًا ×12؛ الاستخدام الإضافي والمشاريع الزائدة غير مشمولة في المقارنة.",
+          "billingLabel": "25 دولارًا شهريًا ×12"
+        },
+        "officialPrice": {
+          "amount": 300,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://supabase.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1649,7 +2725,22 @@ const products = [
         "activation": "تسليم حساب جاهز.",
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل",
-        "oldPrice": 3120
+        "priceComparison": {
+          "planName": "Railway Hobby — حد أدنى 5 دولارات شهريًا",
+          "source": "https://railway.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع 5 دولارات شهريًا ×12 ويتضمن رصيد استخدام؛ أي استهلاك إضافي غير داخل في السعر المرجعي.",
+          "billingLabel": "5 دولارات شهريًا ×12"
+        },
+        "officialPrice": {
+          "amount": 60,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://railway.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1667,7 +2758,19 @@ const products = [
         "price": 650,
         "activation": "تسليم حساب جاهز.",
         "account": "بيانات دخول الحساب",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Pangram Professional",
+          "source": "https://www.pangram.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "الباقة الأقرب بالاسم Professional، لكن مدة وسعة عرض المتجر غير محددة بما يكفي للمقارنة السنوية.",
+          "rawPrice": {
+            "amount": 65,
+            "currency": "USD",
+            "label": "Professional / شهر"
+          }
+        }
       }
     ]
   },
@@ -1685,7 +2788,23 @@ const products = [
         "price": 600,
         "activation": "تسليم حساب جاهز.",
         "account": "بيانات دخول الحساب",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Supercut Pro — مقعد واحد",
+          "source": "https://supercut.ai/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "15 دولارًا شهريًا ×12، فوترة سنوية"
+        },
+        "officialPrice": {
+          "amount": 180,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://supercut.ai/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1704,7 +2823,22 @@ const products = [
         "activation": "تسليم حساب جاهز.",
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل",
-        "oldPrice": 7490
+        "priceComparison": {
+          "planName": "Wispr Flow Pro — مقعد واحد",
+          "source": "https://wisprflow.ai/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "12 دولارًا شهريًا ×12، فوترة سنوية"
+        },
+        "officialPrice": {
+          "amount": 144,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://wisprflow.ai/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1722,7 +2856,23 @@ const products = [
         "price": 600,
         "activation": "دعوة إلى Team.",
         "account": "احتفظ بإعدادات الفريق",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Mobbin Team — عضو واحد",
+          "source": "https://mobbin.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "مرجع إقليمي باليورو لمقعد Team واحد؛ يختلف عن دعوة مشاهدة أو عضوية مشتركة.",
+          "billingLabel": "16 يورو شهريًا للعضو ×12، فوترة سنوية"
+        },
+        "officialPrice": {
+          "amount": 192,
+          "currency": "EUR",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://mobbin.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ],
     "logoUrl": "logos/mobbin.svg"
@@ -1741,7 +2891,23 @@ const products = [
         "price": 300,
         "activation": "تسليم حساب جاهز.",
         "account": "بيانات دخول الحساب",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Granola Business — مقعد واحد",
+          "source": "https://www.granola.ai/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "القيمة محسوبة من 14 دولارًا للعضو شهريًا ×12؛ لا نفترض وجود باقة سنوية مستقلة.",
+          "billingLabel": "14 دولارًا شهريًا ×12"
+        },
+        "officialPrice": {
+          "amount": 168,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.granola.ai/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ],
     "logoUrl": "logos/granola.svg"
@@ -1761,7 +2927,23 @@ const products = [
         "price": 1550,
         "activation": "دعوة إلى Team.",
         "account": "احتفظ بالبيانات الأصلية",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Jam Team — Creator seat",
+          "source": "https://jam.dev/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع لمقعد منشئ مدفوع؛ مقاعد المشاهدين ليست نفس المقعد.",
+          "billingLabel": "14 دولارًا شهريًا ×12، فوترة سنوية"
+        },
+        "officialPrice": {
+          "amount": 168,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://jam.dev/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1780,7 +2962,22 @@ const products = [
         "activation": "تسليم حساب جاهز.",
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل",
-        "oldPrice": 6230
+        "priceComparison": {
+          "planName": "Readwise Full + Reader",
+          "source": "https://readwise.io/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "Readwise Full السنوي"
+        },
+        "officialPrice": {
+          "amount": 119.88,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://readwise.io/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1799,7 +2996,22 @@ const products = [
         "activation": "تسليم حساب جاهز.",
         "account": "بيانات دخول الحساب",
         "warranty": "ضمان كامل",
-        "oldPrice": 6760
+        "priceComparison": {
+          "planName": "Waking Up — Annual",
+          "source": "https://www.wakingup.com/checkout",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "اشتراك Annual"
+        },
+        "officialPrice": {
+          "amount": 129.99,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.wakingup.com/checkout",
+          "checkedAt": "2026-10-08"
+        }
       }
     ]
   },
@@ -1818,7 +3030,19 @@ const products = [
         "price": 600,
         "activation": "دعوة أو حساب.",
         "account": "حسب المتوفر",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Linear Business — مقعد واحد",
+          "source": "https://linear.app/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "الباقة مؤكدة بالاسم، لكن عرض 5 شهور لا يطابق التزام الفوترة السنوية الظاهر في الصفحة؛ لم نحسب خصمًا.",
+          "rawPrice": {
+            "amount": 192,
+            "currency": "USD",
+            "label": "16 دولارًا شهريًا ×12 — التزام سنوي"
+          }
+        }
       }
     ]
   },
@@ -1837,7 +3061,14 @@ const products = [
         "price": 1200,
         "activation": "تسليم حساب.",
         "account": "بيانات دخول الحساب",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "PostHog — تسعير حسب الاستهلاك",
+          "source": "https://posthog.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "لا توجد قيمة اشتراك ثابتة لـScale لمدة سنة؛ المنتج وحجم الاستهلاك مطلوبان لحساب السعر."
+        }
       }
     ]
   },
@@ -1855,7 +3086,23 @@ const products = [
         "price": 650,
         "activation": "تسليم حساب.",
         "account": "بيانات دخول الحساب",
-        "warranty": "ضمان كامل"
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Customer.io Essentials — أقل سعة",
+          "source": "https://customer.io/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المرجع الأساسي يبدأ من 100 دولار شهريًا ×12؛ العدد الفعلي للملفات الشخصية والاستهلاك قد يرفع السعر.",
+          "billingLabel": "بداية 100 دولار شهريًا ×12"
+        },
+        "officialPrice": {
+          "amount": 1200,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://customer.io/pricing",
+          "checkedAt": "2026-10-08"
+        }
       }
     ],
     "logoUrl": "logos/customerio.svg"

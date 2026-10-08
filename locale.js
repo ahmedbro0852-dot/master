@@ -6,11 +6,11 @@
   const FX_URL='https://open.er-api.com/v6/latest/EGP';
   const COUNTRY_URL='https://ipapi.co/country/';
 
-  // Fallback snapshot from 22 Sep 2026. Live rates are refreshed in the browser.
+  // USD/EUR/PLN fallback checked 8 Oct 2026 (provider snapshot 7 Oct); other rates from 22 Sep. Live rates refresh in the browser.
   const FALLBACK_RATES={
     EGP:1, AED:0.07073, LYD:0.122014, SAR:0.072222, KWD:0.005927,
     QAR:0.070104, BHD:0.007241, OMR:0.007405, JOD:0.013655,
-    IQD:25.134273, MAD:0.183035, DZD:2.571678, TND:0.056325, USD:0.019257
+    IQD:25.134273, MAD:0.183035, DZD:2.571678, TND:0.056325, USD:0.019131, EUR:0.016997, PLN:0.074314
   };
 
   const MARKETS={
@@ -404,8 +404,8 @@
     if(k==='oldPrice'&&plan.officialPrice){
       const ref=plan.officialPrice;
       const amount=Number(ref.amount);
-      if(!(amount>0)||ref.currency!=='USD')return 0;
-      return Number((amount*currencyRate(currentMarket().currency)/currencyRate('USD')).toFixed(decimalCount(currentMarket().currency)));
+      if(!(amount>0)||!currencyRate(ref.currency))return 0;
+      return Number((amount*currencyRate(currentMarket().currency)/currencyRate(ref.currency)).toFixed(decimalCount(currentMarket().currency)));
     }
     const table=k==='oldPrice'?plan.marketOldPrices:plan.marketPrices;
     if(table&&table[state.market]!=null){
