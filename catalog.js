@@ -1283,7 +1283,7 @@ const products = [
         "price": 450,
         "activation": "دعوة تُرسل إلى حسابك الشخصي.",
         "account": "حساب العميل الشخصي",
-        "warranty": "الضمان يُؤكد قبل الدفع",
+        "warranty": "ضمان كامل",
         "priceComparison": {
           "planName": "Creative Cloud Pro — فردي شهر بشهر",
           "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
@@ -1309,7 +1309,7 @@ const products = [
         "price": 850,
         "activation": "تفعيل رسمي على حسابك الشخصي.",
         "account": "حساب العميل الشخصي",
-        "warranty": "الضمان يُؤكد قبل الدفع",
+        "warranty": "ضمان كامل",
         "priceComparison": {
           "planName": "Creative Cloud Pro — فردي شهر بشهر",
           "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
@@ -1336,14 +1336,14 @@ const products = [
     "logo": "duolingo",
     "logoUrl": "logos/duolingo.svg",
     "status": "available",
-    "description": "اشتراك سنة على البريد الشخصي.",
+    "description": "Super Duolingo لمدة سنة، تفعيل على حسابك الشخصي بـ200 جنيه بدل سعر المتجر السابق 300 جنيه.",
     "plans": [
       {
         "name": "سنة",
         "duration": "12 شهر",
-        "price": 300,
-        "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
-        "account": "حساب العميل",
+        "price": 200,
+        "activation": "تفعيل Super Duolingo على حسابك الشخصي — بدون بطاقة.",
+        "account": "حساب العميل الشخصي",
         "warranty": "ضمان كامل",
         "priceComparison": {
           "planName": "Super Duolingo — فردي سنوي",
@@ -1351,7 +1351,9 @@ const products = [
           "checkedAt": "2026-10-08",
           "status": "unavailable",
           "note": "لم يتأكد سعر سنوي رسمي محدد للمنطقة؛ يُراجع داخل التطبيق. الدعوة العائلية تختلف عن الاشتراك الفردي."
-        }
+        },
+        "oldPrice": 300,
+        "accountType": "تفعيل على حسابك الشخصي"
       }
     ]
   },
