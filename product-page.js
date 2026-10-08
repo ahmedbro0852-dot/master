@@ -279,25 +279,6 @@
   }
 
 
-  function referenceMarkup(plan){
-    const comparison=plan.priceComparison;
-    if(!comparison)return '';
-    const ref=plan.officialPrice;
-    const esc=MasterStore.escapeHtml;
-    const raw=ref||comparison.rawPrice;
-    const rawMoney=raw?MasterStore.formatCurrency(raw.amount,raw.currency):'';
-    const localRef=ref?MasterStore.planAmount(plan,'oldPrice'):0;
-    const saving=ref?localRef-MasterStore.planAmount(plan):0;
-    const percent=saving>0&&localRef>0?Number((saving/localRef*100).toFixed(1)):0;
-    return '<section class="price-comparison" aria-label="'+ui('مقارنة السعر الرسمي','Official price comparison')+'"><dl class="details-list"><div><dt>'+ui('نوع الباقة','Plan type')+'</dt><dd>'+esc(comparison.planName)+'</dd></div>'+
-      (raw?'<div><dt>'+ui(ref?'السعر المرجعي الأصلي':'سعر مرجعي بمدة أو شروط مختلفة',ref?'Original reference price':'Reference with different terms')+'</dt><dd>'+esc(rawMoney)+'</dd></div>':'')+
-      (ref?'<div><dt>'+ui('حساب المقارنة','Comparison basis')+'</dt><dd>'+esc(comparison.billingLabel||'')+'</dd></div>':'')+
-      (saving>0?'<div><dt>'+ui('التوفير','Savings')+'</dt><dd>'+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+' ('+percent+'%)</dd></div>':ref?'<div><dt>'+ui('الخصم','Discount')+'</dt><dd>'+ui('لا يوجد خصم مقابل هذا المرجع','No discount against this reference')+'</dd></div>':'')+
-      '</dl><p class="reference-note">'+esc(isEn()?'The closest reference may differ in credits, account type, or eligibility. Check the provider and the store offer before payment.':comparison.note)+
-      '<br>'+ui(ref?'القيمة المحلية تقريبية بسعر الصرف، دون هامش متجر. قد تختلف الضرائب والأسعار الإقليمية.':'لا تُعرض نسبة خصم لأن سعر باقة مطابقة لم يتأكد.',ref?'Local equivalent uses exchange rates without store markup. Taxes and regional prices may vary.':'No discount percentage: a matching plan price was not confirmed.')+
-      (comparison.source?'<br><a href="'+esc(comparison.source)+'" target="_blank" rel="noopener">'+ui('المصدر الرسمي','Official source')+'</a>':'')+' · '+ui('تمت المراجعة: ','Reviewed: ')+esc(comparison.checkedAt)+'</p></section>';
-  }
-
   function renderDetails(){
     const plan=selectedPlan();
     if(!plan){planDetails.innerHTML='';return;}
@@ -313,7 +294,7 @@
     planDetails.innerHTML=
       '<dl class="details-list">'+
         '<div><dt>'+ui('السعر','Price')+'</dt><dd>'+MasterStore.planMoney(plan)+'</dd></div>'+
-        ((plan.oldPrice||plan.officialPrice)?'<div><dt>'+(plan.officialPrice?ui('السعر الرسمي لمدة المقارنة','Plan type, comparison-period total'):ui('السعر قبل العرض','Before discount'))+'</dt><dd>'+(saving?'<del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>':MasterStore.planMoney(plan,'oldPrice'))+(saving?' <strong class="saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
+        ((plan.oldPrice||plan.officialPrice)?'<div><dt>'+(plan.officialPrice?ui('السعر الرسمي','Official price'):ui('السعر قبل العرض','Before discount'))+'</dt><dd>'+(saving?'<del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>':MasterStore.planMoney(plan,'oldPrice'))+(saving?' <strong class="saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
         '<div><dt>'+ui('نوع الباقة','Plan tier')+'</dt><dd>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+'</dd></div>'+
         '<div><dt>'+ui('المدة','Duration')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.duration||'غير محددة','duration'))+'</dd></div>'+
         '<div><dt>'+ui('نوع الاشتراك','Subscription type')+'</dt><dd>'+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</dd></div>'+
@@ -322,7 +303,6 @@
         '<div><dt>'+ui('الضمان','Warranty')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.warranty||'غير محدد','warranty'))+'</dd></div>'+
         (plan.credits?'<div><dt>'+ui('الرصيد','Credits')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.credits,'credits'))+'</dd></div>':'')+
       '</dl>'+
-      referenceMarkup(plan)+
       (notes.length?'<div class="plan-notes"><b>'+ui('ملاحظات مهمة','Important notes')+'</b><ul>'+notes.map(n=>'<li>'+MasterStore.escapeHtml(tr(n,'note'))+'</li>').join('')+'</ul></div>':'');
     planFeatures.innerHTML=features.length?'<div class="plan-features"><b>'+ui('مميزات الاشتراك','Subscription features')+'</b><ul>'+features.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'';
   }
