@@ -4,7 +4,7 @@ const products = [
   "name": "King Cobra IPTV",
   "category": "الترفيه",
   "logo": "premier-league",
-  "logoUrl": "logos/premier-league.svg?v=20261008",
+  "logoUrl": "logos/premier-league.svg?v=20261008-color2",
   "status": "available",
   "description": "اتفرج على كل قنوات beIN SPORTS وتابع أقوى الدوريات والبطولات بتعليق عربي، مع قنوات عربية وعالمية وأفلام ومسلسلات، واشتراك فردي بضمان كامل.",
   "features": [
@@ -41,7 +41,7 @@ const products = [
   "name": "Dino IPTV",
   "category": "الترفيه",
   "logo": "champions-league",
-  "logoUrl": "logos/champions-league.svg?v=20261008",
+  "logoUrl": "logos/champions-league.svg?v=20261008-color2",
   "status": "available",
   "description": "اتفرج على كل قنوات beIN SPORTS وتابع أقوى الدوريات والبطولات بتعليق عربي، مع قنوات عربية وعالمية وأفلام ومسلسلات، واشتراك فردي بضمان كامل.",
   "features": [
