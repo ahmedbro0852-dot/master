@@ -289,7 +289,7 @@
     const localRef=ref?MasterStore.planAmount(plan,'oldPrice'):0;
     const saving=ref?localRef-MasterStore.planAmount(plan):0;
     const percent=saving>0&&localRef>0?Number((saving/localRef*100).toFixed(1)):0;
-    return '<section class="price-comparison" aria-label="'+ui('مقارنة السعر الرسمي','Official price comparison')+'"><dl class="details-list"><div><dt>'+ui('أقرب باقة رسمية','Closest official plan')+'</dt><dd>'+esc(comparison.planName)+'</dd></div>'+
+    return '<section class="price-comparison" aria-label="'+ui('مقارنة السعر الرسمي','Official price comparison')+'"><dl class="details-list"><div><dt>'+ui('نوع الباقة','Plan type')+'</dt><dd>'+esc(comparison.planName)+'</dd></div>'+
       (raw?'<div><dt>'+ui(ref?'السعر المرجعي الأصلي':'سعر مرجعي بمدة أو شروط مختلفة',ref?'Original reference price':'Reference with different terms')+'</dt><dd>'+esc(rawMoney)+'</dd></div>':'')+
       (ref?'<div><dt>'+ui('حساب المقارنة','Comparison basis')+'</dt><dd>'+esc(comparison.billingLabel||'')+'</dd></div>':'')+
       (saving>0?'<div><dt>'+ui('التوفير','Savings')+'</dt><dd>'+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+' ('+percent+'%)</dd></div>':ref?'<div><dt>'+ui('الخصم','Discount')+'</dt><dd>'+ui('لا يوجد خصم مقابل هذا المرجع','No discount against this reference')+'</dd></div>':'')+
@@ -313,7 +313,7 @@
     planDetails.innerHTML=
       '<dl class="details-list">'+
         '<div><dt>'+ui('السعر','Price')+'</dt><dd>'+MasterStore.planMoney(plan)+'</dd></div>'+
-        ((plan.oldPrice||plan.officialPrice)?'<div><dt>'+(plan.officialPrice?ui('السعر الرسمي لأقرب باقة، بنفس مدة المقارنة','Closest official plan, comparison-period total'):ui('السعر قبل العرض','Before discount'))+'</dt><dd>'+(saving?'<del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>':MasterStore.planMoney(plan,'oldPrice'))+(saving?' <strong class="saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
+        ((plan.oldPrice||plan.officialPrice)?'<div><dt>'+(plan.officialPrice?ui('السعر الرسمي لمدة المقارنة','Plan type, comparison-period total'):ui('السعر قبل العرض','Before discount'))+'</dt><dd>'+(saving?'<del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>':MasterStore.planMoney(plan,'oldPrice'))+(saving?' <strong class="saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
         '<div><dt>'+ui('نوع الباقة','Plan tier')+'</dt><dd>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+'</dd></div>'+
         '<div><dt>'+ui('المدة','Duration')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.duration||'غير محددة','duration'))+'</dd></div>'+
         '<div><dt>'+ui('نوع الاشتراك','Subscription type')+'</dt><dd>'+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</dd></div>'+
