@@ -1,5 +1,42 @@
 const products = [
   {
+    "id": "cursor-pro",
+    "name": "Cursor Pro",
+    "category": "AI Tools",
+    "logo": "cursor",
+    "logoUrl": "logos/cursor.svg",
+    "status": "available",
+    "description": "Cursor Pro للبرمجة لمدة سنة بـ135 دولار. كود خصم 100% للتفعيل على حسابك الشخصي؛ يتطلب إضافة بطاقة دفع مقبولة.",
+    "features": [
+      "خطة Pro لمدة سنة.",
+      "كود تفعيل على حسابك الشخصي.",
+      "يتطلب إضافة بطاقة دفع مقبولة.",
+      "كود الخصم 100% يخص التفعيل؛ سعر شراء الكود 135 دولار."
+    ],
+    "featuresEn": [
+      "Pro plan for one year.",
+      "Activation code on your personal account.",
+      "An accepted payment card is required.",
+      "The 100% code discount applies to activation; the code purchase costs $135."
+    ],
+    "plans": [
+      {
+        "name": "Pro — سنة بكود تفعيل",
+        "planType": "Pro",
+        "duration": "12 شهر",
+        "price": 7057,
+        "basePriceUSD": 135,
+        "activation": "تسليم كود خصم 100% لتفعيل سنة على حسابك؛ يتطلب إضافة بطاقة دفع مقبولة.",
+        "account": "كود تفعيل على حسابك الشخصي",
+        "accountType": "كود تفعيل على حسابك الشخصي",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "السعر 135 دولار للكود؛ خصم 100% يخص رسوم التفعيل عند استخدام الكود."
+        ]
+      }
+    ]
+  },
+  {
     "id": "higgsfield-pro",
     "name": "Higgsfield Pro",
     "category": "AI Tools",
@@ -1628,38 +1665,8 @@ const products = [
     "logo": "coursera",
     "logoUrl": "logos/coursera.svg",
     "status": "available",
-    "description": "باقات Coursera Plus، منها كود تفعيل سنة على حسابك الشخصي بـ135 دولار مع ضرورة إضافة بطاقة دفع مقبولة.",
+    "description": "خيارات Coursera Plus بمدد وأنواع حساب مختلفة.",
     "plans": [
-      {
-        "name": "Plus — سنة بكود تفعيل",
-        "planType": "Plus",
-        "duration": "12 شهر",
-        "price": 7057,
-        "basePriceUSD": 135,
-        "activation": "تسليم كود خصم 100% لتفعيل سنة على حسابك؛ يتطلب إضافة بطاقة دفع مقبولة.",
-        "account": "كود تفعيل على حسابك الشخصي",
-        "accountType": "كود تفعيل على حسابك الشخصي",
-        "warranty": "يُؤكد مع الدعم قبل الدفع",
-        "notes": [
-          "السعر 135 دولار للكود؛ خصم 100% يخص رسوم التفعيل عند استخدام الكود."
-        ],
-        "officialPrice": {
-          "amount": 399,
-          "currency": "USD",
-          "months": 12,
-          "basis": "matched",
-          "source": "https://www.coursera.org/courseraplus",
-          "checkedAt": "2026-10-09"
-        },
-        "priceComparison": {
-          "planName": "Plus — Annual",
-          "source": "https://www.coursera.org/courseraplus",
-          "checkedAt": "2026-10-09",
-          "status": "matched",
-          "billingLabel": "Annual",
-          "note": "السعر السنوي الرسمي المعروض بالدولار؛ قد يختلف حسب البلد والعروض."
-        }
-      },
       {
         "name": "3 شهور — حساب خاص",
         "duration": "3 شهور",

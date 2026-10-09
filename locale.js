@@ -101,6 +101,7 @@
 
 
   const PRODUCT_DESC_EN={
+"cursor-pro":"Cursor Pro for coding for one year at $135. A 100% discount activation code on your personal account requiring an accepted payment card.",
 "higgsfield-pro":"Higgsfield Pro annual activation code for $160, activated directly on your personal email.",
 "windows-pro":"Windows 11 Pro or Windows 10 Pro activation key for $5. Permanent activation for the purchased version with a one-time payment.",
     "chatgpt-teachers-k12":"A ChatGPT plan for K12 teachers lasting two years at EGP 500, without warranty.",
@@ -124,7 +125,7 @@
     "adobe-cc":"Currently out of stock.",
     "duolingo":"A one-year Duolingo subscription on your personal email.",
     "elsa":"ELSA Speak subscription for pronunciation and conversation practice.",
-    "coursera":"Coursera Plus plans, including a $135 annual code for your personal account requiring an accepted payment card.",
+    "coursera":"Coursera Plus plans with different durations and account types.",
     "quizizz":"Quizizz subscription activated on the customer's email.",
     "wordwall":"Wordwall Pro subscription for one month or one year.",
     "turnitin":"One-file similarity check with a similarity report.",
