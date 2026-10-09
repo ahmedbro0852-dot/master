@@ -68,12 +68,7 @@
     }
     return money(order?.total||0);
   }
-  function paymentOptions(){
-    const market=getMarket();
-    const en=window.MasterLocale?.getState().language==='en';
-    if(market.code==='EG')return ['InstaPay','Vodafone Cash','Binance / USDT'];
-    return ['Binance / USDT',en?'Local payment method — confirmed by support':'طريقة دفع محلية — بعد التأكيد'];
-  }
+  function paymentOptions(){return ['InstaPay','Vodafone Cash','Taptap Send','CliQ','Sham Cash','PayPal','Binance / USDT'];}
   function escapeHtml(value){
     return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
   }
