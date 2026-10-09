@@ -4,7 +4,7 @@ const products = [
     "name": "Higgsfield Pro",
     "category": "AI Tools",
     "logo": "higgsfield",
-    "logoUrl": "logos/higgsfield.svg",
+    "logoUrl": "logos/higgsfield.svg?v=20261009-official",
     "status": "available",
     "description": "كود تفعيل Higgsfield Pro لمدة سنة بـ160 دولار؛ تفعيل مباشر على بريدك الشخصي.",
     "features": [
