@@ -4,7 +4,7 @@ const products = [
     "name": "Cursor Pro",
     "category": "AI Tools",
     "logo": "cursor",
-    "logoUrl": "logos/cursor.svg",
+    "logoUrl": "logos/cursor.svg?v=20261009-original-brand",
     "status": "available",
     "description": "Cursor Pro للبرمجة لمدة سنة بـ135 دولار. كود خصم 100% للتفعيل على حسابك الشخصي؛ يتطلب إضافة بطاقة دفع مقبولة.",
     "features": [
@@ -675,7 +675,7 @@ const products = [
     "name": "Gemini Pro",
     "category": "AI Tools",
     "logo": "gemini",
-    "logoUrl": "logos/gemini.svg",
+    "logoUrl": "logos/gemini.svg?v=20261009-original-brand",
     "status": "available",
     "description": "عرضان لمدة 18 شهر؛ الباقة العائلية تضيف 5 دعوات إضافية، ورصيد 1,000 Credit شهريًا مخصص للحساب الرئيسي فقط.",
     "plans": [
@@ -1099,7 +1099,7 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/gamma.svg"
+    "logoUrl": "logos/gamma.svg?v=20261009-original-brand"
   },
   {
     "id": "gamma-account",
@@ -1132,7 +1132,7 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/gamma.svg"
+    "logoUrl": "logos/gamma.svg?v=20261009-original-brand"
   },
   {
     "id": "elevenlabs",
@@ -1595,7 +1595,7 @@ const products = [
     "name": "Super Duolingo",
     "category": "التعليم",
     "logo": "duolingo",
-    "logoUrl": "logos/duolingo.svg",
+    "logoUrl": "logos/duolingo.svg?v=20261009-original-brand",
     "status": "available",
     "description": "Super Duolingo لمدة سنة، تفعيل على حسابك الشخصي بـ200 جنيه بدل سعر المتجر السابق 300 جنيه.",
     "plans": [
@@ -1656,7 +1656,8 @@ const products = [
           "note": "لم يتأكد سعر رسمي مطابق لمدد العرض، وقد تختلف الخطط الإقليمية وأسماء الباقات."
         }
       }
-    ]
+    ],
+    "logoUrl": "logos/elsa.svg?v=20261009-original-brand"
   },
   {
     "id": "coursera",
@@ -1817,7 +1818,8 @@ const products = [
           }
         }
       }
-    ]
+    ],
+    "logoUrl": "logos/wordwall.svg?v=20261009-original-brand"
   },
   {
     "id": "turnitin",
@@ -2190,7 +2192,7 @@ const products = [
     "name": "iCloud 4TB",
     "category": "الإنتاجية",
     "logo": "icloud",
-    "logoUrl": "logos/icloud.svg",
+    "logoUrl": "logos/icloud.svg?v=20261009-original-brand",
     "status": "available",
     "description": "عرض مساحة iCloud إجمالية 4TB.",
     "plans": [
@@ -2221,7 +2223,7 @@ const products = [
     "name": "Surfshark",
     "category": "VPN والحماية",
     "logo": "surfshark",
-    "logoUrl": "logos/surfshark.svg",
+    "logoUrl": "logos/surfshark.svg?v=20261009-original-brand",
     "status": "available",
     "description": "كوبون Surfshark لمدة شهرين.",
     "plans": [
@@ -2247,7 +2249,7 @@ const products = [
     "name": "NordVPN",
     "category": "VPN والحماية",
     "logo": "nordvpn",
-    "logoUrl": "logos/nordvpn.svg",
+    "logoUrl": "logos/nordvpn.svg?v=20261009-original-brand",
     "status": "available",
     "description": "اشتراك NordVPN لمدة 3 شهور.",
     "plans": [
@@ -2282,7 +2284,7 @@ const products = [
     "name": "Proton VPN",
     "category": "VPN والحماية",
     "logo": "protonvpn",
-    "logoUrl": "logos/protonvpn.svg",
+    "logoUrl": "logos/protonvpn.svg?v=20261009-original-brand",
     "status": "available",
     "description": "حساب Proton VPN لمدة سنة لجهاز واحد.",
     "plans": [
@@ -2334,7 +2336,7 @@ const products = [
     "name": "ExpressVPN Basic",
     "category": "VPN والحماية",
     "logo": "expressvpn",
-    "logoUrl": "logos/expressvpn.svg",
+    "logoUrl": "logos/expressvpn.svg?v=20261009-original-brand",
     "status": "available",
     "description": "اشتراك ExpressVPN قصير المدة.",
     "plans": [
@@ -2677,14 +2679,15 @@ const products = [
     "logo": "motionarray",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
-    "plans": []
+    "plans": [],
+    "logoUrl": "logos/motionarray.svg?v=20261009-original-brand"
   },
   {
     "id": "suno",
     "name": "Suno AI Pro",
     "category": "AI Tools",
     "logo": "suno",
-    "logoUrl": "logos/suno.svg",
+    "logoUrl": "logos/suno.svg?v=20261009-original-brand",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -3035,7 +3038,8 @@ const products = [
           }
         }
       }
-    ]
+    ],
+    "logoUrl": "logos/pangram.svg?v=20261009-original-brand"
   },
   {
     "id": "supercut-pro",
@@ -3069,7 +3073,8 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
-    ]
+    ],
+    "logoUrl": "logos/supercut.svg?v=20261009-original-brand"
   },
   {
     "id": "wispr-flow-pro",
@@ -3103,7 +3108,8 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
-    ]
+    ],
+    "logoUrl": "logos/wispr.svg?v=20261009-original-brand"
   },
   {
     "id": "mobbin-team",
@@ -3173,14 +3179,14 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/granola.svg"
+    "logoUrl": "logos/granola.svg?v=20261009-original-brand"
   },
   {
     "id": "jam-team",
     "name": "Jam Team",
     "category": "الإنتاجية",
     "logo": "jam",
-    "logoUrl": "logos/jam.svg",
+    "logoUrl": "logos/jam.svg?v=20261009-original-brand",
     "status": "available",
     "description": "تسجيل ومشاركة مشكلات المواقع والتعاون عليها مع الفريق.",
     "plans": [
@@ -3242,7 +3248,8 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
-    ]
+    ],
+    "logoUrl": "logos/readwise.svg?v=20261009-original-brand"
   },
   {
     "id": "waking-up",
@@ -3283,7 +3290,7 @@ const products = [
     "name": "Linear Business",
     "category": "الإنتاجية",
     "logo": "linear",
-    "logoUrl": "logos/linear.svg",
+    "logoUrl": "logos/linear.svg?v=20261009-original-brand",
     "status": "available",
     "description": "إدارة المشاريع والمهام للفرق بخطة Business.",
     "plans": [
@@ -3314,7 +3321,7 @@ const products = [
     "name": "PostHog Scale",
     "category": "الإنتاجية",
     "logo": "posthog",
-    "logoUrl": "logos/posthog.svg",
+    "logoUrl": "logos/posthog.svg?v=20261009-original-brand",
     "status": "available",
     "description": "تحليلات المنتجات وسلوك المستخدمين وفق خطة Scale.",
     "plans": [
