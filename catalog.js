@@ -988,8 +988,34 @@ const products = [
     "category": "AI Tools",
     "logo": "grok",
     "status": "available",
-    "description": "حساب Grok جاهز لمدة قصيرة بسعر عرض.",
+    "description": "باقات SuperGrok، منها شهر كامل بـ23 دولار: حساب خاص جاهز يُسلّم بإيميل وباسورد، بضمان كامل طوال الشهر.",
     "plans": [
+      {
+        "name": "SuperGrok — شهر حساب خاص",
+        "planType": "SuperGrok",
+        "duration": "1 شهر",
+        "price": 1202,
+        "basePriceUSD": 23,
+        "activation": "تسليم حساب جاهز بإيميل وباسورد.",
+        "account": "حساب خاص",
+        "accountType": "حساب خاص جاهز",
+        "warranty": "ضمان كامل طوال مدة الاشتراك",
+        "officialPrice": {
+          "amount": 30,
+          "currency": "USD",
+          "months": 1,
+          "basis": "matched",
+          "source": "https://x.ai/pricing",
+          "checkedAt": "2026-10-09"
+        },
+        "priceComparison": {
+          "planName": "SuperGrok",
+          "source": "https://x.ai/pricing",
+          "checkedAt": "2026-10-09",
+          "status": "matched",
+          "billingLabel": "Monthly"
+        }
+      },
       {
         "name": "اشتراك واحد",
         "duration": "10 أيام",

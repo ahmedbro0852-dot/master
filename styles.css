@@ -1847,3 +1847,21 @@ body{background:#f5f8fc;color:var(--ink)}
 .checkout-form .checkout-payment{display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px;text-align:center;min-height:112px}
 .checkout-payment img{width:100%;height:60px;max-width:120px;justify-self:center;background:#fff;border-radius:5px}
 .checkout-payment span{grid-column:2;font-size:13px;line-height:1.4}
+
+/* Subtle depth and short entrance motion */
+@keyframes masterSoftEnter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.product-card,.product-hero,.plan-option{animation:masterSoftEnter .36s ease-out both}
+.product-card{transform-style:preserve-3d;transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease}
+.product-logo{transition:transform .24s ease}
+.primary{transition:transform .18s ease,box-shadow .18s ease}
+.primary:active{transform:translateY(1px)}
+@media(hover:hover) and (pointer:fine){
+ .product-card:hover{transform:perspective(1100px) translateY(-4px) rotateX(1.5deg) rotateY(-1deg);box-shadow:0 15px 30px rgba(15,35,70,.12)}
+ .product-card:hover .product-logo{transform:translateZ(12px) scale(1.04)}
+ .plan-option:hover{transform:perspective(1100px) translateY(-2px);box-shadow:0 6px 16px rgba(15,35,70,.07)}
+ .primary:hover{transform:translateY(-1px);box-shadow:0 5px 12px rgba(30,70,150,.16)}
+}
+@media(prefers-reduced-motion:reduce){
+ .product-card,.product-hero,.plan-option{animation:none!important}
+ .product-card,.product-logo,.plan-option,.primary{transition:none!important;transform:none!important}
+}
