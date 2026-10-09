@@ -101,6 +101,7 @@
 
 
   const PRODUCT_DESC_EN={
+"windows-pro":"Windows 11 Pro or Windows 10 Pro activation key for $5. Permanent activation for the purchased version with a one-time payment.",
     "chatgpt-teachers-k12":"A ChatGPT plan for K12 teachers lasting two years at EGP 500, without warranty.",
     "chatgpt-plus":"Monthly ChatGPT Plus: no-warranty account for EGP 250, ready-made account with full warranty for EGP 700, or activation on your personal account for EGP 1,040.",
     "gemini-pro":"Two 18-month options; the family plan adds 5 invitations. Its 1,000 monthly credits are for the main account only.",
@@ -275,6 +276,8 @@
     if(state.language!=="en"||!raw)return raw;
     if(kind==="description"&&PRODUCT_DESC_EN[productId])return PRODUCT_DESC_EN[productId];
     if(kind==="category")return CATEGORY_EN[raw]||raw;
+    const windowsText={"مدى الحياة للإصدار المشترى":"Lifetime for the purchased version","التفعيل باستخدام مفتاح المنتج.":"Activate using the product key.","مفتاح تفعيل":"Activation key","مفتاح منتج":"Product key","يُؤكد مع الدعم قبل الدفع":"Confirmed with support before payment","اختار الإصدار المطابق لنسخة Windows Pro المثبتة على جهازك.":"Select the version matching Windows Pro installed on your device.","مفتاح تفعيل لنسخة Windows Pro.":"Product key for Windows Pro.","اختيار Windows 11 Pro أو Windows 10 Pro.":"Choose Windows 11 Pro or Windows 10 Pro.","تفعيل دائم للإصدار المشترى.":"Permanent activation for the purchased version.","دفعة واحدة بدون اشتراك شهري.":"One-time payment, no monthly subscription."};
+    if(productId==="windows-pro"&&windowsText[raw])return windowsText[raw];
     if(CATALOG_EXACT_EN[raw])return CATALOG_EXACT_EN[raw];
     let s=raw
       .replace(/(\d+)\s*أيام?/g,"$1 days")

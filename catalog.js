@@ -1,5 +1,46 @@
 const products = [
 {
+  "id": "windows-pro",
+  "name": "Windows 11 / 10 Pro",
+  "category": "الإنتاجية",
+  "logo": "microsoft",
+  "logoUrl": "logos/microsoft.svg",
+  "status": "available",
+  "description": "مفتاح تفعيل Windows 11 Pro أو Windows 10 Pro بسعر 5 دولارات. تفعيل دائم للإصدار المشترى بدفعة واحدة.",
+  "features": [
+    "مفتاح تفعيل لنسخة Windows Pro.",
+    "اختيار Windows 11 Pro أو Windows 10 Pro.",
+    "تفعيل دائم للإصدار المشترى.",
+    "دفعة واحدة بدون اشتراك شهري."
+  ],
+  "plans": [
+    {
+      "name": "Windows 11 Pro — Lifetime",
+      "planType": "Pro",
+      "duration": "مدى الحياة للإصدار المشترى",
+      "price": 261,
+      "basePriceUSD": 5,
+      "activation": "التفعيل باستخدام مفتاح المنتج.",
+      "account": "مفتاح تفعيل",
+      "accountType": "مفتاح منتج",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "note": "اختار الإصدار المطابق لنسخة Windows Pro المثبتة على جهازك."
+    },
+    {
+      "name": "Windows 10 Pro — Lifetime",
+      "planType": "Pro",
+      "duration": "مدى الحياة للإصدار المشترى",
+      "price": 261,
+      "basePriceUSD": 5,
+      "activation": "التفعيل باستخدام مفتاح المنتج.",
+      "account": "مفتاح تفعيل",
+      "accountType": "مفتاح منتج",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "note": "اختار الإصدار المطابق لنسخة Windows Pro المثبتة على جهازك."
+    }
+  ]
+},
+{
   "id": "king-cobra-iptv",
   "name": "King Cobra IPTV",
   "category": "الترفيه",
