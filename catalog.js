@@ -1090,7 +1090,23 @@ const products = [
         "account": "حساب العميل الشخصي",
         "accountType": "حساب العميل الشخصي",
         "warranty": "يُؤكد مع الدعم قبل الدفع",
-        "notes": []
+        "notes": [],
+        "officialPrice": {
+          "amount": 220,
+          "currency": "USD",
+          "months": 12,
+          "basis": "matched",
+          "source": "https://elevenlabs.io/pricing",
+          "checkedAt": "2026-10-09"
+        },
+        "priceComparison": {
+          "planName": "Creator — Annual",
+          "source": "https://elevenlabs.io/pricing",
+          "checkedAt": "2026-10-09",
+          "status": "matched",
+          "billingLabel": "Annual",
+          "note": "السعر السنوي الرسمي قبل الضرائب؛ 22 دولارًا ×10 أشهر."
+        }
       },
       {
         "name": "Creator — تفعيل على حسابك",
@@ -1600,7 +1616,23 @@ const products = [
         "warranty": "يُؤكد مع الدعم قبل الدفع",
         "notes": [
           "السعر 135 دولار للكود؛ خصم 100% يخص رسوم التفعيل عند استخدام الكود."
-        ]
+        ],
+        "officialPrice": {
+          "amount": 399,
+          "currency": "USD",
+          "months": 12,
+          "basis": "matched",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-09"
+        },
+        "priceComparison": {
+          "planName": "Plus — Annual",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-09",
+          "status": "matched",
+          "billingLabel": "Annual",
+          "note": "السعر السنوي الرسمي المعروض بالدولار؛ قد يختلف حسب البلد والعروض."
+        }
       },
       {
         "name": "3 شهور — حساب خاص",
