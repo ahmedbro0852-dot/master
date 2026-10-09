@@ -781,7 +781,7 @@ const products = [
     "name": "Perplexity Pro",
     "category": "AI Tools",
     "logo": "perplexity",
-    "logoUrl": "logos/perplexity.svg",
+    "logoUrl": "logos/perplexity.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "حساب خاص جاهز مع ضمان كامل حسب عرض المتجر.",
     "plans": [
@@ -936,6 +936,7 @@ const products = [
     "name": "Runway Pro",
     "category": "AI Tools",
     "logo": "runway",
+    "logoUrl": "logos/runway.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "اشتراك Runway Pro لمدة 12 شهر، يُفعّل على حسابك عبر كود استرداد، بضمان 6 شهور.",
     "plans": [
@@ -984,6 +985,7 @@ const products = [
     "name": "Wink AI Pro",
     "category": "AI Tools",
     "logo": "wink",
+    "logoUrl": "logos/wink.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "حساب جاهز لأدوات Wink AI.",
     "plans": [
@@ -1228,6 +1230,7 @@ const products = [
     "name": "HeyGen Creator",
     "category": "AI Tools",
     "logo": "heygen",
+    "logoUrl": "logos/heygen.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "حساب HeyGen جاهز مع 1,250 Credit.",
     "plans": [
@@ -1664,7 +1667,7 @@ const products = [
     "name": "Coursera Plus",
     "category": "التعليم",
     "logo": "coursera",
-    "logoUrl": "logos/coursera.svg",
+    "logoUrl": "logos/coursera.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "خيارات Coursera Plus بمدد وأنواع حساب مختلفة.",
     "plans": [
@@ -1750,6 +1753,7 @@ const products = [
     "name": "Quizizz",
     "category": "التعليم",
     "logo": "quizizz",
+    "logoUrl": "logos/quizizz.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "اشتراك Quizizz على بريد العميل.",
     "plans": [
@@ -2310,6 +2314,7 @@ const products = [
     "name": "HMA VPN",
     "category": "VPN والحماية",
     "logo": "hma",
+    "logoUrl": "logos/hma.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "عرض HMA قصير المدة.",
     "plans": [
@@ -2329,7 +2334,7 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/hma.svg"
+    "logoUrl": "logos/hma.svg?v=20261009-official-pass2"
   },
   {
     "id": "expressvpn",
@@ -2423,6 +2428,7 @@ const products = [
     "name": "Kling AI",
     "category": "AI Tools",
     "logo": "kling",
+    "logoUrl": "logos/kling.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "باقة Kling AI برصيد 1,100 كريدت بسعر 700 جنيه، بضمان 5 أيام.",
     "plans": [
@@ -2449,7 +2455,7 @@ const products = [
     "name": "Grammarly Premium",
     "category": "الإنتاجية",
     "logo": "grammarly",
-    "logoUrl": "logos/grammarly.svg",
+    "logoUrl": "logos/grammarly.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "اشتراك Grammarly Premium بمميزات الكتابة المتقدمة والتصحيح والصياغة وأدوات الذكاء الاصطناعي المتاحة في الخطة.",
     "features": [
@@ -2588,6 +2594,7 @@ const products = [
     "name": "QuillBot Premium",
     "category": "الإنتاجية",
     "logo": "quillbot",
+    "logoUrl": "logos/quillbot.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "باقات QuillBot Premium لمدة شهر، 3 شهور، 6 شهور أو سنة. الباقة السنوية بـ1200 جنيه، بمتوسط 100 جنيه للشهر.",
     "plans": [
@@ -2667,7 +2674,7 @@ const products = [
     "name": "Envato Elements",
     "category": "التصميم",
     "logo": "envato",
-    "logoUrl": "logos/envato.svg",
+    "logoUrl": "logos/envato.svg?v=20261009-official-pass2",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -2697,6 +2704,7 @@ const products = [
     "name": "Murf AI",
     "category": "AI Tools",
     "logo": "murf",
+    "logoUrl": "logos/murf.svg?v=20261009-official-pass2",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -2716,6 +2724,7 @@ const products = [
     "name": "Midjourney",
     "category": "AI Tools",
     "logo": "midjourney",
+    "logoUrl": "logos/midjourney.svg?v=20261009-official-pass2",
     "status": "out",
     "description": "الخدمة غير متوفرة حاليًا.",
     "plans": []
@@ -2725,6 +2734,7 @@ const products = [
     "name": "Leonardo AI",
     "category": "AI Tools",
     "logo": "leonardo",
+    "logoUrl": "logos/leonardo.svg?v=20261009-official-pass2",
     "status": "out",
     "description": "الخدمة غير متوفرة حاليًا.",
     "plans": []
@@ -2734,6 +2744,7 @@ const products = [
     "name": "Manus",
     "category": "AI Tools",
     "logo": "manus",
+    "logoUrl": "logos/manus.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "وكيل ذكاء اصطناعي لتنفيذ المهام والبحث وتنظيم سير العمل.",
     "plans": [
@@ -2765,6 +2776,7 @@ const products = [
     "name": "Manus Pro",
     "category": "AI Tools",
     "logo": "manus",
+    "logoUrl": "logos/manus.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "اشتراك Manus Pro لمدة 12 شهر، يُفعّل على حسابك الشخصي عبر كود تفعيل.",
     "plans": [
@@ -2810,6 +2822,7 @@ const products = [
     "name": "Gumloop",
     "category": "AI Tools",
     "logo": "gumloop",
+    "logoUrl": "logos/gumloop.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "أتمتة سير العمل وربط المهام المدعومة بالذكاء الاصطناعي.",
     "plans": [
@@ -2841,7 +2854,7 @@ const products = [
     "name": "Magic Patterns Starter",
     "category": "AI Tools",
     "logo": "magicpatterns",
-    "logoUrl": "logos/magicpatterns.svg",
+    "logoUrl": "logos/magicpatterns.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "إنشاء واجهات وتجارب رقمية من الأوصاف النصية.",
     "plans": [
@@ -2876,6 +2889,7 @@ const products = [
     "name": "Factory Pro",
     "category": "AI Tools",
     "logo": "factory",
+    "logoUrl": "logos/factory.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "خطة للمطورين والفرق لبناء البرمجيات بمساعدة الذكاء الاصطناعي.",
     "plans": [
@@ -2910,7 +2924,7 @@ const products = [
     "name": "Framer Pro",
     "category": "AI Tools",
     "logo": "framer",
-    "logoUrl": "logos/framer.svg",
+    "logoUrl": "logos/framer.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "تصميم ونشر المواقع التفاعلية بسرعة ومن دون تعقيد.",
     "plans": [
@@ -3256,6 +3270,7 @@ const products = [
     "name": "Waking Up",
     "category": "الإنتاجية",
     "logo": "wakingup",
+    "logoUrl": "logos/wakingup.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "اشتراك كامل في تطبيق Waking Up.",
     "plans": [
@@ -3347,6 +3362,7 @@ const products = [
     "name": "Customer.io Essentials",
     "category": "الإنتاجية",
     "logo": "customerio",
+    "logoUrl": "logos/customerio.svg?v=20261009-official-pass2",
     "status": "available",
     "description": "أدوات الرسائل والتواصل الآلي مع العملاء.",
     "plans": [
@@ -3375,7 +3391,7 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/customerio.svg"
+    "logoUrl": "logos/customerio.svg?v=20261009-official-pass2"
   }
 ];
 
