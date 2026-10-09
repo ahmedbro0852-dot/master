@@ -1,6 +1,7 @@
 const products = [
 {
   "id": "windows-pro",
+"featuresEn":["Product key for Windows Pro.","Choose Windows 11 Pro or Windows 10 Pro.","Permanent activation for the purchased version.","One-time payment, no monthly subscription."],
   "name": "Windows 11 / 10 Pro",
   "category": "الإنتاجية",
   "logo": "microsoft",
