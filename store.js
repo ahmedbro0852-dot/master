@@ -68,7 +68,7 @@
     }
     return money(order?.total||0);
   }
-  function paymentOptions(){return ['InstaPay','Vodafone Cash','Taptap Send','CliQ','Sham Cash','PayPal','Binance / USDT'];}
+  function paymentOptions(){return ['InstaPay','Vodafone Cash','Taptap Send','CliQ','Sham Cash','PayPal','Barq','Binance / USDT'];}
   function escapeHtml(value){
     return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
   }
