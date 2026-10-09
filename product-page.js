@@ -24,7 +24,7 @@
 
   function icon(product){
     const fallback=(product.name||'M').split(/\s+/).map(x=>x[0]).join('').slice(0,2);
-    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260924-sec19':'';
+    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20261009-logo-review3':'';
     const src=product.logoUrl||local;
     const fallbackAttr=local?' data-fallback="'+MasterStore.escapeHtml(local)+'"':'';
     return '<span class="product-logo big">'+(src?'<img src="'+MasterStore.escapeHtml(src)+'"'+fallbackAttr+' alt="'+MasterStore.escapeHtml(product.name)+'" decoding="async">':'')+'<span class="logo-fallback">'+MasterStore.escapeHtml(fallback)+'</span></span>';

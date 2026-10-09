@@ -74,7 +74,7 @@
   }
 
   function logoMarkup(product){
-    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20260924-sec19':'';
+    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20261009-logo-review3':'';
     const src=product.logoUrl||local;
     const fallback=initials(product.name);
     if(!src)return '<span class="product-logo"><span class="logo-fallback visible">'+esc(fallback)+'</span></span>';

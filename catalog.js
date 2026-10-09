@@ -4,7 +4,7 @@ const products = [
     "name": "Cursor Pro",
     "category": "AI Tools",
     "logo": "cursor",
-    "logoUrl": "logos/cursor.svg?v=20261009-original-brand",
+    "logoUrl": "logos/cursor.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "Cursor Pro للبرمجة لمدة سنة بـ135 دولار. كود خصم 100% للتفعيل على حسابك الشخصي؛ يتطلب إضافة بطاقة دفع مقبولة.",
     "features": [
@@ -41,7 +41,7 @@ const products = [
     "name": "Higgsfield Pro",
     "category": "AI Tools",
     "logo": "higgsfield",
-    "logoUrl": "logos/higgsfield.svg?v=20261009-green",
+    "logoUrl": "logos/higgsfield.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "كود تفعيل Higgsfield Pro لمدة سنة بـ160 دولار؛ تفعيل مباشر على بريدك الشخصي.",
     "features": [
@@ -80,7 +80,7 @@ const products = [
     "name": "Windows 11 / 10 Pro",
     "category": "الإنتاجية",
     "logo": "microsoft",
-    "logoUrl": "logos/microsoft.svg",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "مفتاح تفعيل Windows 11 Pro أو Windows 10 Pro بسعر 5 دولارات. تفعيل دائم للإصدار المشترى بدفعة واحدة.",
     "features": [
@@ -121,7 +121,7 @@ const products = [
     "name": "King Cobra IPTV",
     "category": "الترفيه",
     "logo": "premier-league",
-    "logoUrl": "logos/premier-league.svg?v=20261008-color2",
+    "logoUrl": "logos/premier-league.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "اتفرج على كل قنوات beIN SPORTS وتابع أقوى الدوريات والبطولات بتعليق عربي، مع قنوات عربية وعالمية وأفلام ومسلسلات، واشتراك فردي بضمان كامل.",
     "features": [
@@ -158,7 +158,7 @@ const products = [
     "name": "Dino IPTV",
     "category": "الترفيه",
     "logo": "champions-league",
-    "logoUrl": "logos/champions-league.svg?v=20261008-color2",
+    "logoUrl": "logos/champions-league.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "اتفرج على كل قنوات beIN SPORTS وتابع أقوى الدوريات والبطولات بتعليق عربي، مع قنوات عربية وعالمية وأفلام ومسلسلات، واشتراك فردي بضمان كامل.",
     "features": [
@@ -675,7 +675,7 @@ const products = [
     "name": "Gemini Pro",
     "category": "AI Tools",
     "logo": "gemini",
-    "logoUrl": "logos/gemini.svg?v=20261009-original-brand",
+    "logoUrl": "logos/gemini.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "عرضان لمدة 18 شهر؛ الباقة العائلية تضيف 5 دعوات إضافية، ورصيد 1,000 Credit شهريًا مخصص للحساب الرئيسي فقط.",
     "plans": [
@@ -743,7 +743,7 @@ const products = [
     "name": "Claude Pro",
     "category": "AI Tools",
     "logo": "claude",
-    "logoUrl": "logos/claude.svg",
+    "logoUrl": "logos/claude.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "تفعيل Claude على حسابك الشخصي باستخدام وسيلة دفع المتجر.",
     "plans": [
@@ -781,7 +781,7 @@ const products = [
     "name": "Perplexity Pro",
     "category": "AI Tools",
     "logo": "perplexity",
-    "logoUrl": "logos/perplexity.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/perplexity.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "حساب خاص جاهز مع ضمان كامل حسب عرض المتجر.",
     "plans": [
@@ -936,7 +936,7 @@ const products = [
     "name": "Runway Pro",
     "category": "AI Tools",
     "logo": "runway",
-    "logoUrl": "logos/runway.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/runway.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "اشتراك Runway Pro لمدة 12 شهر، يُفعّل على حسابك عبر كود استرداد، بضمان 6 شهور.",
     "plans": [
@@ -985,7 +985,7 @@ const products = [
     "name": "Wink AI Pro",
     "category": "AI Tools",
     "logo": "wink",
-    "logoUrl": "logos/wink.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/wink.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "حساب جاهز لأدوات Wink AI.",
     "plans": [
@@ -1101,7 +1101,7 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/gamma.svg?v=20261009-original-brand"
+    "logoUrl": "logos/gamma.svg?v=20261009-logo-review3"
   },
   {
     "id": "gamma-account",
@@ -1134,14 +1134,14 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/gamma.svg?v=20261009-original-brand"
+    "logoUrl": "logos/gamma.svg?v=20261009-logo-review3"
   },
   {
     "id": "elevenlabs",
     "name": "ElevenLabs Creator",
     "category": "AI Tools",
     "logo": "elevenlabs",
-    "logoUrl": "logos/elevenlabs.svg",
+    "logoUrl": "logos/elevenlabs.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "باقات ElevenLabs Creator، منها سنة كاملة على حسابك الشخصي بـ66 دولار بدون بطاقة دفع.",
     "plans": [
@@ -1230,7 +1230,7 @@ const products = [
     "name": "HeyGen Creator",
     "category": "AI Tools",
     "logo": "heygen",
-    "logoUrl": "logos/heygen.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/heygen.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "حساب HeyGen جاهز مع 1,250 Credit.",
     "plans": [
@@ -1463,7 +1463,7 @@ const products = [
     "name": "Figma Professional",
     "category": "التصميم",
     "logo": "figma",
-    "logoUrl": "logos/figma.svg",
+    "logoUrl": "logos/figma.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "اشتراك Figma لمدة 12 شهر.",
     "plans": [
@@ -1498,7 +1498,7 @@ const products = [
     "name": "Freepik Premium",
     "category": "التصميم",
     "logo": "freepik",
-    "logoUrl": "logos/freepik.svg",
+    "logoUrl": "logos/freepik.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "Freepik Premium للتحميل فقط لمدة شهر؛ لا يشمل أدوات أو توليد الذكاء الاصطناعي.",
     "plans": [
@@ -1598,7 +1598,7 @@ const products = [
     "name": "Super Duolingo",
     "category": "التعليم",
     "logo": "duolingo",
-    "logoUrl": "logos/duolingo.svg?v=20261009-original-brand",
+    "logoUrl": "logos/duolingo.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "Super Duolingo لمدة سنة، تفعيل على حسابك الشخصي بـ200 جنيه بدل سعر المتجر السابق 300 جنيه.",
     "plans": [
@@ -1660,14 +1660,14 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/elsa.svg?v=20261009-original-brand"
+    "logoUrl": "logos/elsa.svg?v=20261009-logo-review3"
   },
   {
     "id": "coursera",
     "name": "Coursera Plus",
     "category": "التعليم",
     "logo": "coursera",
-    "logoUrl": "logos/coursera.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/coursera.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "خيارات Coursera Plus بمدد وأنواع حساب مختلفة.",
     "plans": [
@@ -1753,7 +1753,7 @@ const products = [
     "name": "Quizizz",
     "category": "التعليم",
     "logo": "quizizz",
-    "logoUrl": "logos/quizizz.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/quizizz.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "اشتراك Quizizz على بريد العميل.",
     "plans": [
@@ -1823,14 +1823,14 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/wordwall.svg?v=20261009-original-brand"
+    "logoUrl": "logos/wordwall.svg?v=20261009-logo-review3"
   },
   {
     "id": "turnitin",
     "name": "Turnitin",
     "category": "التعليم",
     "logo": "turnitin",
-    "logoUrl": "logos/turnitin.svg",
+    "logoUrl": "logos/turnitin.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "خدمة فحص ملف واحد وإرسال تقرير التشابه.",
     "plans": [
@@ -1893,7 +1893,7 @@ const products = [
     "name": "Notion Plus / Business",
     "category": "الإنتاجية",
     "logo": "notion",
-    "logoUrl": "logos/notion.svg",
+    "logoUrl": "logos/notion.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "خطط Notion Plus وBusiness بمدد مختلفة.",
     "plans": [
@@ -2005,7 +2005,7 @@ const products = [
     "name": "Zoom Pro",
     "category": "الإنتاجية",
     "logo": "zoom",
-    "logoUrl": "logos/zoom.svg",
+    "logoUrl": "logos/zoom.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "اشتراكات Zoom Pro بعدة مدد، بحساب جاهز أو تفعيل على بريدك.",
     "plans": [
@@ -2115,7 +2115,7 @@ const products = [
     "name": "StealthWriter",
     "category": "الإنتاجية",
     "logo": "stealthwriter",
-    "logoUrl": "logos/stealthwriter-official.svg",
+    "logoUrl": "logos/stealthwriter-official.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "باقات StealthWriter لمدة شهر: Starter بسعر 950 جنيه بدلًا من 1050 جنيه، وPlus بسعر 2100 جنيه بدلًا من 2600 جنيه.",
     "plans": [
@@ -2196,7 +2196,7 @@ const products = [
     "name": "iCloud 4TB",
     "category": "الإنتاجية",
     "logo": "icloud",
-    "logoUrl": "logos/icloud.svg?v=20261009-original-brand",
+    "logoUrl": "logos/icloud.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "عرض مساحة iCloud إجمالية 4TB.",
     "plans": [
@@ -2227,7 +2227,7 @@ const products = [
     "name": "Surfshark",
     "category": "VPN والحماية",
     "logo": "surfshark",
-    "logoUrl": "logos/surfshark.svg?v=20261009-original-brand",
+    "logoUrl": "logos/surfshark.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "كوبون Surfshark لمدة شهرين.",
     "plans": [
@@ -2253,7 +2253,7 @@ const products = [
     "name": "NordVPN",
     "category": "VPN والحماية",
     "logo": "nordvpn",
-    "logoUrl": "logos/nordvpn.svg?v=20261009-original-brand",
+    "logoUrl": "logos/nordvpn.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "اشتراك NordVPN لمدة 3 شهور.",
     "plans": [
@@ -2288,7 +2288,7 @@ const products = [
     "name": "Proton VPN",
     "category": "VPN والحماية",
     "logo": "protonvpn",
-    "logoUrl": "logos/protonvpn.svg?v=20261009-original-brand",
+    "logoUrl": "logos/protonvpn.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "حساب Proton VPN لمدة سنة لجهاز واحد.",
     "plans": [
@@ -2314,7 +2314,7 @@ const products = [
     "name": "HMA VPN",
     "category": "VPN والحماية",
     "logo": "hma",
-    "logoUrl": "logos/hma.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/hma.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "عرض HMA قصير المدة.",
     "plans": [
@@ -2334,14 +2334,14 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/hma.svg?v=20261009-official-pass2"
+    "logoUrl": "logos/hma.svg?v=20261009-logo-review3"
   },
   {
     "id": "expressvpn",
     "name": "ExpressVPN Basic",
     "category": "VPN والحماية",
     "logo": "expressvpn",
-    "logoUrl": "logos/expressvpn.svg?v=20261009-original-brand",
+    "logoUrl": "logos/expressvpn.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "اشتراك ExpressVPN قصير المدة.",
     "plans": [
@@ -2367,7 +2367,7 @@ const products = [
     "name": "Spotify Premium",
     "category": "الترفيه",
     "logo": "spotify",
-    "logoUrl": "logos/spotify.svg",
+    "logoUrl": "logos/spotify.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "تفعيل Spotify Premium على حساب العميل الشخصي.",
     "plans": [
@@ -2402,7 +2402,7 @@ const products = [
     "name": "YouTube Premium",
     "category": "الترفيه",
     "logo": "youtube",
-    "logoUrl": "logos/youtube.svg",
+    "logoUrl": "logos/youtube.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "تفعيل YouTube Premium على حسابك الشخصي.",
     "plans": [
@@ -2428,7 +2428,7 @@ const products = [
     "name": "Kling AI",
     "category": "AI Tools",
     "logo": "kling",
-    "logoUrl": "logos/kling.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/kling.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "باقة Kling AI برصيد 1,100 كريدت بسعر 700 جنيه، بضمان 5 أيام.",
     "plans": [
@@ -2455,7 +2455,7 @@ const products = [
     "name": "Grammarly Premium",
     "category": "الإنتاجية",
     "logo": "grammarly",
-    "logoUrl": "logos/grammarly.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/grammarly.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "اشتراك Grammarly Premium بمميزات الكتابة المتقدمة والتصحيح والصياغة وأدوات الذكاء الاصطناعي المتاحة في الخطة.",
     "features": [
@@ -2594,7 +2594,7 @@ const products = [
     "name": "QuillBot Premium",
     "category": "الإنتاجية",
     "logo": "quillbot",
-    "logoUrl": "logos/quillbot.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/quillbot.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "باقات QuillBot Premium لمدة شهر، 3 شهور، 6 شهور أو سنة. الباقة السنوية بـ1200 جنيه، بمتوسط 100 جنيه للشهر.",
     "plans": [
@@ -2674,7 +2674,7 @@ const products = [
     "name": "Envato Elements",
     "category": "التصميم",
     "logo": "envato",
-    "logoUrl": "logos/envato.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/envato.svg?v=20261009-logo-review3",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -2687,14 +2687,14 @@ const products = [
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": [],
-    "logoUrl": "logos/motionarray.svg?v=20261009-original-brand"
+    "logoUrl": "logos/motionarray.svg?v=20261009-logo-review3"
   },
   {
     "id": "suno",
     "name": "Suno AI Pro",
     "category": "AI Tools",
     "logo": "suno",
-    "logoUrl": "logos/suno.svg?v=20261009-original-brand",
+    "logoUrl": "logos/suno.svg?v=20261009-logo-review3",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -2704,7 +2704,7 @@ const products = [
     "name": "Murf AI",
     "category": "AI Tools",
     "logo": "murf",
-    "logoUrl": "logos/murf.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/murf.svg?v=20261009-logo-review3",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -2714,7 +2714,7 @@ const products = [
     "name": "Discord Nitro",
     "category": "الترفيه",
     "logo": "discord",
-    "logoUrl": "logos/discord.svg",
+    "logoUrl": "logos/discord.svg?v=20261009-logo-review3",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": []
@@ -2724,7 +2724,7 @@ const products = [
     "name": "Midjourney",
     "category": "AI Tools",
     "logo": "midjourney",
-    "logoUrl": "logos/midjourney.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/midjourney.svg?v=20261009-logo-review3",
     "status": "out",
     "description": "الخدمة غير متوفرة حاليًا.",
     "plans": []
@@ -2734,7 +2734,7 @@ const products = [
     "name": "Leonardo AI",
     "category": "AI Tools",
     "logo": "leonardo",
-    "logoUrl": "logos/leonardo.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/leonardo.svg?v=20261009-logo-review3",
     "status": "out",
     "description": "الخدمة غير متوفرة حاليًا.",
     "plans": []
@@ -2744,7 +2744,7 @@ const products = [
     "name": "Manus",
     "category": "AI Tools",
     "logo": "manus",
-    "logoUrl": "logos/manus.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/manus.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "وكيل ذكاء اصطناعي لتنفيذ المهام والبحث وتنظيم سير العمل.",
     "plans": [
@@ -2776,7 +2776,7 @@ const products = [
     "name": "Manus Pro",
     "category": "AI Tools",
     "logo": "manus",
-    "logoUrl": "logos/manus.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/manus.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "اشتراك Manus Pro لمدة 12 شهر، يُفعّل على حسابك الشخصي عبر كود تفعيل.",
     "plans": [
@@ -2822,7 +2822,7 @@ const products = [
     "name": "Gumloop",
     "category": "AI Tools",
     "logo": "gumloop",
-    "logoUrl": "logos/gumloop.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/gumloop.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "أتمتة سير العمل وربط المهام المدعومة بالذكاء الاصطناعي.",
     "plans": [
@@ -2854,7 +2854,7 @@ const products = [
     "name": "Magic Patterns Starter",
     "category": "AI Tools",
     "logo": "magicpatterns",
-    "logoUrl": "logos/magicpatterns.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/magicpatterns.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "إنشاء واجهات وتجارب رقمية من الأوصاف النصية.",
     "plans": [
@@ -2889,7 +2889,7 @@ const products = [
     "name": "Factory Pro",
     "category": "AI Tools",
     "logo": "factory",
-    "logoUrl": "logos/factory.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/factory.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "خطة للمطورين والفرق لبناء البرمجيات بمساعدة الذكاء الاصطناعي.",
     "plans": [
@@ -2924,7 +2924,7 @@ const products = [
     "name": "Framer Pro",
     "category": "AI Tools",
     "logo": "framer",
-    "logoUrl": "logos/framer.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/framer.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "تصميم ونشر المواقع التفاعلية بسرعة ومن دون تعقيد.",
     "plans": [
@@ -2959,7 +2959,7 @@ const products = [
     "name": "Supabase Pro",
     "category": "AI Tools",
     "logo": "supabase",
-    "logoUrl": "logos/supabase.svg",
+    "logoUrl": "logos/supabase.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "قواعد بيانات ومصادقة وبنية خلفية للمشاريع الرقمية.",
     "plans": [
@@ -2994,7 +2994,7 @@ const products = [
     "name": "Railway Hobby",
     "category": "الإنتاجية",
     "logo": "railway",
-    "logoUrl": "logos/railway.svg",
+    "logoUrl": "logos/railway.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "خطة Hobby لتشغيل ونشر المشاريع والتطبيقات.",
     "plans": [
@@ -3053,7 +3053,7 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/pangram.svg?v=20261009-original-brand"
+    "logoUrl": "logos/pangram.svg?v=20261009-logo-review3"
   },
   {
     "id": "supercut-pro",
@@ -3088,7 +3088,7 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/supercut.svg?v=20261009-original-brand"
+    "logoUrl": "logos/supercut.svg?v=20261009-logo-review3"
   },
   {
     "id": "wispr-flow-pro",
@@ -3123,7 +3123,7 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/wispr.svg?v=20261009-original-brand"
+    "logoUrl": "logos/wispr.svg?v=20261009-logo-review3"
   },
   {
     "id": "mobbin-team",
@@ -3158,7 +3158,7 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/mobbin.svg"
+    "logoUrl": "logos/mobbin.svg?v=20261009-logo-review3"
   },
   {
     "id": "granola-business",
@@ -3193,14 +3193,14 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/granola.svg?v=20261009-original-brand"
+    "logoUrl": "logos/granola.svg?v=20261009-logo-review3"
   },
   {
     "id": "jam-team",
     "name": "Jam Team",
     "category": "الإنتاجية",
     "logo": "jam",
-    "logoUrl": "logos/jam.svg?v=20261009-original-brand",
+    "logoUrl": "logos/jam.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "تسجيل ومشاركة مشكلات المواقع والتعاون عليها مع الفريق.",
     "plans": [
@@ -3263,14 +3263,14 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/readwise.svg?v=20261009-original-brand"
+    "logoUrl": "logos/readwise.svg?v=20261009-logo-review3"
   },
   {
     "id": "waking-up",
     "name": "Waking Up",
     "category": "الإنتاجية",
     "logo": "wakingup",
-    "logoUrl": "logos/wakingup.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/wakingup.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "اشتراك كامل في تطبيق Waking Up.",
     "plans": [
@@ -3305,7 +3305,7 @@ const products = [
     "name": "Linear Business",
     "category": "الإنتاجية",
     "logo": "linear",
-    "logoUrl": "logos/linear.svg?v=20261009-original-brand",
+    "logoUrl": "logos/linear.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "إدارة المشاريع والمهام للفرق بخطة Business.",
     "plans": [
@@ -3336,7 +3336,7 @@ const products = [
     "name": "PostHog Scale",
     "category": "الإنتاجية",
     "logo": "posthog",
-    "logoUrl": "logos/posthog.svg?v=20261009-original-brand",
+    "logoUrl": "logos/posthog.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "تحليلات المنتجات وسلوك المستخدمين وفق خطة Scale.",
     "plans": [
@@ -3362,7 +3362,7 @@ const products = [
     "name": "Customer.io Essentials",
     "category": "الإنتاجية",
     "logo": "customerio",
-    "logoUrl": "logos/customerio.svg?v=20261009-official-pass2",
+    "logoUrl": "logos/customerio.svg?v=20261009-logo-review3",
     "status": "available",
     "description": "أدوات الرسائل والتواصل الآلي مع العملاء.",
     "plans": [
@@ -3391,7 +3391,7 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/customerio.svg?v=20261009-official-pass2"
+    "logoUrl": "logos/customerio.svg?v=20261009-logo-review3"
   }
 ];
 
