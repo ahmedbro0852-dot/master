@@ -1,136 +1,174 @@
 const products = [
-{
-  "id": "windows-pro",
-"featuresEn":["Product key for Windows Pro.","Choose Windows 11 Pro or Windows 10 Pro.","Permanent activation for the purchased version.","One-time payment, no monthly subscription."],
-  "name": "Windows 11 / 10 Pro",
-  "category": "الإنتاجية",
-  "logo": "microsoft",
-  "logoUrl": "logos/microsoft.svg",
-  "status": "available",
-  "description": "مفتاح تفعيل Windows 11 Pro أو Windows 10 Pro بسعر 5 دولارات. تفعيل دائم للإصدار المشترى بدفعة واحدة.",
-  "features": [
-    "مفتاح تفعيل لنسخة Windows Pro.",
-    "اختيار Windows 11 Pro أو Windows 10 Pro.",
-    "تفعيل دائم للإصدار المشترى.",
-    "دفعة واحدة بدون اشتراك شهري."
-  ],
-  "plans": [
-    {
-      "name": "Windows 11 Pro — Lifetime",
-      "planType": "Pro",
-      "duration": "مدى الحياة للإصدار المشترى",
-      "price": 261,
-      "basePriceUSD": 5,
-      "activation": "التفعيل باستخدام مفتاح المنتج.",
-      "account": "مفتاح تفعيل",
-      "accountType": "مفتاح منتج",
-      "warranty": "يُؤكد مع الدعم قبل الدفع",
-      "note": "اختار الإصدار المطابق لنسخة Windows Pro المثبتة على جهازك."
-    },
-    {
-      "name": "Windows 10 Pro — Lifetime",
-      "planType": "Pro",
-      "duration": "مدى الحياة للإصدار المشترى",
-      "price": 261,
-      "basePriceUSD": 5,
-      "activation": "التفعيل باستخدام مفتاح المنتج.",
-      "account": "مفتاح تفعيل",
-      "accountType": "مفتاح منتج",
-      "warranty": "يُؤكد مع الدعم قبل الدفع",
-      "note": "اختار الإصدار المطابق لنسخة Windows Pro المثبتة على جهازك."
-    }
-  ]
-},
-{
-  "id": "king-cobra-iptv",
-  "name": "King Cobra IPTV",
-  "category": "الترفيه",
-  "logo": "premier-league",
-  "logoUrl": "logos/premier-league.svg?v=20261008-color2",
-  "status": "available",
-  "description": "اتفرج على كل قنوات beIN SPORTS وتابع أقوى الدوريات والبطولات بتعليق عربي، مع قنوات عربية وعالمية وأفلام ومسلسلات، واشتراك فردي بضمان كامل.",
-  "features": [
-    "كل قنوات beIN SPORTS الرياضية.",
-    "العربي مدعوم: قنوات عربية وتعليق عربي للمباريات.",
-    "جودات SD وHD وFull HD و2K و4K حسب جودة بث القناة والجهاز وسرعة الإنترنت.",
-    "الدوريات الإنجليزية والتركية والإسبانية والإيطالية والألمانية والفرنسية.",
-    "دوري أبطال أوروبا والبطولات الرياضية على القنوات المشمولة.",
-    "قنوات بالعربية والإنجليزية والتركية والإسبانية.",
-    "أفلام ومسلسلات ومحتوى للمشاهدة عند الطلب.",
-    "بيانات دخول مستقلة لكل عميل، وضمان كامل طوال مدة الاشتراك."
-  ],
-  "plans": [
-    {
-      "name": "اشتراك فردي",
-      "planType": "IPTV",
-      "duration": "1 شهر",
-      "price": 261,
-      "basePriceUSD": 5,
-      "wholePrice": true,
-      "activation": "تسليم بيانات الدخول ورابط السيرفر بعد تأكيد الطلب والدفع.",
-      "account": "اشتراك مستقل للعميل",
-      "warranty": "ضمان كامل",
-      "notes": [
-        "يشمل قنوات beIN SPORTS والقنوات العربية والعالمية ومحتوى المشاهدة عند الطلب.",
-        "الجودة تختلف حسب بث القناة والجهاز وسرعة الإنترنت.",
-        "تشغيل عبر تطبيق متوافق؛ تكلفة التطبيق إن وجدت منفصلة."
-      ]
-    }
-  ]
-},
-{
-  "id": "dino-iptv",
-  "name": "Dino IPTV",
-  "category": "الترفيه",
-  "logo": "champions-league",
-  "logoUrl": "logos/champions-league.svg?v=20261008-color2",
-  "status": "available",
-  "description": "اتفرج على كل قنوات beIN SPORTS وتابع أقوى الدوريات والبطولات بتعليق عربي، مع قنوات عربية وعالمية وأفلام ومسلسلات، واشتراك فردي بضمان كامل.",
-  "features": [
-    "كل قنوات beIN SPORTS الرياضية.",
-    "العربي مدعوم: قنوات عربية وتعليق عربي للمباريات.",
-    "جودات SD وHD وFull HD و2K و4K حسب جودة بث القناة والجهاز وسرعة الإنترنت.",
-    "الدوريات الإنجليزية والتركية والإسبانية والإيطالية والألمانية والفرنسية.",
-    "دوري أبطال أوروبا والبطولات الرياضية على القنوات المشمولة.",
-    "قنوات بالعربية والإنجليزية والتركية والإسبانية.",
-    "أفلام ومسلسلات ومحتوى للمشاهدة عند الطلب.",
-    "بيانات دخول مستقلة لكل عميل، وضمان كامل طوال مدة الاشتراك."
-  ],
-  "plans": [
-    {
-      "name": "اشتراك فردي",
-      "planType": "IPTV",
-      "duration": "6 شهر",
-      "price": 1202,
-      "basePriceUSD": 23,
-      "wholePrice": true,
-      "activation": "تسليم بيانات الدخول ورابط السيرفر بعد تأكيد الطلب والدفع.",
-      "account": "اشتراك مستقل للعميل",
-      "warranty": "ضمان كامل",
-      "notes": [
-        "يشمل قنوات beIN SPORTS والقنوات العربية والعالمية ومحتوى المشاهدة عند الطلب.",
-        "الجودة تختلف حسب بث القناة والجهاز وسرعة الإنترنت.",
-        "تشغيل عبر تطبيق متوافق؛ تكلفة التطبيق إن وجدت منفصلة."
-      ]
-    },
-    {
-      "name": "اشتراك فردي",
-      "planType": "IPTV",
-      "duration": "12 شهر",
-      "price": 1934,
-      "basePriceUSD": 37,
-      "wholePrice": true,
-      "activation": "تسليم بيانات الدخول ورابط السيرفر بعد تأكيد الطلب والدفع.",
-      "account": "اشتراك مستقل للعميل",
-      "warranty": "ضمان كامل",
-      "notes": [
-        "يشمل قنوات beIN SPORTS والقنوات العربية والعالمية ومحتوى المشاهدة عند الطلب.",
-        "الجودة تختلف حسب بث القناة والجهاز وسرعة الإنترنت.",
-        "تشغيل عبر تطبيق متوافق؛ تكلفة التطبيق إن وجدت منفصلة."
-      ]
-    }
-  ]
-},
+  {
+    "id": "higgsfield-pro",
+    "name": "Higgsfield Pro",
+    "category": "AI Tools",
+    "logo": "higgsfield",
+    "logoUrl": "logos/higgsfield.svg",
+    "status": "available",
+    "description": "كود تفعيل Higgsfield Pro لمدة سنة بـ160 دولار؛ تفعيل مباشر على بريدك الشخصي.",
+    "features": [
+      "خطة Pro لمدة سنة كاملة.",
+      "تسليم كود تفعيل.",
+      "تفعيل مباشر على بريدك الشخصي."
+    ],
+    "featuresEn": [
+      "Pro plan for one full year.",
+      "Activation code delivery.",
+      "Direct activation on your personal email."
+    ],
+    "plans": [
+      {
+        "name": "Pro — سنة بكود تفعيل",
+        "planType": "Pro",
+        "duration": "12 شهر",
+        "price": 8363,
+        "basePriceUSD": 160,
+        "activation": "تسليم كود لتفعيل الاشتراك مباشرة على بريدك الشخصي.",
+        "account": "كود تفعيل على حسابك الشخصي",
+        "accountType": "كود تفعيل على حسابك الشخصي",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": []
+      }
+    ]
+  },
+  {
+    "id": "windows-pro",
+    "featuresEn": [
+      "Product key for Windows Pro.",
+      "Choose Windows 11 Pro or Windows 10 Pro.",
+      "Permanent activation for the purchased version.",
+      "One-time payment, no monthly subscription."
+    ],
+    "name": "Windows 11 / 10 Pro",
+    "category": "الإنتاجية",
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg",
+    "status": "available",
+    "description": "مفتاح تفعيل Windows 11 Pro أو Windows 10 Pro بسعر 5 دولارات. تفعيل دائم للإصدار المشترى بدفعة واحدة.",
+    "features": [
+      "مفتاح تفعيل لنسخة Windows Pro.",
+      "اختيار Windows 11 Pro أو Windows 10 Pro.",
+      "تفعيل دائم للإصدار المشترى.",
+      "دفعة واحدة بدون اشتراك شهري."
+    ],
+    "plans": [
+      {
+        "name": "Windows 11 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 261,
+        "basePriceUSD": 5,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "note": "اختار الإصدار المطابق لنسخة Windows Pro المثبتة على جهازك."
+      },
+      {
+        "name": "Windows 10 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 261,
+        "basePriceUSD": 5,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "note": "اختار الإصدار المطابق لنسخة Windows Pro المثبتة على جهازك."
+      }
+    ]
+  },
+  {
+    "id": "king-cobra-iptv",
+    "name": "King Cobra IPTV",
+    "category": "الترفيه",
+    "logo": "premier-league",
+    "logoUrl": "logos/premier-league.svg?v=20261008-color2",
+    "status": "available",
+    "description": "اتفرج على كل قنوات beIN SPORTS وتابع أقوى الدوريات والبطولات بتعليق عربي، مع قنوات عربية وعالمية وأفلام ومسلسلات، واشتراك فردي بضمان كامل.",
+    "features": [
+      "كل قنوات beIN SPORTS الرياضية.",
+      "العربي مدعوم: قنوات عربية وتعليق عربي للمباريات.",
+      "جودات SD وHD وFull HD و2K و4K حسب جودة بث القناة والجهاز وسرعة الإنترنت.",
+      "الدوريات الإنجليزية والتركية والإسبانية والإيطالية والألمانية والفرنسية.",
+      "دوري أبطال أوروبا والبطولات الرياضية على القنوات المشمولة.",
+      "قنوات بالعربية والإنجليزية والتركية والإسبانية.",
+      "أفلام ومسلسلات ومحتوى للمشاهدة عند الطلب.",
+      "بيانات دخول مستقلة لكل عميل، وضمان كامل طوال مدة الاشتراك."
+    ],
+    "plans": [
+      {
+        "name": "اشتراك فردي",
+        "planType": "IPTV",
+        "duration": "1 شهر",
+        "price": 261,
+        "basePriceUSD": 5,
+        "wholePrice": true,
+        "activation": "تسليم بيانات الدخول ورابط السيرفر بعد تأكيد الطلب والدفع.",
+        "account": "اشتراك مستقل للعميل",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يشمل قنوات beIN SPORTS والقنوات العربية والعالمية ومحتوى المشاهدة عند الطلب.",
+          "الجودة تختلف حسب بث القناة والجهاز وسرعة الإنترنت.",
+          "تشغيل عبر تطبيق متوافق؛ تكلفة التطبيق إن وجدت منفصلة."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dino-iptv",
+    "name": "Dino IPTV",
+    "category": "الترفيه",
+    "logo": "champions-league",
+    "logoUrl": "logos/champions-league.svg?v=20261008-color2",
+    "status": "available",
+    "description": "اتفرج على كل قنوات beIN SPORTS وتابع أقوى الدوريات والبطولات بتعليق عربي، مع قنوات عربية وعالمية وأفلام ومسلسلات، واشتراك فردي بضمان كامل.",
+    "features": [
+      "كل قنوات beIN SPORTS الرياضية.",
+      "العربي مدعوم: قنوات عربية وتعليق عربي للمباريات.",
+      "جودات SD وHD وFull HD و2K و4K حسب جودة بث القناة والجهاز وسرعة الإنترنت.",
+      "الدوريات الإنجليزية والتركية والإسبانية والإيطالية والألمانية والفرنسية.",
+      "دوري أبطال أوروبا والبطولات الرياضية على القنوات المشمولة.",
+      "قنوات بالعربية والإنجليزية والتركية والإسبانية.",
+      "أفلام ومسلسلات ومحتوى للمشاهدة عند الطلب.",
+      "بيانات دخول مستقلة لكل عميل، وضمان كامل طوال مدة الاشتراك."
+    ],
+    "plans": [
+      {
+        "name": "اشتراك فردي",
+        "planType": "IPTV",
+        "duration": "6 شهر",
+        "price": 1202,
+        "basePriceUSD": 23,
+        "wholePrice": true,
+        "activation": "تسليم بيانات الدخول ورابط السيرفر بعد تأكيد الطلب والدفع.",
+        "account": "اشتراك مستقل للعميل",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يشمل قنوات beIN SPORTS والقنوات العربية والعالمية ومحتوى المشاهدة عند الطلب.",
+          "الجودة تختلف حسب بث القناة والجهاز وسرعة الإنترنت.",
+          "تشغيل عبر تطبيق متوافق؛ تكلفة التطبيق إن وجدت منفصلة."
+        ]
+      },
+      {
+        "name": "اشتراك فردي",
+        "planType": "IPTV",
+        "duration": "12 شهر",
+        "price": 1934,
+        "basePriceUSD": 37,
+        "wholePrice": true,
+        "activation": "تسليم بيانات الدخول ورابط السيرفر بعد تأكيد الطلب والدفع.",
+        "account": "اشتراك مستقل للعميل",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يشمل قنوات beIN SPORTS والقنوات العربية والعالمية ومحتوى المشاهدة عند الطلب.",
+          "الجودة تختلف حسب بث القناة والجهاز وسرعة الإنترنت.",
+          "تشغيل عبر تطبيق متوافق؛ تكلفة التطبيق إن وجدت منفصلة."
+        ]
+      }
+    ]
+  },
   {
     "category": "الإنتاجية",
     "status": "available",
@@ -1040,8 +1078,20 @@ const products = [
     "logo": "elevenlabs",
     "logoUrl": "logos/elevenlabs.svg",
     "status": "available",
-    "description": "باقات ElevenLabs Creator: حساب جاهز لمدة شهر، أو تفعيل لمدة 3 شهور على حسابك الشخصي بضمان كامل.",
+    "description": "باقات ElevenLabs Creator، منها سنة كاملة على حسابك الشخصي بـ66 دولار بدون بطاقة دفع.",
     "plans": [
+      {
+        "name": "Creator — سنة على حسابك",
+        "planType": "Creator",
+        "duration": "12 شهر",
+        "price": 3450,
+        "basePriceUSD": 66,
+        "activation": "تفعيل سنة كاملة على حسابك الشخصي بدون بطاقة دفع.",
+        "account": "حساب العميل الشخصي",
+        "accountType": "حساب العميل الشخصي",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": []
+      },
       {
         "name": "Creator — تفعيل على حسابك",
         "duration": "3 شهور",
@@ -1536,8 +1586,22 @@ const products = [
     "logo": "coursera",
     "logoUrl": "logos/coursera.svg",
     "status": "available",
-    "description": "خيارات Coursera بمدد وأنواع حساب مختلفة.",
+    "description": "باقات Coursera Plus، منها كود تفعيل سنة على حسابك الشخصي بـ135 دولار مع ضرورة إضافة بطاقة دفع مقبولة.",
     "plans": [
+      {
+        "name": "Plus — سنة بكود تفعيل",
+        "planType": "Plus",
+        "duration": "12 شهر",
+        "price": 7057,
+        "basePriceUSD": 135,
+        "activation": "تسليم كود خصم 100% لتفعيل سنة على حسابك؛ يتطلب إضافة بطاقة دفع مقبولة.",
+        "account": "كود تفعيل على حسابك الشخصي",
+        "accountType": "كود تفعيل على حسابك الشخصي",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "السعر 135 دولار للكود؛ خصم 100% يخص رسوم التفعيل عند استخدام الكود."
+        ]
+      },
       {
         "name": "3 شهور — حساب خاص",
         "duration": "3 شهور",

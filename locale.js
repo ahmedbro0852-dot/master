@@ -101,6 +101,7 @@
 
 
   const PRODUCT_DESC_EN={
+"higgsfield-pro":"Higgsfield Pro annual activation code for $160, activated directly on your personal email.",
 "windows-pro":"Windows 11 Pro or Windows 10 Pro activation key for $5. Permanent activation for the purchased version with a one-time payment.",
     "chatgpt-teachers-k12":"A ChatGPT plan for K12 teachers lasting two years at EGP 500, without warranty.",
     "chatgpt-plus":"Monthly ChatGPT Plus: no-warranty account for EGP 250, ready-made account with full warranty for EGP 700, or activation on your personal account for EGP 1,040.",
@@ -114,7 +115,7 @@
     "grok":"A short-term ready Grok account at a promotional price.",
     "gamma-plus":"A ready Gamma Plus account.",
     "gamma-account":"One Gamma account with 10 workspaces, each including 2,000 credits.",
-    "elevenlabs":"ElevenLabs Creator plans: a one-month ready account, or three-month activation on your personal account with full warranty.",
+    "elevenlabs":"ElevenLabs Creator plans, including one full year on your personal account for $66 without a payment card.",
     "heygen":"A ready HeyGen account with 1,250 credits.",
     "canva-pro":"Activate Canva Pro on your personal email.",
     "capcut-pro":"Ready CapCut Pro accounts with multiple durations and different credit amounts.",
@@ -123,7 +124,7 @@
     "adobe-cc":"Currently out of stock.",
     "duolingo":"A one-year Duolingo subscription on your personal email.",
     "elsa":"ELSA Speak subscription for pronunciation and conversation practice.",
-    "coursera":"Coursera options with different durations and account types.",
+    "coursera":"Coursera Plus plans, including a $135 annual code for your personal account requiring an accepted payment card.",
     "quizizz":"Quizizz subscription activated on the customer's email.",
     "wordwall":"Wordwall Pro subscription for one month or one year.",
     "turnitin":"One-file similarity check with a similarity report.",
@@ -278,6 +279,8 @@
     if(kind==="category")return CATEGORY_EN[raw]||raw;
     const windowsText={"مدى الحياة للإصدار المشترى":"Lifetime for the purchased version","التفعيل باستخدام مفتاح المنتج.":"Activate using the product key.","مفتاح تفعيل":"Activation key","مفتاح منتج":"Product key","يُؤكد مع الدعم قبل الدفع":"Confirmed with support before payment","اختار الإصدار المطابق لنسخة Windows Pro المثبتة على جهازك.":"Select the version matching Windows Pro installed on your device.","مفتاح تفعيل لنسخة Windows Pro.":"Product key for Windows Pro.","اختيار Windows 11 Pro أو Windows 10 Pro.":"Choose Windows 11 Pro or Windows 10 Pro.","تفعيل دائم للإصدار المشترى.":"Permanent activation for the purchased version.","دفعة واحدة بدون اشتراك شهري.":"One-time payment, no monthly subscription."};
     if(productId==="windows-pro"&&windowsText[raw])return windowsText[raw];
+    const annualCodeText={"Plus — سنة بكود تفعيل":"Plus — annual activation code","تسليم كود خصم 100% لتفعيل سنة على حسابك؛ يتطلب إضافة بطاقة دفع مقبولة.":"Receive a 100% discount code to activate one year on your account; an accepted payment card is required.","كود تفعيل على حسابك الشخصي":"Activation code on your personal account","السعر 135 دولار للكود؛ خصم 100% يخص رسوم التفعيل عند استخدام الكود.":"The code costs $135; the 100% discount applies to the activation charge when redeeming it.","Creator — سنة على حسابك":"Creator — annual on your account","تفعيل سنة كاملة على حسابك الشخصي بدون بطاقة دفع.":"Activate a full year on your personal account without a payment card.","Pro — سنة بكود تفعيل":"Pro — annual activation code","تسليم كود لتفعيل الاشتراك مباشرة على بريدك الشخصي.":"Receive a code to activate the subscription directly on your personal email."};
+    if(annualCodeText[raw])return annualCodeText[raw];
     if(CATALOG_EXACT_EN[raw])return CATALOG_EXACT_EN[raw];
     let s=raw
       .replace(/(\d+)\s*أيام?/g,"$1 days")
