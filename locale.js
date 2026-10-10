@@ -41,7 +41,7 @@
 
   const exactArToEn={
     'العروض':'Offers','طريقة الطلب':'How to order','ليه MASTER STORE؟':'Why MASTER STORE?',
-    'طلباتي':'My orders','تصفح العروض':'Browse offers','خدمة العملاء':'Customer support','واتساب':'WhatsApp',
+    'طلباتي':'My orders','حسابي':'My account','حسابي ومحفظتي':'My account & wallet','افتح حسابك ←':'Open your account →','حسابك في MASTER STORE':'Your MASTER STORE account','طلباتك ورصيدك معاك في أي وقت.':'Your orders and balance, anytime.','سجل الدخول، اشحن محفظتك بعد تأكيد التحويل، وادفع من رصيدك.':'Sign in, top up after transfer verification, and pay with your balance.','تصفح العروض':'Browse offers','خدمة العملاء':'Customer support','واتساب':'WhatsApp',
     'اختار الباقة':'Choose a plan','تفاصيل الباقة':'Plan details','تفاصيل داخل المنتج':'See product details',
     'غير متاح حاليًا':'Currently unavailable','غير متوفر':'Unavailable','متاح':'Available',
     'مميزات الاشتراك':'Subscription features','السعر':'Price','السعر قبل العرض':'Before discount',
@@ -548,9 +548,9 @@
     }
 
     if(document.querySelector('.account-page')){
-      setText('.account-head .eyebrow','متابعة الطلبات','Order tracking');
-      setText('.account-head h1','طلباتك في مكان واحد','All your orders in one place');
-      setText('.account-head p','راجع بيانات التواصل وأرقام الطلبات، وتابع أي طلب مباشرة مع خدمة العملاء.','Review your contact details and order IDs, then follow up directly with customer support.');
+      setText('.account-head .eyebrow','MASTER STORE','MASTER STORE');
+      setText('.account-head h1','حسابك، طلباتك، ورصيدك.','Your account, orders, and balance.');
+      setText('.account-head p','كل تفاصيلك في مكان واحد. تابع طلباتك واشحن محفظتك بسهولة.','Everything in one place. Track orders and top up your wallet.');
     }
 
     const fab=document.querySelector('.support-fab');

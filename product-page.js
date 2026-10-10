@@ -352,18 +352,33 @@
   }
   document.addEventListener('masterstore:localechange',refreshLocalizedProductPrices);
 
+  let checkoutQuote=null,checkoutBalance=0;
   function refreshCheckoutTotal(){
     const form=checkoutContent.querySelector('#checkoutForm');
     if(!form)return;
     const total=checkoutContent.querySelector('.checkout-summary strong');
     const quantity=Number(form.elements.quantity.value)||1;
-    total.textContent=ui('الإجمالي: ','Total: ')+MasterStore.formatCurrency(MasterStore.planAmount(selectedPlan())*quantity,MasterStore.getMarket().currency);
+    total.textContent=ui('الإجمالي: ','Total: ')+(checkoutQuote?MasterStore.formatCurrency(checkoutQuote.price_piasters/100*quantity,'EGP'):MasterStore.formatCurrency(MasterStore.planAmount(selectedPlan())*quantity,MasterStore.getMarket().currency));
+    const wallet=form.querySelector('[value=wallet]');if(wallet){wallet.disabled=checkoutBalance<checkoutQuote.price_piasters*quantity;if(wallet.disabled&&wallet.checked)form.querySelector('[name=payment]:not([value=wallet])').checked=true;}
+    const hint=form.querySelector('#walletQuote');if(hint)hint.textContent=ui('هيتخصم من رصيدك عند تأكيد الطلب: ','Deducted on confirmation: ')+MasterStore.formatCurrency(checkoutQuote.price_piasters/100*quantity,'EGP');
   }
 
-  document.getElementById('buyBtn')?.addEventListener('click',()=>{
+  document.getElementById('buyBtn')?.addEventListener('click',async()=>{
     const plan=selectedPlan();
     if(!plan)return;
-    const profile=MasterStore.getProfile()||{};
+    const Cloud=window.MasterCloud;
+    let accountUser=null;checkoutQuote=null;checkoutBalance=0;
+    const buyButton=document.getElementById('buyBtn');buyButton.disabled=true;
+    try{
+      accountUser=Cloud?.ready?await Cloud.user():null;
+      if(accountUser){
+        checkoutQuote=await Cloud.quote(p.id,plans.indexOf(plan));
+        const wallet=await Cloud.unwrap(Cloud.client.from('master_store_wallets').select('balance_piasters').eq('user_id',accountUser.id).maybeSingle());checkoutBalance=wallet?.balance_piasters||0;
+      }
+    }catch(error){showToast(Cloud.errorText(error));buyButton.disabled=false;return;}
+    buyButton.disabled=false;
+    const profile=MasterStore.getProfile()||{};if(accountUser&&!profile.email)profile.email=accountUser.email;
+    const orderRequestId=crypto.randomUUID();
     const maxQty=p.id==='gamma-account'?1:5;
 
     checkoutContent.innerHTML=
@@ -376,8 +391,10 @@
         '<label><span>'+ui('البريد الإلكتروني','Email')+'</span><input name="email" maxlength="120" type="email" required value="'+MasterStore.escapeHtml(profile.email||'')+'" placeholder="name@example.com" autocomplete="email"></label>'+
         '<label><span>'+ui('الكمية','Quantity')+'</span><select name="quantity">'+Array.from({length:maxQty},(_,i)=>'<option value="'+(i+1)+'">'+(i+1)+'</option>').join('')+'</select></label>'+
         '<fieldset class="checkout-payments"><legend>'+ui('طريقة الدفع المفضلة','Preferred payment method')+'</legend><div class="checkout-payment-grid">'+window.MasterPayments.map((x,i)=>'<label class="checkout-payment"><input type="radio" name="payment" value="'+MasterStore.escapeHtml(x.name)+'" '+(i===0?'checked':'')+' required><img src="'+x.logo+'" alt="" width="52" height="36"><span>'+MasterStore.escapeHtml(x.name)+'</span></label>').join('')+'</div></fieldset>'+
+        (accountUser?'<div class="wallet-checkout"><label><input type="radio" name="payment" value="wallet"><b>'+ui('الدفع من رصيد الحساب','Pay with account balance')+'</b></label><small>'+ui('رصيدك المتاح: ','Available balance: ')+MasterStore.formatCurrency(checkoutBalance/100,'EGP')+'</small><small id="walletQuote"></small><small>'+ui('طلبات الحساب تتحاسب بالجنيه المصري بالسعر الموضح هنا.','Account orders are charged in EGP at the total shown here.')+'</small></div>':'<div class="wallet-checkout"><a href="account.html">'+ui('سجل الدخول للدفع من رصيدك وحفظ الطلب على حسابك ←','Sign in to pay with your balance and save account orders →')+'</a></div>')+
         '<label class="terms-check"><input name="agree" type="checkbox" required><span>'+ui('راجعت السعر والمدة وطريقة التفعيل والضمان وأوافق على تفاصيل الباقة.','I reviewed the price, duration, activation method, and warranty and agree to the plan details.')+'</span></label>'+
-        '<button class="primary full" type="submit">'+ui('إرسال الطلب على واتساب','Send order on WhatsApp')+'</button>'+
+        '<p id="checkoutError" class="checkout-error" role="alert" hidden></p>'+
+        '<button class="primary full" type="submit">'+(accountUser?ui('تأكيد الطلب','Confirm order'):ui('إرسال الطلب على واتساب','Send order on WhatsApp'))+'</button>'+ 
         '<small class="form-note">'+ui('بياناتك تستخدم لإتمام الطلب والتواصل معك فقط.','Your details are used only to complete the order and contact you.')+'</small>'+
       '</form>';
 
@@ -387,9 +404,10 @@
     dialog.showModal();
     checkoutContent.querySelector('.dialog-close').onclick=()=>dialog.close();
 
-    checkoutContent.querySelector('#checkoutForm').onsubmit=(e)=>{
+    checkoutContent.querySelector('#checkoutForm').onsubmit=async(e)=>{
       e.preventDefault();
-      const form=new FormData(e.currentTarget);
+      const formElement=e.currentTarget;const submit=formElement.querySelector('[type=submit]');submit.disabled=true;
+      const form=new FormData(formElement);
       const customer=MasterStore.saveProfile({
         name:form.get('name'),phone:form.get('phone'),email:form.get('email')
       });
@@ -402,6 +420,7 @@
         id:MasterStore.createOrderId(),
         createdAt:new Date().toISOString(),
         productId:p.id,
+        planIndex:plans.indexOf(plan),
         product:p.name,
         plan:plan.name,
         duration:plan.duration,
@@ -416,7 +435,13 @@
         status:'بانتظار التأكيد',
         customer
       };
-      MasterStore.saveOrder(order);
+      if(accountUser){
+        try{
+          const saved=await Cloud.placeOrder(order,checkoutQuote.price_piasters*qty,orderRequestId);
+          const officialOrder=Cloud.asLocalOrder(saved);
+          Object.assign(order,officialOrder);
+        }catch(error){const box=document.getElementById('checkoutError');box.hidden=false;box.textContent=Cloud.errorText(error);submit.disabled=false;return;}
+      }else{MasterStore.saveOrder(order);}
 
       const msg=[
         'طلب جديد من MASTER STORE',
@@ -429,14 +454,18 @@
         'الاسم: '+customer.name,
         'واتساب: '+customer.phone,
         'البريد: '+customer.email,
-        'طريقة الدفع المفضلة: '+order.payment,
+        'طريقة الدفع: '+(order.payment==='wallet'?'رصيد الحساب — تم خصم المبلغ':order.payment),
         '',
-        'أرغب في تأكيد الطلب واستكمال الدفع.'
+        order.payment==='wallet'?'الطلب مدفوع من المحفظة، أرجو متابعة التنفيذ.':'أرغب في تأكيد الطلب واستكمال الدفع.'
       ].join('\n');
 
-      dialog.close();
-      showToast(ui('تم تجهيز طلبك بنجاح','Your order is ready'));
-      window.open('https://wa.me/201500950624?text='+encodeURIComponent(msg),'_blank','noopener');
+      if(accountUser){
+        checkoutContent.innerHTML='<button class="dialog-close" type="button" aria-label="'+ui('إغلاق','Close')+'">×</button><div class="checkout-head"><span class="eyebrow">'+ui('تم حفظ الطلب','Order saved')+'</span><h2>'+ui(order.payment==='wallet'?'تم الدفع من رصيدك':'طلبك اتسجل على حسابك',order.payment==='wallet'?'Paid from your balance':'Order saved to your account')+'</h2><p>'+ui('تابع مع الدعم لتأكيد التفعيل.','Contact support to arrange activation.')+'</p><small class="record-id">'+MasterStore.escapeHtml(order.id)+'</small></div><a class="primary full" href="https://wa.me/201500950624?text='+encodeURIComponent(msg)+'" target="_blank" rel="noopener">'+ui('متابعة الطلب على واتساب','Follow up on WhatsApp')+'</a><a class="text-btn" href="account.html">'+ui('حسابي وسجل الطلبات','My account and orders')+'</a>';
+        checkoutContent.querySelector('.dialog-close').onclick=()=>dialog.close();
+      }else{
+        dialog.close();showToast(ui('تم تجهيز طلبك بنجاح','Your order is ready'));
+        window.open('https://wa.me/201500950624?text='+encodeURIComponent(msg),'_blank','noopener');
+      }
     };
   });
 

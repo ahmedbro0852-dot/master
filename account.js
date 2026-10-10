@@ -1,103 +1,73 @@
 (function(){
   'use strict';
-  const Store=window.MasterStore;
-  const Locale=window.MasterLocale;
-  if(!Store)return;
-
+  const S=window.MasterStore,C=window.MasterCloud,L=window.MasterLocale;
   const root=document.getElementById('accountContent');
-  let profileDialog=null;
-  const en=()=>Locale?.getState().language==='en';
-  const ui=(ar,enText)=>en()?enText:ar;
-  const tr=(value,kind,id)=>Locale?.catalogText(value,kind,id) ?? String(value??'');
-
-  function orderCard(o){
-    const date=new Date(o.createdAt);
-    const follow='https://wa.me/201500950624?text='+encodeURIComponent('متابعة طلب MASTER STORE رقم '+o.id);
-    const statusRaw=o.status||'بانتظار التأكيد';
-    const statusText=statusRaw==='بانتظار التأكيد'?ui('بانتظار التأكيد','Pending confirmation'):statusRaw;
-    return '<article class="order-card">'+
-      '<div class="order-top"><div><small>'+ui('رقم الطلب','Order ID')+'</small><b>'+Store.escapeHtml(o.id)+'</b></div><span class="status soon">'+Store.escapeHtml(statusText)+'</span></div>'+
-      '<h3>'+Store.escapeHtml(o.product)+'</h3>'+
-      '<p>'+Store.escapeHtml(tr(o.plan,'planName',o.productId))+' — '+Store.escapeHtml(tr(o.duration||'','duration',o.productId))+'</p>'+
-      '<div class="order-meta"><span>'+ui('الكمية','Quantity')+': '+Number(o.quantity||1)+'</span><span>'+ui('الإجمالي','Total')+': '+Store.orderMoney(o)+'</span><span>'+date.toLocaleDateString(en()?'en-US':'ar-EG')+'</span></div>'+
-      '<a class="order-follow" target="_blank" rel="noopener" href="'+follow+'">'+ui('متابعة الطلب على واتساب','Track order on WhatsApp')+'</a>'+
-    '</article>';
+  const en=()=>L?.getState().language==='en';
+  const t=(ar,english)=>en()?english:ar,esc=S.escapeHtml;
+  const money=amount=>S.formatCurrency(amount/100,'EGP');
+  const date=value=>new Date(value).toLocaleDateString(en()?'en-GB':'ar-EG');
+  const labels={pending:['بانتظار مراجعة التحويل','Awaiting transfer review'],approved:['تم إضافة الرصيد','Balance credited'],rejected:['التحويل غير معتمد','Transfer rejected'],pending_payment:['بانتظار تأكيد الدفع','Awaiting payment'],processing:['جاري تنفيذ الطلب','Processing'],completed:['تم التنفيذ','Completed'],cancelled:['تم الإلغاء','Cancelled']};
+  let data=null,mode='login',notice='',refreshing=false;
+  function stateLabel(value){return labels[value]?.[en()?1:0]||value;}
+  function message(text,error=false){const box=document.getElementById('accountMessage');if(box){box.textContent=text;box.className='account-message '+(error?'error':'success');box.hidden=false;}}
+  async function run(button,task){button.disabled=true;try{await task();}catch(error){message(C.errorText(error),true);}finally{if(button.isConnected)button.disabled=false;}}
+  function supportHref(text){return 'https://wa.me/201500950624?text='+encodeURIComponent(text);}
+  function orderCard(o,local=false){
+    return '<article class="order-card"><div class="order-top"><div><small>'+t('رقم الطلب','Order ID')+'</small><b class="record-id">'+esc(o.id)+'</b></div><span class="status '+(o.status==='completed'?'ok':'soon')+'">'+esc(stateLabel(o.status||'بانتظار التأكيد'))+'</span></div><h3>'+esc(o.product)+'</h3><p>'+esc(L?.catalogText(o.plan,'planName',o.productId)||o.plan)+' · '+esc(L?.catalogText(o.duration,'duration',o.productId)||o.duration)+'</p><div class="order-meta"><span>'+t('الكمية','Quantity')+': '+Number(o.quantity)+'</span><span>'+S.orderMoney(o)+'</span><span>'+date(o.createdAt)+'</span><span>'+esc(o.payment==='wallet'?t('رصيد الحساب','Wallet'):o.payment||'')+'</span></div><a class="order-follow" target="_blank" rel="noopener" href="'+supportHref('متابعة طلب MASTER STORE رقم '+o.id)+'">'+t('متابعة على واتساب','Follow up on WhatsApp')+'</a></article>';
   }
-
-  function ensureDialog(){
-    if(profileDialog)return;
-    profileDialog=document.createElement('dialog');
-    profileDialog.id='profileDialog';
-    profileDialog.className='profile-dialog';
-    profileDialog.setAttribute('aria-labelledby','profileDialogTitle');
-    profileDialog.addEventListener('click',e=>{if(e.target===profileDialog)profileDialog.close();});
-    document.body.appendChild(profileDialog);
+  function guestOrders(){const orders=S.getOrders();if(!orders.length)return '';return '<details class="guest-history"><summary>'+t('طلبات سابقة محفوظة على الجهاز','Previous orders saved on this device')+' ('+orders.length+')</summary><p>'+t('الطلبات دي محفوظة في المتصفح فقط، ومش بتتحول تلقائيًا لطلبات مدفوعة على حسابك.','These browser records do not automatically become paid account orders.')+'</p><div class="orders-list">'+orders.map(o=>orderCard(o,true)).join('')+'</div></details>';}
+  function field(name,label,type='text',attrs=''){return '<label><span>'+label+'</span><input name="'+name+'" type="'+type+'" '+attrs+' required></label>';}
+  function renderLogin(){
+    const sign=mode==='signup',reset=mode==='reset';
+    root.innerHTML='<div class="account-layout auth-layout"><section class="auth-card"><span class="eyebrow">'+t('حساب MASTER STORE','MASTER STORE account')+'</span><h2>'+t(reset?'استعادة كلمة السر':sign?'اعمل حساب جديد':'أهلًا بيك تاني',reset?'Reset password':sign?'Create an account':'Welcome back')+'</h2><p>'+t('حساب واحد لطلباتك ورصيدك، من أي جهاز.','One account for orders and balance on any device.')+'</p><div class="auth-tabs" aria-label="'+t('خيارات الحساب','Account options')+'"><button type="button" data-mode="login" aria-pressed="'+(!sign&&!reset)+'">'+t('تسجيل الدخول','Sign in')+'</button><button type="button" data-mode="signup" aria-pressed="'+sign+'">'+t('حساب جديد','Sign up')+'</button></div><div id="accountMessage" class="account-message" role="status" hidden></div><form id="authForm" class="profile-form">'+(sign?field('name',t('الاسم','Name'),'text','maxlength="80" autocomplete="name"'):'')+field('email',t('البريد الإلكتروني','Email'),'email','maxlength="120" autocomplete="email" dir="ltr"')+(!reset?field('password',t('كلمة السر','Password'),'password','minlength="8" maxlength="128" autocomplete="'+(sign?'new-password':'current-password')+'" dir="ltr"'):'')+(sign?'<small>'+t('8 حروف أو أكتر. هتحتاج تأكيد الإيميل قبل أول تسجيل دخول.','At least 8 characters. Confirm your email before the first sign-in.')+'</small>':'')+'<button class="primary full" type="submit">'+t(reset?'ابعت رابط الاستعادة':sign?'إنشاء حساب':'تسجيل الدخول',reset?'Send recovery link':sign?'Create account':'Sign in')+'</button></form><button class="text-btn" type="button" data-mode="'+(reset?'login':'reset')+'">'+t(reset?'ارجع لتسجيل الدخول':'نسيت كلمة السر؟',reset?'Back to sign in':'Forgot password?')+'</button><a class="text-btn" href="index.html#products">'+t('تصفح واطلب من غير حساب','Browse and order as a guest')+'</a></section><aside class="account-benefits"><div class="account-orbit" aria-hidden="true"><span>MS</span><i>+</i><b>✓</b></div><h2>'+t('كل حاجة في حسابك','Everything in your account')+'</h2><ul><li>'+t('طلباتك محفوظة، حتى لو غيّرت جهازك.','Your orders stay with you across devices.')+'</li><li>'+t('محفظة بالجنيه المصري وسجل واضح للحركات.','An EGP wallet with a clear transaction history.')+'</li><li>'+t('شحن الرصيد بعد مراجعة التحويل.','Top up after your transfer is verified.')+'</li><li>'+t('دفع من الرصيد ومتابعة التنفيذ مع الدعم.','Pay from your balance and follow up with support.')+'</li></ul><a href="'+supportHref('مساعدة في حساب MASTER STORE')+'" target="_blank" rel="noopener">'+t('محتاج مساعدة؟ كلمنا','Need help? Contact us')+' ←</a></aside></div>'+guestOrders();
+    root.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;renderLogin();});
+    document.getElementById('authForm').onsubmit=e=>{e.preventDefault();const f=new FormData(e.currentTarget),button=e.currentTarget.querySelector('[type=submit]');run(button,async()=>{
+      const email=String(f.get('email')).trim(),password=String(f.get('password')||'');
+      if(reset){await C.unwrap(C.client.auth.resetPasswordForEmail(email,{redirectTo:C.redirect}));message(t('لو الإيميل مسجل، هيوصلك رابط استعادة كلمة السر.','If the email is registered, a recovery link will arrive.'));}
+      else if(sign){const result=await C.unwrap(C.client.auth.signUp({email,password,options:{emailRedirectTo:C.redirect,data:{name:String(f.get('name')).trim()}}}));if(result.session){await refresh();}else{message(t('راجع إيميلك وأكد الحساب، وبعدها ارجع وسجل الدخول.','Check your email to confirm your account, then return to sign in.'));}}
+      else{await C.unwrap(C.client.auth.signInWithPassword({email,password}));await refresh();}
+    });};
+    if(!reset)C.googleReady.then(enabled=>{if(!enabled||mode==='reset'||!document.getElementById('authForm')||document.querySelector('.google-signin'))return;const b=document.createElement('button');b.type='button';b.className='google-signin';b.innerHTML='<img src="logos/google-signin.svg" width="20" height="20" alt="">'+t('متابعة باستخدام Google','Continue with Google');b.onclick=()=>run(b,async()=>{await C.unwrap(C.client.auth.signInWithOAuth({provider:'google',options:{redirectTo:C.redirect}}));});document.getElementById('authForm').before(b);});
+    if(notice){message(notice);notice='';}
   }
-
-  function renderDialog(){
-    ensureDialog();
-    profileDialog.innerHTML=
-      '<div class="profile-dialog-inner">'+
-        '<div class="profile-dialog-head"><div><h2 id="profileDialogTitle">'+ui('تعديل بيانات التواصل','Edit contact details')+'</h2><p>'+ui('حدّث البيانات المستخدمة في متابعة طلباتك.','Update the contact details used to follow up on your orders.')+'</p></div><button class="profile-dialog-close" type="button" aria-label="'+ui('إغلاق','Close')+'">×</button></div>'+
-        '<form id="profileForm" class="profile-form">'+
-          '<label><span>'+ui('الاسم','Name')+'</span><input name="name" maxlength="80" autocomplete="name" required></label>'+
-          '<label><span>'+ui('رقم واتساب','WhatsApp number')+'</span><input name="phone" maxlength="30" inputmode="tel" autocomplete="tel" required></label>'+
-          '<label><span>'+ui('البريد الإلكتروني','Email')+'</span><input name="email" maxlength="120" type="email" autocomplete="email" required></label>'+
-          '<div class="profile-form-actions"><button class="ghost-btn profile-cancel" type="button">'+ui('إلغاء','Cancel')+'</button><button class="primary" type="submit">'+ui('حفظ التعديلات','Save changes')+'</button></div>'+
-        '</form>'+
-      '</div>';
-    profileDialog.querySelector('.profile-dialog-close')?.addEventListener('click',()=>profileDialog.close());
-    profileDialog.querySelector('.profile-cancel')?.addEventListener('click',()=>profileDialog.close());
-    profileDialog.querySelector('#profileForm')?.addEventListener('submit',e=>{
-      e.preventDefault();
-      const form=new FormData(e.currentTarget);
-      Store.saveProfile({name:form.get('name'),phone:form.get('phone'),email:form.get('email')});
-      profileDialog.close();
-      render();
-    });
+  function historyRows(items,kind){
+    if(!items.length)return '<p class="wallet-empty">'+t('لسه مفيش حركات.','No transactions yet.')+'</p>';
+    return '<div class="wallet-history">'+items.map(x=>'<article class="wallet-row"><div><b>'+esc(kind==='topup'?x.payment:t(({topup:'إضافة رصيد',purchase:'دفع طلب',refund:'استرجاع رصيد'})[x.kind],({topup:'Top-up',purchase:'Order payment',refund:'Refund'})[x.kind]))+'</b><small>'+date(x.created_at)+(kind==='topup'?' · '+esc(x.reference):'')+'</small></div><div><strong class="'+(x.amount_piasters>0?'credit':'debit')+'">'+money(x.amount_piasters)+'</strong>'+(kind==='topup'?'<small>'+esc(stateLabel(x.status))+'</small>':'')+'</div></article>').join('')+'</div>';
   }
-
-  function openProfileDialog(){
-    renderDialog();
-    const current=Store.getProfile()||{};
-    const form=profileDialog.querySelector('#profileForm');
-    form.elements.name.value=current.name||'';
-    form.elements.phone.value=current.phone||'';
-    form.elements.email.value=current.email||'';
-    profileDialog.showModal();
+  function renderDashboard(){
+    const u=data.user,p=data.profile,pending=data.topups.filter(x=>x.status==='pending').reduce((sum,x)=>sum+x.amount_piasters,0);
+    root.innerHTML='<section class="account-identity"><div class="account-avatar" aria-hidden="true">'+esc((p.name||u.email||'M').slice(0,1).toUpperCase())+'</div><div><span class="eyebrow">'+t('حسابك الشخصي','Your account')+'</span><h2>'+esc(p.name||t('أهلًا بيك','Welcome'))+'</h2><p dir="ltr">'+esc(u.email||'')+'</p></div><button class="ghost-btn" id="refreshAccount" type="button">'+t('تحديث الحساب','Refresh account')+'</button><button class="ghost-btn" id="signOut" type="button">'+t('تسجيل الخروج','Sign out')+'</button></section><div id="accountMessage" class="account-message" role="status" hidden></div><div class="account-layout"><section class="wallet-card"><div class="wallet-card-top"><span>'+t('الرصيد المتاح','Available balance')+'</span><span class="wallet-badge">EGP</span></div><strong class="wallet-balance">'+money(data.balance)+'</strong><p>'+t('رصيدك المؤكد والجاهز للدفع.','Confirmed balance ready to use.')+'</p><div class="wallet-pending">'+t('شحن تحت المراجعة','Top-ups under review')+' <b>'+money(pending)+'</b></div><a class="wallet-action" href="#topup">'+t('+ إضافة رصيد','+ Add balance')+'</a></section><section class="account-panel"><h2>'+t('بيانات التواصل','Contact details')+'</h2><form id="contactForm" class="profile-form">'+field('name',t('الاسم','Name'),'text','maxlength="80" autocomplete="name" value="'+esc(p.name)+'"')+field('phone',t('رقم واتساب','WhatsApp number'),'tel','maxlength="30" autocomplete="tel" value="'+esc(p.phone)+'"')+'<button type="submit" class="ghost-btn">'+t('حفظ البيانات','Save details')+'</button></form></section></div><section class="account-panel" id="topup"><div class="panel-heading"><div><span class="eyebrow">'+t('محفظتك','Your wallet')+'</span><h2>'+t('إضافة رصيد','Add balance')+'</h2></div><span class="subtle-tag">'+t('مراجعة التحويل أولًا','Transfer verified first')+'</span></div><p class="panel-description">'+t('1. أكد بيانات التحويل مع الدعم. 2. حوّل المبلغ. 3. سجل المبلغ ورقم العملية هنا وابعت إثبات التحويل على واتساب. الرصيد بيتضاف بعد التأكيد فقط.','1. Confirm transfer details with support. 2. Transfer the amount. 3. Submit the amount and reference here and send proof on WhatsApp. Balance is credited only after verification.')+'</p><a class="order-follow" href="'+supportHref('عايز بيانات التحويل لشحن محفظة MASTER STORE. حسابي: '+u.email)+'" target="_blank" rel="noopener">'+t('اطلب بيانات التحويل من الدعم','Ask support for transfer details')+'</a><form id="topupForm" class="topup-form">'+field('amount',t('المبلغ بالجنيه المصري','Amount in EGP'),'number','min="50" max="50000" step="0.01" placeholder="250" inputmode="decimal"')+'<fieldset class="checkout-payments"><legend>'+t('وسيلة التحويل','Transfer method')+'</legend><div class="checkout-payment-grid">'+window.MasterPayments.map((x,i)=>'<label class="checkout-payment"><input type="radio" name="payment" value="'+esc(x.name)+'" '+(!i?'checked':'')+' required><img src="'+esc(x.logo)+'" alt="" width="52" height="36"><span>'+esc(x.name)+'</span></label>').join('')+'</div></fieldset>'+field('reference',t('رقم عملية التحويل','Transfer reference'),'text','minlength="6" maxlength="100" autocomplete="off"')+'<label class="terms-check"><input type="checkbox" required><span>'+t('نفذت التحويل بالفعل، وفاهم إن الرصيد مش بيتضاف إلا بعد مراجعته.','I completed the transfer and understand that balance is credited after review.')+'</span></label><button class="primary" type="submit">'+t('تسجيل طلب الشحن','Submit top-up request')+'</button></form><div id="topupResult" role="status"></div></section><div class="account-layout history-layout"><section class="account-panel"><h2>'+t('طلبات الشحن','Top-up requests')+'</h2>'+historyRows(data.topups,'topup')+'</section><section class="account-panel"><h2>'+t('حركات الرصيد','Balance history')+'</h2>'+historyRows(data.ledger,'ledger')+'</section></div><section class="orders-section"><div class="panel-heading"><h2>'+t('طلبات الحساب','Account orders')+'</h2><a class="ghost-btn" href="index.html#products">'+t('طلب جديد','New order')+'</a></div>'+(data.orders.length?'<div class="orders-list">'+data.orders.map(x=>orderCard(C.asLocalOrder(x))).join('')+'</div>':'<div class="wallet-empty">'+t('لسه مفيش طلبات على حسابك. اختار خدمة من المتجر.','No account orders yet. Choose a service in the store.')+'</div>')+'</section>'+(data.isAdmin?'<section class="account-panel" id="adminPanel"><h2>'+t('إدارة المتجر','Store management')+'</h2><p>'+t('راجع التحويلات من حساب وسيلة الدفع قبل اعتمادها.','Verify each transfer in the payment provider before approval.')+'</p><div id="adminRequests"></div></section>':'')+guestOrders();
+    document.getElementById('refreshAccount').onclick=e=>run(e.currentTarget,refresh);
+    document.getElementById('signOut').onclick=e=>run(e.currentTarget,async()=>{await C.unwrap(C.client.auth.signOut());data=null;S.clearProfile();renderLogin();});
+    document.getElementById('contactForm').onsubmit=e=>{e.preventDefault();const f=new FormData(e.currentTarget);run(e.currentTarget.querySelector('button'),async()=>{const profile={user_id:u.id,name:String(f.get('name')).trim(),phone:String(f.get('phone')).trim()};await C.unwrap(C.client.from('master_store_profiles').upsert(profile));data.profile=profile;S.saveProfile({...profile,email:u.email});message(t('تم حفظ بيانات التواصل.','Contact details saved.'));});};
+    let requestId=crypto.randomUUID();
+    document.getElementById('topupForm').onsubmit=e=>{e.preventDefault();const form=e.currentTarget,f=new FormData(form);run(form.querySelector('[type=submit]'),async()=>{
+      const amount=Math.round(Number(f.get('amount'))*100),payment=String(f.get('payment')),reference=String(f.get('reference')).trim();
+      const result=await C.unwrap(C.client.rpc('master_store_request_topup',{request_id:requestId,amount,method:payment,transfer_reference:reference}));
+      requestId=crypto.randomUUID();await refresh();message(t('طلب الشحن اتسجل. ابعت إثبات التحويل للدعم علشان يتراجع.','Top-up saved. Send transfer proof to support for review.'));
+      const output=document.getElementById('topupResult');output.innerHTML='<div class="topup-confirm"><b>'+t('رقم طلب الشحن','Top-up ID')+'</b><span class="record-id">'+esc(result.id)+'</span><a class="primary" target="_blank" rel="noopener" href="'+supportHref('طلب شحن MASTER STORE\nرقم الطلب: '+result.id+'\nحسابي: '+u.email+'\nالمبلغ: '+money(result.amount_piasters)+'\nالوسيلة: '+payment+'\nرقم التحويل: '+reference+'\nهرفق إثبات التحويل للمراجعة.')+'">'+t('إرسال إثبات التحويل للدعم','Send transfer proof to support')+'</a></div>';output.scrollIntoView({block:'center',behavior:'smooth'});
+    });};
+    if(data.isAdmin)loadAdmin();
   }
-
-  function render(){
-    const profile=Store.getProfile();
-    const orders=Store.getOrders();
-
-    if(!profile&&!orders.length){
-      root.innerHTML='<div class="empty-account"><h2>'+ui('لسه ماعملتش طلب','No orders yet')+'</h2><p>'+ui('اختار الخدمة المناسبة، ولما ترسل أول طلب هتقدر ترجع هنا لمتابعته بسهولة.','Choose a service and your first order will appear here for easy tracking.')+'</p><a class="primary" href="index.html#products">'+ui('اختار منتج','Choose a product')+'</a></div>';
-      return;
-    }
-
-    root.innerHTML=
-      '<section class="profile-card">'+
-        '<div><span class="eyebrow">'+ui('بيانات التواصل','Contact details')+'</span><h2>'+Store.escapeHtml(profile?.name||ui('عميل MASTER STORE','MASTER STORE customer'))+'</h2><p>'+Store.escapeHtml(profile?.phone||'')+(profile?.email?' • '+Store.escapeHtml(profile.email):'')+'</p></div>'+
-        '<button id="editProfile" class="ghost-btn" type="button">'+ui('تعديل البيانات','Edit details')+'</button>'+
-      '</section>'+
-      '<section class="orders-section"><div class="section-head small"><div><span class="eyebrow">'+ui('طلباتك','Your orders')+'</span><h2>'+ui('سجل الطلبات','Order history')+'</h2></div></div>'+
-        (orders.length?'<div class="orders-list">'+orders.map(orderCard).join('')+'</div>':'<div class="notice">'+ui('لسه مفيش طلبات محفوظة.','No saved orders yet.')+'</div>')+
-      '</section>'+
-      '<section class="device-note"><b>'+ui('خصوصية بياناتك','Your privacy')+'</b><p>'+ui('بيانات الطلبات محفوظة على المتصفح الحالي لتسهيل المتابعة، لذلك قد لا تظهر تلقائيًا عند استخدام جهاز مختلف.','Order data is stored in this browser for easier tracking and may not appear automatically on another device.')+'</p></section>';
-
-    document.getElementById('editProfile')?.addEventListener('click',openProfileDialog);
+  async function loadAdmin(){
+    const box=document.getElementById('adminRequests');try{
+      const [topups,orders]=await Promise.all([C.unwrap(C.client.from('master_store_topups').select('*').eq('status','pending').order('created_at').limit(100)),C.unwrap(C.client.from('master_store_orders').select('*').in('status',['pending_payment','processing']).order('created_at').limit(100))]);
+      box.innerHTML=topups.map(x=>'<article class="admin-request"><b>'+money(x.amount_piasters)+' · '+esc(x.payment)+'</b><span>'+esc(x.reference)+'</span><small class="record-id">'+esc(x.id)+' · '+esc(x.user_id)+'</small><div><button class="primary" data-topup="'+esc(x.id)+'" data-approve="true">'+t('اعتماد التحويل','Approve transfer')+'</button><button class="ghost-btn" data-topup="'+esc(x.id)+'" data-approve="false">'+t('رفض','Reject')+'</button></div></article>').join('')+orders.map(x=>'<article class="admin-request"><b>'+esc(x.product)+' · '+money(x.amount_piasters)+'</b><span>'+esc(stateLabel(x.status))+' · '+esc(x.payment)+'</span><small>'+esc(x.customer.name)+' · '+esc(x.customer.phone)+' · '+esc(x.customer.email)+'</small><small class="record-id">'+esc(x.id)+'</small><div>'+(x.status==='pending_payment'?'<button class="ghost-btn" data-order="'+x.id+'" data-status="processing">'+t('تأكيد الدفع','Confirm payment')+'</button>':'')+'<button class="primary" data-order="'+x.id+'" data-status="completed">'+t('تم التنفيذ','Mark completed')+'</button><button class="ghost-btn" data-order="'+x.id+'" data-status="cancelled">'+t('إلغاء واسترجاع رصيد المحفظة','Cancel / refund wallet')+'</button></div></article>').join('');
+      if(!topups.length&&!orders.length)box.innerHTML='<p>'+t('مفيش طلبات محتاجة مراجعة.','No requests to review.')+'</p>';
+      box.querySelectorAll('button').forEach(b=>b.onclick=()=>{const approve=b.dataset.approve==='true';if(!confirm(t(b.dataset.topup?(approve?'تأكدت من وصول التحويل فعليًا؟':'تأكيد رفض التحويل؟'):'تأكيد تغيير حالة الطلب؟ الإلغاء بيرجع المبلغ للمحفظة لو الطلب مدفوع منها.',b.dataset.topup?(approve?'Have you verified the transfer was received?':'Reject this transfer?'):'Confirm status change? Cancelling a wallet order refunds its balance.')))return;run(b,async()=>{await C.unwrap(C.client.rpc(b.dataset.topup?'master_store_review_topup':'master_store_review_order',b.dataset.topup?{request_id:b.dataset.topup,approve}:{request_id:b.dataset.order,new_status:b.dataset.status}));await refresh();message(t('تم تحديث الطلب.','Request updated.'));});});
+    }catch(error){box.textContent=C.errorText(error);}
   }
-
-  render();
-  document.addEventListener('masterstore:localechange',()=>{
-    render();
-    if(profileDialog?.open){
-      const form=profileDialog.querySelector('#profileForm');
-      const draft=Object.fromEntries(new FormData(form));
-      renderDialog();
-      const updated=profileDialog.querySelector('#profileForm');
-      ['name','phone','email'].forEach(key=>{updated.elements[key].value=draft[key]||'';});
-    }
-  });
+  async function refresh(){
+    if(refreshing)return;refreshing=true;
+    try{data=await C.dashboard();if(data){S.saveProfile({...data.profile,email:data.user.email});renderDashboard();}else renderLogin();}
+    catch(error){root.innerHTML='<section class="account-panel"><h2>'+t('تعذر تحميل الحساب','Could not load account')+'</h2><p>'+esc(C.errorText(error))+'</p><button class="primary" id="retryAccount">'+t('حاول تاني','Try again')+'</button></section>';document.getElementById('retryAccount').onclick=refresh;}
+    finally{refreshing=false;}
+  }
+  function recoveryForm(){root.innerHTML='<section class="auth-card"><h2>'+t('كلمة سر جديدة','New password')+'</h2><div id="accountMessage" role="status" hidden></div><form id="recoveryForm" class="profile-form">'+field('password',t('كلمة السر الجديدة','New password'),'password','minlength="8" maxlength="128" autocomplete="new-password"')+'<button class="primary" type="submit">'+t('حفظ كلمة السر','Save password')+'</button></form></section>';document.getElementById('recoveryForm').onsubmit=e=>{e.preventDefault();const f=new FormData(e.currentTarget);run(e.currentTarget.querySelector('button'),async()=>{await C.unwrap(C.client.auth.updateUser({password:String(f.get('password'))}));await refresh();message(t('تم تغيير كلمة السر.','Password updated.'));});};}
+  if(!C?.ready){root.innerHTML='<section class="account-panel"><h2>'+t('تعذر تحميل تسجيل الدخول','Sign-in could not load')+'</h2><p>'+t('حدث الصفحة أو تواصل مع الدعم.','Refresh the page or contact support.')+'</p></section>'+guestOrders();return;}
+  root.innerHTML='<div class="account-loading" role="status">'+t('جاري تحميل حسابك…','Loading your account…')+'</div>';
+  let recovery=false;
+  C.client.auth.onAuthStateChange(event=>{if(event==='PASSWORD_RECOVERY'){recovery=true;recoveryForm();}else if(event==='SIGNED_OUT'&&data){setTimeout(refresh,0);}});
+  C.client.auth.getSession().then(()=>{if(!recovery)refresh();});
+  document.addEventListener('masterstore:localechange',()=>{if(recovery)recoveryForm();else if(data)renderDashboard();else renderLogin();});
 })();
