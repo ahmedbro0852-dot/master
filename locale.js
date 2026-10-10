@@ -95,7 +95,7 @@
     'كل طلب له رقم واضح تقدر تستخدمه في المتابعة مع خدمة العملاء.':'Every order has an ID you can use to follow up with support.',
     'عرض سنوي':'Annual offer',
     '300 Credit + 5 يوميًا':'300 credits + 5 daily',
-    'الطلبات والبيانات في هذه الصفحة محفوظة على هذا المتصفح فقط.':'Orders and details on this page are stored only in this browser.'
+    'الطلبات والبيانات في هذه الصفحة محفوظة على هذا المتصفح فقط.':'Orders and details on this page are stored only in this browser.','طلبات الحساب ورصيد المحفظة محفوظة لحسابك. طلبات الضيوف محفوظة على الجهاز فقط.':'Account orders and wallet balance are saved to your account. Guest orders are stored on this device.'
   };
   const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e,a]));
 
@@ -509,7 +509,7 @@
       else if(href.includes('#terms'))a.textContent=en?'Why MASTER STORE?':'ليه MASTER STORE؟';
     });
     const account=document.querySelector('.account-link');
-    if(account)account.textContent=en?'My orders':'طلباتي';
+    if(account)account.textContent=en?'My account':'حسابي';
     const menu=document.querySelector('.menu');
     if(menu)menu.setAttribute('aria-label',en?'Open menu':'فتح القائمة');
     const search=document.getElementById('search');

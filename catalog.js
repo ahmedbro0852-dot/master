@@ -857,7 +857,7 @@ const products = [
         "warranty": "يُؤكد قبل الدفع",
         "notes": [
           "100 كريدت + 5 كريدت يوميًا.",
-          "عرض خاص: 230 جنيه فقط. المقارنة مع السعر الرسمي لأقرب باقة موضحة أدناه."
+          "عرض خاص: 230 جنيه فقط."
         ],
         "priceComparison": {
           "planName": "Lovable Pro — 100 كريدت شهريًا",
@@ -1067,7 +1067,7 @@ const products = [
           "source": "https://x.ai/pricing",
           "checkedAt": "2026-10-08",
           "status": "unavailable",
-          "note": "المرجع الرسمي 30 دولارًا لشهر كامل؛ عرض المتجر 10 أيام، لذلك لا نحسب خصم شهر مقابل 10 أيام.",
+          "note": "مدة عرض المتجر 10 أيام.",
           "rawPrice": {
             "amount": 30,
             "currency": "USD",
@@ -1186,7 +1186,7 @@ const products = [
           "source": "https://elevenlabs.io/pricing",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع المعتاد 22 دولارًا شهريًا، مع عرض أول شهر بـ11 دولارًا للمؤهلين. الرصيد الرسمي الحالي 121,000 شهريًا؛ رصيد عرض المتجر المختلف يُؤكد قبل الدفع.",
+          "note": "رصيد عرض المتجر يُؤكد مع الدعم قبل الدفع.",
           "billingLabel": "22 دولارًا ×3 شهور بالسعر المعتاد"
         },
         "officialPrice": {
@@ -1211,7 +1211,7 @@ const products = [
           "source": "https://elevenlabs.io/pricing",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع المعتاد 22 دولارًا شهريًا، مع عرض أول شهر بـ11 دولارًا للمؤهلين. الرصيد الرسمي الحالي 121,000 شهريًا؛ رصيد عرض المتجر المختلف يُؤكد قبل الدفع.",
+          "note": "رصيد عرض المتجر يُؤكد مع الدعم قبل الدفع.",
           "billingLabel": "السعر المعتاد؛ أول شهر للمؤهلين 11 دولارًا"
         },
         "officialPrice": {
@@ -1247,7 +1247,7 @@ const products = [
           "source": "https://www.heygen.com/pricing",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع Creator بـ29 دولارًا و600 كريدت شهريًا. عرض المتجر 1,250 كريدت لا يطابق الرصيد الرسمي، لذلك السعر مرجع فقط.",
+          "note": "عرض المتجر 1,250 كريدت؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
           "billingLabel": "فوترة شهرية"
         },
         "officialPrice": {
@@ -1338,7 +1338,7 @@ const products = [
           "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع من صفحة CapCut الرسمية: 19.99 دولارًا للشهر و179.99 دولارًا للسنة. السعر النهائي والرصيد يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "note": "الرصيد والمميزات يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
           "billingLabel": "Pro الشهري"
         },
         "officialPrice": {
@@ -1366,7 +1366,7 @@ const products = [
           "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع من صفحة CapCut الرسمية: 19.99 دولارًا للشهر و179.99 دولارًا للسنة. السعر النهائي والرصيد يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "note": "الرصيد والمميزات يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
           "billingLabel": "Pro الشهري"
         },
         "officialPrice": {
@@ -1391,7 +1391,7 @@ const products = [
           "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع من صفحة CapCut الرسمية: 19.99 دولارًا للشهر و179.99 دولارًا للسنة. السعر النهائي والرصيد يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "note": "الرصيد والمميزات يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
           "billingLabel": "19.99 دولارًا للشهر ×3"
         },
         "officialPrice": {
@@ -1416,7 +1416,7 @@ const products = [
           "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع من صفحة CapCut الرسمية: 19.99 دولارًا للشهر و179.99 دولارًا للسنة. السعر النهائي والرصيد يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "note": "الرصيد والمميزات يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
           "billingLabel": "19.99 دولارًا للشهر ×6"
         },
         "officialPrice": {
@@ -1441,7 +1441,7 @@ const products = [
           "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع من صفحة CapCut الرسمية: 19.99 دولارًا للشهر و179.99 دولارًا للسنة. السعر النهائي والرصيد يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "note": "الرصيد والمميزات يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
           "billingLabel": "Pro السنوي"
         },
         "officialPrice": {
@@ -1479,7 +1479,7 @@ const products = [
           "source": "https://www.figma.com/pricing/",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع لمقعد Full بسعر 16 دولارًا شهريًا عند الدفع السنوي. مقاعد Dev وCollab لها أسعار ومميزات مختلفة؛ نوع المقعد يُؤكد قبل الدفع.",
+          "note": "مقاعد Full وDev وCollab لها مميزات مختلفة؛ نوع المقعد يُؤكد قبل الدفع.",
           "billingLabel": "16 دولارًا للمقعد شهريًا ×12، فوترة سنوية"
         },
         "officialPrice": {
@@ -1517,7 +1517,7 @@ const products = [
           "source": "https://www.magnific.com/pricing",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع Premium الشهري يشمل مزايا أوسع من التحميل فقط؛ أدوات AI ليست ضمن عرض المتجر.",
+          "note": "أدوات AI ليست ضمن عرض المتجر.",
           "billingLabel": "فوترة شهرية"
         },
         "officialPrice": {
@@ -1553,7 +1553,7 @@ const products = [
           "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع الأمريكي للشهر دون التزام سنوي 104.99 دولارًا. خطة 69.99 دولارًا شهريًا تتطلب عقدًا سنويًا. الدعوة المؤسسية ليست نفس عقد الاشتراك الفردي.",
+          "note": "الدعوة المؤسسية تختلف عن الاشتراك الفردي؛ راجع طريقة التفعيل في الباقة المختارة.",
           "billingLabel": "الشهر دون عقد سنوي — السعر الأمريكي المعتاد"
         },
         "officialPrice": {
@@ -1579,7 +1579,7 @@ const products = [
           "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع الأمريكي للشهر دون التزام سنوي 104.99 دولارًا. خطة 69.99 دولارًا شهريًا تتطلب عقدًا سنويًا. الدعوة المؤسسية ليست نفس عقد الاشتراك الفردي.",
+          "note": "الدعوة المؤسسية تختلف عن الاشتراك الفردي؛ راجع طريقة التفعيل في الباقة المختارة.",
           "billingLabel": "الشهر دون عقد سنوي — السعر الأمريكي المعتاد"
         },
         "officialPrice": {
@@ -1683,7 +1683,7 @@ const products = [
           "source": "https://www.coursera.org/courseraplus",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع 59 دولارًا للشهر و399 دولارًا للسنة بالسعر الأمريكي المعتاد. الحساب المشترك ليس اشتراكًا فرديًا مستقلًا.",
+          "note": "الحساب المشترك يستخدمه أكثر من شخص؛ راجع نوع الحساب قبل الطلب.",
           "billingLabel": "59 دولارًا ×3 شهور"
         },
         "officialPrice": {
@@ -1710,7 +1710,7 @@ const products = [
           "source": "https://www.coursera.org/courseraplus",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع 59 دولارًا للشهر و399 دولارًا للسنة بالسعر الأمريكي المعتاد. الحساب المشترك ليس اشتراكًا فرديًا مستقلًا.",
+          "note": "الحساب المشترك يستخدمه أكثر من شخص؛ راجع نوع الحساب قبل الطلب.",
           "billingLabel": "Plus السنوي"
         },
         "officialPrice": {
@@ -1734,7 +1734,7 @@ const products = [
           "source": "https://www.coursera.org/courseraplus",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع 59 دولارًا للشهر و399 دولارًا للسنة بالسعر الأمريكي المعتاد. الحساب المشترك ليس اشتراكًا فرديًا مستقلًا.",
+          "note": "الحساب المشترك يستخدمه أكثر من شخص؛ راجع نوع الحساب قبل الطلب.",
           "billingLabel": "Plus السنوي"
         },
         "officialPrice": {
@@ -1986,7 +1986,7 @@ const products = [
           "source": "https://premium.linkedin.com/careers/career",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع Career الفردي. نوع Premium في رابط المتجر غير محدد؛ يجب تأكيده قبل الدفع.",
+          "note": "نوع Premium يُؤكد مع الدعم قبل الدفع.",
           "billingLabel": "39.99 دولارًا ×3 شهور — Career"
         },
         "officialPrice": {
@@ -2269,7 +2269,7 @@ const products = [
           "source": "https://nordvpn.com/pricing/",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع Basic؛ فئة الحساب الجاهز غير محددة. قيمة 3 شهور محسوبة من سعر الشهر ×3.",
+          "note": "فئة الحساب الجاهز تُؤكد مع الدعم قبل الدفع.",
           "billingLabel": "14.99 دولارًا ×3 شهور — Basic"
         },
         "officialPrice": {
@@ -2383,7 +2383,7 @@ const products = [
           "source": "https://www.spotify.com/eg-en/premium/",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع الرسمي المصري المعتاد للمدفوع مقدمًا؛ عروض التجربة المجانية لها أهلية منفصلة.",
+          "note": "عروض التجربة المجانية لها شروط أهلية منفصلة.",
           "billingLabel": "Premium Individual — مدفوع مقدمًا، مصر"
         },
         "officialPrice": {
@@ -2905,7 +2905,7 @@ const products = [
           "source": "https://factory.com/pricing",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع محسوب من 20 دولارًا شهريًا ×12؛ لا نفترض وجود باقة سنوية مستقلة بهذا الإجمالي.",
+          "note": "مدة الاشتراك والمميزات حسب الباقة المعروضة.",
           "billingLabel": "20 دولارًا شهريًا ×12"
         },
         "officialPrice": {
@@ -2940,7 +2940,7 @@ const products = [
           "source": "https://www.framer.com/pricing",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع لفوترة سنوية بسعر 30 دولارًا شهريًا، والمقعد في فريق لا يعني تلقائيًا خطة استضافة Pro لموقعك.",
+          "note": "مقعد الفريق لا يشمل تلقائيًا استضافة Pro لموقعك.",
           "billingLabel": "30 دولارًا ×12 — موقع Pro بالفوترة السنوية"
         },
         "officialPrice": {
@@ -2975,7 +2975,7 @@ const products = [
           "source": "https://supabase.com/pricing",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع الأساسي 25 دولارًا شهريًا ×12؛ الاستخدام الإضافي والمشاريع الزائدة غير مشمولة في المقارنة.",
+          "note": "الاستخدام الإضافي والمشاريع الزائدة تُراجع مع الدعم قبل الدفع.",
           "billingLabel": "25 دولارًا شهريًا ×12"
         },
         "officialPrice": {
@@ -3010,7 +3010,7 @@ const products = [
           "source": "https://railway.com/pricing",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع 5 دولارات شهريًا ×12 ويتضمن رصيد استخدام؛ أي استهلاك إضافي غير داخل في السعر المرجعي.",
+          "note": "الباقة تتضمن رصيد استخدام؛ أي استهلاك إضافي يُراجع قبل الدفع.",
           "billingLabel": "5 دولارات شهريًا ×12"
         },
         "officialPrice": {
@@ -3216,7 +3216,7 @@ const products = [
           "source": "https://jam.dev/pricing",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع لمقعد منشئ مدفوع؛ مقاعد المشاهدين ليست نفس المقعد.",
+          "note": "الباقة لمقعد منشئ؛ راجع صلاحيات المقعد قبل الدفع.",
           "billingLabel": "14 دولارًا شهريًا ×12، فوترة سنوية"
         },
         "officialPrice": {
@@ -3378,7 +3378,7 @@ const products = [
           "source": "https://customer.io/pricing",
           "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المرجع الأساسي يبدأ من 100 دولار شهريًا ×12؛ العدد الفعلي للملفات الشخصية والاستهلاك قد يرفع السعر.",
+          "note": "العدد الفعلي للملفات الشخصية والاستهلاك يُراجع قبل الدفع.",
           "billingLabel": "بداية 100 دولار شهريًا ×12"
         },
         "officialPrice": {
@@ -3408,3 +3408,4 @@ function statusLabel(status){
   return status === "available" ? "متاح" : status === "soon" ? "قريبًا" : "غير متوفر";
 }
 window.MasterCatalog={products,categoryOrder,getProduct,formatPrice,startingPrice,statusLabel};
+
