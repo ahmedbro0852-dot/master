@@ -31,3 +31,13 @@ Quantity cart (2026-10-10):
 - Guests prepare an itemized WhatsApp request, with no wallet debit. Transfer confirmation remains manual.
 - GitHub OAuth UI is included but disabled until the Supabase provider is enabled. Create a GitHub OAuth application with homepage https://master-pi-six.vercel.app and callback https://gmysuhoebcapigdidnnv.supabase.co/auth/v1/callback. Set its Client ID and secret directly in Supabase GitHub provider settings; allow redirect https://master-pi-six.vercel.app/account.html. Never put OAuth secrets in frontend code.
 - Regression suites tests/cart_security.sql and tests/wallet_security.sql run in rollback transactions.
+
+Manual admin dashboard (2026-10-10):
+- /admin.html checks the authenticated user and trusted master_store_admins membership on every RPC.
+- Account owners with administrator membership see a link from their account page. The owner bootstrap requires the verified owner email; profile metadata never grants roles.
+- Six sections: orders, top-ups, plans/prices/availability/quantity limits, quantity discount rates, customers/wallet adjustments, and audit history.
+- Manual plan edits set admin_overridden and use updated_at conflict checks. db/sync-store-prices.js preserves these overrides on future catalogue syncs.
+- Homepage/product pages fetch public plan availability and manual prices; cart quotations and purchase amounts are always server-authoritative.
+- Adjustments require a reason and confirmation, are idempotent, cannot make a wallet negative, and appear in the customer ledger. No service-role key is in the browser.
+- Lists show latest 500 orders, top-ups and store customers; audit shows latest 100 changes. Summary counts cover all orders.
+- Tests/admin_security.sql verifies administrator authorization, metadata impersonation rejection, manual pricing, dynamic discounts, stale-edit rejection, wallet adjustment idempotency, audit privacy, and net-price refunds. All test fixtures roll back.

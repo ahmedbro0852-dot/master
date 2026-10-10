@@ -33,7 +33,7 @@
   }
   function historyRows(items,kind){
     if(!items.length)return '<p class="wallet-empty">'+t('لسه مفيش حركات.','No transactions yet.')+'</p>';
-    return '<div class="wallet-history">'+items.map(x=>'<article class="wallet-row"><div><b>'+esc(kind==='topup'?x.payment:t(({topup:'إضافة رصيد',purchase:'دفع طلب',refund:'استرجاع رصيد'})[x.kind],({topup:'Top-up',purchase:'Order payment',refund:'Refund'})[x.kind]))+'</b><small>'+date(x.created_at)+(kind==='topup'?' · '+esc(x.reference):'')+'</small></div><div><strong class="'+(x.amount_piasters>0?'credit':'debit')+'">'+money(x.amount_piasters)+'</strong>'+(kind==='topup'?'<small>'+esc(stateLabel(x.status))+'</small>':'')+'</div></article>').join('')+'</div>';
+    return '<div class="wallet-history">'+items.map(x=>'<article class="wallet-row"><div><b>'+esc(kind==='topup'?x.payment:t(({topup:'إضافة رصيد',purchase:'دفع طلب',refund:'استرجاع رصيد',manual_credit:'إضافة يدوية',manual_debit:'خصم يدوي'})[x.kind],({topup:'Top-up',purchase:'Order payment',refund:'Refund',manual_credit:'Manual credit',manual_debit:'Manual debit'})[x.kind]))+'</b><small>'+date(x.created_at)+(kind==='topup'?' · '+esc(x.reference):x.note?' · '+esc(x.note):'')+'</small></div><div><strong class="'+(x.amount_piasters>0?'credit':'debit')+'">'+money(x.amount_piasters)+'</strong>'+(kind==='topup'?'<small>'+esc(stateLabel(x.status))+'</small>':'')+'</div></article>').join('')+'</div>';
   }
   function renderDashboard(){
     const u=data.user,p=data.profile,pending=data.topups.filter(x=>x.status==='pending').reduce((sum,x)=>sum+x.amount_piasters,0);
@@ -48,7 +48,7 @@
       requestId=crypto.randomUUID();await refresh();message(t('طلب الشحن اتسجل. ابعت إثبات التحويل للدعم علشان يتراجع.','Top-up saved. Send transfer proof to support for review.'));
       const output=document.getElementById('topupResult');output.innerHTML='<div class="topup-confirm"><b>'+t('رقم طلب الشحن','Top-up ID')+'</b><span class="record-id">'+esc(result.id)+'</span><a class="primary" target="_blank" rel="noopener" href="'+supportHref('طلب شحن MASTER STORE\nرقم الطلب: '+result.id+'\nحسابي: '+u.email+'\nالمبلغ: '+money(result.amount_piasters)+'\nالوسيلة: '+payment+'\nرقم التحويل: '+reference+'\nهرفق إثبات التحويل للمراجعة.')+'">'+t('إرسال إثبات التحويل للدعم','Send transfer proof to support')+'</a></div>';output.scrollIntoView({block:'center',behavior:'smooth'});
     });};
-    if(data.isAdmin)loadAdmin();
+    if(data.isAdmin){document.getElementById('adminPanel').insertAdjacentHTML('afterbegin','<a class="primary" href="admin.html">'+t('فتح لوحة التحكم الكاملة','Open full admin dashboard')+'</a>');loadAdmin();}
   }
   async function loadAdmin(){
     const box=document.getElementById('adminRequests');try{

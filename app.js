@@ -1,4 +1,4 @@
-(function(){
+(async function(){
   'use strict';
 
   const menu=document.querySelector('.menu');
@@ -28,6 +28,7 @@
   const filters=document.getElementById('filters');
   if(!grid||!filters)return;
 
+  await window.MasterCatalogReady;
   const Catalog=window.MasterCatalog;
   const Store=window.MasterStore;
   const Locale=window.MasterLocale;
@@ -109,7 +110,7 @@
 
   function cheapestPlan(product){
     const plans=product.plans||[];
-    return plans.reduce((best,plan)=>{
+    return plans.filter(plan=>plan.available!==false).reduce((best,plan)=>{
       if(!best)return plan;
       return Store.planAmount(plan)<Store.planAmount(best)?plan:best;
     },null);

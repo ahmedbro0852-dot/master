@@ -1,5 +1,6 @@
-(function(){
+(async function(){
   'use strict';
+  await window.MasterCatalogReady;
   const Catalog=window.MasterCatalog;
   const MasterStore=window.MasterStore;
   if(!Catalog||!MasterStore)return;
@@ -70,7 +71,7 @@
   const active=p.status==='available';
   const plans=p.plans||[];
   const requestedPlan=Number(params.get('plan'));
-  const initialPlan=Number.isInteger(requestedPlan)&&requestedPlan>=0&&requestedPlan<plans.length?requestedPlan:0;
+  const initialPlan=Number.isInteger(requestedPlan)&&requestedPlan>=0&&requestedPlan<plans.length&&plans[requestedPlan].available!==false?requestedPlan:Math.max(0,plans.findIndex(x=>x.available!==false));
 
   root.innerHTML=
     '<section class="product-hero">'+
@@ -82,9 +83,9 @@
       '<div class="plans-block"><h2>'+ui('اختار الباقة','Choose a plan')+'</h2>'+
         (plans.length?plans.map((plan,i)=>
           '<label class="plan-option">'+
-            '<input type="radio" name="plan" value="'+i+'" '+(i===initialPlan?'checked':'')+' '+(!active?'disabled':'')+'>'+
+            '<input type="radio" name="plan" value="'+i+'" '+(i===initialPlan?'checked':'')+' '+(!active||plan.available===false?'disabled':'')+'>'+
             '<span><b>'+MasterStore.escapeHtml(tr(plan.name||plan.duration,'planName'))+'</b><small>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+' · '+MasterStore.escapeHtml(tr(plan.duration||'','duration'))+' · '+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</small>'+planSavingMarkup(plan)+'</span>'+
-            '<strong>'+MasterStore.planMoney(plan)+'</strong>'+
+            '<strong>'+(plan.available===false?ui('غير متاح','Unavailable'):MasterStore.planMoney(plan))+'</strong>'+
           '</label>'
         ).join(''):'<div class="notice">'+ui('الخدمة غير متاحة للطلب حاليًا.','This service is currently unavailable for ordering.')+'</div>')+
         '<div id="planFeatures"></div>'+
@@ -282,6 +283,7 @@
   function renderDetails(){
     const plan=selectedPlan();
     if(!plan){planDetails.innerHTML='';return;}
+    const buy=document.getElementById('buyBtn');if(buy)buy.disabled=plan.available===false;
     const mobilePrice=document.getElementById('mobilePlanPrice');
     if(mobilePrice)mobilePrice.textContent=MasterStore.planMoney(plan);
     const mobileBuy=document.getElementById('mobileBuyBtn');
@@ -352,7 +354,7 @@
   document.addEventListener('masterstore:localechange',refreshLocalizedProductPrices);
 
   document.getElementById('buyBtn')?.addEventListener('click',()=>{
-    try{window.MasterCart.add(p.id,plans.indexOf(selectedPlan()));location.href='cart.html';}
+    try{if(selectedPlan()?.available===false)return;window.MasterCart.add(p.id,plans.indexOf(selectedPlan()));location.href='cart.html';}
     catch(error){showToast(error.message);}
   });
 })();

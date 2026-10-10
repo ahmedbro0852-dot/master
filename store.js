@@ -51,15 +51,20 @@
     return window.MasterLocale?window.MasterLocale.convertEGP(Number(v)||0):Number(v)||0;
   }
   function formatCurrency(v,currency){
+    if((currency||getMarket().currency)==='EGP'){
+      return new Intl.NumberFormat(window.MasterLocale?.getState().language==='en'?'en-EG':'ar-EG',{style:'currency',currency:'EGP',minimumFractionDigits:0,maximumFractionDigits:2}).format(Number(v)||0);
+    }
     return window.MasterLocale?window.MasterLocale.formatCurrency(Number(v)||0,currency||getMarket().currency):Number(v).toLocaleString('en-US')+' ج';
   }
   function money(v){
     return window.MasterLocale?window.MasterLocale.money(Number(v)||0):Number(v).toLocaleString('en-US')+' ج';
   }
   function planAmount(plan,key){
+    if(plan?.manualPrice&&(!key||key==='price')&&getMarket().currency==='EGP')return Number(plan.price)||0;
     return window.MasterLocale?window.MasterLocale.planAmount(plan,key):Number(plan?.[key||'price']||0);
   }
   function planMoney(plan,key){
+    if(plan?.manualPrice&&(!key||key==='price')&&getMarket().currency==='EGP')return formatCurrency(plan.price,'EGP');
     return window.MasterLocale?window.MasterLocale.planMoney(plan,key):money(plan?.[key||'price']||0);
   }
   function orderMoney(order){

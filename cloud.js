@@ -6,6 +6,12 @@
   const client=window.supabase.createClient(url,key,{auth:{storageKey:'master-store-auth-v1',persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
   const redirect=location.origin+'/account.html';
   const errors={
+    EDIT_CONFLICT:['البيانات اتعدلت من مكان تاني. حدث اللوحة وراجع القيم قبل الحفظ.','Data changed elsewhere. Refresh and review before saving.'],
+    INVALID_PLAN:['راجع السعر وحد الكمية.','Check the price and quantity limit.'],
+    INVALID_DISCOUNT:['نسب الخصم من ٠ إلى ٥٠٪ ولازم تزيد مع العدد.','Discounts must be between 0 and 50% and rise with quantity.'],
+    INVALID_ADJUSTMENT:['راجع المبلغ واكتب سبب تعديل الرصيد من ٦ حروف على الأقل.','Check the amount and enter a reason of at least 6 characters.'],
+    CUSTOMER_NOT_FOUND:['حساب العميل غير موجود.','Customer account not found.'],
+    INVALID_CART:['راجع كميات السلة. الحد الأقصى ٥ من الباقة و٥٠ اشتراك إجمالي.','Check quantities. Maximum 5 per plan and 50 subscriptions in total.'],
     invalid_credentials:['الإيميل أو كلمة السر غير صحيحة.','Invalid email or password.'],
     email_not_confirmed:['أكد الإيميل من الرسالة اللي وصلتك، وبعدها سجل الدخول.','Confirm your email before signing in.'],
     signup_disabled:['إنشاء الحسابات غير متاح حاليًا. تواصل مع الدعم.','Registration is currently unavailable. Contact support.'],
