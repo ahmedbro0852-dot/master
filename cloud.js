@@ -49,6 +49,7 @@
     contact:order.customer,method:order.payment,quoted_amount:quoteAmount
   }));}
   function asLocalOrder(o){return {id:o.id,createdAt:o.created_at,productId:o.product_id,product:o.product,plan:o.plan,duration:o.duration,quantity:o.quantity,total:o.amount_piasters/100,displayTotal:o.amount_piasters/100,displayCurrency:'EGP',payment:o.payment,status:o.status,customer:o.customer};}
-  const googleReady=fetch(url+'/auth/v1/settings',{headers:{apikey:key},signal:AbortSignal.timeout(8000)}).then(r=>r.ok?r.json():null).then(settings=>!!settings?.external?.google).catch(()=>false);
-  window.MasterCloud={ready:true,client,user,dashboard,quote,placeOrder,asLocalOrder,errorText,unwrap,redirect,googleReady};
+  const providersReady=fetch(url+'/auth/v1/settings',{headers:{apikey:key},signal:AbortSignal.timeout(8000)}).then(r=>r.ok?r.json():null).then(settings=>settings?.external||{}).catch(()=>({}));
+  const googleReady=providersReady.then(x=>!!x.google),githubReady=providersReady.then(x=>!!x.github);
+  window.MasterCloud={ready:true,client,user,dashboard,quote,placeOrder,asLocalOrder,errorText,unwrap,redirect,googleReady,githubReady};
 })();

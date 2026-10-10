@@ -23,3 +23,11 @@ Guest orders remain browser-local and use the existing WhatsApp checkout. Guest 
 After a price or availability edit, run `node db/sync-store-prices.js` and apply the generated SQL with Supabase. Wallet prices use approved `plan.price` EGP amounts, not untrusted browser FX conversion. Checkout shows that canonical amount before confirmation.
 
 Run `tests/wallet_security.sql` in a transaction. It tests cross-user isolation, blocked self-credit/role escalation, pending funding, price tampering, insufficient balance and idempotent approval, debit and refund. Every fixture is rolled back; no real funds are involved.
+
+Quantity cart (2026-10-10):
+- 2 units: 3%; 3: 5%; 4: 7%; 5+: 10%. Same plan and mixed plans count alike.
+- Server merges duplicate lines, enforces per-plan quantity and availability, quotes canonical EGP prices, rounds discount per line to piastres.
+- Authenticated checkout atomically creates all orders and debits the wallet once. Retry UUID prevents duplicate purchases. Cancellation refunds only the discounted line amount.
+- Guests prepare an itemized WhatsApp request, with no wallet debit. Transfer confirmation remains manual.
+- GitHub OAuth UI is included but disabled until the Supabase provider is enabled. Create a GitHub OAuth application with homepage https://master-pi-six.vercel.app and callback https://gmysuhoebcapigdidnnv.supabase.co/auth/v1/callback. Set its Client ID and secret directly in Supabase GitHub provider settings; allow redirect https://master-pi-six.vercel.app/account.html. Never put OAuth secrets in frontend code.
+- Regression suites tests/cart_security.sql and tests/wallet_security.sql run in rollback transactions.
