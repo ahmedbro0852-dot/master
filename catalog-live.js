@@ -11,7 +11,7 @@ window.MasterCatalogReady=(async()=>{
  plan.available=row.available;plan.max_quantity=row.max_quantity;
  if(row.admin_overridden){plan.price=row.price_piasters/100;delete plan.basePriceUSD;delete plan.marketPrices;plan.manualPrice=true;}
  }
- for(const p of window.MasterCatalog.products){const plans=p.plans||[];if(plans.some(x=>x.available===true))p.status='available';else if(plans.some(x=>x.available===false)&&p.status!=='soon')p.status='out';}
+ for(const p of window.MasterCatalog.products){for(const plan of p.plans||[]){if(plan.offerEndsAt&&Date.now()>=Date.parse(plan.offerEndsAt))plan.available=false;}const plans=p.plans||[];if(plans.some(x=>x.available===true))p.status='available';else if(plans.some(x=>x.available===false)&&p.status!=='soon')p.status='out';}
  }catch{/* Cached catalogue stays usable; checkout always rechecks server prices. */}
 })();
 })();
