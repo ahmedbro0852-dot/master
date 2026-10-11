@@ -1919,3 +1919,31 @@ body{background:#f5f8fc;color:var(--ink)}
 .gemini-deadline-detail .deadline-unit b{font-size:20px}
 .gemini-deadline-detail .deadline-unit small{font-size:10px!important}
 @media(max-width:700px){.best-offer:has(.bundle-brand-group){grid-template-columns:minmax(0,1fr) auto}.best-offer .bundle-brand-group{grid-column:1/-1}.best-offer:has(.bundle-brand-group)>.card-btn{grid-column:1/-1}.gemini-offer-notice{align-items:flex-start;flex-direction:column;gap:14px;padding:16px}.gemini-deadline-detail{align-self:center}.bundle-brand-group{gap:10px}.bundle-primary-detail,.bundle-gift-details{padding:16px}}
+
+/* Featured learning bundle */
+.bundle-featured{grid-column:span 2;position:relative;background:#fff!important;border:1px solid #d8c18b!important;box-shadow:0 8px 22px #19325308;padding:24px!important;gap:16px!important}
+.bundle-featured .bundle-main-logo{width:70px;height:70px;padding:12px}
+.bundle-featured .bundle-gift-logo img{width:32px;height:32px}
+.bundle-featured h3{font-size:20px;line-height:1.5}
+.bundle-featured>strong{font-size:28px}
+.bundle-card-summary{color:#657086;font-size:12px;line-height:1.8;margin:6px 0}
+.bundle-featured .bundle-card-summary{font-size:13px}
+.bundle-featured .card-btn{max-width:320px;background:#163a77;color:#fff;border-color:#163a77}
+.bundle-hero{background:#fff!important;border:1px solid #d9e3f0!important;border-top:4px solid #0056d2!important;box-shadow:0 8px 26px #17345506}
+.bundle-hero .product-title{gap:24px}
+.bundle-hero .product-title>div{flex:1;min-width:220px}
+.bundle-hero .bundle-brand-group{padding:16px;background:#f5f8fe;border:1px solid #e4ebf8;border-radius:18px}
+.bundle-hero .bundle-main-logo{width:76px;height:76px}
+.bundle-hero .bundle-gift-logo img{width:34px;height:34px}
+.bundle-hero h1{font-size:clamp(23px,3vw,34px);line-height:1.5!important}
+.bundle-hero .product-title p{font-size:13px!important;line-height:2!important;max-width:650px}
+.bundle-layout .plan-features{background:#fff;border:1px solid #e0e7f0}
+.bundle-layout .plan-features li{font-size:13px;line-height:1.9}
+.bundle-layout .details-list{font-size:12px}
+.bundle-layout .summary-card{border-color:#d8e3f1}
+.bundle-layout .bundle-inclusions{border-color:#d8e3f1;box-shadow:0 4px 14px #19325304}
+.gemini-offer-notice{border-inline-start:3px solid #d22d2d;background:#fffafa}
+.gemini-deadline-detail .deadline-unit{background:#fff;border:1px solid #f0d7d7;padding:7px 5px;border-radius:8px;min-width:40px}
+.gemini-deadline-detail .deadline-separator{padding-top:10px}
+@media(max-width:900px) and (min-width:701px){.bundle-featured{grid-column:span 2}}
+@media(max-width:700px){.bundle-featured{grid-column:auto;display:flex!important;align-items:stretch;text-align:center;padding:20px!important}.bundle-featured .bundle-brand-group{justify-content:center}.bundle-featured .card-btn{max-width:none}.bundle-hero .product-title{gap:18px}.bundle-hero .bundle-brand-group{width:100%;justify-content:center;padding:12px}.bundle-hero .product-title>div{min-width:0;width:100%}.bundle-hero h1{font-size:24px}.bundle-card-summary{margin:5px 0 10px}.gemini-deadline{gap:5px}.deadline-caption{font-size:9px}}
