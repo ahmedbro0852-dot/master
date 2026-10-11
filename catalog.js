@@ -69,18 +69,16 @@ const products = [
   "logo": "cursor",
   "logoUrl": "logos/cursor.svg?v=20261009-logo-review3",
   "status": "available",
-  "description": "Cursor Pro للبرمجة لمدة سنة بـ135 دولار. كود خصم 100% للتفعيل على حسابك الشخصي؛ يتطلب إضافة بطاقة دفع مقبولة.",
+  "description": "Cursor Pro للبرمجة: عرض شهر بـ300ج لمدة 48 ساعة، أو باقة سنة بكود تفعيل. راجع طريقة التفعيل لكل باقة.",
   "features": [
-    "خطة Pro لمدة سنة.",
-    "كود تفعيل على حسابك الشخصي.",
-    "يتطلب إضافة بطاقة دفع مقبولة.",
-    "كود الخصم 100% يخص التفعيل؛ سعر شراء الكود 135 دولار."
+    "Cursor Pro للبرمجة بمساعدة الذكاء الاصطناعي.",
+    "عرض شهر بـ300ج لمدة 48 ساعة فقط.",
+    "باقة السنة تُسلّم بكود تفعيل وتتطلب بطاقة دفع مقبولة؛ راجع تفاصيل الباقة."
   ],
   "featuresEn": [
-    "Pro plan for one year.",
-    "Activation code on your personal account.",
-    "An accepted payment card is required.",
-    "The 100% code discount applies to activation; the code purchase costs $135."
+    "Cursor Pro for AI-assisted coding.",
+    "One-month offer for EGP 300, available for 48 hours.",
+    "Annual activation code requires an accepted payment card; check the selected plan."
   ],
   "plans": [
     {
@@ -95,6 +93,21 @@ const products = [
       "warranty": "يُؤكد مع الدعم قبل الدفع",
       "notes": [
         "السعر 135 دولار للكود؛ خصم 100% يخص رسوم التفعيل عند استخدام الكود."
+      ]
+    },
+    {
+      "name": "Pro — شهر · عرض 48 ساعة",
+      "planType": "Pro",
+      "duration": "شهر",
+      "price": 300,
+      "offerEndsAt": "2026-10-13T11:32:00Z",
+      "activation": "يُؤكد مع الدعم قبل الدفع",
+      "account": "يُؤكد مع الدعم قبل الدفع",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "features": [
+        "Cursor Pro لمدة شهر",
+        "سعر العرض 300ج",
+        "متاح للطلب لمدة 48 ساعة فقط"
       ]
     }
   ]
