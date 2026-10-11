@@ -1,7 +1,7 @@
 const products = [
 {
   "id": "gemini-coursera-bundle",
-  "name": "عرض جيمناي + كورسيرا Plus",
+  "name": "كورسيرا Plus سنة + هدايا مجانية",
   "category": "AI Tools",
   "logo": "gemini",
   "logoUrl": "logos/gemini.svg?v=20261009-logo-review3",
