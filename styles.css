@@ -1947,3 +1947,45 @@ body{background:#f5f8fc;color:var(--ink)}
 .gemini-deadline-detail .deadline-separator{padding-top:10px}
 @media(max-width:900px) and (min-width:701px){.bundle-featured{grid-column:span 2}}
 @media(max-width:700px){.bundle-featured{grid-column:auto;display:flex!important;align-items:stretch;text-align:center;padding:20px!important}.bundle-featured .bundle-brand-group{justify-content:center}.bundle-featured .card-btn{max-width:none}.bundle-hero .product-title{gap:18px}.bundle-hero .bundle-brand-group{width:100%;justify-content:center;padding:12px}.bundle-hero .product-title>div{min-width:0;width:100%}.bundle-hero h1{font-size:24px}.bundle-card-summary{margin:5px 0 10px}.gemini-deadline{gap:5px}.deadline-caption{font-size:9px}}
+
+/* Professional offer presentation */
+.bundle-featured{grid-column:span 2;display:grid!important;grid-template-columns:auto 1fr auto;align-items:center;text-align:start;gap:20px!important;padding:24px!important;background:#fff!important;border:1px solid #dde4ed!important;border-radius:18px;box-shadow:none!important}
+.bundle-featured .bundle-brand-group{grid-column:1}
+.bundle-featured>div{grid-column:2}
+.bundle-featured>strong{grid-column:3;margin:0;font-size:28px;color:#153459;white-space:nowrap}
+.bundle-featured>.card-btn{grid-column:2/4;max-width:none;background:#143458;color:#fff;border:0;border-radius:10px;min-height:42px}
+.bundle-featured h3{font-size:18px}
+.bundle-featured .bundle-card-summary{font-size:12px;margin:5px 0;color:#718096}
+.bundle-brand-group{gap:10px}
+.bundle-main-logo{box-shadow:none!important}
+.bundle-gift-logo img{width:24px;height:24px}
+.bundle-gift-logo small{font-size:9px!important;border:0;background:#eef7f0;color:#397a50!important}
+.bundle-hero{background:#fff!important;border:1px solid #e0e6ed!important;border-top:1px solid #e0e6ed!important;border-radius:18px;box-shadow:none!important;padding:24px!important}
+.bundle-hero .product-title{gap:20px}
+.bundle-hero .bundle-brand-group{background:transparent;border:0;padding:0;align-self:center}
+.bundle-hero .bundle-main-logo{width:64px;height:64px;border-radius:16px;border:1px solid #edf0f5}
+.bundle-hero h1{font-size:26px!important}
+.bundle-hero .product-title p{font-size:12px!important;color:#697586;line-height:1.9!important}
+.bundle-layout{display:flex!important;flex-direction:column;gap:16px}
+.bundle-layout .plans-block{padding:20px!important}
+.bundle-layout .plans-block h2{font-size:17px}
+.bundle-layout .plan-features{display:none}
+.bundle-layout .plan-option{background:#fff!important;border:1px solid #dce4ef;border-radius:12px;box-shadow:none!important}
+.bundle-layout .summary-card{padding:24px!important;box-shadow:none;border:1px solid #e0e6ed}
+.bundle-layout .bundle-inclusions{display:grid;grid-template-columns:1fr 1fr;border:0;box-shadow:none;gap:20px;overflow:visible;background:transparent}
+.bundle-primary-detail{background:#f5f8fc;border:1px solid #e3eaf3;border-radius:14px;padding:22px}
+.bundle-primary-detail h3{font-size:25px}
+.bundle-gift-details{padding:18px 22px;border:1px solid #e3eaf3;border-radius:14px;background:#fff}
+.bundle-gift-row{padding:10px 0}
+.bundle-gift-row img{width:30px;height:30px}
+.bundle-total-note{grid-column:1/-1;border:0;background:transparent;text-align:center;padding:0;color:#697586}
+.bundle-layout .details-list{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;margin:20px 0}
+.bundle-layout #buyBtn{max-width:420px;margin:0 auto;display:block;background:#143458;border-radius:10px}
+.gemini-offer-notice{padding:16px 20px;background:#fff;border:1px solid #efd9d9;border-inline-start:1px solid #efd9d9;border-radius:12px;box-shadow:none}
+.gemini-offer-notice strong{font-size:13px;color:#ba3535}
+.gemini-offer-notice p{font-size:11px;color:#7c6262}
+.gemini-deadline-detail .deadline-unit{background:transparent;border:0;padding:0;min-width:32px;border-radius:0}
+.gemini-deadline-detail .deadline-unit b{font-size:18px}
+.gemini-deadline-detail .deadline-separator{padding:3px 0 0}
+.gemini-deadline-detail .deadline-caption{display:none}
+@media(max-width:700px){.bundle-featured{display:flex!important;grid-column:auto;align-items:stretch;text-align:start;padding:20px!important;gap:14px!important}.bundle-featured .bundle-brand-group{justify-content:flex-start}.bundle-featured>strong{font-size:26px}.bundle-hero .bundle-brand-group{width:auto;justify-content:flex-start}.bundle-hero .product-title{align-items:flex-start}.bundle-hero h1{font-size:23px!important}.bundle-layout .bundle-inclusions{grid-template-columns:1fr;gap:12px}.bundle-layout .details-list{grid-template-columns:1fr}.bundle-layout .summary-card{padding:18px!important}.bundle-total-note{grid-column:auto}.gemini-offer-notice{gap:10px}.gemini-deadline-detail{align-self:flex-start;flex-direction:row}.bundle-hero{padding:18px!important}}
