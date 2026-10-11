@@ -358,3 +358,33 @@
     catch(error){showToast(error.message);}
   });
 })();
+
+(function geminiDeadline(){
+ const deadline=Date.parse('2026-10-27T00:00:00+03:00');
+ const mount=()=>{
+  const targets=new URLSearchParams(location.search).get('id')==='gemini-pro'
+   ?[document.getElementById('productPage')]
+   :[document.querySelector('[data-product-id="gemini-pro"]')];
+  targets.filter(Boolean).forEach(target=>{
+   if(target.querySelector('[data-gemini-countdown]'))return;
+   const box=document.createElement('div');
+   box.dataset.geminiCountdown='';
+   box.setAttribute('role','timer');
+   box.style.cssText='background:#fff7e6;border:1px solid #f2cf85;border-radius:12px;padding:12px;margin:12px 0;color:#704600;text-align:center;font-size:13px;line-height:1.8';
+   const update=()=>{
+    const ms=deadline-Date.now();
+    if(ms<=0){box.textContent='انتهت مدة عرض جيمناي 18 شهر يوم 26 أكتوبر 2026';return;}
+    let seconds=Math.floor(ms/1000);
+    const days=Math.floor(seconds/86400);seconds%=86400;
+    const hours=Math.floor(seconds/3600);seconds%=3600;
+    const minutes=Math.floor(seconds/60);seconds%=60;
+    box.textContent='⏳ قبل فوات الأوان · جيمناي 18 شهر\n'+days+' يوم · '+hours+' ساعة · '+minutes+' دقيقة · '+seconds+' ثانية\nينتهي بنهاية 26 أكتوبر 2026 بتوقيت مصر';
+    box.style.whiteSpace='pre-line';
+   };
+   target.prepend(box);update();setInterval(update,1000);
+  });
+ };
+ mount();
+ const grid=document.getElementById('grid');
+ if(grid)new MutationObserver(mount).observe(grid,{childList:true});
+})();
