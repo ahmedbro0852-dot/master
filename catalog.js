@@ -21,7 +21,37 @@ const products = [
       "price": 499,
       "account": "جيمناي على إيميلك · كورسيرا حساب جاهز",
       "activation": "تفعيل جيمناي على إيميلك وتسليم حساب كورسيرا Plus جاهز. هدية Canva Pro لمدة 3 سنين على إيميلك.",
-      "warranty": "ضمان كامل لاشتراك كورسيرا Plus"
+      "warranty": "ضمان كامل لاشتراك كورسيرا Plus",
+      "officialPrice": {
+        "amount": 890.97,
+        "currency": "USD",
+        "basis": "reference",
+        "checkedAt": "2026-10-11",
+        "source": "https://www.coursera.org/courseraplus",
+        "components": [
+          {
+            "name": "Coursera Plus",
+            "amount": 399,
+            "months": 12
+          },
+          {
+            "name": "Google AI Pro",
+            "amount": 59.97,
+            "months": 3
+          },
+          {
+            "name": "Canva Pro",
+            "amount": 432,
+            "months": 36
+          }
+        ]
+      },
+      "priceComparison": {
+        "planName": "Coursera Plus سنة + Google AI Pro 3 شهور + Canva Pro 3 سنين",
+        "status": "reference",
+        "checkedAt": "2026-10-11",
+        "note": "تقدير مقارنة بالأسعار الأمريكية للاشتراكات الفردية المعتادة قبل الضرائب؛ يختلف حسب البلد ونوع التفعيل."
+      }
     }
   ],
   "featuresEn": [
