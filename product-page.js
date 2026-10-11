@@ -24,7 +24,7 @@
   }
 
   function icon(product){
-    if(product.id==='gemini-coursera-bundle')return '<span style="display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="product-logo big"><img src="logos/coursera.svg" alt="Coursera Plus"></span>'+['gemini','canva'].map((name)=>'<span style="display:grid;justify-items:center;gap:3px"><img src="logos/'+name+'.svg" alt="'+name+'" style="width:28px;height:28px;object-fit:contain"><small style="background:#e8f8ed;color:#12733b;border-radius:5px;padding:2px 6px;font-size:10px;font-weight:700">'+typeof ui==='function'?ui('مجانًا','FREE'):'مجانًا'+'</small></span>').join('')+'</span>';
+    if(product.id==='gemini-coursera-bundle')return '<span style="display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="product-logo big"><img src="logos/coursera.svg" alt="Coursera Plus"></span>'+['gemini','canva'].map((name)=>'<span style="display:grid;justify-items:center;gap:3px"><img src="logos/'+name+'.svg" alt="'+name+'" style="width:28px;height:28px;object-fit:contain"><small style="background:#e8f8ed;color:#12733b;border-radius:5px;padding:2px 6px;font-size:10px;font-weight:700">'+(typeof ui==='function'?ui('مجانًا','FREE'):'مجانًا')+'</small></span>').join('')+'</span>';
     const fallback=(product.name||'M').split(/\s+/).map(x=>x[0]).join('').slice(0,2);
     const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20261009-logo-review3':'';
     const src=product.logoUrl||local;
