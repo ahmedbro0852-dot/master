@@ -24,6 +24,7 @@
   }
 
   function icon(product){
+    if(product.id==='gemini-coursera-bundle')return '<span style="display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="product-logo big"><img src="logos/coursera.svg" alt="Coursera Plus"></span>'+['gemini','canva'].map((name)=>'<span style="display:grid;justify-items:center;gap:3px"><img src="logos/'+name+'.svg" alt="'+name+'" style="width:28px;height:28px;object-fit:contain"><small style="background:#e8f8ed;color:#12733b;border-radius:5px;padding:2px 6px;font-size:10px;font-weight:700">'+typeof ui==='function'?ui('مجانًا','FREE'):'مجانًا'+'</small></span>').join('')+'</span>';
     const fallback=(product.name||'M').split(/\s+/).map(x=>x[0]).join('').slice(0,2);
     const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20261009-logo-review3':'';
     const src=product.logoUrl||local;
@@ -306,6 +307,9 @@
         (plan.credits?'<div><dt>'+ui('الرصيد','Credits')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.credits,'credits'))+'</dd></div>':'')+
       '</dl>'+
       (notes.length?'<div class="plan-notes"><b>'+ui('ملاحظات مهمة','Important notes')+'</b><ul>'+notes.map(n=>'<li>'+MasterStore.escapeHtml(tr(n,'note'))+'</li>').join('')+'</ul></div>':'');
+    if(p.id==='gemini-coursera-bundle'){
+      planDetails.insertAdjacentHTML('afterbegin','<section style="border:1px solid #e3e9f2;padding:16px;border-radius:12px;margin-bottom:16px"><h3>الاشتراك الأساسي</h3><p>Coursera Plus لمدة 12 شهرًا — حساب جاهز بضمان كامل.</p><h3>الهدايا المجانية</h3><p>🎁 Gemini لمدة 3 شهور على إيميلك.</p><p>🎁 Canva Pro لمدة 3 سنين على إيميلك.</p><small>الهدايا مشمولة في سعر العرض 499ج.</small></section>');
+    }
     planFeatures.innerHTML=features.length?'<div class="plan-features"><b>'+ui('مميزات الاشتراك','Subscription features')+'</b><ul>'+features.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'';
   }
   radios.forEach(r=>r.onchange=renderDetails);
@@ -370,7 +374,7 @@
    const box=document.createElement('div');
    box.dataset.geminiCountdown='';
    box.setAttribute('role','timer');
-   box.style.cssText='background:#fff7e6;border:1px solid #f2cf85;border-radius:12px;padding:12px;margin:12px 0;color:#704600;text-align:center;font-size:13px;line-height:1.8';
+   box.style.cssText='color:#dc2626;text-align:center;font-size:11px;font-weight:600;margin:8px 0;line-height:1.5';
    const update=()=>{
     const ms=deadline-Date.now();
     if(ms<=0){box.textContent='انتهت مدة عرض جيمناي 18 شهر يوم 26 أكتوبر 2026';return;}
@@ -378,10 +382,13 @@
     const days=Math.floor(seconds/86400);seconds%=86400;
     const hours=Math.floor(seconds/3600);seconds%=3600;
     const minutes=Math.floor(seconds/60);seconds%=60;
-    box.textContent='⏳ قبل فوات الأوان · جيمناي 18 شهر\n'+days+' يوم · '+hours+' ساعة · '+minutes+' دقيقة · '+seconds+' ثانية\nينتهي بنهاية 26 أكتوبر 2026 بتوقيت مصر';
+    box.textContent='⏳ '+days+' يوم : '+hours+' ساعة : '+minutes+' دقيقة : '+seconds+' ثانية';
     box.style.whiteSpace='pre-line';
    };
-   target.prepend(box);update();setInterval(update,1000);
+   target.prepend(box);
+   const message=document.createElement('p');message.textContent='قبل فوات الأوان: عرض جيمناي 18 شهر متاح حتى نهاية 26 أكتوبر 2026 بتوقيت مصر.';
+   message.style.cssText='font-size:13px;line-height:1.8;color:#b91c1c;background:#fff1f2;border-radius:10px;padding:12px';
+   box.after(message);update();setInterval(update,1000);
   });
  };
  mount();
