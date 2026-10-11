@@ -710,7 +710,7 @@ const products = [
   "logo": "gemini",
   "logoUrl": "logos/gemini.svg?v=20261009-logo-review3",
   "status": "available",
-  "description": "عرضان لمدة 18 شهر؛ الباقة العائلية تضيف 5 دعوات إضافية، ورصيد 1,000 Credit شهريًا مخصص للحساب الرئيسي فقط.",
+  "description": "عرضان لمدة 18 شهر؛ الباقة العائلية تضيف 5 دعوات إضافية، ورصيد 1,000 Credit شهريًا مخصص للحساب الرئيسي فقط. مدة ضمان باقات الـ18 شهر هي 3 شهور.",
   "plans": [
     {
       "name": "Gemini Pro",
@@ -718,7 +718,7 @@ const products = [
       "price": 150,
       "activation": "رابط تفعيل مباشر على البريد الشخصي — بدون بطاقة أو بيانات دفع.",
       "account": "حساب العميل الشخصي",
-      "warranty": "ضمان كامل",
+      "warranty": "ضمان 3 شهور",
       "credits": "1,000 Credit شهريًا",
       "features": [
         "1,000 Credit شهريًا للاستخدام داخل الخدمة"
@@ -746,7 +746,7 @@ const products = [
       "price": 250,
       "activation": "نفس تفعيل Gemini Pro + 5 دعوات عائلية إضافية.",
       "account": "حساب المتحكم + 5 دعوات إضافية",
-      "warranty": "ضمان كامل",
+      "warranty": "ضمان 3 شهور",
       "credits": "1,000 Credit شهريًا للحساب الرئيسي فقط",
       "features": [
         "1,000 Credit شهريًا للحساب الرئيسي فقط",
