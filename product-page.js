@@ -117,7 +117,7 @@
     if(!plan||(!plan.oldPrice&&!plan.officialPrice))return '';
     const saving=MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan);
     if(saving<=0)return '';
-    return '<small class="plan-saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</small>';
+    return '<small class="plan-saving">'+(p.id==='gemini-coursera-bundle'?ui('إجمالي التوفير التقديري','Estimated total savings'):(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save')))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</small>';
   }
 
   function selectedPlan(){
