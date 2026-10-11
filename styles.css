@@ -2022,3 +2022,7 @@ body{background:#f5f8fc;color:var(--ink)}
 .bundle-brand-group .product-logo.bundle-main-logo{width:76px;height:76px;padding:10px;flex-shrink:0}
 .bundle-hero .bundle-brand-group .product-logo.bundle-main-logo{width:84px;height:84px;padding:12px}
 @media(max-width:480px){.bundle-brand-group .product-logo.bundle-main-logo{width:68px;height:68px}.bundle-hero .bundle-brand-group .product-logo.bundle-main-logo{width:76px;height:76px}}
+
+.bundle-brand-group .product-logo.bundle-main-logo{width:82px;height:82px}
+.bundle-hero .bundle-brand-group .product-logo.bundle-main-logo{width:90px;height:90px}
+@media(max-width:480px){.bundle-brand-group .product-logo.bundle-main-logo{width:74px;height:74px}.bundle-hero .bundle-brand-group .product-logo.bundle-main-logo{width:82px;height:82px}}
