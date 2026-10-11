@@ -75,12 +75,12 @@
   const initialPlan=Number.isInteger(requestedPlan)&&requestedPlan>=0&&requestedPlan<plans.length&&plans[requestedPlan].available!==false?requestedPlan:Math.max(0,plans.findIndex(x=>x.available!==false));
 
   root.innerHTML=
-    '<section class="product-hero">'+
+    '<section class="product-hero '+(p.id==='gemini-coursera-bundle'?'bundle-hero':'')+'">'+
       '<a class="back-link" href="index.html#products">'+ui('← كل المنتجات','← All products')+'</a>'+
       '<div class="product-title">'+icon(p)+'<div><span class="eyebrow">'+MasterStore.escapeHtml(tr(p.category,'category'))+'</span><h1>'+MasterStore.escapeHtml(p.name)+'</h1><p>'+MasterStore.escapeHtml(tr(p.description||'','description'))+'</p></div></div>'+
       '<span class="status '+(p.status==='available'?'ok':p.status==='soon'?'soon':'out')+'">'+tr(statusLabel(p.status),'status')+'</span>'+
     '</section>'+
-    '<section class="product-layout">'+
+    '<section class="product-layout '+(p.id==='gemini-coursera-bundle'?'bundle-layout':'')+'">'+
       '<div class="plans-block"><h2>'+ui('اختار الباقة','Choose a plan')+'</h2>'+
         (plans.length?plans.map((plan,i)=>
           '<label class="plan-option">'+
