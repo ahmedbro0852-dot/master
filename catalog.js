@@ -1325,7 +1325,7 @@ const products = [
       {
         "name": "شهر",
         "duration": "1 شهر",
-        "price": 150,
+        "price": 200,
         "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
         "account": "حساب جاهز",
         "warranty": "ضمان كامل",
