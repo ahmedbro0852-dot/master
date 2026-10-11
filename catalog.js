@@ -1,18 +1,18 @@
 const products = [
 {
   "id": "gemini-coursera-bundle",
-  "name": "كورسيرا Plus سنة + هدايا مجانية",
-  "category": "AI Tools",
+  "name": "Coursera Plus + هدايا",
+  "category": "التعليم",
   "logo": "gemini",
   "logoUrl": "logos/gemini.svg?v=20261009-logo-review3",
   "status": "available",
-  "description": "عرض مميز بـ499ج: جيمناي 3 شهور على إيميلك + كورسيرا Plus لمدة 12 شهرًا، حساب جاهز بضمان كامل. هدية Canva Pro لمدة 3 سنين على إيميلك.",
+  "description": "اشتراك كورسيرا Plus سنة كاملة، حساب جاهز بضمان كامل. ومعاه جيمناي 3 شهور وكانفا Pro لمدة 3 سنين مجانًا على إيميلك.",
   "features": [
-    "جيمناي لمدة 3 شهور على إيميلك.",
-    "كورسيرا Plus للكورسات لمدة 12 شهرًا.",
-    "كورسيرا حساب جاهز بضمان كامل.",
-    "سعر العرض كاملًا 499ج.",
-    "هدية: Canva Pro لمدة 3 سنين على إيميلك."
+    "الاشتراك الأساسي: Coursera Plus لمدة 12 شهرًا.",
+    "تسليم حساب كورسيرا جاهز بضمان كامل.",
+    "هدية Gemini لمدة 3 شهور على إيميلك.",
+    "هدية Canva Pro لمدة 3 سنين على إيميلك.",
+    "الاشتراك والهدايا مشمولة في سعر واحد: 499ج."
   ],
   "plans": [
     {
@@ -23,6 +23,13 @@ const products = [
       "activation": "تفعيل جيمناي على إيميلك وتسليم حساب كورسيرا Plus جاهز. هدية Canva Pro لمدة 3 سنين على إيميلك.",
       "warranty": "ضمان كامل لاشتراك كورسيرا Plus"
     }
+  ],
+  "featuresEn": [
+    "Main subscription: Coursera Plus for 12 months.",
+    "Ready-made Coursera account with full warranty.",
+    "Free Gemini gift for 3 months on your email.",
+    "Free Canva Pro gift for 3 years on your email.",
+    "The subscription and both gifts are included in one bundle."
   ]
 },
 {
