@@ -209,7 +209,7 @@
   function renderBestOffers(){
     const target=document.getElementById('bestOffersGrid');
     if(!target)return;
-    const picks=[['gemini-coursera-bundle',0],['lovable-pro',1],['gemini-pro',0],['capcut-pro',1],['grok',0]];
+    const picks=[['cursor-pro',1],['gemini-coursera-bundle',0],['lovable-pro',1],['gemini-pro',0],['capcut-pro',1],['grok',0]];
     target.innerHTML=picks.map(([id,index])=>{
       const product=Catalog.getProduct(id),plan=product?.plans?.[index];
       if(!plan)return '';
@@ -279,4 +279,17 @@
  mount();
  const root=document.getElementById(productView?'productPage':'grid');
  if(root)new MutationObserver(mount).observe(root,{childList:true});
+})();
+
+(function cursorOfferTimer(){
+ const end=Date.parse('2026-10-13T11:32:00Z');
+ const mount=()=>{
+  const page=new URLSearchParams(location.search).get('id')==='cursor-pro';
+  const root=page?document.querySelector('#productPage .product-hero'):document.querySelector('[data-product-id="cursor-pro"]');
+  if(!root||root.querySelector('[data-cursor-offer]'))return;
+  const box=document.createElement('div');box.dataset.cursorOffer='';box.setAttribute('role','timer');box.setAttribute('aria-live','off');box.style.cssText='color:#c62828;font-size:11px;line-height:1.8;margin:10px 0;text-align:center';
+  const update=()=>{let s=Math.max(0,Math.floor((end-Date.now())/1000));const h=Math.floor(s/3600);s%=3600;const m=Math.floor(s/60);s%=60;box.textContent=end>Date.now()?'عرض الشهر 300ج · متبقي '+h+' ساعة : '+m+' دقيقة : '+s+' ثانية':'انتهى عرض الشهر بـ300ج';};
+  root.append(box);update();setInterval(update,1000);
+ };
+ mount();const root=document.getElementById('productPage')||document.getElementById('grid');if(root)new MutationObserver(mount).observe(root,{childList:true});
 })();
