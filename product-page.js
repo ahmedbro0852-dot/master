@@ -385,6 +385,6 @@
   });
  };
  mount();
- const grid=document.getElementById('grid');
+ const grid=document.getElementById('productPage');
  if(grid)new MutationObserver(mount).observe(grid,{childList:true});
 })();
