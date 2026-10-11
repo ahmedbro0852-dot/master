@@ -75,6 +75,7 @@
   }
 
   function logoMarkup(product){
+    if(product.id==='gemini-coursera-bundle')return '<span style="display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap"><span class="product-logo big"><img src="logos/coursera.svg" alt="Coursera Plus"></span>'+['gemini','canva'].map((name)=>'<span style="display:grid;justify-items:center;gap:3px"><img src="logos/'+name+'.svg" alt="'+name+'" style="width:28px;height:28px;object-fit:contain"><small style="background:#e8f8ed;color:#12733b;border-radius:5px;padding:2px 6px;font-size:10px;font-weight:700">'+typeof ui==='function'?ui('مجانًا','FREE'):'مجانًا'+'</small></span>').join('')+'</span>';
     const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20261009-logo-review3':'';
     const src=product.logoUrl||local;
     const fallback=initials(product.name);
@@ -254,7 +255,7 @@
    const box=document.createElement('div');
    box.dataset.geminiCountdown='';
    box.setAttribute('role','timer');
-   box.style.cssText='background:#fff7e6;border:1px solid #f2cf85;border-radius:12px;padding:12px;margin:12px 0;color:#704600;text-align:center;font-size:13px;line-height:1.8';
+   box.style.cssText='color:#dc2626;text-align:center;font-size:11px;font-weight:600;margin:8px 0;line-height:1.5';
    const update=()=>{
     const ms=deadline-Date.now();
     if(ms<=0){box.textContent='انتهت مدة عرض جيمناي 18 شهر يوم 26 أكتوبر 2026';return;}
@@ -262,7 +263,7 @@
     const days=Math.floor(seconds/86400);seconds%=86400;
     const hours=Math.floor(seconds/3600);seconds%=3600;
     const minutes=Math.floor(seconds/60);seconds%=60;
-    box.textContent='⏳ قبل فوات الأوان · جيمناي 18 شهر\n'+days+' يوم · '+hours+' ساعة · '+minutes+' دقيقة · '+seconds+' ثانية\nينتهي بنهاية 26 أكتوبر 2026 بتوقيت مصر';
+    box.textContent='⏳ '+days+' يوم : '+hours+' ساعة : '+minutes+' دقيقة : '+seconds+' ثانية';
     box.style.whiteSpace='pre-line';
    };
    target.prepend(box);update();setInterval(update,1000);
