@@ -2017,3 +2017,8 @@ body{background:#f5f8fc;color:var(--ink)}
 .gemini-offer-notice>div{min-width:0;flex:1 1 230px}
 .gemini-offer-notice .gemini-deadline{flex:0 1 auto}
 @media(max-width:480px){.bundle-layout .details-list>div{grid-template-columns:80px minmax(0,1fr)}.bundle-layout .bundle-inclusions{grid-template-columns:minmax(0,1fr)}.bundle-gift-row{gap:8px}.bundle-gift-row img{width:26px;height:26px}.bundle-free-tag{flex-shrink:0}.gemini-offer-notice{flex-direction:column;align-items:flex-start}.gemini-offer-notice>div{flex:auto}.gemini-offer-notice .gemini-deadline{align-self:flex-start}}
+
+/* Slightly larger primary Coursera logo. */
+.bundle-brand-group .product-logo.bundle-main-logo{width:76px;height:76px;padding:10px;flex-shrink:0}
+.bundle-hero .bundle-brand-group .product-logo.bundle-main-logo{width:84px;height:84px;padding:12px}
+@media(max-width:480px){.bundle-brand-group .product-logo.bundle-main-logo{width:68px;height:68px}.bundle-hero .bundle-brand-group .product-logo.bundle-main-logo{width:76px;height:76px}}
