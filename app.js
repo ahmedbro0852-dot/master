@@ -146,7 +146,7 @@
       : '<button class="card-btn disabled" type="button" disabled>'+esc(status)+'</button>';
     return '<article class="product-card light-card simple-service-card" aria-label="'+esc(product.name)+'" data-product-id="'+esc(product.id)+'" data-category="'+esc(product.category)+'" data-search="'+esc(searchText(product))+'">'+
       '<div class="card-top">'+logoMarkup(product)+'<h3 class="service-name" dir="auto">'+esc(product.name)+'</h3></div>'+
-      '<div class="light-meta"><strong>'+esc(price)+'</strong></div>'+
+      (product.id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">كورسيرا سنة + جيمناي ٣ شهور + كانفا ٣ سنين</p>':'')+'<div class="light-meta"><strong>'+esc(price)+'</strong></div>'+
       '<div class="card-bottom light-bottom">'+action+'</div>'+
     '</article>';
   }
@@ -213,7 +213,7 @@
     target.innerHTML=picks.map(([id,index])=>{
       const product=Catalog.getProduct(id),plan=product?.plans?.[index];
       if(!plan)return '';
-      return '<article class="best-offer">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3><small>'+esc(id==='lovable-pro'&&index===1?ui('شهر · 100 كريدت + 5 يوميًا','Month · 100 credits + 5 daily'):tr(plan.duration,'duration',id))+'</small></div><strong>'+Store.planMoney(plan)+((plan.oldPrice||plan.officialPrice)&&Store.planAmount(plan,'oldPrice')>Store.planAmount(plan)?' <del>'+Store.planMoney(plan,'oldPrice')+'</del>':'')+'</strong><a class="card-btn soft-btn" href="product.html?id='+encodeURIComponent(id)+'&plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
+      return '<article class="best-offer '+(id==='gemini-coursera-bundle'?'bundle-featured':'')+'">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3>'+(id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">اشتراك سنة بضمان كامل + هديتين مجانًا</p>':'')+'<small>'+esc(id==='lovable-pro'&&index===1?ui('شهر · 100 كريدت + 5 يوميًا','Month · 100 credits + 5 daily'):tr(plan.duration,'duration',id))+'</small></div><strong>'+Store.planMoney(plan)+((plan.oldPrice||plan.officialPrice)&&Store.planAmount(plan,'oldPrice')>Store.planAmount(plan)?' <del>'+Store.planMoney(plan,'oldPrice')+'</del>':'')+'</strong><a class="card-btn soft-btn" href="product.html?id='+encodeURIComponent(id)+'&plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
     }).join('');
     bindLogoFallbacks(target);
   }
