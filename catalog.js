@@ -119,16 +119,20 @@ const products = [
   "logo": "higgsfield",
   "logoUrl": "logos/higgsfield.svg?v=20261009-logo-review3",
   "status": "available",
-  "description": "كود تفعيل Higgsfield Pro لمدة سنة بـ160 دولار؛ تفعيل مباشر على بريدك الشخصي.",
+  "description": "كود تفعيل Higgsfield Pro لمدة سنة بـ160 دولار؛ تفعيل مباشر على بريدك الشخصي. يتوفّر Seedance لتوليد الفيديو داخل المنصة.",
   "features": [
     "خطة Pro لمدة سنة كاملة.",
     "تسليم كود تفعيل.",
-    "تفعيل مباشر على بريدك الشخصي."
+    "تفعيل مباشر على بريدك الشخصي.",
+    "يتوفّر Seedance (سيدانس) لتوليد الفيديو داخل Higgsfield.",
+    "استخدام Seedance حسب رصيد الباقة وإعدادات الفيديو؛ Enhanced Fast إضافة مدفوعة منفصلة."
   ],
   "featuresEn": [
     "Pro plan for one full year.",
     "Activation code delivery.",
-    "Direct activation on your personal email."
+    "Direct activation on your personal email.",
+    "Seedance video generation is available within Higgsfield.",
+    "Seedance usage depends on plan credits and video settings; Enhanced Fast is a separate paid add-on."
   ],
   "plans": [
     {
@@ -145,6 +149,7 @@ const products = [
     }
   ]
 },
+
 {
   "id": "windows-pro",
   "featuresEn": [
