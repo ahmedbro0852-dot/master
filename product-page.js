@@ -296,9 +296,8 @@
 
 
   const openedGifts=new Map();
-  let giftSoundEnabled=true,giftAudio=null;
+  let giftAudio=null;
   function playGiftChime(){
-    if(!giftSoundEnabled)return;
     try{
       const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;
       giftAudio=giftAudio||new Audio();
@@ -313,12 +312,12 @@
     }catch{/* The gift still opens if sound is unavailable. */}
   }
   function premiumGifts(plan){
-    if(p.status!=='available'||plan.available===false||!(Number(plan.price)>4000))return '';
+    if(p.status!=='available'||plan.available===false||!(Number(plan.price)>=2000))return '';
     const state=openedGifts.get(plans.indexOf(plan))||new Set();
     const gifts=[{id:'google',logo:'gemini',name:'Google AI Pro',duration:ui('١٨ شهر','18 months')},{id:'canva',logo:'canva',name:'Canva Pro',duration:ui('٣ سنين','3 years')}];
-    return '<section class="premium-gifts gift-duo" aria-label="'+ui('هدايا الباقة','Plan gifts')+'"><div class="gift-duo-heading"><div><small>'+ui('مجانًا مع اشتراكك','Included free')+'</small><h3>'+ui('هديتان ليك','Two gifts for you')+'</h3></div><button type="button" class="gift-sound-toggle" aria-pressed="'+giftSoundEnabled+'" aria-label="'+ui(giftSoundEnabled?'كتم صوت الهدايا':'تشغيل صوت الهدايا',giftSoundEnabled?'Mute gift sound':'Enable gift sound')+'">'+ui(giftSoundEnabled?'الصوت مفعّل':'الصوت مكتوم',giftSoundEnabled?'Sound on':'Sound off')+'</button></div><p class="gift-duo-intro">'+ui('اضغط على كل صندوق وافتح هديتك.','Tap each box to unwrap your gift.')+'</p><div class="gift-duo-grid">'+gifts.map((gift,i)=>{
+    return '<section class="premium-gifts gift-duo" aria-label="'+ui('هدايا الباقة','Plan gifts')+'"><div class="gift-duo-heading"><div><small>'+ui('مجانًا مع اشتراكك','Included free')+'</small><h3>'+ui('هدايا خاصة مع الباقة','Gifts included with your plan')+'</h3></div></div><p class="gift-duo-intro">'+ui('افتح الصندوقين واكتشف هدايا اشتراكك.','Unwrap both boxes to discover your gifts.')+'</p><div class="gift-duo-grid">'+gifts.map((gift,i)=>{
       const open=state.has(gift.id);
-      return '<div class="gift-present '+(open?'is-unwrapped':'')+'"><button type="button" class="present-trigger" data-gift="'+gift.id+'" aria-expanded="'+open+'" aria-controls="gift-'+gift.id+'" aria-label="'+ui((open?'إغلاق':'فتح')+' الهدية '+(i+1),(open?'Close':'Open')+' gift '+(i+1))+'"><span class="present-stage" aria-hidden="true"><span class="present-halo"></span><span class="present-body"></span><span class="present-lid"><span class="present-bow left"></span><span class="present-bow right"></span></span><span class="present-prize"><img src="logos/'+gift.logo+'.svg" alt="" width="44" height="44"></span><span class="present-star star-a">✦</span><span class="present-star star-b">✧</span><span class="present-star star-c">✦</span></span><span class="present-caption">'+ui('الهدية '+(i+1),'Gift '+(i+1))+'</span><span class="present-action">'+ui(open?'تم فتح الهدية':'اضغط للفتح',open?'Unwrapped':'Tap to open')+'</span></button><div class="present-reveal" id="gift-'+gift.id+'" '+(open?'':'inert')+'><div class="present-reveal-inner"><strong>'+gift.name+'</strong><span>'+gift.duration+'</span><small>'+ui('مجانًا','FREE')+'</small></div></div></div>';
+      return '<div class="gift-present '+(open?'is-unwrapped':'')+'"><button type="button" class="present-trigger" data-gift="'+gift.id+'" aria-expanded="'+open+'" aria-controls="gift-'+gift.id+'" aria-label="'+ui((open?'إغلاق':'فتح')+' الهدية '+(i+1),(open?'Close':'Open')+' gift '+(i+1))+'"><span class="present-number" aria-hidden="true">'+(i+1)+'</span><span class="present-stage" aria-hidden="true"><span class="present-halo"></span><span class="present-body"></span><span class="present-lid"><span class="present-bow left"></span><span class="present-bow right"></span></span><span class="present-prize"><img src="logos/'+gift.logo+'.svg" alt="" width="44" height="44"></span><span class="present-star star-a">✦</span><span class="present-star star-b">✧</span><span class="present-star star-c">✦</span></span><span class="present-caption">'+ui('الهدية '+(i+1),'Gift '+(i+1))+'</span><span class="present-action">'+ui(open?'هديتك جاهزة':'افتح هديتك',open?'Your gift is ready':'Unwrap your gift')+'</span></button><div class="present-reveal" id="gift-'+gift.id+'" '+(open?'':'inert')+'><div class="present-reveal-inner"><strong>'+gift.name+'</strong><span>'+gift.duration+'</span><small>'+ui('مجانًا','FREE')+'</small></div></div></div>';
     }).join('')+'</div><p class="gift-duo-note">'+ui('الهديتان مشمولتان بدون تكلفة إضافية.','Both gifts included at no extra charge.')+'</p></section>';
   }
 
@@ -350,18 +349,12 @@
       '</dl>'+
       (notes.length?'<div class="plan-notes"><b>'+ui('ملاحظات مهمة','Important notes')+'</b><ul>'+notes.map(n=>'<li>'+MasterStore.escapeHtml(tr(n,'note'))+'</li>').join('')+'</ul></div>':'');
     planDetails.insertAdjacentHTML('beforeend',premiumGifts(plan));
-    const soundButton=planDetails.querySelector('.gift-sound-toggle');
-    if(soundButton)soundButton.addEventListener('click',()=>{
-      giftSoundEnabled=!giftSoundEnabled;soundButton.setAttribute('aria-pressed',String(giftSoundEnabled));
-      soundButton.textContent=ui(giftSoundEnabled?'الصوت مفعّل':'الصوت مكتوم',giftSoundEnabled?'Sound on':'Sound off');
-      soundButton.setAttribute('aria-label',ui(giftSoundEnabled?'كتم صوت الهدايا':'تشغيل صوت الهدايا',giftSoundEnabled?'Mute gift sound':'Enable gift sound'));
-    });
     planDetails.querySelectorAll('.present-trigger').forEach(button=>button.addEventListener('click',()=>{
       const present=button.closest('.gift-present'),open=present.classList.toggle('is-unwrapped'),id=button.dataset.gift;
       button.setAttribute('aria-expanded',String(open));
       button.setAttribute('aria-label',ui((open?'إغلاق':'فتح')+' الهدية '+(id==='google'?1:2),(open?'Close':'Open')+' gift '+(id==='google'?1:2)));
       present.querySelector('.present-reveal').inert=!open;
-      button.querySelector('.present-action').textContent=ui(open?'تم فتح الهدية':'اضغط للفتح',open?'Unwrapped':'Tap to open');
+      button.querySelector('.present-action').textContent=ui(open?'هديتك جاهزة':'افتح هديتك',open?'Your gift is ready':'Unwrap your gift');
       const index=plans.indexOf(plan),state=openedGifts.get(index)||new Set();if(open){state.add(id);playGiftChime();}else state.delete(id);openedGifts.set(index,state);
     }));
     if(p.id==='gemini-coursera-bundle'){
