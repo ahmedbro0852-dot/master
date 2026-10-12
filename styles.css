@@ -2026,28 +2026,3 @@ body{background:#f5f8fc;color:var(--ink)}
 .bundle-brand-group .product-logo.bundle-main-logo{width:82px;height:82px}
 .bundle-hero .bundle-brand-group .product-logo.bundle-main-logo{width:90px;height:90px}
 @media(max-width:480px){.bundle-brand-group .product-logo.bundle-main-logo{width:74px;height:74px}.bundle-hero .bundle-brand-group .product-logo.bundle-main-logo{width:82px;height:82px}}
-
-/* Manus offer comparison */
-.manus-page .product-hero{background:linear-gradient(120deg,#f4f6ff,#fff);border:1px solid #e0e5f1;border-radius:24px;padding:28px}
-.manus-page .plans-block{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.manus-page .plans-block>h2,.manus-plan-intro,.manus-page #planFeatures{grid-column:1/-1}
-.manus-plan-intro{margin:0 0 6px;color:#667085;font-size:14px;line-height:1.8}
-.manus-page .manus-plan{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:10px;margin:0;padding:20px;border:1px solid #e0e5ee;border-radius:18px;background:#fff;min-width:0;cursor:pointer;transition:border-color .18s,box-shadow .18s}
-.manus-plan input{position:absolute;opacity:0;width:1px;height:1px}
-.manus-page .manus-plan:has(input:checked){border-color:#4f46e5;box-shadow:0 0 0 2px #4f46e51a;background:#fafaff}
-.manus-page .manus-plan:has(input:focus-visible){outline:3px solid #4f46e5;outline-offset:3px}
-.manus-card-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.manus-badge{font-size:11px;font-weight:700;padding:5px 9px;border-radius:6px;background:#eef0ff;color:#4943a7;line-height:1.5}
-.manus-check{border:1px solid #d6dce7;width:23px;height:23px;border-radius:50%;display:grid;place-items:center;color:transparent;flex-shrink:0}
-.manus-plan:has(input:checked) .manus-check{background:#4f46e5;color:white;border-color:#4f46e5}
-.manus-plan h3{font-size:17px;margin:4px 0;color:#182230}
-.manus-balance{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-.manus-page .manus-balance strong{font-size:32px;color:#182230;letter-spacing:-1px;line-height:1.2}
-.manus-balance span{font-size:12px;color:#667085}
-.manus-card-copy{margin:0;color:#667085;font-size:12px;line-height:1.7;min-height:21px}
-.manus-card-price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:4px}
-.manus-page .manus-card-price strong{font-size:23px;color:#4338ca}
-.manus-card-price small{font-size:12px;color:#667085}
-.manus-card-bottom{display:flex;flex-wrap:wrap;gap:6px 12px;border-top:1px solid #edf0f5;padding-top:11px;margin-top:auto;font-size:11px;color:#475467}
-@media(max-width:480px){.manus-page .product-hero{padding:20px;border-radius:18px}.manus-page .plans-block{gap:10px}.manus-page .manus-plan{padding:13px;gap:8px;border-radius:14px}.manus-plan h3{font-size:14px}.manus-page .manus-balance strong{font-size:27px}.manus-page .manus-card-price strong{font-size:20px}.manus-badge{font-size:10px;padding:4px 6px}}
-@media(max-width:350px){.manus-page .plans-block{grid-template-columns:minmax(0,1fr)}}
