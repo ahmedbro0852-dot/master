@@ -2816,33 +2816,38 @@ const products = [
 },
 {
   "id": "manus",
-  "name": "Manus",
+  "name": "Manus — حساب عادي",
   "category": "AI Tools",
   "logo": "manus",
   "logoUrl": "logos/manus.svg?v=20261009-logo-review3",
   "status": "available",
-  "description": "وكيل ذكاء اصطناعي لتنفيذ المهام والبحث وتنظيم سير العمل.",
+  "description": "حساب Manus عادي على الخطة المجانية، مع رصيد جاهز للاستخدام. تسليم بريد إلكتروني وكلمة مرور.",
   "plans": [
     {
-      "name": "خطة سنوية",
-      "duration": "12 شهر",
-      "price": 2250,
-      "activation": "تسليم حساب خاص.",
-      "account": "حساب خاص — يُفضل عدم تغيير البيانات",
-      "warranty": "ضمان كامل",
-      "credits": "4,000 Credit شهريًا",
-      "priceComparison": {
-        "planName": "Manus Pro — أقل شريحة",
-        "source": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus",
-        "checkedAt": "2026-10-08",
-        "status": "unavailable",
-        "note": "السعر يبدأ من 20 دولارًا شهريًا، مع خصم سنوي معلن 17%. لم يتأكد إجمالي سنوي دقيق لشريحة 4,000 كريدت من الصفحة، لذلك أُزيلت المقارنة الرقمية القديمة.",
-        "rawPrice": {
-          "amount": 20,
-          "currency": "USD",
-          "label": "بداية أقل شريحة Pro / شهر؛ الخصم السنوي المعلن 17%"
-        }
-      }
+      "name": "حساب عادي — 3,300 كرديت",
+      "duration": "رصيد استخدام",
+      "price": 380,
+      "activation": "تسليم حساب جاهز بالبريد الإلكتروني وكلمة المرور.",
+      "account": "حساب جاهز — بريد وباسورد",
+      "warranty": "غير محدد",
+      "credits": "3,300 كرديت",
+      "notes": [
+        "الحساب على الخطة المجانية (Free).",
+        "السعر مقابل الحساب والرصيد المتاح، وليس اشتراك Pro."
+      ]
+    },
+    {
+      "name": "حساب عادي — 4,000 كرديت",
+      "duration": "رصيد استخدام",
+      "price": 450,
+      "activation": "تسليم حساب جاهز بالبريد الإلكتروني وكلمة المرور.",
+      "account": "حساب جاهز — بريد وباسورد",
+      "warranty": "غير محدد",
+      "credits": "4,000 كرديت",
+      "notes": [
+        "الحساب على الخطة المجانية (Free).",
+        "السعر مقابل الحساب والرصيد المتاح، وليس اشتراك Pro."
+      ]
     }
   ]
 },
@@ -2853,45 +2858,29 @@ const products = [
   "logo": "manus",
   "logoUrl": "logos/manus.svg?v=20261009-logo-review3",
   "status": "available",
-  "description": "اشتراك Manus Pro لمدة 12 شهر، يُفعّل على حسابك الشخصي عبر كود تفعيل.",
+  "description": "اشتراك Manus Pro لمدة شهر، يشمل 4,000 كرديت + 1,000 كرديت هدية، بضمان 20 يوم. تسليم بريد وباسورد.",
   "plans": [
     {
-      "name": "Manus Pro",
-      "duration": "12 شهر",
-      "price": 6000,
-      "activation": "تفعيل على حسابك الشخصي عبر كود تفعيل.",
-      "account": "حساب العميل الشخصي",
-      "warranty": "يُؤكد قبل الدفع",
-      "credits": "رصيد كود التفعيل يُؤكد قبل الدفع",
+      "name": "Pro شهر — 4,000 + 1,000 كرديت مجانًا",
+      "duration": "شهر واحد",
+      "price": 750,
+      "activation": "تسليم حساب Pro جاهز بالبريد الإلكتروني وكلمة المرور.",
+      "account": "حساب جاهز — بريد وباسورد",
+      "warranty": "20 يوم",
+      "credits": "4,000 كرديت + 1,000 كرديت مجانًا = 5,000 كرديت",
       "notes": [
-        "مرجع المقارنة هو خطة Manus Pro الأساسية: 4,000 Credit شهريًا، بسعر معلن 17 دولارًا شهريًا عند الدفع السنوي؛ الإجمالي المحسوب 204 دولارات.",
-        "اسم Pro يشمل مستويات رصيد مختلفة؛ رصيد كود المتجر يُؤكد قبل الدفع."
-      ],
-      "priceComparison": {
-        "planName": "Manus Pro — الشريحة تُحدد بالرصيد",
-        "source": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus",
-        "checkedAt": "2026-10-08",
-        "status": "unavailable",
-        "note": "اسم Pro يشمل شرائح مختلفة. رصيد كود المتجر غير محدد، لذلك لا نقارن بسعر أقل شريحة على أنه مطابق.",
-        "rawPrice": {
-          "amount": 20,
-          "currency": "USD",
-          "label": "بداية أقل شريحة Pro / شهر؛ الخصم السنوي المعلن 17%"
-        }
-      }
+        "1,000 كرديت هدية مشمولة في السعر.",
+        "مدة الاشتراك شهر واحد، والضمان 20 يوم."
+      ]
     }
   ],
   "features": [
     "البحث المتقدم وجمع المعلومات",
     "إنشاء مواقع وعروض تقديمية",
     "تنفيذ مهام متعددة الخطوات"
-  ],
-  "featuresEn": [
-    "Advanced research and information gathering",
-    "Website and presentation creation",
-    "Multi-step task execution"
   ]
 },
+
 {
   "id": "gumloop",
   "name": "Gumloop",
