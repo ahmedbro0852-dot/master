@@ -153,7 +153,7 @@
     "midjourney":"This service is currently unavailable.",
     "leonardo-ai":"This service is currently unavailable.",
     "manus-pro":"A one-month Manus Pro account with 4,000 credits plus 1,000 bonus credits, a 20-day warranty, delivered with email and password.",
-    "manus":"All Manus plans in one place: standard credit accounts, monthly Pro, and annual Pro with activation on your personal account.",
+    "manus":"All Manus credit plans, monthly Pro, and annual Pro with activation on your personal account.",
     "gumloop":"Automate workflows and connect AI-powered tasks.",
     "magic-patterns":"Create interfaces and digital experiences from text prompts.",
     "factory-pro":"A plan for developers and teams building software with AI assistance.",
