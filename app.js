@@ -41,7 +41,7 @@
     return;
   }
 
-  const popularityOrder=["gemini-coursera-bundle","chatgpt-plus","gemini-pro","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus-pro","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account","chatgpt-teachers-k12"];
+  const popularityOrder=["gemini-coursera-bundle","chatgpt-plus","gemini-pro","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account","chatgpt-teachers-k12"];
   const popularityRank=new Map(popularityOrder.map((id,index)=>[id,index]));
   const statusRank={available:0,soon:1,out:2};
   const products=[...(Catalog.products||[])].sort((a,b)=>{
