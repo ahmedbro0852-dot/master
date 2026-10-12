@@ -295,11 +295,31 @@
   }
 
 
-  const openedGifts=new Set();
+  const openedGifts=new Map();
+  let giftSoundEnabled=true,giftAudio=null;
+  function playGiftChime(){
+    if(!giftSoundEnabled)return;
+    try{
+      const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;
+      giftAudio=giftAudio||new Audio();
+      if(giftAudio.state==='suspended')giftAudio.resume().catch(()=>{});
+      const now=giftAudio.currentTime;
+      [523.25,659.25,783.99,1046.5].forEach((frequency,i)=>{
+        const oscillator=giftAudio.createOscillator(),volume=giftAudio.createGain(),start=now+i*.085;
+        oscillator.type='sine';oscillator.frequency.value=frequency;
+        volume.gain.setValueAtTime(0,start);volume.gain.linearRampToValueAtTime(.055,start+.02);volume.gain.exponentialRampToValueAtTime(.001,start+.45);
+        oscillator.connect(volume);volume.connect(giftAudio.destination);oscillator.start(start);oscillator.stop(start+.48);oscillator.onended=()=>{oscillator.disconnect();volume.disconnect();};
+      });
+    }catch{/* The gift still opens if sound is unavailable. */}
+  }
   function premiumGifts(plan){
     if(p.status!=='available'||plan.available===false||!(Number(plan.price)>4000))return '';
-    const index=plans.indexOf(plan),open=openedGifts.has(index);
-    return '<section class="premium-gifts '+(open?'is-open':'')+'" aria-label="'+ui('هدايا الباقة','Plan gifts')+'"><button type="button" class="gift-open-button" aria-expanded="'+open+'" aria-controls="premiumGiftContent"><span class="gift-box-art" aria-hidden="true"><span class="gift-box-base"></span><span class="gift-box-lid"></span><span class="gift-box-bow"></span><span class="gift-spark gift-spark-one">✦</span><span class="gift-spark gift-spark-two">✦</span></span><span class="gift-open-copy"><small>'+ui('هديتان مجانًا مع الباقة','Two free gifts with your plan')+'</small><strong>'+ui('هدايا اشتراكك','Your subscription gifts')+'</strong><span>'+ui('Google AI Pro + Canva Pro','Google AI Pro + Canva Pro')+'</span><em class="gift-action-label">'+ui(open?'اضغط لإغلاق الصندوق':'اضغط لفتح الهدايا',open?'Close your gifts':'Tap to unwrap')+'</em></span><span class="gift-open-arrow" aria-hidden="true">⌄</span></button><div class="gift-reveal" id="premiumGiftContent" '+(open?'':'inert')+'><div class="gift-reveal-inner"><div class="gift-included-card"><img src="logos/gemini.svg" width="38" height="38" alt=""><div><strong>Google AI Pro</strong><p>'+ui('اشتراك لمدة ١٨ شهر','18-month subscription')+'</p></div><span class="gift-free-label">'+ui('مجانًا','FREE')+'</span></div><div class="gift-included-card"><img src="logos/canva.svg" width="38" height="38" alt=""><div><strong>Canva Pro</strong><p>'+ui('اشتراك لمدة ٣ سنين','3-year subscription')+'</p></div><span class="gift-free-label">'+ui('مجانًا','FREE')+'</span></div><p class="gift-included-note">'+ui('الهديتان مشمولتان مع هذه الباقة بدون تكلفة إضافية.','Both gifts are included with this plan at no extra charge.')+'</p></div></div></section>';
+    const state=openedGifts.get(plans.indexOf(plan))||new Set();
+    const gifts=[{id:'google',logo:'gemini',name:'Google AI Pro',duration:ui('١٨ شهر','18 months')},{id:'canva',logo:'canva',name:'Canva Pro',duration:ui('٣ سنين','3 years')}];
+    return '<section class="premium-gifts gift-duo" aria-label="'+ui('هدايا الباقة','Plan gifts')+'"><div class="gift-duo-heading"><div><small>'+ui('مجانًا مع اشتراكك','Included free')+'</small><h3>'+ui('هديتان ليك','Two gifts for you')+'</h3></div><button type="button" class="gift-sound-toggle" aria-pressed="'+giftSoundEnabled+'" aria-label="'+ui(giftSoundEnabled?'كتم صوت الهدايا':'تشغيل صوت الهدايا',giftSoundEnabled?'Mute gift sound':'Enable gift sound')+'">'+ui(giftSoundEnabled?'الصوت مفعّل':'الصوت مكتوم',giftSoundEnabled?'Sound on':'Sound off')+'</button></div><p class="gift-duo-intro">'+ui('اضغط على كل صندوق وافتح هديتك.','Tap each box to unwrap your gift.')+'</p><div class="gift-duo-grid">'+gifts.map((gift,i)=>{
+      const open=state.has(gift.id);
+      return '<div class="gift-present '+(open?'is-unwrapped':'')+'"><button type="button" class="present-trigger" data-gift="'+gift.id+'" aria-expanded="'+open+'" aria-controls="gift-'+gift.id+'" aria-label="'+ui((open?'إغلاق':'فتح')+' الهدية '+(i+1),(open?'Close':'Open')+' gift '+(i+1))+'"><span class="present-stage" aria-hidden="true"><span class="present-halo"></span><span class="present-body"></span><span class="present-lid"><span class="present-bow left"></span><span class="present-bow right"></span></span><span class="present-prize"><img src="logos/'+gift.logo+'.svg" alt="" width="44" height="44"></span><span class="present-star star-a">✦</span><span class="present-star star-b">✧</span><span class="present-star star-c">✦</span></span><span class="present-caption">'+ui('الهدية '+(i+1),'Gift '+(i+1))+'</span><span class="present-action">'+ui(open?'تم فتح الهدية':'اضغط للفتح',open?'Unwrapped':'Tap to open')+'</span></button><div class="present-reveal" id="gift-'+gift.id+'" '+(open?'':'inert')+'><div class="present-reveal-inner"><strong>'+gift.name+'</strong><span>'+gift.duration+'</span><small>'+ui('مجانًا','FREE')+'</small></div></div></div>';
+    }).join('')+'</div><p class="gift-duo-note">'+ui('الهديتان مشمولتان بدون تكلفة إضافية.','Both gifts included at no extra charge.')+'</p></section>';
   }
 
   function renderDetails(){
@@ -330,14 +350,20 @@
       '</dl>'+
       (notes.length?'<div class="plan-notes"><b>'+ui('ملاحظات مهمة','Important notes')+'</b><ul>'+notes.map(n=>'<li>'+MasterStore.escapeHtml(tr(n,'note'))+'</li>').join('')+'</ul></div>':'');
     planDetails.insertAdjacentHTML('beforeend',premiumGifts(plan));
-    const giftButton=planDetails.querySelector('.gift-open-button');
-    if(giftButton)giftButton.addEventListener('click',()=>{
-      const section=giftButton.closest('.premium-gifts'),open=section.classList.toggle('is-open');
-      giftButton.setAttribute('aria-expanded',String(open));
-      const reveal=section.querySelector('.gift-reveal');reveal.inert=!open;
-      section.querySelector('.gift-action-label').textContent=ui(open?'اضغط لإغلاق الصندوق':'اضغط لفتح الهدايا',open?'Close your gifts':'Tap to unwrap');
-      const index=plans.indexOf(plan);if(open)openedGifts.add(index);else openedGifts.delete(index);
+    const soundButton=planDetails.querySelector('.gift-sound-toggle');
+    if(soundButton)soundButton.addEventListener('click',()=>{
+      giftSoundEnabled=!giftSoundEnabled;soundButton.setAttribute('aria-pressed',String(giftSoundEnabled));
+      soundButton.textContent=ui(giftSoundEnabled?'الصوت مفعّل':'الصوت مكتوم',giftSoundEnabled?'Sound on':'Sound off');
+      soundButton.setAttribute('aria-label',ui(giftSoundEnabled?'كتم صوت الهدايا':'تشغيل صوت الهدايا',giftSoundEnabled?'Mute gift sound':'Enable gift sound'));
     });
+    planDetails.querySelectorAll('.present-trigger').forEach(button=>button.addEventListener('click',()=>{
+      const present=button.closest('.gift-present'),open=present.classList.toggle('is-unwrapped'),id=button.dataset.gift;
+      button.setAttribute('aria-expanded',String(open));
+      button.setAttribute('aria-label',ui((open?'إغلاق':'فتح')+' الهدية '+(id==='google'?1:2),(open?'Close':'Open')+' gift '+(id==='google'?1:2)));
+      present.querySelector('.present-reveal').inert=!open;
+      button.querySelector('.present-action').textContent=ui(open?'تم فتح الهدية':'اضغط للفتح',open?'Unwrapped':'Tap to open');
+      const index=plans.indexOf(plan),state=openedGifts.get(index)||new Set();if(open){state.add(id);playGiftChime();}else state.delete(id);openedGifts.set(index,state);
+    }));
     if(p.id==='gemini-coursera-bundle'){
       planDetails.insertAdjacentHTML('afterbegin',"<section class=\"bundle-inclusions\"><div class=\"bundle-primary-detail\"><span class=\"bundle-label\">الاشتراك الأساسي</span><h3>Coursera Plus</h3><p>١٢ شهرًا من الكورسات · حساب جاهز</p><span class=\"bundle-guarantee\">✓ ضمان كامل لكورسيرا</span></div><div class=\"bundle-gift-details\"><span class=\"bundle-label\">هدايا مشمولة مجانًا</span><div class=\"bundle-gift-row\"><img src=\"logos/gemini.svg\" alt=\"\"><div><strong>Gemini</strong><p>٣ شهور على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div><div class=\"bundle-gift-row\"><img src=\"logos/canva.svg\" alt=\"\"><div><strong>Canva Pro</strong><p>٣ سنين على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div></div><p class=\"bundle-total-note\">الاشتراك والهدايا معًا بـ٤٩٩ج · بدون تكلفة إضافية للهدايا</p></section>");
     }
