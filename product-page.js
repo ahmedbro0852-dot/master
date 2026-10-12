@@ -295,6 +295,13 @@
   }
 
 
+  const openedGifts=new Set();
+  function premiumGifts(plan){
+    if(p.status!=='available'||plan.available===false||!(Number(plan.price)>4000))return '';
+    const index=plans.indexOf(plan),open=openedGifts.has(index);
+    return '<section class="premium-gifts '+(open?'is-open':'')+'" aria-label="'+ui('هدايا الباقة','Plan gifts')+'"><button type="button" class="gift-open-button" aria-expanded="'+open+'" aria-controls="premiumGiftContent"><span class="gift-box-art" aria-hidden="true"><span class="gift-box-base"></span><span class="gift-box-lid"></span><span class="gift-box-bow"></span><span class="gift-spark gift-spark-one">✦</span><span class="gift-spark gift-spark-two">✦</span></span><span class="gift-open-copy"><small>'+ui('هديتان مجانًا مع الباقة','Two free gifts with your plan')+'</small><strong>'+ui('افتح صندوق هداياك','Open your gift box')+'</strong><span>'+ui('Google AI Pro + Canva Pro','Google AI Pro + Canva Pro')+'</span></span><span class="gift-open-arrow" aria-hidden="true">⌄</span></button><div class="gift-reveal" id="premiumGiftContent" '+(open?'':'inert')+'><div class="gift-reveal-inner"><div class="gift-included-card"><img src="logos/gemini.svg" width="38" height="38" alt=""><div><strong>Google AI Pro</strong><p>'+ui('اشتراك لمدة ١٨ شهر','18-month subscription')+'</p></div><span class="gift-free-label">'+ui('مجانًا','FREE')+'</span></div><div class="gift-included-card"><img src="logos/canva.svg" width="38" height="38" alt=""><div><strong>Canva Pro</strong><p>'+ui('اشتراك لمدة ٣ سنين','3-year subscription')+'</p></div><span class="gift-free-label">'+ui('مجانًا','FREE')+'</span></div><p class="gift-included-note">'+ui('الهديتان مشمولتان مع هذه الباقة بدون تكلفة إضافية.','Both gifts are included with this plan at no extra charge.')+'</p></div></div></section>';
+  }
+
   function renderDetails(){
     const plan=selectedPlan();
     if(!plan){planDetails.innerHTML='';return;}
@@ -322,6 +329,14 @@
         (plan.credits?'<div><dt>'+ui('الرصيد','Credits')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.credits,'credits'))+'</dd></div>':'')+
       '</dl>'+
       (notes.length?'<div class="plan-notes"><b>'+ui('ملاحظات مهمة','Important notes')+'</b><ul>'+notes.map(n=>'<li>'+MasterStore.escapeHtml(tr(n,'note'))+'</li>').join('')+'</ul></div>':'');
+    planDetails.insertAdjacentHTML('beforeend',premiumGifts(plan));
+    const giftButton=planDetails.querySelector('.gift-open-button');
+    if(giftButton)giftButton.addEventListener('click',()=>{
+      const section=giftButton.closest('.premium-gifts'),open=section.classList.toggle('is-open');
+      giftButton.setAttribute('aria-expanded',String(open));
+      const reveal=section.querySelector('.gift-reveal');reveal.inert=!open;
+      const index=plans.indexOf(plan);if(open)openedGifts.add(index);else openedGifts.delete(index);
+    });
     if(p.id==='gemini-coursera-bundle'){
       planDetails.insertAdjacentHTML('afterbegin',"<section class=\"bundle-inclusions\"><div class=\"bundle-primary-detail\"><span class=\"bundle-label\">الاشتراك الأساسي</span><h3>Coursera Plus</h3><p>١٢ شهرًا من الكورسات · حساب جاهز</p><span class=\"bundle-guarantee\">✓ ضمان كامل لكورسيرا</span></div><div class=\"bundle-gift-details\"><span class=\"bundle-label\">هدايا مشمولة مجانًا</span><div class=\"bundle-gift-row\"><img src=\"logos/gemini.svg\" alt=\"\"><div><strong>Gemini</strong><p>٣ شهور على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div><div class=\"bundle-gift-row\"><img src=\"logos/canva.svg\" alt=\"\"><div><strong>Canva Pro</strong><p>٣ سنين على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div></div><p class=\"bundle-total-note\">الاشتراك والهدايا معًا بـ٤٩٩ج · بدون تكلفة إضافية للهدايا</p></section>");
     }
