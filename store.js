@@ -67,6 +67,13 @@
     if(plan?.manualPrice&&(!key||key==='price')&&getMarket().currency==='EGP')return formatCurrency(plan.price,'EGP');
     return window.MasterLocale?window.MasterLocale.planMoney(plan,key):money(plan?.[key||'price']||0);
   }
+  function officialDiscount(plan){
+    if(!plan?.officialPrice||plan.priceComparison?.status==='unavailable')return null;
+    const official=planAmount(plan,'oldPrice'),price=planAmount(plan);
+    if(!Number.isFinite(official)||official<=0||!Number.isFinite(price)||price<0)return null;
+    const percent=Math.max(0,Math.min(100,Math.floor((official-price)/official*1000+1e-8)/10));
+    return {percent,saving:Math.max(0,official-price),estimated:!!plan.officialPrice.estimated};
+  }
   function orderMoney(order){
     if(order&&order.displayCurrency&&order.displayTotal!=null){
       return formatCurrency(order.displayTotal,order.displayCurrency);
@@ -79,6 +86,6 @@
   }
   window.MasterStore={
     getProfile,saveProfile,clearProfile,getOrders,saveOrder,clearOrders,createOrderId,
-    money,localizedAmount,formatCurrency,planAmount,planMoney,orderMoney,getMarket,paymentOptions,escapeHtml
+    money,localizedAmount,formatCurrency,planAmount,planMoney,officialDiscount,orderMoney,getMarket,paymentOptions,escapeHtml
   };
 })();

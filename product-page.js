@@ -115,10 +115,22 @@
   const radios=[...document.querySelectorAll('input[name="plan"]')];
 
   function planSavingMarkup(plan){
-    if(!plan||(!plan.oldPrice&&!plan.officialPrice))return '';
+    const discount=MasterStore.officialDiscount(plan);
+    if(discount&&discount.percent>0)return '<small class="plan-saving">'+ui(discount.estimated?'توفير تقديري ':'توفير ',discount.estimated?'Estimated saving ':'Save ')+discount.percent+'% · '+MasterStore.formatCurrency(discount.saving,MasterStore.getMarket().currency)+'</small>';
+    if(!plan?.oldPrice)return '';
     const saving=MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan);
-    if(saving<=0)return '';
-    return '<small class="plan-saving">'+(p.id==='gemini-coursera-bundle'?ui('إجمالي التوفير التقديري','Estimated total savings'):(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save')))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</small>';
+    return saving>0?'<small class="plan-saving">'+ui('وفر ','Save ')+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</small>':'';
+  }
+
+  function discountDetail(plan){
+    const discount=MasterStore.officialDiscount(plan);
+    const label=ui(discount?.estimated?'نسبة التوفير التقديرية':'نسبة التوفير عن الرسمي',discount?.estimated?'Estimated saving':'Saving vs official price');
+    const value=discount?(discount.percent>0?'<strong class="saving">'+discount.percent+'%</strong>':ui('لا يوجد توفير بالسعر الحالي','No saving at the current price')):ui('غير متاحة — لا يوجد سعر رسمي مطابق موثق','Unavailable — no verified matching official price');
+    const ref=plan.officialPrice;
+    const source=ref?.source;
+    const sourceLink=source&&/^https:\/\//.test(source)?'<a class="official-price-source" href="'+MasterStore.escapeHtml(source)+'" target="_blank" rel="noopener noreferrer">'+ui('مرجع السعر الرسمي','Official price reference')+'</a>':'';
+    const note=ref?.estimated?'<small>'+ui('تقدير محسوب من السعر الشهري وخصم الفوترة السنوية المعلن.','Calculated from the monthly rate and advertised annual discount.')+'</small>':'';
+    return '<div><dt>'+label+'</dt><dd>'+value+note+sourceLink+'</dd></div>';
   }
 
   function selectedPlan(){
@@ -300,6 +312,7 @@
       '<dl class="details-list">'+
         '<div><dt>'+ui('السعر','Price')+'</dt><dd>'+MasterStore.planMoney(plan)+'</dd></div>'+
         ((plan.oldPrice||plan.officialPrice)?'<div><dt>'+(plan.officialPrice?ui('السعر الرسمي','Official price'):ui('السعر قبل العرض','Before discount'))+'</dt><dd>'+(saving?'<del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>':MasterStore.planMoney(plan,'oldPrice'))+(saving?' <strong class="saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
+        discountDetail(plan)+
         '<div><dt>'+ui('نوع الباقة','Plan tier')+'</dt><dd>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+'</dd></div>'+
         '<div><dt>'+ui('المدة','Duration')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.duration||'غير محددة','duration'))+'</dd></div>'+
         '<div><dt>'+ui('نوع الاشتراك','Subscription type')+'</dt><dd>'+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</dd></div>'+
@@ -335,18 +348,8 @@
       if(meta)meta.textContent=tr(planTier(p,plan),'planName')+' · '+tr(plan.duration||'','duration')+' · '+tr(subscriptionType(plan),'accountType');
       const oldSaving=label.querySelector('.plan-saving');
       if(oldSaving)oldSaving.remove();
-      const saving=(plan.oldPrice||plan.officialPrice)
-        ? MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan)
-        : 0;
-      if(saving>0){
-        const holder=label.querySelector('span');
-        if(holder){
-          const badge=document.createElement('small');
-          badge.className='plan-saving';
-          badge.textContent=(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency);
-          holder.appendChild(badge);
-        }
-      }
+      const holder=label.querySelector('span');
+      if(holder)holder.insertAdjacentHTML('beforeend',planSavingMarkup(plan));
       if(price)price.textContent=MasterStore.planMoney(plan);
     });
     renderDetails();

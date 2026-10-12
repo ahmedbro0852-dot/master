@@ -93,7 +93,13 @@ const products = [
       "warranty": "يُؤكد مع الدعم قبل الدفع",
       "notes": [
         "السعر 135 دولار للكود؛ خصم 100% يخص رسوم التفعيل عند استخدام الكود."
-      ]
+      ],
+      "priceComparison": {
+        "status": "unavailable",
+        "source": "https://cursor.com/pricing",
+        "checkedAt": "2026-10-12",
+        "note": "السعر الشهري موثق، لكن إجمالي الفوترة السنوية لم يتأكد من الصفحة الحالية."
+      }
     },
     {
       "name": "Pro — شهر · عرض 48 ساعة",
@@ -108,10 +114,26 @@ const products = [
         "Cursor Pro لمدة شهر",
         "سعر العرض 300ج",
         "متاح للطلب لمدة 48 ساعة فقط"
-      ]
+      ],
+      "officialPrice": {
+        "amount": 20,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://cursor.com/pricing",
+        "checkedAt": "2026-10-12",
+        "estimated": false
+      },
+      "priceComparison": {
+        "status": "reference",
+        "source": "https://cursor.com/pricing",
+        "checkedAt": "2026-10-12",
+        "note": "سعر الشراء المباشر لنفس الخطة والمدة؛ التسليم والضمان حسب عرض المتجر."
+      }
     }
   ]
 },
+
 {
   "id": "higgsfield-pro",
   "name": "Higgsfield Pro",
@@ -2842,7 +2864,11 @@ const products = [
         "حساب عادي على الخطة المجانية (Free)، بدون اشتراك Pro.",
         "السعر مقابل الحساب والرصيد المتاح، وليس اشتراك Pro."
       ],
-      "planType": "Free"
+      "planType": "Free",
+      "priceComparison": {
+        "status": "unavailable",
+        "note": "حساب Free برصيد جاهز؛ لا توجد حزمة رسمية مطابقة لهذا الرصيد للمقارنة."
+      }
     },
     {
       "name": "رصيد — 4,000 كرديت",
@@ -2856,7 +2882,11 @@ const products = [
         "حساب عادي على الخطة المجانية (Free)، بدون اشتراك Pro.",
         "السعر مقابل الحساب والرصيد المتاح، وليس اشتراك Pro."
       ],
-      "planType": "Free"
+      "planType": "Free",
+      "priceComparison": {
+        "status": "unavailable",
+        "note": "حساب Free برصيد جاهز؛ لا توجد حزمة رسمية مطابقة لهذا الرصيد للمقارنة."
+      }
     },
     {
       "name": "Pro شهر — 4,000 + 1,000 كرديت مجانًا",
@@ -2870,7 +2900,22 @@ const products = [
         "1,000 كرديت هدية مشمولة في السعر.",
         "مدة الاشتراك شهر واحد، والضمان 20 يوم."
       ],
-      "planType": "Pro"
+      "planType": "Pro",
+      "officialPrice": {
+        "amount": 20,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus",
+        "checkedAt": "2026-10-12",
+        "estimated": false
+      },
+      "priceComparison": {
+        "status": "reference",
+        "source": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus",
+        "checkedAt": "2026-10-12",
+        "note": "مرجع المقارنة Pro مع 4,000 كرديت شهريًا؛ 1,000 كرديت إضافية هدية من المتجر."
+      }
     },
     {
       "name": "Pro — سنة كاملة · 80 دولار",
@@ -2886,7 +2931,22 @@ const products = [
       "notes": [
         "سعر الباقة السنوية 80 دولارًا، ويظهر ما يعادله حسب عملة المتجر.",
         "4,000 كرديت تتجدد شهريًا طوال مدة الاشتراك."
-      ]
+      ],
+      "officialPrice": {
+        "amount": 199.2,
+        "currency": "USD",
+        "months": 12,
+        "basis": "reference",
+        "source": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus",
+        "checkedAt": "2026-10-12",
+        "estimated": true
+      },
+      "priceComparison": {
+        "status": "reference",
+        "source": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus",
+        "checkedAt": "2026-10-12",
+        "note": "مرجع سنوي تقديري: 20 دولار × 12 شهر × (1 − خصم الفوترة السنوية المعلن 17%). الإجمالي النهائي يخضع لصفحة الاشتراك الرسمية."
+      }
     }
   ],
   "features": [
