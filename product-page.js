@@ -100,7 +100,8 @@
       '</aside>'+
     '</section>';
 
-  if(p.id==='manus'){
+  function renderManusCards(){
+    if(p.id!=='manus')return;
     root.classList.add('manus-page');
     const headings=[ui('رصيد 3,300 كرديت','3,300 credits'),ui('رصيد 4,000 كرديت','4,000 credits'),ui('Pro لمدة شهر','Monthly Pro'),ui('Pro لمدة سنة','Annual Pro')];
     const balances=['3,300','4,000','5,000','4,000'];
@@ -111,8 +112,9 @@
       label.innerHTML='<div class="manus-card-top"><span class="manus-badge">'+badges[i]+'</span><span class="manus-check" aria-hidden="true">✓</span></div><h3>'+headings[i]+'</h3><div class="manus-balance"><strong>'+balances[i]+'</strong><span>'+ui(i===3?'كرديت كل شهر':'كرديت',i===3?'credits each month':'credits')+'</span></div><p class="manus-card-copy">'+(i===2?ui('4,000 أساسية + 1,000 مجانًا','4,000 included + 1,000 free'):i===3?ui('اشتراك 12 شهرًا · تفعيل شخصي','12 months · personal activation'):ui('بدون اشتراك Pro','Without Pro subscription'))+'</p><div class="manus-card-price">'+(i===3?'<strong>$80</strong><small>'+MasterStore.planMoney(plan)+'</small>':'<strong>'+MasterStore.planMoney(plan)+'</strong>')+'</div><div class="manus-card-bottom"><span>'+ui('ضمان ','Warranty: ')+tr(plan.warranty,'warranty')+'</span><span>'+ui(i===3?'تفعيل على حسابك':'بريد وباسورد',i===3?'Personal activation':'Email & password')+'</span></div>';
       label.prepend(input);
     });
-    const intro=document.createElement('p');intro.className='manus-plan-intro';intro.textContent=ui('اختار الرصيد أو الاشتراك المناسب لك. تفاصيل الضمان والتسليم موضحة لكل باقة.','Choose your credits or subscription. Warranty and delivery are shown for every plan.');root.querySelector('.plans-block h2').after(intro);
+    let intro=root.querySelector('.manus-plan-intro');if(!intro){intro=document.createElement('p');intro.className='manus-plan-intro';root.querySelector('.plans-block h2').after(intro);}intro.textContent=ui('اختار الرصيد أو الاشتراك المناسب لك. تفاصيل الضمان والتسليم موضحة لكل باقة.','Choose your credits or subscription. Warranty and delivery are shown for every plan.');
   }
+  renderManusCards();
 
   if(active&&plans.length){
     const bar=document.createElement('div');
@@ -363,6 +365,7 @@
       }
       if(price)price.textContent=MasterStore.planMoney(plan);
     });
+    renderManusCards();
     renderDetails();
     const back=root.querySelector('.back-link');
     if(back)back.textContent=ui('← كل المنتجات','← All products');
