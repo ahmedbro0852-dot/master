@@ -97,12 +97,13 @@
     '300 Credit + 5 يوميًا':'300 credits + 5 daily',
     'الطلبات والبيانات في هذه الصفحة محفوظة على هذا المتصفح فقط.':'Orders and details on this page are stored only in this browser.','طلبات الحساب ورصيد المحفظة محفوظة لحسابك. طلبات الضيوف محفوظة على الجهاز فقط.':'Account orders and wallet balance are saved to your account. Guest orders are stored on this device.'
   };
+  exactArToEn['ضمان كامل لمدة سنة']='Full one-year warranty';
   const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e,a]));
 
 
   const PRODUCT_DESC_EN={
 "cursor-pro":"Cursor Pro for coding for one year at $135. A 100% discount activation code on your personal account requiring an accepted payment card.",
-"higgsfield-pro":"Higgsfield Pro annual activation code for $160, activated directly on your personal email. Seedance video generation is available within the platform.",
+"higgsfield-pro":"Higgsfield Pro annual activation code for $160, activated directly on your personal email. Seedance video generation is available within the platform. Full one-year warranty.",
 "windows-pro":"Windows 11 Pro or Windows 10 Pro activation key for $5. Permanent activation for the purchased version with a one-time payment.",
     "chatgpt-teachers-k12":"A ChatGPT plan for K12 teachers lasting two years at EGP 500, without warranty.",
     "chatgpt-plus":"Monthly ChatGPT Plus: no-warranty account for EGP 250, ready-made account with full warranty for EGP 700, or activation on your personal account for EGP 1,040.",

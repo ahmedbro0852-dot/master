@@ -119,20 +119,22 @@ const products = [
   "logo": "higgsfield",
   "logoUrl": "logos/higgsfield.svg?v=20261009-logo-review3",
   "status": "available",
-  "description": "كود تفعيل Higgsfield Pro لمدة سنة بـ160 دولار؛ تفعيل مباشر على بريدك الشخصي. يتوفّر Seedance لتوليد الفيديو داخل المنصة.",
+  "description": "كود تفعيل Higgsfield Pro لمدة سنة بـ160 دولار؛ تفعيل مباشر على بريدك الشخصي. يتوفّر Seedance لتوليد الفيديو داخل المنصة. ضمان كامل لمدة سنة.",
   "features": [
     "خطة Pro لمدة سنة كاملة.",
     "تسليم كود تفعيل.",
     "تفعيل مباشر على بريدك الشخصي.",
     "يتوفّر Seedance (سيدانس) لتوليد الفيديو داخل Higgsfield.",
-    "استخدام Seedance حسب رصيد الباقة وإعدادات الفيديو؛ Enhanced Fast إضافة مدفوعة منفصلة."
+    "استخدام Seedance حسب رصيد الباقة وإعدادات الفيديو؛ Enhanced Fast إضافة مدفوعة منفصلة.",
+    "ضمان كامل طوال مدة الاشتراك: سنة كاملة."
   ],
   "featuresEn": [
     "Pro plan for one full year.",
     "Activation code delivery.",
     "Direct activation on your personal email.",
     "Seedance video generation is available within Higgsfield.",
-    "Seedance usage depends on plan credits and video settings; Enhanced Fast is a separate paid add-on."
+    "Seedance usage depends on plan credits and video settings; Enhanced Fast is a separate paid add-on.",
+    "Full warranty throughout the one-year subscription."
   ],
   "plans": [
     {
@@ -144,7 +146,7 @@ const products = [
       "activation": "تسليم كود لتفعيل الاشتراك مباشرة على بريدك الشخصي.",
       "account": "كود تفعيل على حسابك الشخصي",
       "accountType": "كود تفعيل على حسابك الشخصي",
-      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "warranty": "ضمان كامل لمدة سنة",
       "notes": []
     }
   ]
