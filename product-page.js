@@ -100,6 +100,20 @@
       '</aside>'+
     '</section>';
 
+  if(p.id==='manus'){
+    root.classList.add('manus-page');
+    const headings=[ui('رصيد 3,300 كرديت','3,300 credits'),ui('رصيد 4,000 كرديت','4,000 credits'),ui('Pro لمدة شهر','Monthly Pro'),ui('Pro لمدة سنة','Annual Pro')];
+    const balances=['3,300','4,000','5,000','4,000'];
+    const badges=[ui('رصيد جاهز','Ready credits'),ui('رصيد جاهز','Ready credits'),ui('1,000 كرديت هدية','1,000 bonus credits'),ui('على حسابك الشخصي','Your personal account')];
+    root.querySelectorAll('.plan-option').forEach((label,i)=>{
+      const plan=plans[i];label.classList.add('manus-plan');
+      const input=label.querySelector('input');
+      label.innerHTML='<div class="manus-card-top"><span class="manus-badge">'+badges[i]+'</span><span class="manus-check" aria-hidden="true">✓</span></div><h3>'+headings[i]+'</h3><div class="manus-balance"><strong>'+balances[i]+'</strong><span>'+ui(i===3?'كرديت كل شهر':'كرديت',i===3?'credits each month':'credits')+'</span></div><p class="manus-card-copy">'+(i===2?ui('4,000 أساسية + 1,000 مجانًا','4,000 included + 1,000 free'):i===3?ui('اشتراك 12 شهرًا · تفعيل شخصي','12 months · personal activation'):ui('بدون اشتراك Pro','Without Pro subscription'))+'</p><div class="manus-card-price">'+(i===3?'<strong>$80</strong><small>'+MasterStore.planMoney(plan)+'</small>':'<strong>'+MasterStore.planMoney(plan)+'</strong>')+'</div><div class="manus-card-bottom"><span>'+ui('ضمان ','Warranty: ')+tr(plan.warranty,'warranty')+'</span><span>'+ui(i===3?'تفعيل على حسابك':'بريد وباسورد',i===3?'Personal activation':'Email & password')+'</span></div>';
+      label.prepend(input);
+    });
+    const intro=document.createElement('p');intro.className='manus-plan-intro';intro.textContent=ui('اختار الرصيد أو الاشتراك المناسب لك. تفاصيل الضمان والتسليم موضحة لكل باقة.','Choose your credits or subscription. Warranty and delivery are shown for every plan.');root.querySelector('.plans-block h2').after(intro);
+  }
+
   if(active&&plans.length){
     const bar=document.createElement('div');
     bar.className='mobile-order-bar';
@@ -269,6 +283,7 @@
   };
 
   function subscriptionFeatures(product,plan){
+    if(product.id==='manus')return [tr(plan.credits,'credits'),ui('الضمان: ','Warranty: ')+tr(plan.warranty,'warranty'),tr(plan.activation,'activation'),...(plan.notes||[]).map(n=>tr(n,'note'))];
     if(product.featuresEn&&product.features)return isEn()?product.featuresEn:product.features;
     if(isEn()){
       const base=englishServiceFeatures[product.id]||englishCategoryFeatures[product.category]||englishCategoryFeatures["AI Tools"];
