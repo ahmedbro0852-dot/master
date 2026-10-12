@@ -510,7 +510,7 @@
       else if(href.includes('#terms'))a.textContent=en?'Why MASTER STORE?':'ليه MASTER STORE؟';
     });
     const account=document.querySelector('.account-link');
-    if(account)account.textContent=en?'My account':'حسابي';
+    if(account)account.textContent=account.dataset.authenticated==='false'?(en?'Sign in':'تسجيل الدخول'):(en?'My account':'حسابي');
     const menu=document.querySelector('.menu');
     if(menu)menu.setAttribute('aria-label',en?'Open menu':'فتح القائمة');
     const search=document.getElementById('search');

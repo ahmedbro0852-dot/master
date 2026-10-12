@@ -24,6 +24,13 @@
     });
   }
 
+  const accountLink=document.querySelector('.account-link');
+  if(accountLink&&window.MasterCloud?.ready){
+    const updateAccountLink=session=>{accountLink.dataset.authenticated=String(!!session);window.MasterLocale?.apply();};
+    window.MasterCloud.client.auth.getSession().then(({data})=>updateAccountLink(data.session));
+    window.MasterCloud.client.auth.onAuthStateChange((_event,session)=>updateAccountLink(session));
+  }
+
   const grid=document.getElementById('grid');
   const filters=document.getElementById('filters');
   if(!grid||!filters)return;
