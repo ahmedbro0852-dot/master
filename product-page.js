@@ -95,7 +95,7 @@
       '<aside class="summary-card">'+
         '<h2>'+ui('تفاصيل الباقة','Plan details')+'</h2>'+
         '<div id="planDetails"></div>'+
-        (active?'<button id="buyBtn" class="primary full" type="button">'+ui('أضف للسلة','Add to cart')+'</button>':'<button class="primary full disabled" disabled>'+ui('غير متاح حاليًا','Currently unavailable')+'</button>')+
+        (active?'<button id="buyBtn" class="primary full" type="button">'+ui('شراء الآن','Buy now')+'</button>':'<button class="primary full disabled" disabled>'+ui('غير متاح حاليًا','Currently unavailable')+'</button>')+
         '<p class="safe-note">'+ui('بعد إرسال الطلب، فريق الدعم هيتواصل معاك لتأكيد التوفر وبيانات الدفع.','After you send the order, support will confirm availability and payment details.')+'</p>'+
       '</aside>'+
     '</section>';
@@ -103,7 +103,7 @@
   if(active&&plans.length){
     const bar=document.createElement('div');
     bar.className='mobile-order-bar';
-    bar.innerHTML='<div><small>'+ui('الباقة المختارة','Selected plan')+'</small><strong id="mobilePlanPrice"></strong></div><button class="primary" id="mobileBuyBtn" type="button">'+ui('أضف للسلة','Add to cart')+'</button>';
+    bar.innerHTML='<div><small>'+ui('الباقة المختارة','Selected plan')+'</small><strong id="mobilePlanPrice"></strong></div><button class="primary" id="mobileBuyBtn" type="button">'+ui('شراء الآن','Buy now')+'</button>';
     root.appendChild(bar);
     document.getElementById('mobileBuyBtn').addEventListener('click',()=>document.getElementById('buyBtn')?.click());
   }
@@ -328,7 +328,7 @@
     const mobilePrice=document.getElementById('mobilePlanPrice');
     if(mobilePrice)mobilePrice.textContent=MasterStore.planMoney(plan);
     const mobileBuy=document.getElementById('mobileBuyBtn');
-    if(mobileBuy)mobileBuy.textContent=ui('أضف للسلة','Add to cart');
+    if(mobileBuy)mobileBuy.textContent=ui('شراء الآن','Buy now');
     const mobileLabel=root.querySelector('.mobile-order-bar small');
     if(mobileLabel)mobileLabel.textContent=ui('الباقة المختارة','Selected plan');
     const notes=[...(p.notes||[]),...(plan.notes||[])];
@@ -391,15 +391,34 @@
     const back=root.querySelector('.back-link');
     if(back)back.textContent=ui('← كل المنتجات','← All products');
     const buy=document.getElementById('buyBtn');
-    if(buy)buy.textContent=ui('أضف للسلة','Add to cart');
+    if(buy)buy.textContent=ui('شراء الآن','Buy now');
     updateProductMetadata();
     Locale?.apply();
   }
   document.addEventListener('masterstore:localechange',refreshLocalizedProductPrices);
 
   document.getElementById('buyBtn')?.addEventListener('click',()=>{
-    try{if(selectedPlan()?.available===false)return;window.MasterCart.add(p.id,plans.indexOf(selectedPlan()));location.href='cart.html';}
-    catch(error){showToast(error.message);}
+    const plan=selectedPlan();
+    if(!plan||plan.available===false||dialog.open)return;
+    const planIndex=plans.indexOf(plan);
+    checkoutContent.innerHTML='<button type="button" class="dialog-close" aria-label="'+ui('إغلاق','Close')+'">×</button><div class="checkout-head"><h2 id="checkoutTitle">'+ui('نكمل الطلب؟','Ready to check out?')+'</h2><p>'+ui('أكد الطلب دلوقتي، أو ضيف الاشتراك للسلة وكمل اختيار باقي منتجاتك.','Check out now, or add this subscription to your cart and keep shopping.')+'</p></div><div class="checkout-summary"><b>'+MasterStore.escapeHtml(p.name)+'</b><span>'+MasterStore.escapeHtml(tr(plan.name||plan.duration,'planName'))+'</span><strong>'+MasterStore.planMoney(plan)+'</strong></div><div class="purchase-choice-actions"><button class="primary full" type="button" data-purchase="checkout">'+ui('تأكيد الطلب دلوقتي','Check out now')+'</button><button class="ghost-btn full" type="button" data-purchase="continue">'+ui('هكمل تسوّق — ضيف ده للسلة','Keep shopping — add to cart')+'</button></div><p class="purchase-choice-note" role="status" hidden></p>';
+    checkoutContent.querySelector('.dialog-close').onclick=()=>dialog.close();
+    let added=false;
+    checkoutContent.querySelectorAll('[data-purchase]').forEach(button=>button.onclick=()=>{
+      if(added)return;
+      try{
+        window.MasterCart.add(p.id,planIndex);
+        added=true;
+        checkoutContent.querySelectorAll('[data-purchase]').forEach(b=>b.disabled=true);
+        dialog.close();
+        if(button.dataset.purchase==='checkout')location.href='cart.html#cartCheckout';
+        else showToast(ui('اتضاف للسلة. كمل تسوّق براحتك.','Added to cart. Keep shopping.'));
+      }catch(error){
+        const note=checkoutContent.querySelector('.purchase-choice-note');
+        note.textContent=error.message;note.hidden=false;
+      }
+    });
+    dialog.showModal();
   });
 })();
 

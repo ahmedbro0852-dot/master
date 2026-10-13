@@ -2050,3 +2050,5 @@ body{background:#f5f8fc;color:var(--ink)}
 @keyframes presentPrizePop{0%{opacity:0;transform:translateY(34px) scale(.3)}65%{opacity:1;transform:translateY(-5px) scale(1.1)}100%{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:380px){.gift-duo{padding:18px 11px 15px}.gift-duo-grid{gap:8px}.gift-duo-heading h3{font-size:16px}.present-trigger{padding-top:22px}.present-stage{width:100px}.present-reveal-inner strong{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.gift-duo *{animation:none!important;transition:none!important}}
+
+.purchase-choice-actions{display:grid;gap:12px}.purchase-choice-actions button{min-height:48px;white-space:normal;line-height:1.6}.purchase-choice-note{color:#b42318;font-size:13px;line-height:1.7;margin:14px 0 0}
