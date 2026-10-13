@@ -1156,7 +1156,7 @@ const products = [
   "category": "AI Tools",
   "logo": "grok",
   "status": "available",
-  "description": "باقات SuperGrok، منها شهر كامل بـ23 دولار: حساب خاص جاهز يُسلّم بإيميل وباسورد، بضمان كامل طوال الشهر.",
+  "description": "المتاح من SuperGrok: اشتراك 3 شهور بـ68 دولار، حساب خاص جاهز بإيميل وباسورد وضمان كامل طوال مدة الاشتراك. باقي الباقات نفد مخزونها.",
   "plans": [
     {
       "name": "SuperGrok — شهر حساب خاص",
@@ -1182,7 +1182,8 @@ const products = [
         "checkedAt": "2026-10-09",
         "status": "matched",
         "billingLabel": "Monthly"
-      }
+      },
+      "available": false
     },
     {
       "name": "اشتراك واحد",
@@ -1202,6 +1203,34 @@ const products = [
           "currency": "USD",
           "label": "سعر الشهر الكامل"
         }
+      },
+      "available": false
+    },
+    {
+      "name": "SuperGrok — 3 شهور بضمان كامل",
+      "planType": "SuperGrok",
+      "duration": "3 شهور",
+      "price": 3554,
+      "basePriceUSD": 68,
+      "available": true,
+      "activation": "تسليم حساب جاهز بإيميل وباسورد.",
+      "account": "حساب خاص",
+      "accountType": "حساب خاص جاهز",
+      "warranty": "ضمان كامل طوال مدة الاشتراك",
+      "officialPrice": {
+        "amount": 90,
+        "currency": "USD",
+        "months": 3,
+        "basis": "reference",
+        "source": "https://x.ai/pricing",
+        "checkedAt": "2026-10-09"
+      },
+      "priceComparison": {
+        "planName": "SuperGrok",
+        "source": "https://x.ai/pricing",
+        "checkedAt": "2026-10-09",
+        "status": "reference",
+        "billingLabel": "3 أشهر بالسعر الشهري الرسمي"
       }
     }
   ]

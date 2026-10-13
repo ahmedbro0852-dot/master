@@ -115,7 +115,7 @@
     "lovable-lite":"An annual Lovable plan with base credits plus daily credits.",
     "runway-pro":"A 12-month Runway Pro subscription activated on your account with a redemption code, with a 6-month warranty.",
     "wink-ai":"A ready account for Wink AI tools.",
-    "grok":"SuperGrok plans, including a full month for $23: a ready private account delivered with email and password, with full warranty throughout the month.",
+    "grok":"Only the 3-month SuperGrok plan is available for $68: a ready private account delivered with email and password, with full warranty for the subscription. All other plans are out of stock.",
     "gamma-plus":"A ready Gamma Plus account.",
     "gamma-account":"One Gamma account with 10 workspaces, each including 2,000 credits.",
     "elevenlabs":"ElevenLabs Creator plans, including one full year on your personal account for $66 without a payment card.",
@@ -179,6 +179,8 @@
     "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
   };
   const CATALOG_EXACT_EN={
+    "SuperGrok — 3 شهور بضمان كامل":"SuperGrok — 3 months with full warranty",
+    "3 أشهر بالسعر الشهري الرسمي":"3 months at the official monthly rate",
     "تقارير التشابه من Turnitin، أما تقارير كشف AI فمن أداة Academi الخاصة وليست تقرير Turnitin AI.":"Similarity reports come from Turnitin. AI reports use Academi’s own detector and are not Turnitin AI reports.",
     "بحسب Academi، لا تُضاف الملفات المفحوصة إلى مستودع Turnitin العالمي.":"According to Academi, checked files are not added to Turnitin’s global repository.",
 
