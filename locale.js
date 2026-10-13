@@ -102,6 +102,7 @@
 
 
   const PRODUCT_DESC_EN={
+    "academic-pro":"Review your documents before submission with Turnitin similarity reports and AI-content detection from Academi. One month of Pro on your personal account.",
 "cursor-pro":"Cursor Pro for coding for one year at $135. A 100% discount activation code on your personal account requiring an accepted payment card.",
 "higgsfield-pro":"Higgsfield Pro annual activation code for $160, activated directly on your personal email. Seedance video generation is available within the platform. Full one-year warranty.",
 "windows-pro":"Windows 11 Pro or Windows 10 Pro activation key for $5. Permanent activation for the purchased version with a one-time payment.",
@@ -178,6 +179,9 @@
     "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
   };
   const CATALOG_EXACT_EN={
+    "تقارير التشابه من Turnitin، أما تقارير كشف AI فمن أداة Academi الخاصة وليست تقرير Turnitin AI.":"Similarity reports come from Turnitin. AI reports use Academi’s own detector and are not Turnitin AI reports.",
+    "بحسب Academi، لا تُضاف الملفات المفحوصة إلى مستودع Turnitin العالمي.":"According to Academi, checked files are not added to Turnitin’s global repository.",
+
     "متاح":"Available",
     "قريبًا":"Coming soon",
     "غير متوفر":"Unavailable",

@@ -617,7 +617,7 @@ const products = [
   "logo": "academi",
   "logoUrl": "data:image/png;base64,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",
   "status": "available",
-  "description": "اشتراك Academi.cx Pro لفحص الملفات لمدة شهر بسعر 750 جنيه، بتفعيل على حسابك الشخصي.",
+  "description": "راجع ملفاتك قبل التسليم بتقارير تشابه Turnitin وكشف المحتوى المولّد بالذكاء الاصطناعي من Academi. اشتراك Pro لمدة شهر على حسابك الشخصي.",
   "plans": [
     {
       "name": "Pro — تفعيل على حسابك الشخصي",
@@ -643,8 +643,32 @@ const products = [
         "basis": "reference",
         "source": "https://academi.cx/pricing/",
         "checkedAt": "2026-10-08"
-      }
+      },
+      "notes": [
+        "تقارير التشابه من Turnitin، أما تقارير كشف AI فمن أداة Academi الخاصة وليست تقرير Turnitin AI.",
+        "بحسب Academi، لا تُضاف الملفات المفحوصة إلى مستودع Turnitin العالمي."
+      ]
     }
+  ],
+  "features": [
+    "نسبة تشابه النص وتقارير تفصيلية مباشرة من Turnitin.",
+    "عرض مواضع التشابه داخل الملف لتسهيل مراجعة الاقتباسات.",
+    "نسبة وتقرير كشف المحتوى المولّد بالذكاء الاصطناعي بأداة Academi الخاصة.",
+    "تحديد الأجزاء التي تشير أداة الكشف إلى احتمال كتابتها بالذكاء الاصطناعي.",
+    "رفع ملفات غير محدود ضمن اشتراك Pro، وفق سياسة المنصة.",
+    "أولوية في قائمة انتظار معالجة الملفات.",
+    "لوحة تحكم سهلة للاستخدام من الكمبيوتر والموبايل.",
+    "دعم منصة Academi على مدار الساعة."
+  ],
+  "featuresEn": [
+    "Text similarity percentages and detailed reports directly from Turnitin.",
+    "Highlighted matching passages to help review quotations and citations.",
+    "AI-content percentages and reports generated by Academi’s own detector.",
+    "Highlights passages the detector identifies as potentially AI-generated.",
+    "Unlimited document uploads with Pro, subject to the platform’s policy.",
+    "Priority access to the document-processing queue.",
+    "An easy-to-use dashboard on desktop and mobile.",
+    "24/7 support from the Academi platform."
   ]
 },
 {
