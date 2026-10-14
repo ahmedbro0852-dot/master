@@ -102,7 +102,7 @@
 
 
   const PRODUCT_DESC_EN={
-    "adobe-express":"Adobe Express Premium for 12 months at EGP 599, with a 6-month warranty. Activation on your email or a ready-made account.",
+    "adobe-express":"Adobe Express Premium for 12 months: activation on your email or a ready-made account for EGP 499 with a 6-month warranty, or an activation link for your account requiring a card for EGP 200 with no warranty.",
     "academic-pro":"Review your documents before submission with Turnitin similarity reports and AI-content detection from Academi. One month of Pro on your personal account.",
 "cursor-pro":"Cursor Pro for coding for one year at $135. A 100% discount activation code on your personal account requiring an accepted payment card.",
 "higgsfield-pro":"Higgsfield Pro annual activation code for $160, activated directly on your personal email. Seedance video generation is available within the platform. Full one-year warranty.",
@@ -180,6 +180,13 @@
     "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
   };
   const CATALOG_EXACT_EN={
+    "Adobe Express Premium — لينك تفعيل يحتاج بطاقة":"Adobe Express Premium — activation link, card required",
+    "لينك تفعيل على حسابك":"Activation link for your account",
+    "تسليم لينك لتفعيل اشتراك 12 شهرًا على حسابك الشخصي. يلزم وجود بطاقة لإتمام التفعيل.":"Receive a link to activate a 12-month subscription on your personal account. A card is required to complete activation.",
+    "التفعيل يحتاج بطاقة يضيفها العميل بنفسه على صفحة Adobe.":"Activation requires a card, entered by the customer directly on Adobe’s page.",
+    "هذه الباقة بدون ضمان لمدة اشتراك 12 شهرًا.":"This 12-month subscription has no warranty.",
+    "راجع شروط التفعيل والتجديد وأي رسوم ظاهرة على صفحة Adobe قبل التأكيد.":"Review activation and renewal terms and any charges shown on Adobe’s page before confirming.",
+
     "Adobe Express Premium — سنة":"Adobe Express Premium — 1 year",
     "تفعيل على إيميلك أو حساب جاهز":"Your email or a ready-made account",
     "إيميل العميل أو حساب جاهز":"Customer email or a ready-made account",

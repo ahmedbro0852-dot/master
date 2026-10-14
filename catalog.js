@@ -1699,7 +1699,7 @@ const products = [
   "category": "التصميم",
   "logo": "adobe",
   "status": "available",
-  "description": "اشتراك Adobe Express Premium لمدة 12 شهرًا بسعر 599 جنيه، بضمان 6 شهور. تفعيل على إيميلك أو تسليم حساب جاهز.",
+  "description": "باقات Adobe Express Premium لمدة 12 شهرًا: تفعيل على إيميلك أو حساب جاهز بـ499 جنيه بضمان 6 شهور، أو لينك تفعيل على حسابك يحتاج بطاقة بـ200 جنيه بدون ضمان.",
   "features": [
     "قوالب Premium لتصميم منشورات السوشيال ميديا والعروض والفيديو.",
     "تعديل الصور والفيديو وإزالة الخلفيات.",
@@ -1721,7 +1721,7 @@ const products = [
       "name": "Adobe Express Premium — سنة",
       "planType": "Premium",
       "duration": "12 شهر",
-      "price": 599,
+      "price": 499,
       "available": true,
       "accountType": "تفعيل على إيميلك أو حساب جاهز",
       "activation": "تفعيل الاشتراك على إيميلك أو تسليم حساب جاهز، حسب اختيارك عند تأكيد الطلب.",
@@ -1729,6 +1729,38 @@ const products = [
       "warranty": "6 شهور",
       "notes": [
         "مدة الاشتراك 12 شهرًا، ومدة الضمان 6 شهور."
+      ],
+      "officialPrice": {
+        "amount": 119.88,
+        "currency": "USD",
+        "months": 12,
+        "basis": "reference",
+        "source": "https://www.adobe.com/express/pricing",
+        "checkedAt": "2026-10-14"
+      },
+      "priceComparison": {
+        "planName": "Adobe Express Premium",
+        "source": "https://www.adobe.com/express/pricing",
+        "checkedAt": "2026-10-14",
+        "status": "reference",
+        "billingLabel": "12 شهرًا بالسعر الشهري الرسمي",
+        "note": "المرجع يعادل 12 × 9.99 دولار بالسداد الشهري، وليس سعر خطة سنوية."
+      }
+    },
+    {
+      "name": "Adobe Express Premium — لينك تفعيل يحتاج بطاقة",
+      "planType": "Premium",
+      "duration": "12 شهر",
+      "price": 200,
+      "available": true,
+      "accountType": "لينك تفعيل على حسابك",
+      "activation": "تسليم لينك لتفعيل اشتراك 12 شهرًا على حسابك الشخصي. يلزم وجود بطاقة لإتمام التفعيل.",
+      "account": "حساب العميل الشخصي",
+      "warranty": "بدون ضمان",
+      "notes": [
+        "التفعيل يحتاج بطاقة يضيفها العميل بنفسه على صفحة Adobe.",
+        "هذه الباقة بدون ضمان لمدة اشتراك 12 شهرًا.",
+        "راجع شروط التفعيل والتجديد وأي رسوم ظاهرة على صفحة Adobe قبل التأكيد."
       ],
       "officialPrice": {
         "amount": 119.88,
