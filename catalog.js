@@ -1694,6 +1694,62 @@ const products = [
   ]
 },
 {
+  "id": "adobe-express",
+  "name": "Adobe Express Premium",
+  "category": "التصميم",
+  "logo": "adobe",
+  "status": "available",
+  "description": "اشتراك Adobe Express Premium لمدة 12 شهرًا بسعر 599 جنيه، بضمان 6 شهور. تفعيل على إيميلك أو تسليم حساب جاهز.",
+  "features": [
+    "قوالب Premium لتصميم منشورات السوشيال ميديا والعروض والفيديو.",
+    "تعديل الصور والفيديو وإزالة الخلفيات.",
+    "تغيير مقاسات التصميم بسرعة لمنصات مختلفة.",
+    "Brand Kits لتنظيم ألوان وخطوط وشعار علامتك التجارية.",
+    "أدوات ذكاء اصطناعي ضمن حدود باقة Adobe Express.",
+    "العمل من المتصفح أو تطبيق الموبايل."
+  ],
+  "featuresEn": [
+    "Premium templates for social posts, presentations, and video.",
+    "Photo and video editing and background removal.",
+    "Quickly resize designs for different channels.",
+    "Brand Kits for your logo, colors, and fonts.",
+    "AI tools within Adobe Express plan limits.",
+    "Work in your browser or on mobile."
+  ],
+  "plans": [
+    {
+      "name": "Adobe Express Premium — سنة",
+      "planType": "Premium",
+      "duration": "12 شهر",
+      "price": 599,
+      "available": true,
+      "accountType": "تفعيل على إيميلك أو حساب جاهز",
+      "activation": "تفعيل الاشتراك على إيميلك أو تسليم حساب جاهز، حسب اختيارك عند تأكيد الطلب.",
+      "account": "إيميل العميل أو حساب جاهز",
+      "warranty": "6 شهور",
+      "notes": [
+        "مدة الاشتراك 12 شهرًا، ومدة الضمان 6 شهور."
+      ],
+      "officialPrice": {
+        "amount": 119.88,
+        "currency": "USD",
+        "months": 12,
+        "basis": "reference",
+        "source": "https://www.adobe.com/express/pricing",
+        "checkedAt": "2026-10-14"
+      },
+      "priceComparison": {
+        "planName": "Adobe Express Premium",
+        "source": "https://www.adobe.com/express/pricing",
+        "checkedAt": "2026-10-14",
+        "status": "reference",
+        "billingLabel": "12 شهرًا بالسعر الشهري الرسمي",
+        "note": "المرجع يعادل 12 × 9.99 دولار بالسداد الشهري، وليس سعر خطة سنوية."
+      }
+    }
+  ]
+},
+{
   "id": "adobe-cc",
   "name": "Adobe Creative Cloud Pro",
   "category": "التصميم",

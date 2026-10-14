@@ -102,6 +102,7 @@
 
 
   const PRODUCT_DESC_EN={
+    "adobe-express":"Adobe Express Premium for 12 months at EGP 599, with a 6-month warranty. Activation on your email or a ready-made account.",
     "academic-pro":"Review your documents before submission with Turnitin similarity reports and AI-content detection from Academi. One month of Pro on your personal account.",
 "cursor-pro":"Cursor Pro for coding for one year at $135. A 100% discount activation code on your personal account requiring an accepted payment card.",
 "higgsfield-pro":"Higgsfield Pro annual activation code for $160, activated directly on your personal email. Seedance video generation is available within the platform. Full one-year warranty.",
@@ -179,6 +180,14 @@
     "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
   };
   const CATALOG_EXACT_EN={
+    "Adobe Express Premium — سنة":"Adobe Express Premium — 1 year",
+    "تفعيل على إيميلك أو حساب جاهز":"Your email or a ready-made account",
+    "إيميل العميل أو حساب جاهز":"Customer email or a ready-made account",
+    "تفعيل الاشتراك على إيميلك أو تسليم حساب جاهز، حسب اختيارك عند تأكيد الطلب.":"Activate on your email or receive a ready-made account, as selected when confirming the order.",
+    "مدة الاشتراك 12 شهرًا، ومدة الضمان 6 شهور.":"The subscription lasts 12 months; the warranty lasts 6 months.",
+    "12 شهرًا بالسعر الشهري الرسمي":"12 months at the official monthly rate",
+    "المرجع يعادل 12 × 9.99 دولار بالسداد الشهري، وليس سعر خطة سنوية.":"Reference is 12 × USD 9.99 on monthly billing, not an annual-plan price.",
+
     "ChatGPT Plus — تفعيل أو تجديد على حسابك":"ChatGPT Plus — activation or renewal on your account",
     "تفعيل اشتراك Plus جديد أو تجديده على حسابك الشخصي.":"Activate a new Plus subscription or renew it on your personal account.",
     "SuperGrok — 3 شهور بضمان كامل":"SuperGrok — 3 months with full warranty",
