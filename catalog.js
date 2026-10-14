@@ -85,7 +85,7 @@ const products = [
       "name": "Pro — سنة بكود تفعيل",
       "planType": "Pro",
       "duration": "12 شهر",
-      "price": 7057,
+      "price": 7155,
       "basePriceUSD": 135,
       "activation": "تسليم كود خصم 100% لتفعيل سنة على حسابك؛ يتطلب إضافة بطاقة دفع مقبولة.",
       "account": "كود تفعيل على حسابك الشخصي",
@@ -163,7 +163,7 @@ const products = [
       "name": "Pro — سنة بكود تفعيل",
       "planType": "Pro",
       "duration": "12 شهر",
-      "price": 8363,
+      "price": 8480,
       "basePriceUSD": 160,
       "activation": "تسليم كود لتفعيل الاشتراك مباشرة على بريدك الشخصي.",
       "account": "كود تفعيل على حسابك الشخصي",
@@ -199,7 +199,7 @@ const products = [
       "name": "Windows 11 Pro — Lifetime",
       "planType": "Pro",
       "duration": "مدى الحياة للإصدار المشترى",
-      "price": 261,
+      "price": 265,
       "basePriceUSD": 5,
       "activation": "التفعيل باستخدام مفتاح المنتج.",
       "account": "مفتاح تفعيل",
@@ -211,7 +211,7 @@ const products = [
       "name": "Windows 10 Pro — Lifetime",
       "planType": "Pro",
       "duration": "مدى الحياة للإصدار المشترى",
-      "price": 261,
+      "price": 265,
       "basePriceUSD": 5,
       "activation": "التفعيل باستخدام مفتاح المنتج.",
       "account": "مفتاح تفعيل",
@@ -244,7 +244,7 @@ const products = [
       "name": "اشتراك فردي",
       "planType": "IPTV",
       "duration": "1 شهر",
-      "price": 261,
+      "price": 265,
       "basePriceUSD": 5,
       "wholePrice": true,
       "activation": "تسليم بيانات الدخول ورابط السيرفر بعد تأكيد الطلب والدفع.",
@@ -281,7 +281,7 @@ const products = [
       "name": "اشتراك فردي",
       "planType": "IPTV",
       "duration": "6 شهر",
-      "price": 1202,
+      "price": 1219,
       "basePriceUSD": 23,
       "wholePrice": true,
       "activation": "تسليم بيانات الدخول ورابط السيرفر بعد تأكيد الطلب والدفع.",
@@ -297,7 +297,7 @@ const products = [
       "name": "اشتراك فردي",
       "planType": "IPTV",
       "duration": "12 شهر",
-      "price": 1934,
+      "price": 1961,
       "basePriceUSD": 37,
       "wholePrice": true,
       "activation": "تسليم بيانات الدخول ورابط السيرفر بعد تأكيد الطلب والدفع.",
@@ -677,13 +677,13 @@ const products = [
   "category": "AI Tools",
   "logo": "chatgpt",
   "status": "available",
-  "description": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ250 جنيه، حساب جاهز بضمان كامل بـ700 جنيه، أو تفعيل على حسابك الشخصي بـ1040 جنيه.",
+  "description": "المتاح حاليًا من ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو تفعيل وتجديد Plus على حسابك الشخصي بـ1100 جنيه. باقة الحساب الجاهز بضمان بـ700 جنيه نفد مخزونها.",
   "plans": [
     {
       "name": "ChatGPT Plus — بدون ضمان",
       "accountType": "حساب خاص",
       "duration": "1 شهر",
-      "price": 250,
+      "price": 320,
       "activation": "تسليم Gmail + كلمة المرور + بيانات التحقق الثنائي (2FA).",
       "account": "حساب خاص غير مشترك",
       "warranty": "بدون ضمان",
@@ -705,7 +705,8 @@ const products = [
         "basis": "reference",
         "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
         "checkedAt": "2026-10-08"
-      }
+      },
+      "available": true
     },
     {
       "name": "ChatGPT Plus — حساب جاهز",
@@ -733,13 +734,14 @@ const products = [
         "basis": "reference",
         "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
         "checkedAt": "2026-10-08"
-      }
+      },
+      "available": false
     },
     {
-      "name": "ChatGPT Plus — على حسابك الشخصي",
+      "name": "ChatGPT Plus — تفعيل أو تجديد على حسابك",
       "duration": "1 شهر",
-      "price": 1040,
-      "activation": "تفعيل على حساب العميل.",
+      "price": 1100,
+      "activation": "تفعيل اشتراك Plus جديد أو تجديده على حسابك الشخصي.",
       "account": "حساب العميل الشخصي",
       "warranty": "ضمان كامل",
       "notes": [
@@ -760,7 +762,9 @@ const products = [
         "basis": "reference",
         "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
         "checkedAt": "2026-10-08"
-      }
+      },
+      "available": true,
+      "accountType": "تفعيل على حسابك الشخصي"
     }
   ]
 },
@@ -1162,7 +1166,7 @@ const products = [
       "name": "SuperGrok — شهر حساب خاص",
       "planType": "SuperGrok",
       "duration": "1 شهر",
-      "price": 1202,
+      "price": 1219,
       "basePriceUSD": 23,
       "activation": "تسليم حساب جاهز بإيميل وباسورد.",
       "account": "حساب خاص",
@@ -1210,7 +1214,7 @@ const products = [
       "name": "SuperGrok — 3 شهور بضمان كامل",
       "planType": "SuperGrok",
       "duration": "3 شهور",
-      "price": 3554,
+      "price": 3604,
       "basePriceUSD": 68,
       "available": true,
       "activation": "تسليم حساب جاهز بإيميل وباسورد.",
@@ -1307,7 +1311,7 @@ const products = [
       "name": "Creator — سنة على حسابك",
       "planType": "Creator",
       "duration": "12 شهر",
-      "price": 3450,
+      "price": 3498,
       "basePriceUSD": 66,
       "activation": "تفعيل سنة كاملة على حسابك الشخصي بدون بطاقة دفع.",
       "account": "حساب العميل الشخصي",
@@ -2974,7 +2978,7 @@ const products = [
       "name": "Pro — سنة كاملة · 80 دولار",
       "planType": "Pro",
       "duration": "12 شهر",
-      "price": 4182,
+      "price": 4240,
       "basePriceUSD": 80,
       "account": "حسابك الشخصي",
       "accountType": "تفعيل على حسابك الشخصي",

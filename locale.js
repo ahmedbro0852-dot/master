@@ -107,7 +107,7 @@
 "higgsfield-pro":"Higgsfield Pro annual activation code for $160, activated directly on your personal email. Seedance video generation is available within the platform. Full one-year warranty.",
 "windows-pro":"Windows 11 Pro or Windows 10 Pro activation key for $5. Permanent activation for the purchased version with a one-time payment.",
     "chatgpt-teachers-k12":"A ChatGPT plan for K12 teachers lasting two years at EGP 500, without warranty.",
-    "chatgpt-plus":"Monthly ChatGPT Plus: no-warranty account for EGP 250, ready-made account with full warranty for EGP 700, or activation on your personal account for EGP 1,040.",
+    "chatgpt-plus":"Available monthly ChatGPT Plus plans: a no-warranty account for EGP 320, or activation and renewal on your personal account for EGP 1,100. The EGP 700 ready-made account plan is out of stock.",
     "gemini-pro":"Two 18-month options; the family plan adds 5 invitations. Its 1,000 monthly credits are for the main account only.",
     "claude-pro":"Activate Claude Pro on your personal account using the store's payment method.",
     "perplexity-pro":"A ready private Perplexity Pro account with full warranty under the current store offer.",
@@ -179,6 +179,8 @@
     "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
   };
   const CATALOG_EXACT_EN={
+    "ChatGPT Plus — تفعيل أو تجديد على حسابك":"ChatGPT Plus — activation or renewal on your account",
+    "تفعيل اشتراك Plus جديد أو تجديده على حسابك الشخصي.":"Activate a new Plus subscription or renew it on your personal account.",
     "SuperGrok — 3 شهور بضمان كامل":"SuperGrok — 3 months with full warranty",
     "3 أشهر بالسعر الشهري الرسمي":"3 months at the official monthly rate",
     "تقارير التشابه من Turnitin، أما تقارير كشف AI فمن أداة Academi الخاصة وليست تقرير Turnitin AI.":"Similarity reports come from Turnitin. AI reports use Academi’s own detector and are not Turnitin AI reports.",
@@ -346,7 +348,9 @@
     return m?m[1].toUpperCase():'';
   }
   function currentMarket(){return MARKETS[state.market]||MARKETS.INTL;}
-  function currencyRate(currency){return Number(state.rates[currency]||FALLBACK_RATES[currency]||1);}
+  // Store USD/EGP rate supplied on 14 October 2026.
+  const STORE_USD_EGP=53;
+  function currencyRate(currency){if(currency==='USD')return 1/STORE_USD_EGP;return Number(state.rates[currency]||FALLBACK_RATES[currency]||1);}
   function decimalCount(currency){return DECIMALS[currency]??2;}
 
   function formatCurrency(amount,currency,language){
