@@ -2,8 +2,8 @@
 const section=document.querySelector('#customer-stories');if(!section)return;
 const viewport=section.querySelector('.stories-window'),track=section.querySelector('.stories-track'),toggle=section.querySelector('[data-stories-toggle]');
 const dialog=document.querySelector('#story-dialog'),large=dialog.querySelector('img'),title=dialog.querySelector('h3');
-const captions=['تفعيل اشتراك ومتابعة','تأكيد وصول التحويل','تسليم بيانات الحساب','متابعة الحساب والتفعيل','تأكيد إتمام التفعيل','خطوات التفعيل على الحساب','رسالة شكر من عميل','متابعة تفعيل الاشتراك','تأكيد التفعيل وشكر العميل'];
-const english=['Subscription activation','Payment receipt confirmation','Account handover','Account activation support','Activation confirmation','Personal account activation','A customer’s thank-you','Subscription setup support','Activation and customer feedback'];
+const captions=['تفعيل اشتراك ومتابعة','تأكيد وصول التحويل','تسليم بيانات الحساب','متابعة الحساب والتفعيل','تأكيد إتمام التفعيل','خطوات التفعيل على الحساب','رسالة شكر من عميل','متابعة تفعيل الاشتراك','تأكيد التفعيل وشكر العميل','تحويل ومتابعة الطلب','تأكيد تفعيل Google AI','تأكيد الدفع وتجربة العميل','استلام التحويل ومتابعة الخدمة'];
+const english=['Subscription activation','Payment receipt confirmation','Account handover','Account activation support','Activation confirmation','Personal account activation','A customer’s thank-you','Subscription setup support','Activation and customer feedback','Payment and order follow-up','Google AI activation confirmation','Payment and customer experience','Payment received and service follow-up'];
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');let paused=reduced.matches,hover=false,focused=false,visible=false,last=0,active=0,returnFocus=null,raf=0;
 const en=()=>document.documentElement.lang==='en';
 const path=i=>`assets/customer-stories/story-${String(i+1).padStart(2,'0')}.webp?v=20261015-2`;
