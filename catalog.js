@@ -949,11 +949,11 @@ const products = [
 },
 {
   "id": "lovable-pro",
-  "name": "Lovable Pro",
+  "name": "Lovable",
   "category": "AI Tools",
   "logo": "lovable",
   "status": "available",
-  "description": "باقات Lovable Pro الشهرية والسنوية، وعرض شهر برصيد 100 كريدت + 5 كريدت يوميًا بـ230 جنيه.",
+  "description": "باقات Lovable Pro وPro Lite الشهرية والسنوية في صفحة واحدة، ومنها عرض Lite لمدة 12 شهر بسعر 450 جنيه بدل 650 جنيه.",
   "plans": [
     {
       "name": "Pro — شهر",
@@ -1035,6 +1035,24 @@ const products = [
         "source": "https://docs.lovable.dev/introduction/subscription-plans",
         "checkedAt": "2026-10-08"
       }
+    },
+    {
+      "name": "Pro Lite",
+      "duration": "12 شهر",
+      "price": 450,
+      "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
+      "account": "حساب العميل",
+      "warranty": "ضمان كامل",
+      "credits": "300 Credit + 5 Credits يوميًا لمدة سنة",
+      "priceComparison": {
+        "planName": "Lovable Pro / Lite — تحتاج مطابقة الرصيد",
+        "source": "https://docs.lovable.dev/introduction/subscription-plans",
+        "checkedAt": "2026-10-08",
+        "status": "unavailable",
+        "note": "300 كريدت إجماليًا + رصيد يومي لا يطابق تلقائيًا Pro الذي يبدأ من 100 كريدت كل شهر. لم تتأكد باقة رسمية مطابقة لهذا العرض."
+      },
+      "oldPrice": 650,
+      "planType": "Pro Lite"
     }
   ]
 },
@@ -1063,7 +1081,11 @@ const products = [
       },
       "oldPrice": 650
     }
-  ]
+  ],
+  "redirectTo": {
+    "id": "lovable-pro",
+    "plan": 3
+  }
 },
 {
   "id": "runway-pro",

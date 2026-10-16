@@ -115,7 +115,7 @@
     "gemini-pro":"Two 18-month options; the family plan adds 5 invitations. Its 1,000 monthly credits are for the main account only.",
     "claude-pro":"Activate Claude Pro on your personal account using the store's payment method.",
     "perplexity-pro":"A ready private Perplexity Pro account with full warranty under the current store offer.",
-    "lovable-pro":"A 12-month Lovable Pro subscription.",
+    "lovable-pro":"Lovable Pro and Pro Lite monthly and annual plans in one place, including the 12-month Lite offer at EGP 450 instead of EGP 650.",
     "lovable-lite":"Lovable Pro Lite for 12 months at EGP 450 instead of EGP 650, with the existing credits and personal-email activation without a card.",
     "runway-pro":"A 12-month Runway Pro subscription activated on your account with a redemption code, with a 6-month warranty.",
     "wink-ai":"A ready account for Wink AI tools.",
