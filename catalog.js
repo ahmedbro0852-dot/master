@@ -1305,14 +1305,13 @@ const products = [
   "logo": "elevenlabs",
   "logoUrl": "logos/elevenlabs.svg?v=20261009-logo-review3",
   "status": "available",
-  "description": "باقات ElevenLabs Creator، منها سنة كاملة على حسابك الشخصي بـ66 دولار بدون بطاقة دفع.",
+  "description": "باقات ElevenLabs Creator، منها سنة كاملة على حسابك الشخصي بـ4500 جنيه بدون بطاقة دفع.",
   "plans": [
     {
       "name": "Creator — سنة على حسابك",
       "planType": "Creator",
       "duration": "12 شهر",
-      "price": 3498,
-      "basePriceUSD": 66,
+      "price": 4500,
       "activation": "تفعيل سنة كاملة على حسابك الشخصي بدون بطاقة دفع.",
       "account": "حساب العميل الشخصي",
       "accountType": "حساب العميل الشخصي",

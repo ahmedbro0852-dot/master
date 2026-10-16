@@ -119,7 +119,7 @@
     "grok":"Only the 3-month SuperGrok plan is available for $68: a ready private account delivered with email and password, with full warranty for the subscription. All other plans are out of stock.",
     "gamma-plus":"A ready Gamma Plus account.",
     "gamma-account":"One Gamma account with 10 workspaces, each including 2,000 credits.",
-    "elevenlabs":"ElevenLabs Creator plans, including one full year on your personal account for $66 without a payment card.",
+    "elevenlabs":"ElevenLabs Creator plans, including one full year on your personal account for EGP 4,500 without a payment card.",
     "heygen":"A ready HeyGen account with 1,250 credits.",
     "canva-pro":"Activate Canva Pro on your personal email.",
     "capcut-pro":"Ready CapCut Pro accounts with multiple durations and different credit amounts.",
