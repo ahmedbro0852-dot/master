@@ -1387,6 +1387,60 @@ const products = [
   ]
 },
 {
+  "id": "hedra",
+  "name": "Hedra Basic",
+  "category": "AI Tools",
+  "logo": "hedra",
+  "logoUrl": "logos/hedra.ico?v=20261016",
+  "status": "available",
+  "description": "اشتراك Hedra Basic الرسمي لمدة شهر بسعر 20 دولار، مع 2,000 كريدت للاستخدام خلال الشهر.",
+  "features": [
+    "باقة Basic الرسمية لمدة شهر واحد.",
+    "2,000 كريدت خلال شهر الاشتراك.",
+    "الاستخدام التجاري مشمول وفق شروط Hedra.",
+    "سرعة التوليد الأساسية (أبطأ من الباقات الأعلى)."
+  ],
+  "featuresEn": [
+    "Official Basic plan for one month.",
+    "2,000 credits during the subscription month.",
+    "Commercial use subject to Hedra’s terms.",
+    "Basic generation speed, slower than higher tiers."
+  ],
+  "plans": [
+    {
+      "name": "Basic — اشتراك رسمي",
+      "planType": "Basic",
+      "duration": "1 شهر",
+      "price": 1060,
+      "basePriceUSD": 20,
+      "credits": "2,000 Credit شهريًا",
+      "activation": "اشتراك رسمي لمدة شهر. تُحدد طريقة التفعيل مع الدعم قبل الدفع.",
+      "account": "يُحدد مع الدعم قبل الدفع",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "notes": [
+        "السعر الأساسي 20 دولارًا لمدة شهر واحد.",
+        "استهلاك الكريدت يختلف حسب النموذج وإعدادات التوليد."
+      ],
+      "officialPrice": {
+        "amount": 20,
+        "currency": "USD",
+        "months": 1,
+        "basis": "matched",
+        "source": "https://www.hedra.com/pricing",
+        "checkedAt": "2026-10-16"
+      },
+      "priceComparison": {
+        "planName": "Hedra Basic",
+        "source": "https://www.hedra.com/pricing",
+        "checkedAt": "2026-10-16",
+        "status": "matched",
+        "billingLabel": "فوترة شهرية",
+        "note": "السعر الرسمي لخطة Basic لمدة شهر؛ لا يُعرض خصم غير موجود."
+      }
+    }
+  ]
+},
+{
   "id": "heygen",
   "name": "HeyGen Creator",
   "category": "AI Tools",
