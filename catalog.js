@@ -36,7 +36,7 @@ const products = [
     {
       "name": "باقة الدراسة والتعلّم",
       "planType": "Bundle",
-      "duration": "مدة مستقلة لكل خدمة — التفاصيل أدناه",
+      "duration": "Coursera Plus: 3 شهور · Gemini Pro: 18 شهر · Canva Pro: 3 سنوات",
       "price": 425,
       "oldPrice": 500,
       "available": true,
@@ -128,7 +128,7 @@ const products = [
     {
       "name": "باقة التصميم والمحتوى",
       "planType": "Bundle",
-      "duration": "مدة مستقلة لكل خدمة — التفاصيل أدناه",
+      "duration": "Adobe Express Premium: 12 شهر · ChatGPT Plus: 1 شهر · Canva Pro: 3 سنوات",
       "price": 739,
       "oldPrice": 869,
       "available": true,
@@ -218,7 +218,7 @@ const products = [
     {
       "name": "باقة الفيديو والصوت",
       "planType": "Bundle",
-      "duration": "مدة مستقلة لكل خدمة — التفاصيل أدناه",
+      "duration": "Hedra Basic: 1 شهر · ElevenLabs Creator: 1 شهر · Canva Pro: 3 سنوات",
       "price": 1399,
       "oldPrice": 1660,
       "available": true,
@@ -274,7 +274,7 @@ const products = [
 {
   "id": "gemini-coursera-bundle",
   "name": "Coursera Plus + هدايا",
-  "category": "التعليم",
+  "category": "باقات مجمعة",
   "logo": "gemini",
   "logoUrl": "logos/gemini.svg?v=20261009-logo-review3",
   "status": "available",
