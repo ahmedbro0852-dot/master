@@ -1044,12 +1044,12 @@ const products = [
   "category": "AI Tools",
   "logo": "lovable",
   "status": "available",
-  "description": "خطة سنوية برصيد أساسي مع Credits يومية.",
+  "description": "عرض Lovable Pro Lite لمدة 12 شهر بسعر 450 جنيه بدل 650 جنيه، بنفس الرصيد اليومي والتفعيل على بريدك الشخصي بدون بطاقة.",
   "plans": [
     {
       "name": "Pro Lite",
       "duration": "12 شهر",
-      "price": 650,
+      "price": 450,
       "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
       "account": "حساب العميل",
       "warranty": "ضمان كامل",
@@ -1060,7 +1060,8 @@ const products = [
         "checkedAt": "2026-10-08",
         "status": "unavailable",
         "note": "300 كريدت إجماليًا + رصيد يومي لا يطابق تلقائيًا Pro الذي يبدأ من 100 كريدت كل شهر. لم تتأكد باقة رسمية مطابقة لهذا العرض."
-      }
+      },
+      "oldPrice": 650
     }
   ]
 },

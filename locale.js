@@ -116,7 +116,7 @@
     "claude-pro":"Activate Claude Pro on your personal account using the store's payment method.",
     "perplexity-pro":"A ready private Perplexity Pro account with full warranty under the current store offer.",
     "lovable-pro":"A 12-month Lovable Pro subscription.",
-    "lovable-lite":"An annual Lovable plan with base credits plus daily credits.",
+    "lovable-lite":"Lovable Pro Lite for 12 months at EGP 450 instead of EGP 650, with the existing credits and personal-email activation without a card.",
     "runway-pro":"A 12-month Runway Pro subscription activated on your account with a redemption code, with a 6-month warranty.",
     "wink-ai":"A ready account for Wink AI tools.",
     "grok":"Only the 3-month SuperGrok plan is available for $68: a ready private account delivered with email and password, with full warranty for the subscription. All other plans are out of stock.",
