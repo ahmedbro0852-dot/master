@@ -1393,18 +1393,22 @@ const products = [
   "logo": "hedra",
   "logoUrl": "logos/hedra.ico?v=20261016",
   "status": "available",
-  "description": "اشتراك Hedra Basic الرسمي لمدة شهر بسعر 20 دولار، مع 2,000 كريدت للاستخدام خلال الشهر.",
+  "description": "اشتراك Hedra Basic الرسمي لمدة شهر بسعر 20 دولار، حساب جاهز بضمان كامل، والتجهيز خلال ساعتين إلى 3 ساعات.",
   "features": [
     "باقة Basic الرسمية لمدة شهر واحد.",
     "2,000 كريدت خلال شهر الاشتراك.",
     "الاستخدام التجاري مشمول وفق شروط Hedra.",
-    "سرعة التوليد الأساسية (أبطأ من الباقات الأعلى)."
+    "سرعة التوليد الأساسية (أبطأ من الباقات الأعلى).",
+    "تسليم حساب جاهز خلال ساعتين إلى 3 ساعات.",
+    "ضمان كامل طوال شهر الاشتراك."
   ],
   "featuresEn": [
     "Official Basic plan for one month.",
     "2,000 credits during the subscription month.",
     "Commercial use subject to Hedra’s terms.",
-    "Basic generation speed, slower than higher tiers."
+    "Basic generation speed, slower than higher tiers.",
+    "Ready account prepared within 2–3 hours.",
+    "Full warranty throughout the subscription month."
   ],
   "plans": [
     {
@@ -1414,9 +1418,9 @@ const products = [
       "price": 1060,
       "basePriceUSD": 20,
       "credits": "2,000 Credit شهريًا",
-      "activation": "اشتراك رسمي لمدة شهر. تُحدد طريقة التفعيل مع الدعم قبل الدفع.",
-      "account": "يُحدد مع الدعم قبل الدفع",
-      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "activation": "تسليم حساب جاهز خلال ساعتين إلى 3 ساعات.",
+      "account": "حساب جاهز",
+      "warranty": "ضمان كامل لمدة شهر",
       "notes": [
         "السعر الأساسي 20 دولارًا لمدة شهر واحد.",
         "استهلاك الكريدت يختلف حسب النموذج وإعدادات التوليد."
@@ -1436,7 +1440,8 @@ const products = [
         "status": "matched",
         "billingLabel": "فوترة شهرية",
         "note": "السعر الرسمي لخطة Basic لمدة شهر؛ لا يُعرض خصم غير موجود."
-      }
+      },
+      "accountType": "حساب جاهز"
     }
   ]
 },

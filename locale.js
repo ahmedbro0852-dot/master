@@ -98,11 +98,13 @@
     'الطلبات والبيانات في هذه الصفحة محفوظة على هذا المتصفح فقط.':'Orders and details on this page are stored only in this browser.','طلبات الحساب ورصيد المحفظة محفوظة لحسابك. طلبات الضيوف محفوظة على الجهاز فقط.':'Account orders and wallet balance are saved to your account. Guest orders are stored on this device.'
   };
   exactArToEn['ضمان كامل لمدة سنة']='Full one-year warranty';
+  exactArToEn['تسليم حساب جاهز خلال ساعتين إلى 3 ساعات.']='A ready account delivered within 2–3 hours.';
+  exactArToEn['ضمان كامل لمدة شهر']='Full one-month warranty';
   const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e,a]));
 
 
   const PRODUCT_DESC_EN={
-    "hedra":"Official Hedra Basic subscription for one month at $20, including 2,000 credits for the month.",
+    "hedra":"Official Hedra Basic subscription for one month at $20: a ready account with full warranty, prepared within 2–3 hours.",
     "adobe-express":"Adobe Express Premium for 12 months: activation on your email or a ready-made account for EGP 499 with a 6-month warranty, or an activation link for your account requiring a card for EGP 200 with no warranty.",
     "academic-pro":"Review your documents before submission with Turnitin similarity reports and AI-content detection from Academi. One month of Pro on your personal account.",
 "cursor-pro":"Cursor Pro for coding for one year at $135. A 100% discount activation code on your personal account requiring an accepted payment card.",
