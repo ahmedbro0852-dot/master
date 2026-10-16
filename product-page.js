@@ -25,6 +25,7 @@
   }
 
   function icon(product){
+    if(product.bundleLogos)return '<span class="pack-logos pack-logos-large">'+product.bundleLogos.map((logo,i)=>(i?'<small>+</small>':'')+'<img src="'+MasterStore.escapeHtml(logo.src)+'" alt="'+MasterStore.escapeHtml(logo.name)+'">').join('')+'</span>';
     if(product.id==='gemini-coursera-bundle')return '<span class="bundle-brand-group"><span class="product-logo big bundle-main-logo"><img src="logos/coursera.svg" alt="Coursera Plus"></span><span class="bundle-gift-logos">'+['gemini','canva'].map(name=>'<span class="bundle-gift-logo"><img src="logos/'+name+'.svg" alt="'+(name==='gemini'?'Gemini':'Canva Pro')+'"><small>'+ui('مجانًا','FREE')+'</small></span>').join('')+'</span></span>';
     const fallback=(product.name||'M').split(/\s+/).map(x=>x[0]).join('').slice(0,2);
     const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20261009-logo-review3':'';
@@ -123,6 +124,7 @@
   }
 
   function discountDetail(plan){
+    if(plan.bundleComponents){const before=MasterStore.planAmount(plan,"oldPrice"),after=MasterStore.planAmount(plan),saving=Math.max(0,before-after),percent=before?Math.floor(saving/before*1000)/10:0;return '<div><dt>'+ui("التوفير عن الخدمات منفصلة","Saving vs separate store purchases")+'</dt><dd><strong class="saving">'+percent+'% · '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong></dd></div>';}
     const discount=MasterStore.officialDiscount(plan);
     const label=ui(discount?.estimated?'نسبة التوفير التقديرية':'نسبة التوفير عن الرسمي',discount?.estimated?'Estimated saving':'Saving vs official price');
     const value=discount?(discount.percent>0?'<strong class="saving">'+discount.percent+'%</strong>':ui('لا يوجد توفير بالسعر الحالي','No saving at the current price')):ui('غير متاحة — لا يوجد سعر رسمي مطابق موثق','Unavailable — no verified matching official price');
@@ -337,7 +339,7 @@
     planDetails.innerHTML=
       '<dl class="details-list">'+
         '<div><dt>'+ui('السعر','Price')+'</dt><dd>'+MasterStore.planMoney(plan)+'</dd></div>'+
-        ((plan.oldPrice||plan.officialPrice)?'<div><dt>'+(plan.officialPrice?ui('السعر الرسمي','Official price'):ui('السعر قبل العرض','Before discount'))+'</dt><dd>'+(saving?'<del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>':MasterStore.planMoney(plan,'oldPrice'))+(saving?' <strong class="saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
+        ((plan.oldPrice||plan.officialPrice)?'<div><dt>'+(plan.bundleComponents?ui('مجموع الخدمات منفصلة','Separate store prices'):(plan.officialPrice?ui('السعر الرسمي','Official price'):ui('السعر قبل العرض','Before discount')))+'</dt><dd>'+(saving?'<del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>':MasterStore.planMoney(plan,'oldPrice'))+(saving?' <strong class="saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
         discountDetail(plan)+
         '<div><dt>'+ui('نوع الباقة','Plan tier')+'</dt><dd>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+'</dd></div>'+
         '<div><dt>'+ui('المدة','Duration')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.duration||'غير محددة','duration'))+'</dd></div>'+

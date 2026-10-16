@@ -1,5 +1,277 @@
 const products = [
 {
+  "id": "bundle-study",
+  "name": "باقة الدراسة والتعلّم",
+  "nameEn": "Study & Learning Bundle",
+  "category": "باقات مجمعة",
+  "logo": "coursera",
+  "logoUrl": "logos/coursera.svg?v=20261009-logo-review3",
+  "status": "available",
+  "description": "Coursera Plus (3 شهور) + Gemini Pro (18 شهر) + Canva Pro (3 سنوات) بسعر 425 جنيه بدل 500 جنيه للخدمات منفصلة.",
+  "features": [
+    "Coursera Plus — 3 شهور؛ حساب خاص؛ الضمان: ضمان كامل.",
+    "Gemini Pro — 18 شهر؛ حساب العميل الشخصي؛ الضمان: ضمان 3 شهور. الرصيد: 1,000 Credit شهريًا.",
+    "Canva Pro — 3 سنوات؛ حساب العميل؛ الضمان: ضمان كامل."
+  ],
+  "featuresEn": [
+    "Coursera Plus — 3 months; private account; full warranty.",
+    "Gemini Pro — 18 months; personal account activation; 3-month warranty. Credits: 1,000 Credit per month.",
+    "Canva Pro — 3 years; personal email activation; full warranty."
+  ],
+  "bundleLogos": [
+    {
+      "src": "logos/coursera.svg?v=20261009-logo-review3",
+      "name": "Coursera Plus"
+    },
+    {
+      "src": "logos/gemini.svg?v=20261009-logo-review3",
+      "name": "Gemini Pro"
+    },
+    {
+      "src": "logos/canva.svg",
+      "name": "Canva Pro"
+    }
+  ],
+  "plans": [
+    {
+      "name": "باقة الدراسة والتعلّم",
+      "planType": "Bundle",
+      "duration": "مدة مستقلة لكل خدمة — التفاصيل أدناه",
+      "price": 425,
+      "oldPrice": 500,
+      "available": true,
+      "account": "حساب أو تفعيل مستقل لكل خدمة حسب التفاصيل",
+      "activation": "Coursera Plus: تسليم حساب خاص. الضمان: ضمان كامل.\nGemini Pro: رابط تفعيل مباشر على البريد الشخصي — بدون بطاقة أو بيانات دفع. الضمان: ضمان 3 شهور.\nCanva Pro: تفعيل على البريد الشخصي خلال وقت قصير. الضمان: ضمان كامل.",
+      "warranty": "Coursera Plus: ضمان كامل · Gemini Pro: ضمان 3 شهور · Canva Pro: ضمان كامل",
+      "notes": [
+        "مجموع أسعار الخدمات منفصلة: 500ج. سعر الباقة: 425ج. التوفير: 75ج (15%).",
+        "الخصم مقارنة بأسعار المتجر للخدمات منفصلة، وليس مقارنة بالأسعار الرسمية للشركات.",
+        "كل خدمة لها مدة الاشتراك والضمان الموضحان بالتفاصيل.",
+        "تتضمن عرض Gemini لمدة 18 شهرًا؛ يجب إتمام الطلب والتفعيل قبل نهاية 26 أكتوبر 2026."
+      ],
+      "bundleComponents": [
+        {
+          "productId": "coursera",
+          "planIndex": 0,
+          "name": "Coursera Plus",
+          "duration": "3 شهور",
+          "price": 300,
+          "warranty": "ضمان كامل",
+          "activation": "تسليم حساب خاص.",
+          "account": "حساب خاص",
+          "logoUrl": "logos/coursera.svg?v=20261009-logo-review3",
+          "credits": ""
+        },
+        {
+          "productId": "gemini-pro",
+          "planIndex": 0,
+          "name": "Gemini Pro",
+          "duration": "18 شهر",
+          "price": 150,
+          "warranty": "ضمان 3 شهور",
+          "activation": "رابط تفعيل مباشر على البريد الشخصي — بدون بطاقة أو بيانات دفع.",
+          "account": "حساب العميل الشخصي",
+          "logoUrl": "logos/gemini.svg?v=20261009-logo-review3",
+          "credits": "1,000 Credit شهريًا"
+        },
+        {
+          "productId": "canva-pro",
+          "planIndex": 0,
+          "name": "Canva Pro",
+          "duration": "3 سنوات",
+          "price": 50,
+          "warranty": "ضمان كامل",
+          "activation": "تفعيل على البريد الشخصي خلال وقت قصير.",
+          "account": "حساب العميل",
+          "logoUrl": "logos/canva.svg",
+          "credits": ""
+        }
+      ],
+      "offerEndsAt": "2026-10-26T23:59:59+03:00"
+    }
+  ]
+},
+{
+  "id": "bundle-design",
+  "name": "باقة التصميم والمحتوى",
+  "nameEn": "Design & Content Bundle",
+  "category": "باقات مجمعة",
+  "logo": "adobe",
+  "logoUrl": "logos/adobe.svg",
+  "status": "available",
+  "description": "Adobe Express Premium (12 شهر) + ChatGPT Plus (1 شهر) + Canva Pro (3 سنوات) بسعر 739 جنيه بدل 869 جنيه للخدمات منفصلة.",
+  "features": [
+    "Adobe Express Premium — 12 شهر؛ إيميل العميل أو حساب جاهز؛ الضمان: 6 شهور.",
+    "ChatGPT Plus — 1 شهر؛ حساب خاص غير مشترك؛ الضمان: بدون ضمان.",
+    "Canva Pro — 3 سنوات؛ حساب العميل؛ الضمان: ضمان كامل."
+  ],
+  "featuresEn": [
+    "Adobe Express Premium — 12 months; personal email activation or ready account; 6-month warranty.",
+    "ChatGPT Plus — 1 month; ready private account; no warranty.",
+    "Canva Pro — 3 years; personal email activation; full warranty."
+  ],
+  "bundleLogos": [
+    {
+      "src": "logos/adobe.svg",
+      "name": "Adobe Express Premium"
+    },
+    {
+      "src": "logos/chatgpt.svg",
+      "name": "ChatGPT Plus"
+    },
+    {
+      "src": "logos/canva.svg",
+      "name": "Canva Pro"
+    }
+  ],
+  "plans": [
+    {
+      "name": "باقة التصميم والمحتوى",
+      "planType": "Bundle",
+      "duration": "مدة مستقلة لكل خدمة — التفاصيل أدناه",
+      "price": 739,
+      "oldPrice": 869,
+      "available": true,
+      "account": "حساب أو تفعيل مستقل لكل خدمة حسب التفاصيل",
+      "activation": "Adobe Express Premium: تفعيل الاشتراك على إيميلك أو تسليم حساب جاهز، حسب اختيارك عند تأكيد الطلب. الضمان: 6 شهور.\nChatGPT Plus: تسليم Gmail + كلمة المرور + بيانات التحقق الثنائي (2FA). الضمان: بدون ضمان.\nCanva Pro: تفعيل على البريد الشخصي خلال وقت قصير. الضمان: ضمان كامل.",
+      "warranty": "Adobe Express Premium: 6 شهور · ChatGPT Plus: بدون ضمان · Canva Pro: ضمان كامل",
+      "notes": [
+        "مجموع أسعار الخدمات منفصلة: 869ج. سعر الباقة: 739ج. التوفير: 130ج (14.9%).",
+        "الخصم مقارنة بأسعار المتجر للخدمات منفصلة، وليس مقارنة بالأسعار الرسمية للشركات.",
+        "كل خدمة لها مدة الاشتراك والضمان الموضحان بالتفاصيل."
+      ],
+      "bundleComponents": [
+        {
+          "productId": "adobe-express",
+          "planIndex": 0,
+          "name": "Adobe Express Premium",
+          "duration": "12 شهر",
+          "price": 499,
+          "warranty": "6 شهور",
+          "activation": "تفعيل الاشتراك على إيميلك أو تسليم حساب جاهز، حسب اختيارك عند تأكيد الطلب.",
+          "account": "إيميل العميل أو حساب جاهز",
+          "logoUrl": "logos/adobe.svg",
+          "credits": ""
+        },
+        {
+          "productId": "chatgpt-plus",
+          "planIndex": 0,
+          "name": "ChatGPT Plus",
+          "duration": "1 شهر",
+          "price": 320,
+          "warranty": "بدون ضمان",
+          "activation": "تسليم Gmail + كلمة المرور + بيانات التحقق الثنائي (2FA).",
+          "account": "حساب خاص غير مشترك",
+          "logoUrl": "logos/chatgpt.svg",
+          "credits": ""
+        },
+        {
+          "productId": "canva-pro",
+          "planIndex": 0,
+          "name": "Canva Pro",
+          "duration": "3 سنوات",
+          "price": 50,
+          "warranty": "ضمان كامل",
+          "activation": "تفعيل على البريد الشخصي خلال وقت قصير.",
+          "account": "حساب العميل",
+          "logoUrl": "logos/canva.svg",
+          "credits": ""
+        }
+      ]
+    }
+  ]
+},
+{
+  "id": "bundle-video",
+  "name": "باقة الفيديو والصوت",
+  "nameEn": "Video & Audio Bundle",
+  "category": "باقات مجمعة",
+  "logo": "hedra",
+  "logoUrl": "logos/hedra.ico?v=20261016",
+  "status": "available",
+  "description": "Hedra Basic (1 شهر) + ElevenLabs Creator (1 شهر) + Canva Pro (3 سنوات) بسعر 1399 جنيه بدل 1660 جنيه للخدمات منفصلة.",
+  "features": [
+    "Hedra Basic — 1 شهر؛ حساب جاهز؛ الضمان: ضمان كامل لمدة شهر. الرصيد: 2,000 Credit شهريًا.",
+    "ElevenLabs Creator — 1 شهر؛ حساب جاهز؛ الضمان: ضمان كامل. الرصيد: 131,000 Credit.",
+    "Canva Pro — 3 سنوات؛ حساب العميل؛ الضمان: ضمان كامل."
+  ],
+  "featuresEn": [
+    "Hedra Basic — 1 month; ready account; full one-month warranty. Credits: 2,000 Credit per month.",
+    "ElevenLabs Creator — 1 month; ready account; full warranty. Credits: 131,000 Credit.",
+    "Canva Pro — 3 years; personal email activation; full warranty."
+  ],
+  "bundleLogos": [
+    {
+      "src": "logos/hedra.ico?v=20261016",
+      "name": "Hedra Basic"
+    },
+    {
+      "src": "logos/elevenlabs.svg?v=20261009-logo-review3",
+      "name": "ElevenLabs Creator"
+    },
+    {
+      "src": "logos/canva.svg",
+      "name": "Canva Pro"
+    }
+  ],
+  "plans": [
+    {
+      "name": "باقة الفيديو والصوت",
+      "planType": "Bundle",
+      "duration": "مدة مستقلة لكل خدمة — التفاصيل أدناه",
+      "price": 1399,
+      "oldPrice": 1660,
+      "available": true,
+      "account": "حساب أو تفعيل مستقل لكل خدمة حسب التفاصيل",
+      "activation": "Hedra Basic: تسليم حساب جاهز خلال ساعتين إلى 3 ساعات. الضمان: ضمان كامل لمدة شهر.\nElevenLabs Creator: تسليم حساب جاهز. الضمان: ضمان كامل.\nCanva Pro: تفعيل على البريد الشخصي خلال وقت قصير. الضمان: ضمان كامل.",
+      "warranty": "Hedra Basic: ضمان كامل لمدة شهر · ElevenLabs Creator: ضمان كامل · Canva Pro: ضمان كامل",
+      "notes": [
+        "مجموع أسعار الخدمات منفصلة: 1660ج. سعر الباقة: 1399ج. التوفير: 261ج (15.7%).",
+        "الخصم مقارنة بأسعار المتجر للخدمات منفصلة، وليس مقارنة بالأسعار الرسمية للشركات.",
+        "كل خدمة لها مدة الاشتراك والضمان الموضحان بالتفاصيل."
+      ],
+      "bundleComponents": [
+        {
+          "productId": "hedra",
+          "planIndex": 0,
+          "name": "Hedra Basic",
+          "duration": "1 شهر",
+          "price": 1060,
+          "warranty": "ضمان كامل لمدة شهر",
+          "activation": "تسليم حساب جاهز خلال ساعتين إلى 3 ساعات.",
+          "account": "حساب جاهز",
+          "logoUrl": "logos/hedra.ico?v=20261016",
+          "credits": "2,000 Credit شهريًا"
+        },
+        {
+          "productId": "elevenlabs",
+          "planIndex": 2,
+          "name": "ElevenLabs Creator",
+          "duration": "1 شهر",
+          "price": 550,
+          "warranty": "ضمان كامل",
+          "activation": "تسليم حساب جاهز.",
+          "account": "حساب جاهز",
+          "logoUrl": "logos/elevenlabs.svg?v=20261009-logo-review3",
+          "credits": "131,000 Credit"
+        },
+        {
+          "productId": "canva-pro",
+          "planIndex": 0,
+          "name": "Canva Pro",
+          "duration": "3 سنوات",
+          "price": 50,
+          "warranty": "ضمان كامل",
+          "activation": "تفعيل على البريد الشخصي خلال وقت قصير.",
+          "account": "حساب العميل",
+          "logoUrl": "logos/canva.svg",
+          "credits": ""
+        }
+      ]
+    }
+  ]
+},
+{
   "id": "gemini-coursera-bundle",
   "name": "Coursera Plus + هدايا",
   "category": "التعليم",
@@ -3736,7 +4008,7 @@ const products = [
 }
 ];
 
-const categoryOrder = ["AI Tools","التصميم","التعليم","الإنتاجية","VPN والحماية","الترفيه","الاتصالات والإنترنت"];
+const categoryOrder = ["باقات مجمعة","AI Tools","التصميم","التعليم","الإنتاجية","VPN والحماية","الترفيه","الاتصالات والإنترنت"];
 function getProduct(id){ return products.find(p => p.id === id); }
 function formatPrice(value){ return Number(value).toLocaleString("en-US") + " ج"; }
 function startingPrice(product){

@@ -82,6 +82,7 @@
   }
 
   function logoMarkup(product){
+    if(product.bundleLogos)return '<span class="pack-logos">'+product.bundleLogos.map((logo,i)=>(i?'<small>+</small>':'')+'<img src="'+esc(logo.src)+'" alt="'+esc(logo.name)+'" loading="lazy" decoding="async">').join('')+'</span>';
     if(product.id==='gemini-coursera-bundle')return '<span class="bundle-brand-group"><span class="product-logo big bundle-main-logo"><img src="logos/coursera.svg" alt="Coursera Plus"></span><span class="bundle-gift-logos">'+['gemini','canva'].map(name=>'<span class="bundle-gift-logo"><img src="logos/'+name+'.svg" alt="'+(name==='gemini'?'Gemini':'Canva Pro')+'"><small>'+ui('مجانًا','FREE')+'</small></span>').join('')+'</span></span>';
     const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20261009-logo-review3':'';
     const src=product.logoUrl||local;

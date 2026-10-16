@@ -2052,3 +2052,5 @@ body{background:#f5f8fc;color:var(--ink)}
 @media(prefers-reduced-motion:reduce){.gift-duo *{animation:none!important;transition:none!important}}
 
 .purchase-choice-actions{display:grid;gap:12px}.purchase-choice-actions button{min-height:48px;white-space:normal;line-height:1.6}.purchase-choice-note{color:#b42318;font-size:13px;line-height:1.7;margin:14px 0 0}
+
+.pack-logos{display:flex;align-items:center;justify-content:center;gap:6px;direction:ltr;min-height:48px;max-width:100%;padding:8px 10px;border:1px solid #e1e8f5;border-radius:13px;background:#f7faff}.pack-logos img{width:30px;height:30px;object-fit:contain;border-radius:7px}.pack-logos small{color:#8b9db7;font:500 13px system-ui}.pack-logos-large{padding:14px 16px;gap:9px}.pack-logos-large img{width:40px;height:40px}@media(max-width:600px){.pack-logos{gap:4px;padding:7px}.pack-logos img{width:25px;height:25px}.pack-logos-large img{width:32px;height:32px}}
