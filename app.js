@@ -82,7 +82,6 @@
   }
 
   function logoMarkup(product){
-    if(product.bundleLogos)return '<span class="pack-logos">'+product.bundleLogos.map((logo,i)=>(i?'<small>+</small>':'')+'<img src="'+esc(logo.src)+'" alt="'+esc(logo.name)+'" loading="lazy" decoding="async">').join('')+'</span>';
     if(product.id==='gemini-coursera-bundle')return '<span class="bundle-brand-group"><span class="product-logo big bundle-main-logo"><img src="logos/coursera.svg" alt="Coursera Plus"></span><span class="bundle-gift-logos">'+['gemini','canva'].map(name=>'<span class="bundle-gift-logo"><img src="logos/'+name+'.svg" alt="'+(name==='gemini'?'Gemini':'Canva Pro')+'"><small>'+ui('مجانًا','FREE')+'</small></span>').join('')+'</span></span>';
     const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20261009-logo-review3':'';
     const src=product.logoUrl||local;
@@ -161,7 +160,7 @@
 
   function renderCards(){
     grid.setAttribute('aria-busy','true');
-    grid.innerHTML=products.filter(product=>product.category!=='باقات مجمعة').map(cardMarkup).join('');
+    grid.innerHTML=products.map(cardMarkup).join('');
     bindLogoFallbacks();
     grid.setAttribute('aria-busy','false');
     if(loading)loading.hidden=true;
@@ -178,7 +177,6 @@
 
     filters.querySelectorAll('.filter').forEach(button=>{
       button.addEventListener('click',()=>{
-        if(button.dataset.cat==='باقات مجمعة'){document.getElementById('bundles')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});return;}
         selected=button.dataset.cat||'الكل';
         drawFilters();
         applyFilters();
@@ -218,7 +216,7 @@
   function renderBestOffers(){
     const target=document.getElementById('bestOffersGrid');
     if(!target)return;
-    const picks=[['cursor-pro',1],['lovable-pro',1],['gemini-pro',0],['capcut-pro',1],['grok',0]];
+    const picks=[['cursor-pro',1],['gemini-coursera-bundle',0],['lovable-pro',1],['gemini-pro',0],['capcut-pro',1],['grok',0]];
     target.innerHTML=picks.map(([id,index])=>{
       const product=Catalog.getProduct(id),plan=product?.plans?.[index];
       if(!plan)return '';
@@ -227,26 +225,7 @@
     bindLogoFallbacks(target);
   }
 
-  
-  function renderBundles(){
-    const target=document.getElementById('bundleOffersGrid');if(!target)return;
-    document.getElementById('bundleOffersTitle').textContent=ui('باقات مجمعة بسعر أوفر','More value, bundled together');
-    document.getElementById('bundleOffersSubtitle').textContent=ui('كل باقة تجمع خدماتنا المتاحة، بنفس مدة وضمان كل خدمة.','Available services combined, with each service’s existing duration and warranty.');
-    const packs=products.filter(p=>p.category==='باقات مجمعة');
-    target.innerHTML=packs.map(product=>{
-      const plan=product.plans[0],components=plan.bundleComponents;
-      const items=components?components.map(c=>{const source=Catalog.getProduct(c.productId),p=source?.plans[c.planIndex];return '<li><div><b>'+esc(source.name)+'</b><span>'+esc(tr(p.duration,'duration',source.id))+'</span></div><small>'+esc(tr(p.account,'account',source.id))+' · '+esc(tr(p.warranty,'warranty',source.id))+'</small></li>';}).join(''):
-        ['Coursera Plus — 12 شهر · حساب جاهز · ضمان كامل','هدية Gemini — 3 شهور على إيميلك','هدية Canva Pro — 3 سنين على إيميلك'].map((text,i)=>'<li><b>'+esc(ui(text,['Coursera Plus — 12 months · ready account · full warranty','Gift: Gemini — 3 months on your email','Gift: Canva Pro — 3 years on your email'][i]))+'</b></li>').join('');
-      const saving=plan.oldPrice?Store.planAmount(plan,'oldPrice')-Store.planAmount(plan):0;
-      const percent=saving>0?Math.floor(saving/Store.planAmount(plan,'oldPrice')*1000)/10:0;
-      const unavailable=product.status!=='available'||plan.available===false;
-      return '<article class="bundle-offer-card" data-bundle-id="'+esc(product.id)+'"><div class="bundle-offer-top">'+logoMarkup(product)+'<span class="bundle-offer-tag">'+(saving?ui('خصم ','Save ')+percent+'%':ui('اشتراك + هدايا','Subscription + gifts'))+'</span></div><h3>'+esc(tr(product.name,'name',product.id))+'</h3><ul>'+items+'</ul><div class="bundle-offer-price">'+(plan.oldPrice?'<small>'+ui('الخدمات منفصلة ','Separately ')+ '<del>'+Store.planMoney(plan,'oldPrice')+'</del></small>':'')+'<strong>'+Store.planMoney(plan)+'</strong>'+(saving?'<span>'+ui('وفّر ','Save ')+Store.formatCurrency(saving,Store.getMarket().currency)+'</span>':'')+'</div><a class="primary bundle-offer-link" href="product.html?id='+encodeURIComponent(product.id)+'">'+(unavailable?ui('شوف التفاصيل — غير متاح','Details — unavailable'):ui('شوف الباقة','View bundle'))+' ↗</a></article>';
-    }).join('');
-    bindLogoFallbacks(target);
-  }
-
   function renderAll(){
-    renderBundles();
     renderBestOffers();
     renderCards();
     drawFilters();

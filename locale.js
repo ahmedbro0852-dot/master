@@ -100,18 +100,10 @@
   exactArToEn['ضمان كامل لمدة سنة']='Full one-year warranty';
   exactArToEn['تسليم حساب جاهز خلال ساعتين إلى 3 ساعات.']='A ready account delivered within 2–3 hours.';
   exactArToEn['ضمان كامل لمدة شهر']='Full one-month warranty';
-  exactArToEn["باقة الدراسة والتعلّم"]="Study & Learning Bundle";
-  exactArToEn["باقة التصميم والمحتوى"]="Design & Content Bundle";
-  exactArToEn["باقة الفيديو والصوت"]="Video & Audio Bundle";
-  exactArToEn['باقات مجمعة']='Bundles';
   const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e,a]));
 
 
   const PRODUCT_DESC_EN={
-    "bundle-study":"Study & Learning Bundle: 500 EGP separately, 425 EGP as a bundle. Each service retains its own duration and warranty.",
-    "bundle-design":"Design & Content Bundle: 869 EGP separately, 739 EGP as a bundle. Each service retains its own duration and warranty.",
-    "bundle-video":"Video & Audio Bundle: 1660 EGP separately, 1399 EGP as a bundle. Each service retains its own duration and warranty.",
-
     "hedra":"Official Hedra Basic subscription for one month at $20: a ready account with full warranty, prepared within 2–3 hours.",
     "adobe-express":"Adobe Express Premium for 12 months: activation on your email or a ready-made account for EGP 499 with a 6-month warranty, or an activation link for your account requiring a card for EGP 200 with no warranty.",
     "academic-pro":"Review your documents before submission with Turnitin similarity reports and AI-content detection from Academi. One month of Pro on your personal account.",
