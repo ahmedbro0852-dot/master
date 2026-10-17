@@ -109,6 +109,17 @@ exactArToEn["حساب Org"]="Org account";
 exactArToEn["اشتراك Coursera Org لمدة سنة."]="Coursera Org subscription for one year.";
 exactArToEn["تفعيل اشتراك Coursera Plus لمدة شهر."]="Coursera Plus subscription for one month.";
 exactArToEn["اشتراك Coursera Plus"]="Coursera Plus subscription";
+exactArToEn["Plus تابع لـOrg — سنة — ضمان 4 شهور"]="Plus under an Org — Annual — 4-month warranty";
+exactArToEn["Plus تابع لـOrg — سنة — ضمان كامل"]="Plus under an Org — Annual — Full warranty";
+exactArToEn["Plus تابع لـOrg"]="Plus under an Org";
+exactArToEn["Plus مستقل"]="Standalone Plus";
+exactArToEn["Plus مستقل — شهر"]="Standalone Plus — Monthly";
+exactArToEn["Plus مستقل غير تابع لـOrg"]="Standalone Plus, not linked to an Org";
+exactArToEn["اشتراك Coursera Plus تابع لـOrg لمدة سنة."]="Coursera Plus under an Org for one year.";
+exactArToEn["ضمان لمدة 4 شهور"]="4-month warranty";
+exactArToEn["تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين."]="Includes Gemini for 3 months and Canva Pro for 3 years as gifts.";
+exactArToEn["مدة الاشتراك سنة، ومدة الضمان 4 شهور."]="One-year subscription with a 4-month warranty.";
+exactArToEn["اشتراك Plus مستقل غير تابع لأي Org."]="Standalone Plus subscription, not linked to any Org.";
 const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e,a]));
 
 
@@ -141,7 +152,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     "adobe-cc":"Currently out of stock.",
     "duolingo":"A one-year Duolingo subscription on your personal email.",
     "elsa":"ELSA Speak subscription for pronunciation and conversation practice.",
-    "coursera":"Coursera plans: 3 months, annual Org, and monthly Plus, with full warranty.",
+    "coursera":"Annual Coursera Plus under an Org with 4-month or full-year warranty, and standalone monthly Plus. All include gifts.",
     "quizizz":"Quizizz subscription activated on the customer's email.",
     "wordwall":"Wordwall Pro subscription for one month or one year.",
     "turnitin":"One-file similarity check with a similarity report.",

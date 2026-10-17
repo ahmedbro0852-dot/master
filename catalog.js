@@ -6,7 +6,7 @@ const products = [
   "logo": "gemini",
   "logoUrl": "logos/gemini.svg?v=20261009-logo-review3",
   "status": "available",
-  "description": "اشتراك كورسيرا Plus سنة كاملة، حساب جاهز بضمان كامل. ومعاه جيمناي 3 شهور وكانفا Pro لمدة 3 سنين مجانًا على إيميلك.",
+  "description": "Coursera Plus: اشتراكات سنوية تابعة لـOrg بضمان 4 شهور أو سنة كاملة، وPlus مستقل لمدة شهر، وجميعها تشمل الهدايا.",
   "features": [
     "الاشتراك الأساسي: Coursera Plus لمدة 12 شهرًا.",
     "تسليم حساب كورسيرا جاهز بضمان كامل.",
@@ -16,42 +16,37 @@ const products = [
   ],
   "plans": [
     {
-      "name": "جيمناي 3 شهور + كورسيرا Plus سنة",
-      "duration": "جيمناي 3 شهور · كورسيرا 12 شهر",
+      "name": "Plus تابع لـOrg — سنة — ضمان 4 شهور",
+      "duration": "12 شهر",
       "price": 499,
-      "account": "جيمناي على إيميلك · كورسيرا حساب جاهز",
-      "activation": "تفعيل جيمناي على إيميلك وتسليم حساب كورسيرا Plus جاهز. هدية Canva Pro لمدة 3 سنين على إيميلك.",
-      "warranty": "ضمان كامل لاشتراك كورسيرا Plus",
-      "officialPrice": {
-        "amount": 890.97,
-        "currency": "USD",
-        "basis": "reference",
-        "checkedAt": "2026-10-11",
-        "source": "https://www.coursera.org/courseraplus",
-        "components": [
-          {
-            "name": "Coursera Plus",
-            "amount": 399,
-            "months": 12
-          },
-          {
-            "name": "Google AI Pro",
-            "amount": 59.97,
-            "months": 3
-          },
-          {
-            "name": "Canva Pro",
-            "amount": 432,
-            "months": 36
-          }
-        ]
-      },
+      "activation": "اشتراك Coursera Plus تابع لـOrg لمدة سنة.",
+      "account": "Plus تابع لـOrg",
+      "warranty": "ضمان لمدة 4 شهور",
       "priceComparison": {
-        "planName": "Coursera Plus سنة + Google AI Pro 3 شهور + Canva Pro 3 سنين",
-        "status": "reference",
-        "checkedAt": "2026-10-11",
-        "note": "تقدير مقارنة بالأسعار الأمريكية للاشتراكات الفردية المعتادة قبل الضرائب؛ يختلف حسب البلد ونوع التفعيل."
-      }
+        "status": "unavailable",
+        "note": "لا يتوفر سعر رسمي موثق مطابق لاشتراك Org."
+      },
+      "planType": "Plus — Org",
+      "gifts": [
+        {
+          "id": "google",
+          "logo": "gemini",
+          "name": "Gemini",
+          "duration": "٣ شهور",
+          "durationEn": "3 months"
+        },
+        {
+          "id": "canva",
+          "logo": "canva",
+          "name": "Canva Pro",
+          "duration": "٣ سنين",
+          "durationEn": "3 years"
+        }
+      ],
+      "notes": [
+        "تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين.",
+        "مدة الاشتراك سنة، ومدة الضمان 4 شهور."
+      ]
     }
   ],
   "featuresEn": [
@@ -60,7 +55,11 @@ const products = [
     "Free Gemini gift for 3 months on your email.",
     "Free Canva Pro gift for 3 years on your email.",
     "The subscription and both gifts are included in one bundle."
-  ]
+  ],
+  "redirectTo": {
+    "id": "coursera",
+    "plan": 0
+  }
 },
 {
   "id": "cursor-pro",
@@ -2069,31 +2068,40 @@ const products = [
   "logo": "coursera",
   "logoUrl": "logos/coursera.svg?v=20261009-logo-review3",
   "status": "available",
-  "description": "باقات كورسيرا: 3 شهور، وOrg سنة، وPlus شهر، بضمان كامل.",
+  "description": "Coursera Plus: اشتراكات سنوية تابعة لـOrg بضمان 4 شهور أو سنة كاملة، وPlus مستقل لمدة شهر، وجميعها تشمل الهدايا.",
   "plans": [
     {
-      "name": "3 شهور — حساب خاص",
-      "duration": "3 شهور",
+      "name": "Plus تابع لـOrg — سنة — ضمان 4 شهور",
+      "duration": "12 شهر",
       "price": 499,
-      "activation": "تسليم حساب خاص.",
-      "account": "حساب خاص",
-      "warranty": "ضمان كامل لمدة 3 شهور",
+      "activation": "اشتراك Coursera Plus تابع لـOrg لمدة سنة.",
+      "account": "Plus تابع لـOrg",
+      "warranty": "ضمان لمدة 4 شهور",
       "priceComparison": {
-        "planName": "Coursera Plus",
-        "source": "https://www.coursera.org/courseraplus",
-        "checkedAt": "2026-10-08",
-        "status": "reference",
-        "note": "السعر الرسمي مرجع لاشتراك Coursera Plus لمدة 3 شهور.",
-        "billingLabel": "59 دولارًا ×3 شهور"
+        "status": "unavailable",
+        "note": "لا يتوفر سعر رسمي موثق مطابق لاشتراك Org."
       },
-      "officialPrice": {
-        "amount": 177,
-        "currency": "USD",
-        "months": 3,
-        "basis": "reference",
-        "source": "https://www.coursera.org/courseraplus",
-        "checkedAt": "2026-10-08"
-      }
+      "planType": "Plus — Org",
+      "gifts": [
+        {
+          "id": "google",
+          "logo": "gemini",
+          "name": "Gemini",
+          "duration": "٣ شهور",
+          "durationEn": "3 months"
+        },
+        {
+          "id": "canva",
+          "logo": "canva",
+          "name": "Canva Pro",
+          "duration": "٣ سنين",
+          "durationEn": "3 years"
+        }
+      ],
+      "notes": [
+        "تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين.",
+        "مدة الاشتراك سنة، ومدة الضمان 4 شهور."
+      ]
     },
     {
       "name": "سنة — حساب مشترك",
@@ -2120,33 +2128,73 @@ const products = [
         "basis": "reference",
         "source": "https://www.coursera.org/courseraplus",
         "checkedAt": "2026-10-08"
-      }
+      },
+      "available": false
     },
     {
-      "name": "Org — سنة",
+      "name": "Plus تابع لـOrg — سنة — ضمان كامل",
       "duration": "12 شهر",
-      "price": 1100,
-      "activation": "اشتراك Coursera Org لمدة سنة.",
-      "account": "حساب Org",
+      "price": 1200,
+      "activation": "اشتراك Coursera Plus تابع لـOrg لمدة سنة.",
+      "account": "Plus تابع لـOrg",
       "warranty": "ضمان كامل لمدة سنة",
       "priceComparison": {
         "status": "unavailable",
         "note": "لا يتوفر سعر رسمي موثق مطابق لهذه الباقة."
       },
-      "planType": "Org"
+      "planType": "Plus — Org",
+      "gifts": [
+        {
+          "id": "google",
+          "logo": "gemini",
+          "name": "Gemini",
+          "duration": "٣ شهور",
+          "durationEn": "3 months"
+        },
+        {
+          "id": "canva",
+          "logo": "canva",
+          "name": "Canva Pro",
+          "duration": "٣ سنين",
+          "durationEn": "3 years"
+        }
+      ],
+      "notes": [
+        "تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين."
+      ]
     },
     {
-      "name": "Plus — شهر",
-      "planType": "Plus",
+      "name": "Plus مستقل — شهر",
+      "planType": "Plus مستقل",
       "duration": "1 شهر",
       "price": 400,
       "activation": "تفعيل اشتراك Coursera Plus لمدة شهر.",
-      "account": "اشتراك Coursera Plus",
+      "account": "Plus مستقل غير تابع لـOrg",
       "warranty": "ضمان كامل لمدة شهر",
       "priceComparison": {
         "status": "unavailable",
         "note": "يُؤكَّد السعر الرسمي المقارن عند توفر مرجع مطابق."
-      }
+      },
+      "gifts": [
+        {
+          "id": "google",
+          "logo": "gemini",
+          "name": "Gemini",
+          "duration": "٣ شهور",
+          "durationEn": "3 months"
+        },
+        {
+          "id": "canva",
+          "logo": "canva",
+          "name": "Canva Pro",
+          "duration": "٣ سنين",
+          "durationEn": "3 years"
+        }
+      ],
+      "notes": [
+        "اشتراك Plus مستقل غير تابع لأي Org.",
+        "تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين."
+      ]
     }
   ]
 },
