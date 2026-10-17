@@ -75,7 +75,7 @@
   const active=p.status==='available';
   const plans=p.plans||[];
   const requestedPlan=Number(params.get('plan'));
-  const initialPlan=Number.isInteger(requestedPlan)&&requestedPlan>=0&&requestedPlan<plans.length&&plans[requestedPlan].available!==false?requestedPlan:Math.max(0,plans.findIndex(x=>x.available!==false));
+  const initialPlan=Number.isInteger(requestedPlan)&&requestedPlan>=0&&requestedPlan<plans.length&&plans[requestedPlan].available!==false&&!plans[requestedPlan].hidden?requestedPlan:Math.max(0,plans.findIndex(x=>x.available!==false&&!x.hidden));
 
   root.innerHTML=
     '<section class="product-hero '+(p.id==='gemini-coursera-bundle'?'bundle-hero':'')+'">'+
@@ -85,7 +85,7 @@
     '</section>'+
     '<section class="product-layout '+(p.id==='gemini-coursera-bundle'?'bundle-layout':'')+'">'+
       '<div class="plans-block"><h2>'+ui('اختار الباقة','Choose a plan')+'</h2>'+
-        (plans.length?plans.map((plan,i)=>
+        (plans.length?plans.map((plan,i)=>plan.hidden?'':
           '<label class="plan-option">'+
             '<input type="radio" name="plan" value="'+i+'" '+(i===initialPlan?'checked':'')+' '+(!active||plan.available===false?'disabled':'')+'>'+
             '<span><b>'+MasterStore.escapeHtml(tr(plan.name||plan.duration,'planName'))+'</b><small>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+' · '+MasterStore.escapeHtml(tr(plan.duration||'','duration'))+' · '+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</small>'+planSavingMarkup(plan)+'</span>'+

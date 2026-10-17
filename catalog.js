@@ -2157,7 +2157,8 @@ const products = [
         "source": "https://www.coursera.org/courseraplus",
         "checkedAt": "2026-10-08"
       },
-      "available": false
+      "available": false,
+      "hidden": true
     },
     {
       "name": "Plus تابع لـOrg — سنة — ضمان كامل",
