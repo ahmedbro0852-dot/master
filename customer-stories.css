@@ -4,3 +4,27 @@
 
 /* Keep screenshot text crisp and readable while preserving subtle gallery movement. */
 .story-card{opacity:1}.story-card.is-active{transform:perspective(1300px) rotateY(0deg) scale(1)}.story-image img{image-rendering:auto}.story-dialog.is-zoomed .story-dialog-image{width:min(1100px,180vw);max-width:none;max-height:none}.story-dialog{overflow:auto}.story-dialog-image{image-rendering:auto}@media(prefers-reduced-motion:reduce){.story-card.is-active{transform:none}}
+
+/* LED frame stays around the image; light never covers conversation text. */
+@property --story-led-angle{syntax:"<angle>";inherits:false;initial-value:0deg}
+.customer-stories:after{content:"";position:absolute;bottom:0;inset-inline:8%;height:2px;background:linear-gradient(90deg,transparent,#2872ff,#9eeeff,#2872ff,transparent);box-shadow:0 0 18px #388cff66;pointer-events:none}
+.stories-window{padding-block:22px 34px}
+.story-card{isolation:isolate;animation:story-drift 9s ease-in-out infinite;animation-delay:var(--float-delay,0s);transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s,border-color .5s}
+.story-card:after{content:"";position:absolute;inset:0;padding:2px;border-radius:inherit;background:conic-gradient(from var(--story-led-angle),#3e86ff33 0deg,#68e5ff 65deg,#fff 80deg,#4c8bff 100deg,#3e86ff22 175deg,#3e86ff33 240deg,#83deff 290deg,#3e86ff33 360deg);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;pointer-events:none;z-index:4;opacity:0;transition:opacity .65s;animation:story-led-orbit 7s linear infinite}
+.story-card.is-active,.story-card:hover,.story-card:focus-visible{border-color:#80baff;box-shadow:0 18px 40px #0005,0 0 0 1px #6daeff66,0 0 25px #387fff3b,0 0 48px #4d9fff12}
+.story-card.is-active:after,.story-card:hover:after,.story-card:focus-visible:after{opacity:1}
+.story-caption{background:linear-gradient(130deg,#fff,#f5f8ff)}
+.story-caption small{transition:background .25s,box-shadow .25s,transform .25s}
+.story-card.is-active .story-caption small{background:#e4efff;box-shadow:0 0 14px #3c8cff26;transform:translateY(-1px)}
+.story-dialog{border:1px solid #639eff66;box-shadow:0 30px 100px #0008,0 0 32px #347fff25}
+.story-dialog[open]{animation:story-dialog-enter .28s cubic-bezier(.22,1,.36,1)}
+.story-dialog::backdrop{animation:story-backdrop-enter .25s ease-out}
+.stories-position-rail{box-shadow:0 0 10px #428cff12}
+.stories-position-rail>span{box-shadow:0 0 10px #68b8ff55;transition:width .7s cubic-bezier(.22,1,.36,1)}
+.stories-still .story-card,.stories-still .story-card:after{animation-play-state:paused}
+@keyframes story-led-orbit{to{--story-led-angle:360deg}}
+@keyframes story-drift{0%,100%{translate:0 0}50%{translate:0 -5px}}
+@keyframes story-dialog-enter{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes story-backdrop-enter{from{opacity:0}to{opacity:1}}
+@media(max-width:700px){.story-card{animation-duration:10s}.story-card:after{padding:1.5px}.story-card.is-active{box-shadow:0 14px 30px #0004,0 0 0 1px #6daeff55,0 0 22px #387fff30}}
+@media(prefers-reduced-motion:reduce){.story-card,.story-card:after,.story-dialog[open],.story-dialog::backdrop{animation:none!important;transition:none!important}.story-card{translate:none}.story-card.is-active:after{opacity:.8}}
