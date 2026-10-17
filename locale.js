@@ -120,6 +120,7 @@ exactArToEn["ضمان لمدة 4 شهور"]="4-month warranty";
 exactArToEn["تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين."]="Includes Gemini for 3 months and Canva Pro for 3 years as gifts.";
 exactArToEn["مدة الاشتراك سنة، ومدة الضمان 4 شهور."]="One-year subscription with a 4-month warranty.";
 exactArToEn["اشتراك Plus مستقل غير تابع لأي Org."]="Standalone Plus subscription, not linked to any Org.";
+exactArToEn["ما معنى Org؟ اختصار لكلمة Organization، أي مؤسسة أو جهة. اشتراك Plus هنا تابع للمؤسسة، وتُدار عضويته وإمكانية الوصول من خلالها. تفاصيل مدة الاشتراك والضمان موضّحة في الباقة."]="What does Org mean? It is short for Organization. This Plus subscription is linked to an organization, which manages membership and access. The subscription term and warranty are shown in the plan.";
 const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e,a]));
 
 
