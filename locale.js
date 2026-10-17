@@ -100,10 +100,13 @@
   exactArToEn['ضمان كامل لمدة سنة']='Full one-year warranty';
   exactArToEn['تسليم حساب جاهز خلال ساعتين إلى 3 ساعات.']='A ready account delivered within 2–3 hours.';
   exactArToEn['ضمان كامل لمدة شهر']='Full one-month warranty';
+  exactArToEn['Plus — شهر — حساب خاص']='Plus — one month — private account';
+  exactArToEn['تسليم بيانات حساب خاص.']='Private account credentials are delivered.';
   const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e,a]));
 
 
   const PRODUCT_DESC_EN={
+    "prezi":"Prezi Plus for one month: a private, non-shared account at EGP 450, with full warranty throughout the month.",
     "hedra":"Official Hedra Basic subscription for one month at $20: a ready account with full warranty, prepared within 2–3 hours.",
     "adobe-express":"Adobe Express Premium for 12 months: activation on your email or a ready-made account for EGP 499 with a 6-month warranty, or an activation link for your account requiring a card for EGP 200 with no warranty.",
     "academic-pro":"Review your documents before submission with Turnitin similarity reports and AI-content detection from Academi. One month of Pro on your personal account.",

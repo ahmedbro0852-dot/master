@@ -1263,6 +1263,41 @@ const products = [
   ]
 },
 {
+  "id": "prezi",
+  "name": "Prezi Plus",
+  "category": "الإنتاجية",
+  "logo": "prezi",
+  "status": "available",
+  "description": "اشتراك Prezi Plus لمدة شهر، حساب خاص غير مشترك بسعر 450 جنيه وضمان كامل طوال الشهر.",
+  "features": [
+    "باقة Plus لمدة شهر واحد.",
+    "حساب خاص غير مشترك.",
+    "ضمان كامل طوال مدة الاشتراك."
+  ],
+  "featuresEn": [
+    "Plus plan for one month.",
+    "Private, non-shared account.",
+    "Full warranty throughout the subscription month."
+  ],
+  "plans": [
+    {
+      "name": "Plus — شهر — حساب خاص",
+      "planType": "Plus",
+      "duration": "1 شهر",
+      "price": 450,
+      "available": true,
+      "activation": "تسليم بيانات حساب خاص.",
+      "account": "حساب خاص غير مشترك",
+      "accountType": "حساب خاص",
+      "warranty": "ضمان كامل لمدة شهر",
+      "notes": [
+        "السعر 450 جنيه للاشتراك لمدة شهر واحد.",
+        "الحساب خاص وغير مشترك، بضمان كامل طوال الشهر."
+      ]
+    }
+  ]
+},
+{
   "id": "gamma-plus",
   "name": "Gamma Plus",
   "category": "AI Tools",
