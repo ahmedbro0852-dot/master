@@ -126,7 +126,7 @@
 
   function discountDetail(plan){
     const discount=MasterStore.officialDiscount(plan);
-    const label=ui(discount?.estimated?'نسبة التوفير التقديرية':'نسبة التوفير عن الرسمي',discount?.estimated?'Estimated saving':'Saving vs official price');
+    const label=plan.priceComparison?.referenceLabel?ui('التوفير مقارنة بـPlus المستقل','Saving vs standalone Plus'):ui(discount?.estimated?'نسبة التوفير التقديرية':'نسبة التوفير عن الرسمي',discount?.estimated?'Estimated saving':'Saving vs official price');
     const value=discount?(discount.percent>0?'<strong class="saving">'+discount.percent+'%</strong>':ui('لا يوجد توفير بالسعر الحالي','No saving at the current price')):ui('غير متاحة — لا يوجد سعر رسمي مطابق موثق','Unavailable — no verified matching official price');
     const ref=plan.officialPrice;
     const source=ref?.source;
@@ -339,7 +339,7 @@
     planDetails.innerHTML=
       '<dl class="details-list">'+
         '<div><dt>'+ui('السعر','Price')+'</dt><dd>'+MasterStore.planMoney(plan)+'</dd></div>'+
-        ((plan.oldPrice||plan.officialPrice)?'<div><dt>'+(plan.officialPrice?ui('السعر الرسمي','Official price'):ui('السعر قبل العرض','Before discount'))+'</dt><dd>'+(saving?'<del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>':MasterStore.planMoney(plan,'oldPrice'))+(saving?' <strong class="saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
+        ((plan.oldPrice||plan.officialPrice)?'<div><dt>'+(plan.officialPrice?(plan.priceComparison?.referenceLabel?ui('سعر Plus المستقل للمقارنة','Standalone Plus reference price'):ui('السعر الرسمي','Official price')):ui('السعر قبل العرض','Before discount'))+'</dt><dd>'+(saving?'<del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>':MasterStore.planMoney(plan,'oldPrice'))+(saving?' <strong class="saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
         discountDetail(plan)+
         '<div><dt>'+ui('نوع الباقة','Plan tier')+'</dt><dd>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+'</dd></div>'+
         '<div><dt>'+ui('المدة','Duration')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.duration||'غير محددة','duration'))+'</dd></div>'+

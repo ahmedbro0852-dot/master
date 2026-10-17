@@ -23,8 +23,13 @@ const products = [
       "account": "Plus تابع لـOrg",
       "warranty": "ضمان لمدة 4 شهور",
       "priceComparison": {
-        "status": "unavailable",
-        "note": "لا يتوفر سعر رسمي موثق مطابق لاشتراك Org."
+        "status": "reference",
+        "planName": "Coursera Plus",
+        "billingLabel": "Plus المستقل السنوي",
+        "source": "https://www.coursera.org/courseraplus",
+        "checkedAt": "2026-10-17",
+        "referenceLabel": "Plus المستقل",
+        "note": "المقارنة بسعر Coursera Plus المستقل السنوي؛ هذه الباقة تابعة لـOrg."
       },
       "planType": "Plus — Org",
       "gifts": [
@@ -45,8 +50,17 @@ const products = [
       ],
       "notes": [
         "تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين.",
-        "مدة الاشتراك سنة، ومدة الضمان 4 شهور."
-      ]
+        "مدة الاشتراك سنة، ومدة الضمان 4 شهور.",
+        "نسبة التوفير مقارنة بسعر Plus المستقل السنوي، وليست سعرًا رسميًا لباقة Org."
+      ],
+      "officialPrice": {
+        "amount": 399,
+        "currency": "USD",
+        "months": 12,
+        "basis": "reference",
+        "source": "https://www.coursera.org/courseraplus",
+        "checkedAt": "2026-10-17"
+      }
     }
   ],
   "featuresEn": [
@@ -2078,8 +2092,13 @@ const products = [
       "account": "Plus تابع لـOrg",
       "warranty": "ضمان لمدة 4 شهور",
       "priceComparison": {
-        "status": "unavailable",
-        "note": "لا يتوفر سعر رسمي موثق مطابق لاشتراك Org."
+        "status": "reference",
+        "planName": "Coursera Plus",
+        "billingLabel": "Plus المستقل السنوي",
+        "source": "https://www.coursera.org/courseraplus",
+        "checkedAt": "2026-10-17",
+        "referenceLabel": "Plus المستقل",
+        "note": "المقارنة بسعر Coursera Plus المستقل السنوي؛ هذه الباقة تابعة لـOrg."
       },
       "planType": "Plus — Org",
       "gifts": [
@@ -2100,8 +2119,17 @@ const products = [
       ],
       "notes": [
         "تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين.",
-        "مدة الاشتراك سنة، ومدة الضمان 4 شهور."
-      ]
+        "مدة الاشتراك سنة، ومدة الضمان 4 شهور.",
+        "نسبة التوفير مقارنة بسعر Plus المستقل السنوي، وليست سعرًا رسميًا لباقة Org."
+      ],
+      "officialPrice": {
+        "amount": 399,
+        "currency": "USD",
+        "months": 12,
+        "basis": "reference",
+        "source": "https://www.coursera.org/courseraplus",
+        "checkedAt": "2026-10-17"
+      }
     },
     {
       "name": "سنة — حساب مشترك",
@@ -2139,8 +2167,13 @@ const products = [
       "account": "Plus تابع لـOrg",
       "warranty": "ضمان كامل لمدة سنة",
       "priceComparison": {
-        "status": "unavailable",
-        "note": "لا يتوفر سعر رسمي موثق مطابق لهذه الباقة."
+        "status": "reference",
+        "planName": "Coursera Plus",
+        "billingLabel": "Plus المستقل السنوي",
+        "source": "https://www.coursera.org/courseraplus",
+        "checkedAt": "2026-10-17",
+        "referenceLabel": "Plus المستقل",
+        "note": "المقارنة بسعر Coursera Plus المستقل السنوي؛ هذه الباقة تابعة لـOrg."
       },
       "planType": "Plus — Org",
       "gifts": [
@@ -2160,8 +2193,17 @@ const products = [
         }
       ],
       "notes": [
-        "تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين."
-      ]
+        "تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين.",
+        "نسبة التوفير مقارنة بسعر Plus المستقل السنوي، وليست سعرًا رسميًا لباقة Org."
+      ],
+      "officialPrice": {
+        "amount": 399,
+        "currency": "USD",
+        "months": 12,
+        "basis": "reference",
+        "source": "https://www.coursera.org/courseraplus",
+        "checkedAt": "2026-10-17"
+      }
     },
     {
       "name": "Plus مستقل — شهر",
@@ -2172,8 +2214,12 @@ const products = [
       "account": "Plus مستقل غير تابع لـOrg",
       "warranty": "ضمان كامل لمدة شهر",
       "priceComparison": {
-        "status": "unavailable",
-        "note": "يُؤكَّد السعر الرسمي المقارن عند توفر مرجع مطابق."
+        "status": "reference",
+        "planName": "Coursera Plus",
+        "billingLabel": "Plus المستقل الشهري",
+        "source": "https://www.coursera.org/courseraplus",
+        "checkedAt": "2026-10-17",
+        "note": "المقارنة بسعر Coursera Plus المستقل الشهري."
       },
       "gifts": [
         {
@@ -2194,7 +2240,15 @@ const products = [
       "notes": [
         "اشتراك Plus مستقل غير تابع لأي Org.",
         "تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين."
-      ]
+      ],
+      "officialPrice": {
+        "amount": 59,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://www.coursera.org/courseraplus",
+        "checkedAt": "2026-10-17"
+      }
     }
   ]
 },
