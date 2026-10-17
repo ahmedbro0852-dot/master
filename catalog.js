@@ -1293,7 +1293,19 @@ const products = [
       "notes": [
         "السعر 450 جنيه للاشتراك لمدة شهر واحد.",
         "الحساب خاص وغير مشترك، بضمان كامل طوال الشهر."
-      ]
+      ],
+      "officialPrice": {
+        "amount": 20,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference"
+      },
+      "priceComparison": {
+        "planName": "Prezi Plus",
+        "status": "reference",
+        "billingLabel": "شهر واحد",
+        "note": "مرجع المقارنة 20 دولارًا لمدة شهر واحد حسب بيانات عرض المتجر."
+      }
     }
   ]
 },
