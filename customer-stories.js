@@ -44,6 +44,8 @@ strip.querySelectorAll('[data-review-id]').forEach(b=>b.onclick=()=>{active=Numb
 section.querySelector('.reviews-filter-count').textContent=items.length+' '+t('لقطة','screenshots');
 }
 function paint(animate=true){
+if(animate&&!reduced.matches){const frame=section.querySelector('.reviews-main-frame');frame.animate([{opacity:.45,transform:'translateX(38px) rotateY(-13deg) scale(.94)'},{opacity:1,transform:'translateX(0) rotateY(0) scale(1)'}],{duration:850,easing:'cubic-bezier(.22,1,.36,1)'});}
+
 const pos=items.indexOf(active),label=(en()?english:captions)[active],source=active===13?'FACEBOOK':'WHATSAPP';
 section.querySelector('.reviews-visual').classList.toggle('reviews-single',items.length===1);
 const image=section.querySelector('.reviews-main-image');image.src=path(active);image.alt=label;
@@ -62,11 +64,11 @@ if(dialog.open){large.src=path(active);large.alt=label;dialogTitle.textContent=(
 updatePlayback();
 }
 function updatePlayback(){const b=section.querySelector('.reviews-play-toggle');b.textContent=paused?t('تشغيل العرض','Play'):t('إيقاف العرض','Pause');b.setAttribute('aria-pressed',String(paused));section.classList.toggle('reviews-paused',paused||reduced.matches);}
-function step(delta,manual=false){active=items[(items.indexOf(active)+delta+items.length)%items.length];elapsed=0;paint(manual);}
+function step(delta,manual=false){active=items[(items.indexOf(active)+delta+items.length)%items.length];elapsed=0;paint(true);}
 section.addEventListener('focusin',()=>focused=true);section.addEventListener('focusout',e=>{focused=section.contains(e.relatedTarget);elapsed=0;});
 new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;section.classList.toggle('reviews-visible',visible);},{threshold:.15}).observe(section);
 reduced.addEventListener('change',e=>{if(e.matches)paused=true;updatePlayback();});
 new MutationObserver(()=>mount()).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
-function tick(time){const dt=Math.min(50,time-last);last=time;const running=visible&&!paused&&!hover&&!focused&&!dialog.open&&!document.hidden&&!reduced.matches;section.classList.toggle('reviews-running',running);if(running){elapsed+=dt;if(elapsed>=6500)step(1);section.querySelector('.reviews-timer>span').style.transform='scaleX('+Math.min(1,elapsed/6500)+')';}requestAnimationFrame(tick);}
+function tick(time){const dt=Math.min(50,time-last);last=time;const running=visible&&!paused&&!hover&&!dialog.open&&!document.hidden&&!reduced.matches;section.classList.toggle('reviews-running',running);if(running){elapsed+=dt;if(elapsed>=4800)step(1);section.querySelector('.reviews-timer>span').style.transform='scaleX('+Math.min(1,elapsed/4800)+')';}requestAnimationFrame(tick);}
 mount();requestAnimationFrame(tick);
 })();
