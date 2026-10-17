@@ -102,7 +102,14 @@
   exactArToEn['ضمان كامل لمدة شهر']='Full one-month warranty';
   exactArToEn['Plus — شهر — حساب خاص']='Plus — one month — private account';
   exactArToEn['تسليم بيانات حساب خاص.']='Private account credentials are delivered.';
-  const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e,a]));
+  exactArToEn["باقات كورسيرا: 3 شهور، وOrg سنة، وPlus شهر، بضمان كامل."]="Coursera plans: 3 months, annual Org, and monthly Plus, with full warranty.";
+exactArToEn["Org — سنة"]="Org — Annual";
+exactArToEn["Plus — شهر"]="Plus — Monthly";
+exactArToEn["حساب Org"]="Org account";
+exactArToEn["اشتراك Coursera Org لمدة سنة."]="Coursera Org subscription for one year.";
+exactArToEn["تفعيل اشتراك Coursera Plus لمدة شهر."]="Coursera Plus subscription for one month.";
+exactArToEn["اشتراك Coursera Plus"]="Coursera Plus subscription";
+const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e,a]));
 
 
   const PRODUCT_DESC_EN={
@@ -134,7 +141,7 @@
     "adobe-cc":"Currently out of stock.",
     "duolingo":"A one-year Duolingo subscription on your personal email.",
     "elsa":"ELSA Speak subscription for pronunciation and conversation practice.",
-    "coursera":"Coursera Plus plans with different durations and account types.",
+    "coursera":"Coursera plans: 3 months, annual Org, and monthly Plus, with full warranty.",
     "quizizz":"Quizizz subscription activated on the customer's email.",
     "wordwall":"Wordwall Pro subscription for one month or one year.",
     "turnitin":"One-file similarity check with a similarity report.",

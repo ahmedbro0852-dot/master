@@ -2064,26 +2064,26 @@ const products = [
 },
 {
   "id": "coursera",
-  "name": "Coursera Plus",
+  "name": "Coursera",
   "category": "التعليم",
   "logo": "coursera",
   "logoUrl": "logos/coursera.svg?v=20261009-logo-review3",
   "status": "available",
-  "description": "خيارات Coursera Plus بمدد وأنواع حساب مختلفة.",
+  "description": "باقات كورسيرا: 3 شهور، وOrg سنة، وPlus شهر، بضمان كامل.",
   "plans": [
     {
       "name": "3 شهور — حساب خاص",
       "duration": "3 شهور",
-      "price": 300,
+      "price": 499,
       "activation": "تسليم حساب خاص.",
       "account": "حساب خاص",
-      "warranty": "ضمان كامل",
+      "warranty": "ضمان كامل لمدة 3 شهور",
       "priceComparison": {
         "planName": "Coursera Plus",
         "source": "https://www.coursera.org/courseraplus",
         "checkedAt": "2026-10-08",
         "status": "reference",
-        "note": "الحساب المشترك يستخدمه أكثر من شخص؛ راجع نوع الحساب قبل الطلب.",
+        "note": "السعر الرسمي مرجع لاشتراك Coursera Plus لمدة 3 شهور.",
         "billingLabel": "59 دولارًا ×3 شهور"
       },
       "officialPrice": {
@@ -2123,27 +2123,29 @@ const products = [
       }
     },
     {
-      "name": "سنة — حساب خاص",
+      "name": "Org — سنة",
       "duration": "12 شهر",
-      "price": 1000,
-      "activation": "تسليم حساب خاص.",
-      "account": "حساب خاص",
-      "warranty": "ضمان كامل",
+      "price": 1100,
+      "activation": "اشتراك Coursera Org لمدة سنة.",
+      "account": "حساب Org",
+      "warranty": "ضمان كامل لمدة سنة",
       "priceComparison": {
-        "planName": "Coursera Plus",
-        "source": "https://www.coursera.org/courseraplus",
-        "checkedAt": "2026-10-08",
-        "status": "reference",
-        "note": "الحساب المشترك يستخدمه أكثر من شخص؛ راجع نوع الحساب قبل الطلب.",
-        "billingLabel": "Plus السنوي"
+        "status": "unavailable",
+        "note": "لا يتوفر سعر رسمي موثق مطابق لهذه الباقة."
       },
-      "officialPrice": {
-        "amount": 399,
-        "currency": "USD",
-        "months": 12,
-        "basis": "reference",
-        "source": "https://www.coursera.org/courseraplus",
-        "checkedAt": "2026-10-08"
+      "planType": "Org"
+    },
+    {
+      "name": "Plus — شهر",
+      "planType": "Plus",
+      "duration": "1 شهر",
+      "price": 400,
+      "activation": "تفعيل اشتراك Coursera Plus لمدة شهر.",
+      "account": "اشتراك Coursera Plus",
+      "warranty": "ضمان كامل لمدة شهر",
+      "priceComparison": {
+        "status": "unavailable",
+        "note": "يُؤكَّد السعر الرسمي المقارن عند توفر مرجع مطابق."
       }
     }
   ]
