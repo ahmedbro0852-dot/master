@@ -31,10 +31,10 @@ try{
  if(user){const result=await C.unwrap(C.client.rpc('master_store_checkout_cart',{request_id:requestId,items,contact,method,quoted_amount:q.amount_piasters}));orders=result.orders;id=result.cart_id;}
  else{orders=q.items.map(x=>({id:S.createOrderId(),productId:x.product_id,product:x.product,plan:x.plan,duration:x.duration,quantity:x.quantity,total:x.amount_piasters/100,displayTotal:x.amount_piasters/100,displayCurrency:'EGP',customer:contact,payment:method,createdAt:new Date().toISOString(),discount:x.discount_piasters/100}));orders.forEach(x=>S.saveOrder(x));}
  S.saveProfile(contact);
- const message=['MASTER STORE — '+id,...q.items.map(x=>x.product+' / '+x.plan+' × '+x.quantity+' = '+money(x.amount_piasters)),t('قبل الخصم: ','Subtotal: ')+money(q.subtotal_piasters),t('خصم الكمية: ','Quantity discount: ')+q.discount_percent+'% — '+money(q.discount_piasters),t('الإجمالي: ','Total: ')+money(q.amount_piasters),method,contact.name,contact.phone,contact.email].join('\n');
+ const message=window.MasterOrderDetails.buildMessage(q,contact,method,id,!!user);
  write([]);root.innerHTML='<section class="account-panel cart-success"><h2>'+t(user?'طلبك اتحفظ بنجاح':'طلبك جاهز','Order ready')+'</h2><p>'+t('الإجمالي بعد الخصم: ','Total after discount: ')+money(q.amount_piasters)+'</p><p>'+E(id)+'</p><p>'+t(method==='wallet'?'تم خصم الرصيد. تابع حالة التنفيذ من حسابك.':'تابع مع الدعم لتأكيد التحويل والتنفيذ.',method==='wallet'?'Balance deducted. Track fulfillment in your account.':'Contact support to confirm transfer and fulfillment.')+'</p><a class="primary" target="_blank" rel="noopener" href="https://wa.me/201500950624?text='+encodeURIComponent(message)+'">'+t('متابعة الطلب على واتساب','Continue on WhatsApp')+'</a> <a class="ghost" href="account.html">'+t('حسابي وطلباتي','My account and orders')+'</a></section>';
 }catch(error){document.getElementById('cartError').textContent=C.errorText(error);b.disabled=false;root.querySelectorAll('.cart-qty,.cart-remove').forEach(x=>x.disabled=false);form.querySelectorAll('input,select').forEach(x=>x.disabled=false);const wallet=form.querySelector('input[value=wallet]');if(wallet)wallet.disabled=balance<q.amount_piasters;}
 finally{busy=false;}
 }
-render();document.addEventListener('masterstore:localechange',()=>{if(!busy)render();});
+Promise.resolve(window.MasterCatalogReady).then(render);document.addEventListener('masterstore:localechange',()=>{if(!busy)render();});
 })();
