@@ -35,7 +35,7 @@ visual.addEventListener('pointerleave',()=>{hover=false;visual.style.removePrope
 visual.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse'||reduced.matches)return;const r=visual.getBoundingClientRect();visual.style.setProperty('--reviews-tilt-y',Math.max(-3,Math.min(3,((e.clientX-r.left)/r.width-.5)*6))+'deg');visual.style.setProperty('--reviews-tilt-x',Math.max(-2,Math.min(2,-((e.clientY-r.top)/r.height-.5)*4))+'deg');});
 let startX=0;frame.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')startX=e.clientX;});
 frame.addEventListener('pointerup',e=>{if(e.pointerType==='touch'&&Math.abs(e.clientX-startX)>45){swiped=true;step(e.clientX<startX?1:-1,true);setTimeout(()=>{swiped=false;},350);}});
-section.querySelector('.reviews-main-image').addEventListener('load',e=>{if(!reduced.matches&&e.target.animate)e.target.animate([{opacity:.3,transform:'translateY(12px) scale(.985)'},{opacity:1,transform:'none'}],{duration:650,easing:'cubic-bezier(.22,1,.36,1)'});});
+section.querySelector('.reviews-main-image').addEventListener('load',e=>{if(!reduced.matches&&e.target.animate)e.target.animate([{opacity:.2,transform:'translateX(60px) rotateY(-16deg) scale(.94)'},{opacity:1,transform:'none'}],{duration:900,easing:'cubic-bezier(.22,1,.36,1)'});});
 renderFilm();paint(false);
 }
 function renderFilm(){
@@ -44,11 +44,18 @@ strip.querySelectorAll('[data-review-id]').forEach(b=>b.onclick=()=>{active=Numb
 section.querySelector('.reviews-filter-count').textContent=items.length+' '+t('لقطة','screenshots');
 }
 function paint(animate=true){
-if(animate&&!reduced.matches){const frame=section.querySelector('.reviews-main-frame');frame.animate([{opacity:.45,transform:'translateX(38px) rotateY(-13deg) scale(.94)'},{opacity:1,transform:'translateX(0) rotateY(0) scale(1)'}],{duration:850,easing:'cubic-bezier(.22,1,.36,1)'});}
-
 const pos=items.indexOf(active),label=(en()?english:captions)[active],source=active===13?'FACEBOOK':'WHATSAPP';
 section.querySelector('.reviews-visual').classList.toggle('reviews-single',items.length===1);
-const image=section.querySelector('.reviews-main-image');image.src=path(active);image.alt=label;
+const image=section.querySelector('.reviews-main-image');
+const changed=image.getAttribute('src')!==path(active);
+if(animate&&changed&&!reduced.matches&&image.complete&&image.naturalWidth){
+const photo=image.parentElement;photo.querySelectorAll('.reviews-outgoing').forEach(x=>x.remove());
+const old=image.cloneNode();old.className='reviews-outgoing';old.alt='';old.setAttribute('aria-hidden','true');photo.append(old);
+const exit=old.animate([{opacity:1,transform:'translateX(0) rotateY(0) scale(1)'},{opacity:0,transform:'translateX(-65px) rotateY(16deg) scale(.93)'}],{duration:800,easing:'cubic-bezier(.22,1,.36,1)',fill:'forwards'});exit.onfinish=()=>old.remove();
+section.querySelector('.reviews-story-title').animate([{opacity:.2,transform:'translateY(15px)'},{opacity:1,transform:'none'}],{duration:650,easing:'ease-out'});
+}
+image.src=path(active);image.alt=label;
+for(const id of [items[(pos+1)%items.length],items[(pos-1+items.length)%items.length]]){const pre=new Image();pre.src=path(id);}
 section.querySelector('.reviews-main-frame').setAttribute('aria-label',t('افتح الصورة: ','Open image: ')+label);
 section.querySelector('.reviews-frame-source').textContent=source;
 section.querySelector('.reviews-frame-index').textContent=String(active+1).padStart(2,'0')+' / '+captions.length;

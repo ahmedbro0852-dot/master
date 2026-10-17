@@ -97,3 +97,18 @@ html[dir=ltr] .reviews-story-copy{direction:ltr}
 .reviews-visible:not(.reviews-paused) .reviews-main-frame,.reviews-visible:not(.reviews-paused) .reviews-ghost,.reviews-visible:not(.reviews-paused) .reviews-main-frame:after,.reviews-visible:not(.reviews-paused) .reviews-atmosphere i{animation-play-state:running}
 .reviews-visual:hover .reviews-main-frame,.reviews-visual:hover .reviews-ghost{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.reviews-main-frame,.reviews-ghost{animation:none!important;translate:none!important;rotate:none!important}}
+
+/* Layered entrance and floating glass frame. */
+.reviews-photo{position:relative;perspective:1100px}
+.reviews-outgoing{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#080f18;z-index:2;pointer-events:none}
+.reviews-ghost{opacity:.42;filter:saturate(.85);border-color:#a9d6f45c}
+.reviews-main-frame{box-shadow:0 35px 75px #0009,0 0 0 5px #bce8ff06,0 0 55px #43bfdb21}
+.reviews-main-frame:after{animation-duration:6s}
+.reviews-stage-floor{background:radial-gradient(ellipse,#55c5e54a,transparent 67%)}
+.reviews-filmstrip{padding-top:10px;padding-bottom:18px}
+.reviews-thumb[aria-current=true]{transform:translateY(-5px);box-shadow:0 6px 18px #52c9ef25}
+.reviews-visible:not(.reviews-paused) .reviews-kicker:before{animation:reviews-beacon 2.8s ease-in-out infinite}
+@keyframes reviews-beacon{50%{box-shadow:0 0 0 5px #6bf0dd12,0 0 22px #6bf0dd88}}
+@media(hover:hover){.reviews-visual:hover .reviews-main-frame{translate:0 0;rotate:0deg}}
+@media(max-width:700px){.reviews-ghost{opacity:.3}.reviews-main-frame{max-width:76%}}
+@media(prefers-reduced-motion:reduce){.reviews-kicker:before{animation:none!important}}
