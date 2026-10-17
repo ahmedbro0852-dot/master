@@ -1270,14 +1270,30 @@ const products = [
   "status": "available",
   "description": "اشتراك Prezi Plus لمدة شهر، حساب خاص غير مشترك بسعر 450 جنيه وضمان كامل طوال الشهر.",
   "features": [
-    "باقة Plus لمدة شهر واحد.",
-    "حساب خاص غير مشترك.",
-    "ضمان كامل طوال مدة الاشتراك."
+    "Prezi AI لإنشاء العروض وتحسين النصوص والصور بالذكاء الاصطناعي.",
+    "استيراد PowerPoint وPDF وتحويل المحتوى إلى عرض قابل للتعديل.",
+    "إنشاء مشروعات غير محدودة مع التحكم في خصوصية العرض والمشاركة.",
+    "صور وأيقونات وخلفيات Premium لتجهيز عروض بتصميم أفضل.",
+    "Presenter View لقراءة ملاحظاتك أثناء العرض دون ظهورها للجمهور.",
+    "إضافة تعليق صوتي وتسجيل شرحك للعرض.",
+    "تطبيق الكمبيوتر للعمل والعرض بدون إنترنت.",
+    "تصدير العروض إلى PDF أو تنزيل نسخة محمولة للعرض.",
+    "Prezi Video: تسجيل بجودة 1080p وتنزيل MP4 وإزالة العلامة المائية من تطبيق الكمبيوتر.",
+    "Prezi Design: تصميم إنفوجرافيك وتنزيل PNG وJPG وPDF وGIF وMP4.",
+    "تخصيص ألوان العرض والهوية البصرية لتناسب مشروعك."
   ],
   "featuresEn": [
-    "Plus plan for one month.",
-    "Private, non-shared account.",
-    "Full warranty throughout the subscription month."
+    "Prezi AI for presentation creation, text improvement and AI images.",
+    "Import PowerPoint and PDF content into an editable presentation.",
+    "Create unlimited projects with presentation privacy and sharing controls.",
+    "Premium images, icons and backgrounds for polished presentations.",
+    "Presenter View keeps your speaker notes private while you present.",
+    "Add voice-over and record your presentation.",
+    "Use the desktop app to work and present offline.",
+    "Export presentations to PDF or download portable presentations.",
+    "Prezi Video: record at 1080p, export MP4 and remove the watermark using the desktop app.",
+    "Prezi Design: create infographics and download PNG, JPG, PDF, GIF and MP4.",
+    "Customize presentation colors and personal branding."
   ],
   "plans": [
     {
@@ -1292,7 +1308,8 @@ const products = [
       "warranty": "ضمان كامل لمدة شهر",
       "notes": [
         "السعر 450 جنيه للاشتراك لمدة شهر واحد.",
-        "الحساب خاص وغير مشترك، بضمان كامل طوال الشهر."
+        "الحساب خاص وغير مشترك، بضمان كامل طوال الشهر.",
+        "العرض بدون إنترنت ومزايا تسجيل Prezi Video المذكورة تحتاج تطبيق الكمبيوتر."
       ],
       "officialPrice": {
         "amount": 20,
@@ -1307,6 +1324,11 @@ const products = [
         "note": "مرجع المقارنة 20 دولارًا لمدة شهر واحد حسب بيانات عرض المتجر."
       }
     }
+  ],
+  "featureSources": [
+    "https://support.prezi.com/hc/en-us/articles/360003478934-Guide-to-Prezi-plans",
+    "https://support.prezi.com/hc/en-us/articles/360036562333-What-you-get-with-Prezi-Video",
+    "https://support.prezi.com/hc/en-us/articles/360044742314-Downloading-your-content-in-Infographics-Prezi-Design"
   ]
 },
 {
