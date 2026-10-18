@@ -1,0 +1,40 @@
+/* Small finishing touches; retain the existing store layout and identity. */
+:where(a,button,input,select,summary):focus-visible{outline:3px solid #79a1ed;outline-offset:4px}
+.section-head{row-gap:16px}
+.section-sub{line-height:1.9}
+.search input{min-width:0;line-height:1.6}
+.filter{transition:background .2s,border-color .2s,color .2s;touch-action:manipulation}
+.filters{gap:9px}
+.product-card .product-logo img{object-fit:contain}
+.product-card .service-name{line-height:1.65;overflow-wrap:anywhere}
+.light-card .light-bottom{align-items:center}
+.card-btn,.primary,.ghost{touch-action:manipulation}
+.plan-option{cursor:pointer}
+.plan-option input{accent-color:#2459cf}
+.plan-option span{min-width:0}
+.plan-option span small{line-height:1.85}
+.details-list dd{line-height:1.9;overflow-wrap:anywhere}
+.safe-note,.form-note{line-height:1.9}
+.checkout-form input:focus,.checkout-form select:focus{border-color:#7a9fe6;box-shadow:0 0 0 3px #2459cf12}
+.store-faq summary{min-height:54px;align-items:center}
+.store-faq summary b{line-height:1.85}
+.store-faq-answer{line-height:2}
+.store-faq details[open]{border-color:#c4d5ef}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ .product-card.light-card{transition:border-color .24s,box-shadow .24s,transform .24s}
+ .product-card.light-card:hover{border-color:#b9cdea;box-shadow:0 10px 24px #142b4d0c;transform:translateY(-3px)}
+ .best-offer{transition:box-shadow .24s,transform .24s}
+ .best-offer:hover{box-shadow:0 8px 22px #142b4d0a;transform:translateY(-2px)}
+ .store-faq details[open] .store-faq-answer{animation:storeAnswerIn .22s ease-out}
+}
+@keyframes storeAnswerIn{from{opacity:.5;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@media(max-width:700px){
+ .search input,.checkout-form input,.checkout-form select{font-size:16px}
+ .filters{row-gap:9px}
+ .plan-option{padding:15px;gap:11px}
+ .plan-option strong{white-space:nowrap}
+ .details-list>div{gap:12px}
+ .store-faq summary{padding-block:15px}
+ .card-btn,.primary,.ghost{min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){.store-faq-answer{animation:none!important}}
