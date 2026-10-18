@@ -136,7 +136,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     "chatgpt-plus":"Available monthly ChatGPT Plus plans: a no-warranty account for EGP 320, or activation and renewal on your personal account for EGP 1,100. The EGP 700 ready-made account plan is out of stock.",
     "gemini-pro":"Two 18-month options; the family plan adds 5 invitations. Its 1,000 monthly credits are for the main account only.",
     "claude-pro":"Activate Claude Pro on your personal account using the store's payment method.",
-    "perplexity-pro":"Private Perplexity Pro accounts. The annual plan includes 12 months of Pro with a full-year warranty, delivered with email and password, without credits.",
+    "perplexity-pro":"A ready private Perplexity Pro account with full warranty under the current store offer.",
     "lovable-pro":"Lovable Pro and Pro Lite monthly and annual plans in one place, including the 12-month Lite offer at EGP 450 instead of EGP 650.",
     "lovable-lite":"Lovable Pro Lite for 12 months at EGP 450 instead of EGP 650, with the existing credits and personal-email activation without a card.",
     "runway-pro":"A 12-month Runway Pro subscription activated on your account with a redemption code, with a 6-month warranty.",
@@ -332,8 +332,6 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     if(productId==="windows-pro"&&windowsText[raw])return windowsText[raw];
     const annualCodeText={"SuperGrok — شهر حساب خاص":"SuperGrok — monthly private account","تسليم حساب جاهز بإيميل وباسورد.":"A ready account delivered with email and password.","حساب خاص جاهز":"Ready private account","ضمان كامل طوال مدة الاشتراك":"Full warranty throughout the subscription","حساب العميل الشخصي":"Your personal account","Plus — سنة بكود تفعيل":"Plus — annual activation code","تسليم كود خصم 100% لتفعيل سنة على حسابك؛ يتطلب إضافة بطاقة دفع مقبولة.":"Receive a 100% discount code to activate one year on your account; an accepted payment card is required.","كود تفعيل على حسابك الشخصي":"Activation code on your personal account","السعر 135 دولار للكود؛ خصم 100% يخص رسوم التفعيل عند استخدام الكود.":"The code costs $135; the 100% discount applies to the activation charge when redeeming it.","Creator — سنة على حسابك":"Creator — annual on your account","تفعيل سنة كاملة على حسابك الشخصي بدون بطاقة دفع.":"Activate a full year on your personal account without a payment card.","Pro — سنة بكود تفعيل":"Pro — annual activation code","تسليم كود لتفعيل الاشتراك مباشرة على بريدك الشخصي.":"Receive a code to activate the subscription directly on your personal email."};
     if(annualCodeText[raw])return annualCodeText[raw];
-    const refreshText={"Pro — سنة كاملة": "Pro — Full year", "ضمان كامل لمدة 12 شهرًا": "Full warranty for 12 months", "لا يحتوي على كريدت — اشتراك Pro فقط": "No credits included — Pro subscription only", "الاشتراك لمدة سنة كاملة (12 شهرًا).": "Subscription for one full year (12 months).", "تسليم إيميل وباسورد لحساب خاص.": "A private account delivered with email and password.", "الباقة تشمل Pro فقط ولا تتضمن أي كريدت.": "This plan includes Pro only, with no credits.", "ضمان كامل طوال مدة الاشتراك.": "Full warranty throughout the subscription."};
-    if(refreshText[raw])return refreshText[raw];
     if(CATALOG_EXACT_EN[raw])return CATALOG_EXACT_EN[raw];
     let s=raw
       .replace(/(\d+)\s*أيام?/g,"$1 days")
@@ -576,14 +574,14 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
       setText('.hero-copy > p','من أدوات الذكاء الاصطناعي والتصميم للتعليم والترفيه — اختار خدمتك واطلبها بسهولة مع دعم مباشر على واتساب.','AI, design, education and entertainment subscriptions — choose your service and order easily with direct WhatsApp support.');
       const acts=document.querySelectorAll('.hero-actions a');
       if(acts[0])acts[0].textContent=en?'Browse offers':'تصفح العروض';
-      if(acts[1]&&acts[1].classList.contains('account-hero-link')){acts[1].textContent=en?'My account & wallet':'حسابي ومحفظتي';acts[1].setAttribute('aria-label',acts[1].textContent);acts[1].title=acts[1].textContent;}else if(acts[1]){
+      if(acts[1]){
         acts[1].setAttribute('aria-label',en?'WhatsApp support':'دعم واتساب');
         acts[1].title=en?'WhatsApp support':'دعم واتساب';
         if(!acts[1].classList.contains('whatsapp-only'))acts[1].textContent=en?'Customer support':'خدمة العملاء';
       }
       const facts=document.querySelectorAll('.hero-facts > div');
       if(facts[0])facts[0].innerHTML=en?'<strong data-catalog-count>65+</strong><span>services in the catalog</span>':'<strong data-catalog-count>+65</strong><span>خدمة في الكتالوج</span>';
-      if(facts[1])facts[1].innerHTML=en?'<strong>Clear warranty</strong><span>specified for each plan</span>':'<strong>ضمان واضح</strong><span>حسب تفاصيل كل باقة</span>';
+      if(facts[1])facts[1].innerHTML=en?'<strong>Full warranty</strong><span>on available services</span>':'<strong>ضمان كامل</strong><span>على الخدمات المتاحة</span>';
       if(facts[2])facts[2].innerHTML=en?'<strong>Direct support</strong><span>before and after ordering</span>':'<strong>دعم مباشر</strong><span>قبل وبعد الطلب</span>';
       setText('#products .eyebrow','العروض والخدمات','Offers & services');
       setText('#products h2','اختار اشتراكك','Choose your subscription');
@@ -757,4 +755,3 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
   // This makes the selected market/language available before app.js/product-page.js render.
   init();
 })();
-

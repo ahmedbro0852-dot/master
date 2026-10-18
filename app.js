@@ -57,7 +57,6 @@
   });
   const categories=['الكل',...(Catalog.categoryOrder||[...new Set(products.map(p=>p.category).filter(Boolean))])];
   let selected='الكل';
-  const sortSelect=document.getElementById('catalogSort'),availableOnly=document.getElementById('availableOnly'),resultCount=document.getElementById('catalogResultCount');
 
   const isEn=()=>Locale?.getState().language==='en';
   const ui=(ar,en)=>isEn()?en:ar;
@@ -119,7 +118,7 @@
 
   function cheapestPlan(product){
     const plans=product.plans||[];
-    return plans.filter(plan=>plan.available!==false&&!plan.hidden).reduce((best,plan)=>{
+    return plans.filter(plan=>plan.available!==false).reduce((best,plan)=>{
       if(!best)return plan;
       return Store.planAmount(plan)<Store.planAmount(best)?plan:best;
     },null);
@@ -132,7 +131,7 @@
   function searchText(product){
     return normalizeSearch([
       product.name,
-      product.id==='kling'?'كلينج كيلنج Kling':product.id==='perplexity-pro'?'بيركستلي بيربلكسيتي بربلكسيتي Perplexity':'' ,
+      product.id==='kling'?'كلينج كيلنج Kling':'' ,
       tr(product.category,'category',product.id),
       tr(product.description,'description',product.id),
       tr(Catalog.statusLabel(product.status),'status',product.id),
@@ -152,13 +151,10 @@
     const action=active
       ? '<a class="card-btn soft-btn" aria-label="'+esc(product.name+' — '+ui('شوف الباقات','View plans'))+'" href="product.html?id='+encodeURIComponent(product.id)+'">'+ui('شوف الباقات','View plans')+' <span aria-hidden="true">'+(isEn()?'→':'←')+'</span></a>'
       : '<button class="card-btn disabled" type="button" disabled>'+esc(status)+'</button>';
-    const count=(product.plans||[]).filter(x=>!x.hidden&&x.available!==false).length;
     return '<article class="product-card light-card simple-service-card" aria-label="'+esc(product.name)+'" data-product-id="'+esc(product.id)+'" data-category="'+esc(product.category)+'" data-search="'+esc(searchText(product))+'">'+
-      '<div class="service-card-heading"><span class="service-category">'+esc(tr(product.category,'category',product.id))+'</span><span class="service-availability '+statusClass(product.status)+'">'+esc(status)+'</span></div>'+
       '<div class="card-top">'+logoMarkup(product)+'<h3 class="service-name" dir="auto">'+esc(product.name)+'</h3></div>'+
-      '<div class="light-meta"><small>'+ui('يبدأ من','From')+'</small><strong>'+esc(price)+'</strong><span class="service-duration">'+(active&&plan?esc(tr(plan.duration,'duration',product.id)):'')+'</span></div>'+
+      (product.id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">كورسيرا سنة + جيمناي ٣ شهور + كانفا ٣ سنين</p>':'')+'<div class="light-meta"><strong>'+esc(price)+'</strong></div>'+
       '<div class="card-bottom light-bottom">'+action+'</div>'+
-      (count>1?'<small class="service-plan-count">'+count+' '+ui('باقات للاختيار','plans to choose from')+'</small>':'')+
     '</article>';
   }
 
@@ -194,26 +190,11 @@
 
     grid.querySelectorAll('.product-card').forEach(card=>{
       const categoryMatch=selected==='الكل'||card.dataset.category===selected;
-      const product=Catalog.getProduct(card.dataset.productId);
-      const matches=categoryMatch&&(!availableOnly?.checked||product?.status==='available')&&(!q||(card.dataset.search||'').includes(q));
+      const matches=categoryMatch&&(!q||(card.dataset.search||'').includes(q));
       card.hidden=!matches;
       if(matches)visible++;
     });
 
-    const mode=sortSelect?.value||'featured';
-    const cards=[...grid.querySelectorAll('.product-card')];
-    const priceOf=card=>{const plan=cheapestPlan(Catalog.getProduct(card.dataset.productId));return plan?Store.planAmount(plan):Infinity;};
-    cards.sort((a,b)=>{
-      const pa=Catalog.getProduct(a.dataset.productId),pb=Catalog.getProduct(b.dataset.productId);
-      const availability=(statusRank[pa.status]??9)-(statusRank[pb.status]??9);
-      if(availability)return availability;
-      if(mode==='price-asc')return priceOf(a)-priceOf(b);
-      if(mode==='price-desc')return priceOf(b)-priceOf(a);
-      if(mode==='name')return pa.name.localeCompare(pb.name,isEn()?'en':'ar');
-      return products.indexOf(pa)-products.indexOf(pb);
-    });
-    cards.forEach(card=>grid.append(card));
-    if(resultCount)resultCount.textContent=visible+' '+ui('خدمة تناسب اختيارك','matching services');
     if(empty){
       empty.hidden=visible>0;
       empty.innerHTML='<p>'+ui('مفيش نتيجة مطابقة. جرّب اسم تاني أو اعرض كل الخدمات.','No matching results. Try another name or browse all services.')+'</p><button type="button" class="filter" data-reset-search>'+ui('عرض كل الخدمات','Show all services')+'</button>';
@@ -227,27 +208,24 @@
 
   function updateShelf(){
     const shelf=document.querySelector('.shelf-feature strong');
-    const lovable=Catalog.getProduct('lovable-pro');
-    if(shelf&&lovable?.plans?.[3])shelf.textContent=Store.planMoney(lovable.plans[3]);
+    const lovable=Catalog.getProduct('lovable-lite');
+    if(shelf&&lovable?.plans?.[0])shelf.textContent=Store.planMoney(lovable.plans[0]);
   }
 
 
   function renderBestOffers(){
     const target=document.getElementById('bestOffersGrid');
     if(!target)return;
-    const picks=[['cursor-pro',1],['coursera',0],['lovable-pro',1],['gemini-pro',0],['capcut-pro',1],['perplexity-pro',1]];
+    const picks=[['cursor-pro',1],['coursera',0],['lovable-pro',1],['gemini-pro',0],['capcut-pro',1],['grok',0]];
     target.innerHTML=picks.map(([id,index])=>{
       const product=Catalog.getProduct(id),plan=product?.plans?.[index];
-      if(!plan||plan.hidden||plan.available===false||product.status!=='available')return '';
+      if(!plan)return '';
       return '<article class="best-offer '+(id==='gemini-coursera-bundle'?'bundle-featured':'')+'">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3>'+(id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">اشتراك سنة بضمان كامل + هديتين مجانًا</p>':'')+'<small>'+esc(id==='lovable-pro'&&index===1?ui('شهر · 100 كريدت + 5 يوميًا','Month · 100 credits + 5 daily'):tr(plan.duration,'duration',id))+'</small></div><strong>'+Store.planMoney(plan)+((plan.oldPrice||plan.officialPrice)&&Store.planAmount(plan,'oldPrice')>Store.planAmount(plan)?' <del>'+Store.planMoney(plan,'oldPrice')+'</del>':'')+'</strong><a class="card-btn soft-btn" href="product.html?id='+encodeURIComponent(id)+'&plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
     }).join('');
     bindLogoFallbacks(target);
   }
 
   function renderAll(){
-    if(sortSelect){const value=sortSelect.value;sortSelect.innerHTML=[['featured',ui('مختارات المتجر','Store picks')],['price-asc',ui('السعر: الأقل أولًا','Price: low to high')],['price-desc',ui('السعر: الأعلى أولًا','Price: high to low')],['name',ui('الاسم','Name')]].map(([v,label])=>'<option value="'+v+'">'+label+'</option>').join('');sortSelect.value=value||'featured';}
-    const availableLabel=document.querySelector('[data-available-label]');if(availableLabel)availableLabel.textContent=ui('المتاح فقط','Available only');
-    const sortLabel=document.querySelector('[data-sort-label]');if(sortLabel)sortLabel.textContent=ui('ترتيب حسب','Sort by');
     renderBestOffers();
     renderCards();
     drawFilters();
@@ -264,12 +242,10 @@
   empty?.addEventListener('click',event=>{
     if(!event.target.closest('[data-reset-search]'))return;
     if(search)search.value='';
-    selected='الكل';if(availableOnly)availableOnly.checked=false;if(sortSelect)sortSelect.value='featured';drawFilters();applyFilters();search?.focus();
+    selected='الكل';drawFilters();applyFilters();search?.focus();
   });
   search?.setAttribute('aria-label',ui('ابحث عن خدمة','Search services'));
   search?.addEventListener('input',applyFilters);
-  sortSelect?.addEventListener('change',applyFilters);
-  availableOnly?.addEventListener('change',applyFilters);
   document.addEventListener('masterstore:localechange',renderAll);
 
   renderAll();
@@ -324,4 +300,3 @@
  };
  mount();const root=document.getElementById('productPage')||document.getElementById('grid');if(root)new MutationObserver(mount).observe(root,{childList:true});
 })();
-
