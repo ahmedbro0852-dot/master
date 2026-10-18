@@ -41,6 +41,7 @@
   const Locale=window.MasterLocale;
   const search=document.getElementById('search');
   const empty=document.getElementById('empty');
+  const availableOnly=document.getElementById('availableOnly');
   const loading=document.getElementById('catalogLoading');
 
   if(!Catalog||!Store){
@@ -118,7 +119,7 @@
 
   function cheapestPlan(product){
     const plans=product.plans||[];
-    return plans.filter(plan=>plan.available!==false).reduce((best,plan)=>{
+    return plans.filter(plan=>!plan.hidden&&plan.available!==false).reduce((best,plan)=>{
       if(!best)return plan;
       return Store.planAmount(plan)<Store.planAmount(best)?plan:best;
     },null);
@@ -172,7 +173,7 @@
 
   function drawFilters(){
     filters.innerHTML=categories.map(category=>
-      '<button class="filter '+(category===selected?'active':'')+'" type="button" data-cat="'+esc(category)+'" aria-pressed="'+(category===selected?'true':'false')+'">'+esc(categoryLabel(category))+'</button>'
+      '<button class="filter '+(category===selected?'active':'')+'" type="button" data-cat="'+esc(category)+'" aria-pressed="'+(category===selected?'true':'false')+'">'+esc(categoryLabel(category))+' <span class="filter-count">'+products.filter(p=>category==='الكل'||p.category===category).length+'</span></button>'
     ).join('');
 
     filters.querySelectorAll('.filter').forEach(button=>{
@@ -190,11 +191,16 @@
 
     grid.querySelectorAll('.product-card').forEach(card=>{
       const categoryMatch=selected==='الكل'||card.dataset.category===selected;
-      const matches=categoryMatch&&(!q||(card.dataset.search||'').includes(q));
+      const product=Catalog.getProduct(card.dataset.productId);
+      const matches=categoryMatch&&(!availableOnly?.checked||product?.status==='available')&&(!q||(card.dataset.search||'').includes(q));
       card.hidden=!matches;
       if(matches)visible++;
     });
 
+    const count=document.getElementById('catalogResultCount');
+    if(count)count.textContent=ui('عرض '+visible+' من '+products.length+' خدمة', 'Showing '+visible+' of '+products.length+' services');
+    const availableLabel=document.getElementById('availableOnlyLabel');
+    if(availableLabel)availableLabel.textContent=ui('المتاح فقط','Available only');
     if(empty){
       empty.hidden=visible>0;
       empty.innerHTML='<p>'+ui('مفيش نتيجة مطابقة. جرّب اسم تاني أو اعرض كل الخدمات.','No matching results. Try another name or browse all services.')+'</p><button type="button" class="filter" data-reset-search>'+ui('عرض كل الخدمات','Show all services')+'</button>';
@@ -219,7 +225,7 @@
     const picks=[['cursor-pro',1],['coursera',0],['lovable-pro',1],['gemini-pro',0],['capcut-pro',1],['grok',0]];
     target.innerHTML=picks.map(([id,index])=>{
       const product=Catalog.getProduct(id),plan=product?.plans?.[index];
-      if(!plan)return '';
+      if(!plan||plan.hidden||plan.available===false||product.status!=='available')return '';
       return '<article class="best-offer '+(id==='gemini-coursera-bundle'?'bundle-featured':'')+'">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3>'+(id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">اشتراك سنة بضمان كامل + هديتين مجانًا</p>':'')+'<small>'+esc(id==='lovable-pro'&&index===1?ui('شهر · 100 كريدت + 5 يوميًا','Month · 100 credits + 5 daily'):tr(plan.duration,'duration',id))+'</small></div><strong>'+Store.planMoney(plan)+((plan.oldPrice||plan.officialPrice)&&Store.planAmount(plan,'oldPrice')>Store.planAmount(plan)?' <del>'+Store.planMoney(plan,'oldPrice')+'</del>':'')+'</strong><a class="card-btn soft-btn" href="product.html?id='+encodeURIComponent(id)+'&plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
     }).join('');
     bindLogoFallbacks(target);
@@ -242,10 +248,11 @@
   empty?.addEventListener('click',event=>{
     if(!event.target.closest('[data-reset-search]'))return;
     if(search)search.value='';
-    selected='الكل';drawFilters();applyFilters();search?.focus();
+    selected='الكل';if(availableOnly)availableOnly.checked=false;drawFilters();applyFilters();search?.focus();
   });
   search?.setAttribute('aria-label',ui('ابحث عن خدمة','Search services'));
   search?.addEventListener('input',applyFilters);
+  availableOnly?.addEventListener('change',applyFilters);
   document.addEventListener('masterstore:localechange',renderAll);
 
   renderAll();

@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="dvpUjy_77Hw4vOnhyEyLAJ9m2NBAoZ1nUtnLy-ABb0s" />
 <link rel="stylesheet" href="customer-stories.css?v=20261018-motion3">
 <link rel="stylesheet" href="store-faq.css?v=20261018-searchable1">
-<link rel="stylesheet" href="store-polish.css?v=20261018-small1">
+<link rel="stylesheet" href="store-polish.css?v=20261018-organized1">
 </head>
 <body>
   <div class="offer-bar">خصومات تصل إلى 90% على عروض مختارة <a href="#products">تصفح العروض</a></div>
@@ -131,6 +131,7 @@
       </div>
     </section>
 
+    <nav class="store-section-links" aria-label="أقسام المتجر"><a href="#best-offers">أفضل العروض</a><a href="#products">كل الخدمات</a><a href="#customer-stories">تجارب العملاء</a><a href="#how">طريقة الطلب</a><a href="#faq">الأسئلة الشائعة</a></nav>
     <section class="confidence-strip" aria-label="مميزات المتجر">
       <div><b>أسعار منافسة</b><span>عروض مختارة بتوفير كبير</span></div>
       <div><b>ضمان واضح</b><span>تفاصيل الضمان داخل كل باقة</span></div>
@@ -138,14 +139,13 @@
       <div><b>طلب سريع</b><span>اختار الباقة وأرسل طلبك خلال دقائق</span></div>
     </section>
 
-    <section class="wallet-intro"><div><span class="eyebrow">حسابك في MASTER STORE</span><h2>طلباتك ورصيدك معاك في أي وقت.</h2><p>سجل الدخول، اشحن محفظتك بعد تأكيد التحويل، وادفع من رصيدك.</p></div><a class="primary" href="account.html">افتح حسابك ←</a></section>
     <section class="best-offers" id="best-offers" aria-labelledby="bestOffersTitle"><h2 id="bestOffersTitle">🔥 أفضل العروض</h2><div id="bestOffersGrid" class="best-offers-grid"></div></section>
     <section class="catalog" id="products">
       <div class="section-head">
         <div><span class="eyebrow">العروض والخدمات</span><h2>اختار اشتراكك</h2><p class="section-sub">كل التفاصيل المهمة موجودة داخل صفحة الخدمة.</p></div>
         <label class="search"><span>⌕</span><input id="search" type="search" placeholder="دور على خدمتك..." autocomplete="off"></label>
       </div>
-      <div class="filters" id="filters"></div>
+      <div class="filters" id="filters"></div><div class="catalog-overview"><p id="catalogResultCount" role="status" aria-live="polite"></p><label><input type="checkbox" id="availableOnly"><span id="availableOnlyLabel">المتاح فقط</span></label></div>
       <div class="grid" id="grid" aria-live="polite" aria-busy="true"></div>
       <div class="catalog-loading" id="catalogLoading" role="status">جاري تحميل العروض...</div>
       <div class="empty" id="empty">مفيش نتيجة مطابقة.</div>
@@ -166,6 +166,8 @@
         <article><i>03</i><h3>أرسل الطلب</h3><p>اكتب بيانات التواصل، وفريق الدعم يتابع معاك على واتساب.</p></article>
       </div>
     </section>
+
+    <section class="wallet-intro"><div><span class="eyebrow">حسابك في MASTER STORE</span><h2>طلباتك ورصيدك معاك في أي وقت.</h2><p>سجل الدخول، اشحن محفظتك بعد تأكيد التحويل، وادفع من رصيدك.</p></div><a class="primary" href="account.html">افتح حسابك ←</a></section>
 
     <section class="terms value-section" id="terms">
       <div class="section-head"><div><span class="eyebrow">تجربة أفضل</span><h2>ليه MASTER STORE؟</h2><p class="section-sub">كل حاجة مصممة عشان تختار وتطلب وأنت فاهم التفاصيل.</p></div></div>
@@ -206,7 +208,7 @@
   <script src="store.js?v=20261012-discount1"></script>
   <script src="order-details.js?v=20261018-details1"></script>
   <script src="cart.js?v=20261018-details1"></script>
-  <script src="app.js?v=20261017-coursera-org3"></script>
+  <script src="app.js?v=20261018-organized1"></script>
   <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img decoding="async" class="whatsapp-icon" src="logos/whatsapp.svg?v=20261009-logo-review3" alt=""></a>
 <script src="seo.js?v=20261009-search"></script>
 <script src="customer-stories.js?v=20261018-motion3" defer></script>
