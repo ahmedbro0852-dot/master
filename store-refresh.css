@@ -28,7 +28,7 @@ img{image-rendering:auto}
 .hero-kicker span{width:8px;height:8px;background:#efc76a;border-radius:50%;box-shadow:0 0 0 5px #efc76a12}
 .hero-v2 h1{font-size:clamp(34px,3.8vw,49px);line-height:1.55;letter-spacing:-1px;color:#fff;font-weight:700;margin-bottom:12px}
 .hero-v2 h1 em{color:#efce87;font-style:normal}
-.hero-v2 .discount-note{color:#bbcee5;font-size:11px;display:block;margin:0 0 17px}
+.hero-v2 .discount-note{color:#bbcee5;font-size:11px;display:block;margin:0 0 17px;background:transparent;border:0;padding:0;border-radius:0;box-shadow:none;width:auto}
 .hero-v2 .hero-copy>p{font-size:14px;color:#c3d3e6;line-height:2.15;margin-bottom:25px}
 .hero-v2 .hero-actions{display:flex;gap:10px;align-items:stretch}
 .hero-v2 .hero-primary{background:#efce87;border-color:#efce87;color:#182f4d;box-shadow:0 7px 24px #efce8718;min-height:48px}
@@ -45,6 +45,9 @@ img{image-rendering:auto}
 .shelf-head small{font-size:10px;letter-spacing:2px;color:#5c789c}
 .shelf-head strong{font-size:22px;color:#17335a}
 .shelf-count{font-size:10px;background:#eaf1ff;color:#37609a;border:1px solid #d8e5fc}
+.logo-lane{direction:ltr}
+.lane-track{direction:ltr;padding-inline:0;animation-name:storeLaneLoop}
+@keyframes storeLaneLoop{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 4px))}}
 .lane-track span{background:#fff;border:1px solid #e4eaf4;box-shadow:0 5px 10px #183a6605;border-radius:18px}
 .lane-track img{object-fit:contain;filter:none}
 .shelf-feature{background:#102c52;border:1px solid #244b7b;border-radius:17px;color:#fff;padding:18px}
@@ -117,7 +120,20 @@ img{image-rendering:auto}
 .wallet-intro{max-width:1152px;margin:0 auto 15px;padding:30px 35px;border:1px solid #dbe6f5;background:linear-gradient(120deg,#eaf2fe,#f5f9ff);border-radius:22px}
 .wallet-intro h2{font-size:24px;line-height:1.7}
 .wallet-intro p{font-size:13px;color:#657b97}
-.faq-section{font-family:inherit}
+.store-faq{max-width:1200px}
+.store-faq summary b{font-size:14px;line-height:1.9}
+.store-faq-answer{font-size:13px;line-height:2.1}
+.faq-tools{background:#edf3fc;border-color:#dfe7f3}
+.faq-search input{font-size:14px}
+.faq-categories button{font-size:11px;min-height:40px}
+.faq-intro h2{font-weight:700;letter-spacing:-.5px}
+.cart-layout .account-panel{border-radius:22px;border:1px solid #dce6f2;background:#fff;box-shadow:0 7px 25px #17345b05}
+.cart-summary .cart-total{color:#214c81;font-weight:700}
+.cart-line a{font-weight:600;color:#284e7c}
+.cart-layout form>label{font-size:13px}
+.reviews-heading h2{font-weight:700;letter-spacing:-.5px}
+.reviews-story-copy>p,.reviews-heading p{font-size:14px;line-height:2}
+.reviews-privacy small,.reviews-disclaimer{font-size:11px}
 .product-page{max-width:1160px;padding-top:35px}
 .product-hero{border:1px solid #dce6f3;background:radial-gradient(ellipse at 0 0,#e7effd,transparent 65%),#fff;border-radius:24px;padding:30px;box-shadow:0 8px 30px #15355804}
 .product-title h1{font-size:34px;line-height:1.5;letter-spacing:-.5px}
