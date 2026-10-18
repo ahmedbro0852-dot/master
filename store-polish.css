@@ -61,3 +61,24 @@
 .filters .filter{flex-shrink:0;white-space:nowrap}
 .wallet-intro{margin-top:16px;margin-bottom:16px}
 }
+
+.catalog-overview{flex-wrap:wrap}.catalog-sort-compact{margin-inline-start:auto}
+.catalog-sort-compact select{min-height:42px;padding:8px 12px;border:1px solid #d5dfed;border-radius:10px;background:white;color:#344b69;font:inherit}
+.tracking-page{max-width:1100px;margin:auto;padding:36px 20px 60px}
+.tracking-page h1{font-size:30px;line-height:1.7}
+.tracking-form>label{display:block;font-size:13px;margin-bottom:10px}
+.tracking-form>div{display:flex;gap:10px;flex-wrap:wrap}
+.tracking-form input{flex:1;min-width:160px;padding:13px;border:1px solid #d5dfed;border-radius:10px;font-size:16px}
+#trackingNotice,.tracking-help,.tracking-page>div p{font-size:12px;line-height:1.9;color:#63748a}
+#trackingLogin{font-size:12px;line-height:1.9}
+.tracking-card{margin-block:16px;padding:24px;background:#fff;border:1px solid #dce5f0;border-radius:18px}
+.tracking-card .order-top{gap:16px;flex-wrap:wrap}.tracking-card .record-id{display:block;overflow-wrap:anywhere;font-size:13px;margin-top:8px}
+.tracking-card h2{font-size:21px;line-height:1.8;margin-block:18px 8px}
+.tracking-details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding-top:15px;border-top:1px solid #e6ecf4}
+.tracking-details dt{font-size:11px;color:#6c7e95;margin-bottom:8px}.tracking-details dd{margin:0;font-size:13px;line-height:1.8;overflow-wrap:anywhere}
+.tracking-progress{display:grid;grid-template-columns:repeat(3,1fr);list-style:none;padding:0;gap:8px;margin-block:22px}
+.tracking-progress li{padding-top:12px;border-top:3px solid #e4e9f1;font-size:11px;color:#8190a5;line-height:1.8}
+.tracking-progress .reached{border-color:#2459cf;color:#2459cf}
+.tracking-local-note{background:#fff8e9;padding:13px;border-radius:10px}
+.tracking-card .order-follow{margin-top:16px;display:inline-flex;min-height:42px;align-items:center}
+@media(max-width:600px){.tracking-page{padding:24px 14px 45px}.tracking-page .section-head{flex-wrap:wrap}.tracking-card{padding:18px}.tracking-page h1{font-size:25px}.catalog-sort-compact{flex-basis:100%;margin:0}.catalog-sort-compact select{width:100%}}

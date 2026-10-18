@@ -42,6 +42,7 @@
   const search=document.getElementById('search');
   const empty=document.getElementById('empty');
   const availableOnly=document.getElementById('availableOnly');
+  const sort=document.getElementById('catalogSort');
   const loading=document.getElementById('catalogLoading');
 
   if(!Catalog||!Store){
@@ -188,6 +189,12 @@
   function applyFilters(){
     const q=normalizeSearch(search?.value||'');
     let visible=0;
+    const rank=new Map(products.map((p,i)=>[p.id,i]));
+    const amount=card=>{const p=cheapestPlan(Catalog.getProduct(card.dataset.productId));return p?Store.planAmount(p):null;};
+    const cards=[...grid.querySelectorAll('.product-card')];
+    cards.sort((a,b)=>{if(!sort?.value||sort.value==='featured')return rank.get(a.dataset.productId)-rank.get(b.dataset.productId);const av=amount(a),bv=amount(b);if(av===null)return bv===null?0:1;if(bv===null)return -1;return (sort.value==='price-desc'?bv-av:av-bv)||rank.get(a.dataset.productId)-rank.get(b.dataset.productId);});
+    cards.forEach(card=>grid.appendChild(card));
+    if(sort){const current=sort.value;sort.setAttribute('aria-label',ui('ترتيب الخدمات','Sort services'));sort.options[0].textContent=ui('ترتيب المتجر','Store order');sort.options[1].textContent=ui('السعر: الأقل أولًا','Price: low to high');sort.options[2].textContent=ui('السعر: الأعلى أولًا','Price: high to low');sort.value=current;}
 
     grid.querySelectorAll('.product-card').forEach(card=>{
       const categoryMatch=selected==='الكل'||card.dataset.category===selected;
@@ -253,6 +260,7 @@
   search?.setAttribute('aria-label',ui('ابحث عن خدمة','Search services'));
   search?.addEventListener('input',applyFilters);
   availableOnly?.addEventListener('change',applyFilters);
+  sort?.addEventListener('change',applyFilters);
   document.addEventListener('masterstore:localechange',renderAll);
 
   renderAll();
