@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20261018-refined1">
 <link rel="canonical" href="https://master-pi-six.vercel.app/">
 <meta property="og:url" content="https://master-pi-six.vercel.app/">
@@ -24,11 +24,13 @@
 <meta name="google-site-verification" content="dvpUjy_77Hw4vOnhyEyLAJ9m2NBAoZ1nUtnLy-ABb0s" />
 <link rel="stylesheet" href="customer-stories.css?v=20261018-motion3">
 <link rel="stylesheet" href="store-faq.css?v=20261018-searchable1">
+<link rel="stylesheet" href="store-refresh.css?v=20261018-complete1">
+<link rel="icon" href="master-mark.svg" type="image/svg+xml">
 </head>
 <body>
   <div class="offer-bar">خصومات تصل إلى 90% على عروض مختارة <a href="#products">تصفح العروض</a></div>
   <header class="topbar">
-    <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png?v=20260924-sec19" alt="MASTER STORE"></a>
+    <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.svg?v=20261018-complete1" width="208" height="56" alt="MASTER STORE"></a>
     <nav id="mainNav" aria-label="التنقل الرئيسي">
       <a href="#products">العروض</a>
       <a href="#how">طريقة الطلب</a>
@@ -137,14 +139,13 @@
       <div><b>طلب سريع</b><span>اختار الباقة وأرسل طلبك خلال دقائق</span></div>
     </section>
 
-    <section class="wallet-intro"><div><span class="eyebrow">حسابك في MASTER STORE</span><h2>طلباتك ورصيدك معاك في أي وقت.</h2><p>سجل الدخول، اشحن محفظتك بعد تأكيد التحويل، وادفع من رصيدك.</p></div><a class="primary" href="account.html">افتح حسابك ←</a></section>
-    <section class="best-offers" id="best-offers" aria-labelledby="bestOffersTitle"><h2 id="bestOffersTitle">🔥 أفضل العروض</h2><div id="bestOffersGrid" class="best-offers-grid"></div></section>
+    <section class="best-offers" id="best-offers" aria-labelledby="bestOffersTitle"><div class="section-head"><div><span class="eyebrow">مختارة ليك</span><h2 id="bestOffersTitle">أفضل العروض</h2></div><a class="offers-all-link" href="#products">كل الخدمات ←</a></div><div id="bestOffersGrid" class="best-offers-grid"></div></section>
     <section class="catalog" id="products">
       <div class="section-head">
         <div><span class="eyebrow">العروض والخدمات</span><h2>اختار اشتراكك</h2><p class="section-sub">كل التفاصيل المهمة موجودة داخل صفحة الخدمة.</p></div>
         <label class="search"><span>⌕</span><input id="search" type="search" placeholder="دور على خدمتك..." autocomplete="off"></label>
       </div>
-      <div class="filters" id="filters"></div>
+      <div class="filters" id="filters"></div><div class="catalog-tools"><p id="catalogResultCount" role="status" aria-live="polite"></p><label class="availability-toggle"><input type="checkbox" id="availableOnly"><span data-available-label>المتاح فقط</span></label><label class="catalog-sort"><span data-sort-label>ترتيب حسب</span><select id="catalogSort" aria-label="ترتيب الخدمات"><option value="featured">مختارات المتجر</option></select></label></div>
       <div class="grid" id="grid" aria-live="polite" aria-busy="true"></div>
       <div class="catalog-loading" id="catalogLoading" role="status">جاري تحميل العروض...</div>
       <div class="empty" id="empty">مفيش نتيجة مطابقة.</div>
@@ -165,6 +166,8 @@
         <article><i>03</i><h3>أرسل الطلب</h3><p>اكتب بيانات التواصل، وفريق الدعم يتابع معاك على واتساب.</p></article>
       </div>
     </section>
+
+    <section class="wallet-intro"><div><span class="eyebrow">حسابك في MASTER STORE</span><h2>طلباتك ورصيدك معاك في أي وقت.</h2><p>سجل الدخول، اشحن محفظتك بعد تأكيد التحويل، وادفع من رصيدك.</p></div><a class="primary" href="account.html">افتح حسابك ←</a></section>
 
     <section class="terms value-section" id="terms">
       <div class="section-head"><div><span class="eyebrow">تجربة أفضل</span><h2>ليه MASTER STORE؟</h2><p class="section-sub">كل حاجة مصممة عشان تختار وتطلب وأنت فاهم التفاصيل.</p></div></div>
@@ -192,23 +195,25 @@
 <div class="payment-brand"><img src="logos/payments/8bf1f9abec43c9fc.svg?v=20261010-wallet1" alt="" width="36" height="36" loading="lazy"><b>PayPal</b><small>باي بال</small></div>
 <div class="payment-brand"><img class="payment-logo-full" src="logos/payments/e2b2dee1970d1f7f.svg?v=20261010-wallet1" alt="Barq" width="104" height="64" loading="lazy"><b>Barq</b><small>برق · السعودية</small></div></div><p>بيانات التحويل وطريقة الدفع يتم تأكيدها مع الدعم بعد الطلب.</p></section>
   <footer>
-    <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png?v=20260924-sec19" alt="MASTER STORE"></a>
+    <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.svg?v=20261018-complete1" width="208" height="56" alt="MASTER STORE"></a>
     <p>اشتراكات وخدمات رقمية بأسعار مميزة ودعم مباشر قبل وبعد الطلب.</p>
     <a class="footer-facebook" href="https://www.facebook.com/share/19XBCdMAm5/" target="_blank" rel="noopener noreferrer">تابعنا على فيسبوك</a>
     <div class="footer-meta"><small>© 2026 MASTER STORE</small><small class="brand-disclaimer">الأسماء والعلامات التجارية مملوكة لأصحابها، ولا تعني عرض المنتجات وجود شراكة رسمية مع الشركات المالكة.</small></div>
   </footer>
 
-  <script src="catalog.js?v=20261017-org-explained"></script>
+  <script src="catalog.js?v=20261018-complete1"></script>
 <script src="catalog-live.js?v=20261010-admin1"></script>
-  <script src="locale.js?v=20261017-org-explained"></script>
+  <script src="locale.js?v=20261018-complete1"></script>
   <script src="payment-assets.js?v=20261010-wallet1"></script>
   <script src="store.js?v=20261012-discount1"></script>
   <script src="order-details.js?v=20261018-details1"></script>
   <script src="cart.js?v=20261018-details1"></script>
-  <script src="app.js?v=20261017-coursera-org3"></script>
+  <script src="app.js?v=20261018-complete1"></script>
   <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img decoding="async" class="whatsapp-icon" src="logos/whatsapp.svg?v=20261009-logo-review3" alt=""></a>
 <script src="seo.js?v=20261009-search"></script>
 <script src="customer-stories.js?v=20261018-motion3" defer></script>
 <script src="store-faq.js?v=20261018-searchable1"></script>
+<script src="store-refresh.js?v=20261018-complete1" defer></script>
 </body>
 </html>
+
