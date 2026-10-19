@@ -121,10 +121,14 @@
     if(discount&&discount.percent>0)return '<small class="plan-saving">'+ui(discount.estimated?'توفير تقديري ':'توفير ',discount.estimated?'Estimated saving ':'Save ')+discount.percent+'% · '+MasterStore.formatCurrency(discount.saving,MasterStore.getMarket().currency)+'</small>';
     if(!plan?.oldPrice)return '';
     const saving=MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan);
-    return saving>0?'<small class="plan-saving">'+ui('وفر ','Save ')+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</small>':'';
+    return saving>0?'<small class="plan-saving">'+ui('توفير ','Save ')+Math.round(saving/MasterStore.planAmount(plan,'oldPrice')*100)+'% · '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+ui(' مقارنة بسعر المتجر السابق',' vs previous store price')+'</small>':'';
   }
 
   function discountDetail(plan){
+    if(!plan.officialPrice&&Number(plan.oldPrice)>Number(plan.price)){
+      const previous=MasterStore.planAmount(plan,'oldPrice'),current=MasterStore.planAmount(plan),saved=previous-current;
+      return '<div><dt>'+ui('التوفير مقارنة بسعر المتجر السابق','Saving vs previous store price')+'</dt><dd><strong class="saving">'+Math.round(saved/previous*100)+'% · '+MasterStore.formatCurrency(saved,MasterStore.getMarket().currency)+'</strong></dd></div>';
+    }
     const discount=MasterStore.officialDiscount(plan);
     const label=plan.priceComparison?.referenceLabel?ui('التوفير مقارنة بـPlus المستقل','Saving vs standalone Plus'):ui(discount?.estimated?'نسبة التوفير التقديرية':'نسبة التوفير عن الرسمي',discount?.estimated?'Estimated saving':'Saving vs official price');
     const value=discount?(discount.percent>0?'<strong class="saving">'+discount.percent+'%</strong>':ui('لا يوجد توفير بالسعر الحالي','No saving at the current price')):ui('غير متاحة — لا يوجد سعر رسمي مطابق موثق','Unavailable — no verified matching official price');
