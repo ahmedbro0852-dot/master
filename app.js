@@ -156,6 +156,7 @@
     return '<article class="product-card light-card simple-service-card" aria-label="'+esc(product.name)+'" data-product-id="'+esc(product.id)+'" data-category="'+esc(product.category)+'" data-search="'+esc(searchText(product))+'">'+
       '<div class="card-top">'+logoMarkup(product)+'<h3 class="service-name" dir="auto">'+esc(product.name)+'</h3></div>'+
       (product.id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">كورسيرا سنة + جيمناي ٣ شهور + كانفا ٣ سنين</p>':'')+'<div class="light-meta"><strong>'+esc(price)+'</strong></div>'+
+      (product.id==='duolingo'&&plan&&Number(plan.oldPrice)>Number(plan.price)?'<p class="plan-saving" style="font-size:12px;color:#187447;line-height:1.8;margin:0 0 12px">'+ui('توفير ','Save ')+Math.round((1-Number(plan.price)/Number(plan.oldPrice))*100)+'% · '+ui('مقارنة بسعر المتجر السابق','vs previous store price')+' <del>'+Store.planMoney(plan,'oldPrice')+'</del></p>':'')+
       '<div class="card-bottom light-bottom">'+action+'</div>'+
     '</article>';
   }
