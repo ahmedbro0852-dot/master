@@ -786,13 +786,13 @@ const products = [
     "category": "AI Tools",
     "logo": "chatgpt",
     "status": "available",
-    "description": "باقة ChatGPT مخصصة للمعلمين K12 لمدة سنتين بـ500 جنيه، بدون ضمان.",
+    "description": "باقة ChatGPT مخصصة للمعلمين K12 لمدة سنتين بـ400 جنيه، بدون ضمان.",
     "plans": [
       {
         "name": "ChatGPT للمعلمين K12 — بدون ضمان",
         "planType": "K12 Teachers",
         "duration": "24 شهر",
-        "price": 500,
+        "price": 400,
         "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
         "account": "نوع الحساب يُؤكد قبل الدفع",
         "warranty": "بدون ضمان",
