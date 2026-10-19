@@ -1430,7 +1430,7 @@ const products = [
     "logo": "elevenlabs",
     "logoUrl": "logos/elevenlabs.svg?v=20261009-logo-review3",
     "status": "available",
-    "description": "باقات ElevenLabs Creator، منها سنة كاملة على حسابك الشخصي بـ4500 جنيه بدون بطاقة دفع.",
+    "description": "عرض لمدة 24 ساعة فقط: ElevenLabs Creator لمدة شهر مع 131 ألف كريديت بسعر 420 جنيه بدل 1200 جنيه، توفير 65%. تتوفر أيضًا باقات 3 شهور وسنة.",
     "plans": [
       {
         "name": "Creator — سنة على حسابك",
@@ -1485,32 +1485,25 @@ const products = [
         }
       },
       {
-        "name": "Creator",
+        "name": "Creator — شهر · عرض 24 ساعة",
         "duration": "1 شهر",
-        "price": 550,
+        "price": 420,
         "activation": "تسليم حساب جاهز.",
         "account": "حساب جاهز",
         "warranty": "ضمان كامل",
         "credits": "131,000 Credit",
-        "priceComparison": {
-          "planName": "ElevenLabs Creator",
-          "source": "https://elevenlabs.io/pricing",
-          "checkedAt": "2026-10-08",
-          "status": "reference",
-          "note": "رصيد عرض المتجر يُؤكد مع الدعم قبل الدفع.",
-          "billingLabel": "السعر المعتاد؛ أول شهر للمؤهلين 11 دولارًا"
-        },
-        "officialPrice": {
-          "amount": 22,
-          "currency": "USD",
-          "months": 1,
-          "basis": "reference",
-          "source": "https://elevenlabs.io/pricing",
-          "checkedAt": "2026-10-08"
-        }
+        "planType": "Creator",
+        "oldPrice": 1200,
+        "offerEndsAt": "2026-10-20T22:15:00Z",
+        "notes": [
+          "عرض لمدة 24 ساعة فقط: 420 جنيه بدل 1200 جنيه؛ توفير 780 جنيه (65%).",
+          "مدة الاشتراك شهر كامل ويشمل 131 ألف كريديت.",
+          "ينتهي العرض يوم 21 أكتوبر 2026 الساعة 1:15 صباحًا بتوقيت القاهرة."
+        ]
       }
     ]
   },
+
   {
     "id": "hedra",
     "name": "Hedra Basic",

@@ -13,5 +13,6 @@ window.MasterCatalogReady=(async()=>{
  }
  for(const p of window.MasterCatalog.products){for(const plan of p.plans||[]){if(plan.offerEndsAt&&Date.now()>=Date.parse(plan.offerEndsAt))plan.available=false;}const plans=p.plans||[];if(plans.some(x=>x.available===true))p.status='available';else if(plans.some(x=>x.available===false)&&p.status!=='soon')p.status='out';}
  }catch{/* Cached catalogue stays usable; checkout always rechecks server prices. */}
+ for(const p of window.MasterCatalog.products){for(const plan of p.plans||[]){if(plan.offerEndsAt&&Date.now()>=Date.parse(plan.offerEndsAt))plan.available=false;}}
 })();
 })();
