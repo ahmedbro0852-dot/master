@@ -53,7 +53,7 @@ insert into public.master_store_plans(product_id,plan_index,product_name,plan_na
 ('freepik',0,'Freepik Premium','Freepik Premium — تحميل فقط','1 شهر',45000,true,5),
 ('adobe-cc',0,'Adobe Creative Cloud Pro','Creative Cloud Pro — دعوة','1 شهر',45000,true,5),
 ('adobe-cc',1,'Adobe Creative Cloud Pro','Creative Cloud Pro — تفعيل رسمي','1 شهر',85000,true,5),
-('duolingo',0,'Super Duolingo','سنة','12 شهر',20000,true,5),
+('duolingo',0,'Super Duolingo','12 شهر — على إيميلك الشخصي','12 شهر',12000,true,5),
 ('elsa',0,'ELSA Speak Pro','7 أيام','7 أيام',9000,true,5),
 ('elsa',1,'ELSA Speak Pro','12 شهر','12 شهر',190000,true,5),
 ('coursera',0,'Coursera Plus','3 شهور — حساب خاص','3 شهور',30000,true,5),
