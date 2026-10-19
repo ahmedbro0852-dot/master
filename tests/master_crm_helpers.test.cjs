@@ -1,0 +1,13 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const root={};const context={window:{MasterCloud:{ready:false,errorText:e=>e.message},MasterStore:{escapeHtml:s=>s}},document:{getElementById:()=>root,addEventListener:()=>{}},Intl,Date,console,setInterval:()=>{}};
+vm.runInNewContext(fs.readFileSync(__dirname+'/../management.js','utf8'),context);
+const h=context.window.MasterCRMHelpers;
+assert.equal(h.endDate('2026-01-31',1,'month'),'2026-02-28');
+assert.equal(h.endDate('2028-02-29',1,'year'),'2029-02-28');
+assert.equal(h.endDate('2026-12-20',30,'day'),'2027-01-19');
+assert.equal(h.endDate('',1,'month'),'');
+assert.equal(h.endDate('2026-01-01',0,'day'),'');
+assert.equal(h.csvCell('  =HYPERLINK("bad")'),'"\'  =HYPERLINK(""bad"")"');
+assert.equal(h.csvCell('+201234567890'),'"\'+201234567890"');
+assert.equal(h.cleanQuery('abc),id.in.(x'),'abc  id in  x');
+console.log('PASS: month-end/leap-year/date calculations and CSV formula neutralization');
