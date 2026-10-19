@@ -112,3 +112,23 @@ html[dir=ltr] .reviews-story-copy{direction:ltr}
 @media(hover:hover){.reviews-visual:hover .reviews-main-frame{translate:0 0;rotate:0deg}}
 @media(max-width:700px){.reviews-ghost{opacity:.3}.reviews-main-frame{max-width:76%}}
 @media(prefers-reduced-motion:reduce){.reviews-kicker:before{animation:none!important}}
+
+/* Brighter cyan LEDs around customer stories; photographs remain unchanged. */
+.reviews-showcase{border-block-color:#60d9f08c;box-shadow:inset 0 3px 20px #4cd9ff14,inset 0 -3px 20px #4cd9ff12}
+.reviews-atmosphere i{background:radial-gradient(circle,#3977e84a,transparent 66%)}
+.reviews-atmosphere i:nth-child(2){background:radial-gradient(circle,#43d5cb38,transparent 66%)}
+.reviews-atmosphere i:nth-child(3){background:radial-gradient(circle,#8374ef28,transparent 66%)}
+.reviews-kicker:before{background:#a6fff3;box-shadow:0 0 5px #bafff5,0 0 17px #6bf0ddcc,0 0 32px #6bf0dd66}
+.reviews-main-frame{border-color:#b5f5ff;box-shadow:0 35px 75px #0009,0 0 0 2px #bce8ff33,0 0 18px #5edfff70,0 0 45px #43bfdb5c,0 0 85px #438edb2e}
+.reviews-main-frame:after{padding:2.5px;background:conic-gradient(from var(--reviews-light-angle),#74c7ff70,#80f6ff 18%,#f0ffff 24%,#74c7ff70 42%,#74c7ff70 64%,#b6a5ff 79%,#74c7ff70);animation-duration:7s}
+.reviews-main-frame:hover{box-shadow:0 35px 75px #0009,0 0 0 2px #c3fbff66,0 0 24px #5edfff99,0 0 60px #43bfdb70,0 0 95px #438edb38}
+.reviews-stage-floor{background:radial-gradient(ellipse,#55d9ff80,transparent 69%);filter:blur(12px)}
+.reviews-visual:after{height:2px;background:linear-gradient(90deg,transparent,#9df4ff,transparent);box-shadow:0 0 15px #5edfff88}
+.reviews-ghost{border-color:#a9eaf488;box-shadow:0 24px 40px #0005,0 0 20px #52c9ef32}
+.reviews-thumb[aria-current=true]{border-color:#c3f9ff;box-shadow:0 0 0 2px #8eeeff40,0 0 18px #52c9ef88,0 7px 24px #52c9ef40}
+.reviews-tabs button[aria-pressed=true]{box-shadow:0 0 14px #9ad9ff66,0 0 27px #62caff26}
+.reviews-read{box-shadow:0 0 14px #8ac9f055,0 7px 28px #8ac9f033}
+.reviews-contact{border-color:#9cefff88;box-shadow:0 0 18px #64c7ef24}
+.story-dialog{border-color:#a2e9ff99;box-shadow:0 30px 100px #0009,0 0 25px #55cfff66,0 0 65px #347fff44}
+@keyframes reviews-beacon{0%,100%{box-shadow:0 0 5px #bafff5,0 0 17px #6bf0ddaa,0 0 28px #6bf0dd44}50%{box-shadow:0 0 7px #d9fff9,0 0 24px #6bf0dddd,0 0 38px #6bf0dd66}}
+@media(max-width:700px){.reviews-main-frame{box-shadow:0 25px 50px #0008,0 0 0 2px #bce8ff33,0 0 17px #5edfff70,0 0 38px #43bfdb55}.reviews-stage-floor{filter:blur(9px)}}
