@@ -2037,6 +2037,7 @@ const products = [
     "plans": [
       {
         "name": "12 شهر — على إيميلك الشخصي",
+        "planType": "Super",
         "duration": "12 شهر",
         "price": 120,
         "activation": "تسليم لينك تفعّله مباشرة على حسابك الشخصي.",
