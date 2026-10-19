@@ -40,7 +40,30 @@
       }catch(error){if(error.code==='email_not_confirmed')document.getElementById('resendConfirmation').hidden=false;throw error;}finally{authBusy=false;root.querySelectorAll('[data-mode],[data-password]').forEach(b=>b.disabled=false);}});
     };
     document.getElementById('resendConfirmation').onclick=e=>{if(!form.elements.email.reportValidity())return;run(e.currentTarget,async()=>{await C.unwrap(C.client.auth.resend({type:'signup',email:form.elements.email.value.trim(),options:{emailRedirectTo:C.redirect}}));message(t('لو الحساب محتاج تأكيد، هتوصلك رسالة جديدة.','If confirmation is needed, a new email will arrive.'));});};
-    if(!reset)Promise.all([C.googleReady,C.githubReady]).then(([google,github])=>{if(!form.isConnected)return;const host=document.getElementById('authProviders');for(const [provider,enabled,title] of [['google',google,'Google'],['github',github,'GitHub']]){if(!enabled)continue;const b=document.createElement('button');b.type='button';b.className='google-signin';b.innerHTML='<img src="logos/'+provider+'-signin.svg" width="20" height="20" alt="">'+t('متابعة باستخدام ','Continue with ')+title;b.onclick=()=>run(b,async()=>{await C.unwrap(C.client.auth.signInWithOAuth({provider,options:{redirectTo:C.redirect}}));});host.appendChild(b);}host.hidden=!host.children.length;});
+    if(!reset){
+      const host=document.getElementById('authProviders');
+      host.hidden=false;
+      const googleButton=document.createElement('button');
+      googleButton.type='button';googleButton.className='google-signin';googleButton.disabled=true;
+      googleButton.innerHTML='<img src="logos/google-signin.svg" width="20" height="20" alt="">'+t('المتابعة باستخدام Google','Continue with Google');
+      const providerNote=document.createElement('small');providerNote.className='auth-provider-status';providerNote.setAttribute('role','status');providerNote.textContent=t('جاري التحقق من تسجيل Google…','Checking Google sign-in…');
+      host.append(googleButton,providerNote);
+      const separator=document.createElement('div');separator.className='auth-provider-divider';separator.textContent=t('أو باستخدام الإيميل','Or use your email');host.appendChild(separator);
+      C.googleReady.then(enabled=>{
+        if(!form.isConnected)return;
+        googleButton.disabled=!enabled;
+        providerNote.textContent=enabled?t('اختار حساب Google لإنشاء حساب أو تسجيل الدخول.','Choose your Google account to sign up or sign in.'):t('التسجيل باستخدام Google غير متاح حاليًا. يمكنك التسجيل بالإيميل.','Google sign-in is currently unavailable. You can use email instead.');
+        googleButton.onclick=()=>run(googleButton,async()=>{
+          if(!enabled)return;
+          await C.unwrap(C.client.auth.signInWithOAuth({provider:'google',options:{redirectTo:C.redirect,queryParams:{prompt:'select_account'}}}));
+        });
+      });
+      C.githubReady.then(enabled=>{
+        if(!enabled||!form.isConnected)return;
+        const b=document.createElement('button');b.type='button';b.className='google-signin';b.innerHTML='<img src="logos/github-signin.svg" width="20" height="20" alt="">'+t('المتابعة باستخدام GitHub','Continue with GitHub');
+        b.onclick=()=>run(b,async()=>{await C.unwrap(C.client.auth.signInWithOAuth({provider:'github',options:{redirectTo:C.redirect}}));});host.insertBefore(b,separator);
+      });
+    }
     if(notice){message(notice);notice='';}
   }
   function historyRows(items,kind){
