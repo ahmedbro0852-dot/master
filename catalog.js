@@ -154,22 +154,12 @@ const products = [
     "logo": "higgsfield",
     "logoUrl": "logos/higgsfield.svg?v=20261009-logo-review3",
     "status": "available",
-    "description": "كود تفعيل Higgsfield Pro لمدة سنة بـ160 دولار؛ تفعيل مباشر على بريدك الشخصي. يتوفّر Seedance لتوليد الفيديو داخل المنصة. ضمان كامل لمدة سنة.",
+    "description": "هيجزفيلد: خطة البداية لمدة شهر بـ599ج، حساب جاهز بضمان شهر و210 كريدت، مع توفر خطة Pro السنوية بكود تفعيل.",
     "features": [
-      "خطة Pro لمدة سنة كاملة.",
-      "تسليم كود تفعيل.",
-      "تفعيل مباشر على بريدك الشخصي.",
-      "يتوفّر Seedance (سيدانس) لتوليد الفيديو داخل Higgsfield.",
-      "استخدام Seedance حسب رصيد الباقة وإعدادات الفيديو؛ Enhanced Fast إضافة مدفوعة منفصلة.",
-      "ضمان كامل طوال مدة الاشتراك: سنة كاملة."
+      "خطة البداية الشهرية أو خطة Pro السنوية؛ اختار الباقة لعرض مميزاتها."
     ],
     "featuresEn": [
-      "Pro plan for one full year.",
-      "Activation code delivery.",
-      "Direct activation on your personal email.",
-      "Seedance video generation is available within Higgsfield.",
-      "Seedance usage depends on plan credits and video settings; Enhanced Fast is a separate paid add-on.",
-      "Full warranty throughout the one-year subscription."
+      "Choose the monthly Starter plan or annual Pro plan to see its features."
     ],
     "plans": [
       {
@@ -182,6 +172,52 @@ const products = [
         "account": "كود تفعيل على حسابك الشخصي",
         "accountType": "كود تفعيل على حسابك الشخصي",
         "warranty": "ضمان كامل لمدة سنة",
+        "notes": [],
+        "features": [
+          "خطة Pro لمدة سنة كاملة.",
+          "تسليم كود تفعيل.",
+          "تفعيل مباشر على بريدك الشخصي.",
+          "يتوفّر Seedance (سيدانس) لتوليد الفيديو داخل Higgsfield.",
+          "استخدام Seedance حسب رصيد الباقة وإعدادات الفيديو؛ Enhanced Fast إضافة مدفوعة منفصلة.",
+          "ضمان كامل طوال مدة الاشتراك: سنة كاملة."
+        ],
+        "featuresEn": [
+          "Pro plan for one full year.",
+          "Activation code delivery.",
+          "Direct activation on your personal email.",
+          "Seedance video generation is available within Higgsfield.",
+          "Seedance usage depends on plan credits and video settings; Enhanced Fast is a separate paid add-on.",
+          "Full warranty throughout the one-year subscription."
+        ]
+      },
+      {
+        "name": "خطة البداية — شهر",
+        "planType": "Starter",
+        "duration": "شهر",
+        "price": 599,
+        "credits": "210 كريدت",
+        "activation": "تسليم حساب جاهز.",
+        "account": "حساب جاهز",
+        "accountType": "حساب جاهز",
+        "warranty": "ضمان كامل لمدة شهر",
+        "features": [
+          "210 كريدت خلال مدة الاشتراك.",
+          "توليد متوازٍ يصل إلى مقطعي فيديو و4 صور في وقت واحد.",
+          "الوصول إلى Seedance 2 Fast وMini.",
+          "مدة الاشتراك شهر، مع تسليم حساب جاهز وضمان شهر."
+        ],
+        "featuresEn": [
+          "210 credits during the subscription.",
+          "Parallel generation of up to 2 videos and 4 images at once.",
+          "Access to Seedance 2 Fast and Mini.",
+          "One month, delivered as a ready-made account with a one-month warranty."
+        ],
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference"
+        },
         "notes": []
       }
     ]

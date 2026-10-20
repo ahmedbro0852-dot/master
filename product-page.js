@@ -288,6 +288,7 @@
 
   function subscriptionFeatures(product,plan){
     if(product.id==='manus')return [tr(plan.credits,'credits'),ui('الضمان: ','Warranty: ')+tr(plan.warranty,'warranty'),tr(plan.activation,'activation'),...(plan.notes||[]).map(n=>tr(n,'note'))];
+    if(plan.featuresEn&&plan.features)return isEn()?plan.featuresEn:plan.features;
     if(product.featuresEn&&product.features)return isEn()?product.featuresEn:product.features;
     if(isEn()){
       const base=englishServiceFeatures[product.id]||englishCategoryFeatures[product.category]||englishCategoryFeatures["AI Tools"];

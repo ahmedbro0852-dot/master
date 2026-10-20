@@ -130,7 +130,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     "adobe-express":"Adobe Express Premium for 12 months: activation on your email or a ready-made account for EGP 499 with a 6-month warranty, or an activation link for your account requiring a card for EGP 200 with no warranty.",
     "academic-pro":"Review your documents before submission with Turnitin similarity reports and AI-content detection from Academi. One month of Pro on your personal account.",
 "cursor-pro":"Cursor Pro for coding for one year at $135. A 100% discount activation code on your personal account requiring an accepted payment card.",
-"higgsfield-pro":"Higgsfield Pro annual activation code for $160, activated directly on your personal email. Seedance video generation is available within the platform. Full one-year warranty.",
+"higgsfield-pro":"Higgsfield: monthly Starter plan for EGP 599 with 210 credits, a ready-made account and one-month warranty; annual Pro activation code also available.",
 "windows-pro":"Windows 11 Pro or Windows 10 Pro activation key for $5. Permanent activation for the purchased version with a one-time payment.",
     "chatgpt-teachers-k12":"A ChatGPT plan for K12 teachers lasting two years at EGP 400, without warranty.",
     "chatgpt-plus":"Available monthly ChatGPT Plus plans: a no-warranty account for EGP 320, or activation and renewal on your personal account for EGP 1,100. The EGP 700 ready-made account plan is out of stock.",
