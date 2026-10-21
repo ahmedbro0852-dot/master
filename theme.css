@@ -1,0 +1,41 @@
+/* Theme is restored in the head before the page is painted. */
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;padding:0;border:1px solid var(--line);border-radius:12px;background:#f2f6fd;color:#24466f;cursor:pointer;font:inherit;font-size:26px;line-height:1;touch-action:manipulation}
+.theme-toggle:hover{border-color:var(--blue)}
+.theme-toggle:focus-visible{outline:3px solid #79a1ed;outline-offset:3px}
+@media(max-width:700px){.theme-toggle{order:3}.topbar .menu{order:4}}
+html[data-theme=dark]{--blue:#8db4ff;--blue-dark:#b8d0ff;--navy:#e5edfa;--ink:#e5edfa;--muted:#b0bfd2;--line:#33435b;--soft:#172439;--gold:#f0bf65;--gold-soft:#332a19;--green:#79dca9;--red:#ffb0b0;background:#0b1220;color-scheme:dark}
+html[data-theme=dark] body{background:#0b1220;color:var(--ink)}
+html[data-theme=dark] :is(.topbar,.topbar nav,.product-card.light-card,.best-offer,.steps article,.terms-grid article,.summary-card,.plans-block,.profile-card,.order-card,.auth-card,.account-panel,.wallet-intro,.payment-methods,.payment-brand,.checkout-dialog,.story-dialog,.store-faq details,.faq-search,.search,.plan-option,.cart-item,.cart-summary,.track-card,.tracking-card,.mobile-order-bar){background:#131e30;color:var(--ink);border-color:var(--line)}
+html[data-theme=dark] :is(h1,h2,h3,h4,.service-name,.light-meta strong,.card-bottom strong,.payment-brand b,.store-faq summary,.wallet-intro h2,.details-list dd,.plan-option span b,.present-reveal-inner strong){color:var(--ink)}
+html[data-theme=dark] :is(.desc,.category,.section-sub,.back-link,.hero-copy>p,.hero-facts span,.confidence-strip span,.steps p,.terms-grid p,footer p,footer small,.wallet-intro p,.payment-methods p,.payment-brand small,.store-faq-answer,.faq-intro p,.faq-results-count,.faq-question-number,.details-list dt,.safe-note,.form-note,.checkout-head p,.checkout-form label>span,.account-head p,.panel-description,.auth-card>p,.account-panel>p,.account-identity p,.order-meta,.light-meta small){color:var(--muted)}
+html[data-theme=dark] :is(.hero-v2,.subscription-shelf,.confidence-strip,.best-offers,.how,.faq-tools,.faq-no-results,.checkout-summary,.auth-tabs,.notice,.store-section-links,.present-reveal-inner){background:#101c2e;border-color:var(--line);color:var(--ink)}
+html[data-theme=dark] :is(.hero-facts>div,.shelf-feature,.shelf-count,.shelf-head,.shelf-footer,.light-bottom,.card-bottom,.details-list>div,.product-hero,footer){border-color:var(--line)}
+html[data-theme=dark] :is(.shelf-head strong,.shelf-feature b,.shelf-feature strong,.hero-facts strong,.confidence-strip b,.faq-intro h2){color:var(--ink)}
+html[data-theme=dark] :is(.hero-kicker,.eyebrow,.section-head .eyebrow,.light-price,.best-offer strong){color:var(--gold)}
+html[data-theme=dark] :is(input,select,textarea,.market-switcher select,.auth-card input,.account-panel input:not([type=checkbox]):not([type=radio]),.checkout-form input,.checkout-form select){background:#0e192a;color:var(--ink);border-color:var(--line)}
+html[data-theme=dark] input::placeholder,html[data-theme=dark] textarea::placeholder{color:#97a9c0}
+html[data-theme=dark] :is(.filter,.ghost,.ghost-btn,.account-link,.theme-toggle,.dialog-close,.faq-plus,.faq-categories button,.stories-controls button,.store-section-links a,.catalog-sort-compact select){background:#1b2b43;color:var(--ink);border-color:var(--line)}
+html[data-theme=dark] :is(.filter.active,.faq-categories button[aria-pressed=true],.auth-tabs button[aria-pressed=true]){background:#8db4ff;color:#0b1220;border-color:#8db4ff}
+html[data-theme=dark] :is(.primary,.card-btn){background:#315fc7;color:#fff;border-color:#4777dc}
+html[data-theme=dark] :is(.primary,.card-btn):hover{background:#3e70da}
+html[data-theme=dark] .account-hero-link{background:#1b2b43!important;color:#b8d0ff!important;border-color:#33435b!important}
+html[data-theme=dark] .plan-option:has(input:checked),html[data-theme=dark] .checkout-payment:has(input:checked){background:#1b3152;border-color:#8db4ff;box-shadow:0 0 0 1px #8db4ff}
+html[data-theme=dark] :is(.checkout-form .checkout-payment,.terms-check){background:#131e30;border-color:var(--line);color:var(--ink)}
+html[data-theme=dark] :is(.plan-notes,.device-note){background:#332a19;border-color:#776039;color:#ffe0a1}
+html[data-theme=dark] :is(.plan-notes ul,.device-note p){color:#edcf96}
+html[data-theme=dark] .status.ok{background:#133b2b;color:#9ce9bd}
+html[data-theme=dark] .status.out{background:#47272d;color:#ffb8bc}
+html[data-theme=dark] .status.soon{background:#44351b;color:#f4d18a}
+/* Logo tiles stay white so black marks and payment artwork remain visible. */
+html[data-theme=dark] :is(.product-logo,.feature-logo,.lane-track>span,.payment-brand img,.brand img){background:#fff;border-color:#dce5f0;border-radius:12px}
+html[data-theme=dark] .brand img{padding:4px}
+html[data-theme=dark] .lane-track>span{color:#142b4d}
+html[data-theme=dark] .toast{background:#e5edfa;color:#0b1220}
+html[data-theme=dark] :is(.primary.disabled,.card-btn.disabled){background:#33435b;color:#a9b8cc;border-color:#33435b}
+html[data-theme=dark] :is(.stories-window,.story-dialog-head,.story-dialog-foot){border-color:var(--line)}
+html[data-theme=dark] :is(.policy-flat-list,.profile-dialog,.tracking-result,.tracking-order,.cart-line,.plan-features){background:#131e30;color:var(--ink);border-color:var(--line)}
+html[data-theme=dark] .policy-flat-list li:nth-child(even){background:#172439}
+html[data-theme=dark] .policy-flat-list li:target{background:#1b3152}
+html[data-theme=dark] .policy-flat-list li+li{border-color:var(--line)}
+html[data-theme=dark] :is(.policy-flat-list p,.profile-form label span,.cart-line p,.cart-line small){color:var(--muted)}
+html[data-theme=dark] .policy-line-number{color:#8db4ff}
