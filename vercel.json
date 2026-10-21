@@ -63,5 +63,7 @@
         }
       ]
     }
-  ]
+  ],
+  "buildCommand": "node scripts/build-seo.cjs",
+  "outputDirectory": "."
 }
