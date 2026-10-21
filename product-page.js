@@ -11,6 +11,7 @@
   const checkoutContent=document.getElementById('checkoutContent');
   const toast=document.getElementById('toast');
   const params=new URLSearchParams(location.search);
+  if(!params.has('id')&&document.body.dataset.productId)params.set('id',document.body.dataset.productId);
   if(params.get('id')==='manus-pro'){location.replace('product.html?id=manus&plan=2');return;}
   const redirect=getProduct(params.get('id'))?.redirectTo;
   if(redirect){params.set('id',redirect.id);params.set('plan',String(redirect.plan));location.replace('product.html?'+params.toString());return;}
