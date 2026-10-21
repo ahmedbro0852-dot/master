@@ -421,7 +421,7 @@
         checkoutContent.querySelectorAll('[data-purchase]').forEach(b=>b.disabled=true);
         dialog.close();
         if(button.dataset.purchase==='checkout')location.href='cart.html#cartCheckout';
-        else showToast(ui('اتضاف للسلة. كمل تسوّق براحتك.','Added to cart. Keep shopping.'));
+        else location.href='/index.html#products';
       }catch(error){
         const note=checkoutContent.querySelector('.purchase-choice-note');
         note.textContent=error.message;note.hidden=false;
