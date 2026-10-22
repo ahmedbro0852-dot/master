@@ -171,15 +171,15 @@
     if(loading)loading.hidden=true;
   }
 
-  const matchesCategory=(product,category)=>category==='الكل'||(product?.categories||[product?.category]).includes(category);
+  const matchesCategory=(product,category)=>{const tags=product?.categories||[product?.category];return category==='الكل'||tags.includes(category)||(Catalog.categoryGroups?.[category]||[]).some(sub=>tags.includes(sub));};
   function categoryLabel(category){
     return category==='الكل'?ui('الكل','All'):tr(category,'category','');
   }
 
   function drawFilters(){
-    filters.innerHTML=categories.map(category=>
-      '<button class="filter '+(category===selected?'active':'')+'" type="button" data-cat="'+esc(category)+'" aria-pressed="'+(category===selected?'true':'false')+'">'+esc(categoryLabel(category))+' <span class="filter-count">'+products.filter(p=>matchesCategory(p,category)).length+'</span></button>'
-    ).join('');
+    const parent=Object.keys(Catalog.categoryGroups||{}).find(group=>group===selected||Catalog.categoryGroups[group].includes(selected));
+    const button=(category,active)=>'<button class="filter '+(active?'active':'')+'" type="button" data-cat="'+esc(category)+'" aria-pressed="'+active+'">'+esc(categoryLabel(category))+' <span class="filter-count">'+products.filter(p=>matchesCategory(p,category)).length+'</span></button>';
+    filters.innerHTML='<div class="category-main" aria-label="'+ui('الأقسام الرئيسية','Main categories')+'">'+categories.map(category=>button(category,category===(parent||selected))).join('')+'</div>'+(parent?'<div class="category-sub" aria-label="'+ui('التصنيف الدقيق','Specific category')+'"><span class="category-sub-label">'+ui('اختار الاستخدام:','Choose a use:')+'</span>'+button(parent,selected===parent).replace(esc(categoryLabel(parent))+' <span',ui('كل القسم','All in category')+' <span')+Catalog.categoryGroups[parent].map(sub=>button(sub,selected===sub)).join('')+'</div>':'');
 
     filters.querySelectorAll('.filter').forEach(button=>{
       button.addEventListener('click',()=>{
