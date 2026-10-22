@@ -3527,19 +3527,6 @@ const products = [
     ]
   },
   {
-    "id": "suno",
-    "name": "Suno AI Pro",
-    "category": "AI Tools",
-    "logo": "suno",
-    "logoUrl": "logos/suno.svg?v=20261009-logo-review3",
-    "status": "soon",
-    "description": "قريبًا في MASTER STORE.",
-    "plans": [],
-    "categories": [
-      "توليد موسيقى وأغاني"
-    ]
-  },
-  {
     "id": "murf",
     "name": "Murf AI",
     "category": "AI Tools",
