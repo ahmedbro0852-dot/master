@@ -13,7 +13,8 @@
   const params=new URLSearchParams(location.search);
   if(!params.has('id')&&document.body.dataset.productId)params.set('id',document.body.dataset.productId);
   if(params.get('id')==='manus-pro'){location.replace('product.html?id=manus&plan=2');return;}
-  const redirect=getProduct(params.get('id'))?.redirectTo;
+  const redirectProduct=getProduct(params.get('id'));
+  const redirect=redirectProduct?.redirectByPlan?.[params.get('plan')||'0']||redirectProduct?.redirectTo;
   if(redirect){params.set('id',redirect.id);params.set('plan',String(redirect.plan));location.replace('product.html?'+params.toString());return;}
   const p=getProduct(params.get('id'));
   const Locale=window.MasterLocale;

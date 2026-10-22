@@ -280,8 +280,1075 @@ const products = [
     ],
     "categories": [
       "تفعيل ويندوز"
+    ],
+    "redirectTo": {
+      "id": "windows-11-pro",
+      "plan": 0
+    },
+    "redirectByPlan": {
+      "0": {
+        "id": "windows-11-pro",
+        "plan": 0
+      },
+      "1": {
+        "id": "windows-10-pro",
+        "plan": 0
+      }
+    }
+  },
+  {
+    "id": "windows-7-starter",
+    "name": "Windows 7 Starter",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 7"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 7 Starter بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 7 Starter for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 7 Starter.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 7 Starter.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 7 Starter — Lifetime",
+        "planType": "Starter",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
     ]
   },
+  {
+    "id": "windows-7-home-basic",
+    "name": "Windows 7 Home Basic",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 7"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 7 Home Basic بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 7 Home Basic for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 7 Home Basic.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 7 Home Basic.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 7 Home Basic — Lifetime",
+        "planType": "Home Basic",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-7-home-premium",
+    "name": "Windows 7 Home Premium",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 7"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 7 Home Premium بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 7 Home Premium for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 7 Home Premium.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 7 Home Premium.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 7 Home Premium — Lifetime",
+        "planType": "Home Premium",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-7-professional",
+    "name": "Windows 7 Professional",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 7"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 7 Professional بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 7 Professional for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 7 Professional.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 7 Professional.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 7 Professional — Lifetime",
+        "planType": "Professional",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-7-enterprise",
+    "name": "Windows 7 Enterprise",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 7"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 7 Enterprise بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 7 Enterprise for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 7 Enterprise.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 7 Enterprise.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 7 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-7-ultimate",
+    "name": "Windows 7 Ultimate",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 7"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 7 Ultimate بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 7 Ultimate for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 7 Ultimate.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 7 Ultimate.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 7 Ultimate — Lifetime",
+        "planType": "Ultimate",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-8-core",
+    "name": "Windows 8",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 8"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 8 بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 8 for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 8.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 8.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 8 — Lifetime",
+        "planType": "Core",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-8-pro",
+    "name": "Windows 8 Pro",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 8"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 8 Pro بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 8 Pro for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 8 Pro.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 8 Pro.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 8 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-8-enterprise",
+    "name": "Windows 8 Enterprise",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 8"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 8 Enterprise بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 8 Enterprise for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 8 Enterprise.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 8 Enterprise.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 8 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-8-1-core",
+    "name": "Windows 8.1",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 8.1"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 8.1 بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 8.1 for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 8.1.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 8.1.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 8.1 — Lifetime",
+        "planType": "Core",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-8-1-pro",
+    "name": "Windows 8.1 Pro",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 8.1"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 8.1 Pro بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 8.1 Pro for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 8.1 Pro.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 8.1 Pro.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 8.1 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-8-1-enterprise",
+    "name": "Windows 8.1 Enterprise",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 8.1"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 8.1 Enterprise بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 8.1 Enterprise for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 8.1 Enterprise.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 8.1 Enterprise.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 8.1 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-10-home",
+    "name": "Windows 10 Home",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 10"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 10 Home بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 10 Home for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 10 Home.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 10 Home.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 10 Home — Lifetime",
+        "planType": "Home",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-10-pro",
+    "name": "Windows 10 Pro",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 10"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 10 Pro بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 10 Pro for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 10 Pro.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 10 Pro.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 10 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-10-enterprise",
+    "name": "Windows 10 Enterprise",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 10"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 10 Enterprise بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 10 Enterprise for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 10 Enterprise.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 10 Enterprise.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 10 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-10-education",
+    "name": "Windows 10 Education",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 10"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 10 Education بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 10 Education for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 10 Education.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 10 Education.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 10 Education — Lifetime",
+        "planType": "Education",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-10-pro-for-workstations",
+    "name": "Windows 10 Pro for Workstations",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 10"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 10 Pro for Workstations بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 10 Pro for Workstations for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 10 Pro for Workstations.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 10 Pro for Workstations.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "Microsoft standard support for this release has ended; activation does not extend security support."
+    ],
+    "plans": [
+      {
+        "name": "Windows 10 Pro for Workstations — Lifetime",
+        "planType": "Pro for Workstations",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-11-home",
+    "name": "Windows 11 Home",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 11"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 11 Home بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 11 Home for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 11 Home.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 11 Home.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "A device compatible with Windows 11 requirements is required."
+    ],
+    "plans": [
+      {
+        "name": "Windows 11 Home — Lifetime",
+        "planType": "Home",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-11-pro",
+    "name": "Windows 11 Pro",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 11"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 11 Pro بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 11 Pro for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 11 Pro.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 11 Pro.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "A device compatible with Windows 11 requirements is required."
+    ],
+    "plans": [
+      {
+        "name": "Windows 11 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-11-enterprise",
+    "name": "Windows 11 Enterprise",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 11"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 11 Enterprise بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 11 Enterprise for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 11 Enterprise.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 11 Enterprise.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "A device compatible with Windows 11 requirements is required."
+    ],
+    "plans": [
+      {
+        "name": "Windows 11 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-11-education",
+    "name": "Windows 11 Education",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 11"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 11 Education بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 11 Education for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 11 Education.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 11 Education.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "A device compatible with Windows 11 requirements is required."
+    ],
+    "plans": [
+      {
+        "name": "Windows 11 Education — Lifetime",
+        "planType": "Education",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "windows-11-pro-for-workstations",
+    "name": "Windows 11 Pro for Workstations",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 11"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 11 Pro for Workstations بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك.",
+    "descriptionEn": "Windows 11 Pro for Workstations for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 11 Pro for Workstations.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 11 Pro for Workstations.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "A device compatible with Windows 11 requirements is required."
+    ],
+    "plans": [
+      {
+        "name": "Windows 11 Pro for Workstations — Lifetime",
+        "planType": "Pro for Workstations",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ]
+      }
+    ]
+  },
+
   {
     "id": "king-cobra-iptv",
     "name": "King Cobra IPTV",
