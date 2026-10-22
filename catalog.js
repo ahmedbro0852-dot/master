@@ -3545,13 +3545,42 @@ const products = [
     "category": "الترفيه",
     "logo": "discord",
     "logoUrl": "logos/discord.svg?v=20261009-logo-review3",
-    "status": "soon",
-    "description": "قريبًا في MASTER STORE.",
-    "plans": [],
+    "status": "available",
+    "description": "عضوية Discord Nitro بسعر 400 جنيه: وصول لمدة 25–45 يومًا، تشمل تعزيزين للسيرفر، مع إمكانية تغيير كلمة المرور. بلد تسجيل الحساب عشوائي.",
+    "plans": [
+      {
+        "name": "Nitro — عضوية 25–45 يومًا",
+        "planType": "Nitro",
+        "duration": "25–45 يومًا",
+        "price": 400,
+        "activation": "تسليم بيانات الدخول للحساب؛ يمكن تغيير كلمة المرور.",
+        "account": "حساب ببلد تسجيل عشوائي",
+        "accountType": "عضوية على حساب جاهز",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "مدة الوصول ضمن نطاق 25–45 يومًا حسب الحساب المستلم.",
+          "يشمل العرض تعزيزين للسيرفر (2 Server Boosts).",
+          "بلد تسجيل الحساب عشوائي."
+        ]
+      }
+    ],
     "categories": [
       "تواصل ومجتمعات"
+    ],
+    "features": [
+      "عضوية Discord Nitro لمدة وصول تتراوح بين 25 و45 يومًا.",
+      "تشمل تعزيزين للسيرفر (2 Server Boosts).",
+      "يمكن تغيير كلمة مرور الحساب.",
+      "بلد تسجيل الحساب عشوائي."
+    ],
+    "featuresEn": [
+      "Discord Nitro membership with 25–45 days of access.",
+      "Includes 2 Server Boosts.",
+      "The account password can be changed.",
+      "The account registration country is random."
     ]
   },
+
   {
     "id": "midjourney",
     "name": "Midjourney",

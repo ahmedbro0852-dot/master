@@ -389,9 +389,22 @@ const entries={
  ['الخدمة قريبًا؛ حدود التوليد والتنزيل تتحدد عند توفر العرض.','Coming soon; generation and download limits will be specified with the offer.']
 ],
 'discord':[
- ['مزايا Nitro لتخصيص الحساب والتفاعل داخل Discord.','Nitro features for profile customization and Discord interactions.'],
- ['تختلف مزايا رفع الملفات والمشاركة حسب نوع Nitro.','Upload and sharing features depend on the Nitro tier.'],
- ['الخدمة قريبًا؛ يوضح نوع الباقة وشروط التفعيل عند توفرها.','Coming soon; the tier and activation terms will be stated when available.']
+  [
+    "عضوية Discord Nitro لمدة وصول تتراوح بين 25 و45 يومًا.",
+    "Discord Nitro membership with 25–45 days of access."
+  ],
+  [
+    "تشمل تعزيزين للسيرفر (2 Server Boosts).",
+    "Includes 2 Server Boosts."
+  ],
+  [
+    "يمكن تغيير كلمة مرور الحساب.",
+    "The account password can be changed."
+  ],
+  [
+    "بلد تسجيل الحساب عشوائي.",
+    "The account registration country is random."
+  ]
 ],
 'midjourney':[
  ['توليد صور بالذكاء الاصطناعي من وصف نصي.','Generate AI images from text prompts.'],
