@@ -1477,11 +1477,11 @@ const products = [
   },
   {
     "id": "gamma-plus",
-    "name": "Gamma Plus",
+    "name": "Gamma",
     "category": "AI Tools",
     "logo": "gamma",
     "status": "available",
-    "description": "حساب Gamma Plus جاهز.",
+    "description": "كل باقات Gamma في مكان واحد: Plus، حساب Workspaces، وPro الشهري لإنشاء العروض التقديمية بالذكاء الاصطناعي.",
     "plans": [
       {
         "name": "Plus",
@@ -1497,6 +1497,44 @@ const products = [
           "status": "unavailable",
           "note": "اسم الباقة مؤكد، لكن السعر لم يظهر في الصفحة العامة؛ لا نحسب نسبة خصم غير موثقة."
         }
+      },
+      {
+        "name": "10 Workspaces",
+        "duration": "12 شهر",
+        "price": 800,
+        "activation": "تسليم حساب جاهز.",
+        "account": "حساب واحد — الحد الأقصى للكمية 1",
+        "warranty": "ضمان كامل",
+        "credits": "20,000 Credit إجماليًا",
+        "notes": [
+          "غيّر كلمة المرور فور الاستلام.",
+          "لا يوجد ضمان لنسيان كلمة المرور.",
+          "لـ Upgrade كامل قد يلزم تزويد الدعم بكلمة المرور، ويتم التنفيذ خلال 3 أيام.",
+          "لا تترك أي Workspace بدون إذن لأن ذلك قد يفقدك صلاحيات العرض."
+        ],
+        "priceComparison": {
+          "planName": "Gamma — باقة أرصدة / Workspaces تحتاج تحديد",
+          "source": "https://gamma.app/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "10 Workspaces و20,000 كريدت لا تحدد باقة Plus أو Pro رسمية مطابقة، لذلك المقارنة السعرية غير متاحة."
+        },
+        "max_quantity": 1
+      },
+      {
+        "name": "Pro — شهر",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 600,
+        "available": true,
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "activation": "طريقة التفعيل والتسليم تُؤكد قبل الدفع.",
+        "warranty": "ضمان كامل لمدة شهر",
+        "credits": "من 4,000 إلى 9,000 كريدت — الحد الأدنى المضمون 4,000",
+        "notes": [
+          "الرصيد عند التسليم يتراوح بين 4,000 و9,000 كريدت حسب الحساب المتاح.",
+          "المضمون هو 4,000 كريدت كحد أدنى؛ 9,000 ليست مضمونة لكل حساب."
+        ]
       }
     ],
     "logoUrl": "logos/gamma.svg?v=20261009-logo-review3",
@@ -1538,7 +1576,11 @@ const products = [
     "logoUrl": "logos/gamma.svg?v=20261009-logo-review3",
     "categories": [
       "عروض تقديمية"
-    ]
+    ],
+    "redirectTo": {
+      "id": "gamma-plus",
+      "plan": 1
+    }
   },
   {
     "id": "elevenlabs",

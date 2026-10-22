@@ -65,5 +65,12 @@
     }
   ],
   "buildCommand": "node scripts/build-seo.cjs",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "redirects": [
+    {
+      "source": "/products/gamma-account.html",
+      "destination": "/products/gamma-plus.html?plan=1",
+      "permanent": true
+    }
+  ]
 }
