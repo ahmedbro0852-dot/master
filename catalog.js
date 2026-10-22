@@ -1481,7 +1481,7 @@ const products = [
     "category": "AI Tools",
     "logo": "gamma",
     "status": "available",
-    "description": "كل باقات Gamma في مكان واحد: Plus، حساب Workspaces، وPro الشهري لإنشاء العروض التقديمية بالذكاء الاصطناعي.",
+    "description": "كل باقات Gamma في مكان واحد: Plus، حساب Workspaces، وPro الشهري والسنوي لإنشاء العروض التقديمية بالذكاء الاصطناعي.",
     "plans": [
       {
         "name": "Plus",
@@ -1535,6 +1535,16 @@ const products = [
           "الرصيد عند التسليم يتراوح بين 4,000 و9,000 كريدت حسب الحساب المتاح.",
           "المضمون هو 4,000 كريدت كحد أدنى؛ 9,000 ليست مضمونة لكل حساب."
         ]
+      },
+      {
+        "name": "Pro — سنة كاملة",
+        "planType": "Pro",
+        "duration": "12 شهر",
+        "price": 3699,
+        "available": true,
+        "activation": "تفعيل Gamma Pro على إيميلك الشخصي.",
+        "account": "على إيميلك الشخصي",
+        "warranty": "ضمان كامل لمدة 12 شهرًا"
       }
     ],
     "logoUrl": "logos/gamma.svg?v=20261009-logo-review3",
