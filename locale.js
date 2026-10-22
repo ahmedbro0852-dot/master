@@ -201,7 +201,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     "customerio-essentials":"Messaging and automated customer communication tools."
   };
   const CATEGORY_EN={
-    "AI Tools":"AI Tools","التصميم":"Design","التعليم":"Education",
+    "إنشاء الفيديو":"Video creation","إنشاء الصور":"Image creation","الصوت والموسيقى":"Audio & music","البرمجة وتطوير المواقع":"Coding & websites","الكتابة والبحث":"Writing & research","العروض التقديمية":"Presentations","AI Tools":"AI Tools","التصميم":"Design","التعليم":"Education",
     "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
   };
   const CATALOG_EXACT_EN={

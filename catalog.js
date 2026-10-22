@@ -74,7 +74,10 @@ const products = [
     "redirectTo": {
       "id": "coursera",
       "plan": 0
-    }
+    },
+    "categories": [
+      "التعليم"
+    ]
   },
   {
     "id": "cursor-pro",
@@ -145,6 +148,10 @@ const products = [
           "note": "سعر الشراء المباشر لنفس الخطة والمدة؛ التسليم والضمان حسب عرض المتجر."
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "البرمجة وتطوير المواقع"
     ]
   },
   {
@@ -220,6 +227,11 @@ const products = [
         },
         "notes": []
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "إنشاء الفيديو",
+      "إنشاء الصور"
     ]
   },
   {
@@ -267,6 +279,9 @@ const products = [
         "warranty": "يُؤكد مع الدعم قبل الدفع",
         "note": "اختار الإصدار المطابق لنسخة Windows Pro المثبتة على جهازك."
       }
+    ],
+    "categories": [
+      "الإنتاجية"
     ]
   },
   {
@@ -304,6 +319,9 @@ const products = [
           "تشغيل عبر تطبيق متوافق؛ تكلفة التطبيق إن وجدت منفصلة."
         ]
       }
+    ],
+    "categories": [
+      "الترفيه"
     ]
   },
   {
@@ -357,6 +375,9 @@ const products = [
           "تشغيل عبر تطبيق متوافق؛ تكلفة التطبيق إن وجدت منفصلة."
         ]
       }
+    ],
+    "categories": [
+      "الترفيه"
     ]
   },
   {
@@ -396,6 +417,9 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية"
     ]
   },
   {
@@ -493,6 +517,9 @@ const products = [
           "note": "خدمة المتجر؛ لا يوجد سعر خارجي مستقل موثق للمقارنة."
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية"
     ]
   },
   {
@@ -567,6 +594,9 @@ const products = [
           "note": "رصيد ملفات من خدمة المتجر، وليس اشتراكًا زمنيًا."
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية"
     ]
   },
   {
@@ -611,6 +641,9 @@ const products = [
           "note": "50% تخص الفاتورة الأساسية حسب أهلية العرض، وليست خصمًا على سعر كود الـ700 جنيه. لا يوجد سعر رسمي موثق لهذا الكود."
         }
       }
+    ],
+    "categories": [
+      "الاتصالات والإنترنت"
     ]
   },
   {
@@ -656,6 +689,10 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "الكتابة والبحث"
     ]
   },
   {
@@ -717,6 +754,10 @@ const products = [
       "Priority access to the document-processing queue.",
       "An easy-to-use dashboard on desktop and mobile.",
       "24/7 support from the Academi platform."
+    ],
+    "categories": [
+      "التعليم",
+      "الكتابة والبحث"
     ]
   },
   {
@@ -814,6 +855,12 @@ const products = [
         "available": true,
         "accountType": "تفعيل على حسابك الشخصي"
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "إنشاء الصور",
+      "البرمجة وتطوير المواقع",
+      "الكتابة والبحث"
     ]
   },
   {
@@ -849,6 +896,10 @@ const products = [
           }
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "الكتابة والبحث"
     ]
   },
   {
@@ -917,6 +968,13 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "إنشاء الفيديو",
+      "إنشاء الصور",
+      "البرمجة وتطوير المواقع",
+      "الكتابة والبحث"
     ]
   },
   {
@@ -955,6 +1013,11 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "البرمجة وتطوير المواقع",
+      "الكتابة والبحث"
     ]
   },
   {
@@ -1014,6 +1077,10 @@ const products = [
           "note": "عرض المتجر Pro بدون كريدت؛ لا تُحسب نسبة توفير دون مطابقة محتويات الباقة الرسمية."
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "الكتابة والبحث"
     ]
   },
   {
@@ -1123,6 +1190,10 @@ const products = [
         "oldPrice": 650,
         "planType": "Pro Lite"
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "البرمجة وتطوير المواقع"
     ]
   },
   {
@@ -1154,7 +1225,10 @@ const products = [
     "redirectTo": {
       "id": "lovable-pro",
       "plan": 3
-    }
+    },
+    "categories": [
+      "AI Tools"
+    ]
   },
   {
     "id": "runway-pro",
@@ -1203,6 +1277,10 @@ const products = [
       "AI video and image generation",
       "2,250 credits refreshed each month",
       "4K video upscaling"
+    ],
+    "categories": [
+      "AI Tools",
+      "إنشاء الفيديو"
     ]
   },
   {
@@ -1244,6 +1322,10 @@ const products = [
           "note": "السعر والمدة يختلفان حسب التطبيق والمنطقة؛ لم يتأكد سعر رسمي مطابق من صفحة عامة."
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "إنشاء الفيديو"
     ]
   },
   {
@@ -1329,6 +1411,11 @@ const products = [
           "billingLabel": "3 أشهر بالسعر الشهري الرسمي"
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "إنشاء الصور",
+      "الكتابة والبحث"
     ]
   },
   {
@@ -1398,6 +1485,10 @@ const products = [
       "https://support.prezi.com/hc/en-us/articles/360003478934-Guide-to-Prezi-plans",
       "https://support.prezi.com/hc/en-us/articles/360036562333-What-you-get-with-Prezi-Video",
       "https://support.prezi.com/hc/en-us/articles/360044742314-Downloading-your-content-in-Infographics-Prezi-Design"
+    ],
+    "categories": [
+      "الإنتاجية",
+      "العروض التقديمية"
     ]
   },
   {
@@ -1424,7 +1515,11 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/gamma.svg?v=20261009-logo-review3"
+    "logoUrl": "logos/gamma.svg?v=20261009-logo-review3",
+    "categories": [
+      "AI Tools",
+      "العروض التقديمية"
+    ]
   },
   {
     "id": "gamma-account",
@@ -1457,7 +1552,11 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/gamma.svg?v=20261009-logo-review3"
+    "logoUrl": "logos/gamma.svg?v=20261009-logo-review3",
+    "categories": [
+      "AI Tools",
+      "العروض التقديمية"
+    ]
   },
   {
     "id": "elevenlabs",
@@ -1537,9 +1636,12 @@ const products = [
           "ينتهي العرض يوم 21 أكتوبر 2026 الساعة 1:15 صباحًا بتوقيت القاهرة."
         ]
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "الصوت والموسيقى"
     ]
   },
-
   {
     "id": "hedra",
     "name": "Hedra Basic",
@@ -1597,6 +1699,10 @@ const products = [
         },
         "accountType": "حساب جاهز"
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "إنشاء الفيديو"
     ]
   },
   {
@@ -1633,6 +1739,10 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "إنشاء الفيديو"
     ]
   },
   {
@@ -1667,6 +1777,11 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "التصميم",
+      "إنشاء الصور",
+      "العروض التقديمية"
     ]
   },
   {
@@ -1830,6 +1945,10 @@ const products = [
     ],
     "notes": [
       "يفضل عدم تغيير كلمة المرور في الحسابات الجاهزة إلا على مسؤوليتك."
+    ],
+    "categories": [
+      "التصميم",
+      "إنشاء الفيديو"
     ]
   },
   {
@@ -1865,6 +1984,9 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "التصميم"
     ]
   },
   {
@@ -1903,6 +2025,10 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "التصميم",
+      "إنشاء الصور"
     ]
   },
   {
@@ -1991,6 +2117,10 @@ const products = [
           "note": "المرجع يعادل 12 × 9.99 دولار بالسداد الشهري، وليس سعر خطة سنوية."
         }
       }
+    ],
+    "categories": [
+      "التصميم",
+      "إنشاء الصور"
     ]
   },
   {
@@ -2053,6 +2183,12 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "التصميم",
+      "إنشاء الفيديو",
+      "إنشاء الصور",
+      "الصوت والموسيقى"
     ]
   },
   {
@@ -2081,8 +2217,16 @@ const products = [
         },
         "oldPrice": 300,
         "accountType": "لينك تفعيل على حسابك الشخصي",
-        "notes": ["مدة الاشتراك 12 شهر.", "السعر 120 جنيه فقط.", "تستلم لينك وتفعّله مباشرة على حسابك الشخصي المرتبط بإيميلك.", "ضمان كامل طوال مدة الاشتراك." ]
+        "notes": [
+          "مدة الاشتراك 12 شهر.",
+          "السعر 120 جنيه فقط.",
+          "تستلم لينك وتفعّله مباشرة على حسابك الشخصي المرتبط بإيميلك.",
+          "ضمان كامل طوال مدة الاشتراك."
+        ]
       }
+    ],
+    "categories": [
+      "التعليم"
     ]
   },
   {
@@ -2124,7 +2268,10 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/elsa.svg?v=20261009-logo-review3"
+    "logoUrl": "logos/elsa.svg?v=20261009-logo-review3",
+    "categories": [
+      "التعليم"
+    ]
   },
   {
     "id": "coursera",
@@ -2304,6 +2451,9 @@ const products = [
           "checkedAt": "2026-10-17"
         }
       }
+    ],
+    "categories": [
+      "التعليم"
     ]
   },
   {
@@ -2330,6 +2480,9 @@ const products = [
           "note": "اسم Quizizz وحده لا يحدد الباقة المدفوعة أو المقعد، لذلك لا يوجد خصم موثق لهذا العرض."
         }
       }
+    ],
+    "categories": [
+      "التعليم"
     ]
   },
   {
@@ -2381,7 +2534,10 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/wordwall.svg?v=20261009-logo-review3"
+    "logoUrl": "logos/wordwall.svg?v=20261009-logo-review3",
+    "categories": [
+      "التعليم"
+    ]
   },
   {
     "id": "turnitin",
@@ -2410,6 +2566,10 @@ const products = [
           "note": "خدمة فحص ملف واحد من المتجر لا تطابق ترخيص المؤسسة. لا يوجد سعر تجزئة رسمي موثق لكل ملف."
         }
       }
+    ],
+    "categories": [
+      "التعليم",
+      "الكتابة والبحث"
     ]
   },
   {
@@ -2444,6 +2604,10 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية",
+      "العروض التقديمية"
     ]
   },
   {
@@ -2519,6 +2683,9 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية"
     ]
   },
   {
@@ -2556,6 +2723,9 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية"
     ]
   },
   {
@@ -2666,6 +2836,9 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية"
     ]
   },
   {
@@ -2747,6 +2920,10 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية",
+      "الكتابة والبحث"
     ]
   },
   {
@@ -2778,6 +2955,9 @@ const products = [
           }
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية"
     ]
   },
   {
@@ -2804,6 +2984,9 @@ const products = [
           "note": "كوبون شهرين قد يكون عرضًا ترويجيًا مشروطًا ولا يطابق باقة رسمية مستقلة؛ لم نحسب خصمًا."
         }
       }
+    ],
+    "categories": [
+      "VPN والحماية"
     ]
   },
   {
@@ -2839,6 +3022,9 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "VPN والحماية"
     ]
   },
   {
@@ -2865,6 +3051,9 @@ const products = [
           "note": "الأسعار في الصفحة ديناميكية ولم يظهر سعر موثوق قابل للمقارنة. عرض جهاز واحد يختلف عن عدد الأجهزة بالاشتراك الرسمي."
         }
       }
+    ],
+    "categories": [
+      "VPN والحماية"
     ]
   },
   {
@@ -2891,6 +3080,9 @@ const products = [
           "note": "السعر يتغير حسب المنطقة والعروض؛ لم يتأكد مرجع رسمي مطابق."
         }
       }
+    ],
+    "categories": [
+      "VPN والحماية"
     ]
   },
   {
@@ -2917,6 +3109,9 @@ const products = [
           "note": "عرض 3 أيام لا يطابق الاشتراك الشهري، لذلك لا نستخدم سعر شهر كخصم على 3 أيام."
         }
       }
+    ],
+    "categories": [
+      "VPN والحماية"
     ]
   },
   {
@@ -2952,6 +3147,9 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "الترفيه"
     ]
   },
   {
@@ -2978,6 +3176,9 @@ const products = [
           "note": "السعر يعتمد على البلد والمنصة ويظهر عند الاشتراك؛ لم يتأكد مرجع مصري مطابق لثلاثة شهور."
         }
       }
+    ],
+    "categories": [
+      "الترفيه"
     ]
   },
   {
@@ -3005,6 +3206,10 @@ const products = [
           "note": "عرض 1,100 كريدت لا يحدد باقة عضوية رسمية أو مدة أو صلاحية الرصيد؛ لم تتأكد حزمة مطابقة لذلك لا يظهر خصم رسمي."
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "إنشاء الفيديو"
     ]
   },
   {
@@ -3144,6 +3349,10 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية",
+      "الكتابة والبحث"
     ]
   },
   {
@@ -3224,6 +3433,10 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية",
+      "الكتابة والبحث"
     ]
   },
   {
@@ -3234,7 +3447,11 @@ const products = [
     "logoUrl": "logos/envato.svg?v=20261009-logo-review3",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
-    "plans": []
+    "plans": [],
+    "categories": [
+      "التصميم",
+      "إنشاء الفيديو"
+    ]
   },
   {
     "id": "motion-array",
@@ -3244,7 +3461,11 @@ const products = [
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
     "plans": [],
-    "logoUrl": "logos/motionarray.svg?v=20261009-logo-review3"
+    "logoUrl": "logos/motionarray.svg?v=20261009-logo-review3",
+    "categories": [
+      "التصميم",
+      "إنشاء الفيديو"
+    ]
   },
   {
     "id": "suno",
@@ -3254,7 +3475,11 @@ const products = [
     "logoUrl": "logos/suno.svg?v=20261009-logo-review3",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
-    "plans": []
+    "plans": [],
+    "categories": [
+      "AI Tools",
+      "الصوت والموسيقى"
+    ]
   },
   {
     "id": "murf",
@@ -3264,7 +3489,11 @@ const products = [
     "logoUrl": "logos/murf.svg?v=20261009-logo-review3",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
-    "plans": []
+    "plans": [],
+    "categories": [
+      "AI Tools",
+      "الصوت والموسيقى"
+    ]
   },
   {
     "id": "discord",
@@ -3274,7 +3503,10 @@ const products = [
     "logoUrl": "logos/discord.svg?v=20261009-logo-review3",
     "status": "soon",
     "description": "قريبًا في MASTER STORE.",
-    "plans": []
+    "plans": [],
+    "categories": [
+      "الترفيه"
+    ]
   },
   {
     "id": "midjourney",
@@ -3284,7 +3516,11 @@ const products = [
     "logoUrl": "logos/midjourney.svg?v=20261009-logo-review3",
     "status": "out",
     "description": "الخدمة غير متوفرة حاليًا.",
-    "plans": []
+    "plans": [],
+    "categories": [
+      "AI Tools",
+      "إنشاء الصور"
+    ]
   },
   {
     "id": "leonardo-ai",
@@ -3294,7 +3530,11 @@ const products = [
     "logoUrl": "logos/leonardo.svg?v=20261009-logo-review3",
     "status": "out",
     "description": "الخدمة غير متوفرة حاليًا.",
-    "plans": []
+    "plans": [],
+    "categories": [
+      "AI Tools",
+      "إنشاء الصور"
+    ]
   },
   {
     "id": "manus",
@@ -3406,6 +3646,10 @@ const products = [
       "باقات Free برصيد 3,300 أو 4,000 كرديت",
       "Pro شهر مع 1,000 كرديت هدية",
       "Pro سنوي بتفعيل على حسابك الشخصي وضمان 6 شهور"
+    ],
+    "categories": [
+      "AI Tools",
+      "البرمجة وتطوير المواقع"
     ]
   },
   {
@@ -3438,6 +3682,9 @@ const products = [
           }
         }
       }
+    ],
+    "categories": [
+      "AI Tools"
     ]
   },
   {
@@ -3473,6 +3720,10 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "البرمجة وتطوير المواقع"
     ]
   },
   {
@@ -3508,6 +3759,10 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "البرمجة وتطوير المواقع"
     ]
   },
   {
@@ -3543,6 +3798,10 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "البرمجة وتطوير المواقع"
     ]
   },
   {
@@ -3578,6 +3837,10 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "AI Tools",
+      "البرمجة وتطوير المواقع"
     ]
   },
   {
@@ -3613,6 +3876,10 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية",
+      "البرمجة وتطوير المواقع"
     ]
   },
   {
@@ -3644,7 +3911,11 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/pangram.svg?v=20261009-logo-review3"
+    "logoUrl": "logos/pangram.svg?v=20261009-logo-review3",
+    "categories": [
+      "الإنتاجية",
+      "الكتابة والبحث"
+    ]
   },
   {
     "id": "supercut-pro",
@@ -3679,7 +3950,11 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/supercut.svg?v=20261009-logo-review3"
+    "logoUrl": "logos/supercut.svg?v=20261009-logo-review3",
+    "categories": [
+      "الإنتاجية",
+      "إنشاء الفيديو"
+    ]
   },
   {
     "id": "wispr-flow-pro",
@@ -3714,7 +3989,11 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/wispr.svg?v=20261009-logo-review3"
+    "logoUrl": "logos/wispr.svg?v=20261009-logo-review3",
+    "categories": [
+      "الإنتاجية",
+      "الصوت والموسيقى"
+    ]
   },
   {
     "id": "mobbin-team",
@@ -3749,7 +4028,10 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/mobbin.svg?v=20261009-logo-review3"
+    "logoUrl": "logos/mobbin.svg?v=20261009-logo-review3",
+    "categories": [
+      "الإنتاجية"
+    ]
   },
   {
     "id": "granola-business",
@@ -3784,7 +4066,10 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/granola.svg?v=20261009-logo-review3"
+    "logoUrl": "logos/granola.svg?v=20261009-logo-review3",
+    "categories": [
+      "الإنتاجية"
+    ]
   },
   {
     "id": "jam-team",
@@ -3819,6 +4104,9 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية"
     ]
   },
   {
@@ -3854,7 +4142,11 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/readwise.svg?v=20261009-logo-review3"
+    "logoUrl": "logos/readwise.svg?v=20261009-logo-review3",
+    "categories": [
+      "الإنتاجية",
+      "الكتابة والبحث"
+    ]
   },
   {
     "id": "waking-up",
@@ -3889,6 +4181,9 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية"
     ]
   },
   {
@@ -3920,6 +4215,9 @@ const products = [
           }
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية"
     ]
   },
   {
@@ -3946,6 +4244,9 @@ const products = [
           "note": "لا توجد قيمة اشتراك ثابتة لـScale لمدة سنة؛ المنتج وحجم الاستهلاك مطلوبان لحساب السعر."
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية"
     ]
   },
   {
@@ -3981,11 +4282,48 @@ const products = [
           "checkedAt": "2026-10-08"
         }
       }
+    ],
+    "categories": [
+      "الإنتاجية"
+    ]
+  },
+  {
+    "id": "replit-core",
+    "name": "Replit Core",
+    "category": "البرمجة وتطوير المواقع",
+    "logo": "replit",
+    "logoUrl": "logos/replit.svg",
+    "status": "available",
+    "description": "Replit Core لمدة سنة كاملة لبناء المواقع والتطبيقات والبرمجة من المتصفح، بسعر 3000 جنيه وضمان كامل طوال مدة الاشتراك.",
+    "features": [
+      "بناء وتعديل المواقع والتطبيقات بمساعدة الذكاء الاصطناعي.",
+      "كتابة وتشغيل الكود من المتصفح.",
+      "إدارة المشاريع وبيئة التطوير في مكان واحد.",
+      "اشتراك Core لمدة 12 شهرًا.",
+      "ضمان كامل طوال مدة الاشتراك."
+    ],
+    "plans": [
+      {
+        "name": "Core — سنة كاملة",
+        "planType": "Core",
+        "duration": "12 شهر",
+        "price": 3000,
+        "available": true,
+        "activation": "طريقة التفعيل والتسليم تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "ضمان كامل لمدة 12 شهرًا",
+        "notes": [
+          "موارد الذكاء الاصطناعي والنشر حسب حدود خطة Core؛ الاستهلاك الإضافي ليس مشمولًا بسعر الاشتراك."
+        ]
+      }
+    ],
+    "categories": [
+      "البرمجة وتطوير المواقع"
     ]
   }
 ];
 
-const categoryOrder = ["AI Tools","التصميم","التعليم","الإنتاجية","VPN والحماية","الترفيه","الاتصالات والإنترنت"];
+const categoryOrder = ["إنشاء الفيديو", "إنشاء الصور", "الصوت والموسيقى", "البرمجة وتطوير المواقع", "الكتابة والبحث", "العروض التقديمية","AI Tools","التصميم","التعليم","الإنتاجية","VPN والحماية","الترفيه","الاتصالات والإنترنت"];
 function getProduct(id){ return products.find(p => p.id === id); }
 function formatPrice(value){ return Number(value).toLocaleString("en-US") + " ج"; }
 function startingPrice(product){

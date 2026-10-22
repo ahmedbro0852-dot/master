@@ -135,6 +135,7 @@
       product.name,
       product.id==='kling'?'كلينج كيلنج Kling':'' ,
       tr(product.category,'category',product.id),
+      ...(product.categories||[]),
       tr(product.description,'description',product.id),
       tr(Catalog.statusLabel(product.status),'status',product.id),
       ...(product.plans||[]).flatMap(plan=>[
@@ -170,13 +171,14 @@
     if(loading)loading.hidden=true;
   }
 
+  const matchesCategory=(product,category)=>category==='الكل'||(product?.categories||[product?.category]).includes(category);
   function categoryLabel(category){
     return category==='الكل'?ui('الكل','All'):tr(category,'category','');
   }
 
   function drawFilters(){
     filters.innerHTML=categories.map(category=>
-      '<button class="filter '+(category===selected?'active':'')+'" type="button" data-cat="'+esc(category)+'" aria-pressed="'+(category===selected?'true':'false')+'">'+esc(categoryLabel(category))+' <span class="filter-count">'+products.filter(p=>category==='الكل'||p.category===category).length+'</span></button>'
+      '<button class="filter '+(category===selected?'active':'')+'" type="button" data-cat="'+esc(category)+'" aria-pressed="'+(category===selected?'true':'false')+'">'+esc(categoryLabel(category))+' <span class="filter-count">'+products.filter(p=>matchesCategory(p,category)).length+'</span></button>'
     ).join('');
 
     filters.querySelectorAll('.filter').forEach(button=>{
@@ -199,7 +201,7 @@
     if(sort){const current=sort.value;sort.setAttribute('aria-label',ui('ترتيب الخدمات','Sort services'));sort.options[0].textContent=ui('ترتيب المتجر','Store order');sort.options[1].textContent=ui('السعر: الأقل أولًا','Price: low to high');sort.options[2].textContent=ui('السعر: الأعلى أولًا','Price: high to low');sort.value=current;}
 
     grid.querySelectorAll('.product-card').forEach(card=>{
-      const categoryMatch=selected==='الكل'||card.dataset.category===selected;
+      const categoryMatch=matchesCategory(Catalog.getProduct(card.dataset.productId),selected);
       const product=Catalog.getProduct(card.dataset.productId);
       const matches=categoryMatch&&(!availableOnly?.checked||product?.status==='available')&&(!q||(card.dataset.search||'').includes(q));
       card.hidden=!matches;
