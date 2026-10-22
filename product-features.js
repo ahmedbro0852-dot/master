@@ -525,6 +525,7 @@ const vpn=[
 for(const id of ['surfshark','nordvpn','proton-vpn','hma-vpn','expressvpn'])entries[id]=vpn;
 
 function list(product,plan,english,translate){
+ if(product.id==='windows-pro'&&plan.features&&plan.featuresEn)return english?plan.featuresEn:plan.features;
  const language=english?1:0;
  const curated=entries[product.id]?.map(row=>row[language])||[];
  let base=curated;
