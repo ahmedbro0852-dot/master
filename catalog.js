@@ -4034,40 +4034,33 @@ const products = [
   },
   {
     "id": "granola-business",
-    "name": "Granola Business",
+    "name": "Granola Business AI",
     "category": "الإنتاجية",
     "logo": "granola",
     "status": "available",
-    "description": "تدوين وتنظيم ملاحظات الاجتماعات بمساعدة الذكاء الاصطناعي.",
+    "description": "تدوين وتلخيص وتنظيم ملاحظات الاجتماعات بالذكاء الاصطناعي. اشتراك Business لمدة 4 شهور بسعر 600 جنيه، تفعيل على إيميلك أو تسليم حساب جاهز بضمان كامل.",
     "plans": [
       {
-        "name": "Business",
-        "duration": "12 شهر",
-        "price": 300,
-        "activation": "تسليم حساب جاهز.",
-        "account": "بيانات دخول الحساب",
-        "warranty": "ضمان كامل",
-        "priceComparison": {
-          "planName": "Granola Business — مقعد واحد",
-          "source": "https://www.granola.ai/pricing",
-          "checkedAt": "2026-10-08",
-          "status": "reference",
-          "note": "القيمة محسوبة من 14 دولارًا للعضو شهريًا ×12؛ لا نفترض وجود باقة سنوية مستقلة.",
-          "billingLabel": "14 دولارًا شهريًا ×12"
-        },
-        "officialPrice": {
-          "amount": 168,
-          "currency": "USD",
-          "months": 12,
-          "basis": "reference",
-          "source": "https://www.granola.ai/pricing",
-          "checkedAt": "2026-10-08"
-        }
+        "name": "Business AI — 4 شهور",
+        "planType": "Business",
+        "duration": "4 شهور",
+        "price": 600,
+        "available": true,
+        "activation": "تفعيل على إيميلك أو تسليم حساب جاهز، حسب اختيارك.",
+        "account": "على إيميلك أو حساب جاهز",
+        "warranty": "ضمان كامل لمدة 4 شهور"
       }
     ],
     "logoUrl": "logos/granola.svg?v=20261009-logo-review3",
     "categories": [
       "تسجيل وتلخيص الاجتماعات"
+    ],
+    "features": [
+      "تدوين وتلخيص الاجتماعات بمساعدة الذكاء الاصطناعي.",
+      "تنظيم الملاحظات والرجوع للنقاط المهمة.",
+      "خطة Business لمدة 4 شهور.",
+      "تفعيل على إيميلك أو حساب جاهز، حسب اختيارك.",
+      "ضمان كامل طوال مدة الاشتراك."
     ]
   },
   {
