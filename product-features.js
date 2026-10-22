@@ -383,11 +383,6 @@ const entries={
  ['اختيار الأصول المتوافقة مع برنامج المونتاج المستخدم.','Choose assets compatible with your video editor.'],
  ['الخدمة قريبًا؛ حدود التنزيل والترخيص تظهر عند توفر العرض.','Coming soon; download and licensing terms will appear with the offer.']
 ],
-'suno':[
- ['إنشاء أفكار موسيقية وأغانٍ من وصف نصي.','Generate musical ideas and songs from text prompts.'],
- ['تجربة أنماط مختلفة وتعديل الفكرة حسب أدوات الحساب.','Explore styles and refine ideas using available tools.'],
- ['الخدمة قريبًا؛ الرصيد وحقوق الاستخدام تحدد مع الباقة.','Coming soon; credits and usage rights will be specified with the plan.']
-],
 'murf':[
  ['تحويل النص إلى تعليق صوتي للمقاطع والشروحات.','Turn text into voice-overs for videos and explainers.'],
  ['تجربة الأصوات واللغات التي تدعمها الباقة.','Explore voices and languages supported by the plan.'],
@@ -404,9 +399,38 @@ const entries={
  ['غير متوفر حاليًا؛ الرصيد وحقوق الاستخدام حسب الباقة عند عودتها.','Currently unavailable; credits and usage rights will follow the returning offer.']
 ],
 'leonardo-ai':[
- ['توليد صور وأفكار بصرية بمساعدة الذكاء الاصطناعي.','Generate images and visual concepts with AI.'],
- ['تجربة صور مرجعية وتنويعات ضمن الأدوات المتاحة.','Explore references and variations with available tools.'],
- ['استهلاك الرصيد يختلف حسب النموذج وإعدادات التوليد؛ راجع الباقة المختارة.','Credit usage varies by model and generation settings; see your selected plan.']
+  [
+    "إنشاء صور من وصف نصي لأفكارك ومشروعاتك.",
+    "Generate images from written descriptions for your ideas and projects."
+  ],
+  [
+    "تصميم صور للمنتجات والإعلانات ومنشورات السوشيال ميديا.",
+    "Create visuals for products, advertisements, and social posts."
+  ],
+  [
+    "تجربة أساليب بصرية مختلفة مثل الواقعي والرسوم والتصميم المفاهيمي.",
+    "Explore visual styles such as realistic imagery, illustration, and concept art."
+  ],
+  [
+    "استخدام صور مرجعية لتوجيه التكوين والأسلوب ضمن النماذج الداعمة.",
+    "Use reference images to guide composition and style with supported models."
+  ],
+  [
+    "تعديل الصور بالأوامر النصية عبر أدوات التحرير المتاحة للحساب.",
+    "Edit images with prompts using the account’s available editing tools."
+  ],
+  [
+    "تحسين دقة الصور وإبراز التفاصيل بأدوات Upscale المتاحة.",
+    "Improve resolution and details with available upscaling tools."
+  ],
+  [
+    "إنتاج تنويعات للصورة ومراجعتها قبل تنزيل النتيجة النهائية.",
+    "Generate image variations and review them before downloading the final result."
+  ],
+  [
+    "عدد الصور واستهلاك الرصيد يختلفان حسب النموذج والجودة والأداة المستخدمة.",
+    "Image counts and credit usage vary by model, quality, and tool."
+  ]
 ]
 };
 Object.assign(entries,{

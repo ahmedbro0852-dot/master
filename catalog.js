@@ -3572,18 +3572,28 @@ const products = [
     "logo": "leonardo",
     "logoUrl": "logos/leonardo.svg?v=20261009-logo-review3",
     "status": "available",
-    "description": "ليوناردو AI: Premium لمدة شهر بسعر 950 جنيه، حساب جاهز بضمان كامل، وباقة برصيد 8,500 كريدت بسعر 550 جنيه.",
+    "description": "ليوناردو AI لصناعة الصور وتحريرها وتحسين دقتها: Premium شهر بـ950ج بحساب جاهز وضمان كامل، أو باقة 8,500 كريدت بـ550ج. اختار الباقة لعرض تفاصيلها.",
     "plans": [
       {
         "name": "Premium — شهر — حساب جاهز",
         "planType": "Premium",
         "duration": "شهر",
         "price": 950,
-        "activation": "تسليم حساب جاهز.",
+        "activation": "تسليم بيانات حساب Leonardo AI جاهز للاستخدام.",
         "account": "حساب جاهز",
         "accountType": "حساب جاهز",
         "warranty": "ضمان كامل طوال مدة الاشتراك",
-        "notes": []
+        "notes": [],
+        "features": [
+          "اشتراك Premium لمدة شهر كامل.",
+          "تسليم حساب جاهز للاستخدام.",
+          "ضمان كامل طوال شهر الاشتراك."
+        ],
+        "featuresEn": [
+          "Premium subscription for one full month.",
+          "Delivered as a ready-to-use account.",
+          "Full warranty throughout the subscription month."
+        ]
       },
       {
         "name": "8,500 كريدت",
@@ -3599,6 +3609,26 @@ const products = [
     ],
     "categories": [
       "توليد صور بالذكاء الاصطناعي"
+    ],
+    "features": [
+      "إنشاء صور من وصف نصي لأفكارك ومشروعاتك.",
+      "تصميم صور للمنتجات والإعلانات ومنشورات السوشيال ميديا.",
+      "تجربة أساليب بصرية مختلفة مثل الواقعي والرسوم والتصميم المفاهيمي.",
+      "استخدام صور مرجعية لتوجيه التكوين والأسلوب ضمن النماذج الداعمة.",
+      "تعديل الصور بالأوامر النصية عبر أدوات التحرير المتاحة للحساب.",
+      "تحسين دقة الصور وإبراز التفاصيل بأدوات Upscale المتاحة.",
+      "إنتاج تنويعات للصورة ومراجعتها قبل تنزيل النتيجة النهائية.",
+      "عدد الصور واستهلاك الرصيد يختلفان حسب النموذج والجودة والأداة المستخدمة."
+    ],
+    "featuresEn": [
+      "Generate images from written descriptions for your ideas and projects.",
+      "Create visuals for products, advertisements, and social posts.",
+      "Explore visual styles such as realistic imagery, illustration, and concept art.",
+      "Use reference images to guide composition and style with supported models.",
+      "Edit images with prompts using the account’s available editing tools.",
+      "Improve resolution and details with available upscaling tools.",
+      "Generate image variations and review them before downloading the final result.",
+      "Image counts and credit usage vary by model, quality, and tool."
     ]
   },
 

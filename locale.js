@@ -175,11 +175,10 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     "quillbot":"QuillBot Premium plans for 1, 3, 6, or 12 months. The annual plan costs EGP 1,200, averaging EGP 100 per month.",
     "envato":"Envato Elements Premium for EGP 450: stock videos, photos, templates and design assets with portal access credentials and full warranty. The subscription term is confirmed before payment.",
     "motion-array":"Coming soon to MASTER STORE.",
-    "suno":"Coming soon to MASTER STORE.",
     "murf":"Coming soon to MASTER STORE.",
     "discord":"Coming soon to MASTER STORE.",
     "midjourney":"This service is currently unavailable.",
-    "leonardo-ai":"Leonardo AI: monthly Premium for EGP 950, delivered as a ready account with full warranty; an 8,500-credit plan is also available for EGP 550.",
+    "leonardo-ai":"Leonardo AI for image creation, editing, and upscaling: monthly Premium for EGP 950 with a ready account and full warranty, or 8,500 credits for EGP 550. Select a plan for its details.",
     "manus-pro":"A one-month Manus Pro account with 4,000 credits plus 1,000 bonus credits, a 20-day warranty, delivered with email and password.",
     "manus":"All Manus credit plans, monthly Pro, and annual Pro with activation on your personal account.",
     "gumloop":"Automate workflows and connect AI-powered tasks.",
@@ -325,6 +324,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
   };
   function catalogText(value,kind,productId){
     const raw=String(value??"");
+    if(state.language==="en"&&productId==="leonardo-ai"&&raw==="تسليم بيانات حساب Leonardo AI جاهز للاستخدام.")return "Receive a ready-to-use Leonardo AI account.";
     const envatoText={"Premium — وصول عبر بوابة": "Premium — portal access", "غير محددة في العرض — تُؤكد قبل الدفع": "Not specified in the offer — confirm before payment", "تسليم اسم مستخدم وكلمة مرور لبوابة وصول تحوّل إلى موقع Envato.": "Receive a username and password for a portal that redirects to Envato.", "بيانات دخول لبوابة وصول": "Access portal credentials", "وصول عبر بوابة": "Portal access", "ضمان كامل وفق تفاصيل العرض": "Full warranty under the offer details", "مدة الاشتراك غير محددة في العرض المرفق؛ تُؤكد مع الدعم قبل الدفع.": "The attached offer does not specify the subscription term; confirm it before payment.", "تأكيد حدود التحميل وإمكانية إصدار ترخيص باسم العميل لكل مشروع قبل الدفع.": "Confirm download limits and whether a project license can be issued in the customer’s name before payment.", "الترخيص الدائم للمشروعات المسجلة والمكتملة وفق شروط Envato لا يعني اشتراكًا دائمًا أو تنزيلات مستمرة بعد انتهاء الوصول.": "Perpetual licensing for registered, completed projects under Envato terms does not mean lifetime access or ongoing downloads after access ends."};
     if(state.language==="en"&&productId==="envato"&&envatoText[raw])return envatoText[raw];
     if(state.language==="en"&&productId==="leonardo-ai"&&raw==="8,500 كريدت")return "8,500 credits";
