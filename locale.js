@@ -131,7 +131,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     "academic-pro":"Review your documents before submission with Turnitin similarity reports and AI-content detection from Academi. One month of Pro on your personal account.",
 "cursor-pro":"Cursor Pro for coding for one year at $135. A 100% discount activation code on your personal account requiring an accepted payment card.",
 "higgsfield-pro":"Higgsfield: monthly Starter plan for EGP 599 with 210 credits, a ready-made account and one-month warranty; annual Pro activation code also available.",
-"windows-pro":"Windows 7 through 11 in one place: choose from 22 editions, each EGP 265 with lifetime activation for the purchased version.",
+"windows-pro":"Windows 7 through 11 in one place: choose from 22 editions, each EGP 265 with lifetime activation for the purchased version and full warranty.",
     "chatgpt-teachers-k12":"A ChatGPT plan for K12 teachers lasting two years at EGP 400, without warranty.",
     "chatgpt-plus":"Available monthly ChatGPT Plus plans: a no-warranty account for EGP 320, or activation and renewal on your personal account for EGP 1,100. The EGP 700 ready-made account plan is out of stock.",
     "gemini-pro":"Two 18-month options; the family plan adds 5 invitations. Its 1,000 monthly credits are for the main account only.",
