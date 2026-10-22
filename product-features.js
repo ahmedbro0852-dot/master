@@ -377,7 +377,7 @@ const entries={
 'leonardo-ai':[
  ['توليد صور وأفكار بصرية بمساعدة الذكاء الاصطناعي.','Generate images and visual concepts with AI.'],
  ['تجربة صور مرجعية وتنويعات ضمن الأدوات المتاحة.','Explore references and variations with available tools.'],
- ['غير متوفر حاليًا؛ تفاصيل النماذج والرصيد تتحدد مع الباقة.','Currently unavailable; models and credits will be stated with the plan.']
+ ['استهلاك الرصيد يختلف حسب النموذج وإعدادات التوليد؛ راجع الباقة المختارة.','Credit usage varies by model and generation settings; see your selected plan.']
 ]
 };
 Object.assign(entries,{

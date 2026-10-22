@@ -3547,13 +3547,37 @@ const products = [
     "category": "AI Tools",
     "logo": "leonardo",
     "logoUrl": "logos/leonardo.svg?v=20261009-logo-review3",
-    "status": "out",
-    "description": "الخدمة غير متوفرة حاليًا.",
-    "plans": [],
+    "status": "available",
+    "description": "ليوناردو AI: Premium لمدة شهر بسعر 950 جنيه، حساب جاهز بضمان كامل، وباقة برصيد 8,500 كريدت بسعر 550 جنيه.",
+    "plans": [
+      {
+        "name": "Premium — شهر — حساب جاهز",
+        "planType": "Premium",
+        "duration": "شهر",
+        "price": 950,
+        "activation": "تسليم حساب جاهز.",
+        "account": "حساب جاهز",
+        "accountType": "حساب جاهز",
+        "warranty": "ضمان كامل طوال مدة الاشتراك",
+        "notes": []
+      },
+      {
+        "name": "8,500 كريدت",
+        "planType": "8,500 Credits",
+        "duration": "شهر",
+        "price": 550,
+        "credits": "8,500 كريدت",
+        "activation": "يُؤكد مع الدعم قبل الدفع",
+        "account": "يُؤكد مع الدعم قبل الدفع",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": []
+      }
+    ],
     "categories": [
       "توليد صور بالذكاء الاصطناعي"
     ]
   },
+
   {
     "id": "manus",
     "name": "Manus",

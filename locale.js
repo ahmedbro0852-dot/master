@@ -179,7 +179,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     "murf":"Coming soon to MASTER STORE.",
     "discord":"Coming soon to MASTER STORE.",
     "midjourney":"This service is currently unavailable.",
-    "leonardo-ai":"This service is currently unavailable.",
+    "leonardo-ai":"Leonardo AI: monthly Premium for EGP 950, delivered as a ready account with full warranty; an 8,500-credit plan is also available for EGP 550.",
     "manus-pro":"A one-month Manus Pro account with 4,000 credits plus 1,000 bonus credits, a 20-day warranty, delivered with email and password.",
     "manus":"All Manus credit plans, monthly Pro, and annual Pro with activation on your personal account.",
     "gumloop":"Automate workflows and connect AI-powered tasks.",
@@ -325,6 +325,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
   };
   function catalogText(value,kind,productId){
     const raw=String(value??"");
+    if(state.language==="en"&&productId==="leonardo-ai"&&raw==="8,500 كريدت")return "8,500 credits";
     if(state.language!=="en"||!raw)return raw;
     if(kind==="description"&&PRODUCT_DESC_EN[productId])return PRODUCT_DESC_EN[productId];
     if(kind==="category")return CATEGORY_EN[raw]||raw;
