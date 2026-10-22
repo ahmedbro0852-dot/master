@@ -3468,14 +3468,51 @@ const products = [
     "category": "التصميم",
     "logo": "envato",
     "logoUrl": "logos/envato.svg?v=20261009-logo-review3",
-    "status": "soon",
-    "description": "قريبًا في MASTER STORE.",
-    "plans": [],
+    "status": "available",
+    "description": "Envato Elements Premium بسعر 450 جنيه: فيديوهات وصور وقوالب وموارد تصميم، مع بيانات دخول عبر بوابة وصول وضمان كامل. مدة الاشتراك تُؤكد قبل الدفع.",
+    "plans": [
+      {
+        "name": "Premium — وصول عبر بوابة",
+        "planType": "Premium",
+        "duration": "غير محددة في العرض — تُؤكد قبل الدفع",
+        "price": 450,
+        "activation": "تسليم اسم مستخدم وكلمة مرور لبوابة وصول تحوّل إلى موقع Envato.",
+        "account": "بيانات دخول لبوابة وصول",
+        "accountType": "وصول عبر بوابة",
+        "warranty": "ضمان كامل وفق تفاصيل العرض",
+        "notes": [
+          "مدة الاشتراك غير محددة في العرض المرفق؛ تُؤكد مع الدعم قبل الدفع.",
+          "تأكيد حدود التحميل وإمكانية إصدار ترخيص باسم العميل لكل مشروع قبل الدفع.",
+          "الترخيص الدائم للمشروعات المسجلة والمكتملة وفق شروط Envato لا يعني اشتراكًا دائمًا أو تنزيلات مستمرة بعد انتهاء الوصول."
+        ]
+      }
+    ],
     "categories": [
       "قوالب ومؤثرات فيديو",
       "صور وقوالب وموارد جاهزة"
+    ],
+    "features": [
+      "فيديوهات Stock وصور جاهزة للمشروعات الإبداعية.",
+      "قوالب فيديو لتجهيز المقدمات والعروض والمحتوى.",
+      "قوالب مواقع وCMS وWordPress ضمن المكتبة المشمولة.",
+      "موسيقى ومؤثرات صوتية للمحتوى وفق شروط الترخيص.",
+      "قوالب تصميم وجرافيك وموارد ثلاثية الأبعاد حسب المتاح.",
+      "تسليم اسم مستخدم وكلمة مرور للدخول عبر بوابة تحويل إلى Envato.",
+      "ضمان كامل للوصول المقدم وفق تفاصيل العرض.",
+      "الاستخدام التجاري مرتبط بترخيص المشروع وفق شروط Envato."
+    ],
+    "featuresEn": [
+      "Stock videos and photos for creative projects.",
+      "Video templates for intros, presentations, and content.",
+      "Website, CMS, and WordPress templates in the included library.",
+      "Music and sound effects for content under the license terms.",
+      "Design templates, graphics, and 3D assets where available.",
+      "Receive a username and password for an access portal that redirects to Envato.",
+      "Full warranty for the access provided under the offer.",
+      "Commercial use requires project licensing under Envato terms."
     ]
   },
+
   {
     "id": "motion-array",
     "name": "Motion Array",

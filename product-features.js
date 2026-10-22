@@ -345,9 +345,38 @@ const entries={
  ['قنوات الإرسال وأعداد العملاء والرسائل وفق الخطة والاستهلاك.','Channels, customer counts, and message allowances follow plan and usage.']
 ],
 'envato':[
- ['موارد إبداعية وقوالب للمشروعات المشمولة في الخدمة.','Creative assets and templates covered by the service.'],
- ['البحث عن أصول تدعم التصميم وإنتاج المحتوى.','Find assets for design and content production.'],
- ['الخدمة قريبًا؛ تفاصيل الترخيص والتنزيل تحدد عند توفر الباقة.','Coming soon; licensing and download terms will be specified when available.']
+  [
+    "فيديوهات Stock وصور جاهزة للمشروعات الإبداعية.",
+    "Stock videos and photos for creative projects."
+  ],
+  [
+    "قوالب فيديو لتجهيز المقدمات والعروض والمحتوى.",
+    "Video templates for intros, presentations, and content."
+  ],
+  [
+    "قوالب مواقع وCMS وWordPress ضمن المكتبة المشمولة.",
+    "Website, CMS, and WordPress templates in the included library."
+  ],
+  [
+    "موسيقى ومؤثرات صوتية للمحتوى وفق شروط الترخيص.",
+    "Music and sound effects for content under the license terms."
+  ],
+  [
+    "قوالب تصميم وجرافيك وموارد ثلاثية الأبعاد حسب المتاح.",
+    "Design templates, graphics, and 3D assets where available."
+  ],
+  [
+    "تسليم اسم مستخدم وكلمة مرور للدخول عبر بوابة تحويل إلى Envato.",
+    "Receive a username and password for an access portal that redirects to Envato."
+  ],
+  [
+    "ضمان كامل للوصول المقدم وفق تفاصيل العرض.",
+    "Full warranty for the access provided under the offer."
+  ],
+  [
+    "الاستخدام التجاري مرتبط بترخيص المشروع وفق شروط Envato.",
+    "Commercial use requires project licensing under Envato terms."
+  ]
 ],
 'motion-array':[
  ['قوالب وموارد تساعد في تجهيز مشروعات الفيديو.','Templates and assets for video projects.'],

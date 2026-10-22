@@ -173,7 +173,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     "kling":"Currently out of stock.",
     "grammarly":"Grammarly Premium with advanced writing, grammar correction, rewriting, and AI-powered assistance available in the plan.",
     "quillbot":"QuillBot Premium plans for 1, 3, 6, or 12 months. The annual plan costs EGP 1,200, averaging EGP 100 per month.",
-    "envato":"Coming soon to MASTER STORE.",
+    "envato":"Envato Elements Premium for EGP 450: stock videos, photos, templates and design assets with portal access credentials and full warranty. The subscription term is confirmed before payment.",
     "motion-array":"Coming soon to MASTER STORE.",
     "suno":"Coming soon to MASTER STORE.",
     "murf":"Coming soon to MASTER STORE.",
@@ -325,6 +325,8 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
   };
   function catalogText(value,kind,productId){
     const raw=String(value??"");
+    const envatoText={"Premium — وصول عبر بوابة": "Premium — portal access", "غير محددة في العرض — تُؤكد قبل الدفع": "Not specified in the offer — confirm before payment", "تسليم اسم مستخدم وكلمة مرور لبوابة وصول تحوّل إلى موقع Envato.": "Receive a username and password for a portal that redirects to Envato.", "بيانات دخول لبوابة وصول": "Access portal credentials", "وصول عبر بوابة": "Portal access", "ضمان كامل وفق تفاصيل العرض": "Full warranty under the offer details", "مدة الاشتراك غير محددة في العرض المرفق؛ تُؤكد مع الدعم قبل الدفع.": "The attached offer does not specify the subscription term; confirm it before payment.", "تأكيد حدود التحميل وإمكانية إصدار ترخيص باسم العميل لكل مشروع قبل الدفع.": "Confirm download limits and whether a project license can be issued in the customer’s name before payment.", "الترخيص الدائم للمشروعات المسجلة والمكتملة وفق شروط Envato لا يعني اشتراكًا دائمًا أو تنزيلات مستمرة بعد انتهاء الوصول.": "Perpetual licensing for registered, completed projects under Envato terms does not mean lifetime access or ongoing downloads after access ends."};
+    if(state.language==="en"&&productId==="envato"&&envatoText[raw])return envatoText[raw];
     if(state.language==="en"&&productId==="leonardo-ai"&&raw==="8,500 كريدت")return "8,500 credits";
     if(state.language!=="en"||!raw)return raw;
     if(kind==="description"&&PRODUCT_DESC_EN[productId])return PRODUCT_DESC_EN[productId];
