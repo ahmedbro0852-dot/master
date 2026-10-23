@@ -2098,3 +2098,6 @@ body{background:linear-gradient(180deg,#f8faff 0,#fff 720px);-webkit-font-smooth
 .price-update-notice button:focus-visible{outline:3px solid #dfb74c;outline-offset:3px}
 @media(max-width:600px){.price-update-notice{right:16px;bottom:calc(88px + env(safe-area-inset-bottom,0px));width:calc(100vw - 32px);padding:18px;border-radius:18px}.price-update-notice strong{font-size:15px}.price-update-notice>p{font-size:12px;margin:13px 0 15px}.price-notice-footer>span{font-size:10px}.price-update-notice button{min-width:96px}}
 @media(max-height:450px){.price-update-notice{bottom:12px;max-height:calc(100dvh - 24px);overflow:auto}}
+
+.price-notice-joke{margin-top:14px;padding:9px 12px;border-radius:10px;background:#fff7df;color:#795d1c;font-size:12px;font-weight:700;line-height:1.9}
+@media(max-width:600px){.price-notice-joke{font-size:11px;padding:8px 10px}}
