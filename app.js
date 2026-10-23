@@ -1,6 +1,20 @@
 (async function(){
   'use strict';
 
+  const priceNotice=document.getElementById('priceUpdateNotice');
+  const dismissPriceNotice=document.getElementById('dismissPriceNotice');
+  if(priceNotice&&dismissPriceNotice){
+    const noticeKey='master-price-notice-20261024';
+    try{priceNotice.hidden=sessionStorage.getItem(noticeKey)==='dismissed';}catch{}
+    dismissPriceNotice.hidden=false;
+    dismissPriceNotice.addEventListener('click',()=>{
+      priceNotice.hidden=true;
+      try{sessionStorage.setItem(noticeKey,'dismissed');}catch{}
+      const next=document.querySelector('.topbar a');if(next)next.focus({preventScroll:true});
+    });
+  }
+
+
   const menu=document.querySelector('.menu');
   const nav=document.querySelector('.topbar nav');
 

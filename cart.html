@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261022-precise-categories">
+  <link rel="stylesheet" href="styles.css?v=20261024-price-notice">
 
 <link rel="stylesheet" href="store-faq.css?v=20261018-searchable1">
 <link rel="stylesheet" href="store-polish.css?v=20261018-policy1">
@@ -19,6 +19,11 @@
 <link rel="stylesheet" href="cart-logos.css?v=1">
 </head>
 <body>
+  <aside class="price-update-notice" id="priceUpdateNotice" aria-label="تنبيه بخصوص الأسعار" dir="rtl">
+    <span class="price-update-icon" aria-hidden="true">!</span>
+    <div><strong>تنبيه بخصوص الأسعار</strong><p>نعتذر عن تعديل بعض الأسعار؛ فقد تأثرت أسعار المتجر بارتفاع سعر الدولار بأكثر من ١٠٪. شكرًا لتفهمكم.</p></div>
+    <button type="button" id="dismissPriceNotice" aria-label="إغلاق تنبيه الأسعار" hidden>×</button>
+  </aside>
   <div class="offer-bar">خصومات تصل إلى 90% على عروض مختارة <a href="index.html#products">تصفح العروض</a></div>
   <header class="topbar">
     <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png?v=20260924-sec19" alt="MASTER STORE"></a>
@@ -69,7 +74,7 @@
   <script src="order-details.js?v=20261018-details1"></script>
   <script src="cart.js?v=20261023-invoices1"></script>
   
-  <script src="app.js?v=20261022-precise-categories"></script>
+  <script src="app.js?v=20261024-price-notice"></script>
   <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img decoding="async" class="whatsapp-icon" src="logos/whatsapp.svg?v=20260924-sec19" alt=""></a>
 <script src="store-faq.js?v=20261018-searchable1"></script>
 </body>
