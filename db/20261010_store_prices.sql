@@ -23,7 +23,7 @@ insert into public.master_store_plans(product_id,plan_index,product_name,plan_na
 ('chatgpt-plus',1,'ChatGPT Plus','ChatGPT Plus — حساب جاهز','1 شهر',70000,true,5),
 ('chatgpt-plus',2,'ChatGPT Plus','ChatGPT Plus — على حسابك الشخصي','1 شهر',104000,true,5),
 ('chatgpt-teachers-k12',0,'ChatGPT للمعلمين K12','ChatGPT للمعلمين K12 — بدون ضمان','24 شهر',50000,true,5),
-('gemini-pro',0,'Gemini Pro','Gemini Pro','18 شهر',15000,true,5),
+('gemini-pro',0,'Gemini Pro','Gemini Pro','18 شهر',20000,true,5),
 ('gemini-pro',1,'Gemini Pro','Gemini العائلي','18 شهر',25000,true,5),
 ('claude-pro',0,'Claude Pro','Claude Pro','1 شهر',125000,true,5),
 ('perplexity-pro',0,'Perplexity Pro','Perplexity Pro','1 شهر',55000,true,5),

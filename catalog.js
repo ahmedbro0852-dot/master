@@ -2945,7 +2945,7 @@ const products = [
       {
         "name": "Gemini Pro",
         "duration": "18 شهر",
-        "price": 150,
+        "price": 200,
         "activation": "رابط تفعيل مباشر على البريد الشخصي — بدون بطاقة أو بيانات دفع.",
         "account": "حساب العميل الشخصي",
         "warranty": "ضمان 3 شهور",
