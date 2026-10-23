@@ -2101,3 +2101,10 @@ body{background:linear-gradient(180deg,#f8faff 0,#fff 720px);-webkit-font-smooth
 
 .price-notice-joke{margin-top:14px;padding:9px 12px;border-radius:10px;background:#fff7df;color:#795d1c;font-size:12px;font-weight:700;line-height:1.9}
 @media(max-width:600px){.price-notice-joke{font-size:11px;padding:8px 10px}}
+
+.price-update-notice{max-height:calc(100dvh - 120px);overflow-y:auto;overscroll-behavior:contain}
+.price-notice-meme{display:block;width:100%;height:170px;object-fit:contain;margin-top:12px;border-radius:12px;background:#fffaf0}
+.price-notice-meme+.price-notice-joke{margin-top:8px}
+@media(max-width:600px){.price-notice-meme{height:140px}.price-update-notice>p{margin:10px 0 12px}}
+@media(max-width:350px){.price-notice-meme{height:112px}}
+@media(max-height:450px){.price-update-notice{max-height:calc(100dvh - 24px)}}
