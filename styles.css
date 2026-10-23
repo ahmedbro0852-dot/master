@@ -2079,37 +2079,23 @@ body{background:linear-gradient(180deg,#f8faff 0,#fff 720px);-webkit-font-smooth
 
 #filters{display:block;overflow:visible;white-space:normal}.category-main,.category-sub{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.category-sub{margin-top:14px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card,#fff)}.category-sub .filter{font-size:11px}.category-sub-label{font-size:12px;color:var(--muted,#617084);margin-inline-end:4px}@media(max-width:760px){.category-main{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px}.category-main .filter{flex:none}.category-sub{padding:10px;gap:6px}.category-sub .filter{min-height:36px;padding:7px 10px}}
 
-/* Compact pricing notice outside the page layout. */
-.price-update-notice{position:fixed;right:24px;bottom:96px;z-index:90;width:420px;max-width:calc(100vw - 32px);padding:22px;border:1px solid #d6e6dc;border-top:3px solid #dfb74c;border-radius:20px;background:#fff;color:#2c4439;text-align:right;box-shadow:0 16px 60px #12382a26;line-height:1.8;font-family:Cairo,Arial,sans-serif}
+/* Formal store notice matching the blue and navy storefront. */
+.price-update-notice{position:fixed;right:24px;bottom:96px;z-index:90;width:420px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 120px);overflow-y:auto;overscroll-behavior:contain;padding:22px;border:1px solid #dfe6f1;border-top:3px solid #1f5eff;border-radius:18px;background:#fff;color:#17283f;text-align:right;box-shadow:0 12px 48px #0a17321f;line-height:1.8;font-family:Cairo,Arial,sans-serif}
 .price-update-notice[hidden]{display:none}
-.price-notice-heading{display:flex;align-items:center;gap:12px}
-.price-update-icon{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border-radius:13px;background:#edf6ef;color:#216347;font-size:24px}
-.price-notice-heading>div{display:grid;gap:1px}
-.price-notice-kicker{font:700 9px/1.5 Arial,sans-serif;letter-spacing:1.8px;color:#8a7748}
-.price-update-notice strong{font-size:16px;font-weight:800;color:#174b35}
-.price-update-notice>p{margin:16px 0 18px;font-size:13px;line-height:1.95;color:#5b6860}
-.price-update-notice p b{color:#174b35;font-weight:800;white-space:nowrap}
-.price-notice-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #edf1ed;padding-top:14px}
-.price-notice-footer>span{font-size:11px;color:#64776b}
-.price-update-notice button{display:flex;align-items:center;justify-content:center;gap:16px;min-height:44px;min-width:104px;padding:10px 16px;border:0;border-radius:12px;background:#19533a;color:#fff;font:700 12px Cairo,Arial,sans-serif;cursor:pointer}
+.price-notice-heading{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.price-notice-heading>div{display:grid;gap:4px}
+.price-notice-kicker{font-size:10px;font-weight:600;color:#697386}
+.price-update-notice strong{font-size:16px;font-weight:800;color:#0a1732}
+.price-notice-brand{width:108px;height:34px;object-fit:contain;flex-shrink:0}
+.price-notice-image{display:block;width:100%;height:150px;object-fit:cover;object-position:center;margin-top:17px;border-radius:10px;background:#f5f7fb}
+.price-update-notice>p{margin:17px 0;font-size:13px;line-height:2;color:#526077}
+.price-update-notice p b{color:#0a1732;font-weight:800;white-space:nowrap}
+.price-notice-footer{display:flex;flex-direction:column;align-items:stretch;gap:13px;border-top:1px solid #e7eaf0;padding-top:15px}
+.price-notice-footer>span{font-size:11px;color:#697386;text-align:center}
+.price-update-notice button{min-height:44px;padding:10px 16px;border:0;border-radius:10px;background:#1f5eff;color:#fff;font:700 12px Cairo,Arial,sans-serif;cursor:pointer}
 .price-update-notice button[hidden]{display:none}
-.price-update-notice button:hover{background:#123f2c}
-.price-update-notice button span{color:#edcf78}
-.price-update-notice button:focus-visible{outline:3px solid #dfb74c;outline-offset:3px}
-@media(max-width:600px){.price-update-notice{right:16px;bottom:calc(88px + env(safe-area-inset-bottom,0px));width:calc(100vw - 32px);padding:18px;border-radius:18px}.price-update-notice strong{font-size:15px}.price-update-notice>p{font-size:12px;margin:13px 0 15px}.price-notice-footer>span{font-size:10px}.price-update-notice button{min-width:96px}}
-@media(max-height:450px){.price-update-notice{bottom:12px;max-height:calc(100dvh - 24px);overflow:auto}}
-
-.price-notice-joke{margin-top:14px;padding:9px 12px;border-radius:10px;background:#fff7df;color:#795d1c;font-size:12px;font-weight:700;line-height:1.9}
-@media(max-width:600px){.price-notice-joke{font-size:11px;padding:8px 10px}}
-
-.price-update-notice{max-height:calc(100dvh - 120px);overflow-y:auto;overscroll-behavior:contain}
-.price-notice-meme{display:block;width:100%;height:170px;object-fit:contain;margin-top:12px;border-radius:12px;background:#fffaf0}
-.price-notice-meme+.price-notice-joke{margin-top:8px}
-@media(max-width:600px){.price-notice-meme{height:140px}.price-update-notice>p{margin:10px 0 12px}}
-@media(max-width:350px){.price-notice-meme{height:112px}}
-@media(max-height:450px){.price-update-notice{max-height:calc(100dvh - 24px)}}
-
-.price-notice-joke{margin-top:12px;border-radius:12px 12px 0 0;background:#f5f7f4;color:#1c3326;text-align:center;font-size:13px;font-weight:800}
-.price-notice-meme{height:190px;margin-top:0;object-fit:cover;object-position:center 30%;border-radius:0 0 12px 12px;background:#453422}
-@media(max-width:600px){.price-notice-meme{height:170px}.price-notice-joke{font-size:12px}}
-@media(max-width:350px){.price-notice-meme{height:130px}}
+.price-update-notice button:hover{background:#184edb}
+.price-update-notice button:focus-visible{outline:3px solid #d9a514;outline-offset:3px}
+@media(max-width:600px){.price-update-notice{right:16px;bottom:calc(88px + env(safe-area-inset-bottom,0px));width:calc(100vw - 32px);padding:18px;border-radius:16px}.price-update-notice strong{font-size:14px}.price-notice-brand{width:90px;height:30px}.price-notice-image{height:135px;margin-top:14px}.price-update-notice>p{font-size:12px;margin:13px 0}.price-notice-footer{padding-top:12px;gap:10px}.price-notice-footer>span{font-size:10px}}
+@media(max-width:350px){.price-notice-heading{gap:9px}.price-update-notice strong{font-size:12px}.price-notice-brand{width:78px}.price-notice-image{height:100px}.price-update-notice>p{font-size:11px}}
+@media(max-height:450px){.price-update-notice{bottom:12px;max-height:calc(100dvh - 24px)}}
