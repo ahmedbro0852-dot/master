@@ -66,9 +66,9 @@
 
   function updateProductMetadata(){
     const description=tr(p.description||'','description')||p.name;
-    document.title=p.name+' | MASTER STORE';
+    document.title=window.MasterSEO?.productTitle(p)||p.name+' | MASTER STORE';
     setMeta('meta[name="description"]',description);
-    setMeta('meta[property="og:title"]',p.name+' | MASTER STORE');
+    setMeta('meta[property="og:title"]',document.title);
     setMeta('meta[property="og:description"]',description);
   }
 

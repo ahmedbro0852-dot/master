@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://master-pi-six.vercel.app/</loc></url>
 <url><loc>https://master-pi-six.vercel.app/warranty.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/categories/video-tools.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/categories/image-design-tools.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/categories/voice-audio-tools.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/categories/coding-website-tools.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/categories/writing-research-tools.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/categories/education-learning.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/categories/productivity-windows.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/categories/entertainment.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/categories/security-internet.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/cursor-pro.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/higgsfield-pro.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/windows-pro.html</loc></url>
@@ -56,10 +65,7 @@
 <url><loc>https://master-pi-six.vercel.app/products/grammarly.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/quillbot.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/envato.html</loc></url>
-<url><loc>https://master-pi-six.vercel.app/products/motion-array.html</loc></url>
-<url><loc>https://master-pi-six.vercel.app/products/murf.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/discord.html</loc></url>
-<url><loc>https://master-pi-six.vercel.app/products/midjourney.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/leonardo-ai.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/manus.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/gumloop.html</loc></url>
