@@ -2108,3 +2108,8 @@ body{background:linear-gradient(180deg,#f8faff 0,#fff 720px);-webkit-font-smooth
 @media(max-width:600px){.price-notice-meme{height:140px}.price-update-notice>p{margin:10px 0 12px}}
 @media(max-width:350px){.price-notice-meme{height:112px}}
 @media(max-height:450px){.price-update-notice{max-height:calc(100dvh - 24px)}}
+
+.price-notice-joke{margin-top:12px;border-radius:12px 12px 0 0;background:#f5f7f4;color:#1c3326;text-align:center;font-size:13px;font-weight:800}
+.price-notice-meme{height:190px;margin-top:0;object-fit:cover;object-position:center 30%;border-radius:0 0 12px 12px;background:#453422}
+@media(max-width:600px){.price-notice-meme{height:170px}.price-notice-joke{font-size:12px}}
+@media(max-width:350px){.price-notice-meme{height:130px}}
