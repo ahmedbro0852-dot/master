@@ -19,6 +19,7 @@ for(const p of catalog.products.filter(x=>!x.redirectTo)){
 }
 for(const url of urls){const pathname=new URL(url).pathname;if(pathname!=='/')assert(fs.existsSync(path.join(root,pathname)));}
 for(const category of S.categories){const html=read('categories/'+category.slug+'.html'),g=graph(html)['@graph'];assert.equal(g[0]['@type'],'CollectionPage');assert(g[0].mainEntity.numberOfItems>0);assert(html.includes(S.categoryUrl(category)));}
+assert(read('warranty.html').includes('rel="canonical" href="'+S.origin+'/warranty.html"'));
 const home=read('index.html');assert.equal((home.match(/id="master-seo-data"/g)||[]).length,1);assert(home.includes('dvpUjy_77Hw4vOnhyEyLAJ9m2NBAoZ1nUtnLy-ABb0s'));assert(home.includes('SEO-DIRECTORY-START'));
 const p=catalog.getProduct('windows-pro'),row={product_id:p.id,plan_index:0,price_piasters:26500,available:true};
 assert.equal(S.offers(p,[row])[0].price,'265.00');assert.equal(S.offers(p,[{...row,available:false}])[0].availability,'https://schema.org/OutOfStock');assert.equal(S.offers(p,[{...row,price_piasters:123}]).length,0);assert.equal(S.offers(p,[{...row,price_piasters:123,admin_overridden:true}])[0].price,'1.23');assert.equal(S.offers(p,null).length,0);

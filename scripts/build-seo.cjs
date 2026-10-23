@@ -73,7 +73,7 @@ function writeHome(){
  const description='قارن باقات ChatGPT وGemini وأدوات الصور والفيديو والتعليم والإنتاجية وتفعيل ويندوز في ماستر ستور. تفاصيل واضحة للتفعيل والمدة والضمان ودعم قبل الطلب.';
  html=html.replace(/(<meta (?:name="description"|property="og:description") content=")[^"]*(")/g,(_,a,b)=>a+description+b);
  html=html.replace(/(<meta property="og:title" content=")[^"]*(")/,(_,a,b)=>a+'ماستر ستور | اشتراكات وخدمات رقمية'+b);
- html=html.replace(/<script id="master-seo-data" type="application\/ld\+json">[\s\S]*?<\/script>/,'');
+ html=html.replace(/\n*<script id="master-seo-data" type="application\/ld\+json">[\s\S]*?<\/script>\n*/,'\n');
  html=html.replace('</head>',dataScript(SEO.homeGraph)+'\n</head>');
  const block='<!-- SEO-DIRECTORY-START -->'+directory+'<!-- SEO-DIRECTORY-END -->';
  if(html.includes('<!-- SEO-DIRECTORY-START -->'))html=html.replace(/<!-- SEO-DIRECTORY-START -->[\s\S]*?<!-- SEO-DIRECTORY-END -->/,block);else html=html.replace('  <footer>',block+'\n  <footer>');
