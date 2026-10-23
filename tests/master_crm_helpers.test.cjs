@@ -10,4 +10,5 @@ assert.equal(h.endDate('2026-01-01',0,'day'),'');
 assert.equal(h.csvCell('  =HYPERLINK("bad")'),'"\'  =HYPERLINK(""bad"")"');
 assert.equal(h.csvCell('+201234567890'),'"\'+201234567890"');
 assert.equal(h.cleanQuery('abc),id.in.(x'),'abc  id in  x');
+assert.equal(h.termFromText('شهر').count,1);assert.equal(h.termFromText('١٢ شهر').count,12);assert.equal(h.termFromText('مدى الحياة'),null);
 console.log('PASS: month-end/leap-year/date calculations and CSV formula neutralization');

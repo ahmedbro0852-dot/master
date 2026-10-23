@@ -84,7 +84,7 @@
       requestId=crypto.randomUUID();await refresh();message(t('طلب الشحن اتسجل. ابعت إثبات التحويل للدعم علشان يتراجع.','Top-up saved. Send transfer proof to support for review.'));
       const output=document.getElementById('topupResult');output.innerHTML='<div class="topup-confirm"><b>'+t('رقم طلب الشحن','Top-up ID')+'</b><span class="record-id">'+esc(result.id)+'</span><a class="primary" target="_blank" rel="noopener" href="'+supportHref('طلب شحن MASTER STORE\nرقم الطلب: '+result.id+'\nحسابي: '+u.email+'\nالمبلغ: '+money(result.amount_piasters)+'\nالوسيلة: '+payment+'\nرقم التحويل: '+reference+'\nهرفق إثبات التحويل للمراجعة.')+'">'+t('إرسال إثبات التحويل للدعم','Send transfer proof to support')+'</a></div>';output.scrollIntoView({block:'center',behavior:'smooth'});
     });};
-    if(data.isAdmin){document.getElementById('adminPanel').insertAdjacentHTML('afterbegin','<a class="primary" href="admin.html">'+t('فتح لوحة التحكم الكاملة','Open full admin dashboard')+'</a>');loadAdmin();}
+    if(data.isAdmin){document.getElementById('adminPanel').insertAdjacentHTML('afterbegin','<a class="primary" href="management.html">'+t('العملاء والاشتراكات والطلبات المباشرة','Customers, subscriptions & direct orders')+'</a> <a class="ghost-btn" href="admin.html">'+t('فتح لوحة التحكم الكاملة','Open full admin dashboard')+'</a>');loadAdmin();}
   }
   async function loadAdmin(){
     const box=document.getElementById('adminRequests');try{
