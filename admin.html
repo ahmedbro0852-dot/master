@@ -13,10 +13,10 @@
 
 <meta name="robots" content="noindex,nofollow">
 <link rel="stylesheet" href="admin.css?v=20261023-admin3">
-<link rel="stylesheet" href="admin-workspace.css?v=20261023-admin3">
+<link rel="stylesheet" href="admin-workspace.css?v=20261023-session1">
 </head>
 <body class="admin-app">
-  <header class="workspace-topbar"><a class="workspace-brand" href="management.html"><img src="master-store-logo.svg" alt="MASTER STORE" width="160" height="48"></a><span class="workspace-badge">مساحة الإدارة</span><div class="workspace-top-actions"><a href="index.html">زيارة المتجر ↗</a><a href="account.html">حساب الإدارة</a></div></header>
+  <header class="workspace-topbar"><a class="workspace-brand" href="management.html"><img src="master-store-logo.svg" alt="MASTER STORE" width="160" height="48"></a><span class="workspace-badge">مساحة الإدارة</span><div class="workspace-top-actions"><a href="index.html">زيارة المتجر ↗</a><details class="workspace-account" id="workspaceAccount"><summary>الحساب ▾</summary><div class="workspace-account-menu"><span class="workspace-account-label">الحساب الحالي</span><b id="workspaceAccountEmail" dir="auto">جارٍ تحميل الحساب…</b><a href="account.html">إدارة حسابي</a><button type="button" data-session-action="switch" disabled>تغيير الحساب</button><button type="button" data-session-action="logout" disabled>تسجيل الخروج</button><p id="workspaceSessionMessage" role="status" aria-live="polite" hidden></p></div></details></div></header>
 
 <div class="workspace-layout"><aside class="workspace-sidebar"><div class="workspace-sidebar-intro"><span>MASTER / CONTROL</span><h2>إدارة أبسط.<br>متابعة أوضح.</h2><p>طلبات الموقع والتعامل المباشر، من أول الدفع لحد التجديد.</p></div><nav aria-label="أقسام إدارة المتجر"><a href="management.html" ><span>01</span><div><b>العملاء والاشتراكات</b><small>طلبات مباشرة · انتهاء · تجديد</small></div></a><a href="admin.html" aria-current="page"><span>02</span><div><b>المدفوعات والأسعار</b><small>طلبات الموقع · محافظ · خصومات</small></div></a></nav><div class="workspace-sidebar-note"><span class="workspace-lock">●</span><b>مساحة خاصة بالإدارة</b><p>البيانات محفوظة حسب صلاحيات حسابك. تسجيل الخروج يقفل الوصول للسجلات.</p></div></aside>  <main class="page-shell admin-shell"><div id="adminContent"></div></main></div>
 
@@ -30,7 +30,8 @@
   <script src="cart.js?v=20261023-invoices1"></script>
   
   <script src="app.js?v=20261022-precise-categories"></script>
-<script src="admin.js?v=20261023-admin3"></script>
+<script src="admin.js?v=20261023-session1"></script>
+<script src="admin-session.js?v=20261023-session1"></script>
 
 </body>
 </html>

@@ -13,7 +13,7 @@ async function load(){
  try{
  const u=await C.user();if(v!==loadVersion)return;
  if(!u){root.innerHTML='<section class="auth-card"><h2>'+t('دخول الإدارة','Admin sign-in')+'</h2><p>'+t('سجل دخولك بحساب مالك المتجر، وبعدها افتح لوحة الإدارة.','Sign in with the store owner account, then return here.')+'</p><a class="primary" href="account.html">'+t('تسجيل الدخول','Sign in')+'</a></section>';return;}
- data=await C.unwrap(C.client.rpc('master_store_admin_snapshot'));if(v!==loadVersion)return;render();
+ const snapshot=await C.unwrap(C.client.rpc('master_store_admin_snapshot'));if(v!==loadVersion)return;data=snapshot;render();
  }catch(e){if(v!==loadVersion)return;root.innerHTML='<section class="auth-card"><h2>'+t('لوحة الإدارة','Admin dashboard')+'</h2><p role="alert">'+E(C.errorText(e))+'</p><a class="primary" href="account.html">'+t('حسابي','My account')+'</a><button class="ghost-btn" id="adminRetry">'+t('إعادة المحاولة','Retry')+'</button></section>';root.querySelector('#adminRetry').onclick=load;}
 }
 function render(){
@@ -61,6 +61,6 @@ function discounts(box){
 }
 if(!C?.ready){root.textContent=t('تعذر تحميل الإدارة. حدث الصفحة.','Could not load administration. Refresh the page.');return;}
 root.innerHTML='<p role="status">'+t('جاري التحقق من صلاحيات الإدارة…','Checking administrator permissions…')+'</p>';load();
-C.client.auth.onAuthStateChange(e=>{if(e==='SIGNED_OUT'){data=null;load();}});
+C.client.auth.onAuthStateChange(e=>{if(e==='SIGNED_OUT'){loadVersion++;data=null;root.textContent=t('انتهت جلسة الإدارة. سجل الدخول من جديد.','Your admin session has ended. Sign in again.');}});
 document.addEventListener('masterstore:localechange',()=>{if(data&&!busy)render();});
 })();

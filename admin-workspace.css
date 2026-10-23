@@ -8,3 +8,16 @@ body.admin-app{background:#f3f5f9;color:#17283f;direction:rtl}.admin-app *{box-s
 /* Reading sizes and contrast for long daily sessions. */
 .workspace-top-actions{font-size:12px}.workspace-sidebar nav a b{font-size:12px}.workspace-sidebar nav a small,.workspace-sidebar-intro p,.workspace-sidebar-note p{font-size:11px}.admin-app .crm-heading p,.admin-app .admin-heading p{font-size:12px;color:#657c94}.admin-app .crm-stat small{font-size:12px;color:#5e748b}.admin-app .crm-stat span{font-size:10px;color:#5a7794}.admin-app .crm-intro p{font-size:12px}.admin-app .crm-filters label{font-size:11px;color:#546d85}.admin-app .crm-filters input,.admin-app .crm-filters select{font-size:13px}.admin-app .crm-record>p{font-size:12px;color:#4f6a83}.admin-app .crm-dates dt{font-size:10px;color:#72879b}.admin-app .crm-dates dd{font-size:12px}.admin-app .crm-reference b{font-size:11px;color:#3f6790}.admin-app .crm-record .crm-actions :is(button,a){font-size:11px;min-height:40px}.admin-app .crm-page-totals span,.admin-app .crm-page-totals b{font-size:11px}.admin-app .crm-note{font-size:11px;color:#75899f}@media(max-width:800px){.workspace-top-actions{font-size:10px}.workspace-sidebar nav a b{font-size:11px}.workspace-sidebar nav a small{font-size:9px}.admin-app .crm-heading p,.admin-app .crm-intro p{font-size:11px}.admin-app .crm-stat small{font-size:11px}.admin-app .crm-filters :is(input,select){font-size:16px}.admin-app .crm-record>p,.admin-app .crm-dates dd{font-size:11px}.admin-app .crm-reference b{font-size:10px}.admin-app .crm-page-totals span,.admin-app .crm-page-totals b{font-size:10px}.admin-app .crm-record .crm-actions :is(button,a){font-size:11px;min-height:42px}}
 .crm-updated{font-size:10px;color:#8a9aad;white-space:nowrap}.admin-app .crm-heading .crm-actions{align-items:center}@media(max-width:800px){.admin-app .crm-heading>.crm-actions{width:100%;justify-content:space-between}.crm-updated{font-size:10px}}
+
+/* Account controls remain reachable on narrow screens. */
+.workspace-account{position:relative;text-align:start}
+.workspace-account summary{cursor:pointer;list-style:none;padding:9px 12px;border:1px solid #dce5e2;border-radius:12px;background:#fff;white-space:nowrap}
+.workspace-account summary::-webkit-details-marker{display:none}
+.workspace-account summary:focus-visible,.workspace-account-menu :focus-visible{outline:3px solid #e4b92b;outline-offset:3px}
+.workspace-account-menu{position:absolute;inset-inline-end:0;top:calc(100% + 10px);z-index:100;width:260px;max-width:calc(100vw - 32px);padding:16px;border:1px solid #dce5e2;border-radius:16px;background:#fff;box-shadow:0 16px 45px #173c2826;display:grid;gap:8px;white-space:normal}
+.workspace-account-label{font-size:11px;color:#63756d}
+.workspace-account-menu b{font-size:13px;overflow-wrap:anywhere;margin-bottom:8px;color:#183d2a}
+.workspace-top-actions .workspace-account-menu a,.workspace-account-menu button{display:block;text-align:start;font:inherit;font-size:13px;padding:11px 12px;border:0;border-radius:9px;background:#f0f6f2;color:#17402c;cursor:pointer;text-decoration:none}
+.workspace-account-menu button[data-session-action=logout]{color:#a22b2b;background:#fff2f0}
+.workspace-account-menu button:disabled{opacity:.5;cursor:wait}
+.workspace-account-menu p{font-size:12px;line-height:1.7;margin:4px 0 0;color:#922e2e}
