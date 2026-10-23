@@ -1,6 +1,7 @@
 // Generate useful static HTML from the same catalogue and public prices as checkout.
 const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),SEO=require('../seo-config.js'),origin=SEO.origin;
+const WindowsGuide=require('../windows-guide.js');
 const sandbox={window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(root,'catalog.js'),'utf8'),sandbox);
 vm.runInNewContext(fs.readFileSync(path.join(root,'product-features.js'),'utf8'),sandbox);
@@ -33,12 +34,15 @@ function writeProducts(prices){
   if(!/^[a-z0-9-]+$/.test(p.id))throw Error('Invalid product id');
   const url=SEO.productUrl(p),title=SEO.productTitle(p),description=SEO.shortDescription(p.description||p.name),offers=SEO.offers(p,prices);
   const features=sandbox.window.MasterProductFeatures;
-  const content='<section class="product-hero"><h1>'+escape(p.name)+'</h1><p>'+escape(p.description||p.name)+'</p></section><section class="plans-block"><h2>الباقات والتفعيل والضمان</h2>'+(p.plans||[]).map((plan,i)=>{
+  let content='<section class="product-hero"><h1>'+escape(p.name)+'</h1><p>'+escape(p.description||p.name)+'</p></section><section class="plans-block"><h2>الباقات والتفعيل والضمان</h2>'+(p.plans||[]).map((plan,i)=>{
    if(plan.hidden)return '';
    const offer=offers.find(x=>x.url.endsWith('?plan='+i));
    const details=features.list(p,plan,false,x=>String(x||''));
    return '<article class="account-panel"><h3>'+escape(plan.name)+'</h3>'+(offer?'<p><strong>السعر: '+escape(offer.price)+' جنيه مصري</strong> · '+(offer.availability.endsWith('/InStock')?'متاح للطلب':'غير متاح حاليًا')+'</p>':'')+'<p>المدة: '+escape(plan.duration||'راجع تفاصيل الباقة')+'</p><p>'+escape(plan.activation)+'</p><p>الضمان: '+escape(plan.warranty||'يُؤكد مع الدعم')+'</p>'+(details.length?'<ul>'+details.map(f=>'<li>'+escape(f)+'</li>').join('')+'</ul>':'')+(plan.notes?.length?'<ul>'+plan.notes.map(n=>'<li>'+escape(n)+'</li>').join('')+'</ul>':'')+'</article>';
   }).join('')+'<p>راجع السعر والتوفر الحاليين عند الطلب؛ يتم تأكيد الدفع والتسليم وفق تفاصيل الباقة.</p><a href="/product.html?id='+encodeURIComponent(p.id)+'">اختيار الباقة والطلب</a></section>';
+  if(WindowsGuide.match(p)){
+   content=content.replace('</section><section class="plans-block">','</section>'+WindowsGuide.nav(false)+'<section class="plans-block" id="windows-plans">')+'<div id="windows-guide-root">'+WindowsGuide.render(false)+'</div>';
+  }
   let html=template.replace('<head>','<head>\n  <base href="/">\n  <link rel="canonical" href="'+url+'">')
    .replace(/<title>[^<]*<\/title>/,'<title>'+escape(title)+'</title>')
    .replace(/(<meta (?:name="description"|property="og:description") content=")[^"]*(")/g,(_,a,b)=>a+escape(description)+b)

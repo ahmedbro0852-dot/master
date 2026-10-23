@@ -104,6 +104,21 @@
       '</aside>'+
     '</section>';
 
+  function refreshWindowsGuide(){
+    const guide=window.MasterWindowsGuide;
+    if(!guide?.match(p))return;
+    const block=root.querySelector('.plans-block');if(block)block.id='windows-plans';
+    const previous=root.querySelector('#windows-guide-root');
+    const opened=previous?[...previous.querySelectorAll('details[open]')].map(x=>x.id):[];
+    const oldNav=root.querySelector('#windows-guide-nav');
+    if(oldNav)oldNav.outerHTML=guide.nav(isEn());
+    else root.querySelector('.product-hero').insertAdjacentHTML('afterend',guide.nav(isEn()));
+    if(previous)previous.innerHTML=guide.render(isEn());
+    else root.insertAdjacentHTML('beforeend','<div id="windows-guide-root">'+guide.render(isEn())+'</div>');
+    for(const id of opened){const detail=document.getElementById(id);if(detail)detail.open=true;}
+  }
+  refreshWindowsGuide();
+
   if(active&&plans.length){
     const bar=document.createElement('div');
     bar.className='mobile-order-bar';
@@ -284,6 +299,7 @@
     const buy=document.getElementById('buyBtn');
     if(buy)buy.textContent=ui('شراء الآن','Buy now');
     updateProductMetadata();
+    refreshWindowsGuide();
     Locale?.apply();
   }
   document.addEventListener('masterstore:localechange',refreshLocalizedProductPrices);
