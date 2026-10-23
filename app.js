@@ -4,7 +4,7 @@
   const priceNotice=document.getElementById('priceUpdateNotice');
   const dismissPriceNotice=document.getElementById('dismissPriceNotice');
   if(priceNotice&&dismissPriceNotice){
-    const noticeKey='master-price-notice-20261024-compact1';
+    const noticeKey='master-price-notice-20261024-compact2';
     try{priceNotice.hidden=sessionStorage.getItem(noticeKey)==='dismissed';}catch{}
     dismissPriceNotice.hidden=false;
     dismissPriceNotice.addEventListener('click',()=>{
