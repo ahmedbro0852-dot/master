@@ -399,8 +399,8 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     return m?m[1].toUpperCase():'';
   }
   function currentMarket(){return MARKETS[state.market]||MARKETS.INTL;}
-  // Store USD/EGP rate supplied on 14 October 2026.
-  const STORE_USD_EGP=53;
+  // Store USD/EGP rate supplied on 23 October 2026.
+  const STORE_USD_EGP=56;
   function currencyRate(currency){if(currency==='USD')return 1/STORE_USD_EGP;return Number(state.rates[currency]||FALLBACK_RATES[currency]||1);}
   function decimalCount(currency){return DECIMALS[currency]??2;}
 
