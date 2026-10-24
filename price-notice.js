@@ -33,12 +33,12 @@ function markup(id,live=false){
  return '<article class="pn-card pn-v'+d.id+'" dir="rtl">'+(live?'<button class="pn-x" data-pn-close type="button" aria-label="إغلاق التنويه">×</button>':'')+body+'</article>';
 }
 const dialog=document.createElement('dialog');dialog.id='priceNoticeDialog';dialog.className='pn-dialog';dialog.setAttribute('aria-labelledby','pnTitle');document.body.append(dialog);
-const key='master-price-notice-logo-20261024',gallery=document.body.hasAttribute('data-notice-gallery');let previous=null;
+const key='master-price-notice-logo-design6-20261024',gallery=document.body.hasAttribute('data-notice-gallery');let previous=null;
 function dismissed(){try{return sessionStorage.getItem(key)==='dismissed';}catch{return false;}}
 function close(){if(dialog.open)dialog.close();}
 function open(id){const d=designs.find(x=>x.id===Number(id))||designs[0];previous=document.activeElement;dialog.innerHTML=markup(d.id,true);dialog.dataset.design=String(d.id);dialog.querySelectorAll('[data-pn-close]').forEach(b=>b.onclick=close);if(!dialog.open){dialog.showModal();document.documentElement.classList.add('pn-open');}}
 dialog.addEventListener('close',()=>{document.documentElement.classList.remove('pn-open');if(!gallery){try{sessionStorage.setItem(key,'dismissed');}catch{}}if(previous?.isConnected&&previous!==document.body)previous.focus({preventScroll:true});});
 dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)close();});
 if(gallery){const root=document.getElementById('noticeDesigns');root.innerHTML=designs.map(d=>'<section class="pn-option"><header><span>'+String(d.id).padStart(2,'0')+'</span><div><h2>'+d.name+'</h2><p>'+d.description+'</p></div></header><div class="pn-sample" aria-hidden="true">'+markup(d.id)+'</div><div class="pn-option-actions"><button type="button" data-preview="'+d.id+'">معاينة في منتصف الشاشة</button><a href="index.html?notice_design='+d.id+'">تجربته داخل المتجر ↗</a></div></section>').join('');root.querySelectorAll('[data-preview]').forEach(b=>b.onclick=()=>open(b.dataset.preview));
-}else{const requested=new URLSearchParams(location.search).get('notice_design');if(requested&&/^(?:[1-9]|10)$/.test(requested))open(+requested);else if(!dismissed())open(1);}
+}else{const requested=new URLSearchParams(location.search).get('notice_design');if(requested&&/^(?:[1-9]|10)$/.test(requested))open(+requested);else if(!dismissed())open(6);}
 })();
