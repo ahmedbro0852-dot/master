@@ -3715,7 +3715,7 @@ const products = [
       {
         "name": "Creator — تفعيل على حسابك",
         "duration": "3 شهور",
-        "price": 1500,
+        "price": 1250,
         "activation": "تفعيل على حساب العميل.",
         "account": "حساب العميل الشخصي",
         "warranty": "ضمان كامل",
@@ -3735,7 +3735,8 @@ const products = [
           "basis": "reference",
           "source": "https://elevenlabs.io/pricing",
           "checkedAt": "2026-10-08"
-        }
+        },
+        "previousStorePrice": 1500
       },
       {
         "name": "Creator — اشتراك شهر",

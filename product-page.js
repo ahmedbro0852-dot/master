@@ -91,7 +91,7 @@
           '<label class="plan-option">'+
             '<input type="radio" name="plan" value="'+i+'" '+(i===initialPlan?'checked':'')+' '+(!active||plan.available===false?'disabled':'')+'>'+
             '<span><b>'+MasterStore.escapeHtml(tr(plan.name||plan.duration,'planName'))+'</b><small>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+' · '+MasterStore.escapeHtml(tr(plan.duration||'','duration'))+' · '+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</small>'+planSavingMarkup(plan)+'</span>'+
-            '<strong>'+(plan.available===false?ui('غير متاح','Unavailable'):MasterStore.planMoney(plan))+'</strong>'+
+            planPriceMarkup(plan)+
           '</label>'
         ).join(''):'<div class="notice">'+ui('الخدمة غير متاحة للطلب حاليًا.','This service is currently unavailable for ordering.')+'</div>')+
         '<div id="planFeatures"></div>'+
@@ -133,7 +133,21 @@
   const planFeatures=document.getElementById('planFeatures');
   const radios=[...document.querySelectorAll('input[name="plan"]')];
 
+  function previousStorePriceMarkup(plan){
+    const value=Number(plan.previousStorePrice);
+    if(plan.available===false||!(value>0)||MasterStore.planAmount({price:value})<=MasterStore.planAmount(plan))return '';
+    return '<span class="plan-previous-price"><del>'+MasterStore.planMoney({price:value})+'</del><small>'+ui('سعر المتجر السابق','Previous store price')+'</small></span>';
+  }
+  function planPriceMarkup(plan){
+    const current='<strong>'+(plan.available===false?ui('غير متاح','Unavailable'):MasterStore.planMoney(plan))+'</strong>',previous=previousStorePriceMarkup(plan);
+    return previous?'<span class="plan-price-tag">'+current+previous+'</span>':current;
+  }
+
   function planSavingMarkup(plan){
+    if(Number(plan?.previousStorePrice)>0){
+      const previous=MasterStore.planAmount({price:Number(plan.previousStorePrice)}),current=MasterStore.planAmount(plan),saving=previous-current;
+      if(saving>0)return '<small class="plan-saving">'+ui('توفير ','Save ')+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+ui(' مقارنة بسعر المتجر السابق',' vs previous store price')+'</small>';
+    }
     const discount=MasterStore.officialDiscount(plan);
     if(discount&&discount.percent>0)return '<small class="plan-saving">'+ui(discount.estimated?'توفير تقديري ':'توفير ',discount.estimated?'Estimated saving ':'Save ')+discount.percent+'% · '+MasterStore.formatCurrency(discount.saving,MasterStore.getMarket().currency)+'</small>';
     if(!plan?.oldPrice)return '';
@@ -242,7 +256,7 @@
     planDetails.innerHTML=
       (p.id==='elevenlabs'&&plan.offerEndsAt?'<div class="notice" role="note">'+ui('⏰ عرض مؤقت: مهلة الحجز 24 ساعة فقط. مدة الاشتراك شهر كامل.','⏰ Limited-time offer: book within 24 hours. Subscription lasts one full month.')+'</div>':'')+
       '<dl class="details-list">'+
-        '<div><dt>'+ui('السعر','Price')+'</dt><dd>'+MasterStore.planMoney(plan)+'</dd></div>'+
+        '<div><dt>'+ui('السعر','Price')+'</dt><dd>'+MasterStore.planMoney(plan)+previousStorePriceMarkup(plan)+'</dd></div>'+
         ((plan.oldPrice||plan.officialPrice)?'<div><dt>'+(plan.officialPrice?(plan.priceComparison?.referenceLabel?ui('سعر Plus المستقل للمقارنة','Standalone Plus reference price'):ui('السعر الرسمي','Official price')):ui('السعر قبل العرض','Before discount'))+'</dt><dd>'+(saving?'<del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>':MasterStore.planMoney(plan,'oldPrice'))+(saving?' <strong class="saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
         discountDetail(plan)+
         '<div><dt>'+ui('نوع الباقة','Plan tier')+'</dt><dd>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+'</dd></div>'+
@@ -291,7 +305,7 @@
       if(oldSaving)oldSaving.remove();
       const holder=label.querySelector('span');
       if(holder)holder.insertAdjacentHTML('beforeend',planSavingMarkup(plan));
-      if(price)price.textContent=MasterStore.planMoney(plan);
+      if(price)(label.querySelector('.plan-price-tag')||price).outerHTML=planPriceMarkup(plan);
     });
     renderDetails();
     const back=root.querySelector('.back-link');

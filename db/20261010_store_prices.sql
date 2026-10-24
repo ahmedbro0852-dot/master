@@ -42,7 +42,7 @@ insert into public.master_store_plans(product_id,plan_index,product_name,plan_na
 ('gamma-plus',0,'Gamma Plus','Plus','1 شهر',40000,true,5),
 ('gamma-account',0,'Gamma Account','10 Workspaces','12 شهر',80000,true,1),
 ('elevenlabs',0,'ElevenLabs Creator','Creator — سنة على حسابك','12 شهر',345000,true,5),
-('elevenlabs',1,'ElevenLabs Creator','Creator — تفعيل على حسابك','3 شهور',150000,true,5),
+('elevenlabs',1,'ElevenLabs Creator','Creator — تفعيل على حسابك','3 شهور',125000,true,5),
 ('elevenlabs',2,'ElevenLabs Creator','Creator','1 شهر',55000,true,5),
 ('heygen',0,'HeyGen Creator','1,250 Credits','1 شهر',125000,true,5),
 ('canva-pro',0,'Canva Pro','Canva Pro','3 سنوات',5000,true,5),
