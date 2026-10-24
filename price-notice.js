@@ -1,22 +1,22 @@
 (function(){
 'use strict';
 const designs=[
-{id:1,name:'البطاقة المتوازنة',description:'نص رسمي وصورة مصرية جانبية في بطاقة صغيرة.',image:'images/egypt-betawqeet.webp'},
-{id:2,name:'التقسيم الرأسي',description:'صورة في عمود مستقل ومساحة بيضاء للنص.',image:'images/egyptian-price-reaction.webp'},
-{id:3,name:'اللقطة السينمائية',description:'لقطة مصرية عريضة فوق التنويه.',image:'images/egypt-hanafy.webp'},
-{id:4,name:'الخطاب الرسمي',description:'تكوين يشبه خطاب المتجر، مع صورة كطابع جانبي.',image:'images/egypt-ibn-hamido.webp'},
-{id:5,name:'التنبيه المختصر',description:'صف أفقي بسيط وصورة دائرية صغيرة.',image:'images/egypt-betawqeet.webp'},
-{id:6,name:'النسخة الليلية',description:'كحلي وذهبي مع صورة دائرية وعنوان في المنتصف.',image:'images/egyptian-price-reaction.webp'},
-{id:7,name:'الخبر الصحفي',description:'عنوان تحريري وفاصل وأعمدة كصفحة أخبار مصغرة.',image:'images/egypt-ibn-hamido.webp'},
-{id:8,name:'التذكرة',description:'حواف تذكرة وفواصل منقطة وتكوين رأسي.',image:'images/egypt-betawqeet.webp'},
-{id:9,name:'فقاعة الرسالة',description:'صورة خارجية بجوار فقاعة تنويه زرقاء.',image:'images/egyptian-price-reaction.webp'},
-{id:10,name:'الإطار الهندسي',description:'إطار كحلي وتقسيم قطري مع صورة جانبية.',image:'images/egypt-hanafy.webp'}
+{id:1,name:'البطاقة المتوازنة',description:'نص رسمي وصورة توضيحية جانبية في بطاقة صغيرة.',image:'images/pricing-update-formal.webp'},
+{id:2,name:'التقسيم الرأسي',description:'صورة في عمود مستقل ومساحة بيضاء للنص.',image:'images/pricing-update-formal.webp'},
+{id:3,name:'الصورة العريضة',description:'صورة هادئة عريضة فوق التنويه.',image:'images/pricing-update-formal.webp'},
+{id:4,name:'الخطاب الرسمي',description:'تكوين يشبه خطاب المتجر، مع صورة كطابع جانبي.',image:'images/pricing-update-formal.webp'},
+{id:5,name:'التنبيه المختصر',description:'صف أفقي بسيط وصورة دائرية صغيرة.',image:'images/pricing-update-formal.webp'},
+{id:6,name:'النسخة الليلية',description:'كحلي وذهبي مع صورة دائرية وعنوان في المنتصف.',image:'images/pricing-update-formal.webp'},
+{id:7,name:'الخبر الصحفي',description:'عنوان تحريري وفاصل وأعمدة كصفحة أخبار مصغرة.',image:'images/pricing-update-formal.webp'},
+{id:8,name:'التذكرة',description:'حواف تذكرة وفواصل منقطة وتكوين رأسي.',image:'images/pricing-update-formal.webp'},
+{id:9,name:'فقاعة الرسالة',description:'صورة خارجية بجوار فقاعة تنويه زرقاء.',image:'images/pricing-update-formal.webp'},
+{id:10,name:'الإطار الهندسي',description:'إطار كحلي وتقسيم قطري مع صورة جانبية.',image:'images/pricing-update-formal.webp'}
 ];
 const copy='<p class="pn-copy">نعتذر عن تعديل بعض أسعار الاشتراكات، تأثرًا بارتفاع سعر الدولار بأكثر من <b>١٠٪</b>.</p>';
 const emoji=(code)=>'<img class="pn-emoji" src="images/notice-emoji/'+code+'.svg" width="17" height="17" alt="" aria-hidden="true">';
 const logo='<img class="pn-logo" src="master-store-logo.svg" width="108" height="32" alt="ماستر ستور">';
 function markup(id,live=false){
- const d=designs.find(x=>x.id===id)||designs[0],title='<h2 class="pn-title"'+(live?' id="pnTitle"':'')+'>'+emoji('1f514')+' تنويه بتحديث الأسعار</h2>',pic='<img class="pn-photo" src="'+d.image+'" width="400" height="217" alt="لقطة ميمز من السينما المصرية" decoding="async">',thanks='<p class="pn-thanks">'+emoji('1f64f')+' شكرًا لتفهمكم وثقتكم.</p>',action=live?'<button class="pn-ack" type="button" data-pn-close>اطّلعت على التنويه</button>':'<span class="pn-ack">اطّلعت على التنويه</span>',foot='<footer class="pn-footer">'+thanks+action+'</footer>';
+ const d=designs.find(x=>x.id===id)||designs[0],title='<h2 class="pn-title"'+(live?' id="pnTitle"':'')+'>'+emoji('1f514')+' تنويه بتحديث الأسعار</h2>',pic='<img class="pn-photo" src="'+d.image+'" width="960" height="640" alt="صورة توضيحية لآلة حاسبة وعملات الدولار" decoding="async">',thanks='<p class="pn-thanks">'+emoji('1f64f')+' شكرًا لتفهمكم وثقتكم.</p>',action=live?'<button class="pn-ack" type="button" data-pn-close>اطّلعت على التنويه</button>':'<span class="pn-ack">اطّلعت على التنويه</span>',foot='<footer class="pn-footer">'+thanks+action+'</footer>';
  let body='';
  switch(d.id){
  case 1:body='<header class="pn-brandline">'+logo+'<span>لعملائنا الكرام</span></header>'+title+'<div class="pn-row">'+copy+pic+'</div>'+foot;break;
@@ -33,7 +33,7 @@ function markup(id,live=false){
  return '<article class="pn-card pn-v'+d.id+'" dir="rtl">'+(live?'<button class="pn-x" data-pn-close type="button" aria-label="إغلاق التنويه">×</button>':'')+body+'</article>';
 }
 const dialog=document.createElement('dialog');dialog.id='priceNoticeDialog';dialog.className='pn-dialog';dialog.setAttribute('aria-labelledby','pnTitle');document.body.append(dialog);
-const key='master-price-notice-centered-20261024',gallery=document.body.hasAttribute('data-notice-gallery');let previous=null;
+const key='master-price-notice-centered-normal-20261024',gallery=document.body.hasAttribute('data-notice-gallery');let previous=null;
 function dismissed(){try{return sessionStorage.getItem(key)==='dismissed';}catch{return false;}}
 function close(){if(dialog.open)dialog.close();}
 function open(id){const d=designs.find(x=>x.id===Number(id))||designs[0];previous=document.activeElement;dialog.innerHTML=markup(d.id,true);dialog.dataset.design=String(d.id);dialog.querySelectorAll('[data-pn-close]').forEach(b=>b.onclick=close);if(!dialog.open){dialog.showModal();document.documentElement.classList.add('pn-open');}}
