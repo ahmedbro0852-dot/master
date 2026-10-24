@@ -1,0 +1,30 @@
+.account-avatar.has-avatar-picker{width:82px;height:auto;background:transparent;align-self:center}
+.avatar-trigger{display:grid;justify-items:center;gap:6px;padding:0;border:0;background:transparent;color:var(--ink,#183451);font:inherit;cursor:pointer}
+.avatar-portrait{display:grid;place-items:center;width:76px;height:76px;border-radius:23px;background:#e8efff;overflow:hidden;border:2px solid #dce6f5;color:#2457cf;font-size:26px}
+.avatar-portrait img,.avatar-option-face img,.avatar-preview img{display:block;width:100%;height:100%;object-fit:cover}
+.avatar-trigger small{font-size:10px;font-weight:600;color:var(--blue,#2563eb);white-space:nowrap}
+.avatar-dialog{box-sizing:border-box;inset:0;margin:auto;padding:0;width:600px;max-width:calc(100vw - 28px);max-height:calc(100dvh - 32px);border:1px solid var(--line,#dce5f2);border-radius:24px;background:var(--theme-surface,#fff);color:var(--ink,#132947);box-shadow:0 30px 100px #081c4d40;overflow:hidden;font:inherit}
+.avatar-dialog::backdrop{background:#10233b99;backdrop-filter:blur(5px)}
+.avatar-form{display:flex;flex-direction:column;height:min(780px,calc(100dvh - 34px));margin:0}
+.avatar-heading{flex:0 0 auto;display:flex;justify-content:space-between;align-items:start;gap:12px;padding:22px 24px 14px}
+.avatar-heading h2{margin:0;font-size:20px;line-height:1.7;color:inherit}
+.avatar-heading p,.avatar-preview-row p{margin:5px 0 0;font-size:11px;line-height:1.9;color:var(--muted,#61748b)}
+.avatar-close{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;padding:0;border:1px solid var(--line,#dce5f2);border-radius:12px;background:var(--theme-control,#f3f6fc);color:inherit;font:inherit;font-size:25px;cursor:pointer}
+.avatar-preview-row{flex:0 0 auto;display:flex;align-items:center;gap:15px;margin:0 24px 16px;padding:14px 18px;background:var(--theme-panel,#f4f7fd);border:1px solid var(--line,#e1e8f4);border-radius:17px}
+.avatar-preview{display:grid;place-items:center;width:68px;height:68px;flex:0 0 68px;border-radius:19px;overflow:hidden;background:#e0eaff;color:#2457cf;font-size:25px;font-weight:700}
+.avatar-preview-row b{font-size:13px}
+.avatar-options{flex:1 1 auto;display:grid;align-content:start;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;overflow:auto;overscroll-behavior:contain;min-height:0;margin:0;padding:8px 24px 20px;border:0;scrollbar-width:thin}
+.avatar-option{position:relative;display:block;cursor:pointer;min-width:0}
+.avatar-option input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.avatar-option-face{box-sizing:border-box;display:grid;place-items:center;aspect-ratio:1;border:3px solid transparent;border-radius:19px;overflow:hidden;background:#edf2fa;color:#2457cf;font-size:23px;font-weight:700;transition:transform .15s,border-color .15s}
+.avatar-option:hover .avatar-option-face{transform:translateY(-2px)}
+.avatar-option input:checked+.avatar-option-face{border-color:#2563eb;box-shadow:0 0 0 2px var(--theme-surface,#fff),0 0 0 4px #2563eb}
+.avatar-option input:focus-visible+.avatar-option-face{outline:3px solid #8bb4ff;outline-offset:4px}
+.avatar-option input:disabled+.avatar-option-face{opacity:.6;cursor:wait}
+.avatar-actions{box-sizing:border-box;flex:0 0 auto;width:100%;margin:0;display:flex;gap:10px;padding:16px 24px;border-top:1px solid var(--line,#e0e7f2);background:var(--theme-surface,#fff)}
+.avatar-actions button{min-height:44px;font:inherit;font-size:12px;cursor:pointer}
+.avatar-save-status{flex:0 0 auto;margin:0;padding:9px 24px;color:#c63e4f;font-size:12px;line-height:1.8}
+.avatar-save-status[hidden]{display:none}
+.avatar-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:480px){.avatar-heading{padding:18px 18px 12px}.avatar-heading h2{font-size:17px}.avatar-preview-row{margin:0 18px 12px;padding:10px 12px}.avatar-options{grid-template-columns:repeat(4,minmax(0,1fr));padding:8px 18px 18px;gap:12px}.avatar-actions{padding:14px 18px}.avatar-actions button{flex:1}.avatar-preview{width:54px;height:54px;flex-basis:54px}.avatar-dialog{border-radius:21px}}
+@media(prefers-reduced-motion:reduce){.avatar-option-face{transition:none}}
