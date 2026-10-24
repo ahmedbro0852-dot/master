@@ -52,7 +52,7 @@
   }
   function formatCurrency(v,currency){
     if((currency||getMarket().currency)==='EGP'){
-      return new Intl.NumberFormat(window.MasterLocale?.getState().language==='en'?'en-EG':'ar-EG',{style:'currency',currency:'EGP',minimumFractionDigits:0,maximumFractionDigits:2}).format(Number(v)||0);
+      return new Intl.NumberFormat(window.MasterLocale?.getState().language==='en'?'en-EG':'ar-EG',{style:'currency',currency:'EGP',numberingSystem:'latn',minimumFractionDigits:0,maximumFractionDigits:2}).format(Number(v)||0);
     }
     return window.MasterLocale?window.MasterLocale.formatCurrency(Number(v)||0,currency||getMarket().currency):Number(v).toLocaleString('en-US')+' ج';
   }
