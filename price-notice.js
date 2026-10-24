@@ -12,11 +12,11 @@ const designs=[
 {id:9,name:'فقاعة الرسالة',description:'شعار واضح داخل فقاعة تنويه زرقاء.'},
 {id:10,name:'الإطار الهندسي',description:'إطار كحلي وتقسيم قطري يحمل شعار المتجر.'}
 ];
-const copy='<p class="pn-copy"><img class="pn-emoji" src="images/notice-emoji/1f4b5.svg" width="17" height="17" alt="" aria-hidden="true"> نعتذر عن تعديل بعض أسعار الاشتراكات، تأثرًا بارتفاع سعر الدولار بأكثر من <b>١٠٪</b>.</p>';
+const copy='<p class="pn-copy"><img class="pn-emoji" src="images/notice-emoji/1f4b8.svg" width="17" height="17" alt="" aria-hidden="true"> نعتذر عن تعديل بعض أسعار الاشتراكات، تأثرًا بارتفاع سعر الدولار بأكثر من <b>١٠٪</b>.</p>';
 const emoji=(code)=>'<img class="pn-emoji" src="images/notice-emoji/'+code+'.svg" width="17" height="17" alt="" aria-hidden="true">';
 const logo='<img class="pn-logo" src="master-store-logo.svg" width="108" height="32" alt="ماستر ستور">';
 function markup(id,live=false){
- const d=designs.find(x=>x.id===id)||designs[0],title='<h2 class="pn-title"'+(live?' id="pnTitle"':'')+'>'+emoji('1f514')+' تنويه بتحديث الأسعار</h2>',thanks='<p class="pn-thanks">'+emoji('1f64f')+' شكرًا لتفهمكم وثقتكم.</p>',action=live?'<button class="pn-ack" type="button" data-pn-close>اطّلعت على التنويه</button>':'<span class="pn-ack">اطّلعت على التنويه</span>',foot='<footer class="pn-footer">'+thanks+action+'</footer>';
+ const d=designs.find(x=>x.id===id)||designs[0],title='<h2 class="pn-title"'+(live?' id="pnTitle"':'')+'>'+emoji('1fae0')+' تنويه بتحديث الأسعار</h2>',thanks='<p class="pn-thanks">'+emoji('1f90d')+' شكرًا لتفهمكم وثقتكم.</p>',action=live?'<button class="pn-ack" type="button" data-pn-close>اطّلعت على التنويه</button>':'<span class="pn-ack">اطّلعت على التنويه</span>',foot='<footer class="pn-footer">'+thanks+action+'</footer>';
  let body='';
  switch(d.id){
  case 1:body='<header class="pn-brandline">'+logo+'<span>لعملائنا الكرام</span></header>'+title+copy+foot;break;
@@ -33,7 +33,7 @@ function markup(id,live=false){
  return '<article class="pn-card pn-v'+d.id+'" dir="rtl">'+(live?'<button class="pn-x" data-pn-close type="button" aria-label="إغلاق التنويه">×</button>':'')+body+'</article>';
 }
 const dialog=document.createElement('dialog');dialog.id='priceNoticeDialog';dialog.className='pn-dialog';dialog.setAttribute('aria-labelledby','pnTitle');document.body.append(dialog);
-const key='master-price-notice-logo-design6-20261024',gallery=document.body.hasAttribute('data-notice-gallery');let previous=null;
+const key='master-price-notice-logo-design6-reactions-20261024',gallery=document.body.hasAttribute('data-notice-gallery');let previous=null;
 function dismissed(){try{return sessionStorage.getItem(key)==='dismissed';}catch{return false;}}
 function close(){if(dialog.open)dialog.close();}
 function open(id){const d=designs.find(x=>x.id===Number(id))||designs[0];previous=document.activeElement;dialog.innerHTML=markup(d.id,true);dialog.dataset.design=String(d.id);dialog.querySelectorAll('[data-pn-close]').forEach(b=>b.onclick=close);if(!dialog.open){dialog.showModal();document.documentElement.classList.add('pn-open');}}
