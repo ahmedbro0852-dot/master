@@ -1,5 +1,52 @@
 const products = [
   {
+    "id": "supergrok-coursera-bundle",
+    "name": "SuperGrok + Coursera Plus",
+    "category": "التعليم",
+    "categories": [
+      "محادثة ومساعد ذكي",
+      "كورسات وتعلم مهني"
+    ],
+    "logo": "grok",
+    "logoUrl": "logos/supergrok-coursera-bundle.svg",
+    "status": "available",
+    "description": "باقة مجمّعة تضم SuperGrok لمدة شهر وCoursera Plus لمدة شهر بسعر 1399 جنيه. حسابات جاهزة، مع ضمان كامل طوال الشهر وتسليم الإيميل وكلمة المرور وطريقة الوصول لكود التحقق لكل حساب.",
+    "features": [
+      "اشتراك SuperGrok لمدة شهر كامل.",
+      "اشتراك Coursera Plus لمدة شهر كامل.",
+      "الاشتراكان مشمولان في سعر واحد: 1399 ج.",
+      "حسابات جاهزة للاستخدام لكل خدمة.",
+      "تسليم الإيميل وكلمة المرور وطريقة الوصول لكود التحقق لكل حساب.",
+      "ضمان كامل على الحسابين طوال مدة الاشتراك: شهر."
+    ],
+    "featuresEn": [
+      "SuperGrok subscription for one full month.",
+      "Coursera Plus subscription for one full month.",
+      "Both subscriptions included for EGP 1,399.",
+      "Ready-to-use accounts for both services.",
+      "Email, password and instructions for accessing the verification code supplied for each account.",
+      "Full warranty for both accounts throughout the one-month subscription."
+    ],
+    "plans": [
+      {
+        "name": "SuperGrok شهر + Coursera Plus شهر",
+        "planType": "SuperGrok + Plus",
+        "duration": "1 شهر لكل اشتراك",
+        "price": 1399,
+        "available": true,
+        "activation": "تسليم حسابات جاهزة للخدمتين: إيميل + كلمة مرور + طريقة الوصول لكود التحقق لكل حساب.",
+        "account": "حسابات جاهزة",
+        "accountType": "حسابات جاهزة للخدمتين",
+        "warranty": "ضمان كامل لمدة شهر على الحسابين",
+        "notes": [
+          "السعر يشمل اشتراك SuperGrok لشهر واشتراك Coursera Plus لشهر معًا.",
+          "تُسلّم بيانات الدخول وطريقة الوصول لكود التحقق لكل حساب ضمن تفاصيل الطلب.",
+          "الضمان كامل طوال مدة الاشتراك: شهر."
+        ]
+      }
+    ]
+  },
+  {
     "id": "gemini-coursera-bundle",
     "name": "Coursera Plus + هدايا",
     "category": "التعليم",

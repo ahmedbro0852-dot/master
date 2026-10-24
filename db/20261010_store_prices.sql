@@ -1,6 +1,7 @@
 -- Server wallet catalogue: integer EGP piastres. Apply after catalogue changes.
 update public.master_store_plans set available=false;
 insert into public.master_store_plans(product_id,plan_index,product_name,plan_name,duration,price_piasters,available,max_quantity) values
+('supergrok-coursera-bundle',0,'SuperGrok + Coursera Plus','SuperGrok شهر + Coursera Plus شهر','1 شهر لكل اشتراك',139900,true,5),
 ('cursor-pro',0,'Cursor Pro','Pro — سنة بكود تفعيل','12 شهر',705700,true,5),
 ('higgsfield-pro',0,'Higgsfield Pro','Pro — سنة بكود تفعيل','12 شهر',836300,true,5),
 ('windows-pro',0,'Windows 11 / 10 Pro','Windows 11 Pro — Lifetime','مدى الحياة للإصدار المشترى',26100,true,5),
