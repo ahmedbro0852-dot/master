@@ -50,7 +50,7 @@
     return;
   }
 
-  const popularityOrder=["gemini-coursera-bundle","chatgpt-plus","chatgpt-teachers-k12","gemini-pro","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account"];
+  const popularityOrder=["supergrok-coursera-bundle","gemini-coursera-bundle","chatgpt-plus","chatgpt-teachers-k12","gemini-pro","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account"];
   const popularityRank=new Map(popularityOrder.map((id,index)=>[id,index]));
   const statusRank={available:0,soon:1,out:2};
   const products=[...(Catalog.products||[])].filter(product=>!product.redirectTo).sort((a,b)=>{
@@ -157,7 +157,7 @@
     return '<article class="product-card light-card simple-service-card" aria-label="'+esc(product.name)+'" data-product-id="'+esc(product.id)+'" data-category="'+esc(product.category)+'" data-search="'+esc(searchText(product))+'">'+
       (product.id==='elevenlabs'&&product.plans?.[2]?.offerEndsAt&&product.plans?.[2]?.available!==false?'<p class="plan-saving">'+ui('⏰ عرض مؤقت · الحجز خلال 24 ساعة · الاشتراك شهر كامل','⏰ Limited-time offer · Book within 24 hours · 1-month subscription')+'</p>':'')+
       '<div class="card-top">'+logoMarkup(product)+'<h3 class="service-name" dir="auto">'+esc(product.name)+'</h3></div>'+
-      (product.id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">كورسيرا سنة + جيمناي ٣ شهور + كانفا ٣ سنين</p>':'')+'<div class="light-meta"><strong>'+esc(price)+'</strong></div>'+
+      (product.id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">كورسيرا سنة + جيمناي ٣ شهور + كانفا ٣ سنين</p>':'')+(product.id==='supergrok-coursera-bundle'?'<p class="bundle-card-summary">'+ui('شهر لكل اشتراك · حسابات جاهزة · ضمان كامل','One month each · Ready accounts · Full warranty')+'</p>':'')+'<div class="light-meta"><strong>'+esc(price)+'</strong></div>'+
       (product.id==='duolingo'&&plan&&Number(plan.oldPrice)>Number(plan.price)?'<p class="plan-saving" style="font-size:12px;color:#187447;line-height:1.8;margin:0 0 12px">'+ui('توفير ','Save ')+Math.round((1-Number(plan.price)/Number(plan.oldPrice))*100)+'% · '+ui('مقارنة بسعر المتجر السابق','vs previous store price')+' <del>'+Store.planMoney(plan,'oldPrice')+'</del></p>':'')+
       '<div class="card-bottom light-bottom">'+action+'</div>'+
     '</article>';
@@ -233,11 +233,11 @@
   function renderBestOffers(){
     const target=document.getElementById('bestOffersGrid');
     if(!target)return;
-    const picks=[['elevenlabs',2],['cursor-pro',1],['coursera',0],['lovable-pro',1],['gemini-pro',0],['capcut-pro',1],['grok',0]];
+    const picks=[['supergrok-coursera-bundle',0],['elevenlabs',2],['cursor-pro',1],['coursera',0],['lovable-pro',1],['gemini-pro',0],['capcut-pro',1],['grok',0]];
     target.innerHTML=picks.map(([id,index])=>{
       const product=Catalog.getProduct(id),plan=product?.plans?.[index];
       if(!plan||plan.hidden||plan.available===false||product.status!=='available')return '';
-      return '<article class="best-offer '+(id==='gemini-coursera-bundle'?'bundle-featured':'')+'">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3>'+(id==='elevenlabs'&&plan.offerEndsAt?'<p class="plan-saving">'+ui('⏰ عرض مؤقت · مهلة الحجز 24 ساعة · الاشتراك شهر كامل','⏰ Limited-time offer · Book within 24 hours · 1-month subscription')+'</p>':'')+(id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">اشتراك سنة بضمان كامل + هديتين مجانًا</p>':'')+'<small>'+esc(id==='lovable-pro'&&index===1?ui('شهر · 100 كريدت + 5 يوميًا','Month · 100 credits + 5 daily'):tr(plan.duration,'duration',id))+'</small></div><strong>'+Store.planMoney(plan)+((plan.oldPrice||plan.officialPrice)&&Store.planAmount(plan,'oldPrice')>Store.planAmount(plan)?' <del>'+Store.planMoney(plan,'oldPrice')+'</del>':'')+'</strong><a class="card-btn soft-btn" href="products/'+encodeURIComponent(id)+'.html?plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
+      return '<article class="best-offer '+(id==='gemini-coursera-bundle'?'bundle-featured':'')+'">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3>'+(id==='elevenlabs'&&plan.offerEndsAt?'<p class="plan-saving">'+ui('⏰ عرض مؤقت · مهلة الحجز 24 ساعة · الاشتراك شهر كامل','⏰ Limited-time offer · Book within 24 hours · 1-month subscription')+'</p>':'')+(id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">اشتراك سنة بضمان كامل + هديتين مجانًا</p>':'')+(id==='supergrok-coursera-bundle'?'<p class="bundle-card-summary">'+ui('سوبر جروك شهر + كورسيرا بلس شهر · ضمان كامل','SuperGrok + Coursera Plus · One month each · Full warranty')+'</p>':'')+'<small>'+esc(id==='lovable-pro'&&index===1?ui('شهر · 100 كريدت + 5 يوميًا','Month · 100 credits + 5 daily'):tr(plan.duration,'duration',id))+'</small></div><strong>'+Store.planMoney(plan)+((plan.oldPrice||plan.officialPrice)&&Store.planAmount(plan,'oldPrice')>Store.planAmount(plan)?' <del>'+Store.planMoney(plan,'oldPrice')+'</del>':'')+'</strong><a class="card-btn soft-btn" href="products/'+encodeURIComponent(id)+'.html?plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
     }).join('');
     bindLogoFallbacks(target);
   }

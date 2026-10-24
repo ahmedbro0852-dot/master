@@ -1,7 +1,7 @@
 const products = [
   {
     "id": "supergrok-coursera-bundle",
-    "name": "SuperGrok + Coursera Plus",
+    "name": "سوبر جروك + كورسيرا بلس",
     "category": "التعليم",
     "categories": [
       "محادثة ومساعد ذكي",
