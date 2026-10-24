@@ -2,7 +2,7 @@
   'use strict';
   const ids=Object.freeze(Array.from({length:32},(_,i)=>'avatar-'+String(i+1).padStart(2,'0')));
   const valid=id=>id==='initials'||ids.includes(id);
-  const path=id=>ids.includes(id)?'images/avatars/'+id+'.svg':'';
+  const path=id=>ids.includes(id)?'images/avatars/avatars-3d-'+(Math.floor(ids.indexOf(id)/8)+1)+'.webp':'';
   function mount({root,user,onSaved}){
     const holder=root.querySelector('.account-avatar');
     if(!holder||!user?.id)return;
@@ -18,9 +18,13 @@
     const caption=document.createElement('small');caption.textContent=t('تغيير الصورة','Change picture');
     trigger.append(portrait,caption);holder.append(trigger);
     function paint(target,id){
-      target.replaceChildren();
-      if(path(id)){const img=document.createElement('img');img.src=path(id);img.alt='';img.width=80;img.height=80;target.append(img);}
-      else target.textContent=letter;
+      target.replaceChildren();target.dataset.avatar=id;target.classList.toggle('avatar-sprite',!!path(id));
+      if(path(id)){
+        const index=ids.indexOf(id)%8,img=document.createElement('img');
+        img.src=path(id);img.alt='';img.width=320;img.height=160;
+        img.style.left=-(index%4)*100+'%';img.style.top=-Math.floor(index/4)*100+'%';
+        target.append(img);
+      }else target.textContent=letter;
     }
     paint(portrait,saved);
     trigger.onclick=()=>{
@@ -28,7 +32,7 @@
       let chosen=saved,busy=false;
       const dialog=document.createElement('dialog');dialog.id='avatarDialog';dialog.className='avatar-dialog';
       dialog.dir=en()?'ltr':'rtl';dialog.setAttribute('aria-labelledby','avatarDialogTitle');
-      dialog.innerHTML='<form class="avatar-form"><header class="avatar-heading"><div><h2 id="avatarDialogTitle">'+t('اختار صورتك الشخصية','Choose your avatar')+'</h2><p>'+t('32 شخصية مختلفة. اختار الشكل اللي يناسبك.','32 different characters. Pick your favorite.')+'</p></div><button type="button" class="avatar-close" aria-label="'+t('إغلاق','Close')+'">×</button></header><div class="avatar-preview-row"><span class="avatar-preview"></span><div><b>'+t('معاينة الصورة','Picture preview')+'</b><p>'+t('هتظهر في حسابك بعد الحفظ.','Your picture changes when you save.')+'</p></div></div><fieldset class="avatar-options"><legend class="avatar-sr-only">'+t('الصور المتاحة','Available pictures')+'</legend></fieldset><p class="avatar-save-status" role="status" aria-live="polite" hidden></p><footer class="avatar-actions"><button type="submit" class="primary">'+t('حفظ الصورة','Save picture')+'</button><button type="button" class="ghost-btn avatar-cancel">'+t('إلغاء','Cancel')+'</button></footer></form>';
+      dialog.innerHTML='<form class="avatar-form"><header class="avatar-heading"><div><h2 id="avatarDialogTitle">'+t('اختار صورتك الشخصية','Choose your avatar')+'</h2><p>'+t('32 شخصية 3D بخلفيات ملونة. اختار الشكل اللي يناسبك.','32 colorful 3D characters. Pick your favorite.')+'</p></div><button type="button" class="avatar-close" aria-label="'+t('إغلاق','Close')+'">×</button></header><div class="avatar-preview-row"><span class="avatar-preview"></span><div><b>'+t('معاينة الصورة','Picture preview')+'</b><p>'+t('هتظهر في حسابك بعد الحفظ.','Your picture changes when you save.')+'</p></div></div><fieldset class="avatar-options"><legend class="avatar-sr-only">'+t('الصور المتاحة','Available pictures')+'</legend></fieldset><p class="avatar-save-status" role="status" aria-live="polite" hidden></p><footer class="avatar-actions"><button type="submit" class="primary">'+t('حفظ الصورة','Save picture')+'</button><button type="button" class="ghost-btn avatar-cancel">'+t('إلغاء','Cancel')+'</button></footer></form>';
       const options=dialog.querySelector('.avatar-options'),preview=dialog.querySelector('.avatar-preview');
       paint(preview,chosen);
       for(const [i,id] of ['initials',...ids].entries()){
