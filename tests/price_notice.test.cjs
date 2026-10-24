@@ -1,0 +1,20 @@
+const {chromium}=require('playwright'),fs=require('node:fs'),path=require('node:path'),http=require('node:http'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'..');
+const server=http.createServer((req,res)=>{try{const f=path.join(root,new URL(req.url,'http://localhost').pathname);res.setHeader('Content-Type',f.endsWith('.js')?'text/javascript':f.endsWith('.css')?'text/css':f.endsWith('.svg')?'image/svg+xml':f.endsWith('.webp')?'image/webp':'text/html');res.end(fs.readFileSync(f));}catch{res.writeHead(404).end();}});
+(async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin='http://127.0.0.1:'+server.address().port,browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE_PATH,headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});try{
+const ctx=await browser.newContext({viewport:{width:390,height:844},reducedMotion:"reduce"}),p=await ctx.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));await ctx.route('**/*',r=>new URL(r.request().url()).origin===origin?r.continue():r.abort());
+await p.goto(origin+'/notice-designs.html');assert.equal(await p.locator('[data-preview]').count(),10);assert.equal(await p.locator('#priceNoticeDialog').evaluate(d=>d.open),false);const hashes=new Set();
+for(const size of [{width:390,height:844},{width:320,height:568},{width:1440,height:1000}]){
+ await p.setViewportSize(size);assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ for(let id=1;id<=10;id++){
+  const trigger=p.locator('[data-preview="'+id+'"]');await trigger.click();await p.waitForFunction(()=>[...document.querySelectorAll('#priceNoticeDialog img')].every(x=>x.complete&&x.naturalWidth>0));
+  const dialog=p.locator('#priceNoticeDialog'),rect=await dialog.boundingBox();assert(rect&&rect.x>=0&&rect.y>=0);assert(rect.x+rect.width<=size.width+1);assert(rect.y+rect.height<=size.height+1);assert(Math.abs(rect.x+rect.width/2-size.width/2)<=1,'horizontal center '+id);assert(Math.abs(rect.y+rect.height/2-size.height/2)<=1,'vertical center '+id);
+  assert.equal(await dialog.getAttribute('data-design'),String(id));assert.match(await dialog.innerText(),/نعتذر عن تعديل بعض أسعار الاشتراكات/);
+  await p.keyboard.press('Tab');assert(await p.evaluate(()=>document.getElementById('priceNoticeDialog').contains(document.activeElement)));
+  if(size.width===390){const shot=await dialog.screenshot({path:'/tmp/notice-design-'+id+'.png'});hashes.add(crypto.createHash('sha256').update(shot).digest('hex'));}
+  if(id%2){await p.keyboard.press('Escape');}else{await dialog.locator('.pn-ack').click();}
+  assert.equal(await dialog.evaluate(d=>d.open),false);assert.equal(await trigger.evaluate(x=>document.activeElement===x),true);
+ }
+}
+assert.equal(hashes.size,10);await p.setViewportSize({width:390,height:844});await p.goto(origin+'/index.html');await p.waitForSelector('#priceNoticeDialog[open]');await p.locator('.pn-x').click();await p.goto(origin+'/cart.html');assert.equal(await p.locator('#priceNoticeDialog').evaluate(d=>d.open),false);await p.goto(origin+'/product.html?id=gemini-pro&notice_design=7');await p.waitForSelector('#priceNoticeDialog[open][data-design="7"]');await p.keyboard.press('Escape');assert(await p.evaluate(()=>!document.documentElement.classList.contains('pn-open')));assert.deepEqual(errors,[]);console.log('PASS: 10 distinct layouts centered at 320/390/1440px, loaded images, keyboard focus, Escape, acknowledgment, restore focus, session dismissal and store preview link.');
+}finally{await browser.close();server.close();}})().catch(e=>{console.error(e);server.close();process.exitCode=1;});

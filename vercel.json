@@ -140,6 +140,15 @@
           "value": "private, no-store"
         }
       ]
+    },
+    {
+      "source": "/notice-designs.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ],
   "buildCommand": "node scripts/build-seo.cjs",
