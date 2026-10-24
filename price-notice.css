@@ -33,3 +33,18 @@
 @media(max-width:420px){.pn-card .pn-copy{font-size:14px;line-height:1.9}.pn-v1{padding:23px 21px 20px}.pn-v1 .pn-title{font-size:18px}.pn-thanks{font-size:11px}.pn-ack{font-size:11px}.pn-v2 .pn-title,.pn-v10 .pn-title{font-size:16px}.pn-v2 .pn-content,.pn-v10 .pn-content{padding:36px 16px 18px}.pn-v2 .pn-media>.pn-logo{width:68px;height:40px}.pn-v9{display:block}.pn-v9 .pn-copy{font-size:13px}.pn-v10 .pn-geometry .pn-logo{width:67px}}
 
 .pn-emoji{width:20px;height:20px;flex-shrink:0;vertical-align:-4px}
+
+@font-face{font-family:NoticePlex;font-style:normal;font-weight:500;font-display:swap;src:url('fonts/plex-arabic-medium.woff2') format('woff2')}
+@font-face{font-family:NoticePlex;font-style:normal;font-weight:600 800;font-display:swap;src:url('fonts/plex-arabic-semibold.woff2') format('woff2')}
+/* Selected design: light storefront colors with stronger Arabic text. */
+.pn-v6{background:#fff;color:#102a43;border:1px solid #dce6f2;border-top:4px solid #2763e7;border-radius:20px;padding:26px 24px 23px;font-family:NoticePlex,Arial,sans-serif;box-shadow:0 18px 60px #102a4326}
+.pn-v6>.pn-logo{background:transparent;border:0;border-radius:0;padding:0;width:148px;height:44px;margin:0 auto 10px}
+.pn-v6 .pn-overline{color:#768aa1;font:500 11px/1.8 NoticePlex,Arial,sans-serif;letter-spacing:0}
+.pn-v6 .pn-title{color:#102a43;font:600 19px/1.8 NoticePlex,Arial,sans-serif;gap:8px;margin:13px 0 12px}
+.pn-v6 .pn-copy{color:#334e68;font:500 15px/2 NoticePlex,Arial,sans-serif;margin:0}
+.pn-v6 .pn-footer{border-color:#e6edf5;gap:14px;margin-top:19px;padding-top:15px}
+.pn-v6 .pn-thanks{color:#60758b;font:500 12px/1.8 NoticePlex,Arial,sans-serif}
+.pn-v6 .pn-ack{background:#2763e7;color:#fff;border:0;border-radius:11px;min-height:44px;font:600 13px/1.8 NoticePlex,Arial,sans-serif;box-shadow:none}
+.pn-v6 .pn-ack:hover{background:#1f54c7}.pn-v6 .pn-x{background:#f0f5fb;color:#5a738d}.pn-v6 button:focus-visible{outline:2px solid #93b8ff;outline-offset:3px}
+.pn-v6 .pn-emoji{width:18px;height:18px;vertical-align:-3px}
+@media(max-width:420px){.pn-v6{padding:24px 21px 21px}.pn-v6 .pn-title{font-size:18px}.pn-v6 .pn-copy{font-size:14px;line-height:2}.pn-v6 .pn-thanks{font-size:12px}}
