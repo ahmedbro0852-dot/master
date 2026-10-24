@@ -9,7 +9,7 @@ for(const size of [{width:390,height:844},{width:320,height:568},{width:1440,hei
  for(let id=1;id<=10;id++){
   const trigger=p.locator('[data-preview="'+id+'"]');await trigger.click();await p.waitForFunction(()=>[...document.querySelectorAll('#priceNoticeDialog img')].every(x=>x.complete&&x.naturalWidth>0));
   const dialog=p.locator('#priceNoticeDialog'),rect=await dialog.boundingBox();assert(rect&&rect.x>=0&&rect.y>=0);assert(rect.x+rect.width<=size.width+1);assert(rect.y+rect.height<=size.height+1);assert(Math.abs(rect.x+rect.width/2-size.width/2)<=1,'horizontal center '+id);assert(Math.abs(rect.y+rect.height/2-size.height/2)<=1,'vertical center '+id);
-  assert.equal(await dialog.getAttribute('data-design'),String(id));assert.match(await dialog.innerText(),/نعتذر عن تعديل بعض أسعار الاشتراكات/);
+  assert.equal(await dialog.getAttribute('data-design'),String(id));assert.equal(await dialog.locator('img:not(.pn-logo):not(.pn-emoji)').count(),0);assert.equal(await dialog.locator('.pn-logo').count(),1);await p.evaluate(()=>document.fonts.ready);assert(await dialog.evaluate(()=>document.fonts.check('14px Tajawal')));assert.match(await dialog.innerText(),/نعتذر عن تعديل بعض أسعار الاشتراكات/);
   await p.keyboard.press('Tab');assert(await p.evaluate(()=>document.getElementById('priceNoticeDialog').contains(document.activeElement)));
   if(size.width===390){const shot=await dialog.screenshot({path:'/tmp/notice-design-'+id+'.png'});hashes.add(crypto.createHash('sha256').update(shot).digest('hex'));}
   if(id%2){await p.keyboard.press('Escape');}else{await dialog.locator('.pn-ack').click();}

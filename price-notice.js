@@ -1,39 +1,39 @@
 (function(){
 'use strict';
 const designs=[
-{id:1,name:'البطاقة المتوازنة',description:'نص رسمي وصورة توضيحية جانبية في بطاقة صغيرة.',image:'images/pricing-update-formal.webp'},
-{id:2,name:'التقسيم الرأسي',description:'صورة في عمود مستقل ومساحة بيضاء للنص.',image:'images/pricing-update-formal.webp'},
-{id:3,name:'الصورة العريضة',description:'صورة هادئة عريضة فوق التنويه.',image:'images/pricing-update-formal.webp'},
-{id:4,name:'الخطاب الرسمي',description:'تكوين يشبه خطاب المتجر، مع صورة كطابع جانبي.',image:'images/pricing-update-formal.webp'},
-{id:5,name:'التنبيه المختصر',description:'صف أفقي بسيط وصورة دائرية صغيرة.',image:'images/pricing-update-formal.webp'},
-{id:6,name:'النسخة الليلية',description:'كحلي وذهبي مع صورة دائرية وعنوان في المنتصف.',image:'images/pricing-update-formal.webp'},
-{id:7,name:'الخبر الصحفي',description:'عنوان تحريري وفاصل وأعمدة كصفحة أخبار مصغرة.',image:'images/pricing-update-formal.webp'},
-{id:8,name:'التذكرة',description:'حواف تذكرة وفواصل منقطة وتكوين رأسي.',image:'images/pricing-update-formal.webp'},
-{id:9,name:'فقاعة الرسالة',description:'صورة خارجية بجوار فقاعة تنويه زرقاء.',image:'images/pricing-update-formal.webp'},
-{id:10,name:'الإطار الهندسي',description:'إطار كحلي وتقسيم قطري مع صورة جانبية.',image:'images/pricing-update-formal.webp'}
+{id:1,name:'البطاقة المتوازنة',description:'شعار المتجر ونص واضح في بطاقة صغيرة ومتوازنة.'},
+{id:2,name:'التقسيم الرأسي',description:'شريط جانبي للشعار ومساحة بيضاء للنص.'},
+{id:3,name:'شريط الهوية',description:'شريط علوي للشعار فوق التنويه الرسمي.'},
+{id:4,name:'الخطاب الرسمي',description:'تكوين يشبه خطاب المتجر، بهوية رسمية نظيفة.'},
+{id:5,name:'التنبيه المختصر',description:'شعار وعنوان في تكوين مختصر وبسيط.'},
+{id:6,name:'النسخة الليلية',description:'كحلي وذهبي مع الشعار والعنوان في المنتصف.'},
+{id:7,name:'الخبر الصحفي',description:'عنوان تحريري وفاصل وأعمدة كصفحة أخبار مصغرة.'},
+{id:8,name:'التذكرة',description:'حواف تذكرة وفواصل منقطة وتكوين رأسي.'},
+{id:9,name:'فقاعة الرسالة',description:'شعار واضح داخل فقاعة تنويه زرقاء.'},
+{id:10,name:'الإطار الهندسي',description:'إطار كحلي وتقسيم قطري يحمل شعار المتجر.'}
 ];
-const copy='<p class="pn-copy">نعتذر عن تعديل بعض أسعار الاشتراكات، تأثرًا بارتفاع سعر الدولار بأكثر من <b>١٠٪</b>.</p>';
+const copy='<p class="pn-copy"><img class="pn-emoji" src="images/notice-emoji/1f4b5.svg" width="17" height="17" alt="" aria-hidden="true"> نعتذر عن تعديل بعض أسعار الاشتراكات، تأثرًا بارتفاع سعر الدولار بأكثر من <b>١٠٪</b>.</p>';
 const emoji=(code)=>'<img class="pn-emoji" src="images/notice-emoji/'+code+'.svg" width="17" height="17" alt="" aria-hidden="true">';
 const logo='<img class="pn-logo" src="master-store-logo.svg" width="108" height="32" alt="ماستر ستور">';
 function markup(id,live=false){
- const d=designs.find(x=>x.id===id)||designs[0],title='<h2 class="pn-title"'+(live?' id="pnTitle"':'')+'>'+emoji('1f514')+' تنويه بتحديث الأسعار</h2>',pic='<img class="pn-photo" src="'+d.image+'" width="960" height="640" alt="صورة توضيحية لآلة حاسبة وعملات الدولار" decoding="async">',thanks='<p class="pn-thanks">'+emoji('1f64f')+' شكرًا لتفهمكم وثقتكم.</p>',action=live?'<button class="pn-ack" type="button" data-pn-close>اطّلعت على التنويه</button>':'<span class="pn-ack">اطّلعت على التنويه</span>',foot='<footer class="pn-footer">'+thanks+action+'</footer>';
+ const d=designs.find(x=>x.id===id)||designs[0],title='<h2 class="pn-title"'+(live?' id="pnTitle"':'')+'>'+emoji('1f514')+' تنويه بتحديث الأسعار</h2>',thanks='<p class="pn-thanks">'+emoji('1f64f')+' شكرًا لتفهمكم وثقتكم.</p>',action=live?'<button class="pn-ack" type="button" data-pn-close>اطّلعت على التنويه</button>':'<span class="pn-ack">اطّلعت على التنويه</span>',foot='<footer class="pn-footer">'+thanks+action+'</footer>';
  let body='';
  switch(d.id){
- case 1:body='<header class="pn-brandline">'+logo+'<span>لعملائنا الكرام</span></header>'+title+'<div class="pn-row">'+copy+pic+'</div>'+foot;break;
- case 2:body='<div class="pn-media">'+pic+'<span>MASTER STORE</span></div><div class="pn-content">'+logo+title+copy+foot+'</div>';break;
- case 3:body='<div class="pn-cinema">'+pic+'<span>MASTER STORE</span></div><div class="pn-content">'+title+copy+foot+'</div>';break;
- case 4:body='<header class="pn-letterhead">'+logo+'<span>إشعار للعملاء</span></header><div class="pn-postmark">'+pic+'</div>'+title+copy+foot;break;
- case 5:body='<div class="pn-minihead">'+pic+'<div>'+logo+title+'</div></div>'+copy+foot;break;
- case 6:body=pic+'<span class="pn-overline">MASTER STORE · تنويه مهم</span>'+title+copy+foot;break;
- case 7:body='<header class="pn-masthead"><b>أخبار المتجر</b>'+logo+'</header><span class="pn-overline">تحديث يخص أسعار الاشتراكات</span>'+title+'<div class="pn-columns">'+copy+pic+'</div>'+foot;break;
- case 8:body='<header class="pn-tickethead">'+logo+'<span>تنويه للعملاء</span></header>'+title+'<div class="pn-ticketbody">'+pic+copy+'</div>'+foot;break;
- case 9:body='<div class="pn-speaker">'+pic+'</div><div class="pn-bubble">'+logo+title+copy+foot+'</div>';break;
- case 10:body='<div class="pn-geometry">'+pic+'</div><div class="pn-content"><span class="pn-overline">MASTER STORE</span>'+title+copy+foot+'</div>';break;
+ case 1:body='<header class="pn-brandline">'+logo+'<span>لعملائنا الكرام</span></header>'+title+copy+foot;break;
+ case 2:body='<div class="pn-media">'+logo+'</div><div class="pn-content">'+title+copy+foot+'</div>';break;
+ case 3:body='<div class="pn-cinema">'+logo+'</div><div class="pn-content">'+title+copy+foot+'</div>';break;
+ case 4:body='<header class="pn-letterhead">'+logo+'<span>إشعار للعملاء</span></header>'+title+copy+foot;break;
+ case 5:body='<div class="pn-minihead"><div>'+logo+title+'</div></div>'+copy+foot;break;
+ case 6:body=logo+'<span class="pn-overline">تنويه مهم لعملائنا</span>'+title+copy+foot;break;
+ case 7:body='<header class="pn-masthead"><b>أخبار المتجر</b>'+logo+'</header><span class="pn-overline">تحديث يخص أسعار الاشتراكات</span>'+title+'<div class="pn-columns">'+copy+'</div>'+foot;break;
+ case 8:body='<header class="pn-tickethead">'+logo+'<span>تنويه للعملاء</span></header>'+title+'<div class="pn-ticketbody">'+copy+'</div>'+foot;break;
+ case 9:body='<div class="pn-bubble">'+logo+title+copy+foot+'</div>';break;
+ case 10:body='<div class="pn-geometry">'+logo+'</div><div class="pn-content">'+title+copy+foot+'</div>';break;
  }
  return '<article class="pn-card pn-v'+d.id+'" dir="rtl">'+(live?'<button class="pn-x" data-pn-close type="button" aria-label="إغلاق التنويه">×</button>':'')+body+'</article>';
 }
 const dialog=document.createElement('dialog');dialog.id='priceNoticeDialog';dialog.className='pn-dialog';dialog.setAttribute('aria-labelledby','pnTitle');document.body.append(dialog);
-const key='master-price-notice-centered-normal-20261024',gallery=document.body.hasAttribute('data-notice-gallery');let previous=null;
+const key='master-price-notice-logo-20261024',gallery=document.body.hasAttribute('data-notice-gallery');let previous=null;
 function dismissed(){try{return sessionStorage.getItem(key)==='dismissed';}catch{return false;}}
 function close(){if(dialog.open)dialog.close();}
 function open(id){const d=designs.find(x=>x.id===Number(id))||designs[0];previous=document.activeElement;dialog.innerHTML=markup(d.id,true);dialog.dataset.design=String(d.id);dialog.querySelectorAll('[data-pn-close]').forEach(b=>b.onclick=close);if(!dialog.open){dialog.showModal();document.documentElement.classList.add('pn-open');}}
