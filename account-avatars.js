@@ -5,7 +5,7 @@
   const path=id=>ids.includes(id)?'images/avatars/avatars-3d-'+(Math.floor(ids.indexOf(id)/8)+1)+'.webp':'';
   // A user's random UUID seeds a stable automatic avatar across devices.
   // Presentation preference only; never used for authorization.
-  function automaticId(userId){let hash=2166136261;for(const c of String(userId)){hash^=c.charCodeAt(0);hash=Math.imul(hash,16777619);}return ids[(hash>>>0)%ids.length];}
+  function automaticId(userId){return window.MasterStore.avatarData({id:userId}).id;}
   function mount({root,user,onSaved}){
     const holder=root.querySelector('.account-avatar');
     if(!holder||!user?.id)return;
@@ -50,6 +50,7 @@
         const face=document.createElement('span');face.className='avatar-option-face';paint(face,id);
         label.append(radio,face);options.append(label);
         const check=document.createElement('span');check.className='avatar-check';check.textContent='✓';check.setAttribute('aria-hidden','true');label.append(check);
+        if(id!=='auto'){const number=document.createElement('span');number.className='avatar-number';number.textContent=String(i).padStart(2,'0');number.setAttribute('aria-hidden','true');label.append(number);}
         if(id==='auto'){const badge=document.createElement('span');badge.className='avatar-auto-badge';badge.textContent=t('تلقائي','Auto');label.append(badge);}
         radio.onchange=()=>{chosen=id;updatePreview();};
       }

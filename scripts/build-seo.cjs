@@ -18,7 +18,7 @@ async function loadPrices(){
  try{
   // Reuse public (not service-role) access already used by the storefront.
   const source=fs.readFileSync(path.join(root,'catalog-live.js'),'utf8');
-  const url=new URL(source.match(/fetch\('([^']+)'/)[1]);url.searchParams.set('select','product_id,plan_index,price_piasters,available,admin_overridden');
+  const url=new URL(source.match(/fetch\('([^']+)'/)[1]);url.searchParams.set('select','product_id,plan_index,price_piasters,available,admin_overridden,previous_price_piasters');
   const key=source.match(/apikey:'([^']+)'/)[1];
   const response=await fetch(url,{headers:{apikey:key},signal:AbortSignal.timeout(8000)});
   if(!response.ok)throw Error('catalog prices');const rows=await response.json();
@@ -38,7 +38,9 @@ function writeProducts(prices){
    if(plan.hidden)return '';
    const offer=offers.find(x=>x.url.endsWith('?plan='+i));
    const details=features.list(p,plan,false,x=>String(x||''));
-   return '<article class="account-panel"><h3>'+escape(plan.name)+'</h3>'+(offer?'<p><strong>السعر: '+escape(offer.price)+' جنيه مصري</strong> · '+(offer.availability.endsWith('/InStock')?'متاح للطلب':'غير متاح حاليًا')+'</p>':'')+'<p>المدة: '+escape(plan.duration||'راجع تفاصيل الباقة')+'</p><p>'+escape(plan.activation)+'</p><p>الضمان: '+escape(plan.warranty||'يُؤكد مع الدعم')+'</p>'+(details.length?'<ul>'+details.map(f=>'<li>'+escape(f)+'</li>').join('')+'</ul>':'')+(plan.notes?.length?'<ul>'+plan.notes.map(n=>'<li>'+escape(n)+'</li>').join('')+'</ul>':'')+'</article>';
+   const historyRow=prices?.find(x=>x.product_id===p.id&&Number(x.plan_index)===i),former=Number(historyRow&&Object.prototype.hasOwnProperty.call(historyRow,'previous_price_piasters')?historyRow.previous_price_piasters:Number(plan.previousStorePrice||(!plan.officialPrice?plan.oldPrice:0))*100);
+   const before=offer&&former>Number(offer.price)*100?'<span class="plan-previous-price"><small>السعر السابق</small><del>'+escape((former/100).toLocaleString('en-US'))+' ج</del></span>':'';
+   return '<article class="account-panel"><h3>'+escape(plan.name)+'</h3>'+(offer?'<p><strong>السعر: '+escape(offer.price)+' جنيه مصري</strong> · '+(offer.availability.endsWith('/InStock')?'متاح للطلب':'غير متاح حاليًا')+'</p>':'')+before+'<p>المدة: '+escape(plan.duration||'راجع تفاصيل الباقة')+'</p><p>'+escape(plan.activation)+'</p><p>الضمان: '+escape(plan.warranty||'يُؤكد مع الدعم')+'</p>'+(details.length?'<ul>'+details.map(f=>'<li>'+escape(f)+'</li>').join('')+'</ul>':'')+(plan.notes?.length?'<ul>'+plan.notes.map(n=>'<li>'+escape(n)+'</li>').join('')+'</ul>':'')+'</article>';
   }).join('')+'<p>راجع السعر والتوفر الحاليين عند الطلب؛ يتم تأكيد الدفع والتسليم وفق تفاصيل الباقة.</p><a href="/product.html?id='+encodeURIComponent(p.id)+'">اختيار الباقة والطلب</a></section>';
   if(WindowsGuide.match(p)){
    content=content.replace('</section><section class="plans-block">','</section>'+WindowsGuide.nav(false)+'<section class="plans-block" id="windows-plans">')+'<div id="windows-guide-root">'+WindowsGuide.render(false)+'</div>';

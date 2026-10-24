@@ -133,19 +133,12 @@
   const planFeatures=document.getElementById('planFeatures');
   const radios=[...document.querySelectorAll('input[name="plan"]')];
 
-  function previousStorePriceMarkup(plan){
-    const value=Number(plan.previousStorePrice);
-    if(plan.available===false||!(value>0)||MasterStore.planAmount({price:value})<=MasterStore.planAmount(plan))return '';
-    return '<span class="plan-previous-price"><del>'+MasterStore.planMoney({price:value})+'</del><small>'+ui('سعر المتجر السابق','Previous store price')+'</small></span>';
-  }
-  function planPriceMarkup(plan){
-    const current='<strong>'+(plan.available===false?ui('غير متاح','Unavailable'):MasterStore.planMoney(plan))+'</strong>',previous=previousStorePriceMarkup(plan);
-    return previous?'<span class="plan-price-tag">'+current+previous+'</span>':current;
-  }
+  function previousStorePriceMarkup(plan){return MasterStore.previousPriceMarkup(plan);}
+  function planPriceMarkup(plan){return plan.available===false?'<strong>'+ui('غير متاح','Unavailable')+'</strong>':MasterStore.priceMarkup(plan);}
 
   function planSavingMarkup(plan){
-    if(Number(plan?.previousStorePrice)>0){
-      const previous=MasterStore.planAmount({price:Number(plan.previousStorePrice)}),current=MasterStore.planAmount(plan),saving=previous-current;
+    if(MasterStore.previousPrice(plan)){
+      const {saving}=MasterStore.previousPrice(plan);
       if(saving>0)return '<small class="plan-saving">'+ui('توفير ','Save ')+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+ui(' مقارنة بسعر المتجر السابق',' vs previous store price')+'</small>';
     }
     const discount=MasterStore.officialDiscount(plan);

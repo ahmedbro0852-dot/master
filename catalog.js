@@ -2972,7 +2972,8 @@ const products = [
             "currency": "USD",
             "label": "مجاني للمؤهلين حتى يونيو 2028"
           }
-        }
+        },
+        "previousStorePrice": 500
       }
     ],
     "categories": [
@@ -3263,7 +3264,8 @@ const products = [
           "note": "300 كريدت إجماليًا + رصيد يومي لا يطابق تلقائيًا Pro الذي يبدأ من 100 كريدت كل شهر. لم تتأكد باقة رسمية مطابقة لهذا العرض."
         },
         "oldPrice": 650,
-        "planType": "Pro Lite"
+        "planType": "Pro Lite",
+        "previousStorePrice": 650
       }
     ],
     "categories": [
@@ -3751,7 +3753,8 @@ const products = [
         "notes": [
           "مدة الاشتراك شهر كامل. السعر 550 جنيه بدل 1200 جنيه؛ توفير 650 جنيه (حوالي 54%).",
           "مدة الاشتراك شهر كامل ويشمل 131 ألف كريديت."
-        ]
+        ],
+        "previousStorePrice": 1200
       }
     ],
     "categories": [
@@ -4236,7 +4239,8 @@ const products = [
           "status": "reference",
           "billingLabel": "12 شهرًا بالسعر الشهري الرسمي",
           "note": "المرجع يعادل 12 × 9.99 دولار بالسداد الشهري، وليس سعر خطة سنوية."
-        }
+        },
+        "previousStorePrice": 599
       },
       {
         "name": "Adobe Express Premium — لينك تفعيل يحتاج بطاقة",
@@ -4372,7 +4376,8 @@ const products = [
           "السعر 120 جنيه فقط.",
           "تستلم لينك وتفعّله مباشرة على حسابك الشخصي المرتبط بإيميلك.",
           "ضمان كامل طوال مدة الاشتراك."
-        ]
+        ],
+        "previousStorePrice": 300
       }
     ],
     "categories": [
@@ -5033,7 +5038,8 @@ const products = [
           "basis": "reference",
           "source": "https://stealthwriter.ai/pricing",
           "checkedAt": "2026-10-08"
-        }
+        },
+        "previousStorePrice": 1048.8
       },
       {
         "name": "Plus",
@@ -5068,7 +5074,8 @@ const products = [
           "basis": "reference",
           "source": "https://stealthwriter.ai/pricing",
           "checkedAt": "2026-10-08"
-        }
+        },
+        "previousStorePrice": 2359.8
       }
     ],
     "categories": [

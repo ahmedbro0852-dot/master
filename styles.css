@@ -2078,3 +2078,8 @@ body{background:linear-gradient(180deg,#f8faff 0,#fff 720px);-webkit-font-smooth
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.product-card.light-card,.primary,.card-btn,.filter,.plan-option{transition:none!important;transform:none!important}}
 
 #filters{display:block;overflow:visible;white-space:normal}.category-main,.category-sub{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.category-sub{margin-top:14px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card,#fff)}.category-sub .filter{font-size:11px}.category-sub-label{font-size:12px;color:var(--muted,#617084);margin-inline-end:4px}@media(max-width:760px){.category-main{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px}.category-main .filter{flex:none}.category-sub{padding:10px;gap:6px}.category-sub .filter{min-height:36px;padding:7px 10px}}
+
+/* Signed-in account picture uses the same local 3D avatar as the profile. */
+.account-link.with-avatar{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:5px 11px 5px 6px}
+.account-link.with-avatar:before{content:'';display:block;flex:0 0 30px;width:30px;height:30px;border-radius:50%;background-image:var(--account-avatar-image);background-size:400% 200%;background-position:var(--account-avatar-position);box-shadow:0 0 0 2px #fff,0 0 0 3px #dce6f2}
+@media(max-width:580px){.account-link.with-avatar{font-size:0;padding:5px;width:38px;height:38px;gap:0}.account-link.with-avatar:before{width:28px;height:28px;flex-basis:28px}}
