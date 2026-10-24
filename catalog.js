@@ -3903,7 +3903,7 @@ const products = [
     "category": "التصميم",
     "logo": "capcut",
     "status": "available",
-    "description": "حسابات CapCut Pro جاهزة بعدة مدد وCredits مختلفة.",
+    "description": "باقات CapCut Pro بعدة مدد وأرصدة كريدت. متاح شهر مع 2000 كريدت بسعر 320 ج بضمان كامل، أو شهر على إيميلك مع 500 كريدت على الأقل بسعر 270 ج مع ضمان.",
     "plans": [
       {
         "name": "7 أيام",
@@ -4054,6 +4054,46 @@ const products = [
           "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
           "checkedAt": "2026-10-08"
         }
+      },
+      {
+        "name": "Pro — شهر — 2000 كريدت",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 320,
+        "available": true,
+        "credits": "2000 كريدت",
+        "activation": "تسليم حساب CapCut Pro جاهز بإيميل وكلمة مرور.",
+        "account": "حساب جاهز",
+        "accountType": "حساب جاهز",
+        "warranty": "ضمان كامل لمدة شهر",
+        "features": [
+          "اشتراك CapCut Pro لمدة شهر.",
+          "رصيد 2000 كريدت ضمن الباقة."
+        ],
+        "featuresEn": [
+          "CapCut Pro subscription for one month.",
+          "Includes 2,000 credits."
+        ]
+      },
+      {
+        "name": "Pro — شهر على إيميلك — 500 كريدت على الأقل",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 270,
+        "available": true,
+        "credits": "500 كريدت على الأقل",
+        "activation": "تفعيل اشتراك CapCut Pro لمدة شهر على إيميلك الشخصي.",
+        "account": "على إيميلك الشخصي",
+        "accountType": "على إيميلك الشخصي",
+        "warranty": "ضمان لمدة شهر",
+        "features": [
+          "تفعيل CapCut Pro على إيميلك لمدة شهر.",
+          "رصيد لا يقل عن 500 كريدت."
+        ],
+        "featuresEn": [
+          "CapCut Pro activated on your email for one month.",
+          "At least 500 credits included."
+        ]
       }
     ],
     "notes": [

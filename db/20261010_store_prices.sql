@@ -1,6 +1,8 @@
 -- Server wallet catalogue: integer EGP piastres. Apply after catalogue changes.
 update public.master_store_plans set available=false;
 insert into public.master_store_plans(product_id,plan_index,product_name,plan_name,duration,price_piasters,available,max_quantity) values
+('capcut-pro',6,'CapCut Pro','Pro — شهر — 2000 كريدت','1 شهر',32000,true,5),
+('capcut-pro',7,'CapCut Pro','Pro — شهر على إيميلك — 500 كريدت على الأقل','1 شهر',27000,true,5),
 ('supergrok-coursera-bundle',0,'SuperGrok + Coursera Plus','SuperGrok شهر + Coursera Plus شهر','1 شهر لكل اشتراك',139900,true,5),
 ('cursor-pro',0,'Cursor Pro','Pro — سنة بكود تفعيل','12 شهر',705700,true,5),
 ('higgsfield-pro',0,'Higgsfield Pro','Pro — سنة بكود تفعيل','12 شهر',836300,true,5),

@@ -147,7 +147,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     "elevenlabs":"ElevenLabs Creator plans, including one full year on your personal account for EGP 4,500 without a payment card.",
     "heygen":"A ready HeyGen account with 1,250 credits.",
     "canva-pro":"Activate Canva Pro on your personal email.",
-    "capcut-pro":"Ready CapCut Pro accounts with multiple durations and different credit amounts.",
+    "capcut-pro":"CapCut Pro plans: one month with 2,000 credits for EGP 320 and full warranty, or one month on your email with at least 500 credits for EGP 270 with warranty.",
     "figma":"A 12-month Figma subscription.",
     "freepik":"A ready Freepik account for one month.",
     "adobe-cc":"Currently out of stock.",
