@@ -49,7 +49,7 @@ module.exports = async function handler(req,res) {
     method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},signal:AbortSignal.timeout(6000),
     body:JSON.stringify({model:process.env.STORE_ASSISTANT_MODEL||'google/gemini-3.5-flash-lite',messages:[{role:'system',content:system},...messages],max_tokens:1000,temperature:0.2})
    });
-   if(!response.ok){unavailable=response.status===402?'credits':response.status===403?'verification':response.status===401?'authentication':'upstream';console.warn('store_assistant_gateway_status',response.status);throw Error('gateway_unavailable');}
+   if(!response.ok){const errorData=await response.json().catch(()=>({}));const verification=/customer_verification_required|payment method|verify your/i.test(JSON.stringify(errorData));unavailable=response.status===402?'credits':response.status===403?(verification?'verification':'access_denied'):response.status===401?'authentication':'upstream';console.warn('store_assistant_gateway_status',response.status,unavailable);throw Error('gateway_unavailable');}
    const data=await response.json(),text=data.choices?.[0]?.message?.content;
    if(typeof text!=='string'||!text.trim())throw Error('empty_answer');
    return result(text);
