@@ -12,6 +12,12 @@ async function assertEnglish(label){await page.waitForTimeout(0);assert.deepEqua
 for(const route of routes){
  await page.goto(origin+route);await page.waitForTimeout(50);
  if(route.includes('product.html'))await page.locator('#productPage').waitFor();
+ if(await page.locator('.menu').count()){
+  await page.locator('.menu').click();await assertEnglish(route+' open navigation');
+  assert.equal((await page.locator('.cart-nav').textContent()).replace(/\d+/g,'').trim(),'Cart');
+  assert.equal(await page.locator('#mainNav').getAttribute('aria-label'),'Main navigation');
+  await page.keyboard.press('Escape');
+ }
  await assertEnglish(route);
  for(const value of await page.locator('input[name=plan]:not(:disabled)').evaluateAll(xs=>xs.map(x=>x.value))){
   await page.locator('input[name=plan][value="'+value+'"]').evaluate(x=>{x.checked=true;x.dispatchEvent(new Event('change',{bubbles:true}));});
@@ -19,9 +25,10 @@ for(const route of routes){
  }
 }
 await page.goto(origin+'/index.html');await page.locator('#grid .product-card').first().waitFor();
+await page.setViewportSize({width:1440,height:1000});await assertEnglish('desktop navigation');assert.match(await page.locator('.cart-nav').textContent(),/Cart/);await page.setViewportSize({width:390,height:844});
 const prices=await page.evaluate(()=>MasterCatalog.getProduct('gemini-pro').plans.map(x=>MasterStore.planAmount(x)));
-await page.locator('#languageSelect').selectOption('ar');assert.equal(await page.locator('html').getAttribute('dir'),'rtl');assert.match(await page.locator('.footer-policy').textContent(),/سياسة/);
-await page.locator('#languageSelect').selectOption('en');await assertEnglish('switch back to English');assert.deepEqual(await page.evaluate(()=>MasterCatalog.getProduct('gemini-pro').plans.map(x=>MasterStore.planAmount(x))),prices);
+await page.locator('#languageSelect').selectOption('ar');assert.equal(await page.locator('html').getAttribute('dir'),'rtl');assert.match(await page.locator('.footer-policy').textContent(),/سياسة/);assert.match(await page.locator('.cart-nav').textContent(),/السلة/);
+await page.locator('#languageSelect').selectOption('en');await assertEnglish('switch back to English');assert.match(await page.locator('.cart-nav').textContent(),/Cart/);assert.deepEqual(await page.evaluate(()=>MasterCatalog.getProduct('gemini-pro').plans.map(x=>MasterStore.planAmount(x))),prices);
 await page.evaluate(()=>{const box=document.createElement('aside');box.id='lateTranslation';box.append(document.createComment('dynamic content'));box.innerHTML+='<p>وسائل الدفع</p><button aria-label="إغلاق">إغلاق</button>';document.body.append(box);});
 await page.waitForFunction(()=>document.querySelector('#lateTranslation p').textContent==='Payment methods');assert.equal(await page.locator('#lateTranslation button').getAttribute('aria-label'),'Close');
 await page.goto(origin+'/product.html?id=capcut-pro');await page.locator('#buyBtn').click();await assertEnglish('purchase choices');await page.locator('#languageSelect').evaluate(x=>window.MasterLocale.setLanguage('ar'));assert.match(await page.locator('#checkoutTitle').textContent(),/نكمل/);await page.evaluate(()=>MasterLocale.setLanguage('en'));await assertEnglish('purchase language round trip');await page.keyboard.press('Escape');
