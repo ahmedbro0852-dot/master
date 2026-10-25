@@ -65,3 +65,48 @@ html[data-custom-theme] .theme-options{background:var(--theme-surface);border-co
 html[data-custom-theme] .theme-option{color:var(--ink)}
 html[data-custom-theme] .theme-option:hover,html[data-custom-theme] .theme-option[aria-pressed=true]{background:var(--theme-selected);border-color:var(--theme-accent)}
 @media(max-width:700px){.theme-picker{order:3}.topbar .menu{order:4}}
+
+/* Keep shared surfaces and semantic text paired in every custom palette. */
+html[data-custom-theme]{--bg:var(--theme-bg);--card:var(--theme-surface);--accent:var(--theme-accent)}
+html[data-custom-theme] :is(.simple-service-card .card-top,.product-hero,.bundle-primary-detail,.policy-highlight,.wallet-checkout,.tracking-local-note,.guest-history,.wallet-empty,.admin-diff pre){background:var(--theme-panel);color:var(--ink);border-color:var(--line)}
+html[data-custom-theme] :is(.value-grid article,.bundle-inclusions,.seo-service-card,.admin-stats article){background:var(--theme-surface);color:var(--ink);border-color:var(--line)}
+html[data-custom-theme] :is(.bundle-primary-detail h3,.bundle-gift-row strong,.auth-card label>span,.account-panel label>span,.tracking-details dd,.checkout-summary strong){color:var(--ink)}
+html[data-custom-theme] :is(.catalog-overview,.bundle-label,.bundle-gift-row p,.auth-tabs button,.auth-card small,.auth-provider-status,.auth-provider-divider,.wallet-row small,.debit,.guest-history summary,.guest-history>p,.account-loading,.cart-shell>p,.admin-help,.policy-page .section-head p,.policy-clause p,.tracking-help,.tracking-details dt,.tracking-progress li,.tracking-page>div p,.wallet-checkout small){color:var(--muted)}
+html[data-custom-theme] :is(.text-btn,.footer-policy,.plan-policy-link a,.seo-directory a,.seo-breadcrumbs a,.seo-related a,.admin-area-nav a,.admin-stats b,.tracking-progress .reached){color:var(--theme-accent)}
+html[data-custom-theme] :is(.google-signin,.admin-tabs button,.soft-btn){background:var(--theme-control);color:var(--ink);border-color:var(--line)}
+html[data-custom-theme] .admin-tabs button.selected{background:var(--theme-selected);color:var(--theme-accent);border-color:var(--theme-accent)}
+html[data-custom-theme] :is(.plan-saving,.saving,.subtle-tag,.plan-notes,.device-note){background:var(--theme-gold-bg);color:var(--theme-gold-text);border-color:var(--theme-gold-line)}
+html[data-custom-theme] :is(.plan-notes ul,.device-note p){color:var(--theme-gold-text)}
+html[data-custom-theme] :is(.account-message.success,.topup-confirm){background:#133b2b;color:#9ce9bd;border-color:#31674c}
+html[data-custom-theme] :is(.account-message.error,.checkout-error){background:#47272d;color:#ffb8bc;border-color:#80515b}
+html[data-custom-theme] :is(.credit,.cart-saving,.bundle-guarantee){color:var(--green)}
+html[data-theme=warm]{--green:#176044;--red:#9b3038}
+html[data-theme=warm] :is(.account-message.success,.topup-confirm){background:#eafaf3;color:#145d43}
+html[data-theme=warm] :is(.account-message.error,.checkout-error){background:#fff0f0;color:#92383c}
+html[data-custom-theme] :is(.assistant-header p,.assistant-footer p,.assistant-header small,.assistant-message small){color:var(--muted)}
+html[data-custom-theme] :is(.assistant-footer a,.assistant-reset){color:var(--theme-accent)}
+html[data-custom-theme] :is(.store-assistant-dialog,.assistant-form textarea){background:var(--theme-input);color:var(--ink);border-color:var(--line)}
+html[data-custom-theme] :is(.assistant-header,.assistant-form,.assistant-footer,.assistant-message){background:var(--theme-surface);color:var(--ink);border-color:var(--line)}
+html[data-custom-theme] :is(.assistant-user,.assistant-sources a,.assistant-suggestions button){background:var(--theme-selected);color:var(--ink);border-color:var(--line)}
+html[data-custom-theme] .assistant-message a{color:var(--theme-accent)}
+html[data-custom-theme] :is(footer,.value-section,.safe-note){background:var(--theme-panel);border-color:var(--line)}
+html[data-custom-theme] .light-meta span{background:var(--theme-soft);color:var(--muted);border-color:var(--line)}
+html[data-custom-theme] .light-meta .store-price-pair{background:transparent}
+html[data-custom-theme] :is(.bundle-card-summary,.best-offer small,.plan-features ul,.auth-guest){color:var(--muted)}
+html[data-custom-theme] :is(.value-icon,.auth-label,.password-toggle){background:var(--theme-control);color:var(--theme-accent)}
+html[data-custom-theme] :is(.faq-eyebrow,.faq-intro h2 em,.faq-support,.auth-guest a){color:var(--theme-accent)}
+html[data-custom-theme] .faq-search>span{color:var(--muted)}
+html[data-custom-theme] .auth-tabs button[aria-pressed=true]{color:var(--theme-bg)}
+html[data-custom-theme] .order-follow{color:var(--theme-gold-text)}
+html[data-custom-theme] .gemini-deadline{color:var(--red);border-color:var(--line)}
+html[data-custom-theme] .deadline-unit small{color:var(--red)!important}
+html[data-custom-theme] .deadline-separator{color:var(--muted)}
+html[data-custom-theme] .store-follow-facebook{background:#175cb9;color:#fff}
+html[data-custom-theme] .soft-btn:hover{background:var(--theme-button);color:#fff}
+html[data-custom-theme] .auth-card .auth-tabs button[aria-pressed=true]{background:var(--theme-accent);color:var(--theme-bg)}
+html[data-custom-theme] [data-cursor-offer]{color:var(--red)!important}
+
+html[data-custom-theme] #trackingNotice{color:var(--muted)}
+html[data-custom-theme] .shelf-head small{color:var(--muted)}
+/* Customer photographs sit in a fixed dark showcase in every appearance. */
+html[data-custom-theme] .reviews-showcase :is(.reviews-heading h2,.reviews-story-title){color:#f5f9ff}
