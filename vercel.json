@@ -164,5 +164,14 @@
       "destination": "/",
       "permanent": true
     }
-  ]
+  ],
+  "functions": {
+    "api/store-assistant.js": {
+      "maxDuration": 30,
+      "includeFiles": [
+        "catalog.js",
+        "warranty.html"
+      ]
+    }
+  }
 }
