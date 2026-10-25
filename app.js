@@ -66,7 +66,7 @@
     return;
   }
 
-  const popularityOrder=["supergrok-coursera-bundle","gemini-coursera-bundle","chatgpt-plus","chatgpt-teachers-k12","gemini-pro","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","humanizeai-pro","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account"];
+  const popularityOrder=["capcut-gemini-gift","elevenlabs-gemini-gift","lovable-gemini-gift","supergrok-coursera-bundle","gemini-coursera-bundle","chatgpt-plus","chatgpt-teachers-k12","gemini-pro","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","humanizeai-pro","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account"];
   const popularityRank=new Map(popularityOrder.map((id,index)=>[id,index]));
   const statusRank={available:0,soon:1,out:2};
   const products=[...(Catalog.products||[])].filter(product=>!product.redirectTo).sort((a,b)=>{
@@ -262,7 +262,7 @@
   function renderBestOffers(){
     const target=document.getElementById('bestOffersGrid');
     if(!target)return;
-    const picks=[['supergrok-coursera-bundle',0],['elevenlabs',2],['cursor-pro',1],['coursera',0],['lovable-pro',1],['gemini-pro',0],['capcut-pro',1],['grok',0]];
+    const picks=[['capcut-gemini-gift',0],['elevenlabs-gemini-gift',0],['lovable-gemini-gift',0],['supergrok-coursera-bundle',0],['gemini-pro',0],['coursera',0],['duolingo',0],['chatgpt-plus',0]];
     target.innerHTML=picks.map(([id,index])=>{
       const product=Catalog.getProduct(id),plan=product?.plans?.[index];
       if(!plan||plan.hidden||plan.available===false||product.status!=='available')return '';
