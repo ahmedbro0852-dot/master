@@ -39,18 +39,23 @@ module.exports = async function handler(req,res) {
    const model=String(process.env.AEROLINK_MODEL||'').trim()||'gpt-5.6-sol';
    const url=new URL(base.replace(/\/$/,'')+'/'+endpoint.replace(/^\//,''));
    if(url.protocol!=='https:'||url.username||url.password)throw Error('invalid_provider_url');
-   for(let index=0;index<keys.length;index++){
+   const urls=[url,new URL('/v1/responses',url),new URL('/responses',url)].filter((u,i,list)=>list.findIndex(v=>v.href===u.href)===i);
+   const signal=AbortSignal.timeout(20000);
+   providerRequests:for(let index=0;index<keys.length;index++){
     const key=keys[index];
-    const response=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+key,'X-API-Key':key},body:JSON.stringify({model,instructions:system,input:messages,max_output_tokens:850}),signal:AbortSignal.timeout(18000)});
-    if(!response.ok){
-     unavailable=response.status===401||response.status===403?'existing_api_authentication':response.status===402?'existing_api_credits':response.status===429?'existing_api_rate_limit':'existing_api_unavailable';
-     console.warn('store_assistant_existing_provider_status',response.status);
-     if((response.status===401||response.status===403)&&index+1<keys.length)continue;
-     break;
+    for(let route=0;route<urls.length;route++){
+     const response=await fetch(urls[route],{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+key,'X-API-Key':key},body:JSON.stringify({model,instructions:system,input:messages,max_output_tokens:850}),signal});
+     if(!response.ok){
+      unavailable=response.status===401||response.status===403?'existing_api_authentication':response.status===402?'existing_api_credits':response.status===429?'existing_api_rate_limit':response.status===404?'existing_api_endpoint_not_found':'existing_api_unavailable';
+      console.warn('store_assistant_existing_provider_status',response.status,route===0?'configured_route':'compatible_route');
+      if((response.status===404||response.status===405)&&route+1<urls.length)continue;
+      if((response.status===401||response.status===403)&&index+1<keys.length)continue providerRequests;
+      break providerRequests;
+     }
+     const data=await response.json(),text=data.output_text||data.output?.flatMap(x=>(x.content||[]).map(c=>c.text||c.output_text||'')).join('\n')||data.choices?.[0]?.message?.content;
+     if(typeof text==='string'&&text.trim())return result(text);
+     unavailable='existing_api_empty_response';break providerRequests;
     }
-    const data=await response.json(),text=data.output_text||data.output?.flatMap(x=>(x.content||[]).map(c=>c.text||c.output_text||'')).join('\n')||data.choices?.[0]?.message?.content;
-    if(typeof text==='string'&&text.trim())return result(text);
-    unavailable='existing_api_empty_response';break;
    }
   }catch(error){unavailable=error.name==='TimeoutError'?'existing_api_timeout':'existing_api_unavailable';console.warn('store_assistant_existing_provider_unavailable',unavailable);}
  }
