@@ -1,0 +1,9 @@
+# Guided plan selection and explicit cart actions
+
+The assistant now offers an optional plan finder with intended use, optional EGP budget, account preference and warranty requirement. It submits only after the customer clicks Recommend plans, preserves choices across Arabic/English switching, and validates the numeric budget. Server recommendation filtering applies personal/ready account preferences and distinguishes any warranty from explicitly full warranty; constraints carry through follow-ups.
+
+Recommendation cards separate the plan-details link from an explicit Add to cart button. Buttons add the exact product/plan index once to the existing local cart; existing lines stay at the same quantity and repeated cards stay disabled for the same line. The customer still reviews the authoritative cart quote and confirms checkout. Adding while viewing the cart triggers a new quote and preserves contact/payment drafts. Category pages load the cart helper without requiring the storefront/account modules. Chat text has no action tools and cannot claim an addition happened without a click.
+
+Copy reply converts safe relative plan links to full links for use outside the website; a selectable read-only textarea is provided when clipboard access fails. Card typography and category-page header/footer isolation improve the mobile dialog. Provider, model, secret storage and checkout authorization remain unchanged.
+
+Validation: build, npm test (now includes shopping-context unit tests), upgraded assistant UI, original assistant UI, shopping usability and new actions UI tests. Coverage includes preferences, full-vs-unspecified warranty, language round trips, no unsolicited AI request, invalid budgets, clipboard/manual copy, idempotent plan addition, repeated cards, 320/390/768/1440 widths, quote refresh and preserved contact/payment drafts. Tests submit no real orders or payments.

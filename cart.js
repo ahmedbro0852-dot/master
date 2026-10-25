@@ -1,6 +1,6 @@
 (function(){
 'use strict';
-const S=window.MasterStore,C=window.MasterCloud,E=S.escapeHtml;
+const S=window.MasterStore,C=window.MasterCloud,E=S?.escapeHtml;
 const t=(ar,en)=>window.MasterLocale?.getState().language==='en'?en:ar;
 function read(){try{return JSON.parse(localStorage.getItem('master-cart-v1')||'[]').filter(x=>typeof x.product_id==='string'&&Number.isInteger(x.plan_index)&&Number.isInteger(x.quantity)&&x.quantity>0).slice(0,20);}catch{return [];}}
 function write(items){localStorage.setItem('master-cart-v1',JSON.stringify(items));badge();}
@@ -41,5 +41,5 @@ try{
 }catch(error){document.getElementById('cartError').textContent=C.errorText(error);b.disabled=false;root.querySelectorAll('.cart-qty,.cart-remove').forEach(x=>x.disabled=false);form.querySelectorAll('input,select').forEach(x=>x.disabled=false);const wallet=form.querySelector('input[value=wallet]');if(wallet)wallet.disabled=balance<q.amount_piasters;}
 finally{busy=false;}
 }
-Promise.resolve(window.MasterCatalogReady).then(render);document.addEventListener('masterstore:localechange',()=>{if(!busy)render();});
+Promise.resolve(window.MasterCatalogReady).then(render);document.addEventListener('masterstore:localechange',()=>{if(!busy)render();});document.addEventListener('masterstore:assistant-cart-add',()=>{if(!busy)render();});
 })();
