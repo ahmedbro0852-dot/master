@@ -25,8 +25,10 @@ module.exports = async function handler(req,res) {
  const rows=snapshots[0].status==='fulfilled'?snapshots[0].value:null;
  const discountRules=snapshots[1].status==='fulfilled'?snapshots[1].value:null;
  const selected=knowledge.selectProducts(messages,typeof body.productId==='string'?body.productId:'',rows);
- const system=knowledge.prompt(knowledge.contextFor(selected,rows,{language:body.language,question:messages.at(-1).content,discountRules}),english);
- const result=text=>res.status(200).json({text:text.slice(0,7000),mode:'ai',sources:selected.map(p=>({name:p.name,url:'/products/'+p.id+'.html'})),pricesVerified:!!rows});
+ const shopping=knowledge.shoppingContext(selected,rows,{messages,productId:body.productId,planIndex:body.planIndex});
+ const extras={recommendations:shopping.recommendations,budgetEGP:shopping.budgetEGP,checkedAt:rows?new Date().toISOString():null};
+ const system=knowledge.prompt(knowledge.contextFor(selected,rows,{language:body.language,question:messages.at(-1).content,messages,productId:body.productId,planIndex:body.planIndex,discountRules}),english);
+ const result=text=>res.status(200).json({text:text.slice(0,7000),mode:'ai',...extras,sources:selected.map(p=>({name:p.name,url:'/products/'+p.id+'.html'})),pricesVerified:!!rows});
  // User-selected DarkAPI, authenticated only from the server environment.
  const key=String(process.env.DARKAPI_API_KEY||'').trim();
  let unavailable=process.env.STORE_ASSISTANT_DISABLED==='1'?'disabled':'darkapi_missing';
@@ -50,5 +52,5 @@ module.exports = async function handler(req,res) {
    }
   }catch(error){unavailable=error.name==='TimeoutError'?'darkapi_timeout':'darkapi_unavailable';console.warn('store_assistant_darkapi_unavailable',unavailable);}
  }
- return res.status(200).json({text:knowledge.fallback(selected,rows,english),mode:'catalog',aiUnavailable:unavailable,sources:selected.map(p=>({name:p.name,url:'/products/'+p.id+'.html'})),pricesVerified:!!rows});
+ return res.status(200).json({text:knowledge.fallback(selected,rows,english,{messages,productId:body.productId,planIndex:body.planIndex}),mode:'catalog',...extras,aiUnavailable:unavailable,sources:selected.map(p=>({name:p.name,url:'/products/'+p.id+'.html'})),pricesVerified:!!rows});
 };
