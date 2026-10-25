@@ -66,7 +66,7 @@
 
   function updateProductMetadata(){
     const description=tr(p.description||'','description')||p.name;
-    document.title=window.MasterSEO?.productTitle(p)||p.name+' | MASTER STORE';
+    document.title=isEn()?(Locale?.text(p.name)||p.name)+' plans | MASTER STORE':(window.MasterSEO?.productTitle(p)||p.name+' | MASTER STORE');
     setMeta('meta[name="description"]',description);
     setMeta('meta[property="og:title"]',document.title);
     setMeta('meta[property="og:description"]',description);
@@ -369,13 +369,14 @@
   box.innerHTML='<span class="deadline-caption">ينتهي العرض قريبًا</span><span class="deadline-digits" dir="ltr"></span>';
   const digits=box.querySelector('.deadline-digits');
   const update=()=>{
+   const en=document.documentElement.lang==='en';
    const ms=deadline-Date.now();
    if(ms<=0){box.textContent='انتهت مدة العرض · ٢٦ أكتوبر ٢٠٢٦';clearInterval(clock);return;}
    let seconds=Math.floor(ms/1000);const days=Math.floor(seconds/86400);seconds%=86400;
    const hours=Math.floor(seconds/3600);seconds%=3600;const minutes=Math.floor(seconds/60);seconds%=60;
-   const values=[days,hours,minutes,seconds],labels=['يوم','ساعة','دقيقة','ثانية'];
+   const values=[days,hours,minutes,seconds],labels=en?['Days','Hours','Minutes','Seconds']:['يوم','ساعة','دقيقة','ثانية'];
    digits.innerHTML=values.map((value,i)=>'<span class="deadline-unit"><b>'+String(value).padStart(2,'0')+'</b><small>'+labels[i]+'</small></span>').join('<span class="deadline-separator">:</span>');
-   box.setAttribute('aria-label','ينتهي العرض بعد '+days+' يوم و'+hours+' ساعة و'+minutes+' دقيقة و'+seconds+' ثانية');
+   box.setAttribute('aria-label',en?'Offer ends in '+days+' days, '+hours+' hours, '+minutes+' minutes and '+seconds+' seconds':'ينتهي العرض بعد '+days+' يوم و'+hours+' ساعة و'+minutes+' دقيقة و'+seconds+' ثانية');
   };
   if(productView){
    const panel=document.createElement('aside');panel.className='gemini-offer-notice';
@@ -398,7 +399,7 @@
   const root=page?document.querySelector('#productPage .product-hero'):document.querySelector('[data-product-id="cursor-pro"]');
   if(!root||root.querySelector('[data-cursor-offer]'))return;
   const box=document.createElement('div');box.dataset.cursorOffer='';box.setAttribute('role','timer');box.setAttribute('aria-live','off');box.style.cssText='color:#c62828;font-size:11px;line-height:1.8;margin:10px 0;text-align:center';
-  const update=()=>{let s=Math.max(0,Math.floor((end-Date.now())/1000));const h=Math.floor(s/3600);s%=3600;const m=Math.floor(s/60);s%=60;box.textContent=end>Date.now()?'عرض الشهر 300ج · متبقي '+h+' ساعة : '+m+' دقيقة : '+s+' ثانية':'انتهى عرض الشهر بـ300ج';};
+  const update=()=>{const en=document.documentElement.lang==='en';let s=Math.max(0,Math.floor((end-Date.now())/1000));const h=Math.floor(s/3600);s%=3600;const m=Math.floor(s/60);s%=60;box.textContent=end>Date.now()?(en?'Monthly offer EGP 300 · '+h+' hours : '+m+' minutes : '+s+' seconds left':'عرض الشهر 300ج · متبقي '+h+' ساعة : '+m+' دقيقة : '+s+' ثانية'):(en?'The EGP 300 monthly offer has ended':'انتهى عرض الشهر بـ300ج');};
   root.append(box);update();setInterval(update,1000);
  };
  mount();const root=document.getElementById('productPage')||document.getElementById('grid');if(root)new MutationObserver(mount).observe(root,{childList:true});

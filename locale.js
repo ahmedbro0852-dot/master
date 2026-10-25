@@ -121,6 +121,10 @@ exactArToEn["تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3
 exactArToEn["مدة الاشتراك سنة، ومدة الضمان 4 شهور."]="One-year subscription with a 4-month warranty.";
 exactArToEn["اشتراك Plus مستقل غير تابع لأي Org."]="Standalone Plus subscription, not linked to any Org.";
 exactArToEn["ما معنى Org؟ اختصار لكلمة Organization، أي مؤسسة أو جهة. اشتراك Plus هنا تابع للمؤسسة، وتُدار عضويته وإمكانية الوصول من خلالها. تفاصيل مدة الاشتراك والضمان موضّحة في الباقة."]="What does Org mean? It is short for Organization. This Plus subscription is linked to an organization, which manages membership and access. The subscription term and warranty are shown in the plan.";
+Object.assign(exactArToEn,{"أفضل العروض": "Best offers", "🔥 أفضل العروض": "🔥 Best offers", "كل الخدمات": "All services", "تجارب العملاء": "Customer stories", "الأسئلة الشائعة": "Frequently asked questions", "الفيديو": "Video", "الصور والتصميم": "Images & design", "الصوت": "Audio", "البرمجة والمواقع": "Coding & websites", "العمل والإنتاجية": "Work & productivity", "الحماية والاتصالات": "Security & connectivity", "الكتابة والبحث": "Writing & research", "التعليم": "Education", "الترفيه": "Entertainment", "محادثة ومساعد ذكي": "Chat & AI assistants", "سوبر جروك + كورسيرا بلس": "SuperGrok + Coursera Plus", "ChatGPT للمعلمين K12": "ChatGPT for K12 teachers", "WE Gold — خصم الإنترنت المنزلي": "WE Gold — home internet discount", "ينتهي العرض قريبًا": "Offer ends soon", "يوم": "Days", "ساعة": "Hours", "دقيقة": "Minutes", "ثانية": "Seconds", "قبل فوات الأوان": "Before the offer ends", "آخر فرصة لعرض جيمناي ١٨ شهر:": "Last chance for the 18-month Gemini offer:", "٢٦ أكتوبر ٢٠٢٦": "26 October 2026", "، حتى نهاية اليوم بتوقيت مصر.": ", until the end of the day, Egypt time.", "انتهت مدة العرض · ٢٦ أكتوبر ٢٠٢٦": "Offer ended · 26 October 2026", "انتهى عرض الشهر بـ300ج": "The EGP 300 monthly offer has ended", "InstaPay وVodafone Cash وTaptap Send وCliQ وشام كاش وPayPal وBarq وBinance / USDT.": "InstaPay, Vodafone Cash, Taptap Send, CliQ, Sham Cash, PayPal, Barq and Binance / USDT.", "وسائل الدفع": "Payment methods", "إنستاباي": "InstaPay", "فودافون كاش": "Vodafone Cash", "بينانس": "Binance", "تيثر": "Tether", "تاب تاب سند": "Taptap Send", "كليك · الأردن": "CliQ · Jordan", "شام كاش": "Sham Cash", "Sham Cash · سوريا": "Sham Cash · Syria", "باي بال": "PayPal", "برق · السعودية": "Barq · Saudi Arabia", "بيانات التحويل وطريقة الدفع يتم تأكيدها مع الدعم بعد الطلب.": "Support confirms transfer details and payment instructions after ordering.", "تصفح أقسام ماستر ستور": "Browse Master Store categories", "دليل الاشتراكات والخدمات": "Subscriptions & services directory", "سياسة الضمان والاستبدال": "Warranty & replacement policy", "سياسات وشروط الاشتراك": "Subscription policies & terms", "سلة اشتراكاتك": "Your subscription cart", "كل ما تزود اشتراكات، الخصم يزيد تلقائيًا.": "Your discount increases automatically as you add subscriptions.", "قبل تأكيد الطلب، راجع ضمان الباقة و": "Before confirming, review the plan warranty and the", "متابعة طلبك": "Track your order", "ابحث برقم الطلب، وراجع الحالة والتفاصيل أو تواصل مع الدعم.": "Search by order ID to review its status and details or contact support.", "بحث": "Search", "تحديث": "Refresh", "سجّل الدخول لعرض طلبات حسابك وحالتها الحالية ←": "Sign in to see your account orders and their current status →", "طلبات الضيف محفوظة على نفس الجهاز والمتصفح فقط. لو طلبك مش ظاهر، تواصل مع الدعم برقم الطلب.": "Guest orders are saved only in this browser on this device. If an order is missing, contact support with its order ID.", "التواصل مع الدعم": "Contact support", "الاشتراك الأساسي": "Main subscription", "١٢ شهرًا من الكورسات · حساب جاهز": "12 months of courses · ready-to-use account", "✓ ضمان كامل لكورسيرا": "✓ Full Coursera warranty", "هدايا مشمولة مجانًا": "Free gifts included", "٣ شهور على إيميلك": "3 months on your email", "٣ سنين على إيميلك": "3 years on your email", "مجانًا": "FREE", "الاشتراك والهدايا معًا بـ٤٩٩ج · بدون تكلفة إضافية للهدايا": "Subscription and gifts together for EGP 499 · gifts at no extra cost", "إغلاق": "Close", "الصور السابقة": "Previous photos", "الصور التالية": "Next photos", "فتح القائمة": "Open menu", "رقم الطلب / رقم الفاتورة": "Order ID / invoice number"});
+Object.assign(exactArToEn,{"ماستر ستور": "Master Store", "ماستر ستور MASTER STORE": "Master Store", "كل الخدمات والباقات ←": "All services & plans →", "أقسام أخرى": "Other categories", "تفاصيل الباقات والتفعيل ←": "Plans & activation details →", "مسار التصفح": "Breadcrumbs", "أقسام الاشتراكات": "Subscription categories", "كل صفحات الخدمات": "All service pages", "خدمات من نفس القسم": "Related services", "متابعة الطلب": "Track order", "اشتراكات أدوات الفيديو والمونتاج": "Video & editing subscriptions", "قارن باقات توليد الفيديو بالذكاء الاصطناعي والأفاتار والمونتاج. راجع مدة الاشتراك وطريقة التفعيل والضمان لكل خدمة قبل الطلب.": "Compare AI video, avatar and editing plans. Review each service’s term, activation method and warranty before ordering.", "اشتراكات أدوات الصور والتصميم": "Image & design subscriptions", "تصفح أدوات توليد الصور وتعديلها والتصميم وموارد الصور والقوالب. اختر الخدمة حسب استخدامك وراجع الباقات والتفعيل والضمان.": "Browse image generation, editing, design, stock assets and templates. Choose a service and review its plans, activation and warranty.", "اشتراكات أدوات التعليق الصوتي والصوت": "Voice-over & audio subscriptions", "اكتشف خدمات التعليق الصوتي وتحويل النص إلى صوت والإملاء وتلخيص الاجتماعات. راجع حدود الرصيد ومدة كل باقة وتفاصيل التفعيل.": "Explore voice-over, text-to-speech, dictation and meeting summaries. Review credit limits, subscription terms and activation details.", "اشتراكات أدوات البرمجة وبناء المواقع": "Coding & website builder subscriptions", "باقات مساعدي كتابة الكود وبناء المواقع والتطبيقات والاستضافة وأدوات المطورين. قارن الاستخدامات ومدة الاشتراك وطريقة التسليم.": "Compare coding assistants, website and app builders, hosting and developer tools, including subscription terms and delivery methods.", "اشتراكات أدوات الكتابة والبحث": "Writing & research subscriptions", "تصفح مساعدي البحث والكتابة والتدقيق وإعادة الصياغة وفحص التشابه. راجع الرصيد وحدود الاستخدام وشروط كل باقة قبل طلبها.": "Browse research, writing, proofreading, paraphrasing and similarity-checking tools. Review credits, usage limits and plan terms before ordering.", "اشتراكات التعليم والكورسات وتعلم اللغات": "Education, courses & language subscriptions", "باقات الكورسات وتعلم اللغات وأدوات المعلمين والاختبارات. راجع مدة الاشتراك ونوع الحساب والتفعيل والضمان لكل خدمة.": "Explore courses, language learning, teacher tools and test preparation. Review each service’s term, account type, activation and warranty.", "اشتراكات الإنتاجية وتفعيل ويندوز": "Productivity subscriptions & Windows activation", "خدمات المستندات وملفات PDF والاجتماعات والعروض التقديمية وإدارة العمل، مع نسخ ويندوز المتاحة. راجع تفاصيل الباقات والتفعيل.": "Find document, PDF, meeting, presentation and work management tools, plus Windows editions. Review plans and activation details.", "اشتراكات الترفيه والخدمات الرقمية": "Entertainment & digital subscriptions", "استعرض خدمات الترفيه الرقمية المتاحة في المتجر. قارن مدد الباقات ونوع الحساب وطريقة التفعيل والضمان قبل إتمام الطلب.": "Browse available entertainment subscriptions. Compare subscription terms, account types, activation and warranty before ordering.", "اشتراكات VPN والحماية والإنترنت": "VPN, security & internet subscriptions", "خدمات VPN والخصوصية وعروض الإنترنت المتاحة. راجع عدد الأجهزة والمدة وشروط الأهلية والتفعيل لكل عرض قبل الدفع.": "Explore VPN, privacy and internet offers. Review devices, subscription terms, eligibility and activation before payment."});
+exactArToEn['الاتصالات والإنترنت']='Connectivity & internet';
+Object.assign(exactArToEn,{"نكمل الطلب؟": "Ready to check out?", "أكد الطلب دلوقتي، أو ضيف الاشتراك للسلة وكمل اختيار باقي منتجاتك.": "Check out now, or add this subscription to your cart and keep shopping.", "تأكيد الطلب دلوقتي": "Check out now", "هكمل تسوّق — ضيف ده للسلة": "Keep shopping — add to cart", "شراء الآن": "Buy now", "← كل المنتجات": "← All products"});
 const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e,a]));
 
 
@@ -340,7 +344,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     if(state.language==="en"&&productId==="leonardo-ai"&&raw==="8,500 كريدت")return "8,500 credits";
     if(state.language!=="en"||!raw)return raw;
     if(kind==="description"&&PRODUCT_DESC_EN[productId])return PRODUCT_DESC_EN[productId];
-    if(kind==="category")return CATEGORY_EN[raw]||raw;
+    if(kind==="category")return CATEGORY_EN[raw]||exactArToEn[raw]||raw;
     const windowsText={"مدى الحياة للإصدار المشترى":"Lifetime for the purchased version","التفعيل باستخدام مفتاح المنتج.":"Activate using the product key.","مفتاح تفعيل":"Activation key","مفتاح منتج":"Product key","يُؤكد مع الدعم قبل الدفع":"Confirmed with support before payment","اختار الإصدار المطابق لنسخة Windows Pro المثبتة على جهازك.":"Select the version matching Windows Pro installed on your device.","مفتاح تفعيل لنسخة Windows Pro.":"Product key for Windows Pro.","اختيار Windows 11 Pro أو Windows 10 Pro.":"Choose Windows 11 Pro or Windows 10 Pro.","تفعيل دائم للإصدار المشترى.":"Permanent activation for the purchased version.","دفعة واحدة بدون اشتراك شهري.":"One-time payment, no monthly subscription."};
     if(productId?.startsWith("windows-")&&windowsText[raw])return windowsText[raw];
     const annualCodeText={"SuperGrok — شهر حساب خاص":"SuperGrok — monthly private account","تسليم حساب جاهز بإيميل وباسورد.":"A ready account delivered with email and password.","حساب خاص جاهز":"Ready private account","ضمان كامل طوال مدة الاشتراك":"Full warranty throughout the subscription","حساب العميل الشخصي":"Your personal account","Plus — سنة بكود تفعيل":"Plus — annual activation code","تسليم كود خصم 100% لتفعيل سنة على حسابك؛ يتطلب إضافة بطاقة دفع مقبولة.":"Receive a 100% discount code to activate one year on your account; an accepted payment card is required.","كود تفعيل على حسابك الشخصي":"Activation code on your personal account","السعر 135 دولار للكود؛ خصم 100% يخص رسوم التفعيل عند استخدام الكود.":"The code costs $135; the 100% discount applies to the activation charge when redeeming it.","Creator — سنة على حسابك":"Creator — annual on your account","تفعيل سنة كاملة على حسابك الشخصي بدون بطاقة دفع.":"Activate a full year on your personal account without a payment card.","Pro — سنة بكود تفعيل":"Pro — annual activation code","تسليم كود لتفعيل الاشتراك مباشرة على بريدك الشخصي.":"Receive a code to activate the subscription directly on your personal email."};
@@ -528,6 +532,9 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     const en=state.language==='en';
     document.documentElement.lang=en?'en':'ar';
     document.documentElement.dir=en?'ltr':'rtl';
+    const page=location.pathname.split('/').pop()||'index.html';
+    const titles={'index.html':['ماستر ستور | الاشتراكات والخدمات الرقمية','MASTER STORE | Digital subscriptions & services'],'cart.html':['سلة اشتراكاتك | ماستر ستور','Your cart | MASTER STORE'],'account.html':['حسابك | ماستر ستور','Your account | MASTER STORE'],'track.html':['متابعة الطلب | ماستر ستور','Track your order | MASTER STORE'],'warranty.html':['سياسة الضمان والاستبدال | ماستر ستور','Warranty & replacement policy | MASTER STORE']};
+    if(titles[page])document.title=titles[page][en?1:0];
   }
 
   function translateExactText(root){
@@ -536,7 +543,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{
       acceptNode(node){
         const p=node.parentElement;
-        if(!p||['SCRIPT','STYLE','NOSCRIPT','TEXTAREA'].includes(p.tagName))return NodeFilter.FILTER_REJECT;
+        if(!p||p.closest('[data-no-translate],.assistant-user,[contenteditable="true"]')||['SCRIPT','STYLE','NOSCRIPT','TEXTAREA'].includes(p.tagName))return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
     });
@@ -552,6 +559,37 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     });
   }
 
+  function translateContent(root){
+    if(!root)return;
+    if(root.nodeType===Node.TEXT_NODE)root=root.parentElement;
+    if(!root||root.nodeType!==Node.ELEMENT_NODE||root.closest?.('script,style,textarea,[contenteditable="true"],[data-no-translate],.assistant-user'))return;
+    translateExactText(root);
+    const map=state.language==='en'?exactArToEn:exactEnToAr;
+    for(const el of [root,...root.querySelectorAll('[aria-label],[placeholder],[title],[alt]')]){
+      for(const attr of ['aria-label','placeholder','title','alt']){
+        const value=el.getAttribute?.(attr);
+        if(value&&map[value])el.setAttribute(attr,map[value]);
+      }
+    }
+  }
+
+  function watchTranslations(){
+    const pending=new Set();let scheduled=false;
+    const observer=new MutationObserver(records=>{
+      if(state.language!=='en')return;
+      for(const record of records){
+        if(record.type==='childList')for(const node of record.addedNodes)pending.add(node);
+        else pending.add(record.target);
+      }
+      if(scheduled||!pending.size)return;
+      scheduled=true;queueMicrotask(()=>{
+        scheduled=false;const roots=[...pending];pending.clear();
+        for(const root of roots)if(root.isConnected)translateContent(root);
+      });
+    });
+    observer.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['aria-label','placeholder','title','alt']});
+  }
+
   function setText(selector,ar,en){
     const el=document.querySelector(selector);
     if(el)el.textContent=state.language==='en'?en:ar;
@@ -563,6 +601,14 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
 
   function applyStaticTranslations(){
     const en=state.language==='en';
+    if(document.body.classList.contains('seo-landing')){
+      document.querySelectorAll('.seo-service-card[data-product-id]').forEach(card=>{
+        const id=card.dataset.productId,p=card.querySelector('p');
+        if(p){if(!p.dataset.descriptionAr)p.dataset.descriptionAr=p.textContent;p.textContent=en?catalogText(p.dataset.descriptionAr,'description',id):p.dataset.descriptionAr;}
+      });
+      const count=document.querySelector('.seo-landing main>.seo-intro:last-of-type');
+      if(count){const n=document.querySelectorAll('.seo-service-card').length;count.textContent=en?n+' services · Open a service to review current plans, prices and availability.':n+' خدمة · افتح صفحة الخدمة لمراجعة الباقات والأسعار والتوفر الحالي.';}
+    }
     const offer=document.querySelector('.offer-bar');
     if(offer){
       const a=offer.querySelector('a');
@@ -681,7 +727,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     injectSwitcher();
     updateSwitcher();
     applyStaticTranslations();
-    translateExactText(document.body);
+    translateContent(document.body);
     applying=false;
   }
 
@@ -765,10 +811,11 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
 
   window.MasterLocale={
     MARKETS,getState,currentMarket,money,convertEGP,autoMarketAmount,formatCurrency,planAmount,planMoney,
-    catalogText,setMarket,setLanguage,t,apply
+    catalogText,setMarket,setLanguage,t,apply,text:value=>state.language==='en'?(exactArToEn[value]||value):(exactEnToAr[value]||value)
   };
 
   // Scripts are loaded at the end of <body>, so initialize immediately.
   // This makes the selected market/language available before app.js/product-page.js render.
   init();
+  watchTranslations();
 })();
