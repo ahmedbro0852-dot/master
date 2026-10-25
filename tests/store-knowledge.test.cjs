@@ -3,6 +3,7 @@ const box={window:{}};vm.runInNewContext(fs.readFileSync(require.resolve('../cat
 const rows=products.flatMap(p=>(p.plans||[]).map((plan,i)=>({product_id:p.id,plan_index:i,price_piasters:Math.round(Number(plan.price)*100),available:p.status==='available'&&plan.available!==false,max_quantity:5,previous_price_piasters:null})));
 const ask=(text,history=[])=>k.selectProducts([...history.map(content=>({role:'user',content})),{role:'user',content:text}],null,rows);
 assert.equal(k.budgetFrom('ميزانيتي ٣٠٠ جنيه'),300);assert.equal(k.budgetFrom('budget 250 EGP'),250);assert.equal(k.budgetFrom('عايز فيديو 4k'),null);assert.equal(k.budgetFrom('budget 20 USD'),null);assert.equal(k.budgetFrom('ميزانيتي ١٬٠٠٠ جنيه'),1000);
+assert.equal(ask('هل الفاتورة ضريبية؟ ينفع أدفع Binance؟ ولو اشتريت 3 اشتراكات الخصم كام؟').length,0);
 assert(ask('إليفن لابس بكام؟').some(p=>p.id==='elevenlabs'));
 assert(ask('قارن جيميني وشات جي بي تي').some(p=>p.id==='gemini-pro'));assert(ask('قارن جيميني وشات جي بي تي').some(p=>p.id==='chatgpt-plus'));
 assert(ask('طيب ينفع على إيميلي؟',['إليفن لابس بكام؟']).some(p=>p.id==='elevenlabs'));
