@@ -21,3 +21,6 @@ html[data-custom-theme] .store-follow{background:var(--theme-surface);border-col
 
 @media(max-width:900px) and (min-width:701px){.store-follow{align-items:flex-start;flex-direction:column}}
 .store-follow-actions>a{min-width:0;text-align:center}.store-follow-actions span{min-width:0}
+
+/* Keep the outlined brand readable at every size and in custom themes. */
+.topbar .brand img{height:auto}.seo-landing header img{background:#fff;border-radius:10px;padding:6px;box-sizing:border-box}
