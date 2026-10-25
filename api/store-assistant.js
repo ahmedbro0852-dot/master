@@ -1,5 +1,4 @@
 const knowledge = require('../lib/store-assistant.cjs');
-const { getVercelOidcTokenSync } = require('@vercel/oidc');
 // Best-effort burst protection per instance, not a durable billing limit.
 const bursts = new Map();
 function allowed(ip) {
@@ -27,33 +26,33 @@ module.exports = async function handler(req,res) {
  try{rows=await knowledge.liveRows();}catch{/* Fail closed for prices; the assistant must not invent a stale price. */}
  const system=knowledge.prompt(knowledge.contextFor(selected,rows),english);
  const result=text=>res.status(200).json({text:text.slice(0,7000),mode:'ai',sources:selected.map(p=>({name:p.name,url:'/products/'+p.id+'.html'})),pricesVerified:!!rows});
- // Reuse the project's previously configured Responses-compatible service.
- // Only administrator-provided environment values choose this endpoint/model.
- if(process.env.AEROLINK_API_KEY && process.env.AEROLINK_BASE_URL && process.env.AEROLINK_MODEL && process.env.STORE_ASSISTANT_DISABLED!=='1'){
+ // Use the user's existing provider; defaults match the original integration.
+ // AEROLINK_API_KEY1 is the newer production credential, with the original
+ // credential retained as an authentication-only fallback.
+ const keys=[...new Set([process.env.AEROLINK_API_KEY1,process.env.AEROLINK_API_KEY].map(x=>String(x||'').trim()).filter(Boolean))];
+ let unavailable=process.env.STORE_ASSISTANT_DISABLED==='1'?'disabled':'existing_api_missing';
+ if(keys.length && process.env.STORE_ASSISTANT_DISABLED!=='1'){
+  unavailable='existing_api_unavailable';
   try{
-   const url=new URL(process.env.AEROLINK_BASE_URL.replace(/\/$/,'')+'/'+(process.env.AEROLINK_RESPONSES_PATH||'/responses').replace(/^\//,''));
+   const base=String(process.env.AEROLINK_BASE_URL||'').trim()||'https://aerolink.lat';
+   const endpoint=String(process.env.AEROLINK_RESPONSES_PATH||'').trim()||'/responses';
+   const model=String(process.env.AEROLINK_MODEL||'').trim()||'gpt-5.6-sol';
+   const url=new URL(base.replace(/\/$/,'')+'/'+endpoint.replace(/^\//,''));
    if(url.protocol!=='https:'||url.username||url.password)throw Error('invalid_provider_url');
-   const response=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+process.env.AEROLINK_API_KEY,'X-API-Key':process.env.AEROLINK_API_KEY},body:JSON.stringify({model:process.env.AEROLINK_MODEL,instructions:system,input:messages,max_output_tokens:850}),signal:AbortSignal.timeout(15000)});
-   if(!response.ok){console.warn('store_assistant_existing_provider_status',response.status);throw Error('existing_provider_unavailable');}
-   const data=await response.json(),text=data.output_text||data.output?.flatMap(x=>(x.content||[]).map(c=>c.text||c.output_text||'')).join('\n')||data.choices?.[0]?.message?.content;
-   if(typeof text==='string'&&text.trim())return result(text);
-  }catch{console.warn('store_assistant_existing_provider_unavailable');}
- }
- let token=process.env.AI_GATEWAY_API_KEY;
- if(!token){try{token=getVercelOidcTokenSync();}catch{/* No deployment identity or local development key. */}}
- let unavailable='configuration';
- if(token && process.env.STORE_ASSISTANT_DISABLED!=='1'){
-  unavailable='upstream';
-  try{
-   const response=await fetch('https://ai-gateway.vercel.sh/v1/chat/completions',{
-    method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},signal:AbortSignal.timeout(6000),
-    body:JSON.stringify({model:process.env.STORE_ASSISTANT_MODEL||'google/gemini-3.5-flash-lite',messages:[{role:'system',content:system},...messages],max_tokens:1000,temperature:0.2})
-   });
-   if(!response.ok){const errorData=await response.json().catch(()=>({}));const verification=/customer_verification_required|payment method|verify your/i.test(JSON.stringify(errorData));unavailable=response.status===402?'credits':response.status===403?(verification?'verification':'access_denied'):response.status===401?'authentication':'upstream';console.warn('store_assistant_gateway_status',response.status,unavailable);throw Error('gateway_unavailable');}
-   const data=await response.json(),text=data.choices?.[0]?.message?.content;
-   if(typeof text!=='string'||!text.trim())throw Error('empty_answer');
-   return result(text);
-  }catch(error){if(error.name==='TimeoutError')unavailable='timeout';console.warn('store_assistant_unavailable',unavailable);}
+   for(let index=0;index<keys.length;index++){
+    const key=keys[index];
+    const response=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+key,'X-API-Key':key},body:JSON.stringify({model,instructions:system,input:messages,max_output_tokens:850}),signal:AbortSignal.timeout(18000)});
+    if(!response.ok){
+     unavailable=response.status===401||response.status===403?'existing_api_authentication':response.status===402?'existing_api_credits':response.status===429?'existing_api_rate_limit':'existing_api_unavailable';
+     console.warn('store_assistant_existing_provider_status',response.status);
+     if((response.status===401||response.status===403)&&index+1<keys.length)continue;
+     break;
+    }
+    const data=await response.json(),text=data.output_text||data.output?.flatMap(x=>(x.content||[]).map(c=>c.text||c.output_text||'')).join('\n')||data.choices?.[0]?.message?.content;
+    if(typeof text==='string'&&text.trim())return result(text);
+    unavailable='existing_api_empty_response';break;
+   }
+  }catch(error){unavailable=error.name==='TimeoutError'?'existing_api_timeout':'existing_api_unavailable';console.warn('store_assistant_existing_provider_unavailable',unavailable);}
  }
  return res.status(200).json({text:knowledge.fallback(selected,rows,english),mode:'catalog',aiUnavailable:unavailable,sources:selected.map(p=>({name:p.name,url:'/products/'+p.id+'.html'})),pricesVerified:!!rows});
 };

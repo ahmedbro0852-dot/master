@@ -2,9 +2,6 @@
   "name": "master-store-assistant",
   "version": "1.0.0",
   "type": "commonjs",
-  "dependencies": {
-    "@vercel/oidc": "4.0.3"
-  },
   "private": true,
   "scripts": {
     "build": "node scripts/build-seo.cjs",
