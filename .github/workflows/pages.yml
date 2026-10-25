@@ -17,17 +17,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout site
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           fetch-depth: 0
 
-      - name: Prepare static site
-        run: |
-          touch .nojekyll
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .nojekyll
-          git commit -m "Prepare static site" || true
+      - name: Prepare public files only
+        run: npm run build
 
       - name: Publish gh-pages branch
-        run: git push origin HEAD:gh-pages --force
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan public-site
+          git rm -rf --cached .
+          git --work-tree=_site add --all
+          git --work-tree=_site commit -m "Publish public storefront assets"
+          git push origin HEAD:gh-pages --force

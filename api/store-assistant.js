@@ -1,25 +1,12 @@
 const knowledge = require('../lib/store-assistant.cjs');
-// Best-effort burst protection per instance, not a durable billing limit.
-const bursts = new Map();
-function allowed(ip) {
- const now=Date.now(); for (const [key,value] of bursts) if(value.until<now) bursts.delete(key);
- const value=bursts.get(ip)||{count:0,until:now+60000}; value.count++; bursts.set(ip,value);
- return value.count<=10 && bursts.size<=2000;
-}
+const security=require('../lib/assistant-request-security.cjs');
 module.exports = async function handler(req,res) {
  res.setHeader('Cache-Control','private, no-store');res.setHeader('X-Robots-Tag','noindex');
- if(req.method!=='POST'){res.setHeader('Allow','POST');return res.status(405).json({error:'method_not_allowed'});}
- const origin=req.headers.origin;
- const host=req.headers.host;
- if(origin && (!host || origin!==`https://${host}` && origin!==`http://${host}`))return res.status(403).json({error:'origin_not_allowed'});
- if(!String(req.headers['content-type']||'').includes('application/json'))return res.status(415).json({error:'json_required'});
- if(Number(req.headers['content-length']||0)>16000)return res.status(413).json({error:'message_too_long'});
- const body=req.body;
- if(!body || !Array.isArray(body.messages) || !body.messages.length || body.messages.length>12)return res.status(400).json({error:'invalid_messages'});
- const messages=body.messages;
- if(messages.some(m=>!m || !['user','assistant'].includes(m.role) || typeof m.content!=='string' || !m.content.trim() || m.content.length>1200) || messages.at(-1).role!=='user' || JSON.stringify(messages).length>12000)return res.status(400).json({error:'invalid_messages'});
- const ip=String(req.headers['x-vercel-forwarded-for']||req.socket?.remoteAddress||'unknown').split(',')[0];
- if(!allowed(ip)){res.setHeader('Retry-After','60');return res.status(429).json({error:'too_many_messages'});}
+ res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Cross-Origin-Resource-Policy','same-origin');
+ const invalid=security.validate(req);if(invalid){if(invalid.status===405)res.setHeader('Allow','POST');return res.status(invalid.status).json({error:invalid.error});}
+ const lease=security.acquire(req);if(!lease.release){res.setHeader('Retry-After',String(lease.retryAfter));return res.status(429).json({error:'too_many_messages'});}
+ const body=req.body,messages=body.messages;
+ try{
  const english=body.language==='en';
  const snapshots=await Promise.allSettled([knowledge.liveRows(),knowledge.liveDiscounts()]);
  const rows=snapshots[0].status==='fulfilled'?snapshots[0].value:null;
@@ -53,4 +40,5 @@ module.exports = async function handler(req,res) {
   }catch(error){unavailable=error.name==='TimeoutError'?'darkapi_timeout':'darkapi_unavailable';console.warn('store_assistant_darkapi_unavailable',unavailable);}
  }
  return res.status(200).json({text:knowledge.fallback(selected,rows,english,{messages,productId:body.productId,planIndex:body.planIndex}),mode:'catalog',...extras,aiUnavailable:unavailable,sources:selected.map(p=>({name:p.name,url:'/products/'+p.id+'.html'})),pricesVerified:!!rows});
+ }catch{console.warn('store_assistant_unavailable','internal_error');return res.status(503).json({error:'temporarily_unavailable'});}finally{lease.release();}
 };

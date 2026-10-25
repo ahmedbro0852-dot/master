@@ -4,7 +4,7 @@
   "type": "commonjs",
   "private": true,
   "scripts": {
-    "build": "node scripts/build-seo.cjs",
-    "test": "node tests/store-assistant.test.cjs && node tests/store-knowledge.test.cjs && node tests/assistant-shopping.test.cjs && node tests/seo.test.cjs"
+    "build": "node scripts/build-seo.cjs && node scripts/prepare-public.cjs",
+    "test": "node tests/store-assistant.test.cjs && node tests/store-knowledge.test.cjs && node tests/assistant-shopping.test.cjs && node tests/security-hardening.test.cjs && node tests/seo.test.cjs"
   }
 }

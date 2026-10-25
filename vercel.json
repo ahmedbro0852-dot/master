@@ -21,7 +21,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' https://unpkg.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://images.unsplash.com https://cdn.simpleicons.org https://cdn.brandfetch.io https://kr.turnitin.com https://stealthwriter.ai https://cdn.magicpatterns.com https://storage.googleapis.com https://mma.prnewswire.com; connect-src 'self' https://open.er-api.com https://ipapi.co https://gmysuhoebcapigdidnnv.supabase.co; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self'; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://images.unsplash.com https://cdn.simpleicons.org https://cdn.brandfetch.io https://kr.turnitin.com https://stealthwriter.ai https://cdn.magicpatterns.com https://storage.googleapis.com https://mma.prnewswire.com; connect-src 'self' https://open.er-api.com https://ipapi.co https://gmysuhoebcapigdidnnv.supabase.co; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
         },
         {
           "key": "Strict-Transport-Security",
@@ -151,8 +151,8 @@
       ]
     }
   ],
-  "buildCommand": "node scripts/build-seo.cjs",
-  "outputDirectory": ".",
+  "buildCommand": "npm run build",
+  "outputDirectory": "_site",
   "redirects": [
     {
       "source": "/products/gamma-account.html",
@@ -170,5 +170,31 @@
       "maxDuration": 30,
       "includeFiles": "{catalog.js,warranty.html,product-features.js,payment-assets.js}"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/api/nasha-chat",
+      "destination": "/__retired_endpoint__"
+    },
+    {
+      "source": "/api/nasha-chat.js",
+      "destination": "/__retired_endpoint__"
+    },
+    {
+      "source": "/api/nasha-chat/:path*",
+      "destination": "/__retired_endpoint__"
+    },
+    {
+      "source": "/api/nasha-status",
+      "destination": "/__retired_endpoint__"
+    },
+    {
+      "source": "/api/nasha-status.js",
+      "destination": "/__retired_endpoint__"
+    },
+    {
+      "source": "/api/nasha-status/:path*",
+      "destination": "/__retired_endpoint__"
+    }
+  ]
 }

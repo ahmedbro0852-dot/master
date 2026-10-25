@@ -9,3 +9,5 @@ node_modules/
 /categories/
 
 /supabase/.temp/
+
+/_site/
