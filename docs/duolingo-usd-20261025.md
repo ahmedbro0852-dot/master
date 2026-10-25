@@ -1,0 +1,1 @@
+Duolingo plan 0 has an explicit final USD price of $4. EGP price remains 120 and the server quote is unchanged; other market currencies retain their existing rules. Explicit currency prices apply only to the current price and do not change historical/official comparison values. No database writes or basePriceUSD conversion are used, preventing the USD override from changing EGP.

@@ -4421,6 +4421,7 @@ const products = [
         "planType": "Super",
         "duration": "12 شهر",
         "price": 120,
+        "currencyPrices": {"USD": 4},
         "activation": "تسليم لينك تفعّله مباشرة على حسابك الشخصي.",
         "account": "حسابك الشخصي على إيميلك",
         "warranty": "ضمان كامل",

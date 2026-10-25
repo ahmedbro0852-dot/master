@@ -473,6 +473,9 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
   function planAmount(plan,key){
     if(!plan)return 0;
     const k=key||'price';
+    // Explicit currency prices are final; other currencies keep existing rules.
+    const currencyPrice=plan.currencyPrices?.[currentMarket().currency];
+    if(k==='price'&&currencyPrice!=null&&Number.isFinite(Number(currencyPrice))&&Number(currencyPrice)>=0)return Number(currencyPrice);
     if(k==='price'&&Number(plan.basePriceUSD)>0){
       return Math.round(Number(plan.basePriceUSD)*currencyRate(currentMarket().currency)/currencyRate('USD'));
     }
