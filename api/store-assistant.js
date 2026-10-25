@@ -47,9 +47,12 @@ module.exports = async function handler(req,res) {
      const response=await fetch(urls[route],{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+key,'X-API-Key':key},body:JSON.stringify({model,instructions:system,input:messages,max_output_tokens:850}),signal});
      if(!response.ok){
       unavailable=response.status===401||response.status===403?'existing_api_authentication':response.status===402?'existing_api_credits':response.status===429?'existing_api_rate_limit':response.status===404?'existing_api_endpoint_not_found':'existing_api_unavailable';
-      console.warn('store_assistant_existing_provider_status',response.status,route===0?'configured_route':'compatible_route');
+      const errorData=await response.json().catch(()=>({}));
+      const modelError=/model.{0,60}(not.found|not.available|unsupported)|model_not_found|unsupported.model/i.test(JSON.stringify(errorData));
+      if(modelError)unavailable='existing_api_model_unavailable';
+      console.warn('store_assistant_existing_provider_status',response.status,{host:urls[route].host,path:urls[route].pathname,credential:index+1,modelError,json:!!response.headers?.get?.('content-type')?.includes('json')});
       if((response.status===404||response.status===405)&&route+1<urls.length)continue;
-      if((response.status===401||response.status===403)&&index+1<keys.length)continue providerRequests;
+      if([401,403,404,405].includes(response.status)&&index+1<keys.length)continue providerRequests;
       break providerRequests;
      }
      const data=await response.json(),text=data.output_text||data.output?.flatMap(x=>(x.content||[]).map(c=>c.text||c.output_text||'')).join('\n')||data.choices?.[0]?.message?.content;
