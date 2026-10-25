@@ -584,14 +584,15 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
       setText('.hero-copy > p','من أدوات الذكاء الاصطناعي والتصميم للتعليم والترفيه — اختار خدمتك واطلبها بسهولة مع دعم مباشر على واتساب.','AI, design, education and entertainment subscriptions — choose your service and order easily with direct WhatsApp support.');
       const acts=document.querySelectorAll('.hero-actions a');
       if(acts[0])acts[0].textContent=en?'Browse offers':'تصفح العروض';
-      if(acts[1]){
-        acts[1].setAttribute('aria-label',en?'WhatsApp support':'دعم واتساب');
-        acts[1].title=en?'WhatsApp support':'دعم واتساب';
-        if(!acts[1].classList.contains('whatsapp-only'))acts[1].textContent=en?'Customer support':'خدمة العملاء';
-      }
+      acts.forEach(a=>{
+        if(a.classList.contains('account-hero-link')){a.textContent=en?'My account & wallet':'حسابي ومحفظتي';a.setAttribute('aria-label',a.textContent);a.title=a.textContent;}
+        else if(a.classList.contains('whatsapp-only')){a.setAttribute('aria-label',en?'WhatsApp support':'دعم واتساب');a.title=en?'WhatsApp support':'دعم واتساب';}
+      });
       const facts=document.querySelectorAll('.hero-facts > div');
-      if(facts[0])facts[0].innerHTML=en?'<strong data-catalog-count>65+</strong><span>services in the catalog</span>':'<strong data-catalog-count>+65</strong><span>خدمة في الكتالوج</span>';
-      if(facts[1])facts[1].innerHTML=en?'<strong>Full warranty</strong><span>on available services</span>':'<strong>ضمان كامل</strong><span>على الخدمات المتاحة</span>';
+      const count=window.MasterCatalog?.products?.filter(p=>!p.redirectTo).length;
+      const countLabel=count?String(count):'65+';
+      if(facts[0])facts[0].innerHTML='<strong data-catalog-count>'+countLabel+'</strong><span>'+(en?'services in the catalog':'خدمة في الكتالوج')+'</span>';
+      if(facts[1])facts[1].innerHTML=en?'<strong>Written warranty</strong><span>See each plan’s terms</span>':'<strong>ضمان مكتوب</strong><span>حسب تفاصيل كل باقة</span>';
       if(facts[2])facts[2].innerHTML=en?'<strong>Direct support</strong><span>before and after ordering</span>':'<strong>دعم مباشر</strong><span>قبل وبعد الطلب</span>';
       setText('#products .eyebrow','العروض والخدمات','Offers & services');
       setText('#products h2','اختار اشتراكك','Choose your subscription');
