@@ -66,7 +66,7 @@
     return;
   }
 
-  const popularityOrder=["supergrok-coursera-bundle","gemini-coursera-bundle","chatgpt-plus","chatgpt-teachers-k12","gemini-pro","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account"];
+  const popularityOrder=["supergrok-coursera-bundle","gemini-coursera-bundle","chatgpt-plus","chatgpt-teachers-k12","gemini-pro","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","humanizeai-pro","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account"];
   const popularityRank=new Map(popularityOrder.map((id,index)=>[id,index]));
   const statusRank={available:0,soon:1,out:2};
   const products=[...(Catalog.products||[])].filter(product=>!product.redirectTo).sort((a,b)=>{
@@ -151,7 +151,7 @@
     return status==='available'?'ok':status==='soon'?'soon':'out';
   }
 
-  const searchAliases={'capcut-pro':'كاب كات كابكت كابكات كبكات','gemini-pro':'جيمناي جيميني جيميناي جيمني جوجل','chatgpt-plus':'شات جي بي تي شاتجبت تشات','elevenlabs':'ايلفن اليفن إليفن ايليفن','higgsfield-pro':'هيجزفيلد هيجسفيلد','leonardo-ai':'ليوناردو ليناردو ليرنادو ليرنادوا','grok':'جروك غروك سوبرجروك','coursera':'كورسيرا كورسيرا بلس','supergrok-coursera-bundle':'سوبر جروك كورسيرا كورسيرا بلس','windows-pro':'ويندوز وندوز ويندز','duolingo':'دولينجو دولينغو','quillbot':'كولبوت كويلبوت كويل بوت','claude-pro':'كلود كلاود','freepik':'فريبيك فري بيك','envato':'انفاتو إنفاتو','discord':'ديسكورد ديسكورات نيترو','canva-pro':'كانفا كنفا','grammarly':'جراملي جرامرلي','lovable-pro':'لوفابل لوفبل','perplexity-pro':'بيربليكسيتي بيربلكسيتي'};
+  const searchAliases={'humanizeai-pro':'هيومنايز هيومانايز هيومانيز هيومنايز برو Humanize AI pro Standard Lite','capcut-pro':'كاب كات كابكت كابكات كبكات','gemini-pro':'جيمناي جيميني جيميناي جيمني جوجل','chatgpt-plus':'شات جي بي تي شاتجبت تشات','elevenlabs':'ايلفن اليفن إليفن ايليفن','higgsfield-pro':'هيجزفيلد هيجسفيلد','leonardo-ai':'ليوناردو ليناردو ليرنادو ليرنادوا','grok':'جروك غروك سوبرجروك','coursera':'كورسيرا كورسيرا بلس','supergrok-coursera-bundle':'سوبر جروك كورسيرا كورسيرا بلس','windows-pro':'ويندوز وندوز ويندز','duolingo':'دولينجو دولينغو','quillbot':'كولبوت كويلبوت كويل بوت','claude-pro':'كلود كلاود','freepik':'فريبيك فري بيك','envato':'انفاتو إنفاتو','discord':'ديسكورد ديسكورات نيترو','canva-pro':'كانفا كنفا','grammarly':'جراملي جرامرلي','lovable-pro':'لوفابل لوفبل','perplexity-pro':'بيربليكسيتي بيربلكسيتي'};
   function searchText(product){
     return normalizeSearch([
       product.name,

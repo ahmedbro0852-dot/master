@@ -1,5 +1,57 @@
 const products = [
   {
+  "id": "humanizeai-pro",
+  "name": "HumanizeAI.pro",
+  "category": "AI Tools",
+  "categories": [
+    "تدقيق وإعادة صياغة"
+  ],
+  "logo": "humanizeai-pro",
+  "status": "available",
+  "description": "اشتراك HumanizeAI.pro لمدة شهر بخطتي Standard وLite، حسابات جاهزة بضمان كامل طوال الشهر.",
+  "descriptionEn": "HumanizeAI.pro monthly Standard and Lite subscriptions. Ready-to-use accounts with full warranty throughout the month.",
+  "notes": [
+    "الخدمة على humanizeai.pro، وهي منفصلة عن HumanizeAI.com.",
+    "عدد الكلمات وحدود الاستخدام حسب الباقة؛ تُراجع قبل الدفع."
+  ],
+  "plans": [
+    {
+      "name": "Standard — شهر",
+      "planType": "Standard",
+      "duration": "1 شهر",
+      "price": 560,
+      "basePriceUSD": 10,
+      "available": true,
+      "accountType": "حساب جاهز",
+      "activation": "تسليم إيميل وكلمة مرور لحساب جاهز للاستخدام.",
+      "account": "حساب جاهز",
+      "warranty": "ضمان كامل طوال مدة الاشتراك: شهر.",
+      "features": [
+        "اشتراك Standard لمدة شهر كامل.",
+        "حساب جاهز للاستخدام على HumanizeAI.pro.",
+        "ضمان كامل طوال مدة الاشتراك: شهر."
+      ]
+    },
+    {
+      "name": "Lite — شهر",
+      "planType": "Lite",
+      "duration": "1 شهر",
+      "price": 280,
+      "basePriceUSD": 5,
+      "available": true,
+      "accountType": "حساب جاهز",
+      "activation": "تسليم إيميل وكلمة مرور لحساب جاهز للاستخدام.",
+      "account": "حساب جاهز",
+      "warranty": "ضمان كامل طوال مدة الاشتراك: شهر.",
+      "features": [
+        "اشتراك Lite لمدة شهر كامل.",
+        "حساب جاهز للاستخدام على HumanizeAI.pro.",
+        "ضمان كامل طوال مدة الاشتراك: شهر."
+      ]
+    }
+  ]
+},
+  {
     "id": "supergrok-coursera-bundle",
     "name": "سوبر جروك + كورسيرا بلس",
     "category": "التعليم",

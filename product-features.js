@@ -2,6 +2,7 @@
 (function(){
 'use strict';
 const entries={
+'humanizeai-pro':[["إعادة صياغة النصوص وتحسين وضوح الأسلوب.", "Rephrase text and improve readability."], ["استخدام الخدمة على المتصفح من الكمبيوتر أو الموبايل.", "Use the service in a browser on desktop or mobile."], ["مميزات وحدود الاستخدام وفق الباقة المختارة.", "Features and usage limits follow the selected plan."]],
 'windows-pro':[
  ['تشفير الأقراص باستخدام BitLocker لحماية ملفاتك.','BitLocker drive encryption to protect your files.'],
  ['Remote Desktop للوصول إلى جهازك عن بُعد بعد الإعداد.','Host Remote Desktop connections after setup.'],
