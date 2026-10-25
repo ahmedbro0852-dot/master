@@ -58,6 +58,8 @@
   const availableOnly=document.getElementById('availableOnly');
   const sort=document.getElementById('catalogSort');
   const loading=document.getElementById('catalogLoading');
+  const favoritesOnly=document.getElementById('favoritesOnly');
+  const Shopping=window.MasterShopping;
 
   if(!Catalog||!Store){
     if(loading)loading.textContent='تعذر تحميل الكتالوج. حدّث الصفحة وحاول مرة أخرى.';
@@ -176,6 +178,7 @@
       ? '<a class="card-btn soft-btn" aria-label="'+esc(product.name+' — '+ui('شوف الباقات','View plans'))+'" href="products/'+encodeURIComponent(product.id)+'.html">'+ui('شوف الباقات','View plans')+' <span aria-hidden="true">'+(isEn()?'→':'←')+'</span></a>'
       : '<button class="card-btn disabled" type="button" disabled>'+esc(status)+'</button>';
     return '<article class="product-card light-card simple-service-card" aria-label="'+esc(product.name)+'" data-product-id="'+esc(product.id)+'" data-category="'+esc(product.category)+'" data-search="'+esc(searchText(product))+'">'+
+      (Shopping?.button(product)||'')+
       (product.id==='elevenlabs'&&product.plans?.[2]?.offerEndsAt&&product.plans?.[2]?.available!==false?'<p class="plan-saving">'+ui('⏰ عرض مؤقت · الحجز خلال 24 ساعة · الاشتراك شهر كامل','⏰ Limited-time offer · Book within 24 hours · 1-month subscription')+'</p>':'')+
       '<div class="card-top">'+logoMarkup(product)+'<h3 class="service-name" dir="auto">'+esc(product.name)+'</h3></div>'+
       (product.id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">كورسيرا سنة + جيمناي ٣ شهور + كانفا ٣ سنين</p>':'')+(product.id==='supergrok-coursera-bundle'?'<p class="bundle-card-summary">'+ui('شهر لكل اشتراك · حسابات جاهزة · ضمان كامل','One month each · Ready accounts · Full warranty')+'</p>':'')+'<div class="light-meta">'+(active&&plan?Store.priceMarkup(plan):'<strong>'+esc(price)+'</strong>')+'</div>'+
@@ -223,7 +226,7 @@
     grid.querySelectorAll('.product-card').forEach(card=>{
       const categoryMatch=matchesCategory(Catalog.getProduct(card.dataset.productId),selected);
       const product=Catalog.getProduct(card.dataset.productId);
-      const matches=categoryMatch&&(!availableOnly?.checked||product?.status==='available')&&(!q||q.split(/\s+/).every(word=>(card.dataset.search||'').includes(word)));
+      const matches=(!favoritesOnly?.checked||Shopping?.read('favorites').includes(product.id))&&categoryMatch&&(!availableOnly?.checked||product?.status==='available')&&(!q||q.split(/\s+/).every(word=>(card.dataset.search||'').includes(word)));
       card.hidden=!matches;
       if(matches)visible++;
     });
@@ -236,9 +239,11 @@
     if(count)count.textContent=ui('عرض '+visible+' من '+products.length+' خدمة', 'Showing '+visible+' of '+products.length+' services');
     const availableLabel=document.getElementById('availableOnlyLabel');
     if(availableLabel)availableLabel.textContent=ui('المتاح فقط','Available only');
+    const favoritesLabel=document.getElementById('favoritesOnlyLabel');
+    if(favoritesLabel)favoritesLabel.textContent=ui('المفضلة','Favorites')+' ('+(Shopping?.read('favorites').filter(id=>Catalog.getProduct(id)&&!Catalog.getProduct(id).redirectTo).length||0)+')';
     if(empty){
       empty.hidden=visible>0;
-      empty.innerHTML='<p>'+ui('مفيش نتيجة مطابقة. جرّب اسم تاني أو اعرض كل الخدمات.','No matching results. Try another name or browse all services.')+'</p><button type="button" class="filter" data-reset-search>'+ui('عرض كل الخدمات','Show all services')+'</button>';
+      empty.innerHTML='<p>'+(favoritesOnly?.checked?ui('مفيش خدمات مطابقة في المفضلة. احفظ الخدمات بعلامة القلب أو اعرض كل الخدمات.','No matching favorites. Save services with the heart button or browse all services.'):ui('مفيش نتيجة مطابقة. جرّب اسم تاني أو اعرض كل الخدمات.','No matching results. Try another name or browse all services.'))+'</p><button type="button" class="filter" data-reset-search>'+ui('عرض كل الخدمات','Show all services')+'</button>';
     }
   }
 
@@ -266,7 +271,16 @@
     bindLogoFallbacks(target);
   }
 
+  function renderRecent(){
+    const target=document.getElementById('recentServices');if(!target)return;
+    target.setAttribute('aria-label',ui('شفتها مؤخرًا','Recently viewed'));
+    const items=(Shopping?.read('recent')||[]).map(id=>Catalog.getProduct(id)).filter(p=>p&&!p.redirectTo);target.hidden=!items.length;
+    target.innerHTML=items.length?'<div class="recent-services-head"><div><h3>'+ui('شفتها مؤخرًا','Recently viewed')+'</h3><p>'+ui('ارجع للخدمات اللي كنت بتقارن بينها · محفوظة على المتصفح ده','Return to services you explored · Saved in this browser')+'</p></div><button type="button" data-clear-recent>'+ui('مسح السجل','Clear history')+'</button></div><div class="recent-services-list">'+items.map(p=>'<a class="recent-service" href="products/'+encodeURIComponent(p.id)+'.html">'+(p.logo?'<img src="logos/'+encodeURIComponent(p.logo)+'.svg" alt="" loading="lazy">':'')+'<span>'+esc(p.name)+'</span></a>').join('')+'</div>':'';
+  }
+  document.getElementById('recentServices')?.addEventListener('click',e=>{if(e.target.closest('[data-clear-recent]'))Shopping?.clearRecent();});
+  document.addEventListener('masterstore:shoppingchange',()=>{applyFilters();renderRecent();});
   function renderAll(){
+    renderRecent();
     renderBestOffers();
     renderCards();
     drawFilters();
@@ -283,12 +297,13 @@
   empty?.addEventListener('click',event=>{
     if(!event.target.closest('[data-reset-search]'))return;
     if(search)search.value='';
-    selected='الكل';if(availableOnly)availableOnly.checked=false;drawFilters();applyFilters();search?.focus();
+    selected='الكل';if(favoritesOnly)favoritesOnly.checked=false;if(availableOnly)availableOnly.checked=false;drawFilters();applyFilters();search?.focus();
   });
   search?.setAttribute('aria-label',ui('ابحث عن خدمة','Search services'));
   search?.addEventListener('input',applyFilters);
   availableOnly?.addEventListener('change',applyFilters);
   sort?.addEventListener('change',applyFilters);
+  favoritesOnly?.addEventListener('change',applyFilters);
   document.addEventListener('masterstore:localechange',renderAll);
 
   renderAll();

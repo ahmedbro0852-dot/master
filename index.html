@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="product-prices.css?v=20261025-store-prices3">
   <link rel="stylesheet" href="/store-assistant.css?v=20261025-ai1">
   <link rel="stylesheet" href="/site-updates.css?v=20261025-review1">
+<link rel="stylesheet" href="/shopping-tools.css?v=20261025-shopping1">
 <script id="master-seo-data" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://master-pi-six.vercel.app/#website","name":"MASTER STORE","alternateName":["ماستر ستور","Master Store"],"url":"https://master-pi-six.vercel.app/","inLanguage":"ar"},{"@type":"Organization","@id":"https://master-pi-six.vercel.app/#store","name":"MASTER STORE","alternateName":"ماستر ستور","url":"https://master-pi-six.vercel.app/","logo":"https://master-pi-six.vercel.app/master-store-logo.png","sameAs":["https://www.facebook.com/share/19XBCdMAm5/","https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K"]}]}</script>
 </head>
 <body>
@@ -155,7 +156,8 @@
         <div><span class="eyebrow">العروض والخدمات</span><h2>اختار اشتراكك</h2><p class="section-sub">كل التفاصيل المهمة موجودة داخل صفحة الخدمة.</p></div>
         <label class="search"><span>⌕</span><input id="search" type="search" placeholder="دور على خدمتك..." autocomplete="off"></label>
       </div>
-      <div class="filters" id="filters"></div><div class="catalog-overview"><p id="catalogResultCount" role="status" aria-live="polite"></p><label><input type="checkbox" id="availableOnly"><span id="availableOnlyLabel">المتاح فقط</span></label><label class="catalog-sort-compact"><select id="catalogSort" aria-label="ترتيب الخدمات"><option value="featured">ترتيب المتجر</option><option value="price-asc">السعر: الأقل أولًا</option><option value="price-desc">السعر: الأعلى أولًا</option></select></label></div>
+      <section id="recentServices" class="recent-services" hidden aria-label="شفتها مؤخرًا"></section>
+      <div class="filters" id="filters"></div><div class="catalog-overview"><p id="catalogResultCount" role="status" aria-live="polite"></p><label><input type="checkbox" id="availableOnly"><span id="availableOnlyLabel">المتاح فقط</span></label><label class="favorites-filter"><input type="checkbox" id="favoritesOnly"><span id="favoritesOnlyLabel">المفضلة (0)</span></label><label class="catalog-sort-compact"><select id="catalogSort" aria-label="ترتيب الخدمات"><option value="featured">ترتيب المتجر</option><option value="price-asc">السعر: الأقل أولًا</option><option value="price-desc">السعر: الأعلى أولًا</option></select></label></div>
       <div class="grid" id="grid" aria-live="polite" aria-busy="true"></div>
       <div class="catalog-loading" id="catalogLoading" role="status">جاري تحميل العروض...</div>
       <div class="empty" id="empty">مفيش نتيجة مطابقة.</div>
@@ -223,7 +225,8 @@
   <script src="store.js?v=20261025-store-prices3"></script>
   <script src="order-details.js?v=20261018-details1"></script>
   <script src="cart.js?v=20261025-store-prices3"></script>
-  <script src="app.js?v=20261025-review1"></script>
+  <script src="/shopping-tools.js?v=20261025-shopping1"></script>
+  <script src="app.js?v=20261025-shopping1"></script>
   <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img decoding="async" class="whatsapp-icon" src="logos/whatsapp.svg?v=20261009-logo-review3" alt=""></a>
 <script src="seo.js?v=20261023-seo3"></script>
 <script src="customer-stories.js?v=20261025-stories-fix1" defer></script>

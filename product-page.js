@@ -73,6 +73,7 @@
   }
 
   updateProductMetadata();
+  window.MasterShopping?.view(p.id);
 
   const active=p.status==='available';
   const plans=p.plans||[];
@@ -104,6 +105,10 @@
       '</aside>'+
     '</section>';
 
+  root.querySelector('.product-hero').insertAdjacentHTML('beforeend',window.MasterShopping?.button(p)||'');
+  const selectedLink=document.createElement('button');selectedLink.type='button';selectedLink.className='selected-plan-link';root.querySelector('.summary-card').prepend(selectedLink);
+  selectedLink.addEventListener('click',()=>{const radio=root.querySelector('input[name=plan]:checked');if(radio){radio.closest('.plan-option').scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});radio.focus({preventScroll:true});}});
+
   function refreshWindowsGuide(){
     const guide=window.MasterWindowsGuide;
     if(!guide?.match(p))return;
@@ -122,8 +127,9 @@
   if(active&&plans.length){
     const bar=document.createElement('div');
     bar.className='mobile-order-bar';
-    bar.innerHTML='<div><small>'+ui('الباقة المختارة','Selected plan')+'</small><strong id="mobilePlanPrice"></strong></div><button class="primary" id="mobileBuyBtn" type="button">'+ui('شراء الآن','Buy now')+'</button>';
+    bar.innerHTML='<div><button type="button" class="mobile-plan-jump"><small>'+ui('الباقة المختارة','Selected plan')+'</small></button><strong id="mobilePlanPrice"></strong></div><button class="primary" id="mobileBuyBtn" type="button">'+ui('شراء الآن','Buy now')+'</button>';
     root.appendChild(bar);
+    bar.querySelector('.mobile-plan-jump').addEventListener('click',()=>selectedLink.click());
     document.getElementById('mobileBuyBtn').addEventListener('click',()=>document.getElementById('buyBtn')?.click());
   }
 
@@ -235,6 +241,7 @@
 
   function renderDetails(){
     const plan=selectedPlan();
+    selectedLink.hidden=!plan;if(plan)selectedLink.textContent=ui('عرض الباقة المختارة: ','View selected plan: ')+tr(plan.name||plan.duration,'planName');
     if(!plan){planDetails.innerHTML='';return;}
     const buy=document.getElementById('buyBtn');if(buy)buy.disabled=plan.available===false;
     const mobilePrice=document.getElementById('mobilePlanPrice');
@@ -242,7 +249,7 @@
     const mobileBuy=document.getElementById('mobileBuyBtn');
     if(mobileBuy)mobileBuy.textContent=ui('شراء الآن','Buy now');
     const mobileLabel=root.querySelector('.mobile-order-bar small');
-    if(mobileLabel)mobileLabel.textContent=ui('الباقة المختارة','Selected plan');
+    if(mobileLabel)mobileLabel.textContent=ui('عرض الباقة المختارة ↗','View selected plan ↗');
     const notes=[...(p.notes||[]),...(plan.notes||[])];
     const features=subscriptionFeatures(p,plan);
     const saving=Math.max(0,(plan.oldPrice||plan.officialPrice)?MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan):0);
