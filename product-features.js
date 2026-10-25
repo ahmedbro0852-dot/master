@@ -2,7 +2,7 @@
 (function(){
 'use strict';
 const entries={
-'humanizeai-pro':[["إعادة صياغة النصوص وتحسين وضوح الأسلوب.", "Rephrase text and improve readability."], ["استخدام الخدمة على المتصفح من الكمبيوتر أو الموبايل.", "Use the service in a browser on desktop or mobile."], ["مميزات وحدود الاستخدام وفق الباقة المختارة.", "Features and usage limits follow the selected plan."]],
+'humanizeai-pro':[["إعادة صياغة النصوص وتحسين وضوح الأسلوب مع مراجعة النتيجة.", "Rephrase text and improve readability, then review the result."], ["التحكم في النبرة ودرجة إعادة الصياغة وفق أدوات الباقة.", "Adjust tone and rewriting level using the tools available in your plan."], ["إمكانية رفع ملفات TXT وDOCX وPDF وMD وفق حدود الخدمة.", "Upload TXT, DOCX, PDF and MD files within the service limits."], ["استخدام الخدمة من متصفح الكمبيوتر أو الموبايل بدون تثبيت برنامج.", "Use the service in a desktop or mobile browser without installing an app."]],
 'windows-pro':[
  ['تشفير الأقراص باستخدام BitLocker لحماية ملفاتك.','BitLocker drive encryption to protect your files.'],
  ['Remote Desktop للوصول إلى جهازك عن بُعد بعد الإعداد.','Host Remote Desktop connections after setup.'],
