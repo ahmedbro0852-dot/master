@@ -294,6 +294,7 @@
   }
   radios.forEach(r=>r.onchange=()=>{shareStatus.textContent='';shareInput.hidden=true;const url=new URL(location.href);url.searchParams.set('plan',r.value);history.replaceState(history.state,'',url);renderDetails();});
   renderDetails();
+  window.MasterPlanComparison?.mount({root,product:p});
   if(window.MasterLocale)window.MasterLocale.apply(); // re-translate dynamic product content
 
   function refreshLocalizedProductPrices(){
@@ -303,8 +304,8 @@
     if(categoryEl)categoryEl.textContent=tr(p.category,'category');
     if(descEl)descEl.textContent=tr(p.description||'','description');
     if(statusEl)statusEl.textContent=tr(statusLabel(p.status),'status');
-    document.querySelectorAll('.plan-option').forEach((label,i)=>{
-      const plan=plans[i];
+    document.querySelectorAll('.plan-option').forEach(label=>{
+      const plan=plans[Number(label.querySelector('input[name=plan]')?.value)];
       if(!plan)return;
       const name=label.querySelector('span b');
       const meta=label.querySelector('span small');
