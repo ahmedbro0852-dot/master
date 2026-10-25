@@ -109,6 +109,14 @@
   const selectedLink=document.createElement('button');selectedLink.type='button';selectedLink.className='selected-plan-link';root.querySelector('.summary-card').prepend(selectedLink);
   selectedLink.addEventListener('click',()=>{const radio=root.querySelector('input[name=plan]:checked');if(radio){radio.closest('.plan-option').scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});radio.focus({preventScroll:true});}});
 
+  const planActions=document.createElement('div');planActions.className='plan-tools';
+  planActions.innerHTML='<div class="plan-tool-buttons"><button type="button" data-copy-plan></button><button type="button" data-ask-plan></button></div><p class="plan-tool-status" role="status" aria-live="polite"></p><input class="plan-share-url" type="text" readonly hidden>';
+  selectedLink.insertAdjacentElement('afterend',planActions);
+  const copyPlan=planActions.querySelector('[data-copy-plan]'),askPlan=planActions.querySelector('[data-ask-plan]'),shareStatus=planActions.querySelector('.plan-tool-status'),shareInput=planActions.querySelector('input');
+  const planUrl=()=>{const url=new URL('/products/'+encodeURIComponent(p.id)+'.html',location.origin);url.searchParams.set('plan',String(plans.indexOf(selectedPlan())));return url.href;};
+  copyPlan.addEventListener('click',async()=>{const url=planUrl();try{if(!navigator.clipboard?.writeText)throw Error('clipboard');await navigator.clipboard.writeText(url);shareInput.hidden=true;shareStatus.textContent=ui('تم نسخ رابط الباقة المختارة ✓','Selected plan link copied ✓');}catch{shareInput.value=url;shareInput.hidden=false;shareInput.focus();shareInput.select();shareStatus.textContent=ui('انسخ الرابط من الخانة دي.','Copy the link from this field.');}});
+  askPlan.addEventListener('click',()=>{const plan=selectedPlan();if(!plan)return;document.dispatchEvent(new CustomEvent('masterstore:ask-plan',{detail:{question:ui('اشرح لي مميزات وطريقة تفعيل وضمان باقة ','Explain the features, activation and warranty of ')+tr(plan.name||plan.duration,'planName')+ui(' من ',' from ')+p.name,trigger:askPlan}}));});
+
   function refreshWindowsGuide(){
     const guide=window.MasterWindowsGuide;
     if(!guide?.match(p))return;
@@ -241,6 +249,8 @@
 
   function renderDetails(){
     const plan=selectedPlan();
+    shareStatus.textContent='';shareInput.hidden=true;
+    planActions.hidden=!plan;copyPlan.textContent=ui('نسخ رابط الباقة','Copy plan link');askPlan.textContent=ui('اسأل المساعد عن الباقة','Ask about this plan');shareInput.setAttribute('aria-label',ui('رابط الباقة المختارة','Selected plan link'));
     selectedLink.hidden=!plan;if(plan)selectedLink.textContent=ui('عرض الباقة المختارة: ','View selected plan: ')+tr(plan.name||plan.duration,'planName');
     if(!plan){planDetails.innerHTML='';return;}
     const buy=document.getElementById('buyBtn');if(buy)buy.disabled=plan.available===false;
@@ -282,7 +292,7 @@
     }
     planFeatures.innerHTML=features.length?'<div class="plan-features"><b>'+ui('مميزات الاشتراك','Subscription features')+'</b><ul>'+features.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'';
   }
-  radios.forEach(r=>r.onchange=renderDetails);
+  radios.forEach(r=>r.onchange=()=>{shareStatus.textContent='';shareInput.hidden=true;const url=new URL(location.href);url.searchParams.set('plan',r.value);history.replaceState(history.state,'',url);renderDetails();});
   renderDetails();
   if(window.MasterLocale)window.MasterLocale.apply(); // re-translate dynamic product content
 

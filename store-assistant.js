@@ -8,7 +8,8 @@ const dialog=document.createElement('dialog');dialog.className='store-assistant-
 dialog.innerHTML='<header class="assistant-header"><img src="/logos/store-assistant.svg?v=20261025-assistant-logo1" alt="" width="46" height="46"><div><h2 id="store-assistant-title"></h2><p data-assistant-mode></p></div><button type="button" class="assistant-close">×</button></header><div class="assistant-conversation" role="log" aria-live="polite" aria-relevant="additions" tabindex="0"></div><div class="assistant-suggestions"></div><div class="assistant-status" role="status"></div><form class="assistant-form"><label for="store-assistant-input" class="assistant-sr-only"></label><textarea id="store-assistant-input" rows="2" maxlength="1200" required></textarea><button type="submit" class="assistant-send"></button></form><footer class="assistant-footer"><p></p><div><button type="button" class="assistant-reset"></button><a href="https://wa.me/201500950624" target="_blank" rel="noopener"></a></div></footer>';
 document.body.append(launcher,dialog);
 const log=dialog.querySelector('.assistant-conversation'),input=dialog.querySelector('textarea'),send=dialog.querySelector('.assistant-send'),status=dialog.querySelector('.assistant-status'),suggestions=dialog.querySelector('.assistant-suggestions');
-let history=[],busy=false,controller=null,generation=0;
+let history=[],busy=false,controller=null,generation=0,returnFocus=launcher;
+launcher.setAttribute('aria-expanded','false');
 function safeUrl(value){
  try{const u=new URL(value,location.origin);if(u.origin===location.origin && (/^\/products\/[a-z0-9-]+\.html$/.test(u.pathname)||['/account.html','/track.html','/warranty.html','/','/index.html'].includes(u.pathname)))return u.pathname+u.search+u.hash;if(Object.values(window.MasterSocialLinks||{}).filter(Boolean).some(link=>new URL(link).href===u.href))return u.href;if(u.origin==='https://wa.me'&&u.pathname==='/201500950624')return u.href;}catch{}return null;
 }
@@ -28,8 +29,10 @@ async function submit(text){
  catch(error){if(current!==generation)return;status.textContent=error.message==='rate'?t('استنى دقيقة وجرب تاني، أو كلم الدعم.','Wait a minute and try again, or contact support.'):t('مش قادر أجيب الرد دلوقتي. جرّب تاني أو تواصل مع الدعم.','Could not get a reply. Try again or contact support.');input.value=text;}
  finally{clearTimeout(timer);if(current===generation){busy=false;send.disabled=false;controller=null;if(dialog.open)input.focus();}}
 }
-launcher.onclick=()=>{dialog.showModal();launcher.setAttribute('aria-expanded','true');if(!log.children.length)welcome();input.focus();};
-dialog.querySelector('.assistant-close').onclick=()=>dialog.close();dialog.addEventListener('close',()=>{launcher.setAttribute('aria-expanded','false');launcher.focus();});dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+function openAssistant(question,trigger){returnFocus=trigger instanceof HTMLElement?trigger:launcher;if(!dialog.open)dialog.showModal();launcher.setAttribute('aria-expanded','true');if(!log.children.length)welcome();if(typeof question==='string')input.value=question.slice(0,1200);input.focus();}
+launcher.onclick=()=>openAssistant(undefined,launcher);
+document.addEventListener('masterstore:ask-plan',e=>openAssistant(e.detail?.question,e.detail?.trigger));
+dialog.querySelector('.assistant-close').onclick=()=>dialog.close();dialog.addEventListener('close',()=>{launcher.setAttribute('aria-expanded','false');(returnFocus?.isConnected?returnFocus:launcher).focus();});dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
 dialog.querySelector('form').onsubmit=e=>{e.preventDefault();submit(input.value);};input.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();submit(input.value);}};
 dialog.querySelector('.assistant-reset').onclick=()=>{generation++;controller?.abort();controller=null;busy=false;send.disabled=false;history=[];log.replaceChildren();status.textContent='';suggestions.hidden=false;input.value='';labels();welcome();input.focus();};
 document.addEventListener('masterstore:localechange',labels);labels();
