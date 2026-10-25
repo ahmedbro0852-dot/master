@@ -29,7 +29,7 @@
     const target=document.getElementById(id);
     if(target)new MutationObserver(discover).observe(target,{childList:true});
   }
-  document.querySelectorAll('img[src*="master-store-logo.png"]').forEach(img=>{img.src='master-store-logo.svg?v=20261025-brand2';img.width=195;img.height=60;});
+  document.querySelectorAll('img[src*="master-store-logo.png"]').forEach(img=>{img.src='master-store-logo.svg?v=20261018-complete1';img.width=208;img.height=56;});
   const shelf=document.querySelector('.subscription-shelf');
   if(shelf)new IntersectionObserver(entries=>{shelf.style.animationPlayState=entries[0].isIntersecting&&!document.hidden?'running':'paused';}).observe(shelf);
 })();

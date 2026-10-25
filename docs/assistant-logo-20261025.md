@@ -1,0 +1,1 @@
+Dedicated robot icon for the AI assistant launcher and chat header. Store logo/favicon assets and references restored to their state before the mistaken brand change. No AI provider, conversation or checkout behavior changed.
