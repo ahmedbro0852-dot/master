@@ -2,6 +2,8 @@
 (function(root,factory){const value=factory();if(typeof module==='object'&&module.exports)module.exports=value;else root.MasterSEO=value;})(typeof window==='undefined'?globalThis:window,function(){
 'use strict';
 const origin='https://master-pi-six.vercel.app';
+const social=typeof module==='object'&&module.exports?require('./social-links.js'):window.MasterSocialLinks;
+const profileLinks=[social?.facebook,social?.whatsappChannel].filter(Boolean);
 const categories=[
  {name:'الفيديو',slug:'video-tools',title:'اشتراكات أدوات الفيديو والمونتاج',description:'قارن باقات توليد الفيديو بالذكاء الاصطناعي والأفاتار والمونتاج. راجع مدة الاشتراك وطريقة التفعيل والضمان لكل خدمة قبل الطلب.'},
  {name:'الصور والتصميم',slug:'image-design-tools',title:'اشتراكات أدوات الصور والتصميم',description:'تصفح أدوات توليد الصور وتعديلها والتصميم وموارد الصور والقوالب. اختر الخدمة حسب استخدامك وراجع الباقات والتفعيل والضمان.'},
@@ -53,7 +55,7 @@ function productGraph(p,groups,rows){
 }
 const homeGraph={'@context':'https://schema.org','@graph':[
  {'@type':'WebSite','@id':origin+'/#website',name:'MASTER STORE',alternateName:['ماستر ستور','Master Store'],url:origin+'/',inLanguage:'ar'},
- {'@type':'Organization','@id':origin+'/#store',name:'MASTER STORE',alternateName:'ماستر ستور',url:origin+'/',logo:origin+'/master-store-logo.png',sameAs:['https://www.facebook.com/share/19XBCdMAm5/']}
+ {'@type':'Organization','@id':origin+'/#store',name:'MASTER STORE',alternateName:'ماستر ستور',url:origin+'/',logo:origin+'/master-store-logo.png',sameAs:profileLinks}
 ]};
 return {origin,categories,categoryFor,categoryUrl,productUrl,productTitle,image,indexable,shortDescription,offers,productGraph,homeGraph};
 });

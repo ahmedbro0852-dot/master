@@ -7,18 +7,24 @@
   if(menu&&nav){
     menu.setAttribute('aria-expanded','false');
 
-    function closeMenu(){
+    function closeMenu(restoreFocus=false){
       nav.classList.remove('open');
       menu.setAttribute('aria-expanded','false');
+      menu.setAttribute('aria-label',window.MasterLocale?.getState().language==='en'?'Open menu':'فتح القائمة');
+      if(restoreFocus)menu.focus();
     }
 
     menu.addEventListener('click',()=>{
       const open=nav.classList.toggle('open');
       menu.setAttribute('aria-expanded',String(open));
+      menu.setAttribute('aria-label',window.MasterLocale?.getState().language==='en'?(open?'Close menu':'Open menu'):(open?'إغلاق القائمة':'فتح القائمة'));
+      if(open)nav.querySelector('a')?.focus();
     });
 
-    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+    const updateMenuLabel=()=>{const open=nav.classList.contains('open'),en=window.MasterLocale?.getState().language==='en';menu.setAttribute('aria-label',en?(open?'Close menu':'Open menu'):(open?'إغلاق القائمة':'فتح القائمة'));};
+    document.addEventListener('masterstore:localechange',updateMenuLabel);updateMenuLabel();
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>closeMenu()));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open'))closeMenu(true);});
     document.addEventListener('click',e=>{
       if(!nav.contains(e.target)&&!menu.contains(e.target))closeMenu();
     });
@@ -66,7 +72,12 @@
     return rank||((popularityRank.get(a.id)??999)-(popularityRank.get(b.id)??999));
   });
   const categories=['الكل',...(Catalog.categoryOrder||[...new Set(products.map(p=>p.category).filter(Boolean))])];
-  let selected='الكل';
+  const urlFilters=new URLSearchParams(location.search);
+  const validCategories=new Set([...categories,...Object.values(Catalog.categoryGroups||{}).flat()]);
+  let selected=validCategories.has(urlFilters.get('category'))?urlFilters.get('category'):'الكل';
+  if(search)search.value=(urlFilters.get('q')||'').slice(0,120);
+  if(availableOnly)availableOnly.checked=urlFilters.get('available')==='1';
+  if(sort&&['price-asc','price-desc'].includes(urlFilters.get('sort')))sort.value=urlFilters.get('sort');
 
   const isEn=()=>Locale?.getState().language==='en';
   const ui=(ar,en)=>isEn()?en:ar;
@@ -74,7 +85,7 @@
   const esc=value=>Store.escapeHtml(value);
 
   function normalizeSearch(value){
-    return String(value??'')
+    return String(value??'').replace(/[٠-٩]/g,c=>String('٠١٢٣٤٥٦٧٨٩'.indexOf(c))).replace(/(?<=\d)[,٬](?=\d)/g,'')
       .toLowerCase()
       .normalize('NFKD')
       .replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g,'')
@@ -138,9 +149,11 @@
     return status==='available'?'ok':status==='soon'?'soon':'out';
   }
 
+  const searchAliases={'capcut-pro':'كاب كات كابكت كابكات كبكات','gemini-pro':'جيمناي جيميني جيميناي جيمني جوجل','chatgpt-plus':'شات جي بي تي شاتجبت تشات','elevenlabs':'ايلفن اليفن إليفن ايليفن','higgsfield-pro':'هيجزفيلد هيجسفيلد','leonardo-ai':'ليوناردو ليناردو ليرنادو ليرنادوا','grok':'جروك غروك سوبرجروك','coursera':'كورسيرا كورسيرا بلس','supergrok-coursera-bundle':'سوبر جروك كورسيرا كورسيرا بلس','windows-pro':'ويندوز وندوز ويندز','duolingo':'دولينجو دولينغو','quillbot':'كولبوت كويلبوت كويل بوت','claude-pro':'كلود كلاود','freepik':'فريبيك فري بيك','envato':'انفاتو إنفاتو','discord':'ديسكورد ديسكورات نيترو','canva-pro':'كانفا كنفا','grammarly':'جراملي جرامرلي','lovable-pro':'لوفابل لوفبل','perplexity-pro':'بيربليكسيتي بيربلكسيتي'};
   function searchText(product){
     return normalizeSearch([
       product.name,
+      searchAliases[product.id]||'',
       product.id==='kling'?'كلينج كيلنج Kling':'' ,
       tr(product.category,'category',product.id),
       ...(product.categories||[]),
@@ -149,7 +162,7 @@
       ...(product.plans||[]).flatMap(plan=>[
         tr(plan.name||'','planName',product.id),
         tr(plan.duration||'','duration',product.id),
-        tr(plan.account||'','account',product.id)
+        tr(plan.account||'','account',product.id),plan.credits||'',...(plan.features||[])
       ])
     ].join(' '));
   }
@@ -210,11 +223,15 @@
     grid.querySelectorAll('.product-card').forEach(card=>{
       const categoryMatch=matchesCategory(Catalog.getProduct(card.dataset.productId),selected);
       const product=Catalog.getProduct(card.dataset.productId);
-      const matches=categoryMatch&&(!availableOnly?.checked||product?.status==='available')&&(!q||(card.dataset.search||'').includes(q));
+      const matches=categoryMatch&&(!availableOnly?.checked||product?.status==='available')&&(!q||q.split(/\s+/).every(word=>(card.dataset.search||'').includes(word)));
       card.hidden=!matches;
       if(matches)visible++;
     });
 
+    const url=new URL(location.href);
+    const state={q:search?.value.trim()||'',category:selected==='الكل'?'':selected,available:availableOnly?.checked?'1':'',sort:sort?.value==='featured'?'':sort?.value||''};
+    for(const [key,value] of Object.entries(state)){if(value)url.searchParams.set(key,value);else url.searchParams.delete(key);}
+    if(url.href!==location.href)history.replaceState(history.state,'',url);
     const count=document.getElementById('catalogResultCount');
     if(count)count.textContent=ui('عرض '+visible+' من '+products.length+' خدمة', 'Showing '+visible+' of '+products.length+' services');
     const availableLabel=document.getElementById('availableOnlyLabel');

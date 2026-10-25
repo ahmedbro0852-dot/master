@@ -10,7 +10,7 @@ document.body.append(launcher,dialog);
 const log=dialog.querySelector('.assistant-conversation'),input=dialog.querySelector('textarea'),send=dialog.querySelector('.assistant-send'),status=dialog.querySelector('.assistant-status'),suggestions=dialog.querySelector('.assistant-suggestions');
 let history=[],busy=false,controller=null,generation=0;
 function safeUrl(value){
- try{const u=new URL(value,location.origin);if(u.origin===location.origin && (/^\/products\/[a-z0-9-]+\.html$/.test(u.pathname)||['/account.html','/track.html','/warranty.html','/','/index.html'].includes(u.pathname)))return u.pathname+u.search+u.hash;if(u.origin==='https://wa.me'&&u.pathname==='/201500950624')return u.href;}catch{}return null;
+ try{const u=new URL(value,location.origin);if(u.origin===location.origin && (/^\/products\/[a-z0-9-]+\.html$/.test(u.pathname)||['/account.html','/track.html','/warranty.html','/','/index.html'].includes(u.pathname)))return u.pathname+u.search+u.hash;if(Object.values(window.MasterSocialLinks||{}).filter(Boolean).some(link=>new URL(link).href===u.href))return u.href;if(u.origin==='https://wa.me'&&u.pathname==='/201500950624')return u.href;}catch{}return null;
 }
 function appendText(node,text){
  text=text.replace(/\\\//g,'/');

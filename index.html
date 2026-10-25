@@ -28,10 +28,12 @@
 <link rel="stylesheet" href="theme.css?v=20261021-dark1">
 <script src="theme.js?v=20261021-dark1"></script>
 <link rel="stylesheet" href="seo-pages.css?v=20261023-seo3">
+<script src="/social-links.js?v=20261025-review1"></script>
 <script src="seo-config.js?v=20261023-seo3"></script>
 <link rel="stylesheet" href="product-prices.css?v=20261025-store-prices3">
   <link rel="stylesheet" href="/store-assistant.css?v=20261025-ai1">
-<script id="master-seo-data" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://master-pi-six.vercel.app/#website","name":"MASTER STORE","alternateName":["ماستر ستور","Master Store"],"url":"https://master-pi-six.vercel.app/","inLanguage":"ar"},{"@type":"Organization","@id":"https://master-pi-six.vercel.app/#store","name":"MASTER STORE","alternateName":"ماستر ستور","url":"https://master-pi-six.vercel.app/","logo":"https://master-pi-six.vercel.app/master-store-logo.png","sameAs":["https://www.facebook.com/share/19XBCdMAm5/"]}]}</script>
+  <link rel="stylesheet" href="/site-updates.css?v=20261025-review1">
+<script id="master-seo-data" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://master-pi-six.vercel.app/#website","name":"MASTER STORE","alternateName":["ماستر ستور","Master Store"],"url":"https://master-pi-six.vercel.app/","inLanguage":"ar"},{"@type":"Organization","@id":"https://master-pi-six.vercel.app/#store","name":"MASTER STORE","alternateName":"ماستر ستور","url":"https://master-pi-six.vercel.app/","logo":"https://master-pi-six.vercel.app/master-store-logo.png","sameAs":["https://www.facebook.com/share/19XBCdMAm5/","https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K"]}]}</script>
 </head>
 <body>
   <div class="offer-bar">خصومات تصل إلى 90% على عروض مختارة <a href="#products">تصفح العروض</a></div>
@@ -138,6 +140,7 @@
       </div>
     </section>
 
+  <section class="store-follow" id="follow-offers" aria-labelledby="follow-title"><div class="store-follow-copy"><img class="store-follow-icon" src="/logos/facebook.svg" alt="" width="49" height="49" loading="lazy"><div><h2 id="follow-title" data-follow-title>خليك متابع أحدث عروضنا</h2><p data-follow-description>تابع عروض ماستر ستور على فيسبوك وقناة واتساب، واختار الباقة المناسبة ليك.</p></div></div><div class="store-follow-actions"><a class="store-follow-facebook" href="https://www.facebook.com/share/19XBCdMAm5/" target="_blank" rel="noopener noreferrer"><span data-follow-facebook>تابعنا على فيسبوك</span> ↗</a><a class="store-follow-channel" href="https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K" target="_blank" rel="noopener noreferrer"><img src="/logos/whatsapp.svg" alt="" width="20" height="20"><span data-follow-channel>قناة عروض واتساب</span> ↗</a></div></section>
     <nav class="store-section-links" aria-label="أقسام المتجر"><a href="#best-offers">أفضل العروض</a><a href="#products">كل الخدمات</a><a href="#customer-stories">تجارب العملاء</a><a href="#how">طريقة الطلب</a><a href="#faq">الأسئلة الشائعة</a></nav>
     <section class="confidence-strip" aria-label="مميزات المتجر">
       <div><b>أسعار منافسة</b><span>عروض مختارة بتوفير كبير</span></div>
@@ -152,7 +155,7 @@
         <div><span class="eyebrow">العروض والخدمات</span><h2>اختار اشتراكك</h2><p class="section-sub">كل التفاصيل المهمة موجودة داخل صفحة الخدمة.</p></div>
         <label class="search"><span>⌕</span><input id="search" type="search" placeholder="دور على خدمتك..." autocomplete="off"></label>
       </div>
-      <div class="filters" id="filters"></div><div class="catalog-overview"><p id="catalogResultCount" role="status" aria-live="polite"></p><label><input type="checkbox" id="availableOnly"><span id="availableOnlyLabel">المتاح فقط</span></label><label class="catalog-sort-compact"><select id="catalogSort" aria-label="ترتيب الخدمات"><option value="featured">ترتيب المتجر</option><option value="price-asc">السعر: الأقل أولًا</option><option value="price-desc">السعر: الأعلى أولًا</option></select></label></div>
+      <div class="filters" id="filters"></div><div class="catalog-overview"><p id="catalogResultCount" role="status" aria-live="polite"></p><label><input type="checkbox" id="availableOnly"><span id="availableOnlyLabel">المتاح فقط</span></label><label class="catalog-sort-compact"><select id="catalogSort" aria-label="ترتيب الخدمات"><option value="featured">ترتيب المتجر</option><option value="price-asc">السعر: الأقل أولًا</option><option value="price-desc">السعر: ا></label></div>
       <div class="grid" id="grid" aria-live="polite" aria-busy="true"></div>
       <div class="catalog-loading" id="catalogLoading" role="status">جاري تحميل العروض...</div>
       <div class="empty" id="empty">مفيش نتيجة مطابقة.</div>
@@ -206,6 +209,7 @@
     <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png?v=20260924-sec19" alt="MASTER STORE"></a>
     <p>اشتراكات وخدمات رقمية بأسعار مميزة ودعم مباشر قبل وبعد الطلب.</p>
     <a class="footer-facebook" href="https://www.facebook.com/share/19XBCdMAm5/" target="_blank" rel="noopener noreferrer">تابعنا على فيسبوك</a>
+    <a class="footer-whatsapp-channel" href="https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K" target="_blank" rel="noopener noreferrer">قناة عروض واتساب</a>
     <a class="footer-policy" href="warranty.html">سياسة الضمان والاستبدال</a>
 <div class="footer-meta"><small>© 2026 MASTER STORE</small><small class="brand-disclaimer">الأسماء والعلامات التجارية مملوكة لأصحابها، ولا تعني عرض المنتجات وجود شراكة رسمية مع الشركات المالكة.</small></div>
   </footer>
@@ -219,11 +223,12 @@
   <script src="store.js?v=20261025-store-prices3"></script>
   <script src="order-details.js?v=20261018-details1"></script>
   <script src="cart.js?v=20261025-store-prices3"></script>
-  <script src="app.js?v=20261025-store-prices3"></script>
+  <script src="app.js?v=20261025-review1"></script>
   <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img decoding="async" class="whatsapp-icon" src="logos/whatsapp.svg?v=20261009-logo-review3" alt=""></a>
 <script src="seo.js?v=20261023-seo3"></script>
 <script src="customer-stories.js?v=20261025-stories-fix1" defer></script>
 <script src="store-faq.js?v=20261018-searchable1"></script>
-  <script src="/store-assistant.js?v=20261025-ai2" defer></script>
+  <script src="/store-assistant.js?v=20261025-review1" defer></script>
+  <script src="/site-updates.js?v=20261025-review1" defer></script>
 </body>
 </html>
