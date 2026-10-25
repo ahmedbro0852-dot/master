@@ -199,6 +199,12 @@ async function callGoogle(model, messages, mode) {
 }
 
 module.exports = async function handler(req, res) {
+  if (process.env.MASTER_STORE_SITE === '1') {
+    res.setHeader('Cache-Control', 'private, no-store');
+    res.setHeader('X-Robots-Tag', 'noindex');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    return res.status(404).json({ error: 'not_found' });
+  }
   res.setHeader('Cache-Control', 'no-store, max-age=0');
 
   if (req.method !== 'POST') {

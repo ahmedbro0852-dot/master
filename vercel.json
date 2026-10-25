@@ -171,30 +171,7 @@
       "includeFiles": "{catalog.js,warranty.html,product-features.js,payment-assets.js}"
     }
   },
-  "rewrites": [
-    {
-      "source": "/api/nasha-chat",
-      "destination": "/__retired_endpoint__"
-    },
-    {
-      "source": "/api/nasha-chat.js",
-      "destination": "/__retired_endpoint__"
-    },
-    {
-      "source": "/api/nasha-chat/:path*",
-      "destination": "/__retired_endpoint__"
-    },
-    {
-      "source": "/api/nasha-status",
-      "destination": "/__retired_endpoint__"
-    },
-    {
-      "source": "/api/nasha-status.js",
-      "destination": "/__retired_endpoint__"
-    },
-    {
-      "source": "/api/nasha-status/:path*",
-      "destination": "/__retired_endpoint__"
-    }
-  ]
+  "env": {
+    "MASTER_STORE_SITE": "1"
+  }
 }
