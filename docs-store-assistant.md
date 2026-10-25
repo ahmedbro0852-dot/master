@@ -23,4 +23,7 @@ node scripts/build-seo.cjs
 node tests/seo.test.cjs
 ```
 
-The UI test excludes the existing unrelated `customer-stories.js` missing-dialog error from its error assertion; assistant errors still fail the test. Live verification must confirm `mode: ai`, current plan price, a plan link, and the expected production deployment before reporting AI as active.
+The malformed customer-story dialog has been restored. UI tests now assert all page errors and cover opening, zooming, navigation and filters for all 18 existing screenshots. Live verification must confirm `mode: ai`, current plan price, a plan link, and the expected production deployment before reporting AI as active.
+
+
+Knowledge expansion: the assistant consumes the same per-plan `product-features.js` resolver as the plan pages, including credits, activation/account type, gifts, notes, limits and deadline/availability information. The full 80-service directory carries verified starting prices and use summaries. `lib/store-help.cjs` supplies 34 guidance topics grounded in the existing customer flows and policy. Payment methods are read from `payment-assets.js`; current quantity-discount rates are fetched read-only from `master_store_discount_rules` alongside the plan snapshot. Missing snapshots never produce guessed prices or discount percentages. Arabic aliases, follow-up context, use-case matching and EGP budgets improve retrieval; recommendations honor verified availability and budget. No private customer records or conversations are ingested.

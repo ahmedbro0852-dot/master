@@ -21,10 +21,11 @@ module.exports = async function handler(req,res) {
  const ip=String(req.headers['x-vercel-forwarded-for']||req.socket?.remoteAddress||'unknown').split(',')[0];
  if(!allowed(ip)){res.setHeader('Retry-After','60');return res.status(429).json({error:'too_many_messages'});}
  const english=body.language==='en';
- const selected=knowledge.selectProducts(messages,typeof body.productId==='string'?body.productId:'');
- let rows=null;
- try{rows=await knowledge.liveRows();}catch{/* Fail closed for prices; the assistant must not invent a stale price. */}
- const system=knowledge.prompt(knowledge.contextFor(selected,rows),english);
+ const snapshots=await Promise.allSettled([knowledge.liveRows(),knowledge.liveDiscounts()]);
+ const rows=snapshots[0].status==='fulfilled'?snapshots[0].value:null;
+ const discountRules=snapshots[1].status==='fulfilled'?snapshots[1].value:null;
+ const selected=knowledge.selectProducts(messages,typeof body.productId==='string'?body.productId:'',rows);
+ const system=knowledge.prompt(knowledge.contextFor(selected,rows,{language:body.language,question:messages.at(-1).content,discountRules}),english);
  const result=text=>res.status(200).json({text:text.slice(0,7000),mode:'ai',sources:selected.map(p=>({name:p.name,url:'/products/'+p.id+'.html'})),pricesVerified:!!rows});
  // User-selected DarkAPI, authenticated only from the server environment.
  const key=String(process.env.DARKAPI_API_KEY||'').trim();

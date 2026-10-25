@@ -5,6 +5,6 @@
   "private": true,
   "scripts": {
     "build": "node scripts/build-seo.cjs",
-    "test": "node tests/store-assistant.test.cjs && node tests/seo.test.cjs"
+    "test": "node tests/store-assistant.test.cjs && node tests/store-knowledge.test.cjs && node tests/seo.test.cjs"
   }
 }
