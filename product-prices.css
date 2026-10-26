@@ -22,3 +22,28 @@ html[data-custom-theme] .price-drop-badge{background:#154838;color:#9ae7c3}
 
 .best-offer>div{min-width:0;max-width:100%}
 .best-offer .plan-saving{width:fit-content;max-width:100%;box-sizing:border-box;overflow-wrap:anywhere}
+
+/* Keep the annual Lovable offer readable instead of squeezing it beside its price. */
+.best-offer.lovable-offer{min-width:0}
+.lovable-offer .lovable-offer-copy{min-width:0}
+.lovable-offer .lovable-offer-copy h3{font-size:16px;line-height:1.5;overflow-wrap:normal}
+.lovable-offer .lovable-offer-credits,.lovable-offer .lovable-offer-period{margin:0;max-width:100%;width:100%;box-sizing:border-box;line-height:1.8;overflow-wrap:normal}
+.lovable-offer .lovable-offer-credits{font-size:13px;font-weight:600;color:var(--ink,#142b4d)}
+.lovable-offer .lovable-offer-period{font-size:11px;color:var(--muted,#667085)}
+.best-offer.lovable-offer>.store-price-pair{justify-content:center;gap:8px 12px}
+.best-offer.lovable-offer .store-price-current{font-size:24px}
+@media(max-width:700px){
+ .best-offer.lovable-offer{display:grid;grid-template-columns:48px minmax(0,1fr);grid-template-areas:"logo copy" "credits credits" "period period" "price price" "action action";align-items:center;gap:10px 12px;text-align:start;padding:16px}
+ .best-offer.lovable-offer>.product-logo{grid-area:logo;width:48px;height:48px;padding:7px}
+ .lovable-offer>.lovable-offer-copy{grid-area:copy}
+ .lovable-offer>.lovable-offer-credits{grid-area:credits}
+ .lovable-offer>.lovable-offer-period{grid-area:period}
+ .best-offer.lovable-offer>.store-price-pair{grid-area:price;justify-content:flex-start;width:100%;padding-top:2px}
+ .best-offer.lovable-offer>.card-btn{grid-area:action;min-height:44px;margin:0}
+}
+@media(max-width:400px){
+ .shelf-feature{grid-template-columns:42px minmax(0,1fr);gap:10px}
+ .shelf-feature>div{min-width:0}
+ .shelf-feature>strong{grid-column:2;justify-self:start}
+ .shelf-feature b{overflow-wrap:normal}
+}
