@@ -31,7 +31,7 @@
   function icon(product){
     if(product.id==='gemini-coursera-bundle')return '<span class="bundle-brand-group"><span class="product-logo big bundle-main-logo"><img src="logos/coursera.svg" alt="Coursera Plus"></span><span class="bundle-gift-logos">'+['gemini','canva'].map(name=>'<span class="bundle-gift-logo"><img src="logos/'+name+'.svg" alt="'+(name==='gemini'?'Gemini':'Canva Pro')+'"><small>'+ui('مجانًا','FREE')+'</small></span>').join('')+'</span></span>';
     const fallback=(product.name||'M').split(/\s+/).map(x=>x[0]).join('').slice(0,2);
-    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20261009-logo-review3':'';
+    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20261027-hq1':'';
     const src=product.logoUrl||local;
     const fallbackAttr=local?' data-fallback="'+MasterStore.escapeHtml(local)+'"':'';
     return '<span class="product-logo big">'+(src?'<img src="'+MasterStore.escapeHtml(src)+'"'+fallbackAttr+' alt="'+MasterStore.escapeHtml(product.name)+'" decoding="async">':'')+'<span class="logo-fallback">'+MasterStore.escapeHtml(fallback)+'</span></span>';
@@ -289,7 +289,7 @@
       const index=plans.indexOf(plan),state=openedGifts.get(index)||new Set();if(open){state.add(id);playGiftChime();}else state.delete(id);openedGifts.set(index,state);
     }));
     if(p.id==='gemini-coursera-bundle'){
-      planDetails.insertAdjacentHTML('afterbegin',"<section class=\"bundle-inclusions\"><div class=\"bundle-primary-detail\"><span class=\"bundle-label\">الاشتراك الأساسي</span><h3>Coursera Plus</h3><p>١٢ شهرًا من الكورسات · حساب جاهز</p><span class=\"bundle-guarantee\">✓ ضمان كامل لكورسيرا</span></div><div class=\"bundle-gift-details\"><span class=\"bundle-label\">هدايا مشمولة مجانًا</span><div class=\"bundle-gift-row\"><img src=\"logos/gemini.svg\" alt=\"\"><div><strong>Gemini</strong><p>٣ شهور على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div><div class=\"bundle-gift-row\"><img src=\"logos/canva.svg\" alt=\"\"><div><strong>Canva Pro</strong><p>٣ سنين على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div></div><p class=\"bundle-total-note\">الاشتراك والهدايا معًا بـ٤٩٩ج · بدون تكلفة إضافية للهدايا</p></section>");
+      planDetails.insertAdjacentHTML('afterbegin',"<section class=\"bundle-inclusions\"><div class=\"bundle-primary-detail\"><span class=\"bundle-label\">الاشتراك الأساسي</span><h3>Coursera Plus</h3><p>١٢ شهرًا من الكورسات · حساب جاهز</p><span class=\"bundle-guarantee\">✓ ضمان كامل لكورسيرا</span></div><div class=\"bundle-gift-details\"><span class=\"bundle-label\">هدايا مشمولة مجانًا</span><div class=\"bundle-gift-row\"><img src=\"logos/gemini.svg?v=20261027-hq1\" alt=\"\"><div><strong>Gemini</strong><p>٣ شهور على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div><div class=\"bundle-gift-row\"><img src=\"logos/canva.svg\" alt=\"\"><div><strong>Canva Pro</strong><p>٣ سنين على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div></div><p class=\"bundle-total-note\">الاشتراك والهدايا معًا بـ٤٩٩ج · بدون تكلفة إضافية للهدايا</p></section>");
     }
     planFeatures.innerHTML=features.length?'<div class="plan-features"><b>'+ui('مميزات الاشتراك','Subscription features')+'</b><ul>'+features.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'';
     if(window.MasterProductGuides)planFeatures.insertAdjacentHTML('beforeend',MasterProductGuides.render(p.id,isEn(),location.pathname+location.search,{product:p,catalog:MasterCatalog.products,translate:tr,featuresFor:plan=>subscriptionFeatures(p,plan)}));
@@ -357,7 +357,7 @@
 })();
 
 (function geminiDeadline(){
- const deadline=Date.parse('2026-10-27T00:00:00+03:00');
+ const deadline=Date.parse('2026-10-30T00:00:00+03:00');
  const productView=new URLSearchParams(location.search).get('id')==='gemini-pro';
  let clock;
  const mount=()=>{
@@ -368,12 +368,12 @@
   const box=document.createElement('div');
   box.dataset.geminiCountdown='';box.className='gemini-deadline'+(productView?' gemini-deadline-detail':'');
   box.setAttribute('role','timer');box.setAttribute('aria-live','off');
-  box.innerHTML='<span class="deadline-caption">ينتهي العرض قريبًا</span><span class="deadline-digits" dir="ltr"></span>';
+  box.innerHTML='<span class="deadline-caption">تم مد العرض حتى ٢٩ أكتوبر</span><span class="deadline-digits" dir="ltr"></span>';
   const digits=box.querySelector('.deadline-digits');
   const update=()=>{
    const en=document.documentElement.lang==='en';
    const ms=deadline-Date.now();
-   if(ms<=0){box.textContent='انتهت مدة العرض · ٢٦ أكتوبر ٢٠٢٦';clearInterval(clock);return;}
+   if(ms<=0){box.textContent='انتهت مدة العرض · ٢٩ أكتوبر ٢٠٢٦';clearInterval(clock);return;}
    let seconds=Math.floor(ms/1000);const days=Math.floor(seconds/86400);seconds%=86400;
    const hours=Math.floor(seconds/3600);seconds%=3600;const minutes=Math.floor(seconds/60);seconds%=60;
    const values=[days,hours,minutes,seconds],labels=en?['Days','Hours','Minutes','Seconds']:['يوم','ساعة','دقيقة','ثانية'];
@@ -382,7 +382,7 @@
   };
   if(productView){
    const panel=document.createElement('aside');panel.className='gemini-offer-notice';
-   panel.innerHTML='<div><strong>قبل فوات الأوان</strong><p>آخر فرصة لعرض جيمناي ١٨ شهر: <b>٢٦ أكتوبر ٢٠٢٦</b>، حتى نهاية اليوم بتوقيت مصر.</p></div>';
+   panel.innerHTML='<div><strong>تم مد العرض ٣ أيام إضافية</strong><p>عرض جيمناي ١٨ شهر متاح حتى: <b>٢٩ أكتوبر ٢٠٢٦</b>، حتى نهاية اليوم بتوقيت مصر.</p></div>';
    panel.append(box);target.querySelector('.product-hero').after(panel);
   }else{
    const bottom=target.querySelector('.card-bottom');if(bottom)bottom.before(box);else target.append(box);

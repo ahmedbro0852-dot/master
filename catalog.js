@@ -106,7 +106,7 @@ const products = [
     "name": "Coursera Plus + هدايا",
     "category": "التعليم",
     "logo": "gemini",
-    "logoUrl": "logos/gemini.svg?v=20261009-logo-review3",
+    "logoUrl": "logos/gemini.svg?v=20261027-hq1",
     "status": "available",
     "description": "Coursera Plus: اشتراكات سنوية تابعة لـOrg بضمان 4 شهور أو سنة كاملة، وPlus مستقل لمدة شهر، وجميعها تشمل الهدايا.",
     "features": [
@@ -3069,9 +3069,10 @@ const products = [
     "name": "Gemini Pro",
     "category": "AI Tools",
     "logo": "gemini",
-    "logoUrl": "logos/gemini.svg?v=20261009-logo-review3",
+    "logoUrl": "logos/gemini.svg?v=20261027-hq1",
     "status": "available",
     "description": "عرضان لمدة 18 شهر؛ الباقة العائلية تضيف 5 دعوات إضافية، ورصيد 1,000 Credit شهريًا مخصص للحساب الرئيسي فقط. مدة ضمان باقات الـ18 شهر هي 3 شهور.",
+    "notes": ["تم مد فترة الاشتراك في العرض 3 أيام إضافية، حتى نهاية 29 أكتوبر 2026 بتوقيت مصر."],
     "plans": [
       {
         "name": "Gemini Pro",
@@ -3927,7 +3928,7 @@ const products = [
     "name": "HeyGen Creator",
     "category": "AI Tools",
     "logo": "heygen",
-    "logoUrl": "logos/heygen.svg?v=20261009-logo-review3",
+    "logoUrl": "logos/heygen.svg?v=20261027-hq1",
     "status": "available",
     "description": "حساب HeyGen جاهز مع 1,250 Credit.",
     "plans": [
@@ -4788,7 +4789,7 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/wordwall.svg?v=20261009-logo-review3",
+    "logoUrl": "logos/wordwall.svg?v=20261027-hq1",
     "categories": [
       "اختبارات وأنشطة تعليمية"
     ]
@@ -5186,7 +5187,7 @@ const products = [
     "name": "iCloud 4TB",
     "category": "الإنتاجية",
     "logo": "icloud",
-    "logoUrl": "logos/icloud.svg?v=20261009-logo-review3",
+    "logoUrl": "logos/icloud.svg?v=20261027-hq1",
     "status": "available",
     "description": "عرض مساحة iCloud إجمالية 4TB.",
     "plans": [
@@ -5471,7 +5472,7 @@ const products = [
     "name": "Grammarly Premium",
     "category": "الإنتاجية",
     "logo": "grammarly",
-    "logoUrl": "logos/grammarly.svg?v=20261009-logo-review3",
+    "logoUrl": "logos/grammarly.svg?v=20261027-hq1",
     "status": "available",
     "description": "اشتراك Grammarly Premium بمميزات الكتابة المتقدمة والتصحيح والصياغة وأدوات الذكاء الاصطناعي المتاحة في الخطة.",
     "features": [
@@ -6042,7 +6043,7 @@ const products = [
     "name": "Magic Patterns Starter",
     "category": "AI Tools",
     "logo": "magicpatterns",
-    "logoUrl": "logos/magicpatterns.svg?v=20261009-logo-review3",
+    "logoUrl": "logos/magicpatterns.svg?v=20261027-hq1",
     "status": "available",
     "description": "إنشاء واجهات وتجارب رقمية من الأوصاف النصية.",
     "plans": [
@@ -6477,7 +6478,7 @@ const products = [
         }
       }
     ],
-    "logoUrl": "logos/readwise.svg?v=20261009-logo-review3",
+    "logoUrl": "logos/readwise.svg?v=20261027-hq1",
     "categories": [
       "قراءة وحفظ المراجع"
     ]
