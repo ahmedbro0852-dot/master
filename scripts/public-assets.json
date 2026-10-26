@@ -64,5 +64,7 @@
   "tracking.js",
   "warranty.html",
   "windows-guide.css",
-  "windows-guide.js"
+  "windows-guide.js",
+  "product-guides.js",
+  "product-guides.css"
 ]

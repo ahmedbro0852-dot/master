@@ -3,6 +3,7 @@ const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),SEO=require('../seo-config.js'),origin=SEO.origin;
 const WindowsGuide=require('../windows-guide.js');
 const Social=require('../social-links.js');
+const ProductGuides=require('../product-guides.js');
 const sandbox={window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(root,'catalog.js'),'utf8'),sandbox);
 vm.runInNewContext(fs.readFileSync(path.join(root,'product-features.js'),'utf8'),sandbox);
@@ -43,6 +44,7 @@ function writeProducts(prices){
    const before=offer&&former>Number(offer.price)*100?'<span class="plan-previous-price"><small>السعر السابق</small><del>'+escape((former/100).toLocaleString('en-US'))+' ج</del></span>':'';
    return '<article class="account-panel"><h3>'+escape(plan.name)+'</h3>'+(offer?'<p><strong>السعر: '+escape(offer.price)+' جنيه مصري</strong> · '+(offer.availability.endsWith('/InStock')?'متاح للطلب':'غير متاح حاليًا')+'</p>':'')+before+'<p>المدة: '+escape(plan.duration||'راجع تفاصيل الباقة')+'</p><p>'+escape(plan.activation)+'</p><p>الضمان: '+escape(plan.warranty||'يُؤكد مع الدعم')+'</p>'+(details.length?'<ul>'+details.map(f=>'<li>'+escape(f)+'</li>').join('')+'</ul>':'')+(plan.notes?.length?'<ul>'+plan.notes.map(n=>'<li>'+escape(n)+'</li>').join('')+'</ul>':'')+'</article>';
   }).join('')+'<p>راجع السعر والتوفر الحاليين عند الطلب؛ يتم تأكيد الدفع والتسليم وفق تفاصيل الباقة.</p><a href="/product.html?id='+encodeURIComponent(p.id)+'">اختيار الباقة والطلب</a></section>';
+  content+=ProductGuides.render(p.id,false);
   if(WindowsGuide.match(p)){
    content=content.replace('</section><section class="plans-block">','</section>'+WindowsGuide.nav(false)+'<section class="plans-block" id="windows-plans">')+'<div id="windows-guide-root">'+WindowsGuide.render(false)+'</div>';
   }
