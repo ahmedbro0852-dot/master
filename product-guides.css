@@ -28,3 +28,19 @@
 .product-guide-plan ul{padding-inline-start:20px;margin-block:14px;display:grid;gap:7px;font-size:12px}
 .product-guide .product-guide-plan-link{min-height:44px;display:flex;align-items:center;font-size:12px;font-weight:600}
 @media(max-width:500px){.product-guide-plan{padding:12px}.product-guide-plan dl>div{grid-template-columns:minmax(0,1fr);gap:3px}}
+
+/* Native disclosure keeps the full article in the initial HTML, with a compact preview. */
+.guide-disclosure{min-width:0;margin-top:12px;color:var(--ink,#172b4d)}
+.guide-disclosure>summary{display:flex;align-items:center;justify-content:center;gap:12px;box-sizing:border-box;width:fit-content;max-width:100%;min-height:44px;padding:9px 18px;border:1px solid var(--line,#d7e0ed);border-radius:10px;background:var(--theme-control,#f3f6fc);color:var(--ink,#172b4d);font:inherit;font-size:13px;font-weight:600;line-height:1.8;cursor:pointer;list-style:none}
+.guide-disclosure>summary::-webkit-details-marker{display:none}
+.guide-disclosure>summary:focus-visible{outline:3px solid var(--accent,#2460d5);outline-offset:3px}
+.guide-disclosure>summary:hover{border-color:var(--accent,#2460d5)}
+.guide-disclosure:not([open])>summary .guide-show-less,.guide-disclosure[open]>summary .guide-show-more{display:none}
+.guide-disclosure-icon{font-size:18px;line-height:1;transition:transform .15s ease}
+.guide-disclosure[open]>summary .guide-disclosure-icon{transform:rotate(180deg)}
+.product-guide:has(>.guide-disclosure:not([open]))>.product-guide-heading>p,.windows-guide:has(>.guide-disclosure:not([open]))>.windows-guide-head>p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.product-guide .product-guide-heading h2{font-size:20px}
+.windows-guide>.guide-disclosure{margin:16px 0 0}
+.windows-guide>.guide-disclosure>summary{margin-inline:28px;margin-bottom:18px}
+@media(max-width:600px){.product-guide .product-guide-heading h2{font-size:18px}.windows-guide>.guide-disclosure>summary{margin-inline:17px}}
+@media(prefers-reduced-motion:reduce){.guide-disclosure-icon{transition:none}}
