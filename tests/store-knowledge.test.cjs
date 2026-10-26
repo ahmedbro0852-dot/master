@@ -4,6 +4,7 @@ const rows=products.flatMap(p=>(p.plans||[]).map((plan,i)=>({product_id:p.id,pla
 const ask=(text,history=[])=>k.selectProducts([...history.map(content=>({role:'user',content})),{role:'user',content:text}],null,rows);
 assert.equal(k.budgetFrom('ميزانيتي ٣٠٠ جنيه'),300);assert.equal(k.budgetFrom('budget 250 EGP'),250);assert.equal(k.budgetFrom('عايز فيديو 4k'),null);assert.equal(k.budgetFrom('budget 20 USD'),null);assert.equal(k.budgetFrom('ميزانيتي ١٬٠٠٠ جنيه'),1000);
 assert.equal(ask('هل الفاتورة ضريبية؟ ينفع أدفع Binance؟ ولو اشتريت 3 اشتراكات الخصم كام؟').length,0);
+for(const text of ['شات جو بكام؟','ChatGPT Go price','شات جي بي تي جو بضمان']){const go=ask(text);assert.equal(go.length,1);assert.equal(go[0].id,'chatgpt-go');const plan=JSON.parse(k.contextFor(go,rows)).details[0].plans[0];assert.equal(plan.priceEGP,320);assert.equal(plan.duration,'1 شهر');assert.match(plan.warranty,/كامل/);assert.match(plan.account,/جاهز/);}
 assert(ask('إليفن لابس بكام؟').some(p=>p.id==='elevenlabs'));
 assert(ask('قارن جيميني وشات جي بي تي').some(p=>p.id==='gemini-pro'));assert(ask('قارن جيميني وشات جي بي تي').some(p=>p.id==='chatgpt-plus'));
 assert(ask('طيب ينفع على إيميلي؟',['إليفن لابس بكام؟']).some(p=>p.id==='elevenlabs'));

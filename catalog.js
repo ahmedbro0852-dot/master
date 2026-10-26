@@ -2895,6 +2895,34 @@ const products = [
     ]
   },
   {
+  "id": "chatgpt-go",
+  "name": "ChatGPT Go",
+  "category": "AI Tools",
+  "logo": "chatgpt",
+  "status": "available",
+  "description": "اشتراك ChatGPT Go لمدة شهر بسعر 320 جنيه، بحساب جاهز يُسلّم بإيميل وكلمة مرور، وضمان كامل طوال الشهر.",
+  "descriptionEn": "One month of ChatGPT Go for EGP 320, delivered as a ready-to-use account with email and password and full warranty throughout the month.",
+  "plans": [
+    {
+      "name": "ChatGPT Go — حساب جاهز",
+      "planType": "Go",
+      "duration": "1 شهر",
+      "price": 320,
+      "accountType": "حساب جاهز",
+      "activation": "تسليم بيانات الحساب الجاهز: الإيميل وكلمة المرور.",
+      "account": "حساب جاهز",
+      "warranty": "ضمان كامل طوال الشهر",
+      "available": true,
+      "notes": [
+        "حدود الاستخدام والأدوات حسب خطة ChatGPT Go."
+      ]
+    }
+  ],
+  "categories": [
+    "محادثة ومساعد ذكي"
+  ]
+},
+  {
     "id": "chatgpt-plus",
     "name": "ChatGPT Plus",
     "category": "AI Tools",

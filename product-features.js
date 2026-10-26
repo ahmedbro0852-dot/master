@@ -17,6 +17,11 @@ const entries={
  ['اقتراح تعديلات لمعالجة الأخطاء وإعادة تنظيم الكود.','Suggest fixes and refactor existing code.'],
  ['مراجعة التغييرات المقترحة قبل اعتمادها؛ الاستهلاك حسب حدود الخطة.','Review proposed changes before applying them; usage follows plan limits.']
 ],
+'chatgpt-go':[
+ ['كتابة النصوص وتلخيصها وإعادة صياغتها.','Write, summarize, and rephrase text.'],
+ ['المساعدة في الدراسة وشرح الأفكار والبرمجة.','Get help with studying, explanations, and code.'],
+ ['الأدوات وحدود الاستخدام حسب خطة ChatGPT Go المتاحة على الحساب.','Tools and usage limits follow the ChatGPT Go plan available on the account.']
+],
 'chatgpt-plus':[
  ['كتابة المحتوى ومراجعته وتلخيصه حسب المطلوب.','Draft, review, and summarize content.'],
  ['رفع الملفات والصور لتحليلها وشرح محتواها.','Upload files and images for analysis and explanation.'],
