@@ -19,3 +19,6 @@
 .bundle-layout .plan-price-tag{grid-column:2!important}
 html[data-custom-theme] .price-drop-badge{background:#154838;color:#9ae7c3}
 @media(max-width:580px){.plan-option>.plan-price-tag{grid-column:2;justify-content:flex-start;text-align:start}.store-price-pair{gap:5px 8px}.plan-previous-price del{font-size:11px!important}.best-offer .store-price-current{font-size:18px}}
+
+.best-offer>div{min-width:0;max-width:100%}
+.best-offer .plan-saving{width:fit-content;max-width:100%;box-sizing:border-box;overflow-wrap:anywhere}

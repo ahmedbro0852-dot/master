@@ -264,6 +264,7 @@
     const features=subscriptionFeatures(p,plan);
     const saving=Math.max(0,(plan.oldPrice||plan.officialPrice)?MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan):0);
     planDetails.innerHTML=
+      (plan.promotionEndsAt&&Date.now()<Date.parse(plan.promotionEndsAt)?'<div class="notice" role="note">'+ui('⏳ عرض 48 ساعة: 430ج بدل 450ج · حتى 28 أكتوبر 2026، الساعة 8:15 صباحًا بتوقيت مصر. الاشتراك سنة كاملة: 300 كريدت إجماليًا + 5 يوميًا.','⏳ 48-hour offer: EGP 430 instead of 450 · Ends 28 October 2026 at 8:15 AM Egypt time. One-year subscription: 300 total credits plus 5 daily.')+'</div>':'')+
       (p.id==='elevenlabs'&&plan.offerEndsAt?'<div class="notice" role="note">'+ui('⏰ عرض مؤقت: مهلة الحجز 24 ساعة فقط. مدة الاشتراك شهر كامل.','⏰ Limited-time offer: book within 24 hours. Subscription lasts one full month.')+'</div>':'')+
       '<dl class="details-list">'+
         '<div><dt>'+ui('السعر','Price')+'</dt><dd>'+MasterStore.planMoney(plan)+previousStorePriceMarkup(plan)+'</dd></div>'+

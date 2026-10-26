@@ -3220,7 +3220,7 @@ const products = [
   "category": "AI Tools",
   "logo": "lovable",
   "status": "available",
-  "description": "ابنِ مواقع وتطبيقات بمساعدة الذكاء الاصطناعي مع Lovable. باقات شهرية وسنوية في صفحة واحدة، منها Pro لمدة شهر برصيد 100 كريدت + 5 يوميًا بسعر 300 جنيه، وPro Lite لمدة سنة بسعر 450 جنيه.",
+  "description": "ابنِ مواقع وتطبيقات بالذكاء الاصطناعي مع Lovable. باقات شهرية وسنوية، منها Pro Lite لمدة سنة برصيد 300 كريدت إجماليًا + 5 يوميًا، بتفعيل على بريدك الشخصي وضمان كامل.",
   "plans": [
     {
       "name": "Pro — شهر",
@@ -3312,7 +3312,7 @@ const products = [
     {
       "name": "Pro Lite",
       "duration": "12 شهر",
-      "price": 450,
+      "price": 430,
       "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
       "account": "حساب العميل",
       "warranty": "ضمان كامل",
@@ -3324,48 +3324,56 @@ const products = [
         "status": "unavailable",
         "note": "300 كريدت إجماليًا + رصيد يومي لا يطابق تلقائيًا Pro الذي يبدأ من 100 كريدت كل شهر. لم تتأكد باقة رسمية مطابقة لهذا العرض."
       },
-      "oldPrice": 650,
+      "oldPrice": 450,
       "planType": "Pro Lite",
-      "previousStorePrice": 650
+      "previousStorePrice": 450,
+      "promotionEndsAt": "2026-10-28T05:15:00Z",
+      "regularPrice": 450,
+      "regularPreviousStorePrice": 650
     }
   ],
   "categories": [
     "بناء مواقع وتطبيقات بالذكاء الاصطناعي"
   ],
-  "descriptionEn": "Build websites and apps with AI using Lovable. Browse monthly and annual plans, including one month of Pro with 100 credits plus 5 daily for EGP 300, and one year of Pro Lite for EGP 450."
+  "descriptionEn": "Build websites and apps with AI using Lovable. Monthly and annual plans include one year of Pro Lite with 300 total credits plus 5 daily, personal-email activation and full warranty."
 },
   {
-    "id": "lovable-lite",
-    "name": "Lovable Pro Lite",
-    "category": "AI Tools",
-    "logo": "lovable",
-    "status": "available",
-    "description": "عرض Lovable Pro Lite لمدة 12 شهر بسعر 450 جنيه بدل 650 جنيه، بنفس الرصيد اليومي والتفعيل على بريدك الشخصي بدون بطاقة.",
-    "plans": [
-      {
-        "name": "Pro Lite",
-        "duration": "12 شهر",
-        "price": 450,
-        "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
-        "account": "حساب العميل",
-        "warranty": "ضمان كامل",
-        "credits": "300 Credit + 5 Credits يوميًا لمدة سنة",
-        "priceComparison": {
-          "planName": "Lovable Pro / Lite — تحتاج مطابقة الرصيد",
-          "source": "https://docs.lovable.dev/introduction/subscription-plans",
-          "checkedAt": "2026-10-08",
-          "status": "unavailable",
-          "note": "300 كريدت إجماليًا + رصيد يومي لا يطابق تلقائيًا Pro الذي يبدأ من 100 كريدت كل شهر. لم تتأكد باقة رسمية مطابقة لهذا العرض."
-        },
-        "oldPrice": 650
-      }
-    ],
-    "redirectTo": {
-      "id": "lovable-pro",
-      "plan": 3
-    },
-    "categories": []
+  "id": "lovable-lite",
+  "name": "Lovable Pro Lite",
+  "category": "AI Tools",
+  "logo": "lovable",
+  "status": "available",
+  "description": "Lovable Pro Lite لمدة سنة: 300 كريدت إجماليًا + 5 كريدت يوميًا، تفعيل على بريدك الشخصي بدون بطاقة، وضمان كامل.",
+  "plans": [
+    {
+      "name": "Pro Lite",
+      "duration": "12 شهر",
+      "price": 430,
+      "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
+      "account": "حساب العميل",
+      "warranty": "ضمان كامل",
+      "credits": "300 Credit + 5 Credits يوميًا لمدة سنة",
+      "priceComparison": {
+        "planName": "Lovable Pro / Lite — تحتاج مطابقة الرصيد",
+        "source": "https://docs.lovable.dev/introduction/subscription-plans",
+        "checkedAt": "2026-10-08",
+        "status": "unavailable",
+        "note": "300 كريدت إجماليًا + رصيد يومي لا يطابق تلقائيًا Pro الذي يبدأ من 100 كريدت كل شهر. لم تتأكد باقة رسمية مطابقة لهذا العرض."
+      },
+      "oldPrice": 450,
+      "previousStorePrice": 450,
+      "promotionEndsAt": "2026-10-28T05:15:00Z",
+      "regularPrice": 450,
+      "regularPreviousStorePrice": 650
+    }
+  ],
+  "redirectTo": {
+    "id": "lovable-pro",
+    "plan": 3
   },
+  "categories": [],
+  "descriptionEn": "Build websites and apps with AI using Lovable. Monthly and annual plans include one year of Pro Lite with 300 total credits plus 5 daily, personal-email activation and full warranty."
+},
   {
     "id": "runway-pro",
     "name": "Runway Pro",

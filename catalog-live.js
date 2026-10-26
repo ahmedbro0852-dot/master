@@ -18,5 +18,15 @@ window.MasterCatalogReady=(async()=>{
  for(const p of window.MasterCatalog.products){for(const plan of p.plans||[]){if(plan.offerEndsAt&&Date.now()>=Date.parse(plan.offerEndsAt))plan.available=false;}const plans=p.plans||[];if(plans.some(x=>x.available===true))p.status='available';else if(plans.some(x=>x.available===false)&&p.status!=='soon')p.status='out';}
  }catch{/* Cached catalogue stays usable; checkout always rechecks server prices. */}
  for(const p of window.MasterCatalog.products){for(const plan of p.plans||[]){if(plan.offerEndsAt&&Date.now()>=Date.parse(plan.offerEndsAt))plan.available=false;}}
+ applyExpiredPromotions();
+ const next=window.MasterCatalog.products.flatMap(p=>p.plans||[]).map(p=>Date.parse(p.promotionEndsAt)).filter(t=>t>Date.now()).sort((a,b)=>a-b)[0];
+ if(next)setTimeout(()=>{applyExpiredPromotions();document.dispatchEvent(new CustomEvent('masterstore:localechange'));},Math.min(next-Date.now()+100,2147483647));
 })();
+function applyExpiredPromotions(){
+ for(const p of window.MasterCatalog.products)for(const plan of p.plans||[]){
+  if(plan.promotionEndsAt&&Date.now()>=Date.parse(plan.promotionEndsAt)&&plan.price===430){
+   plan.price=plan.regularPrice;plan.previousStorePrice=plan.regularPreviousStorePrice;plan.oldPrice=plan.regularPreviousStorePrice;
+  }
+ }
+}
 })();
