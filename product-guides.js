@@ -143,8 +143,8 @@ const guides={
   }
 };
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function render(id,english=false,route){
- const g=guides[id];if(!g)return '';
+function render(id,english=false,route,options={}){
+ const g=guides[id];if(!g){const other=typeof module==='object'&&module.exports?require('./service-guides.js'):window.MasterServiceGuides;return other?.render(id,english,route,options)||'';}
  const t=(v,key)=>v[english?key+'En':key],base=typeof route==='string'&&/^\/(?!\/)[^<>]*$/.test(route)?route:'/products/'+id+'.html';
  const anchor=s=>'guide-'+id+'-'+s.id;
  return '<article class="product-guide" id="subscription-guide" aria-labelledby="subscription-guide-title" data-no-translate="true"><div class="product-guide-heading"><span>'+ (english?'DETAILED FEATURES':'تفاصيل المميزات')+'</span><h2 id="subscription-guide-title">'+esc(t(g,'title'))+'</h2><p>'+esc(t(g,'intro'))+'</p></div><nav class="product-guide-nav" aria-label="'+(english?'Guide contents':'محتويات الدليل')+'">'+g.sections.map(s=>'<a href="'+esc(base+'#'+anchor(s))+'">'+esc(t(s,'title'))+'</a>').join('')+'</nav>'+g.sections.map(s=>'<section class="product-guide-section" id="'+anchor(s)+'"><h3>'+esc(t(s,'title'))+'</h3><p>'+esc(t(s,'text'))+'</p>'+(t(s,'example')?'<blockquote>'+esc(t(s,'example'))+'</blockquote>':'')+'</section>').join('')+'<footer class="product-guide-sources"><h3>'+(english?'Official sources':'مصادر المعلومات الرسمية')+'</h3><ul>'+g.sources.map(s=>'<li><a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(t(s,'title'))+'</a></li>').join('')+'</ul><p>'+(english?'Feature information reviewed on 26 October 2026. Current tools and limits follow the provider’s updates. Store price, delivery and warranty are shown in the selected plan.':'رُوجعت معلومات المميزات في 26 أكتوبر 2026. الأدوات والحدود تخضع لتحديثات مقدم الخدمة. سعر المتجر والتسليم والضمان موضحة في الباقة المختارة.')+'</p></footer></article>';

@@ -65,7 +65,7 @@
   }
 
   function updateProductMetadata(){
-    const description=tr(p.description||'','description')||p.name;
+    const description=window.MasterSEO?.productDescription(p,isEn())||tr(p.description||'','description')||p.name;
     document.title=isEn()?(Locale?.text(p.name)||p.name)+' plans | MASTER STORE':(window.MasterSEO?.productTitle(p)||p.name+' | MASTER STORE');
     setMeta('meta[name="description"]',description);
     setMeta('meta[property="og:title"]',document.title);
@@ -252,7 +252,7 @@
     shareStatus.textContent='';shareInput.hidden=true;
     planActions.hidden=!plan;copyPlan.textContent=ui('نسخ رابط الباقة','Copy plan link');askPlan.textContent=ui('اسأل المساعد عن الباقة','Ask about this plan');shareInput.setAttribute('aria-label',ui('رابط الباقة المختارة','Selected plan link'));
     selectedLink.hidden=!plan;if(plan)selectedLink.textContent=ui('عرض الباقة المختارة: ','View selected plan: ')+tr(plan.name||plan.duration,'planName');
-    if(!plan){planDetails.innerHTML='';return;}
+    if(!plan){planDetails.innerHTML='';planFeatures.innerHTML=window.MasterProductGuides?MasterProductGuides.render(p.id,isEn(),location.pathname+location.search,{product:p,catalog:MasterCatalog.products,translate:tr,featuresFor:plan=>subscriptionFeatures(p,plan)}):'';return;}
     const buy=document.getElementById('buyBtn');if(buy)buy.disabled=plan.available===false;
     const mobilePrice=document.getElementById('mobilePlanPrice');
     if(mobilePrice)mobilePrice.textContent=MasterStore.planMoney(plan);
@@ -292,7 +292,7 @@
       planDetails.insertAdjacentHTML('afterbegin',"<section class=\"bundle-inclusions\"><div class=\"bundle-primary-detail\"><span class=\"bundle-label\">الاشتراك الأساسي</span><h3>Coursera Plus</h3><p>١٢ شهرًا من الكورسات · حساب جاهز</p><span class=\"bundle-guarantee\">✓ ضمان كامل لكورسيرا</span></div><div class=\"bundle-gift-details\"><span class=\"bundle-label\">هدايا مشمولة مجانًا</span><div class=\"bundle-gift-row\"><img src=\"logos/gemini.svg\" alt=\"\"><div><strong>Gemini</strong><p>٣ شهور على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div><div class=\"bundle-gift-row\"><img src=\"logos/canva.svg\" alt=\"\"><div><strong>Canva Pro</strong><p>٣ سنين على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div></div><p class=\"bundle-total-note\">الاشتراك والهدايا معًا بـ٤٩٩ج · بدون تكلفة إضافية للهدايا</p></section>");
     }
     planFeatures.innerHTML=features.length?'<div class="plan-features"><b>'+ui('مميزات الاشتراك','Subscription features')+'</b><ul>'+features.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'';
-    if(window.MasterProductGuides)planFeatures.insertAdjacentHTML('beforeend',MasterProductGuides.render(p.id,document.documentElement.lang==='en',location.pathname+location.search));
+    if(window.MasterProductGuides)planFeatures.insertAdjacentHTML('beforeend',MasterProductGuides.render(p.id,isEn(),location.pathname+location.search,{product:p,catalog:MasterCatalog.products,translate:tr,featuresFor:plan=>subscriptionFeatures(p,plan)}));
   }
   radios.forEach(r=>r.onchange=()=>{shareStatus.textContent='';shareInput.hidden=true;const url=new URL(location.href);url.searchParams.set('plan',r.value);history.replaceState(history.state,'',url);renderDetails();});
   renderDetails();

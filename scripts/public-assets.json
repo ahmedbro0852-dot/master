@@ -66,5 +66,7 @@
   "windows-guide.css",
   "windows-guide.js",
   "product-guides.js",
-  "product-guides.css"
+  "product-guides.css",
+  "product-guide-profiles.js",
+  "service-guides.js"
 ]

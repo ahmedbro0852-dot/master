@@ -26,7 +26,8 @@ function categoryFor(p,groups={}){
  return categories.filter(c=>c.slug===fallback[p.category]);
 }
 const indexable=p=>!p.redirectTo&&p.status!=='soon'&&(p.plans||[]).some(x=>!x.hidden);
-function productTitle(p){return (p.id.startsWith('windows-')?'تفعيل '+p.name:'باقات '+p.name)+' | ماستر ستور';}
+function productTitle(p){return (p.id.startsWith('windows-')?'تفعيل '+p.name:(p.id==='turnitin'?'فحص ملف ':p.id==='we-gold-discount'?'تفعيل ':'اشتراك ')+p.name+' — المميزات والباقات')+' | ماستر ستور';}
+function productDescription(p,english=false){const profiles=typeof module==='object'&&module.exports?require('./product-guide-profiles.js'):globalThis.MasterProductGuideProfiles;return shortDescription(profiles?.[p.id]?.[english?'introEn':'intro']||(english?p.descriptionEn:p.description)||p.name);}
 function image(p){const candidate=p.logoUrl&&!p.logoUrl.startsWith('data:')?p.logoUrl:p.logo?'logos/'+encodeURIComponent(p.logo)+'.svg':'master-store-logo.png';try{const u=new URL(candidate,origin+'/');return u.protocol==='https:'?u.href:origin+'/master-store-logo.png';}catch{return origin+'/master-store-logo.png';}}
 function shortDescription(text){return String(text||'').replace(/\s+/g,' ').trim().slice(0,220);}
 function offers(p,rows,now=Date.now()){
@@ -44,7 +45,7 @@ function offers(p,rows,now=Date.now()){
 function productGraph(p,groups,rows){
  const url=productUrl(p),category=categoryFor(p,groups)[0],list=[{name:'ماستر ستور',url:origin+'/'}];
  if(category)list.push({name:category.name,url:categoryUrl(category)});list.push({name:p.name,url});
- const offerList=offers(p,rows),entity={'@type':offerList.length?'Product':'Service','@id':url+'#product',name:p.name,description:p.description||p.name,url,image:image(p)};
+ const offerList=offers(p,rows),entity={'@type':offerList.length?'Product':'Service','@id':url+'#product',name:p.name,description:productDescription(p),url,image:image(p)};
  if(offerList.length){entity.sku=p.id;entity.offers=offerList;}
  else entity.provider={'@id':origin+'/#store'};
  return {'@context':'https://schema.org','@graph':[
@@ -57,5 +58,5 @@ const homeGraph={'@context':'https://schema.org','@graph':[
  {'@type':'WebSite','@id':origin+'/#website',name:'MASTER STORE',alternateName:['ماستر ستور','Master Store'],url:origin+'/',inLanguage:'ar'},
  {'@type':'Organization','@id':origin+'/#store',name:'MASTER STORE',alternateName:'ماستر ستور',url:origin+'/',logo:origin+'/master-store-logo.png',sameAs:profileLinks}
 ]};
-return {origin,categories,categoryFor,categoryUrl,productUrl,productTitle,image,indexable,shortDescription,offers,productGraph,homeGraph};
+return {origin,categories,categoryFor,categoryUrl,productUrl,productTitle,productDescription,image,indexable,shortDescription,offers,productGraph,homeGraph};
 });
