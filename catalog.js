@@ -1,7 +1,7 @@
 const products = [
 {
   "id": "picsart",
-  "name": "Picsart",
+  "name": "Picsart Pro",
   "category": "AI Tools",
   "categories": [
     "تعديل الصور والتصميم"
@@ -9,8 +9,8 @@ const products = [
   "logo": "picsart",
   "logoUrl": "logos/picsart.svg?v=20261027-picsart1",
   "status": "available",
-  "description": "اشتراكات Picsart بحساب خاص جاهز وضمان كامل، من أسبوع إلى سنة. الأسبوع بدون كريدت، والباقات الأخرى تشمل 500 كريدت لكل باقة.",
-  "descriptionEn": "Picsart subscriptions with a private ready-to-use account and full warranty, from one week to one year. The weekly plan has no credits; the other plans each include 500 credits.",
+  "description": "اشتراكات Picsart Pro بحساب خاص جاهز وضمان كامل، من أسبوع إلى سنة. الأسبوع بدون كريدت، والباقات الأخرى تشمل 500 كريدت لكل باقة.",
+  "descriptionEn": "Picsart Pro subscriptions with a private ready-to-use account and full warranty, from one week to one year. The weekly plan has no credits; the other plans each include 500 credits.",
   "features": [
     "تحرير الصور وتجهيز تصميمات للسوشيال ميديا باستخدام أدوات الحساب المتاحة.",
     "حساب خاص جاهز مع تسليم بيانات الدخول.",
@@ -27,14 +27,14 @@ const products = [
   ],
   "plans": [
     {
-      "name": "خاص — 7 أيام",
-      "planType": "خاص",
+      "name": "Pro — خاص — 7 أيام",
+      "planType": "Pro",
       "duration": "7 أيام",
       "price": 65,
       "available": true,
       "accountType": "حساب خاص جاهز",
       "account": "حساب خاص جاهز",
-      "activation": "تسليم حساب Picsart خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "activation": "تسليم حساب Picsart Pro خاص جاهز للاستخدام: إيميل وكلمة مرور.",
       "warranty": "ضمان كامل طوال الأسبوع",
       "credits": "بدون كريدت",
       "features": [
@@ -52,14 +52,14 @@ const products = [
       ]
     },
     {
-      "name": "خاص — 1 شهر",
-      "planType": "خاص",
+      "name": "Pro — خاص — 1 شهر",
+      "planType": "Pro",
       "duration": "1 شهر",
       "price": 220,
       "available": true,
       "accountType": "حساب خاص جاهز",
       "account": "حساب خاص جاهز",
-      "activation": "تسليم حساب Picsart خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "activation": "تسليم حساب Picsart Pro خاص جاهز للاستخدام: إيميل وكلمة مرور.",
       "warranty": "ضمان كامل طوال الشهر",
       "credits": "500 كريدت",
       "features": [
@@ -77,14 +77,14 @@ const products = [
       ]
     },
     {
-      "name": "خاص — 3 شهور",
-      "planType": "خاص",
+      "name": "Pro — خاص — 3 شهور",
+      "planType": "Pro",
       "duration": "3 شهور",
       "price": 550,
       "available": true,
       "accountType": "حساب خاص جاهز",
       "account": "حساب خاص جاهز",
-      "activation": "تسليم حساب Picsart خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "activation": "تسليم حساب Picsart Pro خاص جاهز للاستخدام: إيميل وكلمة مرور.",
       "warranty": "ضمان كامل لمدة 3 شهور",
       "credits": "500 كريدت",
       "features": [
@@ -102,14 +102,14 @@ const products = [
       ]
     },
     {
-      "name": "خاص — 6 شهور",
-      "planType": "خاص",
+      "name": "Pro — خاص — 6 شهور",
+      "planType": "Pro",
       "duration": "6 شهور",
       "price": 900,
       "available": true,
       "accountType": "حساب خاص جاهز",
       "account": "حساب خاص جاهز",
-      "activation": "تسليم حساب Picsart خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "activation": "تسليم حساب Picsart Pro خاص جاهز للاستخدام: إيميل وكلمة مرور.",
       "warranty": "ضمان كامل لمدة 6 شهور",
       "credits": "500 كريدت",
       "features": [
@@ -127,14 +127,14 @@ const products = [
       ]
     },
     {
-      "name": "خاص — 12 شهر",
-      "planType": "خاص",
+      "name": "Pro — خاص — 12 شهر",
+      "planType": "Pro",
       "duration": "12 شهر",
       "price": 1650,
       "available": true,
       "accountType": "حساب خاص جاهز",
       "account": "حساب خاص جاهز",
-      "activation": "تسليم حساب Picsart خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "activation": "تسليم حساب Picsart Pro خاص جاهز للاستخدام: إيميل وكلمة مرور.",
       "warranty": "ضمان كامل لمدة سنة",
       "credits": "500 كريدت",
       "features": [
