@@ -5,6 +5,7 @@ const ask=(text,history=[])=>k.selectProducts([...history.map(content=>({role:'u
 assert.equal(k.budgetFrom('ميزانيتي ٣٠٠ جنيه'),300);assert.equal(k.budgetFrom('budget 250 EGP'),250);assert.equal(k.budgetFrom('عايز فيديو 4k'),null);assert.equal(k.budgetFrom('budget 20 USD'),null);assert.equal(k.budgetFrom('ميزانيتي ١٬٠٠٠ جنيه'),1000);
 assert.equal(ask('هل الفاتورة ضريبية؟ ينفع أدفع Binance؟ ولو اشتريت 3 اشتراكات الخصم كام؟').length,0);
 for(const text of ['شات جو بكام؟','ChatGPT Go price','شات جي بي تي جو بضمان']){const go=ask(text);assert.equal(go.length,1);assert.equal(go[0].id,'chatgpt-go');const plan=JSON.parse(k.contextFor(go,rows)).details[0].plans[0];assert.equal(plan.priceEGP,320);assert.equal(plan.duration,'1 شهر');assert.match(plan.warranty,/كامل/);assert.match(plan.account,/جاهز/);}
+for(const text of ['بيسكارت بكام؟','بيكسارت حساب خاص','Picsart plans']){const found=ask(text).find(p=>p.id==='picsart');assert(found,text);const plans=JSON.parse(k.contextFor([found],rows)).details[0].plans;assert.equal(plans.length,5);assert.match(plans[0].credits,/بدون/);for(const plan of plans.slice(1)){assert.match(plan.credits,/500/);assert(!/شهري|month/i.test(plan.credits));}assert(plans.every(p=>/كامل/.test(p.warranty)));}
 assert(ask('إليفن لابس بكام؟').some(p=>p.id==='elevenlabs'));
 assert(ask('قارن جيميني وشات جي بي تي').some(p=>p.id==='gemini-pro'));assert(ask('قارن جيميني وشات جي بي تي').some(p=>p.id==='chatgpt-plus'));
 assert(ask('طيب ينفع على إيميلي؟',['إليفن لابس بكام؟']).some(p=>p.id==='elevenlabs'));

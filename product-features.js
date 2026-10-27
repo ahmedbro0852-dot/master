@@ -2,6 +2,7 @@
 (function(){
 'use strict';
 const entries={
+'picsart':[["تحرير الصور وتجهيز تصميمات للسوشيال ميديا باستخدام أدوات الحساب المتاحة.", "Edit photos and prepare social media designs using the tools available on the account."], ["مراجعة مقاسات التصميم وتناسق النصوص والألوان قبل النشر.", "Review design dimensions, text and colour consistency before publishing."]],
 'humanizeai-pro':[["إعادة صياغة النصوص وتحسين وضوح الأسلوب مع مراجعة النتيجة.", "Rephrase text and improve readability, then review the result."], ["التحكم في النبرة ودرجة إعادة الصياغة وفق أدوات الباقة.", "Adjust tone and rewriting level using the tools available in your plan."], ["إمكانية رفع ملفات TXT وDOCX وPDF وMD وفق حدود الخدمة.", "Upload TXT, DOCX, PDF and MD files within the service limits."], ["استخدام الخدمة من متصفح الكمبيوتر أو الموبايل بدون تثبيت برنامج.", "Use the service in a desktop or mobile browser without installing an app."]],
 'windows-pro':[
  ['تشفير الأقراص باستخدام BitLocker لحماية ملفاتك.','BitLocker drive encryption to protect your files.'],

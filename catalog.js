@@ -1,4 +1,158 @@
 const products = [
+{
+  "id": "picsart",
+  "name": "Picsart",
+  "category": "AI Tools",
+  "categories": [
+    "تعديل الصور والتصميم"
+  ],
+  "logo": "picsart",
+  "logoUrl": "logos/picsart.svg?v=20261027-picsart1",
+  "status": "available",
+  "description": "اشتراكات Picsart بحساب خاص جاهز وضمان كامل، من أسبوع إلى سنة. الأسبوع بدون كريدت، والباقات الأخرى تشمل 500 كريدت لكل باقة.",
+  "descriptionEn": "Picsart subscriptions with a private ready-to-use account and full warranty, from one week to one year. The weekly plan has no credits; the other plans each include 500 credits.",
+  "features": [
+    "تحرير الصور وتجهيز تصميمات للسوشيال ميديا باستخدام أدوات الحساب المتاحة.",
+    "حساب خاص جاهز مع تسليم بيانات الدخول.",
+    "ضمان كامل طوال مدة الباقة المختارة."
+  ],
+  "featuresEn": [
+    "Edit photos and prepare social media designs using the tools available on the account.",
+    "Private ready-to-use account with login details provided.",
+    "Full warranty throughout the selected plan term."
+  ],
+  "notes": [
+    "باقة الأسبوع بدون كريدت؛ باقات الشهر و3 شهور و6 شهور والسنة تشمل 500 كريدت لكل باقة.",
+    "استهلاك الكريدت يختلف حسب الأداة والعملية؛ الرصيد لا يساوي عددًا ثابتًا من الصور."
+  ],
+  "plans": [
+    {
+      "name": "خاص — 7 أيام",
+      "planType": "خاص",
+      "duration": "7 أيام",
+      "price": 65,
+      "available": true,
+      "accountType": "حساب خاص جاهز",
+      "account": "حساب خاص جاهز",
+      "activation": "تسليم حساب Picsart خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "warranty": "ضمان كامل طوال الأسبوع",
+      "credits": "بدون كريدت",
+      "features": [
+        "بدون كريدت",
+        "حساب خاص جاهز مع تسليم بيانات الدخول.",
+        "ضمان كامل طوال مدة الباقة المختارة."
+      ],
+      "featuresEn": [
+        "No credits",
+        "Private ready-to-use account with login details provided.",
+        "Full warranty throughout the selected plan term."
+      ],
+      "notes": [
+        "باقة الأسبوع لا تشمل كريدت."
+      ]
+    },
+    {
+      "name": "خاص — 1 شهر",
+      "planType": "خاص",
+      "duration": "1 شهر",
+      "price": 220,
+      "available": true,
+      "accountType": "حساب خاص جاهز",
+      "account": "حساب خاص جاهز",
+      "activation": "تسليم حساب Picsart خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "warranty": "ضمان كامل طوال الشهر",
+      "credits": "500 كريدت",
+      "features": [
+        "500 كريدت",
+        "حساب خاص جاهز مع تسليم بيانات الدخول.",
+        "ضمان كامل طوال مدة الباقة المختارة."
+      ],
+      "featuresEn": [
+        "500 credits",
+        "Private ready-to-use account with login details provided.",
+        "Full warranty throughout the selected plan term."
+      ],
+      "notes": [
+        "استهلاك الكريدت يختلف حسب الأداة والعملية؛ الرصيد لا يساوي عددًا ثابتًا من الصور."
+      ]
+    },
+    {
+      "name": "خاص — 3 شهور",
+      "planType": "خاص",
+      "duration": "3 شهور",
+      "price": 550,
+      "available": true,
+      "accountType": "حساب خاص جاهز",
+      "account": "حساب خاص جاهز",
+      "activation": "تسليم حساب Picsart خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "warranty": "ضمان كامل لمدة 3 شهور",
+      "credits": "500 كريدت",
+      "features": [
+        "500 كريدت",
+        "حساب خاص جاهز مع تسليم بيانات الدخول.",
+        "ضمان كامل طوال مدة الباقة المختارة."
+      ],
+      "featuresEn": [
+        "500 credits",
+        "Private ready-to-use account with login details provided.",
+        "Full warranty throughout the selected plan term."
+      ],
+      "notes": [
+        "استهلاك الكريدت يختلف حسب الأداة والعملية؛ الرصيد لا يساوي عددًا ثابتًا من الصور."
+      ]
+    },
+    {
+      "name": "خاص — 6 شهور",
+      "planType": "خاص",
+      "duration": "6 شهور",
+      "price": 900,
+      "available": true,
+      "accountType": "حساب خاص جاهز",
+      "account": "حساب خاص جاهز",
+      "activation": "تسليم حساب Picsart خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "warranty": "ضمان كامل لمدة 6 شهور",
+      "credits": "500 كريدت",
+      "features": [
+        "500 كريدت",
+        "حساب خاص جاهز مع تسليم بيانات الدخول.",
+        "ضمان كامل طوال مدة الباقة المختارة."
+      ],
+      "featuresEn": [
+        "500 credits",
+        "Private ready-to-use account with login details provided.",
+        "Full warranty throughout the selected plan term."
+      ],
+      "notes": [
+        "استهلاك الكريدت يختلف حسب الأداة والعملية؛ الرصيد لا يساوي عددًا ثابتًا من الصور."
+      ]
+    },
+    {
+      "name": "خاص — 12 شهر",
+      "planType": "خاص",
+      "duration": "12 شهر",
+      "price": 1650,
+      "available": true,
+      "accountType": "حساب خاص جاهز",
+      "account": "حساب خاص جاهز",
+      "activation": "تسليم حساب Picsart خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "warranty": "ضمان كامل لمدة سنة",
+      "credits": "500 كريدت",
+      "features": [
+        "500 كريدت",
+        "حساب خاص جاهز مع تسليم بيانات الدخول.",
+        "ضمان كامل طوال مدة الباقة المختارة."
+      ],
+      "featuresEn": [
+        "500 credits",
+        "Private ready-to-use account with login details provided.",
+        "Full warranty throughout the selected plan term."
+      ],
+      "notes": [
+        "استهلاك الكريدت يختلف حسب الأداة والعملية؛ الرصيد لا يساوي عددًا ثابتًا من الصور."
+      ]
+    }
+  ]
+},
   {
   "id": "humanizeai-pro",
   "name": "HumanizeAI.pro",
