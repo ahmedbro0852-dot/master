@@ -47,3 +47,6 @@ html[data-custom-theme] .price-drop-badge{background:#154838;color:#9ae7c3}
  .shelf-feature>strong{grid-column:2;justify-self:start}
  .shelf-feature b{overflow-wrap:normal}
 }
+
+/* The annual comparison is separate from the weekly starting price. */
+.simple-service-card>.picsart-saving{grid-column:1/-1;max-width:100%;width:fit-content;box-sizing:border-box;white-space:normal;overflow-wrap:anywhere;margin:0}

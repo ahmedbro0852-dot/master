@@ -173,7 +173,8 @@
     const ref=plan.officialPrice;
     const source=ref?.source;
     const sourceLink=source&&/^https:\/\//.test(source)?'<a class="official-price-source" href="'+MasterStore.escapeHtml(source)+'" target="_blank" rel="noopener noreferrer">'+ui('مرجع السعر الرسمي','Official price reference')+'</a>':'';
-    const note=ref?.estimated?'<small>'+ui('تقدير محسوب من السعر الشهري وخصم الفوترة السنوية المعلن.','Calculated from the monthly rate and advertised annual discount.')+'</small>':'';
+    const referenceNote=plan.priceComparison?.noteEn&&isEn()?plan.priceComparison.noteEn:plan.priceComparison?.note;
+    const note=plan.hideOfficialPrice&&referenceNote?'<small>'+MasterStore.escapeHtml(referenceNote)+'</small>':ref?.estimated?'<small>'+ui('تقدير محسوب من السعر الشهري وخصم الفوترة السنوية المعلن.','Calculated from the monthly rate and advertised annual discount.')+'</small>':'';
     return '<div><dt>'+label+'</dt><dd>'+value+note+sourceLink+'</dd></div>';
   }
 
@@ -268,7 +269,7 @@
       (p.id==='elevenlabs'&&plan.offerEndsAt?'<div class="notice" role="note">'+ui('⏰ عرض مؤقت: مهلة الحجز 24 ساعة فقط. مدة الاشتراك شهر كامل.','⏰ Limited-time offer: book within 24 hours. Subscription lasts one full month.')+'</div>':'')+
       '<dl class="details-list">'+
         '<div><dt>'+ui('السعر','Price')+'</dt><dd>'+MasterStore.planMoney(plan)+previousStorePriceMarkup(plan)+'</dd></div>'+
-        ((plan.oldPrice||plan.officialPrice)?'<div><dt>'+(plan.officialPrice?(plan.priceComparison?.referenceLabel?ui('سعر Plus المستقل للمقارنة','Standalone Plus reference price'):ui('السعر الرسمي','Official price')):ui('السعر قبل العرض','Before discount'))+'</dt><dd>'+(saving?'<del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>':MasterStore.planMoney(plan,'oldPrice'))+(saving?' <strong class="saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
+        ((!plan.hideOfficialPrice&&(plan.oldPrice||plan.officialPrice))?'<div><dt>'+(plan.officialPrice?(plan.priceComparison?.referenceLabel?ui('سعر Plus المستقل للمقارنة','Standalone Plus reference price'):ui('السعر الرسمي','Official price')):ui('السعر قبل العرض','Before discount'))+'</dt><dd>'+(saving?'<del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>':MasterStore.planMoney(plan,'oldPrice'))+(saving?' <strong class="saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
         discountDetail(plan)+
         '<div><dt>'+ui('نوع الباقة','Plan tier')+'</dt><dd>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+'</dd></div>'+
         '<div><dt>'+ui('المدة','Duration')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.duration||'غير محددة','duration'))+'</dd></div>'+

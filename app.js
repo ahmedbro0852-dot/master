@@ -182,6 +182,7 @@
       (product.id==='elevenlabs'&&product.plans?.[2]?.offerEndsAt&&product.plans?.[2]?.available!==false?'<p class="plan-saving">'+ui('⏰ عرض مؤقت · الحجز خلال 24 ساعة · الاشتراك شهر كامل','⏰ Limited-time offer · Book within 24 hours · 1-month subscription')+'</p>':'')+
       '<div class="card-top">'+logoMarkup(product)+'<h3 class="service-name" dir="auto">'+esc(product.name)+'</h3></div>'+
       (product.id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">كورسيرا سنة + جيمناي ٣ شهور + كانفا ٣ سنين</p>':'')+(product.id==='supergrok-coursera-bundle'?'<p class="bundle-card-summary">'+ui('شهر لكل اشتراك · حسابات جاهزة · ضمان كامل','One month each · Ready accounts · Full warranty')+'</p>':'')+'<div class="light-meta">'+(active&&plan?Store.priceMarkup(plan):'<strong>'+esc(price)+'</strong>')+'</div>'+
+      (product.id==='picsart'&&product.plans?.[4]?.available!==false&&Store.officialDiscount(product.plans[4])?.percent>0?'<p class="plan-saving picsart-saving">'+ui('توفير '+Store.officialDiscount(product.plans[4]).percent+'% على باقة السنة','Save '+Store.officialDiscount(product.plans[4]).percent+'% on the annual plan')+'</p>':'')+
       '<div class="card-bottom light-bottom">'+action+'</div>'+
     '</article>';
   }
