@@ -2,6 +2,14 @@ const assert=require('node:assert/strict'),fs=require('fs'),vm=require('vm'),k=r
 const box={window:{}};vm.runInNewContext(fs.readFileSync(require.resolve('../catalog.js'),'utf8'),box);const products=box.window.MasterCatalog.products.filter(p=>!p.redirectTo);
 const rows=products.flatMap(p=>(p.plans||[]).map((plan,i)=>({product_id:p.id,plan_index:i,price_piasters:Math.round(Number(plan.price)*100),available:p.status==='available'&&plan.available!==false,max_quantity:5,previous_price_piasters:null})));
 const ask=(text,history=[])=>k.selectProducts([...history.map(content=>({role:'user',content})),{role:'user',content:text}],null,rows);
+for(const text of ['إكستريم بكام؟','سيرفر اكستريم عربي','Xtream IPTV price']){
+ const found=ask(text).find(p=>p.id==='xtream-iptv');assert(found,text);
+ const plan=JSON.parse(k.contextFor([found],rows)).details[0].plans[0];
+ assert.equal(plan.priceEGP,350);assert.match(plan.duration,/12 شهر أو أكثر/);
+ assert.match(plan.account,/عشوائي/);assert.match(plan.activation,/رابط السيرفر/);
+ assert.match(plan.warranty,/يُؤكد/);assert(plan.notes.some(n=>/عدد الشاشات/.test(n)));
+ assert(plan.features.some(n=>/4 ميجابت/.test(n)));assert.equal(found.plans[0].officialPrice,undefined);
+}
 assert.equal(k.budgetFrom('ميزانيتي ٣٠٠ جنيه'),300);assert.equal(k.budgetFrom('budget 250 EGP'),250);assert.equal(k.budgetFrom('عايز فيديو 4k'),null);assert.equal(k.budgetFrom('budget 20 USD'),null);assert.equal(k.budgetFrom('ميزانيتي ١٬٠٠٠ جنيه'),1000);
 assert.equal(ask('هل الفاتورة ضريبية؟ ينفع أدفع Binance؟ ولو اشتريت 3 اشتراكات الخصم كام؟').length,0);
 for(const text of ['شات جو بكام؟','ChatGPT Go price','شات جي بي تي جو بضمان']){const go=ask(text);assert.equal(go.length,1);assert.equal(go[0].id,'chatgpt-go');const plan=JSON.parse(k.contextFor(go,rows)).details[0].plans[0];assert.equal(plan.priceEGP,320);assert.equal(plan.duration,'1 شهر');assert.match(plan.warranty,/كامل/);assert.match(plan.account,/جاهز/);}

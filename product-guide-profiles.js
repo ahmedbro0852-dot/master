@@ -1,5 +1,123 @@
 /* Service-specific editorial explanations; commercial terms stay in catalog.js. */
 (function(root,factory){const value=factory();if(typeof module==='object'&&module.exports)module.exports=value;else root.MasterProductGuideProfiles=value;})(typeof window==='undefined'?globalThis:window,function(){return {
+"xtream-iptv":{
+  "intro": "Xtream IPTV يتيح تشغيل قائمة قنوات السيرفر عبر الإنترنت باستخدام بيانات Xtream Codes. هذا العرض بسيرفر عربي يُحدد عشوائيًا، لمدة سنة أو أكثر حسب تاريخ الوصول المستلَم. اقرأ الدليل لمعرفة الفرق بين السيرفر والتطبيق وطريقة الإعداد واستهلاك الإنترنت.",
+  "introEn": "Xtream IPTV lets you play a server’s channel list over the internet using Xtream Codes credentials. This offer assigns an Arabic-content server for one year or longer depending on the delivered access expiry. Read the guide for the difference between server and player, setup steps and data usage.",
+  "workflow": "حدد نوع جهازك واسم مشغّل IPTV أولًا. بعد استلام رابط السيرفر واسم المستخدم وكلمة المرور، أضفها في خيار Xtream Codes، ثم حمّل القائمة وجرب قناة بجودة مناسبة لاتصالك. احتفظ بتاريخ الانتهاء وبيانات الوصول في مكان خاص.",
+  "workflowEn": "Identify your device and IPTV player first. After receiving the server URL, username and password, enter them under Xtream Codes, load the list and test a channel at a suitable quality. Keep the expiry date and access details private.",
+  "check": "السيرفر عشوائي والمدة سنة أو أكثر حسب السيرفر المستلَم. تحقق من دعم جهازك والقنوات المطلوبة وعدد الشاشات والضمان وأي رسوم للمشغّل قبل الدفع. لا تفترض جودة ثابتة أو تعليقًا عربيًا لكل بث أو وصولًا مدى الحياة.",
+  "checkEn": "The server is assigned and access lasts one year or longer depending on the delivered server. Confirm device support, required channels, screen limits, warranty and any player fees before payment. Do not assume fixed quality, Arabic commentary on every stream or lifetime access.",
+  "sections": [
+    {
+      "id": "what-is-xtream",
+      "title": "ما هو IPTV وإكستريم؟",
+      "titleEn": "What are IPTV and Xtream?",
+      "paragraphs": [
+        "IPTV هو مشاهدة القنوات عبر الإنترنت بدل استقبالها من طبق الدش وحده. يستقبل الجهاز بث الفيديو من السيرفر، لذلك تحتاج اتصال إنترنت طوال المشاهدة. إكستريم أو Xtream Codes هو أسلوب لإضافة بيانات الاشتراك إلى مشغّل متوافق؛ لا يعني اسم شركة قنوات واحدة ولا يحدد مكتبة موحدة لكل المشتركين.",
+        "هناك فرق بين ثلاث حاجات: السيرفر الذي يقدم القنوات، وبيانات اشتراكك التي تفتح الوصول، والتطبيق الذي يعرض القنوات على جهازك. تنزيل التطبيق وحده لا يمنحك اشتراك قنوات، وشراء هذا العرض لا يعني تلقائيًا دفع رسوم أي مشغّل مدفوع."
+      ],
+      "paragraphsEn": [
+        "IPTV delivers TV channels over the internet rather than receiving them solely through a satellite dish. Your device receives video from a server, so an internet connection is required throughout viewing. Xtream Codes is a way to add subscription credentials to a compatible player; it is not one universal channel provider or a shared catalogue for every subscriber.",
+        "The server supplies the channels, your credentials grant access, and the player displays them on your device. Installing a player alone does not provide a channel subscription. Buying this offer does not automatically include a separate paid player licence."
+      ]
+    },
+    {
+      "id": "server-and-content",
+      "title": "السيرفر والمدة والقنوات والتعليق العربي",
+      "titleEn": "Server, term, channels and Arabic commentary",
+      "paragraphs": [
+        "يُخصص لك سيرفر عربي عشوائي حسب التوفر، وليس سيرفرًا تختاره بالاسم. المدة سنة أو أكثر حسب تاريخ انتهاء البيانات المستلَمة؛ احتفظ بتاريخ الانتهاء الفعلي المرسل لك. الزيادة عن السنة تختلف حسب السيرفر ولا تعني تجديدًا تلقائيًا أو وصولًا مدى الحياة.",
+        "تتضمن تفاصيل العرض متابعة الدوريات الإنجليزي والإيطالي والإسباني والتركي والمصري والسعودي عبر القنوات المشمولة. يتوفر التعليق العربي عندما تنقله القناة المختارة. عبارة القنوات المشمولة تعني القائمة الموجودة على السيرفر؛ لا توجد قائمة موحدة مضمونة لكل قنوات العالم أو كل لغة وجودة. اسأل عن القناة أو المباراة المطلوبة بالاسم قبل الطلب."
+      ],
+      "paragraphsEn": [
+        "An Arabic-content server is assigned according to availability; you do not select a server by name. Access lasts one year or longer depending on the expiry date of the delivered credentials. Keep the actual expiry date supplied to you. Any additional term varies by server and does not mean automatic renewal or lifetime access.",
+        "The offer lists English, Italian, Spanish, Turkish, Egyptian and Saudi football coverage through the included channels. Arabic commentary is available where the selected channel supplies it. Included channels means the server’s actual list, not a guaranteed universal catalogue of every channel, language or quality. Confirm any specific channel or match before ordering."
+      ]
+    },
+    {
+      "id": "setup",
+      "title": "طريقة الاستخدام خطوة بخطوة",
+      "titleEn": "Step-by-step setup",
+      "paragraphs": [
+        "بعد استلام البيانات، طابق رابط السيرفر واسم المستخدم وكلمة المرور مع الرسالة المرسلة لك. قد تختلف أسماء الأزرار بين التطبيقات، لكن الفكرة واحدة."
+      ],
+      "paragraphsEn": [
+        "After delivery, match the server URL, username and password to the details sent to you. Button labels vary between players, but the setup process is similar."
+      ],
+      "ordered": true,
+      "items": [
+        "وصّل جهازك بالإنترنت، وافتح مشغّل IPTV متوافقًا من متجر الجهاز أو من المصدر الرسمي للمشغّل.",
+        "اختر إضافة مستخدم أو قائمة تشغيل، ثم تسجيل الدخول باستخدام Xtream Codes أو Xtream API إذا كان التطبيق يدعمه.",
+        "اكتب اسمًا اختياريًا للقائمة مثل Master Store، وأدخل رابط السيرفر كاملًا كما استلمته، بما في ذلك المنفذ إن وجد.",
+        "أدخل اسم المستخدم وكلمة المرور في الحقلين المخصصين لهما، ثم اضغط إضافة أو تسجيل الدخول.",
+        "انتظر تحميل قائمة القنوات، ثم افتح قسم البث المباشر وابحث عن القناة المطلوبة. ابدأ بجودة أقل لاختبار الاتصال.",
+        "احفظ بيانات الدخول في مكان خاص، ولا تنشرها أو تشاركها. تأكد من عدد الاتصالات المسموح بها قبل فتح البث على جهاز آخر."
+      ],
+      "itemsEn": [
+        "Connect the device to the internet and open a compatible IPTV player from its device store or the player’s official source.",
+        "Choose Add User or Add Playlist, then select Xtream Codes or Xtream API login if the player supports it.",
+        "Give the list an optional name such as Master Store, then enter the complete server URL exactly as supplied, including any port number.",
+        "Enter the username and password in their respective fields, then select Add or Sign In.",
+        "Wait for the channel list to load, open Live TV and find the required channel. Start with a lower-quality stream to check the connection.",
+        "Keep your credentials private. Confirm the allowed connection count before starting a stream on another device."
+      ]
+    },
+    {
+      "id": "devices",
+      "title": "التشغيل على الهاتف والتلفزيون والرسيفر",
+      "titleEn": "Using a phone, TV or receiver",
+      "items": [
+        "الهاتف: يلزم مشغّل متوافق مع نظام هاتفك ويدعم بيانات Xtream Codes. توافر التطبيقات يختلف بين Android وiPhone.",
+        "التلفزيون: شاشات Android TV وGoogle TV أو الشاشات الذكية الأخرى تحتاج تطبيقًا متاحًا على متجرها ويدعم بيانات اشتراكك. الشاشة العادية قد تحتاج جهاز TV Box متوافقًا.",
+        "الرسيفر: يجب أن يتصل بالإنترنت وأن يحتوي على وظيفة IPTV أو Xtream متوافقة؛ ليس كل رسيفر يدعم ذلك، ولا يكفي وجود مدخل USB وحده.",
+        "دعم أنواع أجهزة متعددة لا يعني السماح بتشغيلها في الوقت نفسه. اسأل الدعم عن موديل جهازك وعدد الشاشات المسموح بها."
+      ],
+      "itemsEn": [
+        "Phone: use a player compatible with your phone’s operating system and Xtream Codes credentials. App availability differs between Android and iPhone.",
+        "TV: Android TV, Google TV and other smart TVs require a suitable player available for that platform. A conventional TV may need a compatible TV box.",
+        "Receiver: it must connect to the internet and support a compatible IPTV or Xtream feature. Not every satellite receiver does, and a USB port alone is insufficient.",
+        "Support for several device types does not mean that simultaneous viewing is included. Confirm your device model and screen limit with support."
+      ]
+    },
+    {
+      "id": "internet",
+      "title": "سرعة الإنترنت واستهلاك الباقة",
+      "titleEn": "Internet speed and data usage",
+      "paragraphs": [
+        "المقصود بسرعة 4 ميجا هنا هو 4 ميجابت/ثانية، وليس 4 ميجابايت/ثانية. قد تكفي بعض الجودات المنخفضة أو البث المضغوط، لكن لا نعتبرها ضمانًا لجودة Full HD أو 4K. الجودة تعتمد على معدل بث القناة واستقرار الاتصال وقوة شبكة Wi-Fi واستخدام بقية الأجهزة.",
+        "استهلاك الإنترنت يشبه مشاهدة يوتيوب من حيث إن الفيديو يستهلك بيانات طوال تشغيله، لكنه ليس رقمًا مطابقًا ليوتيوب. نفس مدة المشاهدة قد تسحب بيانات أكثر أو أقل حسب الجودة والضغط. خفض الجودة يساهم عادةً في تقليل السحب وتحسين الاستقرار.",
+        "للتوضيح الحسابي فقط: بث ثابت بمعدل 2 ميجابت/ثانية يستهلك نحو 0.9 جيجابايت في الساعة، و4 ميجابت/ثانية نحو 1.8 جيجابايت، و8 ميجابت/ثانية نحو 3.6 جيجابايت، قبل مصاريف الشبكة الإضافية. هذه أمثلة على معدل البث وليست حصصًا أو قياسات فعلية لهذا السيرفر."
+      ],
+      "paragraphsEn": [
+        "The stated 4 mega connection means 4 megabits per second, not 4 megabytes per second. It may suit some lower-quality or compressed streams, but it is not a guarantee of Full HD or 4K playback. Results depend on channel bitrate, connection stability, Wi-Fi strength and other devices sharing the network.",
+        "Like YouTube, viewing uses data throughout playback, but the amount is not necessarily identical to YouTube. The same viewing time may use more or less data depending on quality and compression. Lowering quality generally helps reduce usage and improve stability.",
+        "For calculation examples only, a constant 2 Mbps stream uses about 0.9 GB per hour, 4 Mbps about 1.8 GB, and 8 Mbps about 3.6 GB, before extra network overhead. These are bitrate examples, not allowances or measured usage for this server."
+      ]
+    },
+    {
+      "id": "troubleshooting",
+      "title": "لو القنوات لا تفتح أو البث بيقطع",
+      "titleEn": "If channels do not load or playback buffers",
+      "items": [
+        "راجع كتابة رابط السيرفر والاسم وكلمة المرور دون مسافات زائدة، وتأكد أن تاريخ الوصول لم ينتهِ.",
+        "جرّب قناة أخرى وجودة أقل لمعرفة هل المشكلة في بث واحد أم كل القائمة.",
+        "أوقف التحميلات الثقيلة وقرّب الجهاز من الراوتر، أو استخدم كابل شبكة إذا كان جهازك يدعمه.",
+        "حدّث قائمة القنوات وأعد تشغيل المشغّل. لا تفتح نفس البيانات على أكثر من جهاز قبل معرفة الحد المسموح.",
+        "لو المشكلة مستمرة، أرسل للدعم اسم القناة وموديل الجهاز واسم التطبيق ورسالة الخطأ ووقت المشكلة، مع إخفاء كلمة المرور من الصور."
+      ],
+      "itemsEn": [
+        "Check the server URL, username and password for typing errors or extra spaces, and confirm that access has not expired.",
+        "Try another channel and a lower-quality stream to see whether one broadcast or the whole list is affected.",
+        "Pause heavy downloads, move closer to the router or use a network cable if your device supports one.",
+        "Refresh the channel list and restart the player. Do not open the same credentials on multiple devices without checking the connection limit.",
+        "If the issue continues, send support the channel name, device model, player name, error message and time of the problem. Hide your password in screenshots."
+      ]
+    }
+  ],
+  "sources": [
+    "https://play.google.com/store/apps/details?id=com.ysngvn.player"
+  ]
+},
 "picsart":{"intro": "Picsart Pro مساحة لتحرير الصور وتجهيز تصميمات المنشورات والقصص والإعلانات. اختر مدة الحساب الخاص حسب فترة استخدامك، وراجع الفرق بين باقة الأسبوع بدون كريدت والباقات الأخرى برصيد 500 كريدت شهريًا.", "introEn": "Picsart Pro provides tools for photo editing and preparing posts, stories and ads. Choose a private account term for your project, and compare the weekly plan without credits with the other plans that include 500 credits per month.", "workflow": "ابدأ بصورة واضحة وحدد مقاس التصميم والمنصة التي ستنشر عليها. جرّب التعديل على نسخة من الصورة، ثم راجع الكتابة والألوان والتفاصيل على شاشة الموبايل قبل حفظ النتيجة. استخدم أدوات الكريدت عند الحاجة مع متابعة الرصيد.", "workflowEn": "Start with a clear image and choose the design size for your publishing platform. Edit a copy, then review text, colours and detail on a phone before saving. Use credit-based tools when needed and monitor the remaining balance.", "check": "باقة الأسبوع بدون كريدت. باقات الشهر و3 شهور و6 شهور والسنة تشمل 500 كريدت شهريًا طوال مدة الاشتراك، مع ضمان كامل طوال المدة المختارة. يختلف استهلاك الرصيد بحسب الأداة والعملية؛ 500 كريدت لا تعني عددًا ثابتًا من الصور.", "checkEn": "The weekly plan has no credits. The one-month, three-month, six-month and annual plans include 500 credits per month throughout the subscription, with full warranty for the selected term. Credit use varies by tool and task; 500 credits do not mean a fixed number of images."},
   "humanizeai-pro": {
     "intro": "HumanizeAI.pro أداة لتحسين أسلوب النص وتقديم بدائل أكثر سلاسة. تفيد في مراجعة المسودات والرسائل ووصف المنتجات مع الحفاظ على الفكرة الأصلية.",

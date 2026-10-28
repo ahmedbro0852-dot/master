@@ -11,3 +11,12 @@ for(const p of products){
  assert(!html.includes('FAQPage'));assert(!html.includes('aggregateRating'));assert(!html.includes('reviewCount'));guides++;
 }
 assert.equal(guides+1,products.length);console.log('PASS: '+products.length+' product routes, '+guides+' unique guides + existing Windows guide, '+planCards+' exact-tier cards, bilingual editorial coverage, unique metadata, canonical and TOC targets, no invented review/FAQ schema.');
+const xtream=products.find(p=>p.id==='xtream-iptv');
+for(const en of [false,true]){
+ const html=G.render(xtream.id,en,undefined,{product:xtream,catalog:products,featuresFor:plan=>b.window.MasterProductFeatures.list(xtream,plan,en,x=>x)});
+ for(const key of ['what-is-xtream','server-and-content','setup','devices','internet','troubleshooting'])assert(html.includes('id="guide-xtream-iptv-'+key+'"'),key);
+ assert(html.includes('<ol>'));assert(html.includes('0.9'));assert(html.includes('1.8'));assert(html.includes('3.6'));
+ assert(html.includes('<details class="guide-disclosure">'));assert(!html.includes('<details class="guide-disclosure" open'));
+ assert(html.includes(en?'does not mean automatic renewal or lifetime':'لا تعني تجديدًا تلقائيًا'));
+}
+assert(fs.readFileSync('sitemap.xml','utf8').includes('/products/xtream-iptv.html'));

@@ -1,5 +1,67 @@
 const products = [
 {
+  "id": "xtream-iptv",
+  "name": "Xtream IPTV",
+  "category": "الترفيه",
+  "categories": [
+    "فيديو وبث وقنوات"
+  ],
+  "logo": "xtream-iptv",
+  "logoUrl": "logos/xtream-iptv.svg?v=20261028-xtream1",
+  "status": "available",
+  "description": "اشتراك IPTV على سيرفر عربي يُحدد عشوائيًا، لمدة سنة أو أكثر حسب السيرفر المستلَم، بسعر 350 جنيه. تشغيل عبر Xtream Codes على الأجهزة المتوافقة، مع قنوات عربية ورياضية وتعليق عربي حسب البث.",
+  "descriptionEn": "IPTV access on an assigned Arabic-content server for one year or longer depending on the delivered server, for EGP 350. Use Xtream Codes on compatible devices, with Arabic and sports channels and Arabic commentary where supplied.",
+  "features": [
+    "اشتراك IPTV بسيرفر عربي يُحدد عشوائيًا حسب التوفر؛ لا تختار اسم سيرفر بعينه.",
+    "مدة الوصول سنة أو أكثر حسب تاريخ انتهاء السيرفر المستلَم.",
+    "قنوات عربية ورياضية وترفيهية ضمن قائمة السيرفر المتاحة.",
+    "متابعة الدوريات الإنجليزي والإيطالي والإسباني والتركي والمصري والسعودي عبر القنوات المشمولة.",
+    "تعليق عربي للمباريات على القنوات التي توفره؛ اللغة تتبع البث المختار.",
+    "التشغيل على الهاتف أو التلفزيون أو الرسيفر المتوافق مع Xtream Codes والمتصل بالإنترنت.",
+    "يلزم تطبيق أو مشغّل IPTV متوافق؛ الاشتراك واشتراك التطبيق إن وجد خدمتان منفصلتان.",
+    "سرعة 4 ميجابت/ثانية قد تناسب بعض الجودات المنخفضة؛ الجودة الأعلى تحتاج سرعة واستقرارًا أكبر.",
+    "المشاهدة تستهلك باقة الإنترنت مثل خدمات الفيديو؛ الاستهلاك يتغير مع معدل البث والجودة والمدة."
+  ],
+  "featuresEn": [
+    "IPTV access on an Arabic-content server assigned according to availability; a specific server name cannot be selected.",
+    "Access lasts one year or longer, depending on the delivered server expiry date.",
+    "Arabic, sports and entertainment channels from the available server list.",
+    "Follow English, Italian, Spanish, Turkish, Egyptian and Saudi football leagues through the included channels.",
+    "Arabic match commentary on channels that offer it; language depends on the selected broadcast.",
+    "Watch on a phone, TV or receiver that supports Xtream Codes and has an internet connection.",
+    "A compatible IPTV player is required; service access and any paid player licence are separate.",
+    "A 4 Mbps connection may suit some lower-quality streams; higher quality requires more speed and stability.",
+    "Viewing uses your internet allowance like other video services; usage varies with bitrate, quality and viewing time."
+  ],
+  "notes": [
+    "اسم السيرفر وتاريخ انتهاء الوصول يُؤكدان عند التسليم؛ عبارة سنة أو أكثر لا تعني اشتراكًا مدى الحياة.",
+    "القنوات والبطولات والتعليق العربي حسب قائمة السيرفر والبث؛ راجع القناة أو المباراة المطلوبة قبل الدفع.",
+    "4 ميجابت/ثانية ليست 4 ميجابايت/ثانية، وليست ضمانًا لتشغيل Full HD أو 4K.",
+    "عدد الشاشات المتزامنة وشروط الضمان يُؤكدان مع الدعم قبل الدفع؛ لا يُفترض تشغيل عدة أجهزة معًا.",
+    "بيانات الدخول: رابط السيرفر واسم المستخدم وكلمة المرور، وتُضاف داخل خيار Xtream Codes في المشغّل المتوافق."
+  ],
+  "plans": [
+    {
+      "name": "سيرفر عربي عشوائي — سنة أو أكثر",
+      "planType": "IPTV",
+      "duration": "12 شهر أو أكثر حسب السيرفر المستلَم",
+      "price": 350,
+      "available": true,
+      "account": "بيانات وصول لسيرفر عربي يُحدد عشوائيًا",
+      "accountType": "بيانات وصول لسيرفر عربي يُحدد عشوائيًا",
+      "activation": "تسليم رابط السيرفر واسم المستخدم وكلمة المرور لإضافتها داخل مشغّل يدعم Xtream Codes.",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "notes": [
+        "اسم السيرفر وتاريخ انتهاء الوصول يُؤكدان عند التسليم؛ عبارة سنة أو أكثر لا تعني اشتراكًا مدى الحياة.",
+        "القنوات والبطولات والتعليق العربي حسب قائمة السيرفر والبث؛ راجع القناة أو المباراة المطلوبة قبل الدفع.",
+        "4 ميجابت/ثانية ليست 4 ميجابايت/ثانية، وليست ضمانًا لتشغيل Full HD أو 4K.",
+        "عدد الشاشات المتزامنة وشروط الضمان يُؤكدان مع الدعم قبل الدفع؛ لا يُفترض تشغيل عدة أجهزة معًا.",
+        "بيانات الدخول: رابط السيرفر واسم المستخدم وكلمة المرور، وتُضاف داخل خيار Xtream Codes في المشغّل المتوافق."
+      ]
+    }
+  ]
+},
+{
   "id": "picsart",
   "name": "Picsart Pro",
   "category": "AI Tools",
