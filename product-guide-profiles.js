@@ -1,5 +1,52 @@
 /* Service-specific editorial explanations; commercial terms stay in catalog.js. */
 (function(root,factory){const value=factory();if(typeof module==='object'&&module.exports)module.exports=value;else root.MasterProductGuideProfiles=value;})(typeof window==='undefined'?globalThis:window,function(){return {
+"visio-professional":{
+  "intro": "Microsoft Visio Professional أداة لرسم المخططات وتحويل العمليات والهياكل إلى رسومات منظمة. يناسب توثيق إجراءات العمل وتخطيط الشبكات وعرض العلاقات بين الأقسام. اختر من المتجر الإصدار المناسب لنسخة Windows وOffice على جهازك، ثم راجع طريقة التفعيل قبل الطلب.",
+  "introEn": "Microsoft Visio Professional turns processes and structures into organised diagrams. Use it to document workflows, plan networks and present relationships between departments. Choose the version that fits Windows and Office on your device and review activation before ordering.",
+  "workflow": "ابدأ بتحديد نوع الرسم: خطوات عمل، هيكل تنظيمي أو شبكة. اختر قالبًا مناسبًا، وأضف الأشكال واربطها بالموصلات، ثم اكتب أسماء الخطوات وراجع اتجاه الأسهم. احتفظ بنسخة قابلة للتحرير لتحديث المخطط عند تغيير الإجراءات.",
+  "workflowEn": "Choose the diagram type: workflow, organisation chart or network. Start with a suitable template, add shapes and connectors, then label the steps and review arrow directions. Keep an editable copy for future process changes.",
+  "check": "اختيار Professional 2016 أو 2019 أو 2021 أو LTSC 2024 يحدد إصدار المفتاح الذي سيصلك. لا يُستخدم مفتاح إصدار لتفعيل إصدار مختلف تلقائيًا. راجع توافق Office وVisio، وعدد الأجهزة، وشروط إعادة التفعيل والضمان مع الدعم قبل الدفع.",
+  "checkEn": "Selecting Professional 2016, 2019, 2021 or LTSC 2024 determines the key version you receive. A key does not automatically activate a different version. Confirm Office and Visio compatibility, device limits, reactivation and warranty terms before payment.",
+  "activationGuide": {
+    "url": "https://tinyurl.com/OfficeActiveSystem",
+    "label": "طريقة التفعيل — فتح الدليل",
+    "labelEn": "Activation process — open the guide",
+    "description": "دليل التفعيل المرفق يشرح إدخال المفتاح والتفعيل الهاتفي عند ظهوره. اتبع الخيارات المتاحة لإصدارك وتواصل مع دعم المتجر لاستكمال التفعيل عند الحاجة.",
+    "descriptionEn": "The supplied guide explains entering the key and telephone activation where offered. Follow the options available for your version and contact store support if activation needs assistance."
+  },
+  "sections": [
+    {
+      "id": "activation",
+      "title": "طريقة تفعيل Visio بعد استلام المفتاح",
+      "titleEn": "Activating Visio after receiving your key",
+      "paragraphs": [
+        "الدليل المرفق عام لتفعيل مفاتيح Office هاتفيًا؛ قد تختلف أسماء الأزرار والخيارات في Visio حسب الإصدار ونوع الترخيص."
+      ],
+      "paragraphsEn": [
+        "The supplied guide covers telephone activation of Office keys; button names and available options in Visio may differ by version and licence type."
+      ],
+      "ordered": true,
+      "items": [
+        "ثبّت إصدار Visio المطابق للمفتاح الذي طلبته، مع مراعاة توافقه مع Office الموجود.",
+        "افتح Visio ثم قسم الحساب أو نافذة تفعيل المنتج وأدخل المفتاح المستلَم.",
+        "إذا ظهر خيار التفعيل الهاتفي، اتبع معالج التفعيل واحتفظ بمعرّف التثبيت Installation ID.",
+        "تواصل مع دعم المتجر إذا احتاجت العملية مساعدة، ثم أدخل Confirmation ID فقط عندما يُطلب داخل معالج التفعيل.",
+        "راجع حالة المنتج داخل Visio للتأكد من اكتمال التفعيل؛ عند ظهور خطأ أرسل صورته للدعم."
+      ],
+      "itemsEn": [
+        "Install the Visio version matching your purchased key and check compatibility with existing Office apps.",
+        "Open Visio and enter the supplied key in Account or the product activation window.",
+        "If telephone activation is offered, follow the wizard and keep the Installation ID.",
+        "Contact store support if assistance is needed, then enter a Confirmation ID only when the activation wizard requests it.",
+        "Check the product activation status in Visio; send support a screenshot of any error."
+      ]
+    }
+  ],
+  "sources": [
+    "https://support.microsoft.com/en-us/visio/officeinstall/install-visio-or-access-visio-for-the-web",
+    "https://learn.microsoft.com/en-us/microsoft-365-apps/deploy/deployment-guide-for-visio"
+  ]
+},
 "xtream-iptv":{
   "poster": {
     "src": "images/offers/xtream-iptv-football-year-350.webp",

@@ -20,3 +20,13 @@ for(const en of [false,true]){
  assert(html.includes(en?'does not mean automatic renewal or lifetime':'لا تعني تجديدًا تلقائيًا'));
 }
 assert(fs.readFileSync('sitemap.xml','utf8').includes('/products/xtream-iptv.html'));
+
+const visio=products.find(p=>p.id==='visio-professional');
+for(const en of [false,true]){
+ const html=G.render(visio.id,en,undefined,{product:visio,catalog:products});
+ assert(html.includes('href="https://tinyurl.com/OfficeActiveSystem"'));
+ assert(html.indexOf('class="product-guide-activation"')<html.indexOf('<details class="guide-disclosure">'));
+ assert(html.includes(en?'Activation process — open the guide':'طريقة التفعيل — فتح الدليل'));
+ for(const version of ['2016','2019','2021','LTSC 2024'])assert(html.includes('Visio Professional '+version));
+}
+assert(fs.readFileSync('sitemap.xml','utf8').includes('/products/visio-professional.html'));

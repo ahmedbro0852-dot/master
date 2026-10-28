@@ -1,5 +1,114 @@
 const products = [
 {
+  "id": "visio-professional",
+  "name": "Microsoft Visio Professional",
+  "category": "العمل والإنتاجية",
+  "categories": [
+    "مستندات وجداول وملاحظات",
+    "خرائط ذهنية وسبورات تعاونية"
+  ],
+  "logo": "visio",
+  "logoUrl": "logos/visio.svg?v=20261028-visio1",
+  "status": "available",
+  "description": "تفعيل Microsoft Visio Professional لرسم المخططات الانسيابية والهياكل التنظيمية ومخططات الشبكات على Windows. إصدارات 2016 و2019 و2021 بسعر 380 جنيه لكل إصدار، وLTSC 2024 بسعر 350 جنيه، مع دليل لخطوات التفعيل.",
+  "descriptionEn": "Activate Microsoft Visio Professional for flowcharts, organisation charts and network diagrams on Windows. Choose 2016, 2019 or 2021 for EGP 380 per version, or LTSC 2024 for EGP 350, with an activation guide.",
+  "features": [
+    "إنشاء مخططات انسيابية لتوضيح خطوات العمل واتخاذ القرار.",
+    "رسم هياكل تنظيمية ومخططات شبكات باستخدام الأشكال والقوالب المتاحة في الإصدار.",
+    "تنظيم الأشكال والموصلات وإضافة النصوص لتقديم العمليات بشكل واضح.",
+    "برنامج Visio لسطح مكتب Windows؛ الترخيص منفصل عن Windows وMicrosoft 365.",
+    "اختر إصدار المفتاح المطابق للبرنامج المثبت؛ 2016 و2019 و2021 وLTSC 2024 اختيارات منفصلة."
+  ],
+  "featuresEn": [
+    "Create flowcharts to explain workflows and decisions.",
+    "Build organisation charts and network diagrams using the shapes and templates available in your version.",
+    "Arrange shapes and connectors and add labels to communicate processes clearly.",
+    "Visio for Windows desktop; its licence is separate from Windows and Microsoft 365.",
+    "Match the key to the installed version; 2016, 2019, 2021 and LTSC 2024 are separate options."
+  ],
+  "notes": [
+    "كل سعر يخص إصدارًا واحدًا مختارًا؛ لا يشمل تفعيل جميع الإصدارات معًا.",
+    "عدد الأجهزة وإعادة التفعيل ونقل المفتاح وشروط الضمان تُؤكد مع الدعم قبل الدفع.",
+    "التفعيل لا يمدد دورة دعم Microsoft ولا يمنح ترقية مجانية إلى إصدار أحدث.",
+    "راجع توافق إصدار Visio ومعمارية 32/64 بت مع Office الموجود على جهازك قبل التثبيت.",
+    "دليل طريقة التفعيل: https://tinyurl.com/OfficeActiveSystem"
+  ],
+  "plans": [
+    {
+      "name": "Visio Professional 2016",
+      "planType": "Professional 2016",
+      "duration": "إصدار ثابت — دفعة واحدة",
+      "price": 380,
+      "available": true,
+      "account": "مفتاح تفعيل للإصدار المختار",
+      "accountType": "مفتاح تفعيل للإصدار المختار",
+      "activation": "تسليم مفتاح تفعيل Visio للإصدار المختار، مع دليل التفعيل ومتابعة خطوات التفعيل الهاتفي عند الحاجة.",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "notes": [
+        "كل سعر يخص إصدارًا واحدًا مختارًا؛ لا يشمل تفعيل جميع الإصدارات معًا.",
+        "عدد الأجهزة وإعادة التفعيل ونقل المفتاح وشروط الضمان تُؤكد مع الدعم قبل الدفع.",
+        "التفعيل لا يمدد دورة دعم Microsoft ولا يمنح ترقية مجانية إلى إصدار أحدث.",
+        "راجع توافق إصدار Visio ومعمارية 32/64 بت مع Office الموجود على جهازك قبل التثبيت.",
+        "دليل طريقة التفعيل: https://tinyurl.com/OfficeActiveSystem"
+      ]
+    },
+    {
+      "name": "Visio Professional 2019",
+      "planType": "Professional 2019",
+      "duration": "إصدار ثابت — دفعة واحدة",
+      "price": 380,
+      "available": true,
+      "account": "مفتاح تفعيل للإصدار المختار",
+      "accountType": "مفتاح تفعيل للإصدار المختار",
+      "activation": "تسليم مفتاح تفعيل Visio للإصدار المختار، مع دليل التفعيل ومتابعة خطوات التفعيل الهاتفي عند الحاجة.",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "notes": [
+        "كل سعر يخص إصدارًا واحدًا مختارًا؛ لا يشمل تفعيل جميع الإصدارات معًا.",
+        "عدد الأجهزة وإعادة التفعيل ونقل المفتاح وشروط الضمان تُؤكد مع الدعم قبل الدفع.",
+        "التفعيل لا يمدد دورة دعم Microsoft ولا يمنح ترقية مجانية إلى إصدار أحدث.",
+        "راجع توافق إصدار Visio ومعمارية 32/64 بت مع Office الموجود على جهازك قبل التثبيت.",
+        "دليل طريقة التفعيل: https://tinyurl.com/OfficeActiveSystem"
+      ]
+    },
+    {
+      "name": "Visio Professional 2021",
+      "planType": "Professional 2021",
+      "duration": "إصدار ثابت — دفعة واحدة",
+      "price": 380,
+      "available": true,
+      "account": "مفتاح تفعيل للإصدار المختار",
+      "accountType": "مفتاح تفعيل للإصدار المختار",
+      "activation": "تسليم مفتاح تفعيل Visio للإصدار المختار، مع دليل التفعيل ومتابعة خطوات التفعيل الهاتفي عند الحاجة.",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "notes": [
+        "كل سعر يخص إصدارًا واحدًا مختارًا؛ لا يشمل تفعيل جميع الإصدارات معًا.",
+        "عدد الأجهزة وإعادة التفعيل ونقل المفتاح وشروط الضمان تُؤكد مع الدعم قبل الدفع.",
+        "التفعيل لا يمدد دورة دعم Microsoft ولا يمنح ترقية مجانية إلى إصدار أحدث.",
+        "راجع توافق إصدار Visio ومعمارية 32/64 بت مع Office الموجود على جهازك قبل التثبيت.",
+        "دليل طريقة التفعيل: https://tinyurl.com/OfficeActiveSystem"
+      ]
+    },
+    {
+      "name": "Visio Professional LTSC 2024",
+      "planType": "Professional LTSC 2024",
+      "duration": "إصدار ثابت — دفعة واحدة",
+      "price": 350,
+      "available": true,
+      "account": "مفتاح تفعيل للإصدار المختار",
+      "accountType": "مفتاح تفعيل للإصدار المختار",
+      "activation": "تسليم مفتاح تفعيل Visio للإصدار المختار، مع دليل التفعيل ومتابعة خطوات التفعيل الهاتفي عند الحاجة.",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "notes": [
+        "كل سعر يخص إصدارًا واحدًا مختارًا؛ لا يشمل تفعيل جميع الإصدارات معًا.",
+        "عدد الأجهزة وإعادة التفعيل ونقل المفتاح وشروط الضمان تُؤكد مع الدعم قبل الدفع.",
+        "التفعيل لا يمدد دورة دعم Microsoft ولا يمنح ترقية مجانية إلى إصدار أحدث.",
+        "راجع توافق إصدار Visio ومعمارية 32/64 بت مع Office الموجود على جهازك قبل التثبيت.",
+        "دليل طريقة التفعيل: https://tinyurl.com/OfficeActiveSystem"
+      ]
+    }
+  ]
+},
+{
   "id": "xtream-iptv",
   "name": "Xtream IPTV",
   "category": "الترفيه",

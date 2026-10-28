@@ -10,6 +10,13 @@ for(const text of ['إكستريم بكام؟','سيرفر اكستريم عرب
  assert.match(plan.warranty,/يُؤكد/);assert(plan.notes.some(n=>/عدد الشاشات/.test(n)));
  assert(plan.features.some(n=>/4 ميجابت/.test(n)));assert.equal(found.plans[0].officialPrice,undefined);
 }
+for(const text of ['فيزيو بكام؟','فيسيو برو','Visio Professional LTSC']){
+ const found=ask(text).find(p=>p.id==='visio-professional');assert(found,text);
+ const plans=JSON.parse(k.contextFor([found],rows)).details[0].plans;
+ assert.deepEqual(plans.map(p=>p.priceEGP),[380,380,380,350]);
+ assert(plans.every(p=>p.notes.some(n=>n.includes('https://tinyurl.com/OfficeActiveSystem'))));
+ assert(plans.every(p=>/يُؤكد/.test(p.warranty)));
+}
 assert.equal(k.budgetFrom('ميزانيتي ٣٠٠ جنيه'),300);assert.equal(k.budgetFrom('budget 250 EGP'),250);assert.equal(k.budgetFrom('عايز فيديو 4k'),null);assert.equal(k.budgetFrom('budget 20 USD'),null);assert.equal(k.budgetFrom('ميزانيتي ١٬٠٠٠ جنيه'),1000);
 assert.equal(ask('هل الفاتورة ضريبية؟ ينفع أدفع Binance؟ ولو اشتريت 3 اشتراكات الخصم كام؟').length,0);
 for(const text of ['شات جو بكام؟','ChatGPT Go price','شات جي بي تي جو بضمان']){const go=ask(text);assert.equal(go.length,1);assert.equal(go[0].id,'chatgpt-go');const plan=JSON.parse(k.contextFor(go,rows)).details[0].plans[0];assert.equal(plan.priceEGP,320);assert.equal(plan.duration,'1 شهر');assert.match(plan.warranty,/كامل/);assert.match(plan.account,/جاهز/);}
