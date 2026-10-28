@@ -16,3 +16,9 @@ dialog.site-ad::backdrop{background:#041020b8;backdrop-filter:blur(5px)}
 .site-ad .site-ad-credits p{margin:7px 0;overflow-wrap:anywhere}
 .site-ad .site-ad-credits a{color:inherit;text-underline-offset:3px}
 .site-ad a:focus-visible,.site-ad button:focus-visible,.site-ad summary:focus-visible{outline:3px solid #71a6ff;outline-offset:2px}
+.site-ad .site-ad-navigation{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:9px;direction:ltr}
+.site-ad .site-ad-navigation[hidden],.site-ad .site-ad-credits[hidden]{display:none}
+.site-ad .site-ad-navigation button{display:grid;place-items:center;width:44px;min-height:44px;border:1px solid var(--line,#dce5f3);border-radius:10px;background:var(--soft,#f3f6fc);color:inherit;font:24px/1 system-ui;cursor:pointer}
+.site-ad .site-ad-navigation [data-ad-pause]{font-size:17px}
+.site-ad .site-ad-count{font-size:11px;min-width:90px}
+.site-ad .site-ad-image{max-height:calc(100vh - 280px);max-height:calc(100dvh - 280px)}

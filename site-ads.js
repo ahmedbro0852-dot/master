@@ -1,97 +1,66 @@
-/* A public storefront campaign; only local impression timestamps are stored. */
+/* Public 72-hour poster campaigns. Only browser-local display timestamps/cursor are stored. */
 (function(){
 'use strict';
-const FIRST_DELAY=12000,COOLDOWN=6*60*60*1000,RETRY_DELAY=30000;
-const KEY='masterStoreXtreamAdV1',START_KEY='masterStoreAdBrowseStartV1';
-const POSTER='/images/offers/xtream-iptv-all-leagues-year-350.webp';
-const DESTINATION='/products/xtream-iptv.html?plan=0';
-const path=location.pathname,ownProduct=path==='/products/xtream-iptv.html'||(path==='/product.html'&&new URLSearchParams(location.search).get('id')==='xtream-iptv');
-const publicPage=path==='/'||path==='/index.html'||path==='/warranty.html'||path==='/product.html'||/^\/(?:products|categories)\/[a-z0-9-]+\.html$/.test(path);
-if(!publicPage||ownProduct||typeof HTMLDialogElement==='undefined')return;
-let timer,dialog,image,checking=false,retryAt=0,memoryShownAt=0,returnFocus;
-const loadedAt=Date.now();
+const FIRST_DELAY=12000,COOLDOWN=21600000,RETRY_DELAY=30000,SLIDE_DELAY=8000,REFRESH_DELAY=60000;
+const KEY='masterStoreXtreamAdV1',START_KEY='masterStoreAdBrowseStartV1',CURSOR_KEY='masterStoreCampaignCursorV1';
+const API='https://gmysuhoebcapigdidnnv.supabase.co/rest/v1/master_store_campaigns';
+const SELECT='id,product_id,plan_index,poster_path,title_ar,title_en,alt_ar,alt_en,expected_price_piasters,poster_currency,credit_key,starts_at,ends_at,enabled,created_at';
+const path=location.pathname,ownProduct=document.body.dataset.productId||new URLSearchParams(location.search).get('id')||(path.match(/^\/products\/([a-z0-9-]+)\.html$/)||[])[1];
+const publicPage=['/','/index.html','/warranty.html','/product.html'].includes(path)||/^\/(?:products|categories)\/[a-z0-9-]+\.html$/.test(path);
+if(!publicPage||typeof HTMLDialogElement==='undefined')return;
+let timer,slideTimer,expiryTimer,refreshTimer,dialog,current,checking=false,changing=false,returnFocus,queue=[],retryAt=0,memoryShownAt=0,paused=matchMedia('(prefers-reduced-motion: reduce)').matches,hovering=false,requestVersion=0;
+const images=new Map(),loadedAt=Date.now();
 function storedTime(storage,key){try{const n=Number(storage.getItem(key));return Number.isFinite(n)&&n>0&&n<=Date.now()+60000?n:0;}catch{return 0;}}
 function lastShown(){let at=memoryShownAt;try{at=Math.max(at,storedTime(localStorage,KEY));}catch{}try{at=Math.max(at,storedTime(sessionStorage,KEY));}catch{}return at;}
 function markShown(){memoryShownAt=Date.now();try{localStorage.setItem(KEY,String(memoryShownAt));}catch{try{sessionStorage.setItem(KEY,String(memoryShownAt));}catch{}}}
-let browseStart=loadedAt;
-try{browseStart=storedTime(sessionStorage,START_KEY)||loadedAt;sessionStorage.setItem(START_KEY,String(browseStart));}catch{}
-function en(){return window.MasterLocale?.getState().language==='en';}
-function text(ar,english){return en()?english:ar;}
-function busy(){
- if(document.activeElement?.matches('input,textarea,select,[contenteditable="true"]'))return true;
- return [...document.querySelectorAll('dialog[open],[role="dialog"][aria-modal="true"]')].some(el=>el!==dialog&&el.getClientRects().length>0);
+let browseStart=loadedAt;try{browseStart=storedTime(sessionStorage,START_KEY)||loadedAt;sessionStorage.setItem(START_KEY,String(browseStart));}catch{}
+const en=()=>window.MasterLocale?.getState().language==='en',text=(ar,english)=>en()?english:ar;
+function busy(){return document.activeElement?.matches('input,textarea,select,[contenteditable="true"]')||[...document.querySelectorAll('dialog[open],[role="dialog"][aria-modal="true"]')].some(el=>el!==dialog&&el.getClientRects().length>0);}
+function eligible(c){const start=Date.parse(c.starts_at),end=Date.parse(c.ends_at),now=Date.now();return c.enabled===true&&/^[a-z0-9][a-z0-9-]{0,119}$/.test(c.id)&&/^[a-z0-9-]+$/.test(c.product_id)&&Number.isInteger(c.plan_index)&&c.plan_index>=0&&c.product_id!==ownProduct&&/^images\/offers\/[a-z0-9-]+\.webp$/.test(c.poster_path)&&Number.isSafeInteger(Number(c.expected_price_piasters))&&Number(c.expected_price_piasters)>0&&['EGP','USD'].includes(c.poster_currency)&&typeof c.title_ar==='string'&&typeof c.title_en==='string'&&typeof c.alt_ar==='string'&&typeof c.alt_en==='string'&&end-start===259200000&&start<=now&&end>now;}
+async function fetchCampaigns(){
+ const url=new URL(API);url.searchParams.set('select',SELECT);url.searchParams.set('enabled','eq.true');url.searchParams.set('order','created_at.desc,id.asc');url.searchParams.set('limit','100');
+ const r=await fetch(url,{headers:{apikey:'sb_publishable_zHcukZ2xWD8RqrYu3i-Wzw_Kd4c8x-h'},cache:'no-store',signal:AbortSignal.timeout(5000)});if(!r.ok)throw Error('campaigns_unavailable');const rows=await r.json();if(!Array.isArray(rows))throw Error('campaigns_invalid');
+ // RLS also checks current stock and exact server price, so stale-price posters are not public.
+ return rows.filter(eligible);
 }
-function validRow(row){return row?.product_id==='xtream-iptv'&&Number(row.plan_index)===0&&row.available===true&&Number(row.price_piasters)===35000;}
-async function campaignAvailable(){
- try{
-  if(window.MasterCatalogReady)await window.MasterCatalogReady;
-  const row=window.MasterCatalogPriceRows?.find(r=>r.product_id==='xtream-iptv'&&Number(r.plan_index)===0);
-  if(row&&Date.now()-loadedAt<60000)return validRow(row);
-  const url='https://gmysuhoebcapigdidnnv.supabase.co/rest/v1/master_store_plans?select=product_id,plan_index,price_piasters,available&product_id=eq.xtream-iptv&plan_index=eq.0&limit=1';
-  const response=await fetch(url,{headers:{apikey:'sb_publishable_zHcukZ2xWD8RqrYu3i-Wzw_Kd4c8x-h'},cache:'no-store',signal:AbortSignal.timeout(5000)});
-  if(!response.ok)return false;
-  const rows=await response.json();return Array.isArray(rows)&&rows.length===1&&validRow(rows[0]);
- }catch{return false;}
-}
-function updateCopy(){
- if(!dialog)return;
- dialog.dir=en()?'ltr':'rtl';
- dialog.querySelector('h2').textContent=text('عرض الكورة من ماستر ستور','Football offer from MASTER STORE');
- dialog.querySelector('.site-ad-close').setAttribute('aria-label',text('إغلاق الإعلان','Close advertisement'));
- dialog.querySelector('.site-ad-image-link').setAttribute('aria-label',text('عرض تفاصيل اشتراك Xtream IPTV','View Xtream IPTV subscription details'));
- image.alt=text('إعلان Xtream IPTV بعنوان شاهد جميع الدوريات: اشتراك سنة بسعر 350 جنيه، على TV والموبايل والرسيفر، مع صلاح ومرموش.','Arabic Xtream IPTV advertisement titled Watch all leagues: one year for EGP 350, on TV, phone and receiver, featuring Salah and Marmoush.');
- dialog.querySelector('.site-ad-cta').textContent=text('شوف تفاصيل الاشتراك ←','View subscription details →');
- const note=dialog.querySelector('.site-ad-market-note');note.hidden=(window.MasterLocale?.getState().market||'EG')==='EG';
- note.textContent=text('السعر في البوستر بالجنيه المصري؛ راجع سعر بلدك في صفحة الاشتراك.','The poster price is in Egyptian pounds; check your market price on the subscription page.');
- const info=dialog.querySelector('.site-ad-credits summary');info.textContent='ⓘ';info.setAttribute('aria-label',text('معلومات التصميم','Design information'));info.title=text('معلومات التصميم','Design information');
- dialog.querySelector('.site-ad-credit-prefix').textContent=text('صورة صلاح: ','Salah photo: ');
- dialog.querySelector('.site-ad-credit-edit').textContent=text('دمج وتعديل.','Composited and modified.');
-}
+function activeQueue(){queue=queue.filter(eligible);return queue;}
+function imageFor(c){if(images.has(c.poster_path))return images.get(c.poster_path);const work=new Promise((resolve,reject)=>{const img=new Image(1122,1402);img.className='site-ad-image';img.decoding='async';img.onload=()=>resolve(img);img.onerror=()=>{images.delete(c.poster_path);reject(Error('poster_unavailable'));};img.src='/'+c.poster_path;});images.set(c.poster_path,work);return work;}
 function link(href,label){const a=document.createElement('a');a.href=href;a.textContent=label;a.target='_blank';a.rel='noopener noreferrer';return a;}
 function build(){
  dialog=document.createElement('dialog');dialog.id='masterSiteAd';dialog.className='site-ad';dialog.setAttribute('aria-labelledby','masterSiteAdTitle');dialog.dataset.noTranslate='true';
- const header=document.createElement('header');header.className='site-ad-header';
- const title=document.createElement('h2');title.id='masterSiteAdTitle';
- const close=document.createElement('button');close.type='button';close.className='site-ad-close';close.textContent='×';close.autofocus=true;close.onclick=()=>dialog.close();header.append(title,close);
- const visual=document.createElement('a');visual.href=DESTINATION;visual.className='site-ad-image-link';visual.append(image);
- const footer=document.createElement('div');footer.className='site-ad-footer';
- const cta=document.createElement('a');cta.href=DESTINATION;cta.className='site-ad-cta';
- const note=document.createElement('p');note.className='site-ad-market-note';
- const credits=document.createElement('details');credits.className='site-ad-credits';
- const summary=document.createElement('summary'),credit=document.createElement('p'),prefix=document.createElement('span'),edit=document.createElement('span');prefix.className='site-ad-credit-prefix';edit.className='site-ad-credit-edit';
- credit.append(prefix,link('https://commons.wikimedia.org/wiki/File:Mohamed_Salah_Argentina_v_Egypt_7_July_2026-161_(cropped).jpg','Bryan Berlin / WikiPortraits'),' · ',link('https://creativecommons.org/licenses/by-sa/4.0/','CC BY-SA 4.0'),' · ',edit);credits.append(summary,credit);
- footer.append(cta,note,credits);dialog.append(header,visual,footer);document.body.append(dialog);updateCopy();
- for(const a of [visual,cta])a.addEventListener('click',()=>dialog.close());
- dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();});
- dialog.addEventListener('close',()=>{document.documentElement.classList.remove('site-ad-visible');markShown();if(returnFocus?.isConnected&&returnFocus!==document.body)returnFocus.focus({preventScroll:true});schedule();});
+ dialog.innerHTML='<div class="site-ad-card"><header class="site-ad-header"><h2 id="masterSiteAdTitle"></h2><button type="button" class="site-ad-close" autofocus>×</button></header><a class="site-ad-image-link"></a><div class="site-ad-footer"><div class="site-ad-navigation"><button type="button" data-ad-prev>‹</button><span class="site-ad-count" aria-live="polite"></span><button type="button" data-ad-next>›</button><button type="button" data-ad-pause></button></div><a class="site-ad-cta"></a><p class="site-ad-market-note"></p><details class="site-ad-credits"><summary>ⓘ</summary><p></p></details></div></div>';
+ document.body.append(dialog);dialog.querySelector('.site-ad-close').onclick=()=>dialog.close();
+ for(const a of dialog.querySelectorAll('.site-ad-image-link,.site-ad-cta'))a.addEventListener('click',()=>dialog.close());
+ dialog.querySelector('[data-ad-prev]').onclick=()=>{paused=true;advance(-1);};dialog.querySelector('[data-ad-next]').onclick=()=>{paused=true;advance(1);};dialog.querySelector('[data-ad-pause]').onclick=()=>{paused=!paused;updateCopy();scheduleSlide();};
+ dialog.querySelector('.site-ad-card').addEventListener('mouseenter',()=>{hovering=true;clearTimeout(slideTimer);});dialog.querySelector('.site-ad-card').addEventListener('mouseleave',()=>{hovering=false;scheduleSlide();});
+ dialog.addEventListener('focusin',e=>{if(!e.target.matches('.site-ad-close,[data-ad-pause]')){paused=true;updateCopy();clearTimeout(slideTimer);}});
+ dialog.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();paused=true;advance(e.key==='ArrowRight'?1:-1);}});
+ dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
+ dialog.addEventListener('close',()=>{requestVersion++;changing=false;clearTimeout(slideTimer);clearTimeout(expiryTimer);clearTimeout(refreshTimer);document.documentElement.classList.remove('site-ad-visible');markShown();if(returnFocus?.isConnected&&returnFocus!==document.body)returnFocus.focus({preventScroll:true});schedule();});
 }
-function loadImage(){
- if(image?.complete&&image.naturalWidth)return Promise.resolve();
- return new Promise((resolve,reject)=>{image=new Image(1122,1402);image.className='site-ad-image';image.decoding='async';image.onload=()=>resolve();image.onerror=()=>reject(Error('poster_unavailable'));image.src=POSTER;});
+function updateCopy(){
+ if(!dialog||!current)return;dialog.dir=en()?'ltr':'rtl';dialog.querySelector('h2').textContent=en()?current.title_en:current.title_ar;
+ const destination='/products/'+current.product_id+'.html?plan='+current.plan_index;for(const a of dialog.querySelectorAll('.site-ad-image-link,.site-ad-cta'))a.href=destination;
+ dialog.querySelector('.site-ad-image-link').setAttribute('aria-label',text('عرض تفاصيل الباقة','View plan details'));const img=dialog.querySelector('img');if(img)img.alt=en()?current.alt_en:current.alt_ar;
+ dialog.querySelector('.site-ad-close').setAttribute('aria-label',text('إغلاق الإعلان','Close advertisement'));dialog.querySelector('.site-ad-cta').textContent=text('شوف تفاصيل الاشتراك ←','View subscription details →');
+ const n=activeQueue(),i=n.findIndex(c=>c.id===current.id);dialog.querySelector('.site-ad-navigation').hidden=n.length<2;dialog.querySelector('.site-ad-count').textContent=text('إعلان '+(i+1)+' من '+n.length,'Ad '+(i+1)+' of '+n.length);
+ dialog.querySelector('[data-ad-prev]').setAttribute('aria-label',text('الإعلان السابق','Previous advertisement'));dialog.querySelector('[data-ad-next]').setAttribute('aria-label',text('الإعلان التالي','Next advertisement'));
+ const play=dialog.querySelector('[data-ad-pause]');play.textContent=paused?'▶':'Ⅱ';play.setAttribute('aria-label',paused?text('تشغيل التبديل التلقائي','Play automatic switching'):text('إيقاف التبديل التلقائي','Pause automatic switching'));play.setAttribute('aria-pressed',String(!paused));
+ const note=dialog.querySelector('.site-ad-market-note');note.hidden=current.poster_currency==='EGP'&&(window.MasterLocale?.getState().market||'EG')==='EG';note.textContent=current.poster_currency==='USD'?text('سعر البوستر بالدولار؛ المقابل حسب عملة المتجر في صفحة الباقة.','Poster price is in US dollars; see the plan page for your store-currency equivalent.'):text('السعر في البوستر بالجنيه المصري؛ راجع سعر بلدك في صفحة الاشتراك.','Poster price is in Egyptian pounds; check your market price on the plan page.');
+ const credits=dialog.querySelector('.site-ad-credits');credits.hidden=current.credit_key!=='salah-wikiportraits';credits.querySelector('summary').setAttribute('aria-label',text('معلومات التصميم','Design information'));credits.querySelector('summary').title=text('معلومات التصميم','Design information');credits.querySelector('p').replaceChildren(document.createTextNode(text('صورة صلاح: ','Salah photo: ')),link('https://commons.wikimedia.org/wiki/File:Mohamed_Salah_Argentina_v_Egypt_7_July_2026-161_(cropped).jpg','Bryan Berlin / WikiPortraits'),document.createTextNode(' · '),link('https://creativecommons.org/licenses/by-sa/4.0/','CC BY-SA 4.0'),document.createTextNode(text(' · دمج وتعديل.',' · Composited and modified.')));
 }
-function schedule(){
- clearTimeout(timer);if(document.hidden||dialog?.open||checking)return;
- const shown=lastShown(),due=Math.max(browseStart+FIRST_DELAY,shown?shown+COOLDOWN:0,retryAt);
- timer=setTimeout(attempt,Math.max(0,due-Date.now()));
-}
+function scheduleSlide(){clearTimeout(slideTimer);if(dialog?.open&&!paused&&!hovering&&!document.hidden&&activeQueue().length>1)slideTimer=setTimeout(()=>advance(1),SLIDE_DELAY);}
+function scheduleExpiry(){clearTimeout(expiryTimer);if(!dialog?.open)return;const next=Math.min(...activeQueue().map(c=>Date.parse(c.ends_at)));if(Number.isFinite(next))expiryTimer=setTimeout(()=>{if(!activeQueue().length){dialog.close();return;}if(!queue.some(c=>c.id===current?.id))advance(0);else{updateCopy();scheduleExpiry();}},Math.max(1,next-Date.now()+10));else dialog.close();}
+async function showCampaign(c){const version=++requestVersion,img=await imageFor(c);if(version!==requestVersion||!eligible(c))return false;if(!dialog)build();current=c;dialog.dataset.campaignId=c.id;dialog.querySelector('.site-ad-image-link').replaceChildren(img);dialog.querySelector('.site-ad-credits').open=false;updateCopy();try{localStorage.setItem(CURSOR_KEY,c.id);}catch{}return true;}
+async function advance(step){if(changing||!dialog?.open)return;changing=true;clearTimeout(slideTimer);try{const n=activeQueue();if(!n.length){dialog.close();return;}let i=n.findIndex(c=>c.id===current?.id);if(i<0)i=0;else i=(i+step+n.length)%n.length;for(let k=0;k<n.length;k++){try{if(await showCampaign(n[(i+k)%n.length]))break;}catch{queue=queue.filter(c=>c.id!==n[(i+k)%n.length].id);}}if(!activeQueue().length)dialog.close();}finally{changing=false;scheduleSlide();scheduleExpiry();}}
+async function refreshOpen(){if(!dialog?.open)return;try{queue=await fetchCampaigns();if(!queue.length){dialog.close();return;}if(!queue.some(c=>c.id===current?.id))await advance(0);else{current=queue.find(c=>c.id===current.id);updateCopy();scheduleExpiry();}}catch{dialog.close();retryAt=Date.now()+RETRY_DELAY;}finally{if(dialog?.open)refreshTimer=setTimeout(refreshOpen,REFRESH_DELAY);}}
+function schedule(){clearTimeout(timer);if(document.hidden||dialog?.open||checking)return;const shown=lastShown(),due=Math.max(browseStart+FIRST_DELAY,shown?shown+COOLDOWN:0,retryAt);timer=setTimeout(attempt,Math.max(0,due-Date.now()));}
 async function attempt(){
- if(checking||dialog?.open)return;
- if(document.hidden)return;
- if(Date.now()<Math.max(browseStart+FIRST_DELAY,lastShown()?lastShown()+COOLDOWN:0)){schedule();return;}
- if(busy()){retryAt=Date.now()+RETRY_DELAY;schedule();return;}
- checking=true;
- try{
-  if(!await campaignAvailable()){retryAt=Date.now()+COOLDOWN;return;}
-  await loadImage();
-  if(document.hidden||busy()||(lastShown()&&Date.now()-lastShown()<COOLDOWN)){retryAt=Date.now()+RETRY_DELAY;return;}
-  if(!dialog)build();else updateCopy();
-  returnFocus=document.activeElement;dialog.showModal();document.documentElement.classList.add('site-ad-visible');markShown();
- }catch{retryAt=Date.now()+RETRY_DELAY;}
- finally{checking=false;schedule();}
+ if(checking||dialog?.open||document.hidden)return;if(Date.now()<Math.max(browseStart+FIRST_DELAY,lastShown()?lastShown()+COOLDOWN:0)){schedule();return;}if(busy()){retryAt=Date.now()+RETRY_DELAY;schedule();return;}
+ checking=true;try{queue=await fetchCampaigns();if(!queue.length){retryAt=Date.now()+REFRESH_DELAY;return;}let previous;try{previous=localStorage.getItem(CURSOR_KEY);}catch{}const i=queue.findIndex(c=>c.id===previous);queue=queue.slice(i+1).concat(queue.slice(0,i+1));
+ let ready=false;for(const c of [...queue]){try{if(await showCampaign(c)){ready=true;break;}}catch{queue=queue.filter(x=>x.id!==c.id);}}if(!ready){retryAt=Date.now()+RETRY_DELAY;return;}
+ if(document.hidden||busy()||(lastShown()&&Date.now()-lastShown()<COOLDOWN)||!eligible(current)){retryAt=Date.now()+RETRY_DELAY;return;}returnFocus=document.activeElement;dialog.showModal();document.documentElement.classList.add('site-ad-visible');markShown();scheduleSlide();scheduleExpiry();refreshTimer=setTimeout(refreshOpen,REFRESH_DELAY);
+ }catch{retryAt=Date.now()+RETRY_DELAY;}finally{checking=false;schedule();}
 }
-window.addEventListener('storage',event=>{if(event.key===KEY)schedule();});
-document.addEventListener('visibilitychange',schedule);
-document.addEventListener('focusout',()=>{if(!dialog?.open)schedule();});
-document.addEventListener('masterstore:localechange',()=>{updateCopy();if(dialog?.open)campaignAvailable().then(ok=>{if(!ok&&dialog?.open)dialog.close();});});
-schedule();
+window.addEventListener('storage',e=>{if(e.key===KEY)schedule();});document.addEventListener('visibilitychange',()=>{if(document.hidden)clearTimeout(slideTimer);else if(dialog?.open){if(!eligible(current))advance(0);scheduleSlide();}else schedule();});document.addEventListener('focusout',()=>{if(!dialog?.open)schedule();});document.addEventListener('masterstore:localechange',updateCopy);schedule();
 })();

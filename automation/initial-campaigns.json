@@ -1,0 +1,67 @@
+[
+  {
+    "id": "freepik-2-launch-v1",
+    "product_id": "freepik",
+    "plan_index": 2,
+    "poster_path": "images/offers/freepik-premium-24-launch.webp",
+    "title_ar": "Freepik Premium — شهر و20 ألف كريدت بـ24 دولار",
+    "title_en": "Freepik Premium — one month and 20,000 credits for US$24",
+    "alt_ar": "Freepik Premium — شهر و20 ألف كريدت بـ24 دولار",
+    "alt_en": "Arabic poster: Freepik Premium — one month and 20,000 credits for US$24",
+    "expected_price_piasters": 134400,
+    "poster_currency": "USD",
+    "credit_key": null
+  },
+  {
+    "id": "freepik-1-launch-v1",
+    "product_id": "freepik",
+    "plan_index": 1,
+    "poster_path": "images/offers/freepik-essential-15-launch.webp",
+    "title_ar": "Freepik Essential — شهر على إيميلك بـ15 دولار",
+    "title_en": "Freepik Essential — one month on your email for US$15",
+    "alt_ar": "Freepik Essential — شهر على إيميلك بـ15 دولار",
+    "alt_en": "Arabic poster: Freepik Essential — one month on your email for US$15",
+    "expected_price_piasters": 84000,
+    "poster_currency": "USD",
+    "credit_key": null
+  },
+  {
+    "id": "elevenlabs-3-launch-v1",
+    "product_id": "elevenlabs",
+    "plan_index": 3,
+    "poster_path": "images/offers/elevenlabs-pro-450-launch.webp",
+    "title_ar": "ElevenLabs Pro — شهر و50 ألف كريدت بـ450 جنيه، ضمان 25 يومًا، بدون استنساخ صوت",
+    "title_en": "ElevenLabs Pro — one month, 50,000 credits, EGP450, 25-day warranty, no voice cloning",
+    "alt_ar": "ElevenLabs Pro — شهر و50 ألف كريدت بـ450 جنيه، ضمان 25 يومًا، بدون استنساخ صوت",
+    "alt_en": "Arabic poster: ElevenLabs Pro — one month, 50,000 credits, EGP450, 25-day warranty, no voice cloning",
+    "expected_price_piasters": 45000,
+    "poster_currency": "EGP",
+    "credit_key": null
+  },
+  {
+    "id": "cursor-grok-x-bundle-0-launch-v1",
+    "product_id": "cursor-grok-x-bundle",
+    "plan_index": 0,
+    "poster_path": "images/offers/cursor-grok-x-1000-launch.webp",
+    "title_ar": "Cursor + Grok + X — شهر على إيميلك بـ1000 جنيه",
+    "title_en": "Cursor + Grok + X — one month on your email for EGP1000",
+    "alt_ar": "Cursor + Grok + X — شهر على إيميلك بـ1000 جنيه",
+    "alt_en": "Arabic poster: Cursor + Grok + X — one month on your email for EGP1000",
+    "expected_price_piasters": 100000,
+    "poster_currency": "EGP",
+    "credit_key": null
+  },
+  {
+    "id": "xtream-iptv-0-launch-v1",
+    "product_id": "xtream-iptv",
+    "plan_index": 0,
+    "poster_path": "images/offers/xtream-iptv-all-leagues-year-350.webp",
+    "title_ar": "عرض الكورة — Xtream IPTV سنة بـ350 جنيه",
+    "title_en": "Football offer — Xtream IPTV one year for EGP350",
+    "alt_ar": "عرض الكورة — Xtream IPTV سنة بـ350 جنيه",
+    "alt_en": "Arabic poster: Football offer — Xtream IPTV one year for EGP350",
+    "expected_price_piasters": 35000,
+    "poster_currency": "EGP",
+    "credit_key": "salah-wikiportraits"
+  }
+]

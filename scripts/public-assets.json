@@ -70,5 +70,6 @@
   "product-guide-profiles.js",
   "service-guides.js",
   "site-ads.js",
-  "site-ads.css"
+  "site-ads.css",
+  "campaign-admin.js"
 ]
