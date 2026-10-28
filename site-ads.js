@@ -8,7 +8,7 @@ const SELECT='id,product_id,plan_index,poster_path,title_ar,title_en,alt_ar,alt_
 const path=location.pathname,ownProduct=document.body.dataset.productId||new URLSearchParams(location.search).get('id')||(path.match(/^\/products\/([a-z0-9-]+)\.html$/)||[])[1];
 const publicPage=['/','/index.html','/warranty.html','/product.html'].includes(path)||/^\/(?:products|categories)\/[a-z0-9-]+\.html$/.test(path);
 if(!publicPage||typeof HTMLDialogElement==='undefined')return;
-let timer,slideTimer,expiryTimer,refreshTimer,dialog,current,checking=false,changing=false,returnFocus,queue=[],retryAt=0,memoryShownAt=0,paused=matchMedia('(prefers-reduced-motion: reduce)').matches,hovering=false,requestVersion=0;
+let timer,slideTimer,expiryTimer,refreshTimer,dialog,current,checking=false,changing=false,returnFocus,queue=[],retryAt=0,memoryShownAt=0,paused=matchMedia('(prefers-reduced-motion: reduce)').matches,hovering=false,requestVersion=0,manualViewing=false,autoSuppressed=false,launcher,launcherStatus;
 const images=new Map(),loadedAt=Date.now();
 function storedTime(storage,key){try{const n=Number(storage.getItem(key));return Number.isFinite(n)&&n>0&&n<=Date.now()+60000?n:0;}catch{return 0;}}
 function lastShown(){let at=memoryShownAt;try{at=Math.max(at,storedTime(localStorage,KEY));}catch{}try{at=Math.max(at,storedTime(sessionStorage,KEY));}catch{}return at;}
@@ -24,6 +24,15 @@ async function fetchCampaigns(){
  return rows.filter(eligible);
 }
 function activeQueue(){queue=queue.filter(eligible);return queue;}
+function updateLauncher(){if(!launcher)return;const n=activeQueue().length;launcher.parentElement.hidden=!n;launcher.textContent=text('العروض الجديدة','New arrivals')+' · '+n;launcher.setAttribute('aria-label',text('عرض بوسترات المنتجات الجديدة','View new product posters'));}
+async function discover(){try{if(!checking&&!dialog?.open){queue=await fetchCampaigns();updateLauncher();}}catch{}}
+function buildLauncher(){
+ const bar=document.createElement('div');bar.className='site-ad-launcher-bar';bar.hidden=true;bar.dataset.noTranslate='true';
+ launcher=document.createElement('button');launcher.type='button';launcher.className='site-ad-launcher';launcher.setAttribute('aria-haspopup','dialog');launcher.setAttribute('aria-controls','masterSiteAd');launcher.onclick=()=>attempt(true);
+ launcherStatus=document.createElement('span');launcherStatus.className='site-ad-launcher-status';launcherStatus.setAttribute('role','status');bar.append(launcher,launcherStatus);
+ const header=document.querySelector('header.topbar');if(header)header.after(bar);else (document.querySelector('main')||document.body).prepend(bar);discover();
+}
+
 function imageFor(c){if(images.has(c.poster_path))return images.get(c.poster_path);const work=new Promise((resolve,reject)=>{const img=new Image(1122,1402);img.className='site-ad-image';img.decoding='async';img.onload=()=>resolve(img);img.onerror=()=>{images.delete(c.poster_path);reject(Error('poster_unavailable'));};img.src='/'+c.poster_path;});images.set(c.poster_path,work);return work;}
 function link(href,label){const a=document.createElement('a');a.href=href;a.textContent=label;a.target='_blank';a.rel='noopener noreferrer';return a;}
 function build(){
@@ -36,10 +45,10 @@ function build(){
  dialog.addEventListener('focusin',e=>{if(!e.target.matches('.site-ad-close,[data-ad-pause]')){paused=true;updateCopy();clearTimeout(slideTimer);}});
  dialog.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();paused=true;advance(e.key==='ArrowRight'?1:-1);}});
  dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();});
- dialog.addEventListener('close',()=>{requestVersion++;changing=false;clearTimeout(slideTimer);clearTimeout(expiryTimer);clearTimeout(refreshTimer);document.documentElement.classList.remove('site-ad-visible');markShown();if(returnFocus?.isConnected&&returnFocus!==document.body)returnFocus.focus({preventScroll:true});schedule();});
+ dialog.addEventListener('close',()=>{requestVersion++;changing=false;clearTimeout(slideTimer);clearTimeout(expiryTimer);clearTimeout(refreshTimer);document.documentElement.classList.remove('site-ad-visible');if(!manualViewing)markShown();manualViewing=false;if(returnFocus?.isConnected&&returnFocus!==document.body)returnFocus.focus({preventScroll:true});schedule();});
 }
 function updateCopy(){
- if(!dialog||!current)return;dialog.dir=en()?'ltr':'rtl';dialog.querySelector('h2').textContent=en()?current.title_en:current.title_ar;
+ updateLauncher();if(!dialog||!current)return;dialog.dir=en()?'ltr':'rtl';dialog.querySelector('h2').textContent=en()?current.title_en:current.title_ar;
  const destination='/products/'+current.product_id+'.html?plan='+current.plan_index;for(const a of dialog.querySelectorAll('.site-ad-image-link,.site-ad-cta'))a.href=destination;
  dialog.querySelector('.site-ad-image-link').setAttribute('aria-label',text('عرض تفاصيل الباقة','View plan details'));const img=dialog.querySelector('img');if(img)img.alt=en()?current.alt_en:current.alt_ar;
  dialog.querySelector('.site-ad-close').setAttribute('aria-label',text('إغلاق الإعلان','Close advertisement'));dialog.querySelector('.site-ad-cta').textContent=text('شوف تفاصيل الاشتراك ←','View subscription details →');
@@ -53,14 +62,15 @@ function scheduleSlide(){clearTimeout(slideTimer);if(dialog?.open&&!paused&&!hov
 function scheduleExpiry(){clearTimeout(expiryTimer);if(!dialog?.open)return;const next=Math.min(...activeQueue().map(c=>Date.parse(c.ends_at)));if(Number.isFinite(next))expiryTimer=setTimeout(()=>{if(!activeQueue().length){dialog.close();return;}if(!queue.some(c=>c.id===current?.id))advance(0);else{updateCopy();scheduleExpiry();}},Math.max(1,next-Date.now()+10));else dialog.close();}
 async function showCampaign(c){const version=++requestVersion,img=await imageFor(c);if(version!==requestVersion||!eligible(c))return false;if(!dialog)build();current=c;dialog.dataset.campaignId=c.id;dialog.querySelector('.site-ad-image-link').replaceChildren(img);dialog.querySelector('.site-ad-credits').open=false;updateCopy();try{localStorage.setItem(CURSOR_KEY,c.id);}catch{}return true;}
 async function advance(step){if(changing||!dialog?.open)return;changing=true;clearTimeout(slideTimer);try{const n=activeQueue();if(!n.length){dialog.close();return;}let i=n.findIndex(c=>c.id===current?.id);if(i<0)i=0;else i=(i+step+n.length)%n.length;for(let k=0;k<n.length;k++){try{if(await showCampaign(n[(i+k)%n.length]))break;}catch{queue=queue.filter(c=>c.id!==n[(i+k)%n.length].id);}}if(!activeQueue().length)dialog.close();}finally{changing=false;scheduleSlide();scheduleExpiry();}}
-async function refreshOpen(){if(!dialog?.open)return;try{queue=await fetchCampaigns();if(!queue.length){dialog.close();return;}if(!queue.some(c=>c.id===current?.id))await advance(0);else{current=queue.find(c=>c.id===current.id);updateCopy();scheduleExpiry();}}catch{dialog.close();retryAt=Date.now()+RETRY_DELAY;}finally{if(dialog?.open)refreshTimer=setTimeout(refreshOpen,REFRESH_DELAY);}}
-function schedule(){clearTimeout(timer);if(document.hidden||dialog?.open||checking)return;const shown=lastShown(),due=Math.max(browseStart+FIRST_DELAY,shown?shown+COOLDOWN:0,retryAt);timer=setTimeout(attempt,Math.max(0,due-Date.now()));}
-async function attempt(){
- if(checking||dialog?.open||document.hidden)return;if(Date.now()<Math.max(browseStart+FIRST_DELAY,lastShown()?lastShown()+COOLDOWN:0)){schedule();return;}if(busy()){retryAt=Date.now()+RETRY_DELAY;schedule();return;}
- checking=true;try{queue=await fetchCampaigns();if(!queue.length){retryAt=Date.now()+REFRESH_DELAY;return;}let previous;try{previous=localStorage.getItem(CURSOR_KEY);}catch{}const i=queue.findIndex(c=>c.id===previous);queue=queue.slice(i+1).concat(queue.slice(0,i+1));
+async function refreshOpen(){if(!dialog?.open)return;try{queue=await fetchCampaigns();updateLauncher();if(!queue.length){dialog.close();return;}if(!queue.some(c=>c.id===current?.id))await advance(0);else{current=queue.find(c=>c.id===current.id);updateCopy();scheduleExpiry();}}catch{dialog.close();retryAt=Date.now()+RETRY_DELAY;}finally{if(dialog?.open)refreshTimer=setTimeout(refreshOpen,REFRESH_DELAY);}}
+function schedule(){clearTimeout(timer);if(document.hidden||dialog?.open||checking||autoSuppressed)return;const shown=lastShown(),due=Math.max(browseStart+FIRST_DELAY,shown?shown+COOLDOWN:0,retryAt);timer=setTimeout(attempt,Math.max(0,due-Date.now()));}
+async function attempt(manual=false){
+ manual=manual===true;
+ if(checking||dialog?.open||document.hidden)return;if(!manual&&Date.now()<Math.max(browseStart+FIRST_DELAY,lastShown()?lastShown()+COOLDOWN:0)){schedule();return;}if(busy()){retryAt=Date.now()+RETRY_DELAY;schedule();return;}
+ checking=true;if(launcher){launcher.disabled=true;launcherStatus.textContent='';}try{queue=await fetchCampaigns();updateLauncher();if(!queue.length){if(manual)launcherStatus.textContent=text('لا توجد إعلانات متاحة حاليًا.','No campaigns are currently available.');retryAt=Date.now()+REFRESH_DELAY;return;}let previous;try{previous=localStorage.getItem(CURSOR_KEY);}catch{}const i=queue.findIndex(c=>c.id===previous);queue=queue.slice(i+1).concat(queue.slice(0,i+1));
  let ready=false;for(const c of [...queue]){try{if(await showCampaign(c)){ready=true;break;}}catch{queue=queue.filter(x=>x.id!==c.id);}}if(!ready){retryAt=Date.now()+RETRY_DELAY;return;}
- if(document.hidden||busy()||(lastShown()&&Date.now()-lastShown()<COOLDOWN)||!eligible(current)){retryAt=Date.now()+RETRY_DELAY;return;}returnFocus=document.activeElement;dialog.showModal();document.documentElement.classList.add('site-ad-visible');markShown();scheduleSlide();scheduleExpiry();refreshTimer=setTimeout(refreshOpen,REFRESH_DELAY);
- }catch{retryAt=Date.now()+RETRY_DELAY;}finally{checking=false;schedule();}
+ if(document.hidden||busy()||(!manual&&lastShown()&&Date.now()-lastShown()<COOLDOWN)||!eligible(current)){retryAt=Date.now()+RETRY_DELAY;return;}returnFocus=document.activeElement;manualViewing=manual;if(manual)autoSuppressed=true;dialog.showModal();document.documentElement.classList.add('site-ad-visible');if(!manual)markShown();scheduleSlide();scheduleExpiry();refreshTimer=setTimeout(refreshOpen,REFRESH_DELAY);
+ }catch{if(manual&&launcherStatus)launcherStatus.textContent=text('تعذر تحميل الإعلانات. جرّب تاني.','Unable to load posters. Please try again.');retryAt=Date.now()+RETRY_DELAY;}finally{checking=false;if(launcher)launcher.disabled=false;schedule();}
 }
-window.addEventListener('storage',e=>{if(e.key===KEY)schedule();});document.addEventListener('visibilitychange',()=>{if(document.hidden)clearTimeout(slideTimer);else if(dialog?.open){if(!eligible(current))advance(0);scheduleSlide();}else schedule();});document.addEventListener('focusout',()=>{if(!dialog?.open)schedule();});document.addEventListener('masterstore:localechange',updateCopy);schedule();
+window.addEventListener('storage',e=>{if(e.key===KEY)schedule();});document.addEventListener('visibilitychange',()=>{if(document.hidden)clearTimeout(slideTimer);else if(dialog?.open){if(!eligible(current))advance(0);scheduleSlide();}else schedule();});document.addEventListener('focusout',()=>{if(!dialog?.open)schedule();});document.addEventListener('masterstore:localechange',updateCopy);buildLauncher();schedule();
 })();
