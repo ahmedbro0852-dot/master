@@ -3,7 +3,7 @@
 'use strict';
 const FIRST_DELAY=12000,COOLDOWN=6*60*60*1000,RETRY_DELAY=30000;
 const KEY='masterStoreXtreamAdV1',START_KEY='masterStoreAdBrowseStartV1';
-const POSTER='/images/offers/xtream-iptv-football-year-350.webp';
+const POSTER='/images/offers/xtream-iptv-all-leagues-year-350.webp';
 const DESTINATION='/products/xtream-iptv.html?plan=0';
 const path=location.pathname,ownProduct=path==='/products/xtream-iptv.html'||(path==='/product.html'&&new URLSearchParams(location.search).get('id')==='xtream-iptv');
 const publicPage=path==='/'||path==='/index.html'||path==='/warranty.html'||path==='/product.html'||/^\/(?:products|categories)\/[a-z0-9-]+\.html$/.test(path);
@@ -39,7 +39,7 @@ function updateCopy(){
  dialog.querySelector('h2').textContent=text('عرض الكورة من ماستر ستور','Football offer from MASTER STORE');
  dialog.querySelector('.site-ad-close').setAttribute('aria-label',text('إغلاق الإعلان','Close advertisement'));
  dialog.querySelector('.site-ad-image-link').setAttribute('aria-label',text('عرض تفاصيل اشتراك Xtream IPTV','View Xtream IPTV subscription details'));
- image.alt=text('إعلان Xtream IPTV: اشتراك سنة بسعر 350 جنيه، مع صلاح ومرموش ويامال وبيلينجهام وهالاند.','Arabic Xtream IPTV advertisement: one year for EGP 350, featuring Salah, Marmoush, Yamal, Bellingham and Haaland.');
+ image.alt=text('إعلان Xtream IPTV بعنوان شاهد جميع الدوريات: اشتراك سنة بسعر 350 جنيه، على TV والموبايل والرسيفر، مع صلاح ومرموش.','Arabic Xtream IPTV advertisement titled Watch all leagues: one year for EGP 350, on TV, phone and receiver, featuring Salah and Marmoush.');
  dialog.querySelector('.site-ad-cta').textContent=text('شوف تفاصيل الاشتراك ←','View subscription details →');
  const note=dialog.querySelector('.site-ad-market-note');note.hidden=(window.MasterLocale?.getState().market||'EG')==='EG';
  note.textContent=text('السعر في البوستر بالجنيه المصري؛ راجع سعر بلدك في صفحة الاشتراك.','The poster price is in Egyptian pounds; check your market price on the subscription page.');

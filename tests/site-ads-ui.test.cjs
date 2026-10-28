@@ -22,7 +22,7 @@ const server=http.createServer((request,response)=>{let file=path.join(root,new 
  const open=p=>p.locator('#masterSiteAd[open]');
  try{
   const p=await pageFor();await p.clock.fastForward(10000);assert.equal(await open(p).count(),0,'not immediate');await p.clock.fastForward(2100);await open(p).waitFor();
-  assert.equal(await p.locator('#masterSiteAd img').evaluate(e=>e.naturalWidth),1122);assert.match(await p.locator('#masterSiteAd img').getAttribute('src'),/xtream-iptv-football-year-350.webp$/);
+  assert.equal(await p.locator('#masterSiteAd img').evaluate(e=>e.naturalWidth),1122);assert.match(await p.locator('#masterSiteAd img').getAttribute('src'),/xtream-iptv-all-leagues-year-350.webp$/);
   assert.equal(await p.locator('#masterSiteAd .site-ad-cta').getAttribute('href'),'/products/xtream-iptv.html?plan=0');
   assert(await p.evaluate(key=>Number(localStorage.getItem(key))>0,KEY));assert(await p.locator('.site-ad-close').evaluate(e=>e===document.activeElement));
   for(const width of [320,390,1440]){await p.setViewportSize({width,height:844});await p.clock.runFor(40);const r=await p.locator('#masterSiteAd').boundingBox();assert(r.x>=0&&r.y>=0&&r.x+r.width<=width+1&&r.y+r.height<=845,'dialog fits '+width);assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));}

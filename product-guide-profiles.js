@@ -49,13 +49,13 @@
 },
 "xtream-iptv":{
   "poster": {
-    "src": "images/offers/xtream-iptv-football-year-350.webp",
+    "src": "images/offers/xtream-iptv-all-leagues-year-350.webp",
     "width": 1122,
     "height": 1402,
     "planIndex": 0,
     "priceEGP": 350,
-    "alt": "بوستر Xtream IPTV: اشتراك سنة بسعر 350 جنيه، مع صلاح ومرموش ويامال وبيلينجهام وهالاند وشعارات الدوريات.",
-    "altEn": "Arabic Xtream IPTV poster: a one-year subscription for EGP 350, featuring Salah, Marmoush, Yamal, Bellingham, Haaland and league logos."
+    "alt": "بوستر Xtream IPTV بعنوان شاهد جميع الدوريات: اشتراك سنة بسعر 350 جنيه، للمشاهدة على TV والموبايل والرسيفر، مع صلاح ومرموش وشعارات الدوريات.",
+    "altEn": "Arabic Xtream IPTV poster titled Watch all leagues: one year for EGP 350, with TV, phone and receiver viewing, Salah, Marmoush and league logos."
   },
   "intro": "Xtream IPTV يتيح تشغيل قائمة قنوات السيرفر عبر الإنترنت باستخدام بيانات Xtream Codes. هذا العرض بسيرفر عربي يُحدد عشوائيًا، لمدة سنة أو أكثر حسب تاريخ الوصول المستلَم. اقرأ الدليل لمعرفة الفرق بين السيرفر والتطبيق وطريقة الإعداد واستهلاك الإنترنت.",
   "introEn": "Xtream IPTV lets you play a server’s channel list over the internet using Xtream Codes credentials. This offer assigns an Arabic-content server for one year or longer depending on the delivered access expiry. Read the guide for the difference between server and player, setup steps and data usage.",
