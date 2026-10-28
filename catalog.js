@@ -4776,7 +4776,7 @@ const products = [
   "logo": "freepik",
   "logoUrl": "logos/freepik.svg?v=20261009-logo-review3",
   "status": "available",
-  "description": "باقات Freepik: اشتراك Essential لمدة شهر على إيميلك الشخصي بسعر 15 دولار وضمان شهر، أو باقة Premium للتحميل فقط بحساب جاهز. راجع مميزات وطريقة تفعيل الباقة المختارة.",
+  "description": "باقات Freepik على إيميلك الشخصي: Essential لمدة شهر بسعر 15 دولار، وPremium لمدة شهر بسعر 24 دولار مع 20 ألف كريدت، وضمان شهر. تتوفر أيضًا باقة Premium للتحميل فقط بحساب جاهز.",
   "plans": [
     {
       "name": "Freepik Premium — تحميل فقط",
@@ -4849,13 +4849,46 @@ const products = [
         "هذه باقة Essential على حسابك الشخصي؛ شروط Premium للتحميل فقط تخص باقة أخرى.",
         "عدد كريدت AI وحدود التنزيل والمزايا المتاحة تُؤكد قبل الدفع؛ لا يُفترض توليد أو تحميل غير محدود."
       ]
+    },
+    {
+      "name": "Premium — شهر · 20 ألف كريدت · على إيميلك",
+      "planType": "Premium",
+      "duration": "1 شهر",
+      "price": 1344,
+      "basePriceUSD": 24,
+      "available": true,
+      "account": "حسابك الشخصي على إيميلك الخاص",
+      "accountType": "حسابك الشخصي على إيميلك الخاص",
+      "activation": "تفعيل اشتراك Freepik Premium لمدة شهر على إيميلك الشخصي، مع 20 ألف كريدت.",
+      "warranty": "ضمان لمدة شهر",
+      "credits": "20,000 كريدت خلال الشهر",
+      "features": [
+        "اشتراك Freepik Premium لمدة شهر واحد.",
+        "20 ألف كريدت لاستخدام أدوات الذكاء الاصطناعي خلال الشهر.",
+        "تفعيل خاص على إيميلك وحسابك الشخصي.",
+        "ضمان لمدة شهر طوال مدة الاشتراك.",
+        "استخدام أدوات Premium المتاحة وفق رصيد الباقة وإعدادات كل أداة."
+      ],
+      "featuresEn": [
+        "One month of Freepik Premium.",
+        "20,000 credits for AI tools during the month.",
+        "Private activation on your email and personal account.",
+        "One-month warranty throughout the subscription term.",
+        "Use available Premium tools within the plan allowance and each tool’s settings."
+      ],
+      "notes": [
+        "السعر الأساسي 24 دولار؛ يظهر المقابل المحلي حسب تحويل المتجر.",
+        "20 ألف كريدت خلال شهر الاشتراك؛ ليست عددًا ثابتًا من الصور أو مقاطع الفيديو.",
+        "استهلاك الكريدت يختلف حسب الأداة والنموذج والجودة والإعدادات.",
+        "هذه باقة Premium برصيد AI على حسابك الشخصي؛ باقة Premium للتحميل فقط بحساب جاهز اختيار آخر مستقل."
+      ]
     }
   ],
   "categories": [
     "توليد صور بالذكاء الاصطناعي",
     "صور وقوالب وموارد جاهزة"
   ],
-  "descriptionEn": "Freepik plans: one month of Essential on your personal email for US$15 with a one-month warranty, or a ready-account Premium download-only offer. Review the selected plan’s features and activation method."
+  "descriptionEn": "Freepik on your personal email: one-month Essential for US$15, or one-month Premium for US$24 with 20,000 credits, each with a one-month warranty. A separate ready-account download-only Premium offer is also available."
 },
   {
     "id": "adobe-express",

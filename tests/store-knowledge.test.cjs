@@ -28,7 +28,7 @@ assert.equal(products.find(p=>p.id==='supergrok-coursera-bundle').plans[0].price
 }
 {
  const product=products.find(p=>p.id==='freepik'),plans=JSON.parse(k.contextFor([product],rows)).details[0].plans;
- assert.equal(plans.length,2);assert.equal(plans[0].priceEGP,450);assert.equal(plans[1].priceEGP,840);assert.equal(product.plans[1].basePriceUSD,15);assert.match(plans[1].account,/الشخصي/);assert.match(plans[1].warranty,/شهر/);assert(plans[1].features.every(x=>!x.includes('للتحميل فقط')&&!x.includes('PSD')));assert(plans[0].features.some(x=>x.includes('للتحميل فقط')));assert.equal(product.plans[1].officialPrice,undefined);
+ assert.equal(plans.length,3);assert.equal(plans[0].priceEGP,450);assert.equal(plans[1].priceEGP,840);assert.equal(product.plans[1].basePriceUSD,15);assert.match(plans[1].account,/الشخصي/);assert.match(plans[1].warranty,/شهر/);assert(plans[1].features.every(x=>!x.includes('للتحميل فقط')&&!x.includes('PSD')));assert(plans[0].features.some(x=>x.includes('للتحميل فقط')));assert.equal(product.plans[1].officialPrice,undefined);assert.equal(plans[2].priceEGP,1344);assert.equal(product.plans[2].basePriceUSD,24);assert.match(plans[2].credits,/20,000/);assert.match(plans[2].account,/الشخصي/);assert.match(plans[2].warranty,/شهر/);assert(plans[2].features.every(x=>!x.includes('للتحميل فقط')));assert.equal(product.plans[2].officialPrice,undefined);
 }
 assert.equal(k.budgetFrom('ميزانيتي ٣٠٠ جنيه'),300);assert.equal(k.budgetFrom('budget 250 EGP'),250);assert.equal(k.budgetFrom('عايز فيديو 4k'),null);assert.equal(k.budgetFrom('budget 20 USD'),null);assert.equal(k.budgetFrom('ميزانيتي ١٬٠٠٠ جنيه'),1000);
 assert.equal(ask('هل الفاتورة ضريبية؟ ينفع أدفع Binance؟ ولو اشتريت 3 اشتراكات الخصم كام؟').length,0);

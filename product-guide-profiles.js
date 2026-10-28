@@ -543,8 +543,8 @@
     "checkEn": "Seat type and permissions determine what can be edited within a team. A viewing invitation is not equivalent to editing or workspace-administration access."
   },
   "freepik": {
-  "intro": "Freepik يقدم موارد وأدوات للتصميم، وتختلف طريقة الوصول حسب العرض. باقة Essential لمدة شهر تُفعّل على إيميلك الشخصي بضمان شهر، بينما باقة Premium للتحميل فقط تُسلّم بحساب جاهز. افتح تفاصيل الباقة المناسبة قبل الطلب.",
-  "introEn": "Freepik offers design resources and tools, with access depending on the offer. One-month Essential is activated on your personal email with a one-month warranty, while the download-only Premium offer supplies a ready account. Open the relevant plan details before ordering.",
+  "intro": "Freepik يوفر باقات مختلفة للتصميم وأدوات الذكاء الاصطناعي. تتوفر Essential وPremium بتفعيل خاص على إيميلك لمدة شهر وضمان شهر، وتشمل Premium حصة 20 ألف كريدت. باقة Premium للتحميل فقط بحساب جاهز لها تفاصيل مستقلة.",
+  "introEn": "Freepik offers different plans for design and AI tools. Essential and Premium are privately activated on your email for one month with a one-month warranty, and Premium includes 20,000 credits. Ready-account download-only Premium has separate terms.",
   "workflow": "ابحث بحسب نوع المشروع وصيغة الملف، ثم افحص الأبعاد والطبقات والتوافق مع برنامجك. عدّل المورد بما يناسب الهوية، واحتفظ ببيانات الترخيص المرتبطة بالاستخدام.",
   "workflowEn": "Search by project type and file format, then inspect dimensions, layers, and software compatibility. Adapt the asset to the brand and retain the relevant licence information.",
   "check": "راجع نوع الخطة وطريقة الوصول والرصيد وحدود التنزيل قبل الطلب. Essential لا ترث شروط Premium للتحميل فقط، ولا تُنقل مزايا أي خطة أخرى إليها لمجرد أن المنصة واحدة.",
@@ -557,12 +557,27 @@
       "paragraphs": [
         "هذه الباقة تفعّل اشتراك Essential بشكل خاص على إيميلك الشخصي لمدة شهر، مع ضمان لمدة شهر. تستخدم حسابك الشخصي، وتراجع نوع الخطة وتاريخ انتهائها بعد اكتمال التفعيل.",
         "السعر الأساسي للعرض 15 دولار، ويعرض المتجر المقابل المحلي حسب نظام التحويل. عدد كريدت الذكاء الاصطناعي وحدود التنزيل والأدوات المشمولة تُؤكد قبل الدفع؛ هذا العرض لا يتضمن وعدًا بتوليد أو تحميل غير محدود.",
-        "باقة Premium للتحميل فقط اختيار مستقل بحساب جاهز، وتظل مميزاتها وشروطها مرتبطة بها. اقرأ بطاقة Essential إذا كنت تريد التفعيل على إيميلك، وبطاقة Premium إذا كنت تريد عرض التحميل الجاهز."
+        "باقة Premium للتحميل فقط اختيار مستقل بحساب جاهز، وتظل مميزاتها وشروطها مرتبطة بها. اقرأ بطاقة Essential إذا كنت تريد التفعيل على إيميلك، وبطاقة Premium للتحميل فقط إذا كنت تريد عرض التحميل الجاهز."
       ],
       "paragraphsEn": [
         "This offer privately activates Essential on your personal email for one month, with a one-month warranty. Use your own account and check the plan and expiry after activation.",
         "The base offer price is US$15, with the local equivalent shown using the store conversion. Confirm AI credits, download limits and included tools before payment; unlimited generation or downloading is not promised.",
-        "The download-only Premium offer is a separate ready-account option with its own features and conditions. Choose the Essential plan card for personal-email activation or the Premium card for the ready download offer."
+        "The download-only Premium offer is a separate ready-account option with its own features and conditions. Choose the Essential plan card for personal-email activation or the download-only Premium card for the ready download offer."
+      ]
+    },
+    {
+      "id": "premium-personal-20k",
+      "title": "Premium على إيميلك: شهر و20 ألف كريدت",
+      "titleEn": "Premium on your email: one month and 20,000 credits",
+      "paragraphs": [
+        "باقة Premium الجديدة تُفعّل بشكل خاص على إيميلك وحسابك الشخصي لمدة شهر، وتشمل 20 ألف كريدت لاستخدام أدوات الذكاء الاصطناعي المتاحة، مع ضمان لمدة شهر. سعر عرض المتجر الأساسي 24 دولار، ويظهر المقابل المحلي وفق تحويل المتجر.",
+        "بعد اكتمال التفعيل، افتح حسابك وراجع اسم الخطة وتاريخ انتهائها ورصيد الكريدت. ابدأ بتجربة قصيرة بالإعدادات المناسبة، ثم راقب الاستهلاك قبل إنتاج نسخ كثيرة أو رفع جودة المخرجات. الرصيد لا يساوي عددًا ثابتًا من الصور أو الفيديوهات؛ الاستهلاك يتغير حسب الأداة والنموذج والإعدادات.",
+        "هذه الباقة مستقلة عن عرض Premium للتحميل فقط الذي يُسلّم بحساب جاهز. عند الطلب، اختر بطاقة Premium التي تذكر 20 ألف كريدت والتفعيل على إيميلك حتى تطابق الباقة التي تريدها."
+      ],
+      "paragraphsEn": [
+        "This Premium offer is privately activated on your email and personal account for one month, with 20,000 credits for available AI tools and a one-month warranty. The base store price is US$24, with the local equivalent shown using the store conversion.",
+        "After activation, check the plan, expiry date and credit balance in your account. Start with a short test at suitable settings, then monitor usage before producing many versions or increasing output quality. Credits do not correspond to a fixed number of images or videos; consumption varies by tool, model and settings.",
+        "This offer is separate from ready-account download-only Premium. Choose the Premium plan card that specifies 20,000 credits and activation on your email when placing your order."
       ]
     }
   ],
