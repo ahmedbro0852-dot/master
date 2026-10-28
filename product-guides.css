@@ -50,5 +50,6 @@
 .product-offer-poster figcaption{padding:12px 4px;font-size:11px;line-height:1.8;color:inherit;text-align:center}
 .product-offer-poster figcaption a{color:inherit;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
 .product-offer-poster .poster-image-credits{margin-top:8px;font-size:10px;color:var(--muted,#60708a)}
-.product-offer-poster .poster-image-credits summary{cursor:pointer;list-style-position:inside;min-height:32px;padding:4px}
+.product-offer-poster .poster-image-credits summary{cursor:pointer;list-style:none;display:grid;place-items:center;width:36px;min-height:32px;margin-inline:auto;padding:4px;font-size:17px}
+.product-offer-poster .poster-image-credits summary::-webkit-details-marker{display:none}
 .product-offer-poster .poster-image-credits p{margin:8px 0 0;overflow-wrap:anywhere}

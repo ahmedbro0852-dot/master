@@ -43,7 +43,7 @@ function updateCopy(){
  dialog.querySelector('.site-ad-cta').textContent=text('شوف تفاصيل الاشتراك ←','View subscription details →');
  const note=dialog.querySelector('.site-ad-market-note');note.hidden=(window.MasterLocale?.getState().market||'EG')==='EG';
  note.textContent=text('السعر في البوستر بالجنيه المصري؛ راجع سعر بلدك في صفحة الاشتراك.','The poster price is in Egyptian pounds; check your market price on the subscription page.');
- dialog.querySelector('.site-ad-credits summary').textContent=text('حقوق الصور','Image credits');
+ const info=dialog.querySelector('.site-ad-credits summary');info.textContent='ⓘ';info.setAttribute('aria-label',text('معلومات التصميم','Design information'));info.title=text('معلومات التصميم','Design information');
  dialog.querySelector('.site-ad-credit-prefix').textContent=text('صورة صلاح: ','Salah photo: ');
  dialog.querySelector('.site-ad-credit-edit').textContent=text('دمج وتعديل.','Composited and modified.');
 }
