@@ -1,0 +1,17 @@
+html.site-ad-visible,html.site-ad-visible body{overflow:hidden}
+dialog.site-ad{width:min(380px,calc(100vw - 24px));max-width:none;max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);margin:auto;padding:0;border:1px solid var(--line,#dce5f3);border-radius:18px;background:var(--card,#fff);color:var(--ink,#172b4d);font-family:Alexandria,system-ui,sans-serif;box-shadow:0 24px 90px #0006;overflow:auto;overscroll-behavior:contain;box-sizing:border-box}
+dialog.site-ad::backdrop{background:#041020b8;backdrop-filter:blur(5px)}
+.site-ad .site-ad-header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px 8px 14px;border-bottom:1px solid var(--line,#dce5f3)}
+.site-ad .site-ad-header h2{margin:0;color:inherit;font-size:12px;font-weight:600;line-height:1.7}
+.site-ad .site-ad-close{flex:0 0 44px;width:44px;height:44px;display:grid;place-items:center;border:0;border-radius:10px;padding:0;background:transparent;color:inherit;font:30px/1 system-ui;cursor:pointer}
+.site-ad .site-ad-close:hover{background:var(--line,#e7edf5)}
+.site-ad .site-ad-image-link{display:block;background:#08192a;text-align:center;line-height:0}
+.site-ad .site-ad-image{display:block;width:100%;height:auto;max-height:calc(100vh - 210px);max-height:calc(100dvh - 210px);object-fit:contain;margin:auto}
+.site-ad .site-ad-footer{padding:12px 14px 8px;text-align:center}
+.site-ad .site-ad-cta{display:flex;align-items:center;justify-content:center;min-height:44px;padding:9px 12px;border-radius:11px;background:#245bd2;color:#fff;font-size:13px;font-weight:600;line-height:1.7;text-decoration:none;box-sizing:border-box}
+.site-ad .site-ad-market-note{margin:8px 0 0;font-size:10px;line-height:1.8;color:var(--muted,#60708a)}
+.site-ad .site-ad-credits{margin-top:5px;color:var(--muted,#60708a);font-size:9px;line-height:1.8}
+.site-ad .site-ad-credits summary{cursor:pointer;list-style-position:inside;padding:4px}
+.site-ad .site-ad-credits p{margin:7px 0;overflow-wrap:anywhere}
+.site-ad .site-ad-credits a{color:inherit;text-underline-offset:3px}
+.site-ad a:focus-visible,.site-ad button:focus-visible,.site-ad summary:focus-visible{outline:3px solid #71a6ff;outline-offset:2px}
