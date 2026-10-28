@@ -9,7 +9,7 @@ assert(!urls.some(x=>/account|invoice|management|admin|cart\.html|track\.html/.t
 for(const p of catalog.products.filter(x=>!x.redirectTo)){
  const html=read('products/'+p.id+'.html'),g=graph(html)['@graph'],entity=g.find(x=>['Product','Service'].includes(x['@type']));
  assert.equal((html.match(/rel="canonical"/g)||[]).length,1);assert(html.includes('href="'+S.productUrl(p)+'"'));
- assert(html.includes('<base href="/">'));assert(html.includes('data-product-id="'+p.id+'"'));assert(html.includes('<h1>'));
+ assert(html.includes('<base href="/">'));assert(html.includes('data-product-id="'+p.id+'"'));assert.match(html,/<h1(?:\s[^>]*)?>/);
  assert(!entity.image.startsWith('data:'));assert.equal(g.filter(x=>x['@type']==='BreadcrumbList').length,1);
  assert(!JSON.stringify(g).includes('aggregateRating'));assert(!JSON.stringify(g).includes('reviewCount'));
  if(entity['@type']==='Product'){assert(entity.offers.length);for(const o of entity.offers){assert.equal(o.priceCurrency,'EGP');assert(Number(o.price)>0);assert(o.availability.startsWith('https://schema.org/'));assert(o.url.startsWith(S.productUrl(p)+'?plan='));assert(html.includes(o.price+' جنيه مصري'));}}

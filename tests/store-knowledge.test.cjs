@@ -17,6 +17,15 @@ for(const text of ['فيزيو بكام؟','فيسيو برو','Visio Profession
  assert(plans.every(p=>p.notes.some(n=>n.includes('https://tinyurl.com/OfficeActiveSystem'))));
  assert(plans.every(p=>/يُؤكد/.test(p.warranty)));
 }
+for(const text of ['باقة كيرسور جروك اكس بكام؟','Cursor Grok X Premium bundle','اشتراك اكس الموحّد']){
+ const found=ask(text).find(p=>p.id==='cursor-grok-x-bundle');assert(found,text);
+ const plan=JSON.parse(k.contextFor([found],rows)).details[0].plans[0];assert.equal(plan.priceEGP,1000);assert.equal(plan.duration,'1 شهر');assert.match(plan.account,/إيميلك الشخصي/);assert.match(plan.warranty,/كامل.*شهر/);assert.match(plan.credits,/أسبوعي مشترك/);assert(plan.features.some(x=>/استخدام إضافي مدفوع/.test(x)));assert(plan.notes.some(x=>/لا تتضمن Coursera/.test(x)));
+}
+assert.equal(products.find(p=>p.id==='supergrok-coursera-bundle').plans[0].price,1399);
+{
+ const eleven=products.find(p=>p.id==='elevenlabs'),plans=JSON.parse(k.contextFor([eleven],rows)).details[0].plans,pro=plans[3];
+ assert.equal(plans.length,4);assert.equal(plans[1].priceEGP,1250);assert.equal(plans[2].priceEGP,550);assert.equal(pro.priceEGP,450);assert.equal(pro.duration,'1 شهر');assert.match(pro.warranty,/25/);assert.match(pro.credits,/50,000/);assert.match(pro.account,/مساحة عمل/);assert(pro.features.some(x=>/استنساخ الصوت غير متاح/.test(x)));assert.equal(eleven.plans[3].officialPrice,undefined);
+}
 assert.equal(k.budgetFrom('ميزانيتي ٣٠٠ جنيه'),300);assert.equal(k.budgetFrom('budget 250 EGP'),250);assert.equal(k.budgetFrom('عايز فيديو 4k'),null);assert.equal(k.budgetFrom('budget 20 USD'),null);assert.equal(k.budgetFrom('ميزانيتي ١٬٠٠٠ جنيه'),1000);
 assert.equal(ask('هل الفاتورة ضريبية؟ ينفع أدفع Binance؟ ولو اشتريت 3 اشتراكات الخصم كام؟').length,0);
 for(const text of ['شات جو بكام؟','ChatGPT Go price','شات جي بي تي جو بضمان']){const go=ask(text);assert.equal(go.length,1);assert.equal(go[0].id,'chatgpt-go');const plan=JSON.parse(k.contextFor(go,rows)).details[0].plans[0];assert.equal(plan.priceEGP,320);assert.equal(plan.duration,'1 شهر');assert.match(plan.warranty,/كامل/);assert.match(plan.account,/جاهز/);}

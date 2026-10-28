@@ -1,5 +1,115 @@
 /* Service-specific editorial explanations; commercial terms stay in catalog.js. */
 (function(root,factory){const value=factory();if(typeof module==='object'&&module.exports)module.exports=value;else root.MasterProductGuideProfiles=value;})(typeof window==='undefined'?globalThis:window,function(){return {
+"cursor-grok-x-bundle":{
+  "intro": "باقة Cursor Pro + Grok + X Premium+ تجمع البرمجة والمساعدة بالذكاء الاصطناعي ومزايا النشر في اشتراك Premium موحّد. تُفعّل لمدة شهر على إيميلك الشخصي وحساباتك المرتبطة، بضمان شهر. اقرأ تفاصيل التكامل والرصيد المشترك وخطوات الاستخدام قبل الطلب.",
+  "introEn": "Cursor Pro + Grok + X Premium+ combines coding, AI assistance and publishing benefits in one unified Premium subscription. It is activated for one month on your personal email and connected accounts, with a one-month warranty. Read how linking, shared usage and practical workflows operate before ordering.",
+  "workflow": "ابدأ بهدف صغير: خطط للفكرة مع Grok، نفّذ جزءًا محددًا داخل Cursor، ثم راجع التغييرات واختبرها قبل نشر المحتوى أو مشاركة النتيجة على X. متابعة الرصيد تساعدك على توزيع الاستخدام بين هذه المهام خلال الأسبوع.",
+  "workflowEn": "Start small: plan an idea with Grok, implement a limited part in Cursor, then review and test changes before publishing or sharing the result on X. Monitor the usage pool to distribute work across the week.",
+  "check": "هذه خطة Premium الموحّدة على حسابك، والضمان شهر وفق عرض المتجر. تأكد من حسابات الربط وأهليتها والاشتراكات القديمة قبل التفعيل؛ لا تفترض أن نماذج الشركات الأخرى أو الرصيد الإضافي داخل السعر.",
+  "checkEn": "This is the unified Premium plan on your account, with a one-month store warranty. Confirm linking accounts, eligibility and existing subscriptions before activation; third-party models and extra usage credits are not included in the price.",
+  "sections": [
+    {
+      "id": "partnership",
+      "title": "الشراكة والتكامل بين Cursor وGrok وX",
+      "titleEn": "The collaboration connecting Cursor, Grok and X",
+      "paragraphs": [
+        "أصبح The X Subscription اشتراكًا موحدًا يجمع أدوات Grok مع بيئة Cursor ومزايا X. ويوضح إعلان المزود أن الهدف هو ربط التفكير وصناعة المحتوى بالبرمجة والنشر، بدل التعامل معها كاشتراكات منفصلة تمامًا. المقصود هنا Cursor محرر البرمجة، وليس Coursera منصة الكورسات.",
+        "خطة Premium المعلنة تجمع مزايا SuperGrok وCursor Pro وX Premium+. لذلك فإن اسم Premium هنا يخص الاشتراك الموحّد؛ وهو مختلف عن شراء X Premium القديم وحده. عرض ماستر ستور يحدد شهرًا واحدًا على حساب العميل وضمانًا لمدة شهر، كما هو موضح في الباقة."
+      ],
+      "paragraphsEn": [
+        "The X Subscription combines Grok tools, the Cursor environment and X benefits under one subscription. The provider describes a connected path from thinking and creating to coding and sharing. Cursor is the coding editor involved here; Coursera is a separate learning platform.",
+        "The advertised Premium tier combines SuperGrok, Cursor Pro and X Premium+ benefits. Premium here names the unified subscription, rather than the older standalone X Premium tier. This Master Store offer provides one month on the customer’s account with a one-month warranty."
+      ]
+    },
+    {
+      "id": "cursor-workflow",
+      "title": "كيف تستخدم Cursor في مشروعك؟",
+      "titleEn": "Using Cursor in a project",
+      "paragraphs": [
+        "Cursor محرر برمجي يساعدك على العمل في سياق ملفات المشروع. ابدأ بنسخة محفوظة من مشروعك، وافتح جزءًا صغيرًا تريد فهمه أو تعديله، ثم اشرح الهدف والنتيجة المطلوبة بدل طلب بناء مشروع ضخم في رسالة واحدة.",
+        "مثال عملي: اطلب تفسير دالة تسجيل الدخول، ثم تحديد موضع الخطأ واقتراح تعديل محدود. اقرأ الملفات التي تغيرت وشغّل المشروع واختباراته قبل اعتماد النتيجة. احتفظ بتغييراتك في Git لتتمكن من المقارنة والرجوع إلى نسخة سابقة. هذه طريقة استخدام مقترحة، وليست وعدًا بأن كل كود مولّد سيكون صحيحًا."
+      ],
+      "paragraphsEn": [
+        "Cursor is a coding editor for working in the context of project files. Start with a saved copy, open a small area you want to understand or change, and describe the target behaviour instead of asking for an entire large application at once.",
+        "For example, ask for an explanation of a login function, the likely cause of a bug and a limited proposed change. Read the affected files and run the application and its tests before accepting it. Use Git to compare changes and retain a recovery point. This is a suggested workflow, not a guarantee that generated code will be correct."
+      ]
+    },
+    {
+      "id": "grok-workflow",
+      "title": "استخدام Grok وGrok Bot بجانب البرمجة",
+      "titleEn": "Using Grok and Grok Bot alongside coding",
+      "paragraphs": [
+        "استخدم Grok لشرح فكرة، تنظيم متطلبات مشروع، تلخيص مادة أو تجهيز مسودة محتوى. يمكن أن تكمل داخل Cursor تنفيذ الجانب البرمجي، ثم تراجع النتيجة بنفسك. أدوات الصوت والصور والفيديو تتبع ما يظهر في حسابك وحدود خطتك، ولا تعني عددًا غير محدود من الطلبات.",
+        "Premium تشمل Grok Bot أيضًا. إذا استخدمته في مهمة عملية، ابدأ بمهمة محدودة وحدد النتيجة المطلوبة، وراجع الصلاحيات قبل توصيل تطبيقاتك. استهلاكه يأتي من الرصيد المشترك نفسه، وليس حصة مجانية مستقلة تضاف فوق رصيد الباقة."
+      ],
+      "paragraphsEn": [
+        "Use Grok to explain a concept, organise project requirements, summarise material or draft content. You can then implement the coding work in Cursor and review the result yourself. Voice, image and video tools follow what is available in your account and its plan limits; they do not imply unlimited requests.",
+        "Premium also includes Grok Bot. Start with a limited task, define the result you expect and review permissions before connecting applications. Bot activity draws from the shared pool rather than providing a separate free allowance on top."
+      ]
+    },
+    {
+      "id": "x-benefits",
+      "title": "ماذا تضيف مزايا X Premium+؟",
+      "titleEn": "What X Premium+ adds",
+      "paragraphs": [
+        "بعد ربط حساب X الشخصي الصحيح تحصل على مزايا الفئة المرتبطة بالخطة. تشمل أدوات كتابة ونشر أوسع، ومزايا للمنشئين، وتقليل ظهور الإعلانات عبر معظم مناطق X؛ وقد يستمر ظهور محتوى ممول أحيانًا وفق توضيح المنصة.",
+        "العلامة الزرقاء ليست نتيجة فورية مضمونة لمجرد إرسال الإيميل أو الدفع. يراجع X أهلية الحساب، بما في ذلك استيفاء بياناته ورقم الهاتف وشروط المنصة. كذلك تظل برامج تحقيق الدخل مشروطة بالأهلية؛ الاشتراك وحده لا يضمن قبولها أو تحقيق أرباح."
+      ],
+      "paragraphsEn": [
+        "Link the correct personal X account to receive the benefits associated with the plan. These include expanded publishing tools, creator features and fewer ads across most X areas; the platform notes that occasional sponsored content may still appear.",
+        "The blue checkmark is not an immediate guaranteed result of providing an email or paying. X reviews account eligibility, including profile requirements, a confirmed phone number and platform rules. Monetisation programmes also have separate eligibility requirements; a subscription alone does not guarantee acceptance or earnings."
+      ]
+    },
+    {
+      "id": "shared-usage",
+      "title": "الرصيد المشترك وحدود الاستهلاك",
+      "titleEn": "Shared usage and allowance limits",
+      "paragraphs": [
+        "الخطة تمنح رصيدًا أسبوعيًا للاستخدام المؤهل لنماذج Grok عبر الخدمات المدعومة. لو استخدمت جزءًا منه في Cursor، سيؤثر ذلك على المتبقي لبقية الاستخدام المشمول. راقب لوحة الاستخدام وموعد التجديد الفعلي بدل افتراض أن كل تطبيق له رصيد شهري منفصل.",
+        "ليست كل عملية متساوية في الاستهلاك؛ النموذج والأداة وحجم المهمة تؤثر عليه. نماذج الشركات الأخرى داخل Cursor، ومنها Claude وGPT عند توفرها، تُحاسب كاستخدام إضافي من أول استخدام. كما أن تجاوز الرصيد المشمول قد يتطلب شحنًا إضافيًا. الشحن وAuto Top-up ليسا ضمن سعر المتجر، ولا يتم تشغيلهما تلقائيًا ضمن هذا العرض."
+      ],
+      "paragraphsEn": [
+        "The plan supplies a weekly pool for eligible Grok-model activity across supported services. Using part of it in Cursor affects the remaining included allowance elsewhere. Check the usage dashboard and actual reset time rather than assuming that every application has an independent monthly quota.",
+        "Different models, tools and tasks consume different amounts. Third-party models in Cursor, including Claude and GPT where available, are billed as additional usage from their first use. Exceeding the included pool may also require a top-up. Top-ups and Auto Top-up are outside the store price and are not automatically enabled as part of this offer."
+      ]
+    },
+    {
+      "id": "activation",
+      "title": "التفعيل على إيميلك وربط الحسابات",
+      "titleEn": "Activation on your email and account linking",
+      "paragraphs": [
+        "البداية مع المتجر هي إرسال الإيميل الشخصي بعد الطلب لتأكيد الحساب وخطوات التفعيل. ليس مطلوبًا أن ترسل كلمة المرور أو كود التحقق في المحادثة؛ أكمل تسجيل الدخول والموافقة على الربط بنفسك على المواقع الرسمية عند الحاجة.",
+        "لو لديك اشتراك قديم أو حساب مؤسسة، راجع أهليته مع الدعم قبل الدفع. توحيد الحسابات المكتمل دائم بحسب الوثائق الرسمية، وقد يؤثر في اشتراكاتك القديمة. لا تبدأ شراء اشتراك آخر أثناء تفعيل طلب المتجر."
+      ],
+      "paragraphsEn": [
+        "After ordering, send the store your personal email so support can confirm the account and activation steps. Do not send passwords or verification codes in chat; complete official sign-in and linking approvals yourself where required.",
+        "If you have a legacy subscription or an organisation account, confirm eligibility before payment. Official documentation describes completed unification as permanent, and it can affect existing subscriptions. Do not purchase another plan while the store is activating your order."
+      ],
+      "items": [
+        "أرسل الإيميل الذي تريد استخدامه وحدد حساب Cursor الأساسي وحساب X الشخصي المراد ربطه.",
+        "اتبع خطوات الدعم للتفعيل، وتأكد من الحسابات الظاهرة قبل تأكيد الربط؛ لا يكفي تطابق الإيميلات وحده.",
+        "للمستخدم الذي لديه Cursor مدفوع، توضح الوثائق أن مسار الربط يبدأ من Cursor؛ البدء من X وحده لا يضم Cursor.",
+        "بعد التفعيل، سجّل الدخول إلى Cursor وGrok وافتح حساب X المرتبط للتحقق من المزايا.",
+        "راجع نوع الخطة وموعد انتهائها والرصيد المتبقي، واحتفظ برقم الطلب للمتابعة خلال شهر الضمان."
+      ],
+      "itemsEn": [
+        "Provide your chosen email and identify your primary Cursor account and the personal X account to connect.",
+        "Follow support’s activation steps and inspect the accounts shown before confirming; matching emails alone do not establish a link.",
+        "For an existing paid Cursor user, the documented linking flow starts from Cursor; starting from X alone does not include Cursor.",
+        "After activation, sign in to Cursor and Grok and open the linked X account to check the benefits.",
+        "Check the plan, expiry date and remaining allowance, and keep your order number for support during the warranty month."
+      ],
+      "ordered": true
+    }
+  ],
+  "sources": [
+    "https://x.ai/news/x-subscription",
+    "https://docs.x.ai/x-subscription/pricing",
+    "https://docs.x.ai/x-subscription/usage-limits",
+    "https://docs.x.ai/x-subscription/unify-accounts",
+    "https://help.x.com/en/using-x/x-premium"
+  ]
+},
 "visio-professional":{
   "intro": "Microsoft Visio Professional أداة لرسم المخططات وتحويل العمليات والهياكل إلى رسومات منظمة. يناسب توثيق إجراءات العمل وتخطيط الشبكات وعرض العلاقات بين الأقسام. اختر من المتجر الإصدار المناسب لنسخة Windows وOffice على جهازك، ثم راجع طريقة التفعيل قبل الطلب.",
   "introEn": "Microsoft Visio Professional turns processes and structures into organised diagrams. Use it to document workflows, plan networks and present relationships between departments. Choose the version that fits Windows and Office on your device and review activation before ordering.",
@@ -368,13 +478,30 @@
     "checkEn": "AI allowance and activation differ between Gamma offers. Do not assume every listed balance renews monthly; check the export format you need on the account."
   },
   "elevenlabs": {
-    "intro": "ElevenLabs Creator يحوّل النص إلى تعليق صوتي للمحتوى والشروحات. جودة النص وتقسيم الجمل وضبط الأداء تساعدك على الوصول إلى قراءة مناسبة قبل إنتاج المقاطع الأطول.",
-    "introEn": "ElevenLabs Creator turns text into voiceover for content and explanations. Preparing the script, dividing sentences, and checking delivery helps achieve a suitable reading before longer production.",
-    "workflow": "راجع النص بصوت مسموع وحدد نطق الأسماء والأرقام. جرّب فقرة بالأداء المطلوب، ثم قسّم التسجيل إلى مقاطع يسهل تعديلها وتركيبها مع الفيديو أو العرض.",
-    "workflowEn": "Read the script aloud and check names and numbers. Test a paragraph with the desired delivery, then divide the recording into sections that are easier to revise and assemble.",
-    "check": "كريدت أو حصص باقات الشهر والثلاثة شهور والتفعيل الشخصي ليست واحدة. تفاصيل الرصيد والحقوق والأدوات الإضافية تُراجع في الباقة المختارة.",
-    "checkEn": "Monthly, multi-month, and personal-activation offers do not share one allowance. Check credits, rights, and additional tools in the selected plan."
-  },
+  "intro": "ElevenLabs Creator وPro يحوّل النص إلى تعليق صوتي للمحتوى والشروحات. جودة النص وتقسيم الجمل وضبط الأداء تساعدك على الوصول إلى قراءة مناسبة قبل إنتاج المقاطع الأطول.",
+  "introEn": "ElevenLabs Creator and Pro turn text into voiceover for content and explanations. Preparing the script, dividing sentences, and checking delivery helps achieve a suitable reading before longer production.",
+  "workflow": "راجع النص بصوت مسموع وحدد نطق الأسماء والأرقام. جرّب فقرة بالأداء المطلوب، ثم قسّم التسجيل إلى مقاطع يسهل تعديلها وتركيبها مع الفيديو أو العرض.",
+  "workflowEn": "Read the script aloud and check names and numbers. Test a paragraph with the desired delivery, then divide the recording into sections that are easier to revise and assemble.",
+  "check": "كريدت أو حصص باقات الشهر والثلاثة شهور والتفعيل الشخصي ليست واحدة. تفاصيل الرصيد والحقوق والأدوات الإضافية تُراجع في الباقة المختارة.",
+  "checkEn": "Monthly, multi-month, and personal-activation offers do not share one allowance. Check credits, rights, and additional tools in the selected plan.",
+  "sections": [
+    {
+      "id": "pro-workspace-50k",
+      "title": "باقة Pro مساحة العمل: شهر و50 ألف كريدت",
+      "titleEn": "Pro workspace plan: one month and 50,000 credits",
+      "paragraphs": [
+        "باقة Pro هنا توفر الوصول لمدة شهر واحد من خلال حساب رسمي جاهز مرتبط بمساحة عمل، مع حصة 50 ألف كريدت. يتم تسليم إيميل الحساب وكلمة المرور الخاصة بـElevenLabs، ثم تسجّل الدخول وتفتح مساحة العمل المتاحة للحساب.",
+        "استنساخ الصوت غير متاح في هذا العرض. الضمان مدته 25 يومًا، وهي مدة مختلفة عن شهر الاشتراك. راجع الرصيد المتاح داخل مساحة العمل قبل بدء مشروع طويل، وجرّب مقطعًا قصيرًا أولًا حتى تضبط النطق والأداء قبل استهلاك رصيد أكبر.",
+        "الكريدت يحدد الاستهلاك حسب النموذج والإعدادات؛ لا يعني عددًا ثابتًا من دقائق الصوت. تفاصيل باقات Creator الأخرى تظل مستقلة عن حصة 50 ألف كريدت وضمان 25 يومًا في باقة Pro."
+      ],
+      "paragraphsEn": [
+        "This Pro offer provides one month of access through an official ready account linked to a workspace, with a 50,000-credit allowance. Receive the account email and ElevenLabs password, sign in and open the workspace available to that account.",
+        "Voice cloning is not available in this offer. Warranty lasts 25 days, which is distinct from the one-month subscription. Check workspace credits before a long project and test a short passage first to refine pronunciation and delivery before using a larger allowance.",
+        "Credit consumption depends on the model and settings rather than a fixed number of audio minutes. Other Creator plans retain their own terms; this Pro offer has its own 50,000-credit allowance and 25-day warranty."
+      ]
+    }
+  ]
+},
   "hedra": {
     "intro": "Hedra Basic موجه لإنشاء محتوى مرئي بالذكاء الاصطناعي ضمن أدوات الباقة ورصيدها. يناسب تجربة مشهد أو شخصية قبل اعتماد اتجاه إنتاجي أطول.",
     "introEn": "Hedra Basic supports AI-assisted visual content within its plan tools and credit balance. It suits testing a scene or character before developing a longer production direction.",

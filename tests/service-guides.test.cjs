@@ -30,3 +30,13 @@ for(const en of [false,true]){
  for(const version of ['2016','2019','2021','LTSC 2024'])assert(html.includes('Visio Professional '+version));
 }
 assert(fs.readFileSync('sitemap.xml','utf8').includes('/products/visio-professional.html'));
+
+const unified=products.find(p=>p.id==='cursor-grok-x-bundle');
+for(const en of [false,true]){
+ const html=G.render(unified.id,en,undefined,{product:unified,catalog:products});
+ for(const id of ['partnership','cursor-workflow','grok-workflow','x-benefits','shared-usage','activation'])assert(html.includes('id="guide-cursor-grok-x-bundle-'+id+'"'));
+ assert(html.includes('https://docs.x.ai/x-subscription/usage-limits'));assert(html.includes('https://docs.x.ai/x-subscription/unify-accounts'));assert(html.includes('https://help.x.com/en/using-x/x-premium'));
+ assert(html.includes('Claude'));assert(html.includes('GPT'));assert(html.includes(en?'permanent':'دائم'));assert(html.includes(en?'review':'مراجعة'));
+ assert(html.includes('<details class="guide-disclosure">'));assert(!html.includes('<details class="guide-disclosure" open'));
+}
+assert(fs.readFileSync('sitemap.xml','utf8').includes('/products/cursor-grok-x-bundle.html'));

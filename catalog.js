@@ -1,5 +1,89 @@
 const products = [
 {
+  "id": "cursor-grok-x-bundle",
+  "name": "Cursor Pro + Grok + X Premium+",
+  "category": "البرمجة وتطوير المواقع",
+  "categories": [
+    "مساعد كتابة الكود",
+    "محادثة ومساعد ذكي",
+    "تواصل ومجتمعات"
+  ],
+  "logo": "cursor-grok-x-bundle",
+  "logoUrl": "logos/cursor-grok-x-bundle.svg?v=20261028-cursor-bundle1",
+  "status": "available",
+  "description": "باقة The X Subscription Premium: مزايا Cursor Pro وSuperGrok وX Premium+ لمدة شهر بـ1000 جنيه، على إيميلك الشخصي وحساباتك المرتبطة، بضمان كامل لمدة شهر. أرسل الإيميل بعد الطلب لتأكيد الحساب وخطوات التفعيل.",
+  "descriptionEn": "The X Subscription Premium: Cursor Pro, SuperGrok and X Premium+ benefits for one month at EGP 1,000, activated on your personal email and connected accounts with a full one-month warranty. Send your email after ordering to confirm accounts and activation steps.",
+  "features": [
+    "باقة Premium من The X Subscription لمدة شهر، تجمع مزايا Cursor Pro وSuperGrok وX Premium+.",
+    "تفعيل على إيميلك الشخصي وحساباتك المرتبطة، مع ضمان كامل لمدة شهر.",
+    "Cursor: مساعدة في كتابة الكود وفهم المشروع ومراجعة التعديلات باستخدام النماذج المشمولة.",
+    "Grok: محادثة وشرح وتلخيص وأدوات صوت وصور وفيديو ضمن حدود الباقة المتاحة.",
+    "Grok Bot ضمن Premium؛ استخدامه يُحتسب من نفس الرصيد المشترك.",
+    "مزايا X Premium+ على حساب X الشخصي بعد ربطه؛ العلامة الزرقاء حسب الأهلية ومراجعة X.",
+    "رصيد أسبوعي مشترك لاستخدام نماذج Grok عبر الخدمات المدعومة؛ راجع المتبقي وموعد التجديد داخل حسابك.",
+    "نماذج الشركات الأخرى داخل Cursor، مثل Claude وGPT، استخدام إضافي مدفوع وغير مشمول في الرصيد الأسبوعي."
+  ],
+  "featuresEn": [
+    "One month of The X Subscription Premium, combining Cursor Pro, SuperGrok and X Premium+ benefits.",
+    "Activation on your personal email and connected accounts, with a full one-month warranty.",
+    "Cursor: help with coding, understanding a project and reviewing changes using included models.",
+    "Grok: chat, explanations, summaries, voice, image and video tools within the available plan limits.",
+    "Grok Bot is included with Premium and draws from the same shared usage pool.",
+    "X Premium+ benefits apply to your personal X account after linking; the blue checkmark depends on eligibility and X review.",
+    "A shared weekly pool covers Grok models across supported services; check remaining usage and reset time in your account.",
+    "Third-party models in Cursor, such as Claude and GPT, are paid additional usage and are not included in the weekly pool."
+  ],
+  "notes": [
+    "أرسل إيميلك الشخصي بعد الطلب لتأكيد الحساب المناسب وخطوات التفعيل.",
+    "أكمل تسجيل الدخول والموافقة على الربط بنفسك داخل المواقع الرسمية عند الحاجة؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات.",
+    "ربط X الشخصي مطلوب لمزاياه؛ تشابه عناوين الإيميل وحده لا يربط الحسابات تلقائيًا.",
+    "هذه الباقة تخص Cursor للبرمجة، ولا تتضمن Coursera Plus أو كورسات كورسيرا.",
+    "الرصيد ليس استخدامًا غير محدود؛ تختلف تكلفة الاستهلاك حسب الأداة والنموذج والعملية.",
+    "شحن الرصيد الإضافي وAuto Top-up ليسا ضمن سعر الباقة؛ راجع إعدادات المصروفات قبل تفعيلهما.",
+    "لو عندك اشتراك مدفوع حاليًا أو حساب عمل، راجع أهليته للربط مع الدعم قبل الدفع؛ توحيد الحسابات المكتمل دائم ولا يمكن التراجع عنه.",
+    "ضمان كامل لمدة شهر على التفعيل والوصول وفق سياسة المتجر؛ ظهور العلامة الزرقاء وطلبات تحقيق الدخل تخضع لقرارات X."
+  ],
+  "plans": [
+    {
+      "name": "Premium — شهر على إيميلك",
+      "planType": "The X Subscription Premium",
+      "duration": "1 شهر",
+      "price": 1000,
+      "available": true,
+      "account": "على إيميلك الشخصي وحساباتك المرتبطة",
+      "accountType": "على إيميلك الشخصي وحساباتك المرتبطة",
+      "activation": "أرسل إيميلك بعد الطلب؛ نؤكد الحسابات وخطوات الربط ونفعّل باقة Premium لمدة شهر على حسابك الشخصي.",
+      "warranty": "ضمان كامل لمدة شهر",
+      "credits": "رصيد أسبوعي مشترك حسب حدود Premium",
+      "notes": [
+        "أرسل إيميلك الشخصي بعد الطلب لتأكيد الحساب المناسب وخطوات التفعيل.",
+        "أكمل تسجيل الدخول والموافقة على الربط بنفسك داخل المواقع الرسمية عند الحاجة؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات.",
+        "ربط X الشخصي مطلوب لمزاياه؛ تشابه عناوين الإيميل وحده لا يربط الحسابات تلقائيًا.",
+        "هذه الباقة تخص Cursor للبرمجة، ولا تتضمن Coursera Plus أو كورسات كورسيرا.",
+        "الرصيد ليس استخدامًا غير محدود؛ تختلف تكلفة الاستهلاك حسب الأداة والنموذج والعملية.",
+        "شحن الرصيد الإضافي وAuto Top-up ليسا ضمن سعر الباقة؛ راجع إعدادات المصروفات قبل تفعيلهما.",
+        "لو عندك اشتراك مدفوع حاليًا أو حساب عمل، راجع أهليته للربط مع الدعم قبل الدفع؛ توحيد الحسابات المكتمل دائم ولا يمكن التراجع عنه.",
+        "ضمان كامل لمدة شهر على التفعيل والوصول وفق سياسة المتجر؛ ظهور العلامة الزرقاء وطلبات تحقيق الدخل تخضع لقرارات X."
+      ],
+      "officialPrice": {
+        "amount": 30,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://docs.x.ai/x-subscription/pricing",
+        "checkedAt": "2026-10-28",
+        "estimated": false
+      },
+      "priceComparison": {
+        "status": "reference",
+        "source": "https://docs.x.ai/x-subscription/pricing",
+        "checkedAt": "2026-10-28",
+        "note": "مرجع خطة Premium الموحّدة لمدة شهر: 30 دولار قبل الضرائب؛ السعر ليس مجموع اشتراكات منفصلة."
+      }
+    }
+  ]
+},
+{
   "id": "visio-professional",
   "name": "Microsoft Visio Professional",
   "category": "العمل والإنتاجية",
@@ -4181,88 +4265,126 @@ const products = [
     }
   },
   {
-    "id": "elevenlabs",
-    "name": "ElevenLabs Creator",
-    "category": "AI Tools",
-    "logo": "elevenlabs",
-    "logoUrl": "logos/elevenlabs.svg?v=20261009-logo-review3",
-    "status": "available",
-    "description": "ElevenLabs Creator باشتراك لمدة شهر كامل مع 131 ألف كريديت بسعر 550 جنيه بدل 1200 جنيه، توفير حوالي 54%. تتوفر أيضًا باقات 3 شهور وسنة.",
-    "plans": [
-      {
-        "name": "Creator — سنة على حسابك",
-        "planType": "Creator",
-        "duration": "12 شهر",
-        "price": 4500,
-        "activation": "تفعيل سنة كاملة على حسابك الشخصي بدون بطاقة دفع.",
-        "account": "حساب العميل الشخصي",
-        "accountType": "حساب العميل الشخصي",
-        "warranty": "يُؤكد مع الدعم قبل الدفع",
-        "notes": [],
-        "officialPrice": {
-          "amount": 220,
-          "currency": "USD",
-          "months": 12,
-          "basis": "matched",
-          "source": "https://elevenlabs.io/pricing",
-          "checkedAt": "2026-10-09"
-        },
-        "priceComparison": {
-          "planName": "Creator — Annual",
-          "source": "https://elevenlabs.io/pricing",
-          "checkedAt": "2026-10-09",
-          "status": "matched",
-          "billingLabel": "Annual",
-          "note": "السعر السنوي الرسمي قبل الضرائب؛ 22 دولارًا ×10 أشهر."
-        }
+  "id": "elevenlabs",
+  "name": "ElevenLabs Creator / Pro",
+  "category": "AI Tools",
+  "logo": "elevenlabs",
+  "logoUrl": "logos/elevenlabs.svg?v=20261009-logo-review3",
+  "status": "available",
+  "description": "باقات ElevenLabs لتحويل النص إلى صوت: Pro ضمن مساحة عمل لمدة شهر مع 50 ألف كريدت بسعر 450 جنيه وضمان 25 يومًا، بدون استنساخ صوت. تتوفر أيضًا باقات Creator بتفاصيل ورصيد وضمان مستقل لكل اختيار.",
+  "plans": [
+    {
+      "name": "Creator — سنة على حسابك",
+      "planType": "Creator",
+      "duration": "12 شهر",
+      "price": 4500,
+      "activation": "تفعيل سنة كاملة على حسابك الشخصي بدون بطاقة دفع.",
+      "account": "حساب العميل الشخصي",
+      "accountType": "حساب العميل الشخصي",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "notes": [],
+      "officialPrice": {
+        "amount": 220,
+        "currency": "USD",
+        "months": 12,
+        "basis": "matched",
+        "source": "https://elevenlabs.io/pricing",
+        "checkedAt": "2026-10-09"
       },
-      {
-        "name": "Creator — تفعيل على حسابك",
-        "duration": "3 شهور",
-        "price": 1250,
-        "activation": "تفعيل على حساب العميل.",
-        "account": "حساب العميل الشخصي",
-        "warranty": "ضمان كامل",
-        "credits": "131 Credit شهريًا",
-        "priceComparison": {
-          "planName": "ElevenLabs Creator",
-          "source": "https://elevenlabs.io/pricing",
-          "checkedAt": "2026-10-08",
-          "status": "reference",
-          "note": "رصيد عرض المتجر يُؤكد مع الدعم قبل الدفع.",
-          "billingLabel": "22 دولارًا ×3 شهور بالسعر المعتاد"
-        },
-        "officialPrice": {
-          "amount": 66,
-          "currency": "USD",
-          "months": 3,
-          "basis": "reference",
-          "source": "https://elevenlabs.io/pricing",
-          "checkedAt": "2026-10-08"
-        },
-        "previousStorePrice": 1500
-      },
-      {
-        "name": "Creator — اشتراك شهر",
-        "duration": "1 شهر",
-        "price": 550,
-        "activation": "تسليم حساب جاهز.",
-        "account": "حساب جاهز",
-        "warranty": "ضمان كامل",
-        "credits": "131,000 Credit",
-        "planType": "Creator",
-        "oldPrice": 1200,
-        "notes": [
-          "مدة الاشتراك شهر كامل. السعر 550 جنيه بدل 1200 جنيه؛ توفير 650 جنيه (حوالي 54%).",
-          "مدة الاشتراك شهر كامل ويشمل 131 ألف كريديت."
-        ],
-        "previousStorePrice": 1200
+      "priceComparison": {
+        "planName": "Creator — Annual",
+        "source": "https://elevenlabs.io/pricing",
+        "checkedAt": "2026-10-09",
+        "status": "matched",
+        "billingLabel": "Annual",
+        "note": "السعر السنوي الرسمي قبل الضرائب؛ 22 دولارًا ×10 أشهر."
       }
-    ],
-    "categories": [
-      "تعليق صوتي وتحويل النص لصوت"
-    ]
-  },
+    },
+    {
+      "name": "Creator — تفعيل على حسابك",
+      "duration": "3 شهور",
+      "price": 1250,
+      "activation": "تفعيل على حساب العميل.",
+      "account": "حساب العميل الشخصي",
+      "warranty": "ضمان كامل",
+      "credits": "131 Credit شهريًا",
+      "priceComparison": {
+        "planName": "ElevenLabs Creator",
+        "source": "https://elevenlabs.io/pricing",
+        "checkedAt": "2026-10-08",
+        "status": "reference",
+        "note": "رصيد عرض المتجر يُؤكد مع الدعم قبل الدفع.",
+        "billingLabel": "22 دولارًا ×3 شهور بالسعر المعتاد"
+      },
+      "officialPrice": {
+        "amount": 66,
+        "currency": "USD",
+        "months": 3,
+        "basis": "reference",
+        "source": "https://elevenlabs.io/pricing",
+        "checkedAt": "2026-10-08"
+      },
+      "previousStorePrice": 1500
+    },
+    {
+      "name": "Creator — اشتراك شهر",
+      "duration": "1 شهر",
+      "price": 550,
+      "activation": "تسليم حساب جاهز.",
+      "account": "حساب جاهز",
+      "warranty": "ضمان كامل",
+      "credits": "131,000 Credit",
+      "planType": "Creator",
+      "oldPrice": 1200,
+      "notes": [
+        "مدة الاشتراك شهر كامل. السعر 550 جنيه بدل 1200 جنيه؛ توفير 650 جنيه (حوالي 54%).",
+        "مدة الاشتراك شهر كامل ويشمل 131 ألف كريديت."
+      ],
+      "previousStorePrice": 1200
+    },
+    {
+      "name": "Pro — شهر · مساحة عمل · 50 ألف كريدت",
+      "planType": "Pro — Workspace",
+      "duration": "1 شهر",
+      "price": 450,
+      "available": true,
+      "credits": "50,000 كريدت خلال الشهر",
+      "account": "حساب جاهز ضمن مساحة عمل",
+      "accountType": "حساب جاهز ضمن مساحة عمل",
+      "activation": "تسليم إيميل وكلمة مرور حساب ElevenLabs جاهز، مع الوصول إلى مساحة العمل.",
+      "warranty": "ضمان لمدة 25 يومًا",
+      "features": [
+        "خطة Pro لمدة شهر واحد ضمن مساحة عمل.",
+        "50 ألف كريدت متاحة للاستخدام خلال مدة الاشتراك.",
+        "حساب رسمي جاهز على منصة ElevenLabs.",
+        "عضوية بدعوة في مساحة عمل، عبر حساب جاهز مرتبط بها.",
+        "تسليم بيانات الدخول بصيغة: الإيميل | كلمة مرور حساب ElevenLabs.",
+        "ضمان 25 يومًا؛ مدة الاشتراك شهر واحد.",
+        "استنساخ الصوت غير متاح في هذه الباقة."
+      ],
+      "featuresEn": [
+        "One month of Pro access within a workspace.",
+        "50,000 credits available during the subscription term.",
+        "Official ready-to-use account on ElevenLabs.",
+        "Workspace invite membership through a linked ready-to-use account.",
+        "Login details supplied as: email | ElevenLabs account password.",
+        "25-day warranty; the subscription lasts one month.",
+        "Voice cloning is not available with this plan."
+      ],
+      "notes": [
+        "هذه باقة Pro بحصة 50 ألف كريدت داخل مساحة عمل؛ المميزات والرصيد تخص هذا العرض تحديدًا.",
+        "مدة الاشتراك شهر، والضمان 25 يومًا فقط.",
+        "استنساخ الصوت Voice Cloning غير متاح.",
+        "بيانات التسليم هي إيميل وكلمة مرور حساب ElevenLabs، وليست كلمة مرور الإيميل الشخصي للعميل.",
+        "عدد دقائق الصوت الناتجة يختلف حسب النموذج والإعدادات؛ 50 ألف كريدت ليست عددًا ثابتًا من الدقائق."
+      ]
+    }
+  ],
+  "categories": [
+    "تعليق صوتي وتحويل النص لصوت"
+  ],
+  "descriptionEn": "ElevenLabs text-to-speech plans: one month of Pro workspace access with 50,000 credits for EGP 450 and a 25-day warranty, without voice cloning. Creator plans are also available with separate credits, delivery and warranty terms."
+},
   {
     "id": "hedra",
     "name": "Hedra Basic",

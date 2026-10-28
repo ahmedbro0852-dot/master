@@ -66,7 +66,7 @@
     return;
   }
 
-  const popularityOrder=["supergrok-coursera-bundle","gemini-coursera-bundle","chatgpt-plus","chatgpt-go","chatgpt-teachers-k12","gemini-pro","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","humanizeai-pro","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account"];
+  const popularityOrder=["cursor-grok-x-bundle","supergrok-coursera-bundle","gemini-coursera-bundle","chatgpt-plus","chatgpt-go","chatgpt-teachers-k12","gemini-pro","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","humanizeai-pro","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account"];
   const popularityRank=new Map(popularityOrder.map((id,index)=>[id,index]));
   const statusRank={available:0,soon:1,out:2};
   const products=[...(Catalog.products||[])].filter(product=>!product.redirectTo).sort((a,b)=>{
@@ -151,7 +151,7 @@
     return status==='available'?'ok':status==='soon'?'soon':'out';
   }
 
-  const searchAliases={'visio-professional':'فيزيو فيزيو برو فيزيو بروفشنال فيسيو مايكروسوفت فيزيو Microsoft Visio Professional LTSC','xtream-iptv':'اكستريم إكستريم اكستريم اكستريم اي بي تي في قنوات رياضة Xtream IPTV Xtream Codes','picsart':'بيسكارت برو بيكسارت برو بيكس آرت بكسارت Picsart Pro','chatgpt-go':'شات جو شاتجو شات جي بي تي جو تشات جي بي تي جو شات جي بي تي غو ChatGPT Go','humanizeai-pro':'هيومنايز هيومانايز هيومانيز هيومنايز برو Humanize AI pro Standard Lite','capcut-pro':'كاب كات كابكت كابكات كبكات','gemini-pro':'جيمناي جيميني جيميناي جيمني جوجل','chatgpt-plus':'شات جي بي تي شاتجبت تشات','elevenlabs':'ايلفن اليفن إليفن ايليفن','higgsfield-pro':'هيجزفيلد هيجسفيلد','leonardo-ai':'ليوناردو ليناردو ليرنادو ليرنادوا','grok':'جروك غروك سوبرجروك','coursera':'كورسيرا كورسيرا بلس','supergrok-coursera-bundle':'سوبر جروك كورسيرا كورسيرا بلس','windows-pro':'ويندوز وندوز ويندز','duolingo':'دولينجو دولينغو','quillbot':'كولبوت كويلبوت كويل بوت','claude-pro':'كلود كلاود','freepik':'فريبيك فري بيك','envato':'انفاتو إنفاتو','discord':'ديسكورد ديسكورات نيترو','canva-pro':'كانفا كنفا','grammarly':'جراملي جرامرلي','lovable-pro':'لوفابل لوفبل','perplexity-pro':'بيربليكسيتي بيربلكسيتي'};
+  const searchAliases={'cursor-grok-x-bundle':'كيرسور كورسور كيرسر كرسر كورسر Cursor Grok X Premium اكس بريموم جروك باقة موحدة','visio-professional':'فيزيو فيزيو برو فيزيو بروفشنال فيسيو مايكروسوفت فيزيو Microsoft Visio Professional LTSC','xtream-iptv':'اكستريم إكستريم اكستريم اكستريم اي بي تي في قنوات رياضة Xtream IPTV Xtream Codes','picsart':'بيسكارت برو بيكسارت برو بيكس آرت بكسارت Picsart Pro','chatgpt-go':'شات جو شاتجو شات جي بي تي جو تشات جي بي تي جو شات جي بي تي غو ChatGPT Go','humanizeai-pro':'هيومنايز هيومانايز هيومانيز هيومنايز برو Humanize AI pro Standard Lite','capcut-pro':'كاب كات كابكت كابكات كبكات','gemini-pro':'جيمناي جيميني جيميناي جيمني جوجل','chatgpt-plus':'شات جي بي تي شاتجبت تشات','elevenlabs':'ايلفن اليفن إليفن ايليفن','higgsfield-pro':'هيجزفيلد هيجسفيلد','leonardo-ai':'ليوناردو ليناردو ليرنادو ليرنادوا','grok':'جروك غروك سوبرجروك','coursera':'كورسيرا كورسيرا بلس','supergrok-coursera-bundle':'سوبر جروك كورسيرا كورسيرا بلس','windows-pro':'ويندوز وندوز ويندز','duolingo':'دولينجو دولينغو','quillbot':'كولبوت كويلبوت كويل بوت','claude-pro':'كلود كلاود','freepik':'فريبيك فري بيك','envato':'انفاتو إنفاتو','discord':'ديسكورد ديسكورات نيترو','canva-pro':'كانفا كنفا','grammarly':'جراملي جرامرلي','lovable-pro':'لوفابل لوفبل','perplexity-pro':'بيربليكسيتي بيربلكسيتي'};
   function searchText(product){
     return normalizeSearch([
       product.name,
@@ -263,7 +263,7 @@
   function renderBestOffers(){
     const target=document.getElementById('bestOffersGrid');
     if(!target)return;
-    const picks=[['supergrok-coursera-bundle',0],['elevenlabs',2],['cursor-pro',1],['coursera',0],['lovable-pro',3],['gemini-pro',0],['capcut-pro',1],['grok',0]];
+    const picks=[['cursor-grok-x-bundle',0],['supergrok-coursera-bundle',0],['elevenlabs',2],['cursor-pro',1],['coursera',0],['lovable-pro',3],['gemini-pro',0],['capcut-pro',1],['grok',0]];
     target.innerHTML=picks.map(([id,index])=>{
       const product=Catalog.getProduct(id),plan=product?.plans?.[index];
       if(!plan||plan.hidden||plan.available===false||product.status!=='available')return '';
