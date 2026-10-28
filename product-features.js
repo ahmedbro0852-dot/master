@@ -119,11 +119,9 @@ const entries={
  ['مشاركة التصميم والتعليقات مع الفريق وفق صلاحيات المقعد.','Share designs and feedback according to seat permissions.']
 ],
 'freepik':[
- ['تحميل الصور والفيكتور وملفات PSD المشمولة في عرض Premium.','Download photos, vectors, and PSD assets included in the Premium offer.'],
- ['موارد لتصميم المنشورات والإعلانات والمطبوعات.','Find assets for social posts, ads, and print designs.'],
- ['تعديل الملفات باستخدام برنامج متوافق مع صيغتها.','Edit assets using software compatible with their format.'],
- ['العرض للتحميل فقط ولا يشمل توليد الصور أو أدوات AI.','This is a download-only offer; AI generation and AI tools are not included.'],
- ['الاستخدام وفق ترخيص الملف وحدود التنزيل للحساب.','Use follows each asset’s license and account download limits.']
+ ['موارد وأدوات للتصميم وفق الباقة المختارة.','Design resources and tools according to your selected plan.'],
+ ['خيارات حساب جاهز أو تفعيل على إيميلك؛ راجع تفاصيل كل باقة.','Ready-account and personal-email activation options; review each offer.'],
+ ['المحتوى ورصيد AI وحدود التنزيل تختلف بين الباقات.','Content, AI credits and download limits differ between plans.']
 ],
 'adobe-cc':[
  ['أدوات Adobe للتصميم وتحرير الصور والمونتاج ضمن الباقة المفعلة.','Adobe tools for design, image editing, and video within the activated plan.'],
@@ -532,6 +530,7 @@ const vpn=[
 for(const id of ['surfshark','nordvpn','proton-vpn','hma-vpn','expressvpn'])entries[id]=vpn;
 
 function list(product,plan,english,translate){
+ if(product.id==='freepik'&&Array.isArray(plan.features)&&Array.isArray(plan.featuresEn))return english?plan.featuresEn:plan.features;
  if(product.id==='windows-pro'&&plan.features&&plan.featuresEn)return english?plan.featuresEn:plan.features;
  const language=english?1:0;
  const curated=entries[product.id]?.map(row=>row[language])||[];

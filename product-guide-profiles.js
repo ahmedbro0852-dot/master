@@ -543,13 +543,33 @@
     "checkEn": "Seat type and permissions determine what can be edited within a team. A viewing invitation is not equivalent to editing or workspace-administration access."
   },
   "freepik": {
-    "intro": "Freepik Premium في هذا العرض يركز على تنزيل موارد جاهزة مثل الصور والفيكتور وPSD. يفيد للمصمم الذي يريد أصولًا يعدلها داخل برنامجه بدل إنشاء كل عنصر من الصفر.",
-    "introEn": "This Freepik Premium offer focuses on downloadable assets such as photos, vectors, and PSD files. It suits designers who need resources to edit in their own software.",
-    "workflow": "ابحث بحسب نوع المشروع وصيغة الملف، ثم افحص الأبعاد والطبقات والتوافق مع برنامجك. عدّل المورد بما يناسب الهوية، واحتفظ ببيانات الترخيص المرتبطة بالاستخدام.",
-    "workflowEn": "Search by project type and file format, then inspect dimensions, layers, and software compatibility. Adapt the asset to the brand and retain the relevant licence information.",
-    "check": "العرض للتحميل كما هو موضح في الباقة؛ لا يتضمن تلقائيًا رصيد توليد صور أو أدوات AI لمجرد وجودها في منصة المزود.",
-    "checkEn": "The offer covers downloads as described in the plan. It does not automatically include image-generation credits or AI tools merely because the provider offers them elsewhere."
-  },
+  "intro": "Freepik يقدم موارد وأدوات للتصميم، وتختلف طريقة الوصول حسب العرض. باقة Essential لمدة شهر تُفعّل على إيميلك الشخصي بضمان شهر، بينما باقة Premium للتحميل فقط تُسلّم بحساب جاهز. افتح تفاصيل الباقة المناسبة قبل الطلب.",
+  "introEn": "Freepik offers design resources and tools, with access depending on the offer. One-month Essential is activated on your personal email with a one-month warranty, while the download-only Premium offer supplies a ready account. Open the relevant plan details before ordering.",
+  "workflow": "ابحث بحسب نوع المشروع وصيغة الملف، ثم افحص الأبعاد والطبقات والتوافق مع برنامجك. عدّل المورد بما يناسب الهوية، واحتفظ ببيانات الترخيص المرتبطة بالاستخدام.",
+  "workflowEn": "Search by project type and file format, then inspect dimensions, layers, and software compatibility. Adapt the asset to the brand and retain the relevant licence information.",
+  "check": "راجع نوع الخطة وطريقة الوصول والرصيد وحدود التنزيل قبل الطلب. Essential لا ترث شروط Premium للتحميل فقط، ولا تُنقل مزايا أي خطة أخرى إليها لمجرد أن المنصة واحدة.",
+  "checkEn": "Review the tier, access method, credits and download limits before ordering. Essential does not inherit the download-only Premium terms or the benefits of a different tier merely because it uses the same platform.",
+  "sections": [
+    {
+      "id": "essential-personal-email",
+      "title": "Essential على إيميلك الشخصي لمدة شهر",
+      "titleEn": "One-month Essential on your personal email",
+      "paragraphs": [
+        "هذه الباقة تفعّل اشتراك Essential بشكل خاص على إيميلك الشخصي لمدة شهر، مع ضمان لمدة شهر. تستخدم حسابك الشخصي، وتراجع نوع الخطة وتاريخ انتهائها بعد اكتمال التفعيل.",
+        "السعر الأساسي للعرض 15 دولار، ويعرض المتجر المقابل المحلي حسب نظام التحويل. عدد كريدت الذكاء الاصطناعي وحدود التنزيل والأدوات المشمولة تُؤكد قبل الدفع؛ هذا العرض لا يتضمن وعدًا بتوليد أو تحميل غير محدود.",
+        "باقة Premium للتحميل فقط اختيار مستقل بحساب جاهز، وتظل مميزاتها وشروطها مرتبطة بها. اقرأ بطاقة Essential إذا كنت تريد التفعيل على إيميلك، وبطاقة Premium إذا كنت تريد عرض التحميل الجاهز."
+      ],
+      "paragraphsEn": [
+        "This offer privately activates Essential on your personal email for one month, with a one-month warranty. Use your own account and check the plan and expiry after activation.",
+        "The base offer price is US$15, with the local equivalent shown using the store conversion. Confirm AI credits, download limits and included tools before payment; unlimited generation or downloading is not promised.",
+        "The download-only Premium offer is a separate ready-account option with its own features and conditions. Choose the Essential plan card for personal-email activation or the Premium card for the ready download offer."
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.magnific.com/ai/faq/freepik-subscriptions-plans"
+  ]
+},
   "adobe-express": {
     "intro": "Adobe Express Premium يساعد في إعداد تصاميم ومقاطع تسويقية من القوالب والموارد المتاحة. يناسب من يريد تجهيز نسخ متعددة للمحتوى دون إدارة مشروع تصميم معقد في كل مرة.",
     "introEn": "Adobe Express Premium helps create designs and promotional clips using available templates and assets. It suits producing content variations without starting a complex design project each time.",

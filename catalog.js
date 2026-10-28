@@ -4770,47 +4770,93 @@ const products = [
     ]
   },
   {
-    "id": "freepik",
-    "name": "Freepik Premium",
-    "category": "التصميم",
-    "logo": "freepik",
-    "logoUrl": "logos/freepik.svg?v=20261009-logo-review3",
-    "status": "available",
-    "description": "Freepik Premium للتحميل فقط لمدة شهر؛ لا يشمل أدوات أو توليد الذكاء الاصطناعي.",
-    "plans": [
-      {
-        "name": "Freepik Premium — تحميل فقط",
-        "notes": [
-          "يشمل تحميل الموارد فقط؛ لا يشمل أدوات أو توليد الذكاء الاصطناعي."
-        ],
-        "duration": "1 شهر",
-        "price": 450,
-        "activation": "تسليم حساب جاهز.",
-        "account": "حساب جاهز",
-        "warranty": "ضمان كامل",
-        "priceComparison": {
-          "planName": "Magnific (Freepik) Premium",
-          "source": "https://www.magnific.com/pricing",
-          "checkedAt": "2026-10-08",
-          "status": "reference",
-          "note": "أدوات AI ليست ضمن عرض المتجر.",
-          "billingLabel": "فوترة شهرية"
-        },
-        "officialPrice": {
-          "amount": 20,
-          "currency": "USD",
-          "months": 1,
-          "basis": "reference",
-          "source": "https://www.magnific.com/pricing",
-          "checkedAt": "2026-10-08"
-        }
-      }
-    ],
-    "categories": [
-      "توليد صور بالذكاء الاصطناعي",
-      "صور وقوالب وموارد جاهزة"
-    ]
-  },
+  "id": "freepik",
+  "name": "Freepik",
+  "category": "التصميم",
+  "logo": "freepik",
+  "logoUrl": "logos/freepik.svg?v=20261009-logo-review3",
+  "status": "available",
+  "description": "باقات Freepik: اشتراك Essential لمدة شهر على إيميلك الشخصي بسعر 15 دولار وضمان شهر، أو باقة Premium للتحميل فقط بحساب جاهز. راجع مميزات وطريقة تفعيل الباقة المختارة.",
+  "plans": [
+    {
+      "name": "Freepik Premium — تحميل فقط",
+      "notes": [
+        "يشمل تحميل الموارد فقط؛ لا يشمل أدوات أو توليد الذكاء الاصطناعي."
+      ],
+      "duration": "1 شهر",
+      "price": 450,
+      "activation": "تسليم حساب جاهز.",
+      "account": "حساب جاهز",
+      "warranty": "ضمان كامل",
+      "priceComparison": {
+        "planName": "Magnific (Freepik) Premium",
+        "source": "https://www.magnific.com/pricing",
+        "checkedAt": "2026-10-08",
+        "status": "reference",
+        "note": "أدوات AI ليست ضمن عرض المتجر.",
+        "billingLabel": "فوترة شهرية"
+      },
+      "officialPrice": {
+        "amount": 20,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://www.magnific.com/pricing",
+        "checkedAt": "2026-10-08"
+      },
+      "features": [
+        "تحميل الصور والفيكتور وملفات PSD المشمولة في عرض Premium.",
+        "موارد لتصميم المنشورات والإعلانات والمطبوعات.",
+        "تعديل الملفات باستخدام برنامج متوافق مع صيغتها.",
+        "العرض للتحميل فقط ولا يشمل توليد الصور أو أدوات AI.",
+        "الاستخدام وفق ترخيص الملف وحدود التنزيل للحساب."
+      ],
+      "featuresEn": [
+        "Download photos, vectors, and PSD assets included in the Premium offer.",
+        "Find assets for social posts, ads, and print designs.",
+        "Edit assets using software compatible with their format.",
+        "This is a download-only offer; AI generation and AI tools are not included.",
+        "Use follows each asset’s license and account download limits."
+      ]
+    },
+    {
+      "name": "Essential — شهر على إيميلك الخاص",
+      "planType": "Essential",
+      "duration": "1 شهر",
+      "price": 840,
+      "basePriceUSD": 15,
+      "available": true,
+      "account": "حسابك الشخصي على إيميلك الخاص",
+      "accountType": "حسابك الشخصي على إيميلك الخاص",
+      "activation": "تفعيل اشتراك Freepik Essential لمدة شهر على إيميلك الشخصي.",
+      "warranty": "ضمان لمدة شهر",
+      "features": [
+        "تفعيل Freepik Essential لمدة شهر واحد.",
+        "تفعيل خاص على إيميلك الشخصي.",
+        "تستخدم حسابك الشخصي؛ ليست باقة حساب جاهز مشترك.",
+        "ضمان لمدة شهر طوال مدة الاشتراك.",
+        "الأدوات ورصيد AI وحدود التنزيل حسب خطة Essential المفعّلة؛ تُراجع قبل الطلب."
+      ],
+      "featuresEn": [
+        "One month of Freepik Essential activation.",
+        "Private activation on your personal email.",
+        "Use your personal account; this is not a shared ready-account offer.",
+        "One-month warranty throughout the subscription term.",
+        "Tools, AI credits and download limits follow the activated Essential plan; review them before ordering."
+      ],
+      "notes": [
+        "السعر الأساسي 15 دولار؛ يظهر المقابل المحلي حسب تحويل المتجر.",
+        "هذه باقة Essential على حسابك الشخصي؛ شروط Premium للتحميل فقط تخص باقة أخرى.",
+        "عدد كريدت AI وحدود التنزيل والمزايا المتاحة تُؤكد قبل الدفع؛ لا يُفترض توليد أو تحميل غير محدود."
+      ]
+    }
+  ],
+  "categories": [
+    "توليد صور بالذكاء الاصطناعي",
+    "صور وقوالب وموارد جاهزة"
+  ],
+  "descriptionEn": "Freepik plans: one month of Essential on your personal email for US$15 with a one-month warranty, or a ready-account Premium download-only offer. Review the selected plan’s features and activation method."
+},
   {
     "id": "adobe-express",
     "name": "Adobe Express Premium",
