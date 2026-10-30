@@ -1,5 +1,8 @@
 {
   "version": 1,
+  "enabled": false,
+  "disabledAt": "2026-10-30",
+  "disabledReason": "User cancelled website advertisements and automatic product-poster campaigns.",
   "baselineAt": "2026-10-28T10:32:50.441Z",
   "baselinePlanKeys": [
     "cursor-grok-x-bundle:0",

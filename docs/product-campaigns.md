@@ -1,5 +1,11 @@
 # Master Store product-poster campaigns
 
+## Current status: cancelled
+
+The user cancelled advertising on 2026-10-30. All existing campaigns are paused, the website poster popup and launcher are removed, and automatic product-poster generation is disabled. Do not run the publication workflow below, activate campaigns or resume the monitor unless the user explicitly re-enables advertising. Preserve baseline/pending state, unique IDs, history, deadlines and browser cooldowns. The workflow below is retained for historical reference only.
+
+## Historical workflow (inactive)
+
 The user authorizes creating a professional poster and publishing a 72-hour website campaign for each newly added available product or subscription plan. Do not promote every price edit as a new product. Existing plans in `automation/product-campaigns-state.json` are the baseline, not a backlog.
 
 Source: GitHub `ahmedbro0852-dot/master`, `main`; website `https://master-pi-six.vercel.app`; Supabase project `gmysuhoebcapigdidnnv`. No private customer data is needed.

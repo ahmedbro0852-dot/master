@@ -158,15 +158,6 @@
   ]
 },
 "xtream-iptv":{
-  "poster": {
-    "src": "images/offers/xtream-iptv-all-leagues-year-350.webp",
-    "width": 1122,
-    "height": 1402,
-    "planIndex": 0,
-    "priceEGP": 350,
-    "alt": "بوستر Xtream IPTV بعنوان شاهد جميع الدوريات: اشتراك سنة بسعر 350 جنيه، للمشاهدة على TV والموبايل والرسيفر، مع صلاح ومرموش وشعارات الدوريات.",
-    "altEn": "Arabic Xtream IPTV poster titled Watch all leagues: one year for EGP 350, with TV, phone and receiver viewing, Salah, Marmoush and league logos."
-  },
   "intro": "Xtream IPTV يتيح تشغيل قائمة قنوات السيرفر عبر الإنترنت باستخدام بيانات Xtream Codes. هذا العرض بسيرفر عربي يُحدد عشوائيًا، لمدة سنة أو أكثر حسب تاريخ الوصول المستلَم. اقرأ الدليل لمعرفة الفرق بين السيرفر والتطبيق وطريقة الإعداد واستهلاك الإنترنت.",
   "introEn": "Xtream IPTV lets you play a server’s channel list over the internet using Xtream Codes credentials. This offer assigns an Arabic-content server for one year or longer depending on the delivered access expiry. Read the guide for the difference between server and player, setup steps and data usage.",
   "workflow": "حدد نوع جهازك واسم مشغّل IPTV أولًا. بعد استلام رابط السيرفر واسم المستخدم وكلمة المرور، أضفها في خيار Xtream Codes، ثم حمّل القائمة وجرب قناة بجودة مناسبة لاتصالك. احتفظ بتاريخ الانتهاء وبيانات الوصول في مكان خاص.",
