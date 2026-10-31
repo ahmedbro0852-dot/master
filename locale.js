@@ -169,7 +169,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     "chatgpt-teachers-k12":"A ChatGPT plan for K12 teachers lasting two years at EGP 400, without warranty.",
     "chatgpt-go":"One month of ChatGPT Go for EGP 320, delivered as a ready-to-use account with email and password and full warranty throughout the month.",
     "chatgpt-plus":"Available monthly ChatGPT Plus plans: a no-warranty account for EGP 320, or activation and renewal on your personal account for EGP 1,100. The EGP 700 ready-made account plan is out of stock.",
-    "gemini-pro":"A one-month family invitation with 1,000 shared family credits, or direct three-month Pro activation on your email.",
+    "gemini-pro":"Google AI Pro on your personal email for 18 months with a one-month warranty, three-month activation, or a monthly family invitation with 1,000 shared family credits.",
     "claude-pro":"Activate Claude Pro on your personal account using the store's payment method.",
     "perplexity-pro":"A ready private Perplexity Pro account with full warranty under the current store offer.",
     "lovable-pro":"Build websites and apps with AI using Lovable. Monthly and annual plans include one year of Pro Lite with 300 total credits plus 5 daily, personal-email activation and full warranty.",
@@ -392,6 +392,24 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
   "رصيد Premium الموحّدة المشترك حسب الحدود الظاهرة بالحساب": "Shared unified Premium allowance, subject to limits shown in the account"
 });
   Object.assign(exactArToEn,{"مدة الاشتراك شهر كامل؛ يظهر السعر الحالي وسعر المتجر السابق في ملخص الباقة.": "One full month; the plan summary shows the current price and the previous store price."});
+  Object.assign(exactArToEn,{
+  "اشتراك Google AI Pro «Gemini Pro» لمدة 18 شهرًا.": "Google AI Pro (Gemini Pro) for 18 months.",
+  "تفعيل الاشتراك على حساب Google المرتبط بإيميلك الشخصي.": "Activation on the Google account linked to your personal email.",
+  "ضمان لمدة شهر واحد؛ مدة الضمان مستقلة عن مدة الاشتراك البالغة 18 شهرًا.": "A one-month warranty; coverage is separate from the 18-month subscription term.",
+  "المساعدة في الكتابة والبحث والمذاكرة وتحليل الملفات ضمن أدوات وحدود Pro المتاحة لحسابك.": "Help with writing, research, study and file analysis within the Pro tools and limits available to your account.",
+  "الرصيد وحدود أدوات الصور والفيديو والتخزين تُراجع داخل الحساب بعد التفعيل؛ لا يُنقل رصيد باقة أخرى تلقائيًا.": "Check credits, image/video limits and storage in the activated account; another plan’s allowance is not automatically included.",
+  "يُراجع وضع الاشتراك الحالي وأهلية حساب Google قبل التفعيل.": "Your current subscription and Google account eligibility are checked before activation.",
+  "الاشتراك 18 شهرًا، والضمان شهر واحد فقط وفق شروط العرض وسياسة المتجر.": "The subscription lasts 18 months; the warranty lasts only one month under the offer terms and store policy.",
+  "لا يتضمن العرض عددًا محددًا من الكريدت أو دعوات عائلية إضافية.": "This offer does not specify a credit quota or include additional family invitations.",
+  "أكمل أي تسجيل دخول أو موافقة مطلوبة بنفسك داخل Google؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات.": "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat.",
+  "عرض الـ18 شهرًا المتاح حاليًا سعره 300 جنيه وضمانه شهر واحد؛ الباقتان القديمتان بسعر 200 و250 جنيه انتهتا وغير متاحتين.": "The currently available 18-month offer is EGP 300 with a one-month warranty; the older EGP 200 and EGP 250 offers have ended and remain unavailable.",
+  "Pro — 18 شهرًا على إيميلك — ضمان شهر": "Pro — 18 months on your email — 1-month warranty",
+  "18 شهر": "18 months",
+  "تفعيل Google AI Pro «Gemini Pro» لمدة 18 شهرًا على إيميلك الشخصي.": "Activate Google AI Pro (Gemini Pro) for 18 months on your personal email.",
+  "حساب Google الشخصي على إيميلك": "Personal Google account on your email",
+  "على إيميلك الشخصي": "On your personal email",
+  "ضمان لمدة شهر واحد": "One-month warranty"
+});
   function catalogText(value,kind,productId){
     const raw=String(value??"");
     if(state.language==="en"&&["lovable-pro","chatgpt-plus","hostinger","grok-cursor-premium"].includes(productId)){if(kind==="description")return window.MasterCatalog.getProduct(productId).descriptionEn;if(exactArToEn[raw])return exactArToEn[raw];}

@@ -3736,158 +3736,195 @@ const products = [
     ]
   },
   {
-    "id": "gemini-pro",
-    "name": "Gemini Pro",
-    "category": "AI Tools",
-    "logo": "gemini",
-    "logoUrl": "logos/gemini.svg?v=20261027-hq1",
-    "status": "available",
-    "description": "اشتراك Gemini Pro بدعوة عائلية لمدة شهر على إيميلك الشخصي بسعر 80 جنيه مع 1,000 كريدت وضمان شهر، أو تفعيل مباشر لمدة 3 شهور بسعر 200 جنيه وضمان 3 شهور.",
-    "notes": [
-      "انتهى عرض Gemini Pro لمدة 18 شهر وأصبح غير متاح للطلبات الجديدة."
-    ],
-    "plans": [
-      {
-        "name": "Gemini Pro",
-        "duration": "18 شهر",
-        "price": 200,
-        "activation": "رابط تفعيل مباشر على البريد الشخصي — بدون بطاقة أو بيانات دفع.",
-        "account": "حساب العميل الشخصي",
-        "warranty": "ضمان 3 شهور",
-        "credits": "1,000 Credit شهريًا",
-        "features": [
-          "1,000 Credit شهريًا للاستخدام داخل الخدمة"
-        ],
-        "priceComparison": {
-          "planName": "Google AI Pro — اشتراك فردي",
-          "source": "https://gemini.google/subscriptions/",
-          "checkedAt": "2026-10-08",
-          "status": "reference",
-          "note": "المقارنة محسوبة بسعر الاشتراك الشهري الأمريكي المعتاد ×18؛ لا توجد باقة رسمية مستقلة 18 شهرًا. العروض التعليمية والتجارب المجانية ليست ضمن المقارنة، والدعوات العائلية ليست 6 اشتراكات منفصلة.",
-          "billingLabel": "19.99 دولارًا ×18 شهرًا"
-        },
-        "officialPrice": {
-          "amount": 359.82,
-          "currency": "USD",
-          "months": 18,
-          "basis": "reference",
-          "source": "https://gemini.google/subscriptions/",
-          "checkedAt": "2026-10-08"
-        },
-        "available": false,
-        "hidden": true
+  "id": "gemini-pro",
+  "name": "Gemini Pro",
+  "category": "AI Tools",
+  "logo": "gemini",
+  "logoUrl": "logos/gemini.svg?v=20261027-hq1",
+  "status": "available",
+  "description": "باقات Google AI Pro «Gemini Pro» على إيميلك الشخصي: 18 شهرًا بسعر 300 جنيه وضمان شهر واحد، أو 3 شهور بسعر 200 جنيه وضمان 3 شهور. وتتوفر دعوة عائلية لمدة شهر بسعر 80 جنيه مع 1,000 كريدت ضمن رصيد العائلة المشترك وضمان شهر.",
+  "notes": [
+    "عرض الـ18 شهرًا المتاح حاليًا سعره 300 جنيه وضمانه شهر واحد؛ الباقتان القديمتان بسعر 200 و250 جنيه انتهتا وغير متاحتين."
+  ],
+  "plans": [
+    {
+      "name": "Gemini Pro",
+      "duration": "18 شهر",
+      "price": 200,
+      "activation": "رابط تفعيل مباشر على البريد الشخصي — بدون بطاقة أو بيانات دفع.",
+      "account": "حساب العميل الشخصي",
+      "warranty": "ضمان 3 شهور",
+      "credits": "1,000 Credit شهريًا",
+      "features": [
+        "1,000 Credit شهريًا للاستخدام داخل الخدمة"
+      ],
+      "priceComparison": {
+        "planName": "Google AI Pro — اشتراك فردي",
+        "source": "https://gemini.google/subscriptions/",
+        "checkedAt": "2026-10-08",
+        "status": "reference",
+        "note": "المقارنة محسوبة بسعر الاشتراك الشهري الأمريكي المعتاد ×18؛ لا توجد باقة رسمية مستقلة 18 شهرًا. العروض التعليمية والتجارب المجانية ليست ضمن المقارنة، والدعوات العائلية ليست 6 اشتراكات منفصلة.",
+        "billingLabel": "19.99 دولارًا ×18 شهرًا"
       },
-      {
-        "name": "Gemini العائلي",
-        "duration": "18 شهر",
-        "price": 250,
-        "activation": "نفس تفعيل Gemini Pro + 5 دعوات عائلية إضافية.",
-        "account": "حساب المتحكم + 5 دعوات إضافية",
-        "warranty": "ضمان 3 شهور",
-        "credits": "1,000 Credit شهريًا للحساب الرئيسي فقط",
-        "features": [
-          "1,000 Credit شهريًا للحساب الرئيسي فقط",
-          "5 دعوات عائلية إضافية لاستخدام Gemini"
-        ],
-        "priceComparison": {
-          "planName": "Google AI Pro — اشتراك فردي",
-          "source": "https://gemini.google/subscriptions/",
-          "checkedAt": "2026-10-08",
-          "status": "reference",
-          "note": "المقارنة محسوبة بسعر الاشتراك الشهري الأمريكي المعتاد ×18؛ لا توجد باقة رسمية مستقلة 18 شهرًا. العروض التعليمية والتجارب المجانية ليست ضمن المقارنة، والدعوات العائلية ليست 6 اشتراكات منفصلة.",
-          "billingLabel": "19.99 دولارًا ×18 شهرًا"
-        },
-        "officialPrice": {
-          "amount": 359.82,
-          "currency": "USD",
-          "months": 18,
-          "basis": "reference",
-          "source": "https://gemini.google/subscriptions/",
-          "checkedAt": "2026-10-08"
-        },
-        "available": false,
-        "hidden": true
+      "officialPrice": {
+        "amount": 359.82,
+        "currency": "USD",
+        "months": 18,
+        "basis": "reference",
+        "source": "https://gemini.google/subscriptions/",
+        "checkedAt": "2026-10-08"
       },
-      {
-        "name": "Pro — دعوة عائلية — شهر على إيميلك",
-        "planType": "Google AI Pro",
-        "duration": "1 شهر",
-        "price": 80,
-        "available": true,
-        "activation": "إرسال دعوة عائلية إلى إيميلك الشخصي لتفعيل Gemini Pro لمدة شهر.",
-        "account": "حسابك الشخصي ضمن مجموعة عائلية",
-        "accountType": "دعوة عائلية على إيميلك الشخصي",
-        "warranty": "ضمان لمدة شهر",
-        "credits": "1,000 كريدت خلال الشهر ضمن رصيد العائلة المشترك",
-        "features": [
-          "اشتراك Gemini Pro لمدة شهر واحد عبر دعوة عائلية.",
-          "التفعيل على حساب Google المرتبط بإيميلك الشخصي.",
-          "1,000 كريدت ضمن رصيد مجموعة العائلة؛ الرصيد مشترك وليس حصة مستقلة لكل عضو.",
-          "ضمان لمدة شهر طوال مدة الاشتراك.",
-          "محادثة وكتابة وبحث وتحليل ملفات وفق أدوات وحدود Pro المتاحة لحسابك."
-        ],
-        "notes": [
-          "تُقبل الدعوة من إيميلك الشخصي، ويُراجع توافق بلد الحساب وأهلية الانضمام للعائلة قبل الدفع.",
-          "رصيد AI للعائلة مشترك، ويتأثر استخدامه باستهلاك المجموعة والأداة المختارة.",
-          "لا ترسل كلمة مرور Google أو أكواد التحقق في الشات؛ افتح الدعوة وسجّل الدخول بنفسك داخل Google."
-        ],
-        "featuresEn": [
-          "One month of Gemini Pro through a family invitation.",
-          "Activation on the Google account linked to your personal email.",
-          "1,000 credits in the family group allowance; credits are pooled, not a separate allocation for each member.",
-          "One-month warranty throughout the subscription term.",
-          "Chat, write, research and analyse files within Pro tools and limits available to your account."
-        ],
-        "notesEn": [
-          "Accept the invitation from your personal email; confirm account-country compatibility and family-joining eligibility before payment.",
-          "Family AI credits are shared; available usage depends on group consumption and the selected tool.",
-          "Do not send your Google password or verification codes in chat; open the invitation and sign in yourself on Google."
-        ]
+      "available": false,
+      "hidden": true
+    },
+    {
+      "name": "Gemini العائلي",
+      "duration": "18 شهر",
+      "price": 250,
+      "activation": "نفس تفعيل Gemini Pro + 5 دعوات عائلية إضافية.",
+      "account": "حساب المتحكم + 5 دعوات إضافية",
+      "warranty": "ضمان 3 شهور",
+      "credits": "1,000 Credit شهريًا للحساب الرئيسي فقط",
+      "features": [
+        "1,000 Credit شهريًا للحساب الرئيسي فقط",
+        "5 دعوات عائلية إضافية لاستخدام Gemini"
+      ],
+      "priceComparison": {
+        "planName": "Google AI Pro — اشتراك فردي",
+        "source": "https://gemini.google/subscriptions/",
+        "checkedAt": "2026-10-08",
+        "status": "reference",
+        "note": "المقارنة محسوبة بسعر الاشتراك الشهري الأمريكي المعتاد ×18؛ لا توجد باقة رسمية مستقلة 18 شهرًا. العروض التعليمية والتجارب المجانية ليست ضمن المقارنة، والدعوات العائلية ليست 6 اشتراكات منفصلة.",
+        "billingLabel": "19.99 دولارًا ×18 شهرًا"
       },
-      {
-        "name": "Pro — تفعيل مباشر — 3 شهور على إيميلك",
-        "planType": "Google AI Pro",
-        "duration": "3 شهور",
-        "price": 200,
-        "available": true,
-        "activation": "تفعيل Gemini Pro لمدة 3 شهور مباشرة على إيميلك الشخصي.",
-        "account": "حساب Google الشخصي على إيميلك",
-        "accountType": "تفعيل مباشر على حسابك",
-        "warranty": "ضمان لمدة 3 شهور",
-        "features": [
-          "اشتراك Gemini Pro لمدة 3 شهور.",
-          "تفعيل مباشر على حسابك وإيميلك الشخصي.",
-          "ضمان 3 شهور يغطي مدة الاشتراك.",
-          "المساعدة في الكتابة والبحث والمذاكرة وتحليل الملفات ضمن حدود Pro."
-        ],
-        "notes": [
-          "يُراجع وضع الاشتراك الحالي وأهلية حساب Google قبل التفعيل.",
-          "الرصيد وحدود الأدوات تُراجع داخل الحساب حسب التفعيل المتاح.",
-          "أكمل أي تسجيل دخول أو موافقة مطلوبة بنفسك داخل Google؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات."
-        ],
-        "featuresEn": [
-          "Three months of Gemini Pro.",
-          "Direct activation on your personal account and email.",
-          "A three-month warranty covers the subscription term.",
-          "Help with writing, research, study and file analysis within Pro limits."
-        ],
-        "notesEn": [
-          "Your current subscription and Google account eligibility are checked before activation.",
-          "Check credits and tool limits in the account for the activated membership.",
-          "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat."
-        ]
-      }
-    ],
-    "categories": [
-      "توليد صور بالذكاء الاصطناعي",
-      "مساعد كتابة الكود",
-      "محادثة ومساعد ذكي"
-    ],
-    "descriptionEn": "Gemini Pro: a one-month family invitation on your personal email for EGP 80 with 1,000 credits and a one-month warranty, or direct three-month activation for EGP 200 with a three-month warranty.",
-    "notesEn": [
-      "The 18-month Gemini Pro offer has ended and is unavailable for new orders."
-    ]
-  },
+      "officialPrice": {
+        "amount": 359.82,
+        "currency": "USD",
+        "months": 18,
+        "basis": "reference",
+        "source": "https://gemini.google/subscriptions/",
+        "checkedAt": "2026-10-08"
+      },
+      "available": false,
+      "hidden": true
+    },
+    {
+      "name": "Pro — دعوة عائلية — شهر على إيميلك",
+      "planType": "Google AI Pro",
+      "duration": "1 شهر",
+      "price": 80,
+      "available": true,
+      "activation": "إرسال دعوة عائلية إلى إيميلك الشخصي لتفعيل Gemini Pro لمدة شهر.",
+      "account": "حسابك الشخصي ضمن مجموعة عائلية",
+      "accountType": "دعوة عائلية على إيميلك الشخصي",
+      "warranty": "ضمان لمدة شهر",
+      "credits": "1,000 كريدت خلال الشهر ضمن رصيد العائلة المشترك",
+      "features": [
+        "اشتراك Gemini Pro لمدة شهر واحد عبر دعوة عائلية.",
+        "التفعيل على حساب Google المرتبط بإيميلك الشخصي.",
+        "1,000 كريدت ضمن رصيد مجموعة العائلة؛ الرصيد مشترك وليس حصة مستقلة لكل عضو.",
+        "ضمان لمدة شهر طوال مدة الاشتراك.",
+        "محادثة وكتابة وبحث وتحليل ملفات وفق أدوات وحدود Pro المتاحة لحسابك."
+      ],
+      "notes": [
+        "تُقبل الدعوة من إيميلك الشخصي، ويُراجع توافق بلد الحساب وأهلية الانضمام للعائلة قبل الدفع.",
+        "رصيد AI للعائلة مشترك، ويتأثر استخدامه باستهلاك المجموعة والأداة المختارة.",
+        "لا ترسل كلمة مرور Google أو أكواد التحقق في الشات؛ افتح الدعوة وسجّل الدخول بنفسك داخل Google."
+      ],
+      "featuresEn": [
+        "One month of Gemini Pro through a family invitation.",
+        "Activation on the Google account linked to your personal email.",
+        "1,000 credits in the family group allowance; credits are pooled, not a separate allocation for each member.",
+        "One-month warranty throughout the subscription term.",
+        "Chat, write, research and analyse files within Pro tools and limits available to your account."
+      ],
+      "notesEn": [
+        "Accept the invitation from your personal email; confirm account-country compatibility and family-joining eligibility before payment.",
+        "Family AI credits are shared; available usage depends on group consumption and the selected tool.",
+        "Do not send your Google password or verification codes in chat; open the invitation and sign in yourself on Google."
+      ]
+    },
+    {
+      "name": "Pro — تفعيل مباشر — 3 شهور على إيميلك",
+      "planType": "Google AI Pro",
+      "duration": "3 شهور",
+      "price": 200,
+      "available": true,
+      "activation": "تفعيل Gemini Pro لمدة 3 شهور مباشرة على إيميلك الشخصي.",
+      "account": "حساب Google الشخصي على إيميلك",
+      "accountType": "تفعيل مباشر على حسابك",
+      "warranty": "ضمان لمدة 3 شهور",
+      "features": [
+        "اشتراك Gemini Pro لمدة 3 شهور.",
+        "تفعيل مباشر على حسابك وإيميلك الشخصي.",
+        "ضمان 3 شهور يغطي مدة الاشتراك.",
+        "المساعدة في الكتابة والبحث والمذاكرة وتحليل الملفات ضمن حدود Pro."
+      ],
+      "notes": [
+        "يُراجع وضع الاشتراك الحالي وأهلية حساب Google قبل التفعيل.",
+        "الرصيد وحدود الأدوات تُراجع داخل الحساب حسب التفعيل المتاح.",
+        "أكمل أي تسجيل دخول أو موافقة مطلوبة بنفسك داخل Google؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات."
+      ],
+      "featuresEn": [
+        "Three months of Gemini Pro.",
+        "Direct activation on your personal account and email.",
+        "A three-month warranty covers the subscription term.",
+        "Help with writing, research, study and file analysis within Pro limits."
+      ],
+      "notesEn": [
+        "Your current subscription and Google account eligibility are checked before activation.",
+        "Check credits and tool limits in the account for the activated membership.",
+        "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat."
+      ]
+    },
+    {
+      "name": "Pro — 18 شهرًا على إيميلك — ضمان شهر",
+      "planType": "Google AI Pro",
+      "duration": "18 شهر",
+      "price": 300,
+      "available": true,
+      "activation": "تفعيل Google AI Pro «Gemini Pro» لمدة 18 شهرًا على إيميلك الشخصي.",
+      "account": "حساب Google الشخصي على إيميلك",
+      "accountType": "على إيميلك الشخصي",
+      "warranty": "ضمان لمدة شهر واحد",
+      "features": [
+        "اشتراك Google AI Pro «Gemini Pro» لمدة 18 شهرًا.",
+        "تفعيل الاشتراك على حساب Google المرتبط بإيميلك الشخصي.",
+        "ضمان لمدة شهر واحد؛ مدة الضمان مستقلة عن مدة الاشتراك البالغة 18 شهرًا.",
+        "المساعدة في الكتابة والبحث والمذاكرة وتحليل الملفات ضمن أدوات وحدود Pro المتاحة لحسابك.",
+        "الرصيد وحدود أدوات الصور والفيديو والتخزين تُراجع داخل الحساب بعد التفعيل؛ لا يُنقل رصيد باقة أخرى تلقائيًا."
+      ],
+      "featuresEn": [
+        "Google AI Pro (Gemini Pro) for 18 months.",
+        "Activation on the Google account linked to your personal email.",
+        "A one-month warranty; coverage is separate from the 18-month subscription term.",
+        "Help with writing, research, study and file analysis within the Pro tools and limits available to your account.",
+        "Check credits, image/video limits and storage in the activated account; another plan’s allowance is not automatically included."
+      ],
+      "notes": [
+        "يُراجع وضع الاشتراك الحالي وأهلية حساب Google قبل التفعيل.",
+        "الاشتراك 18 شهرًا، والضمان شهر واحد فقط وفق شروط العرض وسياسة المتجر.",
+        "لا يتضمن العرض عددًا محددًا من الكريدت أو دعوات عائلية إضافية.",
+        "أكمل أي تسجيل دخول أو موافقة مطلوبة بنفسك داخل Google؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات."
+      ],
+      "notesEn": [
+        "Your current subscription and Google account eligibility are checked before activation.",
+        "The subscription lasts 18 months; the warranty lasts only one month under the offer terms and store policy.",
+        "This offer does not specify a credit quota or include additional family invitations.",
+        "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat."
+      ]
+    }
+  ],
+  "categories": [
+    "توليد صور بالذكاء الاصطناعي",
+    "مساعد كتابة الكود",
+    "محادثة ومساعد ذكي"
+  ],
+  "descriptionEn": "Google AI Pro (Gemini Pro) on your personal email: 18 months for EGP 300 with a one-month warranty, or three months for EGP 200 with a three-month warranty. A one-month family invitation is also available for EGP 80 with 1,000 shared family credits and a one-month warranty.",
+  "notesEn": [
+    "The currently available 18-month offer is EGP 300 with a one-month warranty; the older EGP 200 and EGP 250 offers have ended and remain unavailable."
+  ]
+},
   {
     "id": "google-ai-plus",
     "name": "Google AI Plus",

@@ -41,7 +41,7 @@ assert.equal(products.find(p=>p.id==='supergrok-coursera-bundle').plans[0].price
 {
  const gemini=products.find(p=>p.id==='gemini-pro');assert(gemini.plans.slice(0,2).every(p=>p.hidden&&p.available===false));
  const plans=JSON.parse(k.contextFor([gemini],rows)).details[0].plans;
- assert.deepEqual(plans.map(p=>p.index),[2,3]);assert.deepEqual(plans.map(p=>p.priceEGP),[80,200]);assert.deepEqual(plans.map(p=>p.duration),['1 شهر','3 شهور']);assert.match(plans[0].credits,/1,000/);assert.match(plans[0].credits,/مشترك/);assert.match(plans[0].warranty,/شهر/);assert.match(plans[1].warranty,/3/);assert.equal(plans[1].credits,null);assert(plans.every(p=>!p.duration.includes('18')));
+ assert.deepEqual(plans.map(p=>p.index),[2,3,4]);assert.deepEqual(plans.map(p=>p.priceEGP),[80,200,300]);assert.deepEqual(plans.map(p=>p.duration),['1 شهر','3 شهور','18 شهر']);assert.match(plans[0].credits,/1,000/);assert.match(plans[0].credits,/مشترك/);assert.match(plans[0].warranty,/شهر/);assert.match(plans[1].warranty,/3/);assert.equal(plans[1].credits,null);assert.equal(plans[2].credits,null);assert.match(plans[2].warranty,/شهر واحد/);assert.match(plans[2].account,/الشخصي/);assert.equal(gemini.plans[4].officialPrice,undefined);assert(plans[2].features.every(f=>!f.includes('1,000')));
  const plus=products.find(p=>p.id==='google-ai-plus'),plusPlans=JSON.parse(k.contextFor([plus],rows)).details[0].plans;
  assert.deepEqual(plusPlans.map(p=>p.priceEGP),[150,220]);assert.deepEqual(plusPlans.map(p=>p.duration),['6 شهور','12 شهر']);assert(plusPlans.every(p=>/الشخصي/.test(p.account)&&/تؤكد|تُؤكد/.test(p.warranty)&&p.credits===null));assert(plus.plans.every(p=>!p.officialPrice));assert(ask('جوجول بلس').some(p=>p.id==='google-ai-plus'));
 }

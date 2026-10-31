@@ -496,43 +496,56 @@
     "checkEn": "This offer’s term and conditions differ from monthly Plus. Read warranty, eligibility, and account type from the K12 offer rather than importing terms from another product."
   },
   "gemini-pro": {
-    "intro": "اشتراك Gemini Pro بدعوة عائلية لمدة شهر على إيميلك الشخصي بسعر 80 جنيه مع 1,000 كريدت وضمان شهر، أو تفعيل مباشر لمدة 3 شهور بسعر 200 جنيه وضمان 3 شهور.",
-    "introEn": "Gemini Pro: a one-month family invitation on your personal email for EGP 80 with 1,000 credits and a one-month warranty, or direct three-month activation for EGP 200 with a three-month warranty.",
-    "workflow": "اختار مدة وطريقة التفعيل المناسبة: الدعوة العائلية شهر، أو التفعيل المباشر 3 شهور. أرسل إيميل Google المقصود بعد الطلب، ثم أكمل قبول الدعوة أو خطوات التفعيل بنفسك، وراجع نوع الاشتراك وتاريخ انتهائه داخل الحساب.",
-    "workflowEn": "Choose the term and activation method: a one-month family invitation or direct three-month activation. Provide the intended Google email after ordering, complete invitation acceptance or activation steps yourself, and check the membership type and expiry in your account.",
-    "check": "عرض الـ18 شهر انتهى. ضمان الدعوة الشهرية شهر، وضمان التفعيل المباشر 3 شهور. رصيد 1,000 كريدت في الدعوة العائلية ضمن رصيد المجموعة المشترك؛ ليس حصة مستقلة لكل عضو. تُراجع أهلية الحساب والبلد وحالة العائلة قبل الدفع.",
-    "checkEn": "The 18-month offer has ended. The monthly invitation has a one-month warranty; direct three-month activation has a three-month warranty. The family offer’s 1,000 credits are part of the shared group allowance, not a separate allocation for every member. Check account, country and family eligibility before payment.",
-    "sources": [
-        "https://gemini.google/subscriptions/",
-        "https://support.google.com/googleone/answer/16287445",
-        "https://support.google.com/googleone/answer/9004015"
-    ],
-    "reports": [
-        {
-            "id": "activation-options",
-            "title": "الفرق بين الدعوة العائلية والتفعيل المباشر",
-            "titleEn": "Family invitation and direct activation",
-            "paragraphs": [
-                "في باقة الشهر بسعر 80 جنيه، يصل الاشتراك إلى إيميلك الشخصي عن طريق دعوة إلى مجموعة عائلية. تحتفظ بحسابك، وتقبل الدعوة داخل Google بعد التأكد من أهلية حسابك. ضمان هذه الباقة شهر واحد.",
-                "باقة 3 شهور بسعر 200 جنيه تُفعل مباشرة على إيميلك الشخصي، وضمانها 3 شهور. الرصيد والأدوات المتاحة تُراجع داخل الحساب حسب التفعيل؛ لا يُنقل رصيد عرض مختلف إليها تلقائيًا."
-            ],
-            "paragraphsEn": [
-                "The EGP 80 monthly plan reaches your personal email through a family-group invitation. Keep your own account and accept the invitation within Google after checking eligibility. This plan has a one-month warranty.",
-                "The EGP 200 three-month plan is activated directly on your personal email with a three-month warranty. Check credits and eligible tools in the activated account; do not import another offer’s allowance automatically."
-            ]
-        },
-        {
-            "id": "shared-credits",
-            "title": "فهم رصيد الدعوة العائلية",
-            "titleEn": "Understanding family-invitation credits",
-            "paragraphs": [
-                "العرض الشهري يذكر 1,000 كريدت ضمن رصيد العائلة. توضح Google أن رصيد AI المؤهل للمشاركة يكون مجمعًا بين أفراد العائلة، ويختلف الاستهلاك حسب الأداة والعملية. راجع المتبقي داخل الحساب؛ الكريدت لا تعني عددًا ثابتًا من الفيديوهات أو الصور."
-            ],
-            "paragraphsEn": [
-                "The monthly offer lists 1,000 credits within the family allowance. Google explains that eligible shared AI credits are pooled across family members, with usage varying by tool and activity. Check the remaining balance in the account; credits do not imply a fixed number of videos or images."
-            ]
-        }
-    ]
+  "intro": "باقات Google AI Pro «Gemini Pro» على إيميلك الشخصي: 18 شهرًا بسعر 300 جنيه وضمان شهر واحد، أو 3 شهور بسعر 200 جنيه وضمان 3 شهور. وتتوفر دعوة عائلية لمدة شهر بسعر 80 جنيه مع 1,000 كريدت ضمن رصيد العائلة المشترك وضمان شهر.",
+  "introEn": "Google AI Pro (Gemini Pro) on your personal email: 18 months for EGP 300 with a one-month warranty, or three months for EGP 200 with a three-month warranty. A one-month family invitation is also available for EGP 80 with 1,000 shared family credits and a one-month warranty.",
+  "workflow": "اختار الباقة المناسبة: تفعيل 18 شهرًا على إيميلك الشخصي بضمان شهر واحد، أو تفعيل 3 شهور بضمان 3 شهور، أو دعوة عائلية لمدة شهر. أرسل إيميل Google المقصود بعد الطلب، ثم أكمل الخطوات المطلوبة بنفسك، وراجع نوع الاشتراك وتاريخ انتهائه داخل الحساب.",
+  "workflowEn": "Choose the appropriate offer: 18 months on your personal email with a one-month warranty, three-month activation with three-month coverage, or a monthly family invitation. Provide the intended Google email after ordering, complete any required steps yourself and check the membership and expiry date in your account.",
+  "check": "باقة 18 شهرًا الجديدة بسعر 300 جنيه وضمان شهر واحد فقط. باقتا 18 شهرًا القديمتان بسعر 200 و250 جنيه تظلان غير متاحتين. رصيد 1,000 كريدت يخص الدعوة العائلية الشهرية ويكون مشتركًا؛ لا يُنقل إلى باقة 18 شهرًا أو باقة 3 شهور.",
+  "checkEn": "The new 18-month offer costs EGP 300 and has only a one-month warranty. The older EGP 200 and EGP 250 18-month plans remain unavailable. The 1,000-credit allowance belongs to the monthly family invitation and is shared; it does not transfer to the 18-month or three-month offers.",
+  "sources": [
+    "https://gemini.google/subscriptions/",
+    "https://support.google.com/googleone/answer/16287445",
+    "https://support.google.com/googleone/answer/9004015"
+  ],
+  "sections": [
+    {
+      "id": "eighteen-month-plan",
+      "title": "Google AI Pro لمدة 18 شهرًا على إيميلك الشخصي",
+      "titleEn": "Google AI Pro for 18 months on your personal email",
+      "paragraphs": [
+        "العرض الجديد يوفر Google AI Pro «Gemini Pro» لمدة 18 شهرًا بسعر 300 جنيه، على حساب Google المرتبط بإيميلك الشخصي. راجع أهلية الحساب ووجود أي اشتراك حالي قبل التفعيل، ثم تحقق من نوع العضوية وتاريخ انتهائها بعد اكتمال الخطوات.",
+        "ضمان هذا العرض شهر واحد فقط وفق شروط الباقة وسياسة المتجر، وليس ضمانًا يغطي جميع الأشهر الثمانية عشر. لم يُحدد عدد كريدت أو حصة تخزين أو دعوات إضافية لهذا العرض؛ تُراجع حدود الأدوات المتاحة داخل الحساب، ولا تُنسخ تفاصيل الدعوة العائلية أو العروض القديمة إليه."
+      ],
+      "paragraphsEn": [
+        "The new offer provides Google AI Pro (Gemini Pro) for 18 months at EGP 300 on the Google account linked to your personal email. Check account eligibility and any current membership before activation, then confirm the membership type and expiry date after completing the steps.",
+        "This offer has only a one-month warranty under the plan terms and store policy, rather than coverage for all 18 months. No credit quota, storage allowance or additional invitations have been specified; check available tools and limits inside the account without copying family-invitation or legacy-offer terms."
+      ]
+    },
+    {
+      "id": "activation-options",
+      "title": "الفرق بين الدعوة العائلية والتفعيل المباشر",
+      "titleEn": "Family invitation and direct activation",
+      "paragraphs": [
+        "في باقة الشهر بسعر 80 جنيه، يصل الاشتراك إلى إيميلك الشخصي عن طريق دعوة إلى مجموعة عائلية. تحتفظ بحسابك، وتقبل الدعوة داخل Google بعد التأكد من أهلية حسابك. ضمان هذه الباقة شهر واحد.",
+        "باقة 3 شهور بسعر 200 جنيه تُفعل مباشرة على إيميلك الشخصي، وضمانها 3 شهور. الرصيد والأدوات المتاحة تُراجع داخل الحساب حسب التفعيل؛ لا يُنقل رصيد عرض مختلف إليها تلقائيًا."
+      ],
+      "paragraphsEn": [
+        "The EGP 80 monthly plan reaches your personal email through a family-group invitation. Keep your own account and accept the invitation within Google after checking eligibility. This plan has a one-month warranty.",
+        "The EGP 200 three-month plan is activated directly on your personal email with a three-month warranty. Check credits and eligible tools in the activated account; do not import another offer’s allowance automatically."
+      ]
+    },
+    {
+      "id": "shared-credits",
+      "title": "فهم رصيد الدعوة العائلية",
+      "titleEn": "Understanding family-invitation credits",
+      "paragraphs": [
+        "العرض الشهري يذكر 1,000 كريدت ضمن رصيد العائلة. توضح Google أن رصيد AI المؤهل للمشاركة يكون مجمعًا بين أفراد العائلة، ويختلف الاستهلاك حسب الأداة والعملية. راجع المتبقي داخل الحساب؛ الكريدت لا تعني عددًا ثابتًا من الفيديوهات أو الصور."
+      ],
+      "paragraphsEn": [
+        "The monthly offer lists 1,000 credits within the family allowance. Google explains that eligible shared AI credits are pooled across family members, with usage varying by tool and activity. Check the remaining balance in the account; credits do not imply a fixed number of videos or images."
+      ]
+    }
+  ]
 },
   "google-ai-plus": {
     "intro": "اشتراك Google AI Plus على إيميلك الشخصي: 6 شهور بسعر 150 جنيه أو 12 شهر بسعر 220 جنيه. راجع تفاصيل التفعيل والضمان قبل الدفع.",
