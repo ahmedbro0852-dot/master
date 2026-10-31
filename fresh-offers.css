@@ -3,3 +3,5 @@
 @media(max-width:520px){.fresh-offers{padding:18px;margin:24px auto}.fresh-offers-grid{grid-template-columns:1fr}.fresh-offer{padding:18px}}
 
 html[data-custom-theme] .fresh-offers{background:var(--theme-panel);color:var(--ink);border-color:var(--line)}html[data-custom-theme] .fresh-offer{background:var(--theme-surface);color:var(--ink);border-color:var(--line)}html[data-custom-theme] :is(.fresh-offers-note,.fresh-offer small,.fresh-offer-price del){color:var(--muted)}html[data-custom-theme] .fresh-offer-price strong{color:var(--theme-accent)}
+
+.fresh-offers{width:calc(100% - 32px);max-width:1120px;box-sizing:border-box}.fresh-offer h3{overflow-wrap:anywhere}.fresh-offer-price{direction:inherit}
