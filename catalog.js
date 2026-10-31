@@ -3430,11 +3430,13 @@ const products = [
         ],
         "priceComparison": {
           "planName": "ChatGPT Plus",
-          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-          "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
-          "billingLabel": "فوترة شهرية"
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-31",
+          "billingLabel": "Monthly billing",
+          "showReferenceNote": true,
+          "note": "مرجع الشراء المباشر لـPlus هو 20 دولارًا للشهر قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. المقارنة في السعر؛ طريقة التسليم والضمان موضحتان في عرض المتجر.",
+          "noteEn": "The direct-purchase reference for Plus is US$20 per month before tax, converted using the store rate. This compares prices; delivery method and warranty are stated in the store offer."
         },
         "officialPrice": {
           "amount": 20,
@@ -3442,7 +3444,7 @@ const products = [
           "months": 1,
           "basis": "reference",
           "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-          "checkedAt": "2026-10-08"
+          "checkedAt": "2026-10-31"
         },
         "available": true
       },
@@ -3488,11 +3490,13 @@ const products = [
         ],
         "priceComparison": {
           "planName": "ChatGPT Plus",
-          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-          "checkedAt": "2026-10-08",
           "status": "reference",
-          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
-          "billingLabel": "فوترة شهرية"
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-31",
+          "billingLabel": "Monthly billing",
+          "showReferenceNote": true,
+          "note": "مرجع الشراء المباشر لـPlus هو 20 دولارًا للشهر قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. المقارنة في السعر؛ طريقة التسليم والضمان موضحتان في عرض المتجر.",
+          "noteEn": "The direct-purchase reference for Plus is US$20 per month before tax, converted using the store rate. This compares prices; delivery method and warranty are stated in the store offer."
         },
         "officialPrice": {
           "amount": 20,
@@ -3500,7 +3504,7 @@ const products = [
           "months": 1,
           "basis": "reference",
           "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-          "checkedAt": "2026-10-08"
+          "checkedAt": "2026-10-31"
         },
         "available": true,
         "accountType": "تفعيل على حسابك الشخصي"
@@ -3538,7 +3542,25 @@ const products = [
           "The subscription lasts one month; warranty lasts 25 days.",
           "This offer supplies a ready private account and does not activate Plus on your personal account.",
           "Tool and model limits depend on Plus and availability on the account."
-        ]
+        ],
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-31"
+        },
+        "priceComparison": {
+          "planName": "ChatGPT Plus",
+          "status": "reference",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-31",
+          "billingLabel": "Monthly billing",
+          "showReferenceNote": true,
+          "note": "مرجع الشراء المباشر لـPlus هو 20 دولارًا للشهر قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. المقارنة في السعر؛ طريقة التسليم والضمان موضحتان في عرض المتجر.",
+          "noteEn": "The direct-purchase reference for Plus is US$20 per month before tax, converted using the store rate. This compares prices; delivery method and warranty are stated in the store offer."
+        }
       }
     ],
     "categories": [
@@ -3984,7 +4006,16 @@ const products = [
           "Check domain eligibility and included extensions before registration; renewal charges after the first year are confirmed separately.",
           "The store’s 12-month warranty covers subscription access under store policy.",
           "Complete account setup and any required verification yourself on Hostinger; do not send passwords or verification codes in chat."
-        ]
+        ],
+        "priceComparison": {
+          "planName": "Hostinger Unlimited — 12 months",
+          "status": "unavailable",
+          "source": "https://www.hostinger.com/pricing",
+          "checkedAt": "2026-10-31",
+          "showReferenceNote": true,
+          "note": "السعر الترويجي الظاهر في صفحة Hostinger مرتبط بسداد 48 شهرًا مقدمًا. لم يُوثق هنا سعر شراء مطابق لمدة 12 شهرًا، لذلك لا تُعرض نسبة توفير لعرض السنة.",
+          "noteEn": "The promotional price shown on Hostinger’s page requires paying for 48 months upfront. A matching 12-month purchase price has not been verified here, so no saving percentage is shown for this annual offer."
+        }
       }
     ],
     "descriptionEn": "One year of Hostinger Unlimited hosting on your personal email for US$25, with unlimited websites within plan resources, one eligible free domain for the first year and a 12-month warranty."
@@ -4008,10 +4039,12 @@ const products = [
         "priceComparison": {
           "planName": "Lovable Pro — 100 كريدت شهريًا",
           "source": "https://docs.lovable.dev/introduction/subscription-plans",
-          "checkedAt": "2026-10-08",
-          "status": "reference",
-          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر. رصيد هذه الباقة في المتجر يُؤكد قبل الدفع.",
-          "billingLabel": "Pro — 100 كريدت شهريًا"
+          "checkedAt": "2026-10-31",
+          "status": "unavailable",
+          "note": "رصيد هذا العرض غير محدد، لذلك لا تتوفر مقارنة موثقة مع باقة Pro الرسمية برصيد 100 كريدت شهريًا.",
+          "billingLabel": "Pro — 100 كريدت شهريًا",
+          "showReferenceNote": true,
+          "noteEn": "This offer does not specify its credit allowance, so there is no verified comparison with the official Pro plan containing 100 monthly credits."
         },
         "officialPrice": {
           "amount": 25,
@@ -4036,11 +4069,13 @@ const products = [
         ],
         "priceComparison": {
           "planName": "Lovable Pro — 100 كريدت شهريًا",
-          "source": "https://docs.lovable.dev/introduction/subscription-plans",
-          "checkedAt": "2026-10-08",
+          "source": "https://lovable.dev/pricing",
+          "checkedAt": "2026-10-31",
           "status": "reference",
-          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر. الرصيد اليومي لا يتراكم وقد تختلف حدوده حسب المنطقة.",
-          "billingLabel": "Pro — 100 كريدت شهريًا + 5 كريدت بناء يوميًا"
+          "note": "مرجع Pro برصيد 100 كريدت شهريًا: 25 دولارًا للشهر قبل الضرائب. طريقة التفعيل والضمان حسب عرض المتجر.",
+          "billingLabel": "Pro — 100 كريدت شهريًا + 5 كريدت بناء يوميًا",
+          "showReferenceNote": true,
+          "noteEn": "Pro with 100 monthly credits: US$25 per month before tax. Activation and warranty follow the store offer."
         },
         "officialPrice": {
           "amount": 25,
@@ -4048,7 +4083,7 @@ const products = [
           "months": 1,
           "basis": "reference",
           "source": "https://docs.lovable.dev/introduction/subscription-plans",
-          "checkedAt": "2026-10-08"
+          "checkedAt": "2026-10-31"
         },
         "credits": "100 كريدت شهريًا + 5 كريدت بناء يوميًا",
         "features": [
@@ -4070,10 +4105,12 @@ const products = [
         "priceComparison": {
           "planName": "Lovable Pro — 100 كريدت شهريًا",
           "source": "https://docs.lovable.dev/introduction/subscription-plans",
-          "checkedAt": "2026-10-08",
-          "status": "reference",
-          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر. الرصيد الشهري لعرض المتجر يُؤكد قبل الدفع.",
-          "billingLabel": "250 دولارًا إجمالي السنة — Pro 100"
+          "checkedAt": "2026-10-31",
+          "status": "unavailable",
+          "note": "رصيد هذا العرض غير محدد، لذلك لا تتوفر مقارنة موثقة مع باقة Pro الرسمية برصيد 100 كريدت شهريًا.",
+          "billingLabel": "250 دولارًا إجمالي السنة — Pro 100",
+          "showReferenceNote": true,
+          "noteEn": "This offer does not specify its credit allowance, so there is no verified comparison with the official Pro plan containing 100 monthly credits."
         },
         "officialPrice": {
           "amount": 250,
@@ -4142,7 +4179,29 @@ const products = [
           "Monthly and daily credits are separate allowances; 100 credits applies to each month, not the entire three-month term.",
           "This offer supplies a ready private account; follow the sign-in-code instructions provided at delivery.",
           "Generation limits and credit consumption vary with the type of change and project complexity."
-        ]
+        ],
+        "officialPrice": {
+          "amount": 75,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://lovable.dev/pricing",
+          "checkedAt": "2026-10-31"
+        },
+        "priceComparison": {
+          "planName": "Lovable Pro — 100 credits/month",
+          "status": "reference",
+          "source": "https://lovable.dev/pricing",
+          "checkedAt": "2026-10-31",
+          "billingLabel": "25 USD × 3 monthly subscriptions",
+          "priceLabel": "مرجع 3 اشتراكات شهرية",
+          "priceLabelEn": "Reference for 3 monthly subscriptions",
+          "savingLabel": "التوفير مقارنة بـ3 اشتراكات شهرية",
+          "savingLabelEn": "Saving vs 3 monthly subscriptions",
+          "showReferenceNote": true,
+          "note": "المرجع 25 دولارًا × 3 شهور = 75 دولارًا قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. هذه تكلفة 3 اشتراكات شهرية وليست باقة رسمية مستقلة لمدة 3 شهور؛ الحساب الجاهز وضمانه حسب عرض المتجر.",
+          "noteEn": "The reference is US$25 × 3 months = US$75 before tax, converted using the store rate. This is the cost of three monthly subscriptions, not a separate official three-month plan; ready-account delivery and warranty follow the store offer."
+        }
       }
     ],
     "categories": [
