@@ -21,6 +21,13 @@ for(const text of ['باقة كيرسور جروك اكس بكام؟','Cursor Gr
  const found=ask(text).find(p=>p.id==='cursor-grok-x-bundle');assert(found,text);
  const plan=JSON.parse(k.contextFor([found],rows)).details[0].plans[0];assert.equal(plan.priceEGP,1000);assert.equal(plan.duration,'1 شهر');assert.match(plan.account,/إيميلك الشخصي/);assert.match(plan.warranty,/كامل.*شهر/);assert.match(plan.credits,/أسبوعي مشترك/);assert(plan.features.some(x=>/استخدام إضافي مدفوع/.test(x)));assert(plan.notes.some(x=>/لا تتضمن Coursera/.test(x)));
 }
+// Keep the ready-account offer separate from personal-email activation.
+{
+ const ready=products.find(p=>p.id==='grok-cursor-premium');assert(ready);
+ const plan=JSON.parse(k.contextFor([ready],rows)).details[0].plans[0];
+ assert.equal(plan.priceEGP,1298);assert.equal(plan.duration,'1 شهر');assert.match(plan.warranty,/28/);assert.match(plan.account,/جاهز/);assert.match(plan.activation,/كلمة مرور البريد/);assert(plan.features.some(x=>/مشترك/.test(x)));assert(plan.notes.some(x=>/ليست تفعيلًا/.test(x)));assert.equal(ready.plans[0].officialPrice.amount,30);assert(ask('جروك كيرسور حساب جاهز').some(p=>p.id===ready.id));
+ const personal=products.find(p=>p.id==='cursor-grok-x-bundle').plans[0];assert.equal(personal.price,1000);assert.match(personal.account,/إيميلك الشخصي/);assert.match(personal.warranty,/شهر/);
+}
 assert.equal(products.find(p=>p.id==='supergrok-coursera-bundle').plans[0].price,1399);
 {
  const eleven=products.find(p=>p.id==='elevenlabs'),plans=JSON.parse(k.contextFor([eleven],rows)).details[0].plans,pro=plans[3];

@@ -1,5 +1,89 @@
 /* Service-specific editorial explanations; commercial terms stay in catalog.js. */
 (function(root,factory){const value=factory();if(typeof module==='object'&&module.exports)module.exports=value;else root.MasterProductGuideProfiles=value;})(typeof window==='undefined'?globalThis:window,function(){return {
+"grok-cursor-premium":{
+  "intro": "باقة Grok Premium + Cursor Premium تجمع مساعدًا للأفكار والمحتوى مع محرر يساعدك في العمل على الكود. العرض لمدة شهر بحساب جاهز وضمان 28 يومًا، مع تسليم بيانات الحساب والبريد. افتح «عرض المزيد» لمراجعة الاستخدام والتسليم والمقارنة السعرية.",
+  "introEn": "Grok Premium + Cursor Premium combines an assistant for ideas and content with an editor that helps you work on code. This one-month ready-account offer has a 28-day warranty and includes account and mailbox credentials. Open “Show more” for usage, delivery and pricing details.",
+  "workflow": "ابدأ بتنظيم فكرتك مع Grok، ثم حوّلها إلى مهمة برمجية محددة داخل Cursor. اطلب تفسير الملفات أو تعديل جزء صغير، وراجع النتيجة واختبرها قبل اعتمادها. تابع لوحة الاستخدام لتعرف الرصيد المتبقي وموعد تجدده.",
+  "workflowEn": "Organise an idea with Grok, then turn it into a focused coding task in Cursor. Ask for a file explanation or a small change, review the result and test it before accepting. Use the usage dashboard to track remaining allowance and its reset time.",
+  "check": "راجع أن العرض حساب جاهز لمدة شهر وضمانه 28 يومًا، وليس تفعيلًا على بريدك الشخصي. لا تفترض وجود رصيد مستقل لكل تطبيق أو شمول نماذج الشركات الأخرى. تفاصيل X والتوثيق على حسابك الشخصي ليست وعدًا ضمن هذا العرض.",
+  "checkEn": "Check that this is a one-month ready account with a 28-day warranty, not activation on your personal email. Do not assume separate quotas for each application or included third-party models. X benefits or verification on your personal account are not promised by this offer.",
+  "sections": [
+    {
+      "id": "grok-uses",
+      "title": "كيف يساعدك Grok في الأفكار والكتابة؟",
+      "titleEn": "Using Grok for ideas and writing",
+      "paragraphs": [
+        "استخدم Grok لمناقشة فكرة مشروع، ترتيب نقاط محتوى، شرح سؤال أو إعداد مسودة قابلة للمراجعة. اشرح الجمهور والهدف واللغة المطلوبة وأرفق السياق الذي تملك حق مشاركته لتحصل على اقتراح أقرب لاحتياجك.",
+        "مثال عملي: ابدأ بوصف فكرة موقعك، واطلب تقسيمها إلى صفحات ووظائف وأسئلة تحتاج قرارًا منك. راجع المعلومات المهمة والمراجع بنفسك، ثم انقل المتطلبات البرمجية المحددة إلى Cursor. الاستفادة من الأداتين لا تلغي الحاجة إلى التحقق من النتائج."
+      ],
+      "paragraphsEn": [
+        "Use Grok to discuss a project idea, organise content, explain a question or prepare a draft for review. Specify the audience, goal and language, and provide context you have permission to share.",
+        "For example, describe a website idea and ask for pages, functions and decisions you still need to make. Check important facts and sources yourself, then take focused coding requirements into Cursor. Using both tools still requires reviewing their results."
+      ]
+    },
+    {
+      "id": "cursor-uses",
+      "title": "كيف تستخدم Cursor في البرمجة؟",
+      "titleEn": "Using Cursor for coding",
+      "paragraphs": [
+        "Cursor محرر برمجة يعمل مع ملفات المشروع ويساعد في شرح الأكواد واقتراح التعديلات وكتابة أجزاء جديدة. ابدأ بنسخة محفوظة من المشروع، وحدد الملف والمشكلة والنتيجة المطلوبة بدل طلب تغييرات واسعة لا تستطيع مراجعتها.",
+        "يمكنك طلب شرح دالة، أو تحديد سبب رسالة خطأ، أو اقتراح تعديل محدود مع طريقة اختباره. اقرأ الملفات التي تغيرت وشغّل الاختبارات المناسبة قبل النشر؛ لا يوجد ضمان بأن الكود المولّد صحيح تلقائيًا أو أن كل نموذج متاح داخل الرصيد المشمول."
+      ],
+      "paragraphsEn": [
+        "Cursor is a coding editor that works with project files to explain code, suggest changes and write new sections. Save a copy of the project and specify the file, problem and intended result instead of requesting broad changes you cannot review.",
+        "Ask it to explain a function, investigate an error or suggest a small change with a way to test it. Read changed files and run appropriate checks before publishing; generated code is not automatically correct, and not every model is covered by the included allowance."
+      ]
+    },
+    {
+      "id": "delivery-warranty",
+      "title": "تسليم الحساب والفرق بين الشهر والضمان",
+      "titleEn": "Account delivery and the warranty period",
+      "paragraphs": [
+        "هذا العرض يسلّم حسابًا جاهزًا، وليس دعوة أو تفعيلًا على إيميلك الشخصي. بيانات التسليم هي البريد الإلكتروني وكلمة مرور حساب الخدمة وكلمة مرور البريد المورَّد، مع خطوات الدخول. بعد الاستلام تحقّق من الوصول إلى Grok وCursor ونوع الخطة وتاريخ انتهائها.",
+        "مدة الاشتراك شهر، بينما الضمان 28 يومًا وفق شروط العرض وسياسة المتجر. احتفظ برقم الطلب وتواصل مع الدعم عند وجود مشكلة وصول خلال الضمان. كلمات المرور المذكورة تخص الحساب الجاهز الذي يصلك؛ لا يطلب هذا الوصف إرسال كلمة مرور حسابك الشخصي أو رمز تحققك."
+      ],
+      "paragraphsEn": [
+        "This offer delivers a ready-made account rather than an invitation or activation on your personal email. Delivery includes the email address, service account password and supplied mailbox password, with sign-in instructions. Check access to Grok and Cursor, the plan and its expiry after receipt.",
+        "The subscription lasts one month, while the warranty lasts 28 days under the offer terms and store policy. Keep your order number and contact support about access problems during coverage. The stated passwords belong to the supplied account; this description does not ask for your personal password or verification code."
+      ]
+    },
+    {
+      "id": "usage-limits",
+      "title": "حدود Premium وما يُحاسب منفصلًا",
+      "titleEn": "Premium limits and separately billed usage",
+      "paragraphs": [
+        "المرجع الرسمي الحالي يوضح أن Premium الموحّدة تستخدم رصيدًا مشتركًا يتجدد أسبوعيًا لاستخدامات Grok المشمولة عبر Grok وCursor. مقدار الاستهلاك يختلف حسب النموذج والأداة وحجم المهمة. راجع الحدود الفعلية في الحساب المستلم؛ لا تعني كلمة Premium عددًا غير محدود من الطلبات أو رصيدًا شهريًا مستقلًا لكل تطبيق.",
+        "نماذج الشركات الأخرى داخل Cursor، مثل Claude وGPT عند توفرها، تُحاسب منفصلًا وليست ضمن رصيد Premium المشمول. الرصيد الإضافي وعمليات الشحن التلقائي ليست جزءًا من سعر هذا العرض. الخدمة وطريقة استخدام الحساب تخضعان لشروط المزود، ولا يدّعي المتجر صفة الشريك الرسمي."
+      ],
+      "paragraphsEn": [
+        "The current provider reference describes a shared weekly allowance for included Grok-model activity across Grok and Cursor. Usage varies by model, tool and task size. Check the actual limits in the delivered account; Premium does not mean unlimited requests or a separate monthly pool for each app.",
+        "Third-party models in Cursor, such as Claude and GPT where available, are billed separately and are outside the included Premium pool. Additional credits and automatic top-ups are not part of this offer. Accounts and their use remain subject to provider terms; the store does not claim official partner status."
+      ]
+    },
+    {
+      "id": "price-reference",
+      "title": "السعر الرسمي الحالي والمقارنة التاريخية",
+      "titleEn": "Current official reference and historical comparison",
+      "paragraphs": [
+        "مرجع Premium الموحّدة الحالي 30 دولارًا للشهر قبل الضرائب؛ مقارنة السعر أعلى الصفحة تستخدم تحويل العملة المعتمد بالمتجر. الحساب الجاهز وضمان 28 يومًا من شروط عرض ماستر ستور، ولا يعني المرجع أن التسليم والضمان مطابقان للشراء المباشر من المزود.",
+        "النص الدعائي يقارن أيضًا بأسعار منفصلة قديمة: SuperGrok بـ30 دولارًا وCursor Pro بـ20 دولارًا، بإجمالي 50 دولارًا. على دولار بـ59 جنيهًا فقط، تعادل 1770 + 1180 = 2950 جنيهًا؛ وبسعر الإعلان 1298 جنيهًا يكون الفرق 1652 جنيهًا، نحو 56%. هذه مقارنة تاريخية بفئتين قديمتين، وليست خصمًا عن السعر الرسمي الحالي للباقة الموحّدة.",
+        "وبنفس حساب الإعلان على دولار بـ59 جنيهًا، فإن مرجع الباقة الموحّدة 30 دولارًا يعادل 1770 جنيهًا والفرق 472 جنيهًا، نحو 26.7%. مثال التحويل هذا ثابت لتوضيح نص الإعلان؛ نسبة التوفير المعروضة أعلى الصفحة تتبع السعر الحالي وتحويل العملة المعتمد بالمتجر."
+      ],
+      "paragraphsEn": [
+        "The current unified Premium reference is USD 30 per month before tax; the comparison above uses the store’s currency conversion. Ready-account delivery and the 28-day warranty are Master Store offer terms, not a promise of identical delivery or coverage to a direct provider purchase.",
+        "The advertisement also uses older standalone prices: USD 30 for SuperGrok and USD 20 for Cursor Pro, totalling USD 50. Specifically at EGP 59 per USD, these equal EGP 1,770 + 1,180 = 2,950; against the advertised EGP 1,298, the difference is EGP 1,652, about 56%. This is a historical comparison of legacy tiers, not the saving against today’s unified bundle.",
+        "At that same advertisement rate of EGP 59 per USD, the USD 30 unified reference equals EGP 1,770, a difference of EGP 472, about 26.7%. This fixed conversion example explains the advertisement; the saving shown above follows the current offer price and the store’s currency conversion."
+      ]
+    }
+  ],
+  "sources": [
+    "https://docs.x.ai/x-subscription/pricing",
+    "https://cursor.com/pricing",
+    "https://docs.x.ai/x-subscription/usage-limits",
+    "https://prod.cursor.com/docs/account/pricing/legacy-cursor-plans",
+    "https://x.ai/pricing"
+  ]
+},
 "cursor-grok-x-bundle":{
   "intro": "باقة Cursor Pro + Grok + X Premium+ تجمع البرمجة والمساعدة بالذكاء الاصطناعي ومزايا النشر في اشتراك Premium موحّد. تُفعّل لمدة شهر على إيميلك الشخصي وحساباتك المرتبطة، بضمان شهر. اقرأ تفاصيل التكامل والرصيد المشترك وخطوات الاستخدام قبل الطلب.",
   "introEn": "Cursor Pro + Grok + X Premium+ combines coding, AI assistance and publishing benefits in one unified Premium subscription. It is activated for one month on your personal email and connected accounts, with a one-month warranty. Read how linking, shared usage and practical workflows operate before ordering.",

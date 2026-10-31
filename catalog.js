@@ -1,5 +1,130 @@
 const products = [
 {
+  "id": "grok-cursor-premium",
+  "name": "Grok Premium + Cursor Premium",
+  "category": "البرمجة وتطوير المواقع",
+  "categories": [
+    "مساعد كتابة الكود",
+    "محادثة ومساعد ذكي"
+  ],
+  "logo": "grok-cursor-premium",
+  "logoUrl": "logos/grok-cursor-premium.svg?v=20261031-ready1",
+  "status": "available",
+  "description": "Grok Premium + Cursor Premium لمدة شهر بسعر 1298 جنيه، بحساب جاهز يشمل البريد وكلمة مرور الحساب وكلمة مرور البريد، وضمان 28 يومًا. باقة تجمع مناقشة الأفكار وصياغة المحتوى مع المساعدة في كتابة الأكواد وفهمها وتعديلها.",
+  "descriptionEn": "Grok Premium + Cursor Premium for one month at EGP 1,298, with a ready-made account, email address, account and mailbox passwords, and a 28-day warranty. Combine idea discussion and content drafting with help writing, understanding and editing code.",
+  "features": [
+    "Grok Premium + Cursor Premium في باقة واحدة لمدة شهر.",
+    "Grok لمناقشة الأفكار وشرح الأسئلة وتنظيم مسودات المحتوى.",
+    "Cursor للمساعدة في كتابة الأكواد وفهم ملفات المشروع وتعديلها داخل محرر البرمجة.",
+    "حساب جاهز؛ يشمل التسليم البريد الإلكتروني وكلمة مرور الحساب وكلمة مرور البريد.",
+    "ضمان لمدة 28 يومًا وفق شروط العرض وسياسة المتجر.",
+    "المزايا وحدود الاستخدام حسب فئة Premium المفعّلة؛ لا يوجد وعد باستخدام غير محدود.",
+    "الرصيد المشمول في Premium الموحّدة مشترك بين استخدامات Grok المدعومة وCursor ويتجدد أسبوعيًا.",
+    "نماذج الشركات الأخرى داخل Cursor والرصيد الإضافي ليست ضمن سعر الباقة وتُحاسب منفصلًا."
+  ],
+  "featuresEn": [
+    "Grok Premium + Cursor Premium together for one month.",
+    "Use Grok to discuss ideas, explain questions and organise content drafts.",
+    "Use Cursor to help write code, understand project files and make changes inside the coding editor.",
+    "Ready-made account; delivery includes the email address, account password and mailbox password.",
+    "A 28-day warranty under the offer terms and store policy.",
+    "Features and usage limits follow the activated Premium tier; unlimited usage is not promised.",
+    "The unified Premium allowance is shared across supported Grok activity and Cursor, with a weekly reset.",
+    "Third-party models in Cursor and additional credits are outside this offer and billed separately."
+  ],
+  "notes": [
+    "هذه باقة حساب جاهز، وليست تفعيلًا على إيميلك الشخصي؛ يختلف عرضها عن باقة Cursor + Grok + X الموجودة بالمتجر.",
+    "مدة الاشتراك شهر، ومدة الضمان 28 يومًا؛ المدتان منفصلتان.",
+    "لا يتضمن وصف العرض تفعيل X Premium+ على حسابك الشخصي أو ضمان العلامة الزرقاء.",
+    "راجع نوع الخطة وموعد الانتهاء والرصيد المتبقي بعد الاستلام؛ لا نعد بعدد طلبات أو كريدت غير مذكور.",
+    "تسليم كلمات المرور يخص الحساب والبريد الجاهزين المورَّدين؛ لا ترسل كلمة مرور بريدك الشخصي أو كود تحققك في الشات.",
+    "حسابات الخدمات وطريقة استعمالها تخضع لشروط المزود؛ ماستر ستور لا يدّعي شراكة رسمية مع Grok أو Cursor.",
+    "مقارنة التوفير الحالية تستخدم مرجع Premium الموحّدة البالغ 30 دولارًا قبل الضرائب وتحويل العملة المعتمد بالمتجر؛ طريقة التسليم والضمان تخصان عرض المتجر."
+  ],
+  "notesEn": [
+    "This is a ready-made account offer, not activation on your personal email; it differs from the store’s Cursor + Grok + X offer.",
+    "The subscription lasts one month and the warranty lasts 28 days; these are separate periods.",
+    "This offer does not promise X Premium+ activation on your personal account or a blue checkmark.",
+    "Check the plan, expiry date and remaining allowance on receipt; no unspecified request or credit quota is promised.",
+    "Delivered passwords belong to the supplied account and mailbox; do not send your personal mailbox password or verification codes in chat.",
+    "Service accounts and their use are subject to provider terms; Master Store does not claim an official partnership with Grok or Cursor.",
+    "The current saving reference is the unified Premium plan at USD 30 before tax, using the store’s currency conversion; delivery and warranty terms are those of this store offer."
+  ],
+  "plans": [
+    {
+      "name": "Premium — شهر — حساب جاهز — ضمان 28 يومًا",
+      "planType": "Grok Premium + Cursor Premium",
+      "duration": "1 شهر",
+      "price": 1298,
+      "available": true,
+      "account": "حساب جاهز مع البريد وكلمات مرور الحساب والبريد",
+      "accountType": "حساب جاهز",
+      "activation": "تسليم البريد الإلكتروني وكلمة مرور الحساب وكلمة مرور البريد، مع خطوات الدخول إلى Grok وCursor.",
+      "warranty": "ضمان لمدة 28 يومًا",
+      "credits": "رصيد Premium الموحّدة المشترك حسب الحدود الظاهرة بالحساب",
+      "features": [
+        "Grok Premium + Cursor Premium في باقة واحدة لمدة شهر.",
+        "Grok لمناقشة الأفكار وشرح الأسئلة وتنظيم مسودات المحتوى.",
+        "Cursor للمساعدة في كتابة الأكواد وفهم ملفات المشروع وتعديلها داخل محرر البرمجة.",
+        "حساب جاهز؛ يشمل التسليم البريد الإلكتروني وكلمة مرور الحساب وكلمة مرور البريد.",
+        "ضمان لمدة 28 يومًا وفق شروط العرض وسياسة المتجر.",
+        "المزايا وحدود الاستخدام حسب فئة Premium المفعّلة؛ لا يوجد وعد باستخدام غير محدود.",
+        "الرصيد المشمول في Premium الموحّدة مشترك بين استخدامات Grok المدعومة وCursor ويتجدد أسبوعيًا.",
+        "نماذج الشركات الأخرى داخل Cursor والرصيد الإضافي ليست ضمن سعر الباقة وتُحاسب منفصلًا."
+      ],
+      "featuresEn": [
+        "Grok Premium + Cursor Premium together for one month.",
+        "Use Grok to discuss ideas, explain questions and organise content drafts.",
+        "Use Cursor to help write code, understand project files and make changes inside the coding editor.",
+        "Ready-made account; delivery includes the email address, account password and mailbox password.",
+        "A 28-day warranty under the offer terms and store policy.",
+        "Features and usage limits follow the activated Premium tier; unlimited usage is not promised.",
+        "The unified Premium allowance is shared across supported Grok activity and Cursor, with a weekly reset.",
+        "Third-party models in Cursor and additional credits are outside this offer and billed separately."
+      ],
+      "notes": [
+        "هذه باقة حساب جاهز، وليست تفعيلًا على إيميلك الشخصي؛ يختلف عرضها عن باقة Cursor + Grok + X الموجودة بالمتجر.",
+        "مدة الاشتراك شهر، ومدة الضمان 28 يومًا؛ المدتان منفصلتان.",
+        "لا يتضمن وصف العرض تفعيل X Premium+ على حسابك الشخصي أو ضمان العلامة الزرقاء.",
+        "راجع نوع الخطة وموعد الانتهاء والرصيد المتبقي بعد الاستلام؛ لا نعد بعدد طلبات أو كريدت غير مذكور.",
+        "تسليم كلمات المرور يخص الحساب والبريد الجاهزين المورَّدين؛ لا ترسل كلمة مرور بريدك الشخصي أو كود تحققك في الشات.",
+        "حسابات الخدمات وطريقة استعمالها تخضع لشروط المزود؛ ماستر ستور لا يدّعي شراكة رسمية مع Grok أو Cursor.",
+        "مقارنة التوفير الحالية تستخدم مرجع Premium الموحّدة البالغ 30 دولارًا قبل الضرائب وتحويل العملة المعتمد بالمتجر؛ طريقة التسليم والضمان تخصان عرض المتجر."
+      ],
+      "notesEn": [
+        "This is a ready-made account offer, not activation on your personal email; it differs from the store’s Cursor + Grok + X offer.",
+        "The subscription lasts one month and the warranty lasts 28 days; these are separate periods.",
+        "This offer does not promise X Premium+ activation on your personal account or a blue checkmark.",
+        "Check the plan, expiry date and remaining allowance on receipt; no unspecified request or credit quota is promised.",
+        "Delivered passwords belong to the supplied account and mailbox; do not send your personal mailbox password or verification codes in chat.",
+        "Service accounts and their use are subject to provider terms; Master Store does not claim an official partnership with Grok or Cursor.",
+        "The current saving reference is the unified Premium plan at USD 30 before tax, using the store’s currency conversion; delivery and warranty terms are those of this store offer."
+      ],
+      "officialPrice": {
+        "amount": 30,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://docs.x.ai/x-subscription/pricing",
+        "checkedAt": "2026-10-31",
+        "estimated": false
+      },
+      "priceComparison": {
+        "status": "reference",
+        "source": "https://docs.x.ai/x-subscription/pricing",
+        "checkedAt": "2026-10-31",
+        "priceLabel": "مرجع Premium الموحّدة — شهر",
+        "priceLabelEn": "Unified Premium reference — 1 month",
+        "savingLabel": "التوفير مقابل المرجع الحالي",
+        "savingLabelEn": "Saving against the current reference",
+        "showReferenceNote": true,
+        "note": "مرجع Premium الموحّدة: 30 دولارًا للشهر قبل الضرائب. التحويل الداخلي للمتجر 56 جنيهًا للدولار؛ عرض الحساب الجاهز وضمان 28 يومًا يختلفان عن الشراء المباشر. نسبة 56% في النص الدعائي مقارنة تاريخية بالأسعار المنفصلة على دولار بـ59 جنيهًا وليست الخصم عن الباقة الحالية.",
+        "noteEn": "Unified Premium reference: USD 30 per month before tax. The store’s internal conversion is EGP 56 per USD; ready-account delivery and the 28-day warranty differ from a direct purchase. The advertisement’s 56% figure is a historical comparison with separate plans at EGP 59 per USD, not a saving against the current bundle."
+      }
+    }
+  ]
+},
+{
   "id": "cursor-grok-x-bundle",
   "name": "Cursor Pro + Grok + X Premium+",
   "category": "البرمجة وتطوير المواقع",
