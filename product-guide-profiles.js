@@ -1,5 +1,47 @@
 /* Service-specific editorial explanations; commercial terms stay in catalog.js. */
 (function(root,factory){const value=factory();if(typeof module==='object'&&module.exports)module.exports=value;else root.MasterProductGuideProfiles=value;})(typeof window==='undefined'?globalThis:window,function(){return {
+"autodesk-apps":{
+  "intro": "باقة تطبيقات Autodesk المشمولة بالتفعيل، بما فيها 3ds Max، لمدة 3 سنوات بسعر 380 جنيه وضمان سنة واحدة. يُؤكد نوع الترخيص وقائمة التطبيقات والإصدارات وطريقة التفعيل قبل الدفع.",
+  "introEn": "Autodesk applications covered by activation, including 3ds Max, for three years at EGP 380 with a one-year warranty. Confirm licence type, the application/version list and activation method before payment.",
+  "workflow": "حدد التطبيقات والإصدارات المطلوبة، وابدأ بـ3ds Max إن كان هدفك النمذجة أو الإظهار ثلاثي الأبعاد. راجع مع الدعم نوع الترخيص وتوافق نظام جهازك وطريقة التفعيل، ثم نزّل النسخة المطابقة من Autodesk وتحقق من التطبيقات الظاهرة في حسابك بعد التفعيل.",
+  "workflowEn": "Identify the applications and versions you need, starting with 3ds Max for modelling or visualisation. Confirm licence type, system compatibility and activation with support, then download the matching version from Autodesk and check the applications visible in your account.",
+  "check": "السعر 380 جنيه لمدة 3 سنوات، والضمان سنة واحدة. نطاق التطبيقات والإصدارات وعدد الأجهزة ونوع الترخيص تُؤكد قبل الدفع. لا تفترض أن هذا اشتراك تجاري أو أن الخدمات السحابية والإضافات المدفوعة مشمولة.",
+  "checkEn": "EGP 380 for three years, with a one-year warranty. Confirm application/version coverage, device count and licence type before payment. Do not assume commercial-use rights or included cloud services and paid add-ons.",
+  "sections": [
+    {
+      "id": "three-year-offer",
+      "title": "التطبيقات المشمولة ومدة الضمان",
+      "titleEn": "Included applications and warranty term",
+      "paragraphs": [
+        "وصول إلى تطبيقات Autodesk المشمولة بالتفعيل لمدة 3 سنوات، بما فيها 3ds Max.",
+        "3ds Max للنمذجة والتحريك والإظهار ثلاثي الأبعاد ضمن النسخة المتاحة.",
+        "ضمان لمدة سنة واحدة وفق شروط العرض وسياسة المتجر.",
+        "نوع الترخيص وطريقة التفعيل وقائمة التطبيقات والإصدارات المتاحة تُؤكد قبل الدفع.",
+        "مدة عرض المتجر 3 سنوات، والضمان سنة واحدة فقط.",
+        "وصف «كل التطبيقات» يخص التطبيقات المشمولة بالتفعيل؛ خدمات السحابة والإضافات المدفوعة وأرصدة الرندر ليست مضمونة ما لم تُذكر صراحة.",
+        "لم يحدد العرض هل الترخيص تجاري أم تعليمي؛ يُؤكد نوعه وأهليته للاستخدام المطلوب قبل الدفع. إذا كان تعليميًا، يخضع لأهلية وشروط Autodesk التعليمية ولا يُعرض كرخصة عمل تجاري.",
+        "عدد الأجهزة وطريقة التسليم والبريد المستخدم للتفعيل تُؤكد مع الدعم قبل الدفع.",
+        "نزّل البرامج من Autodesk وراجع متطلبات كل تطبيق وإصداره؛ 3ds Max له متطلبات Windows الخاصة به."
+      ],
+      "paragraphsEn": [
+        "Access to the Autodesk applications covered by the activation for three years, including 3ds Max.",
+        "3ds Max for 3D modelling, animation and rendering within the available edition.",
+        "One-year warranty under the offer terms and store policy.",
+        "Confirm licence type, activation method and the available application/version list before payment.",
+        "The store offer lasts three years, with only a one-year warranty.",
+        "“All applications” refers to the applications covered by activation; cloud services, paid add-ons and rendering credits are not guaranteed unless expressly listed.",
+        "The offer does not specify commercial or education licensing; confirm the licence and eligibility for your intended use before payment. Educational access is subject to Autodesk eligibility and education terms and is not sold as a commercial-use licence.",
+        "Confirm device count, delivery method and activation email with support before payment.",
+        "Download from Autodesk and check each application/version’s requirements; 3ds Max has its own Windows requirements."
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.autodesk.com/products/3ds-max/overview",
+    "https://www.autodesk.com/products",
+    "https://www.autodesk.com/support/account/education/students-educators/overview"
+  ]
+},
 "kaspersky-premium":{
   "intro": "اشتراك Kaspersky Premium لمدة سنة على جهاز واحد بسعر 800 جنيه، لنظام Windows، مع VPN Premium، ضمان 300 يوم. راجع توافق الجهاز وبلد التفعيل وطريقة التسليم قبل الطلب.",
   "introEn": "Kaspersky Premium for one year on one device at EGP 800, for Windows, with Premium VPN, 300-day warranty. Check device compatibility, activation country and delivery before ordering.",
@@ -569,27 +611,27 @@
     "checkEn": "Similarity reports and AI detection are different outputs. Neither should be treated as conclusive evidence of misconduct or a guarantee of academic acceptance."
   },
   "chatgpt-plus": {
-    "intro": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو حساب خاص جاهز بضمان 25 يومًا بـ780 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ1100 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
-    "introEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a 25-day warranty for EGP 780, or activation and renewal on your personal account for EGP 1,100. Review the delivery method and warranty of your chosen plan.",
-    "workflow": "ابدأ بهدف واضح وقدّم المعلومات اللازمة وشكل المخرجات. اطلب مسودة قابلة للمراجعة، ثم عدّل النبرة أو ترتيب الأفكار أو طريقة الحساب خطوة بخطوة بدل إعادة الطلب كاملًا.",
-    "workflowEn": "Start with a clear goal, relevant information, and desired format. Request a reviewable draft, then refine tone, structure, or calculations step by step instead of restarting the request.",
-    "check": "باقات Plus في المتجر تختلف في التسليم والضمان؛ الحساب بدون ضمان ليس حسابًا جاهزًا بضمان، والتفعيل الشخصي مسار آخر كما توضح كل باقة.",
-    "checkEn": "Store Plus offers differ in delivery and warranty. A no-warranty account is not the ready-account warranty offer; personal-account activation is another option with its own terms.",
-    "reports": [
-        {
-            "id": "private-ready-warranty",
-            "title": "الحساب الخاص الجاهز بضمان 25 يومًا",
-            "titleEn": "Ready private account with a 25-day warranty",
-            "paragraphs": [
-                "الباقة الجديدة بسعر 780 جنيه هي اشتراك ChatGPT Plus لمدة شهر على حساب خاص جاهز وغير مشترك مع عملاء آخرين. تُسلّم بيانات الدخول، ومدة الضمان 25 يومًا، فتختلف مدة الضمان عن الشهر الكامل للاشتراك.",
-                "يمكن استخدام أدوات Plus المتاحة على الحساب للكتابة والمذاكرة والبحث وتحليل الملفات والصور حسب حدود الخطة. راجع تعليمات التسليم والوصول، وتواصل مع الدعم برقم الطلب لو واجهتك مشكلة خلال فترة الضمان."
-            ],
-            "paragraphsEn": [
-                "The new EGP 780 offer is one month of ChatGPT Plus on a ready private account that is not shared with other customers. Login details are supplied and warranty lasts 25 days, which differs from the full subscription month.",
-                "Use the Plus tools available on the account for writing, study, research and file and image analysis within plan limits. Review delivery and access instructions, and contact support with your order reference if an issue occurs during the warranty period."
-            ]
-        }
-    ]
+  "intro": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو حساب خاص جاهز بضمان 25 يومًا بـ700 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ1100 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
+  "introEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a 25-day warranty for EGP 700, or activation and renewal on your personal account for EGP 1,100. Review the delivery method and warranty of your chosen plan.",
+  "workflow": "ابدأ بهدف واضح وقدّم المعلومات اللازمة وشكل المخرجات. اطلب مسودة قابلة للمراجعة، ثم عدّل النبرة أو ترتيب الأفكار أو طريقة الحساب خطوة بخطوة بدل إعادة الطلب كاملًا.",
+  "workflowEn": "Start with a clear goal, relevant information, and desired format. Request a reviewable draft, then refine tone, structure, or calculations step by step instead of restarting the request.",
+  "check": "باقات Plus في المتجر تختلف في التسليم والضمان؛ الحساب بدون ضمان ليس حسابًا جاهزًا بضمان، والتفعيل الشخصي مسار آخر كما توضح كل باقة.",
+  "checkEn": "Store Plus offers differ in delivery and warranty. A no-warranty account is not the ready-account warranty offer; personal-account activation is another option with its own terms.",
+  "reports": [
+    {
+      "id": "private-ready-warranty",
+      "title": "الحساب الخاص الجاهز بضمان 25 يومًا",
+      "titleEn": "Ready private account with a 25-day warranty",
+      "paragraphs": [
+        "الباقة الجديدة بسعر 700 جنيه هي اشتراك ChatGPT Plus لمدة شهر على حساب خاص جاهز وغير مشترك مع عملاء آخرين. تُسلّم بيانات الدخول، ومدة الضمان 25 يومًا، فتختلف مدة الضمان عن الشهر الكامل للاشتراك.",
+        "يمكن استخدام أدوات Plus المتاحة على الحساب للكتابة والمذاكرة والبحث وتحليل الملفات والصور حسب حدود الخطة. راجع تعليمات التسليم والوصول، وتواصل مع الدعم برقم الطلب لو واجهتك مشكلة خلال فترة الضمان."
+      ],
+      "paragraphsEn": [
+        "The new EGP 700 offer is one month of ChatGPT Plus on a ready private account that is not shared with other customers. Login details are supplied and warranty lasts 25 days, which differs from the full subscription month.",
+        "Use the Plus tools available on the account for writing, study, research and file and image analysis within plan limits. Review delivery and access instructions, and contact support with your order reference if an issue occurs during the warranty period."
+      ]
+    }
+  ]
 },
   "chatgpt-teachers-k12": {
     "intro": "باقة ChatGPT للمعلمين K12 موجهة لاستخدامات التدريس وإعداد الأنشطة والمراجعات. يساعد وضوح المرحلة الدراسية والهدف من الدرس على جعل الشرح والأسئلة أقرب لاحتياج الطالب.",
@@ -1070,13 +1112,13 @@
     "checkEn": "The Premium name does not include every membership type or add-on in every country. Use the listed plan details to confirm benefits."
   },
   "kling": {
-    "intro": "Kling AI مخصص لتجربة لقطات فيديو بالذكاء الاصطناعي من وصف أو صورة. يناسب من لديه فكرة بصرية واضحة ويريد تحويلها إلى مشهد قابل للمراجعة والتطوير.",
-    "introEn": "Kling AI helps explore AI-generated video shots from text or images. It suits turning a defined visual idea into a scene you can review and develop.",
-    "workflow": "اكتب موضوع اللقطة وحركة الكاميرا وما يجب أن يبقى ثابتًا. جرّب إعدادًا أوليًا، وراجع اتساق العناصر، ثم عدّل عاملًا واحدًا في كل محاولة لتعرف أثره على النتيجة.",
-    "workflowEn": "Describe the subject, camera motion, and what must stay consistent. Review an initial result, then change one factor per attempt to understand its effect.",
-    "check": "حصة الكريدت ليست عدد فيديوهات ثابتًا. مدة اللقطة والنموذج والجودة تؤثر في الاستهلاك، ومدة الضمان تُراجع مستقلة عن الرصيد.",
-    "checkEn": "Credits do not represent a fixed video count. Shot length, model, and quality affect consumption, while warranty term is separate from the balance."
-  },
+  "intro": "باقات Kling AI لتوليد الفيديو: شهر بضمان كامل ورصيد من 1,000 إلى 1,300 كريدت بسعر 16 دولارًا، أو حزمة 1,100 كريدت بسعر 700 جنيه وضمان 5 أيام. اختر الباقة لمراجعة الرصيد والمدة والضمان.",
+  "introEn": "Kling AI video-generation offers: one month with a full warranty and 1,000–1,300 credits for USD 16, or a 1,100-credit package for EGP 700 with a five-day warranty. Select a plan to review credits, duration and coverage.",
+  "workflow": "اكتب موضوع اللقطة وحركة الكاميرا وما يجب أن يبقى ثابتًا. جرّب إعدادًا أوليًا، وراجع اتساق العناصر، ثم عدّل عاملًا واحدًا في كل محاولة لتعرف أثره على النتيجة.",
+  "workflowEn": "Describe the subject, camera motion, and what must stay consistent. Review an initial result, then change one factor per attempt to understand its effect.",
+  "check": "باقة الشهر الجديدة بسعر 16 دولارًا وضمان كامل لمدة شهر، ورصيدها عند التسليم من 1,000 إلى 1,300 كريدت. حزمة 1,100 كريدت القديمة مستقلة وضمانها 5 أيام؛ لا تُنقل شروطها إلى باقة الشهر.",
+  "checkEn": "The new USD 16 monthly offer has a full one-month warranty and 1,000–1,300 credits on delivery. The older 1,100-credit package is separate with a five-day warranty; its terms do not transfer to the monthly offer."
+},
   "grammarly": {
     "intro": "Grammarly Premium يساعد في مراجعة الكتابة وتصحيحها وتحسين وضوحها ونبرتها. يفيد عندما تريد ملاحظات أثناء التحرير بدل الاكتفاء بمراجعة النص بعد انتهائه.",
     "introEn": "Grammarly Premium helps review writing, correct it, and improve clarity and tone. It is useful for feedback during editing rather than only after a draft is finished.",

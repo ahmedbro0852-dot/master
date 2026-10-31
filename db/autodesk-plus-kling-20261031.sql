@@ -1,0 +1,2 @@
+update public.master_store_plans set price_piasters=70000,admin_overridden=true where product_id='chatgpt-plus' and plan_index=3 and price_piasters=78000;
+insert into public.master_store_plans(product_id,plan_index,product_name,plan_name,duration,price_piasters,available,max_quantity,admin_overridden) values ('autodesk-apps',0,'Autodesk Apps + 3ds Max','تطبيقات Autodesk + 3ds Max — 3 سنوات','36 شهر',38000,true,5,false),('kling',1,'Kling AI','شهر — 1,000 إلى 1,300 كريدت — ضمان كامل','1 شهر',89600,true,5,false) on conflict(product_id,plan_index) do nothing;
