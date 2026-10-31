@@ -71,5 +71,7 @@
   "service-guides.js",
   "site-ads.js",
   "site-ads.css",
-  "campaign-admin.js"
+  "campaign-admin.js",
+  "fresh-offers.js",
+  "fresh-offers.css"
 ]
