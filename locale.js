@@ -391,6 +391,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
   "ضمان لمدة 28 يومًا": "28-day warranty",
   "رصيد Premium الموحّدة المشترك حسب الحدود الظاهرة بالحساب": "Shared unified Premium allowance, subject to limits shown in the account"
 });
+  Object.assign(exactArToEn,{"مدة الاشتراك شهر كامل؛ يظهر السعر الحالي وسعر المتجر السابق في ملخص الباقة.": "One full month; the plan summary shows the current price and the previous store price."});
   function catalogText(value,kind,productId){
     const raw=String(value??"");
     if(state.language==="en"&&["lovable-pro","chatgpt-plus","hostinger","grok-cursor-premium"].includes(productId)){if(kind==="description")return window.MasterCatalog.getProduct(productId).descriptionEn;if(exactArToEn[raw])return exactArToEn[raw];}

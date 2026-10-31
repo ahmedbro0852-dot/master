@@ -31,7 +31,7 @@ for(const text of ['باقة كيرسور جروك اكس بكام؟','Cursor Gr
 assert.equal(products.find(p=>p.id==='supergrok-coursera-bundle').plans[0].price,1399);
 {
  const eleven=products.find(p=>p.id==='elevenlabs'),plans=JSON.parse(k.contextFor([eleven],rows)).details[0].plans,pro=plans[3];
- assert.equal(plans.length,4);assert.equal(plans[1].priceEGP,1250);assert.equal(plans[2].priceEGP,550);assert.equal(pro.priceEGP,450);assert.equal(pro.duration,'1 شهر');assert.match(pro.warranty,/25/);assert.match(pro.credits,/50,000/);assert.match(pro.account,/مساحة عمل/);assert(pro.features.some(x=>/استنساخ الصوت غير متاح/.test(x)));assert.equal(eleven.plans[3].officialPrice,undefined);
+ assert.equal(plans.length,4);assert.equal(plans[1].priceEGP,1250);assert.equal(plans[2].priceEGP,500);assert.equal(eleven.plans[2].previousStorePrice,550);assert.match(plans[2].credits,/131,000/);assert.equal(pro.priceEGP,450);assert.equal(pro.duration,'1 شهر');assert.match(pro.warranty,/25/);assert.match(pro.credits,/50,000/);assert.match(pro.account,/مساحة عمل/);assert(pro.features.some(x=>/استنساخ الصوت غير متاح/.test(x)));assert.equal(eleven.plans[3].officialPrice,undefined);
 }
 {
  const product=products.find(p=>p.id==='freepik'),plans=JSON.parse(k.contextFor([product],rows)).details[0].plans;
