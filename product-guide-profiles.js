@@ -381,13 +381,28 @@
     "checkEn": "Similarity reports and AI detection are different outputs. Neither should be treated as conclusive evidence of misconduct or a guarantee of academic acceptance."
   },
   "chatgpt-plus": {
-    "intro": "ChatGPT Plus مساعد للمحادثة والكتابة والعمل على الملفات والصور ضمن أدوات الخطة. يفيد من يجمع في يومه أكثر من نوع من المهام ويريد تطوير النتيجة بالحوار.",
-    "introEn": "ChatGPT Plus assists with conversations, writing, files, and images within the plan’s tools. It suits people handling different daily tasks who refine results through dialogue.",
+    "intro": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو حساب خاص جاهز بضمان 25 يومًا بـ780 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ1100 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
+    "introEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a 25-day warranty for EGP 780, or activation and renewal on your personal account for EGP 1,100. Review the delivery method and warranty of your chosen plan.",
     "workflow": "ابدأ بهدف واضح وقدّم المعلومات اللازمة وشكل المخرجات. اطلب مسودة قابلة للمراجعة، ثم عدّل النبرة أو ترتيب الأفكار أو طريقة الحساب خطوة بخطوة بدل إعادة الطلب كاملًا.",
     "workflowEn": "Start with a clear goal, relevant information, and desired format. Request a reviewable draft, then refine tone, structure, or calculations step by step instead of restarting the request.",
     "check": "باقات Plus في المتجر تختلف في التسليم والضمان؛ الحساب بدون ضمان ليس حسابًا جاهزًا بضمان، والتفعيل الشخصي مسار آخر كما توضح كل باقة.",
-    "checkEn": "Store Plus offers differ in delivery and warranty. A no-warranty account is not the ready-account warranty offer; personal-account activation is another option with its own terms."
-  },
+    "checkEn": "Store Plus offers differ in delivery and warranty. A no-warranty account is not the ready-account warranty offer; personal-account activation is another option with its own terms.",
+    "reports": [
+        {
+            "id": "private-ready-warranty",
+            "title": "الحساب الخاص الجاهز بضمان 25 يومًا",
+            "titleEn": "Ready private account with a 25-day warranty",
+            "paragraphs": [
+                "الباقة الجديدة بسعر 780 جنيه هي اشتراك ChatGPT Plus لمدة شهر على حساب خاص جاهز وغير مشترك مع عملاء آخرين. تُسلّم بيانات الدخول، ومدة الضمان 25 يومًا، فتختلف مدة الضمان عن الشهر الكامل للاشتراك.",
+                "يمكن استخدام أدوات Plus المتاحة على الحساب للكتابة والمذاكرة والبحث وتحليل الملفات والصور حسب حدود الخطة. راجع تعليمات التسليم والوصول، وتواصل مع الدعم برقم الطلب لو واجهتك مشكلة خلال فترة الضمان."
+            ],
+            "paragraphsEn": [
+                "The new EGP 780 offer is one month of ChatGPT Plus on a ready private account that is not shared with other customers. Login details are supplied and warranty lasts 25 days, which differs from the full subscription month.",
+                "Use the Plus tools available on the account for writing, study, research and file and image analysis within plan limits. Review delivery and access instructions, and contact support with your order reference if an issue occurs during the warranty period."
+            ]
+        }
+    ]
+},
   "chatgpt-teachers-k12": {
     "intro": "باقة ChatGPT للمعلمين K12 موجهة لاستخدامات التدريس وإعداد الأنشطة والمراجعات. يساعد وضوح المرحلة الدراسية والهدف من الدرس على جعل الشرح والأسئلة أقرب لاحتياج الطالب.",
     "introEn": "The ChatGPT K12 teachers offer focuses on lesson preparation, activities, and revision. Specifying the educational stage and lesson objective helps tailor explanations and questions to learners.",
@@ -478,14 +493,65 @@
     "check": "وجود رابط مصدر لا يثبت وحده دقة كل استنتاج. راجع النص الأصلي، وميّز بين اشتراك البحث وحدود أي أدوات إضافية.",
     "checkEn": "A source link alone does not validate every inference. Check the original text and distinguish the research subscription from any additional tool limits."
   },
+  "hostinger": {
+    "intro": "استضافة Hostinger Unlimited لمدة سنة على بريدك الشخصي بسعر 25 دولارًا، مع مواقع غير محدودة ضمن موارد الخطة، ونطاق واحد مجاني للسنة الأولى وضمان 12 شهرًا.",
+    "introEn": "One year of Hostinger Unlimited hosting on your personal email for US$25, with unlimited websites within plan resources, one eligible free domain for the first year and a 12-month warranty.",
+    "workflow": "حدد نوع الموقع والدومين الذي تريده، ثم أرسل بريدك الشخصي لتفعيل الاستضافة عليه. بعد التفعيل، راجع تاريخ انتهاء السنة وحدود الخطة في لوحة Hostinger، واختر النطاق المؤهل المتاح وأكمل بيانات تسجيله. بعدها أضف موقعك واربط DNS وراجع عمل الموقع والشهادة.",
+    "workflowEn": "Choose your site type and intended domain, then provide your personal email for hosting activation. After activation, check the one-year expiry and plan limits in Hostinger, choose an available eligible domain and complete its registration details. Add your site, connect DNS and verify the site and certificate.",
+    "check": "مواقع غير محدودة لا تعني موارد غير محدودة. النطاق المجاني واحد للسنة الأولى وبحسب الامتدادات والأهلية، ورسوم تجديده بعد السنة الأولى مستقلة. راجع حدود موارد الاستضافة قبل نقل مشروع كبير، وضمان المتجر لمدة 12 شهرًا وفق سياسته.",
+    "checkEn": "Unlimited websites do not mean unlimited resources. One domain is free for the first year subject to extension eligibility; later domain renewal is separate. Review hosting resource limits before migrating a large project. The store’s 12-month warranty follows its policy.",
+    "sources": [
+        "https://www.hostinger.com/support/6976044-parameters-and-limits-of-hosting-plans-in-hostinger/",
+        "https://www.hostinger.com/free-domain"
+    ],
+    "reports": [
+        {
+            "id": "unlimited-sites",
+            "title": "ما المقصود بمواقع غير محدودة؟",
+            "titleEn": "What does unlimited websites mean?",
+            "paragraphs": [
+                "تسمح خطة Unlimited بإضافة مواقع متعددة ضمن نفس الاستضافة، مع بقاء حدود التخزين والمعالج والذاكرة وقواعد البيانات مطبقة. اختر عدد المواقع وحجمها بما يناسب الموارد المعروضة في لوحة حسابك."
+            ],
+            "paragraphsEn": [
+                "Unlimited allows multiple websites on the hosting plan while storage, CPU, memory and database limits still apply. Match the number and size of your sites to the resources shown in your account dashboard."
+            ]
+        },
+        {
+            "id": "domain-and-renewal",
+            "title": "النطاق المجاني ومدة العرض",
+            "titleEn": "Free domain and offer term",
+            "paragraphs": [
+                "سعر 25 دولارًا يغطي سنة الاستضافة في عرض المتجر على بريدك الشخصي، مع ضمان 12 شهرًا ونطاق واحد مجاني للسنة الأولى. اختيار الاسم والامتداد يخضع للتوافر والأهلية؛ لا يشمل العرض شراء نطاق مجاني لكل موقع أو رسوم التجديد بعد السنة الأولى."
+            ],
+            "paragraphsEn": [
+                "The store’s US$25 offer covers one year of hosting on your personal email, a 12-month warranty and one free domain for the first year. The name and extension depend on availability and eligibility; a free domain for every website and renewal fees after the first year are not included."
+            ]
+        }
+    ]
+},
   "lovable-pro": {
-    "intro": "Lovable يساعد على تحويل فكرة موقع أو تطبيق إلى واجهات قابلة للتعديل بالمحادثة. يناسب اختبار نموذج أولي مع متابعة رصيد الإنشاء وتحديد نطاق المشروع تدريجيًا.",
-    "introEn": "Lovable helps turn a website or app idea into interfaces you can refine through conversation. It suits prototyping while tracking generation allowance and defining the project in stages.",
+    "intro": "باقات Lovable لبناء المواقع والتطبيقات بالذكاء الاصطناعي. متاح Pro لمدة 3 شهور بحساب خاص جاهز بسعر 1050 جنيه، مع 100 كريدت شهريًا + 5 يوميًا وضمان كامل، إلى جانب الباقات الشهرية والسنوية الموضحة.",
+    "introEn": "Lovable plans for building websites and apps with AI. Three months of Pro on a ready private account costs EGP 1,050, with 100 monthly credits plus 5 daily and a full warranty, alongside the listed monthly and annual offers.",
     "workflow": "ابدأ بشاشة واحدة وحدد عناصرها ومسار المستخدم. راجع التصميم والسلوك، ثم أضف شاشة أو وظيفة في كل خطوة. اختبر التسجيل والبيانات والروابط قبل اعتبار النموذج جاهزًا للاستخدام الحقيقي.",
     "workflowEn": "Start with one screen and its user flow. Review appearance and behaviour, then add one screen or function at a time. Test authentication, data, and links before treating a prototype as ready for real use.",
     "check": "Pro الشهرية وPro Lite السنوية لهما رصيد مختلف؛ 300 كريدت إجماليًا ليست 300 كل شهر. افصل الرصيد اليومي عن الإجمالي عند المقارنة.",
-    "checkEn": "Monthly Pro and annual Pro Lite have different allowances. A 300-total-credit offer is not 300 each month. Distinguish daily and total credits when comparing them."
-  },
+    "checkEn": "Monthly Pro and annual Pro Lite have different allowances. A 300-total-credit offer is not 300 each month. Distinguish daily and total credits when comparing them.",
+    "reports": [
+        {
+            "id": "pro-ready-quarter",
+            "title": "Lovable Pro لمدة 3 شهور بحساب خاص جاهز",
+            "titleEn": "Three months of Lovable Pro on a ready private account",
+            "paragraphs": [
+                "الباقة بسعر 1050 جنيه تشمل حساب Lovable Pro خاصًا وجاهزًا لمدة 3 شهور، مع ضمان كامل طوال المدة. يتم تسليم البريد وطريقة الوصول إلى كود الدخول، لتبدأ استخدام الحساب وفق تعليمات التسليم.",
+                "حصة 100 كريدت تتجدد كل شهر، وبجانبها 5 كريدت يوميًا كحصة منفصلة. ابدأ بتحديد صفحة أو مهمة واضحة، وراجع النتيجة قبل طلب تعديلات إضافية حتى تتابع استهلاك الرصيد داخل المشروع."
+            ],
+            "paragraphsEn": [
+                "The EGP 1,050 offer includes a ready private Lovable Pro account for three months with a full warranty for the term. You receive the email and instructions for accessing its sign-in code, then follow the delivery instructions to start using the account.",
+                "A 100-credit allowance refreshes each month, alongside a separate allowance of 5 credits per day. Start with a specific page or task and review the result before requesting further changes so you can track project credit usage."
+            ]
+        }
+    ]
+},
   "runway-pro": {
     "intro": "Runway Pro موجه للعمل على الأفكار البصرية واللقطات بالذكاء الاصطناعي. يساعد التخطيط المسبق للمشهد على تقليل التجارب العشوائية واستغلال رصيد الإنتاج بصورة أوضح.",
     "introEn": "Runway Pro supports AI-assisted visual ideas and shots. Planning a scene beforehand helps avoid unfocused iterations and makes production-credit use easier to understand.",

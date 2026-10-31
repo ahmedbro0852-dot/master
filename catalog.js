@@ -3415,7 +3415,7 @@ const products = [
     "category": "AI Tools",
     "logo": "chatgpt",
     "status": "available",
-    "description": "المتاح حاليًا من ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو تفعيل وتجديد Plus على حسابك الشخصي بـ1100 جنيه. باقة الحساب الجاهز بضمان بـ700 جنيه نفد مخزونها.",
+    "description": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو حساب خاص جاهز بضمان 25 يومًا بـ780 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ1100 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
     "plans": [
       {
         "name": "ChatGPT Plus — بدون ضمان",
@@ -3473,7 +3473,8 @@ const products = [
           "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
           "checkedAt": "2026-10-08"
         },
-        "available": false
+        "available": false,
+        "hidden": true
       },
       {
         "name": "ChatGPT Plus — تفعيل أو تجديد على حسابك",
@@ -3503,13 +3504,49 @@ const products = [
         },
         "available": true,
         "accountType": "تفعيل على حسابك الشخصي"
+      },
+      {
+        "name": "Plus — شهر — حساب خاص جاهز — ضمان 25 يومًا",
+        "planType": "Plus",
+        "duration": "1 شهر",
+        "price": 780,
+        "available": true,
+        "activation": "تسليم بيانات حساب ChatGPT Plus خاص جاهز للاستخدام.",
+        "account": "حساب ChatGPT Plus خاص جاهز وغير مشترك",
+        "accountType": "حساب خاص جاهز",
+        "warranty": "ضمان لمدة 25 يومًا",
+        "features": [
+          "اشتراك ChatGPT Plus لمدة شهر على حساب خاص جاهز.",
+          "حساب خاص وغير مشترك مع عملاء آخرين.",
+          "تسليم بيانات الدخول إلى حساب Plus الجاهز.",
+          "ضمان 25 يومًا من مدة الاشتراك.",
+          "الكتابة والبحث وتحليل الملفات والصور حسب أدوات وحدود Plus المتاحة."
+        ],
+        "notes": [
+          "مدة الاشتراك شهر، ومدة الضمان 25 يومًا.",
+          "هذه الباقة بحساب خاص جاهز، ولا تتطلب تفعيل Plus على حسابك الشخصي.",
+          "حدود الأدوات والنماذج تخضع لخطة Plus وتوافرها على الحساب."
+        ],
+        "featuresEn": [
+          "One month of ChatGPT Plus on a ready private account.",
+          "A private account not shared with other customers.",
+          "Receive login details for the ready Plus account.",
+          "Warranty covers 25 days of the subscription.",
+          "Writing, research, file and image analysis within available Plus tools and limits."
+        ],
+        "notesEn": [
+          "The subscription lasts one month; warranty lasts 25 days.",
+          "This offer supplies a ready private account and does not activate Plus on your personal account.",
+          "Tool and model limits depend on Plus and availability on the account."
+        ]
       }
     ],
     "categories": [
       "توليد صور بالذكاء الاصطناعي",
       "مساعد كتابة الكود",
       "محادثة ومساعد ذكي"
-    ]
+    ],
+    "descriptionEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a 25-day warranty for EGP 780, or activation and renewal on your personal account for EGP 1,100. Review the delivery method and warranty of your chosen plan."
   },
   {
     "id": "chatgpt-teachers-k12",
@@ -3896,128 +3933,223 @@ const products = [
     ]
   },
   {
-  "id": "lovable-pro",
-  "name": "Lovable",
-  "category": "AI Tools",
-  "logo": "lovable",
-  "status": "available",
-  "description": "ابنِ مواقع وتطبيقات بالذكاء الاصطناعي مع Lovable. باقات شهرية وسنوية، منها Pro Lite لمدة سنة برصيد 300 كريدت إجماليًا + 5 يوميًا، بتفعيل على بريدك الشخصي وضمان كامل.",
-  "plans": [
-    {
-      "name": "Pro — شهر",
-      "planType": "Pro",
-      "duration": "1 شهر",
-      "price": 300,
-      "activation": "تفعيل على حسابك الشخصي في Lovable.",
-      "account": "حساب العميل الشخصي",
-      "warranty": "يُؤكد قبل الدفع",
-      "priceComparison": {
-        "planName": "Lovable Pro — 100 كريدت شهريًا",
-        "source": "https://docs.lovable.dev/introduction/subscription-plans",
-        "checkedAt": "2026-10-08",
-        "status": "reference",
-        "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر. رصيد هذه الباقة في المتجر يُؤكد قبل الدفع.",
-        "billingLabel": "Pro — 100 كريدت شهريًا"
-      },
-      "officialPrice": {
-        "amount": 25,
-        "currency": "USD",
-        "months": 1,
-        "basis": "reference",
-        "source": "https://docs.lovable.dev/introduction/subscription-plans",
-        "checkedAt": "2026-10-08"
+    "id": "hostinger",
+    "name": "Hostinger Unlimited",
+    "category": "البرمجة وتطوير المواقع",
+    "logo": "hostinger",
+    "logoUrl": "logos/hostinger.svg?v=20261031-hostinger1",
+    "status": "available",
+    "description": "استضافة Hostinger Unlimited لمدة سنة على بريدك الشخصي بسعر 25 دولارًا، مع مواقع غير محدودة ضمن موارد الخطة، ونطاق واحد مجاني للسنة الأولى وضمان 12 شهرًا.",
+    "categories": [
+      "قواعد بيانات واستضافة"
+    ],
+    "plans": [
+      {
+        "name": "Unlimited — سنة على إيميلك",
+        "planType": "Unlimited",
+        "duration": "12 شهر",
+        "price": 1400,
+        "basePriceUSD": 25,
+        "available": true,
+        "activation": "تفعيل Hostinger Unlimited لمدة سنة على حساب مرتبط ببريدك الشخصي.",
+        "account": "حساب Hostinger على بريدك الشخصي",
+        "accountType": "تفعيل على إيميلك الشخصي",
+        "warranty": "ضمان لمدة 12 شهرًا",
+        "features": [
+          "اشتراك Hostinger Unlimited لمدة سنة كاملة.",
+          "استضافة عدد غير محدود من مواقعك ضمن حدود موارد الخطة.",
+          "نطاق واحد مجاني للسنة الأولى حسب الأهلية وتوافر الاسم والامتداد.",
+          "التفعيل على بريدك الشخصي وحسابك في Hostinger.",
+          "ضمان اشتراك لمدة 12 شهرًا.",
+          "السعر 25 دولارًا لإجمالي السنة؛ يظهر المقابل حسب عملة المتجر المختارة."
+        ],
+        "notes": [
+          "Unlimited يخص عدد المواقع؛ التخزين والمعالج والذاكرة وقواعد البيانات تخضع لحدود الاستضافة.",
+          "يشمل العرض نطاقًا واحدًا مؤهلًا مجانًا للسنة الأولى، وليس نطاقًا مجانيًا لكل موقع.",
+          "تُراجع أهلية النطاق والامتدادات المشمولة قبل التسجيل؛ رسوم التجديد بعد السنة الأولى تُؤكد منفصلة.",
+          "ضمان المتجر لمدة 12 شهرًا يتعلق بالاشتراك وفق سياسة المتجر.",
+          "أكمل إعداد الحساب وأي تحقق مطلوب داخل Hostinger بنفسك؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات."
+        ],
+        "featuresEn": [
+          "A full year of Hostinger Unlimited.",
+          "Host an unlimited number of your websites within the plan’s resource limits.",
+          "One free domain for the first year, subject to eligibility and name and extension availability.",
+          "Activation on your personal email and Hostinger account.",
+          "A 12-month subscription warranty.",
+          "US$25 covers the full year; the equivalent follows your selected store currency."
+        ],
+        "notesEn": [
+          "Unlimited refers to website count; storage, CPU, memory and databases remain subject to hosting limits.",
+          "The offer includes one eligible free domain for the first year, not a free domain for every website.",
+          "Check domain eligibility and included extensions before registration; renewal charges after the first year are confirmed separately.",
+          "The store’s 12-month warranty covers subscription access under store policy.",
+          "Complete account setup and any required verification yourself on Hostinger; do not send passwords or verification codes in chat."
+        ]
       }
-    },
-    {
-      "name": "Pro — شهر — 100 كريدت + 5 يوميًا",
-      "planType": "Pro",
-      "duration": "1 شهر",
-      "price": 300,
-      "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
-      "account": "نوع الحساب يُؤكد قبل الدفع",
-      "warranty": "يُؤكد قبل الدفع",
-      "notes": [
-        "الرصيد الشهري والرصيد اليومي حصتان منفصلتان.",
-        "الكريدت اليومي يتجدد يوميًا ولا يتراكم لليوم التالي."
-      ],
-      "priceComparison": {
-        "planName": "Lovable Pro — 100 كريدت شهريًا",
-        "source": "https://docs.lovable.dev/introduction/subscription-plans",
-        "checkedAt": "2026-10-08",
-        "status": "reference",
-        "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر. الرصيد اليومي لا يتراكم وقد تختلف حدوده حسب المنطقة.",
-        "billingLabel": "Pro — 100 كريدت شهريًا + 5 كريدت بناء يوميًا"
+    ],
+    "descriptionEn": "One year of Hostinger Unlimited hosting on your personal email for US$25, with unlimited websites within plan resources, one eligible free domain for the first year and a 12-month warranty."
+  },
+  {
+    "id": "lovable-pro",
+    "name": "Lovable",
+    "category": "AI Tools",
+    "logo": "lovable",
+    "status": "available",
+    "description": "باقات Lovable لبناء المواقع والتطبيقات بالذكاء الاصطناعي. متاح Pro لمدة 3 شهور بحساب خاص جاهز بسعر 1050 جنيه، مع 100 كريدت شهريًا + 5 يوميًا وضمان كامل، إلى جانب الباقات الشهرية والسنوية الموضحة.",
+    "plans": [
+      {
+        "name": "Pro — شهر",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 300,
+        "activation": "تفعيل على حسابك الشخصي في Lovable.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "Lovable Pro — 100 كريدت شهريًا",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر. رصيد هذه الباقة في المتجر يُؤكد قبل الدفع.",
+          "billingLabel": "Pro — 100 كريدت شهريًا"
+        },
+        "officialPrice": {
+          "amount": 25,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08"
+        }
       },
-      "officialPrice": {
-        "amount": 25,
-        "currency": "USD",
-        "months": 1,
-        "basis": "reference",
-        "source": "https://docs.lovable.dev/introduction/subscription-plans",
-        "checkedAt": "2026-10-08"
+      {
+        "name": "Pro — شهر — 100 كريدت + 5 يوميًا",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 300,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "الرصيد الشهري والرصيد اليومي حصتان منفصلتان.",
+          "الكريدت اليومي يتجدد يوميًا ولا يتراكم لليوم التالي."
+        ],
+        "priceComparison": {
+          "planName": "Lovable Pro — 100 كريدت شهريًا",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر. الرصيد اليومي لا يتراكم وقد تختلف حدوده حسب المنطقة.",
+          "billingLabel": "Pro — 100 كريدت شهريًا + 5 كريدت بناء يوميًا"
+        },
+        "officialPrice": {
+          "amount": 25,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08"
+        },
+        "credits": "100 كريدت شهريًا + 5 كريدت بناء يوميًا",
+        "features": [
+          "اشتراك Lovable Pro لمدة شهر.",
+          "100 كريدت شهريًا + 5 كريدت بناء يوميًا.",
+          "إنشاء وتعديل مواقع وتطبيقات باستخدام الأوامر النصية."
+        ]
       },
-      "credits": "100 كريدت شهريًا + 5 كريدت بناء يوميًا",
-      "features": [
-        "اشتراك Lovable Pro لمدة شهر.",
-        "100 كريدت شهريًا + 5 كريدت بناء يوميًا.",
-        "إنشاء وتعديل مواقع وتطبيقات باستخدام الأوامر النصية."
-      ]
-    },
-    {
-      "name": "Pro",
-      "duration": "12 شهر",
-      "price": 1800,
-      "activation": "تفعيل مباشر على حساب Lovable",
-      "account": "حساب العميل الشخصي — بدون طلب كلمة مرور Gmail",
-      "warranty": "ضمان كامل",
-      "notes": [
-        "طريقة التسليم والضمان يتم تأكيدهما قبل التحويل."
-      ],
-      "priceComparison": {
-        "planName": "Lovable Pro — 100 كريدت شهريًا",
-        "source": "https://docs.lovable.dev/introduction/subscription-plans",
-        "checkedAt": "2026-10-08",
-        "status": "reference",
-        "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر. الرصيد الشهري لعرض المتجر يُؤكد قبل الدفع.",
-        "billingLabel": "250 دولارًا إجمالي السنة — Pro 100"
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 1800,
+        "activation": "تفعيل مباشر على حساب Lovable",
+        "account": "حساب العميل الشخصي — بدون طلب كلمة مرور Gmail",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "طريقة التسليم والضمان يتم تأكيدهما قبل التحويل."
+        ],
+        "priceComparison": {
+          "planName": "Lovable Pro — 100 كريدت شهريًا",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر. الرصيد الشهري لعرض المتجر يُؤكد قبل الدفع.",
+          "billingLabel": "250 دولارًا إجمالي السنة — Pro 100"
+        },
+        "officialPrice": {
+          "amount": 250,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08"
+        }
       },
-      "officialPrice": {
-        "amount": 250,
-        "currency": "USD",
-        "months": 12,
-        "basis": "reference",
-        "source": "https://docs.lovable.dev/introduction/subscription-plans",
-        "checkedAt": "2026-10-08"
+      {
+        "name": "Pro Lite",
+        "duration": "12 شهر",
+        "price": 430,
+        "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
+        "account": "حساب العميل",
+        "warranty": "ضمان كامل",
+        "credits": "300 Credit + 5 Credits يوميًا لمدة سنة",
+        "priceComparison": {
+          "planName": "Lovable Pro / Lite — تحتاج مطابقة الرصيد",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "300 كريدت إجماليًا + رصيد يومي لا يطابق تلقائيًا Pro الذي يبدأ من 100 كريدت كل شهر. لم تتأكد باقة رسمية مطابقة لهذا العرض."
+        },
+        "oldPrice": 450,
+        "planType": "Pro Lite",
+        "previousStorePrice": 450,
+        "promotionEndsAt": "2026-10-28T05:15:00Z",
+        "regularPrice": 450,
+        "regularPreviousStorePrice": 650
+      },
+      {
+        "name": "Pro — 3 شهور — حساب خاص جاهز",
+        "planType": "Pro",
+        "duration": "3 شهور",
+        "price": 1050,
+        "available": true,
+        "activation": "تسليم بريد حساب Lovable خاص جاهز، مع طريقة الحصول على كود الدخول.",
+        "account": "حساب Lovable خاص جاهز للاستخدام",
+        "accountType": "حساب خاص جاهز",
+        "warranty": "ضمان كامل طوال مدة الاشتراك — 3 شهور",
+        "credits": "100 كريدت شهريًا + 5 كريدت يوميًا",
+        "features": [
+          "اشتراك Lovable Pro لمدة 3 شهور بحساب خاص جاهز.",
+          "100 كريدت تتجدد شهريًا طوال مدة الاشتراك.",
+          "5 كريدت يوميًا كحصة يومية منفصلة.",
+          "تسليم البريد وطريقة الوصول إلى كود الدخول للحساب.",
+          "ضمان كامل طوال مدة الاشتراك لمدة 3 شهور.",
+          "إنشاء وتعديل مواقع وتطبيقات بالأوامر النصية ضمن رصيد الباقة."
+        ],
+        "notes": [
+          "الرصيد الشهري والرصيد اليومي حصتان منفصلتان؛ 100 كريدت هي حصة كل شهر وليست إجمالي الثلاثة شهور.",
+          "هذه الباقة تُسلّم بحساب خاص جاهز؛ اتبع تعليمات الوصول إلى كود الدخول عند التسليم.",
+          "حدود التوليد واستهلاك الكريدت تتغير حسب نوع التعديل وتعقيد المشروع."
+        ],
+        "featuresEn": [
+          "Three months of Lovable Pro on a ready private account.",
+          "100 credits refresh each month throughout the subscription.",
+          "A separate daily allowance of 5 credits.",
+          "Receive the account email and instructions for accessing its sign-in code.",
+          "Full warranty for the complete three-month subscription term.",
+          "Build and edit websites and apps with text prompts within the plan allowance."
+        ],
+        "notesEn": [
+          "Monthly and daily credits are separate allowances; 100 credits applies to each month, not the entire three-month term.",
+          "This offer supplies a ready private account; follow the sign-in-code instructions provided at delivery.",
+          "Generation limits and credit consumption vary with the type of change and project complexity."
+        ]
       }
-    },
-    {
-      "name": "Pro Lite",
-      "duration": "12 شهر",
-      "price": 430,
-      "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
-      "account": "حساب العميل",
-      "warranty": "ضمان كامل",
-      "credits": "300 Credit + 5 Credits يوميًا لمدة سنة",
-      "priceComparison": {
-        "planName": "Lovable Pro / Lite — تحتاج مطابقة الرصيد",
-        "source": "https://docs.lovable.dev/introduction/subscription-plans",
-        "checkedAt": "2026-10-08",
-        "status": "unavailable",
-        "note": "300 كريدت إجماليًا + رصيد يومي لا يطابق تلقائيًا Pro الذي يبدأ من 100 كريدت كل شهر. لم تتأكد باقة رسمية مطابقة لهذا العرض."
-      },
-      "oldPrice": 450,
-      "planType": "Pro Lite",
-      "previousStorePrice": 450,
-      "promotionEndsAt": "2026-10-28T05:15:00Z",
-      "regularPrice": 450,
-      "regularPreviousStorePrice": 650
-    }
-  ],
-  "categories": [
-    "بناء مواقع وتطبيقات بالذكاء الاصطناعي"
-  ],
-  "descriptionEn": "Build websites and apps with AI using Lovable. Monthly and annual plans include one year of Pro Lite with 300 total credits plus 5 daily, personal-email activation and full warranty."
-},
+    ],
+    "categories": [
+      "بناء مواقع وتطبيقات بالذكاء الاصطناعي"
+    ],
+    "descriptionEn": "Lovable plans for building websites and apps with AI. Three months of Pro on a ready private account costs EGP 1,050, with 100 monthly credits plus 5 daily and a full warranty, alongside the listed monthly and annual offers."
+  },
   {
   "id": "lovable-lite",
   "name": "Lovable Pro Lite",

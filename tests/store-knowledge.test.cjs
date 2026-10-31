@@ -38,6 +38,14 @@ assert.equal(products.find(p=>p.id==='supergrok-coursera-bundle').plans[0].price
  const plus=products.find(p=>p.id==='google-ai-plus'),plusPlans=JSON.parse(k.contextFor([plus],rows)).details[0].plans;
  assert.deepEqual(plusPlans.map(p=>p.priceEGP),[150,220]);assert.deepEqual(plusPlans.map(p=>p.duration),['6 شهور','12 شهر']);assert(plusPlans.every(p=>/الشخصي/.test(p.account)&&/تؤكد|تُؤكد/.test(p.warranty)&&p.credits===null));assert(plus.plans.every(p=>!p.officialPrice));assert(ask('جوجول بلس').some(p=>p.id==='google-ai-plus'));
 }
+{
+ const lov=products.find(p=>p.id==='lovable-pro'),plans=JSON.parse(k.contextFor([lov],rows)).details[0].plans,newPlan=plans.find(p=>p.index===4);
+ assert.equal(newPlan.priceEGP,1050);assert.equal(newPlan.duration,'3 شهور');assert.match(newPlan.credits,/100.*شهري.*5.*يومي/);assert.match(newPlan.account,/خاص.*جاهز/);assert.match(newPlan.activation,/كود الدخول/);assert.match(newPlan.warranty,/كامل.*3/);assert.equal(lov.plans[4].officialPrice,undefined);assert.equal(lov.plans[1].price,300);
+ const plus=products.find(p=>p.id==='chatgpt-plus'),plusPlans=JSON.parse(k.contextFor([plus],rows)).details[0].plans,ready=plusPlans.find(p=>p.index===3);
+ assert(plus.plans[1].hidden&&plus.plans[1].available===false);assert.equal(ready.priceEGP,780);assert.equal(ready.duration,'1 شهر');assert.match(ready.warranty,/25/);assert.match(ready.account,/خاص.*غير مشترك/);assert.equal(plus.plans[0].price,320);assert.equal(plus.plans[2].price,1100);assert.equal(plus.plans[3].officialPrice,undefined);
+ const host=products.find(p=>p.id==='hostinger'),hostPlan=JSON.parse(k.contextFor([host],rows)).details[0].plans[0];
+ assert.equal(host.plans[0].basePriceUSD,25);assert.equal(hostPlan.priceEGP,1400);assert.equal(hostPlan.duration,'12 شهر');assert.match(hostPlan.account,/بريدك الشخصي/);assert.match(hostPlan.warranty,/12/);assert(hostPlan.features.some(x=>/غير محدود.*مواقعك/.test(x)));assert(hostPlan.features.some(x=>/نطاق واحد.*(?:للسنة|السنة) الأولى/.test(x)));assert(hostPlan.notes.some(x=>/التخزين.*المعالج.*الذاكرة/.test(x)));assert(ask('هوستنجر استضافة').some(p=>p.id==='hostinger'));
+}
 assert.equal(k.budgetFrom('ميزانيتي ٣٠٠ جنيه'),300);assert.equal(k.budgetFrom('budget 250 EGP'),250);assert.equal(k.budgetFrom('عايز فيديو 4k'),null);assert.equal(k.budgetFrom('budget 20 USD'),null);assert.equal(k.budgetFrom('ميزانيتي ١٬٠٠٠ جنيه'),1000);
 assert.equal(ask('هل الفاتورة ضريبية؟ ينفع أدفع Binance؟ ولو اشتريت 3 اشتراكات الخصم كام؟').length,0);
 for(const text of ['شات جو بكام؟','ChatGPT Go price','شات جي بي تي جو بضمان']){const go=ask(text);assert.equal(go.length,1);assert.equal(go[0].id,'chatgpt-go');const plan=JSON.parse(k.contextFor(go,rows)).details[0].plans[0];assert.equal(plan.priceEGP,320);assert.equal(plan.duration,'1 شهر');assert.match(plan.warranty,/كامل/);assert.match(plan.account,/جاهز/);}
