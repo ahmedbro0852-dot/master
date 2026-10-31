@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>حسابي ومحفظتي | MASTER STORE</title>
+  <meta name="description" content="سجل الدخول وتابع طلباتك ومحفظتك وطلبات إضافة الرصيد في MASTER STORE.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261025-avatars-prices">
+
+<link rel="stylesheet" href="store-polish.css?v=20261018-policy1">
+<style>.auth-provider-status{display:block;font-size:11px;line-height:1.9;color:#63748a;margin:10px 0}.google-signin:disabled{opacity:.55;cursor:not-allowed}.auth-provider-divider{display:flex;align-items:center;gap:12px;color:#7c8a9e;font-size:11px;margin:20px 0}.auth-provider-divider:before,.auth-provider-divider:after{content:"";height:1px;background:#e0e7f1;flex:1}</style><link rel="stylesheet" href="theme.css?v=20261025-contrast1">
+<script src="theme.js?v=20261021-dark1"></script>
+<meta name="robots" content="noindex,follow">
+  <link rel="stylesheet" href="account-avatars.css?v=20261025-avatars-polish3">
+  <link rel="stylesheet" href="/store-assistant.css?v=20261026-actions1">
+  <link rel="stylesheet" href="/site-updates.css?v=20261025-review1">
+<script src="/social-links.js?v=20261025-review1"></script>
+</head>
+<body>
+  <div class="offer-bar">خصومات تصل إلى 90% على عروض مختارة <a href="index.html#products">تصفح العروض</a></div>
+  <header class="topbar">
+    <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png?v=20260924-sec19" alt="MASTER STORE"></a>
+    <nav id="mainNav" aria-label="التنقل الرئيسي"><a href="index.html#products">العروض</a><a href="index.html#how">طريقة الطلب</a><a class="cart-nav" href="cart.html">السلة <span data-cart-count>0</span></a><a href="track.html">متابعة الطلب</a></nav>
+    <div class="market-switcher" id="marketSwitcher">
+      <select id="marketSelect" aria-label="الدولة والعملة">
+        <option value="EG">🇪🇬 مصر · EGP</option>
+        <option value="LY">🇱🇾 ليبيا · LYD</option>
+        <option value="AE">🇦🇪 الإمارات · AED</option>
+        <option value="SA">🇸🇦 السعودية · SAR</option>
+        <option value="KW">🇰🇼 الكويت · KWD</option>
+        <option value="QA">🇶🇦 قطر · QAR</option>
+        <option value="BH">🇧🇭 البحرين · BHD</option>
+        <option value="OM">🇴🇲 عُمان · OMR</option>
+        <option value="JO">🇯🇴 الأردن · JOD</option>
+        <option value="IQ">🇮🇶 العراق · IQD</option>
+        <option value="MA">🇲🇦 المغرب · MAD</option>
+        <option value="DZ">🇩🇿 الجزائر · DZD</option>
+        <option value="TN">🇹🇳 تونس · TND</option>
+        <option value="INTL">🌍 دولي · USD</option>
+      </select>
+      <select id="languageSelect" aria-label="اللغة">
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+    <a class="account-link active" href="account.html">حسابي</a>
+    <button class="menu" type="button" aria-label="فتح القائمة" aria-controls="mainNav">☰</button>
+  </header>
+
+  <main class="account-page">
+    <div class="account-head"><span class="eyebrow">MASTER STORE</span><h1 data-account-heading>حسابك، طلباتك، ورصيدك.</h1><p data-account-description>كل تفاصيلك في مكان واحد. تابع طلباتك واشحن محفظتك بسهولة.</p></div>
+    <div id="accountContent"></div>
+  </main>
+
+  <footer>
+    <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png?v=20260924-sec19" alt="MASTER STORE"></a>
+    <p>رقم الطلب هو أسرع طريقة للمتابعة مع خدمة العملاء.</p>
+    <a class="footer-facebook" href="https://www.facebook.com/share/19XBCdMAm5/" target="_blank" rel="noopener noreferrer">تابعنا على فيسبوك</a>
+    <a class="footer-whatsapp-channel" href="https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K" target="_blank" rel="noopener noreferrer">قناة عروض واتساب</a>
+    <a class="footer-policy" href="warranty.html">سياسة الضمان والاستبدال</a>
+<div class="footer-meta"><small>© 2026 MASTER STORE</small><small class="brand-disclaimer">طلبات الحساب ورصيد المحفظة محفوظة لحسابك. طلبات الضيوف محفوظة على الجهاز فقط.</small></div>
+  </footer>
+
+  <script src="locale.js?v=20261031-three-offers1"></script>
+  <script src="vendor/supabase-2.102.0.js"></script>
+  <script src="payment-assets.js?v=20261010-wallet1"></script>
+  <script src="cloud.js?v=20261012-auth1"></script>
+  <script src="store.js?v=20261025-store-prices3"></script>
+  <script src="cart.js?v=20261026-actions1"></script>
+  <script src="account-avatars.js?v=20261025-avatars-polish3"></script>
+  <script src="account.js?v=20261027-welcome1"></script>
+  <script src="app.js?v=20261031-three-offers1"></script>
+  <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img decoding="async" class="whatsapp-icon" src="logos/whatsapp.svg?v=20260924-sec19" alt=""></a>
+  <script src="/store-assistant.js?v=20261027-welcome1" defer></script>
+  <script src="/site-updates.js?v=20261025-review1" defer></script>
+</body>
+</html>

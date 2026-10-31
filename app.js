@@ -1,0 +1,332 @@
+(async function(){
+  'use strict';
+
+  const menu=document.querySelector('.menu');
+  const nav=document.querySelector('.topbar nav');
+
+  if(menu&&nav){
+    menu.setAttribute('aria-expanded','false');
+
+    function closeMenu(restoreFocus=false){
+      nav.classList.remove('open');
+      menu.setAttribute('aria-expanded','false');
+      menu.setAttribute('aria-label',window.MasterLocale?.getState().language==='en'?'Open menu':'فتح القائمة');
+      if(restoreFocus)menu.focus();
+    }
+
+    menu.addEventListener('click',()=>{
+      const open=nav.classList.toggle('open');
+      menu.setAttribute('aria-expanded',String(open));
+      menu.setAttribute('aria-label',window.MasterLocale?.getState().language==='en'?(open?'Close menu':'Open menu'):(open?'إغلاق القائمة':'فتح القائمة'));
+      if(open)nav.querySelector('a')?.focus();
+    });
+
+    const updateMenuLabel=()=>{const open=nav.classList.contains('open'),en=window.MasterLocale?.getState().language==='en';menu.setAttribute('aria-label',en?(open?'Close menu':'Open menu'):(open?'إغلاق القائمة':'فتح القائمة'));};
+    document.addEventListener('masterstore:localechange',updateMenuLabel);updateMenuLabel();
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>closeMenu()));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open'))closeMenu(true);});
+    document.addEventListener('click',e=>{
+      if(!nav.contains(e.target)&&!menu.contains(e.target))closeMenu();
+    });
+  }
+
+  const accountLink=document.querySelector('.account-link');
+  if(accountLink&&window.MasterCloud?.ready){
+    let avatarSession=null;
+    const drawAccountAvatar=()=>{
+      const picture=avatarSession?.user&&window.MasterStore?.avatarData(avatarSession.user);
+      accountLink.classList.toggle('with-avatar',!!picture);
+      if(picture){accountLink.style.setProperty('--account-avatar-image','url("'+picture.path+'")');accountLink.style.setProperty('--account-avatar-position',picture.position);accountLink.dataset.avatarId=picture.id;accountLink.setAttribute('aria-label',accountLink.textContent);}
+      else{accountLink.style.removeProperty('--account-avatar-image');accountLink.style.removeProperty('--account-avatar-position');delete accountLink.dataset.avatarId;accountLink.removeAttribute('aria-label');}
+    };
+    const updateAccountLink=session=>{avatarSession=session;accountLink.dataset.authenticated=String(!!session);window.MasterLocale?.apply();drawAccountAvatar();};
+    document.addEventListener('masterstore:localechange',drawAccountAvatar);
+    window.MasterCloud.client.auth.getSession().then(({data})=>updateAccountLink(data.session));
+    window.MasterCloud.client.auth.onAuthStateChange((_event,session)=>updateAccountLink(session));
+  }
+
+  const grid=document.getElementById('grid');
+  const filters=document.getElementById('filters');
+  if(!grid||!filters)return;
+
+  await window.MasterCatalogReady;
+  const Catalog=window.MasterCatalog;
+  const Store=window.MasterStore;
+  const Locale=window.MasterLocale;
+  const search=document.getElementById('search');
+  const empty=document.getElementById('empty');
+  const availableOnly=document.getElementById('availableOnly');
+  const sort=document.getElementById('catalogSort');
+  const loading=document.getElementById('catalogLoading');
+  const favoritesOnly=document.getElementById('favoritesOnly');
+  const Shopping=window.MasterShopping;
+
+  if(!Catalog||!Store){
+    if(loading)loading.textContent='تعذر تحميل الكتالوج. حدّث الصفحة وحاول مرة أخرى.';
+    return;
+  }
+
+  const popularityOrder=["grok-cursor-premium","cursor-grok-x-bundle","supergrok-coursera-bundle","gemini-coursera-bundle","chatgpt-plus","chatgpt-go","chatgpt-teachers-k12","gemini-pro","google-ai-plus","hostinger","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","humanizeai-pro","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account"];
+  const popularityRank=new Map(popularityOrder.map((id,index)=>[id,index]));
+  const statusRank={available:0,soon:1,out:2};
+  const products=[...(Catalog.products||[])].filter(product=>!product.redirectTo).sort((a,b)=>{
+    const rank=(statusRank[a.status]??9)-(statusRank[b.status]??9);
+    return rank||((popularityRank.get(a.id)??999)-(popularityRank.get(b.id)??999));
+  });
+  const categories=['الكل',...(Catalog.categoryOrder||[...new Set(products.map(p=>p.category).filter(Boolean))])];
+  const urlFilters=new URLSearchParams(location.search);
+  const validCategories=new Set([...categories,...Object.values(Catalog.categoryGroups||{}).flat()]);
+  let selected=validCategories.has(urlFilters.get('category'))?urlFilters.get('category'):'الكل';
+  if(search)search.value=(urlFilters.get('q')||'').slice(0,120);
+  if(availableOnly)availableOnly.checked=urlFilters.get('available')==='1';
+  if(sort&&['price-asc','price-desc'].includes(urlFilters.get('sort')))sort.value=urlFilters.get('sort');
+
+  const isEn=()=>Locale?.getState().language==='en';
+  const ui=(ar,en)=>isEn()?en:ar;
+  const tr=(value,kind,id)=>Locale?.catalogText(value,kind,id) ?? String(value??'');
+  const esc=value=>Store.escapeHtml(value);
+
+  function normalizeSearch(value){
+    return String(value??'').replace(/[٠-٩]/g,c=>String('٠١٢٣٤٥٦٧٨٩'.indexOf(c))).replace(/(?<=\d)[,٬](?=\d)/g,'')
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g,'')
+      .replace(/[إأآٱ]/g,'ا')
+      .replace(/ى/g,'ي')
+      .replace(/ؤ/g,'و')
+      .replace(/ئ/g,'ي')
+      .replace(/ة/g,'ه')
+      .replace(/[^a-z0-9\u0600-\u06FF]+/g,' ')
+      .trim();
+  }
+
+  function initials(name){
+    return String(name||'M').split(/\s+/).filter(Boolean).map(x=>x[0]).join('').slice(0,2).toUpperCase();
+  }
+
+  function logoMarkup(product){
+    if(product.id==='gemini-coursera-bundle')return '<span class="bundle-brand-group"><span class="product-logo big bundle-main-logo"><img src="logos/coursera.svg" alt="Coursera Plus"></span><span class="bundle-gift-logos">'+['gemini','canva'].map(name=>'<span class="bundle-gift-logo"><img src="logos/'+name+'.svg" alt="'+(name==='gemini'?'Gemini':'Canva Pro')+'"><small>'+ui('مجانًا','FREE')+'</small></span>').join('')+'</span></span>';
+    const local=product.logo?'logos/'+encodeURIComponent(product.logo)+'.svg?v=20261027-hq1':'';
+    const src=product.logoUrl||local;
+    const fallback=initials(product.name);
+    if(!src)return '<span class="product-logo"><span class="logo-fallback visible">'+esc(fallback)+'</span></span>';
+    return '<span class="product-logo">'+
+      '<img src="'+esc(src)+'" data-fallback="'+esc(local)+'" alt="'+esc(product.name)+'" loading="lazy" decoding="async">'+
+      '<span class="logo-fallback">'+esc(fallback)+'</span>'+
+    '</span>';
+  }
+
+  function bindLogoFallbacks(container=grid){
+    container.querySelectorAll('.product-logo img').forEach(img=>{
+      const recoverLogo=()=>{
+        const fallback=img.dataset.fallback;
+        if(fallback&&!img.dataset.usedFallback&&img.src!==new URL(fallback,location.href).href){
+          img.dataset.usedFallback='1';
+          img.src=fallback;
+          return;
+        }
+        img.hidden=true;
+        img.nextElementSibling?.classList.add('visible');
+      };
+      img.addEventListener('error',recoverLogo);
+      if(img.complete&&img.naturalWidth===0)recoverLogo();
+    });
+  }
+
+  function savingMoney(plan){
+    if(!plan||(!plan.oldPrice&&!plan.officialPrice))return '';
+    const saving=Store.planAmount(plan,'oldPrice')-Store.planAmount(plan);
+    return saving>0?Store.formatCurrency(saving,Store.getMarket().currency):'';
+  }
+
+  function cheapestPlan(product){
+    const plans=product.plans||[];
+    return plans.filter(plan=>!plan.hidden&&plan.available!==false).reduce((best,plan)=>{
+      if(!best)return plan;
+      return Store.planAmount(plan)<Store.planAmount(best)?plan:best;
+    },null);
+  }
+
+  function statusClass(status){
+    return status==='available'?'ok':status==='soon'?'soon':'out';
+  }
+
+  const searchAliases={'autodesk-apps':'اوتوديسك أوتوديسك ثري دي ماكس 3ds max Autodesk AutoCAD Revit Maya',"kaspersky-premium":"كاسبرسكاي كاسبر سكاي Kaspersky","avast-premium":"افاست أفاست Avast","mcafee-total-protection":"مكافي ماكافي McAfee","norton-360-premium":"نورتون Norton",'grok-cursor-premium':'جروك كيرسور كورسر كرسر Grok Cursor Premium حساب جاهز ضمان 28','cursor-grok-x-bundle':'كيرسور كورسور كيرسر كرسر كورسر Cursor Grok X Premium اكس بريموم جروك باقة موحدة','visio-professional':'فيزيو فيزيو برو فيزيو بروفشنال فيسيو مايكروسوفت فيزيو Microsoft Visio Professional LTSC','xtream-iptv':'اكستريم إكستريم اكستريم اكستريم اي بي تي في قنوات رياضة Xtream IPTV Xtream Codes','picsart':'بيسكارت برو بيكسارت برو بيكس آرت بكسارت Picsart Pro','chatgpt-go':'شات جو شاتجو شات جي بي تي جو تشات جي بي تي جو شات جي بي تي غو ChatGPT Go','humanizeai-pro':'هيومنايز هيومانايز هيومانيز هيومنايز برو Humanize AI pro Standard Lite','capcut-pro':'كاب كات كابكت كابكات كبكات','gemini-pro':'جيمناي جيميني جيميناي جيمني جوجل برو','google-ai-plus':'جوجل بلس جوجل اي بلس جوجول بلس جيمناي بلس Google AI Plus','chatgpt-plus':'شات جي بي تي شاتجبت تشات','elevenlabs':'ايلفن اليفن إليفن ايليفن','higgsfield-pro':'هيجزفيلد هيجسفيلد','leonardo-ai':'ليوناردو ليناردو ليرنادو ليرنادوا','grok':'جروك غروك سوبرجروك','coursera':'كورسيرا كورسيرا بلس','supergrok-coursera-bundle':'سوبر جروك كورسيرا كورسيرا بلس','windows-pro':'ويندوز وندوز ويندز','duolingo':'دولينجو دولينغو','quillbot':'كولبوت كويلبوت كويل بوت','claude-pro':'كلود كلاود','freepik':'فريبيك فري بيك','envato':'انفاتو إنفاتو','discord':'ديسكورد ديسكورات نيترو','canva-pro':'كانفا كنفا','grammarly':'جراملي جرامرلي','lovable-pro':'لوفابل لوفبل','hostinger':'هوستنجر هوستينجر هوستنغر Hostinger Unlimited استضافة هوستنج','perplexity-pro':'بيربليكسيتي بيربلكسيتي'};
+  function searchText(product){
+    return normalizeSearch([
+      product.name,
+      searchAliases[product.id]||'',
+      product.id==='kling'?'كلينج كيلنج Kling':'' ,
+      tr(product.category,'category',product.id),
+      ...(product.categories||[]),
+      tr(product.description,'description',product.id),
+      tr(Catalog.statusLabel(product.status),'status',product.id),
+      ...(product.plans||[]).flatMap(plan=>[
+        tr(plan.name||'','planName',product.id),
+        tr(plan.duration||'','duration',product.id),
+        tr(plan.account||'','account',product.id),plan.credits||'',...(plan.features||[])
+      ])
+    ].join(' '));
+  }
+
+  function cardMarkup(product){
+    const active=product.status==='available'&&(product.plans||[]).length>0;
+    const plan=cheapestPlan(product);
+    const status=tr(Catalog.statusLabel(product.status),'status',product.id);
+    const price=active&&plan?Store.planMoney(plan):'—';
+    const action=active
+      ? '<a class="card-btn soft-btn" aria-label="'+esc(product.name+' — '+ui('شوف الباقات','View plans'))+'" href="products/'+encodeURIComponent(product.id)+'.html">'+ui('شوف الباقات','View plans')+' <span aria-hidden="true">'+(isEn()?'→':'←')+'</span></a>'
+      : '<button class="card-btn disabled" type="button" disabled>'+esc(status)+'</button>';
+    return '<article class="product-card light-card simple-service-card" aria-label="'+esc(product.name)+'" data-product-id="'+esc(product.id)+'" data-category="'+esc(product.category)+'" data-search="'+esc(searchText(product))+'">'+
+      (Shopping?.button(product)||'')+
+      (product.id==='elevenlabs'&&product.plans?.[2]?.offerEndsAt&&product.plans?.[2]?.available!==false?'<p class="plan-saving">'+ui('⏰ عرض مؤقت · الحجز خلال 24 ساعة · الاشتراك شهر كامل','⏰ Limited-time offer · Book within 24 hours · 1-month subscription')+'</p>':'')+
+      '<div class="card-top">'+logoMarkup(product)+'<h3 class="service-name" dir="auto">'+esc(product.name)+'</h3></div>'+
+      (product.id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">كورسيرا سنة + جيمناي ٣ شهور + كانفا ٣ سنين</p>':'')+(product.id==='supergrok-coursera-bundle'?'<p class="bundle-card-summary">'+ui('شهر لكل اشتراك · حسابات جاهزة · ضمان كامل','One month each · Ready accounts · Full warranty')+'</p>':'')+'<div class="light-meta">'+(active&&plan?Store.priceMarkup(plan):'<strong>'+esc(price)+'</strong>')+'</div>'+
+      (product.id==='picsart'&&product.plans?.[4]?.available!==false&&Store.officialDiscount(product.plans[4])?.percent>0?'<p class="plan-saving picsart-saving">'+ui('توفير '+Store.officialDiscount(product.plans[4]).percent+'% على باقة السنة','Save '+Store.officialDiscount(product.plans[4]).percent+'% on the annual plan')+'</p>':'')+
+      '<div class="card-bottom light-bottom">'+action+'</div>'+
+    '</article>';
+  }
+
+  function renderCards(){
+    grid.setAttribute('aria-busy','true');
+    grid.innerHTML=products.map(cardMarkup).join('');
+    bindLogoFallbacks();
+    grid.setAttribute('aria-busy','false');
+    if(loading)loading.hidden=true;
+  }
+
+  const matchesCategory=(product,category)=>{const tags=product?.categories||[product?.category];return category==='الكل'||tags.includes(category)||(Catalog.categoryGroups?.[category]||[]).some(sub=>tags.includes(sub));};
+  function categoryLabel(category){
+    return category==='الكل'?ui('الكل','All'):tr(category,'category','');
+  }
+
+  function drawFilters(){
+    const parent=Object.keys(Catalog.categoryGroups||{}).find(group=>group===selected||Catalog.categoryGroups[group].includes(selected));
+    const button=(category,active)=>'<button class="filter '+(active?'active':'')+'" type="button" data-cat="'+esc(category)+'" aria-pressed="'+active+'">'+esc(categoryLabel(category))+' <span class="filter-count">'+products.filter(p=>matchesCategory(p,category)).length+'</span></button>';
+    filters.innerHTML='<div class="category-main" aria-label="'+ui('الأقسام الرئيسية','Main categories')+'">'+categories.map(category=>button(category,category===(parent||selected))).join('')+'</div>'+(parent?'<div class="category-sub" aria-label="'+ui('التصنيف الدقيق','Specific category')+'"><span class="category-sub-label">'+ui('اختار الاستخدام:','Choose a use:')+'</span>'+button(parent,selected===parent).replace(esc(categoryLabel(parent))+' <span',ui('كل القسم','All in category')+' <span')+Catalog.categoryGroups[parent].map(sub=>button(sub,selected===sub)).join('')+'</div>':'');
+
+    filters.querySelectorAll('.filter').forEach(button=>{
+      button.addEventListener('click',()=>{
+        selected=button.dataset.cat||'الكل';
+        drawFilters();
+        applyFilters();
+      });
+    });
+  }
+
+  function applyFilters(){
+    const q=normalizeSearch(search?.value||'');
+    let visible=0;
+    const rank=new Map(products.map((p,i)=>[p.id,i]));
+    const amount=card=>{const p=cheapestPlan(Catalog.getProduct(card.dataset.productId));return p?Store.planAmount(p):null;};
+    const cards=[...grid.querySelectorAll('.product-card')];
+    cards.sort((a,b)=>{if(!sort?.value||sort.value==='featured')return rank.get(a.dataset.productId)-rank.get(b.dataset.productId);const av=amount(a),bv=amount(b);if(av===null)return bv===null?0:1;if(bv===null)return -1;return (sort.value==='price-desc'?bv-av:av-bv)||rank.get(a.dataset.productId)-rank.get(b.dataset.productId);});
+    cards.forEach(card=>grid.appendChild(card));
+    if(sort){const current=sort.value;sort.setAttribute('aria-label',ui('ترتيب الخدمات','Sort services'));sort.options[0].textContent=ui('ترتيب المتجر','Store order');sort.options[1].textContent=ui('السعر: الأقل أولًا','Price: low to high');sort.options[2].textContent=ui('السعر: الأعلى أولًا','Price: high to low');sort.value=current;}
+
+    grid.querySelectorAll('.product-card').forEach(card=>{
+      const categoryMatch=matchesCategory(Catalog.getProduct(card.dataset.productId),selected);
+      const product=Catalog.getProduct(card.dataset.productId);
+      const matches=(!favoritesOnly?.checked||Shopping?.read('favorites').includes(product.id))&&categoryMatch&&(!availableOnly?.checked||product?.status==='available')&&(!q||q.split(/\s+/).every(word=>(card.dataset.search||'').includes(word)));
+      card.hidden=!matches;
+      if(matches)visible++;
+    });
+
+    const url=new URL(location.href);
+    const state={q:search?.value.trim()||'',category:selected==='الكل'?'':selected,available:availableOnly?.checked?'1':'',sort:sort?.value==='featured'?'':sort?.value||''};
+    for(const [key,value] of Object.entries(state)){if(value)url.searchParams.set(key,value);else url.searchParams.delete(key);}
+    if(url.href!==location.href)history.replaceState(history.state,'',url);
+    const count=document.getElementById('catalogResultCount');
+    if(count)count.textContent=ui('عرض '+visible+' من '+products.length+' خدمة', 'Showing '+visible+' of '+products.length+' services');
+    const availableLabel=document.getElementById('availableOnlyLabel');
+    if(availableLabel)availableLabel.textContent=ui('المتاح فقط','Available only');
+    const favoritesLabel=document.getElementById('favoritesOnlyLabel');
+    if(favoritesLabel)favoritesLabel.textContent=ui('المفضلة','Favorites')+' ('+(Shopping?.read('favorites').filter(id=>Catalog.getProduct(id)&&!Catalog.getProduct(id).redirectTo).length||0)+')';
+    if(empty){
+      empty.hidden=visible>0;
+      empty.innerHTML='<p>'+(favoritesOnly?.checked?ui('مفيش خدمات مطابقة في المفضلة. احفظ الخدمات بعلامة القلب أو اعرض كل الخدمات.','No matching favorites. Save services with the heart button or browse all services.'):ui('مفيش نتيجة مطابقة. جرّب اسم تاني أو اعرض كل الخدمات.','No matching results. Try another name or browse all services.'))+'</p><button type="button" class="filter" data-reset-search>'+ui('عرض كل الخدمات','Show all services')+'</button>';
+    }
+  }
+
+  function updateCatalogCount(){
+    const count=document.querySelector('[data-catalog-count]');
+    if(count)count.textContent='+'+products.length;
+  }
+
+  function updateShelf(){
+    const shelf=document.querySelector('.shelf-feature strong');
+    const lovable=Catalog.getProduct('lovable-lite');
+    if(shelf&&lovable?.plans?.[0])shelf.textContent=Store.planMoney(lovable.plans[0]);
+  }
+
+
+  function renderBestOffers(){
+    const target=document.getElementById('bestOffersGrid');
+    if(!target)return;
+    const picks=[['cursor-grok-x-bundle',0],['supergrok-coursera-bundle',0],['elevenlabs',2],['cursor-pro',1],['coursera',0],['lovable-pro',3],['gemini-pro',2],['capcut-pro',1],['grok',0]];
+    target.innerHTML=picks.map(([id,index])=>{
+      const product=Catalog.getProduct(id),plan=product?.plans?.[index];
+      if(!plan||plan.hidden||plan.available===false||product.status!=='available')return '';
+      if(id==='lovable-pro'&&index===3){
+        const active=plan.promotionEndsAt&&Date.now()<Date.parse(plan.promotionEndsAt);
+        return '<article class="best-offer lovable-offer">'+logoMarkup(product)+
+          '<div class="lovable-offer-copy"><h3>Lovable Pro Lite</h3><small>'+ui('اشتراك سنة كاملة','One-year subscription')+'</small></div>'+
+          '<p class="lovable-offer-credits">'+ui('300 كريدت إجماليًا + 5 يوميًا','300 total credits + 5 daily')+'</p>'+
+          (active?'<p class="lovable-offer-period">'+ui('عرض 48 ساعة · حتى 28 أكتوبر، 8:15 صباحًا بتوقيت مصر','48-hour offer · Until 28 Oct, 8:15 AM Egypt time')+'</p>':'')+
+          Store.priceMarkup(plan)+'<a class="card-btn soft-btn" href="products/lovable-pro.html?plan=3">'+ui('شوف الباقة','View offer')+'</a></article>';
+      }
+      return '<article class="best-offer '+(id==='gemini-coursera-bundle'?'bundle-featured':'')+'">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3>'+(id==='elevenlabs'&&plan.offerEndsAt?'<p class="plan-saving">'+ui('⏰ عرض مؤقت · مهلة الحجز 24 ساعة · الاشتراك شهر كامل','⏰ Limited-time offer · Book within 24 hours · 1-month subscription')+'</p>':'')+(id==='lovable-pro'&&index===3?'<p class="plan-saving">'+ui('Pro Lite · 300 كريدت + 5 يوميًا · سنة كاملة','Pro Lite · 300 total credits + 5 daily · One year')+'</p>'+(Date.now()<Date.parse(plan.promotionEndsAt)?'<p class="plan-saving">'+ui('عرض 48 ساعة · حتى 28 أكتوبر، 8:15 صباحًا بتوقيت مصر','48-hour offer · Ends 28 Oct, 8:15 AM Egypt time')+'</p>':''):'')+(id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">اشتراك سنة بضمان كامل + هديتين مجانًا</p>':'')+(id==='supergrok-coursera-bundle'?'<p class="bundle-card-summary">'+ui('سوبر جروك شهر + كورسيرا بلس شهر · ضمان كامل','SuperGrok + Coursera Plus · One month each · Full warranty')+'</p>':'')+'<small>'+esc(id==='lovable-pro'&&index===1?ui('شهر · 100 كريدت + 5 يوميًا','Month · 100 credits + 5 daily'):tr(plan.duration,'duration',id))+'</small></div>'+Store.priceMarkup(plan)+'<a class="card-btn soft-btn" href="products/'+encodeURIComponent(id)+'.html?plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
+    }).join('');
+    bindLogoFallbacks(target);
+  }
+
+  function renderRecent(){
+    const target=document.getElementById('recentServices');if(!target)return;
+    target.setAttribute('aria-label',ui('شفتها مؤخرًا','Recently viewed'));
+    const items=(Shopping?.read('recent')||[]).map(id=>Catalog.getProduct(id)).filter(p=>p&&!p.redirectTo);target.hidden=!items.length;
+    target.innerHTML=items.length?'<div class="recent-services-head"><div><h3>'+ui('شفتها مؤخرًا','Recently viewed')+'</h3><p>'+ui('ارجع للخدمات اللي كنت بتقارن بينها · محفوظة على المتصفح ده','Return to services you explored · Saved in this browser')+'</p></div><button type="button" data-clear-recent>'+ui('مسح السجل','Clear history')+'</button></div><div class="recent-services-list">'+items.map(p=>'<a class="recent-service" href="products/'+encodeURIComponent(p.id)+'.html">'+(p.logo?'<img src="logos/'+encodeURIComponent(p.logo)+'.svg" alt="" loading="lazy">':'')+'<span>'+esc(p.name)+'</span></a>').join('')+'</div>':'';
+  }
+  document.getElementById('recentServices')?.addEventListener('click',e=>{if(e.target.closest('[data-clear-recent]'))Shopping?.clearRecent();});
+  document.addEventListener('masterstore:shoppingchange',()=>{applyFilters();renderRecent();});
+  function renderAll(){
+    renderRecent();
+    renderBestOffers();
+    renderCards();
+    drawFilters();
+    applyFilters();
+    updateShelf();
+    updateCatalogCount();
+  }
+
+  grid.addEventListener('click',event=>{
+    if(event.target.closest('a,button,input,select'))return;
+    const link=event.target.closest('.product-card')?.querySelector('a.card-btn');
+    if(link)link.click();
+  });
+  empty?.addEventListener('click',event=>{
+    if(!event.target.closest('[data-reset-search]'))return;
+    if(search)search.value='';
+    selected='الكل';if(favoritesOnly)favoritesOnly.checked=false;if(availableOnly)availableOnly.checked=false;drawFilters();applyFilters();search?.focus();
+  });
+  search?.setAttribute('aria-label',ui('ابحث عن خدمة','Search services'));
+  search?.addEventListener('input',applyFilters);
+  availableOnly?.addEventListener('change',applyFilters);
+  sort?.addEventListener('change',applyFilters);
+  favoritesOnly?.addEventListener('change',applyFilters);
+  document.addEventListener('masterstore:localechange',renderAll);
+
+  renderAll();
+})();
+
+(function cursorOfferTimer(){
+ const end=Date.parse('2026-10-13T11:32:00Z');
+ const mount=()=>{
+  const page=new URLSearchParams(location.search).get('id')==='cursor-pro';
+  const root=page?document.querySelector('#productPage .product-hero'):document.querySelector('[data-product-id="cursor-pro"]');
+  if(!root||root.querySelector('[data-cursor-offer]'))return;
+  const box=document.createElement('div');box.dataset.cursorOffer='';box.setAttribute('role','timer');box.setAttribute('aria-live','off');box.style.cssText='color:#c62828;font-size:11px;line-height:1.8;margin:10px 0;text-align:center';
+  const update=()=>{const en=document.documentElement.lang==='en';let s=Math.max(0,Math.floor((end-Date.now())/1000));const h=Math.floor(s/3600);s%=3600;const m=Math.floor(s/60);s%=60;box.textContent=end>Date.now()?(en?'Monthly offer EGP 300 · '+h+' hours : '+m+' minutes : '+s+' seconds left':'عرض الشهر 300ج · متبقي '+h+' ساعة : '+m+' دقيقة : '+s+' ثانية'):(en?'The EGP 300 monthly offer has ended':'انتهى عرض الشهر بـ300ج');};
+  root.append(box);update();setInterval(update,1000);
+ };
+ mount();const root=document.getElementById('productPage')||document.getElementById('grid');if(root)new MutationObserver(mount).observe(root,{childList:true});
+})();

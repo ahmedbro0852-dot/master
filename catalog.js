@@ -1,0 +1,8266 @@
+const products = [
+{
+  "id": "autodesk-apps",
+  "name": "Autodesk Apps + 3ds Max",
+  "category": "الصور والتصميم",
+  "categories": [
+    "نمذجة وتصميم ثلاثي الأبعاد"
+  ],
+  "logo": "autodesk",
+  "logoUrl": "logos/autodesk.svg?v=20261031-autodesk1",
+  "status": "available",
+  "description": "باقة تطبيقات Autodesk المشمولة بالتفعيل، بما فيها 3ds Max، لمدة 3 سنوات بسعر 380 جنيه وضمان سنة واحدة. يُؤكد نوع الترخيص وقائمة التطبيقات والإصدارات وطريقة التفعيل قبل الدفع.",
+  "descriptionEn": "Autodesk applications covered by activation, including 3ds Max, for three years at EGP 380 with a one-year warranty. Confirm licence type, the application/version list and activation method before payment.",
+  "features": [
+    "وصول إلى تطبيقات Autodesk المشمولة بالتفعيل لمدة 3 سنوات، بما فيها 3ds Max.",
+    "3ds Max للنمذجة والتحريك والإظهار ثلاثي الأبعاد ضمن النسخة المتاحة.",
+    "ضمان لمدة سنة واحدة وفق شروط العرض وسياسة المتجر.",
+    "نوع الترخيص وطريقة التفعيل وقائمة التطبيقات والإصدارات المتاحة تُؤكد قبل الدفع."
+  ],
+  "featuresEn": [
+    "Access to the Autodesk applications covered by the activation for three years, including 3ds Max.",
+    "3ds Max for 3D modelling, animation and rendering within the available edition.",
+    "One-year warranty under the offer terms and store policy.",
+    "Confirm licence type, activation method and the available application/version list before payment."
+  ],
+  "notes": [
+    "مدة عرض المتجر 3 سنوات، والضمان سنة واحدة فقط.",
+    "وصف «كل التطبيقات» يخص التطبيقات المشمولة بالتفعيل؛ خدمات السحابة والإضافات المدفوعة وأرصدة الرندر ليست مضمونة ما لم تُذكر صراحة.",
+    "لم يحدد العرض هل الترخيص تجاري أم تعليمي؛ يُؤكد نوعه وأهليته للاستخدام المطلوب قبل الدفع. إذا كان تعليميًا، يخضع لأهلية وشروط Autodesk التعليمية ولا يُعرض كرخصة عمل تجاري.",
+    "عدد الأجهزة وطريقة التسليم والبريد المستخدم للتفعيل تُؤكد مع الدعم قبل الدفع.",
+    "نزّل البرامج من Autodesk وراجع متطلبات كل تطبيق وإصداره؛ 3ds Max له متطلبات Windows الخاصة به."
+  ],
+  "notesEn": [
+    "The store offer lasts three years, with only a one-year warranty.",
+    "“All applications” refers to the applications covered by activation; cloud services, paid add-ons and rendering credits are not guaranteed unless expressly listed.",
+    "The offer does not specify commercial or education licensing; confirm the licence and eligibility for your intended use before payment. Educational access is subject to Autodesk eligibility and education terms and is not sold as a commercial-use licence.",
+    "Confirm device count, delivery method and activation email with support before payment.",
+    "Download from Autodesk and check each application/version’s requirements; 3ds Max has its own Windows requirements."
+  ],
+  "plans": [
+    {
+      "name": "تطبيقات Autodesk + 3ds Max — 3 سنوات",
+      "planType": "تطبيقات Autodesk المشمولة",
+      "duration": "36 شهر",
+      "price": 380,
+      "available": true,
+      "account": "نوع الحساب وطريقة التفعيل يُؤكدان قبل الدفع",
+      "activation": "تُؤكد قائمة التطبيقات ونوع الترخيص وطريقة التفعيل مع الدعم قبل الدفع.",
+      "warranty": "ضمان لمدة سنة",
+      "features": [
+        "وصول إلى تطبيقات Autodesk المشمولة بالتفعيل لمدة 3 سنوات، بما فيها 3ds Max.",
+        "3ds Max للنمذجة والتحريك والإظهار ثلاثي الأبعاد ضمن النسخة المتاحة.",
+        "ضمان لمدة سنة واحدة وفق شروط العرض وسياسة المتجر.",
+        "نوع الترخيص وطريقة التفعيل وقائمة التطبيقات والإصدارات المتاحة تُؤكد قبل الدفع."
+      ],
+      "featuresEn": [
+        "Access to the Autodesk applications covered by the activation for three years, including 3ds Max.",
+        "3ds Max for 3D modelling, animation and rendering within the available edition.",
+        "One-year warranty under the offer terms and store policy.",
+        "Confirm licence type, activation method and the available application/version list before payment."
+      ],
+      "notes": [
+        "مدة عرض المتجر 3 سنوات، والضمان سنة واحدة فقط.",
+        "وصف «كل التطبيقات» يخص التطبيقات المشمولة بالتفعيل؛ خدمات السحابة والإضافات المدفوعة وأرصدة الرندر ليست مضمونة ما لم تُذكر صراحة.",
+        "لم يحدد العرض هل الترخيص تجاري أم تعليمي؛ يُؤكد نوعه وأهليته للاستخدام المطلوب قبل الدفع. إذا كان تعليميًا، يخضع لأهلية وشروط Autodesk التعليمية ولا يُعرض كرخصة عمل تجاري.",
+        "عدد الأجهزة وطريقة التسليم والبريد المستخدم للتفعيل تُؤكد مع الدعم قبل الدفع.",
+        "نزّل البرامج من Autodesk وراجع متطلبات كل تطبيق وإصداره؛ 3ds Max له متطلبات Windows الخاصة به."
+      ],
+      "notesEn": [
+        "The store offer lasts three years, with only a one-year warranty.",
+        "“All applications” refers to the applications covered by activation; cloud services, paid add-ons and rendering credits are not guaranteed unless expressly listed.",
+        "The offer does not specify commercial or education licensing; confirm the licence and eligibility for your intended use before payment. Educational access is subject to Autodesk eligibility and education terms and is not sold as a commercial-use licence.",
+        "Confirm device count, delivery method and activation email with support before payment.",
+        "Download from Autodesk and check each application/version’s requirements; 3ds Max has its own Windows requirements."
+      ]
+    }
+  ]
+},
+{
+  "id": "kaspersky-premium",
+  "name": "Kaspersky Premium",
+  "category": "الحماية والاتصالات",
+  "categories": [
+    "مكافحة الفيروسات وحماية الأجهزة"
+  ],
+  "logo": "kaspersky",
+  "logoUrl": "logos/kaspersky.svg?v=20261031-security1",
+  "status": "available",
+  "description": "اشتراك Kaspersky Premium لمدة سنة على جهاز واحد بسعر 800 جنيه، لنظام Windows، مع VPN Premium، ضمان 300 يوم. راجع توافق الجهاز وبلد التفعيل وطريقة التسليم قبل الطلب.",
+  "descriptionEn": "Kaspersky Premium for one year on one device at EGP 800, for Windows, with Premium VPN, 300-day warranty. Check device compatibility, activation country and delivery before ordering.",
+  "features": [
+    "Kaspersky Premium لمدة سنة لجهاز واحد.",
+    "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+    "ضمان 300 يوم وفق شروط العرض وسياسة المتجر.",
+    "يشمل عرض المتجر VPN Premium؛ التوفر والبلدان المدعومة تُراجع قبل الدفع.",
+    "ترخيص لجهاز يعمل بنظام Windows؛ لا يشمل تفعيل أنظمة أخرى."
+  ],
+  "featuresEn": [
+    "Kaspersky Premium for one year on one device.",
+    "Protection against malware and phishing within the features supported by the activated version.",
+    "300-day warranty under the offer terms and store policy.",
+    "This store offer includes Premium VPN; confirm supported countries and availability before payment.",
+    "For a Windows device; activation on other operating systems is not included."
+  ],
+  "notes": [
+    "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+    "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+    "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+    "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك."
+  ],
+  "notesEn": [
+    "One-year access on one device; the warranty period is stated separately.",
+    "Confirm delivery method, licence type and activation country with support before payment.",
+    "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+    "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups."
+  ],
+  "plans": [
+    {
+      "name": "سنة — جهاز واحد — Windows",
+      "planType": "Kaspersky Premium",
+      "duration": "12 شهر",
+      "price": 800,
+      "available": true,
+      "account": "تفعيل لجهاز واحد",
+      "accountType": "تفعيل لجهاز واحد",
+      "activation": "طريقة التسليم والتفعيل تُؤكد مع الدعم قبل الدفع.",
+      "warranty": "ضمان 300 يوم",
+      "features": [
+        "Kaspersky Premium لمدة سنة لجهاز واحد.",
+        "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+        "ضمان 300 يوم وفق شروط العرض وسياسة المتجر.",
+        "يشمل عرض المتجر VPN Premium؛ التوفر والبلدان المدعومة تُراجع قبل الدفع.",
+        "ترخيص لجهاز يعمل بنظام Windows؛ لا يشمل تفعيل أنظمة أخرى."
+      ],
+      "featuresEn": [
+        "Kaspersky Premium for one year on one device.",
+        "Protection against malware and phishing within the features supported by the activated version.",
+        "300-day warranty under the offer terms and store policy.",
+        "This store offer includes Premium VPN; confirm supported countries and availability before payment.",
+        "For a Windows device; activation on other operating systems is not included."
+      ],
+      "notes": [
+        "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+        "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+        "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+        "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك."
+      ],
+      "notesEn": [
+        "One-year access on one device; the warranty period is stated separately.",
+        "Confirm delivery method, licence type and activation country with support before payment.",
+        "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+        "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups."
+      ]
+    }
+  ]
+},
+{
+  "id": "avast-premium",
+  "name": "Avast Premium Security + VPN",
+  "category": "الحماية والاتصالات",
+  "categories": [
+    "مكافحة الفيروسات وحماية الأجهزة"
+  ],
+  "logo": "avast",
+  "logoUrl": "logos/avast.svg?v=20261031-security1",
+  "status": "available",
+  "description": "اشتراك Avast Premium Security + VPN لمدة سنة على جهاز واحد بسعر 300 جنيه، مع VPN Premium، ضمان 320 يوم. راجع توافق الجهاز وبلد التفعيل وطريقة التسليم قبل الطلب.",
+  "descriptionEn": "Avast Premium Security + VPN for one year on one device at EGP 300, with Premium VPN, 320-day warranty. Check device compatibility, activation country and delivery before ordering.",
+  "features": [
+    "Avast Premium Security + VPN لمدة سنة لجهاز واحد.",
+    "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+    "ضمان 320 يوم وفق شروط العرض وسياسة المتجر.",
+    "يشمل عرض المتجر VPN Premium؛ التوفر والبلدان المدعومة تُراجع قبل الدفع."
+  ],
+  "featuresEn": [
+    "Avast Premium Security + VPN for one year on one device.",
+    "Protection against malware and phishing within the features supported by the activated version.",
+    "320-day warranty under the offer terms and store policy.",
+    "This store offer includes Premium VPN; confirm supported countries and availability before payment."
+  ],
+  "notes": [
+    "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+    "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+    "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+    "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك.",
+    "نظام التشغيل والإصدار المدعومان يُؤكدان قبل الدفع؛ لا تفترض أن كل ترخيص يعمل على Windows وMac وأندرويد وآيفون معًا.",
+    "VPN جزء من عرض المتجر المحدد؛ لا تعني تسمية Premium Security وحدها أن كل نسخة من المزود تشمل VPN.",
+    "على iPhone تركز أدوات الحماية على الروابط والخصوصية؛ لا تقوم بفحص النظام والتطبيقات الأخرى مثل برامج Windows."
+  ],
+  "notesEn": [
+    "One-year access on one device; the warranty period is stated separately.",
+    "Confirm delivery method, licence type and activation country with support before payment.",
+    "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+    "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups.",
+    "Confirm the supported operating system and version before payment; do not assume a licence covers Windows, Mac, Android and iPhone together.",
+    "VPN is part of this specific store offer; the Premium Security name alone does not mean every provider edition includes VPN.",
+    "On iPhone, security tools focus on links and privacy rather than scanning the system and other apps as on Windows."
+  ],
+  "plans": [
+    {
+      "name": "سنة — جهاز واحد",
+      "planType": "Avast Premium Security + VPN",
+      "duration": "12 شهر",
+      "price": 300,
+      "available": true,
+      "account": "تفعيل لجهاز واحد",
+      "accountType": "تفعيل لجهاز واحد",
+      "activation": "طريقة التسليم والتفعيل تُؤكد مع الدعم قبل الدفع.",
+      "warranty": "ضمان 320 يوم",
+      "features": [
+        "Avast Premium Security + VPN لمدة سنة لجهاز واحد.",
+        "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+        "ضمان 320 يوم وفق شروط العرض وسياسة المتجر.",
+        "يشمل عرض المتجر VPN Premium؛ التوفر والبلدان المدعومة تُراجع قبل الدفع."
+      ],
+      "featuresEn": [
+        "Avast Premium Security + VPN for one year on one device.",
+        "Protection against malware and phishing within the features supported by the activated version.",
+        "320-day warranty under the offer terms and store policy.",
+        "This store offer includes Premium VPN; confirm supported countries and availability before payment."
+      ],
+      "notes": [
+        "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+        "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+        "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+        "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك.",
+        "نظام التشغيل والإصدار المدعومان يُؤكدان قبل الدفع؛ لا تفترض أن كل ترخيص يعمل على Windows وMac وأندرويد وآيفون معًا.",
+        "VPN جزء من عرض المتجر المحدد؛ لا تعني تسمية Premium Security وحدها أن كل نسخة من المزود تشمل VPN.",
+        "على iPhone تركز أدوات الحماية على الروابط والخصوصية؛ لا تقوم بفحص النظام والتطبيقات الأخرى مثل برامج Windows."
+      ],
+      "notesEn": [
+        "One-year access on one device; the warranty period is stated separately.",
+        "Confirm delivery method, licence type and activation country with support before payment.",
+        "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+        "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups.",
+        "Confirm the supported operating system and version before payment; do not assume a licence covers Windows, Mac, Android and iPhone together.",
+        "VPN is part of this specific store offer; the Premium Security name alone does not mean every provider edition includes VPN.",
+        "On iPhone, security tools focus on links and privacy rather than scanning the system and other apps as on Windows."
+      ]
+    }
+  ]
+},
+{
+  "id": "mcafee-total-protection",
+  "name": "McAfee Total Protection",
+  "category": "الحماية والاتصالات",
+  "categories": [
+    "مكافحة الفيروسات وحماية الأجهزة"
+  ],
+  "logo": "mcafee",
+  "logoUrl": "logos/mcafee.svg?v=20261031-security1",
+  "status": "available",
+  "description": "اشتراك McAfee Total Protection لمدة سنة على جهاز واحد بسعر 450 جنيه، ضمان لمدة سنة. راجع توافق الجهاز وبلد التفعيل وطريقة التسليم قبل الطلب.",
+  "descriptionEn": "McAfee Total Protection for one year on one device at EGP 450, one-year warranty. Check device compatibility, activation country and delivery before ordering.",
+  "features": [
+    "McAfee Total Protection لمدة سنة لجهاز واحد.",
+    "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+    "ضمان لمدة سنة وفق شروط العرض وسياسة المتجر."
+  ],
+  "featuresEn": [
+    "McAfee Total Protection for one year on one device.",
+    "Protection against malware and phishing within the features supported by the activated version.",
+    "One-year warranty under the offer terms and store policy."
+  ],
+  "notes": [
+    "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+    "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+    "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+    "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك.",
+    "نظام التشغيل والإصدار المدعومان يُؤكدان قبل الدفع؛ لا تفترض أن كل ترخيص يعمل على Windows وMac وأندرويد وآيفون معًا.",
+    "على iPhone تركز أدوات الحماية على الروابط والخصوصية؛ لا تقوم بفحص النظام والتطبيقات الأخرى مثل برامج Windows."
+  ],
+  "notesEn": [
+    "One-year access on one device; the warranty period is stated separately.",
+    "Confirm delivery method, licence type and activation country with support before payment.",
+    "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+    "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups.",
+    "Confirm the supported operating system and version before payment; do not assume a licence covers Windows, Mac, Android and iPhone together.",
+    "On iPhone, security tools focus on links and privacy rather than scanning the system and other apps as on Windows."
+  ],
+  "plans": [
+    {
+      "name": "سنة — جهاز واحد",
+      "planType": "McAfee Total Protection",
+      "duration": "12 شهر",
+      "price": 450,
+      "available": true,
+      "account": "تفعيل لجهاز واحد",
+      "accountType": "تفعيل لجهاز واحد",
+      "activation": "طريقة التسليم والتفعيل تُؤكد مع الدعم قبل الدفع.",
+      "warranty": "ضمان لمدة سنة",
+      "features": [
+        "McAfee Total Protection لمدة سنة لجهاز واحد.",
+        "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+        "ضمان لمدة سنة وفق شروط العرض وسياسة المتجر."
+      ],
+      "featuresEn": [
+        "McAfee Total Protection for one year on one device.",
+        "Protection against malware and phishing within the features supported by the activated version.",
+        "One-year warranty under the offer terms and store policy."
+      ],
+      "notes": [
+        "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+        "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+        "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+        "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك.",
+        "نظام التشغيل والإصدار المدعومان يُؤكدان قبل الدفع؛ لا تفترض أن كل ترخيص يعمل على Windows وMac وأندرويد وآيفون معًا.",
+        "على iPhone تركز أدوات الحماية على الروابط والخصوصية؛ لا تقوم بفحص النظام والتطبيقات الأخرى مثل برامج Windows."
+      ],
+      "notesEn": [
+        "One-year access on one device; the warranty period is stated separately.",
+        "Confirm delivery method, licence type and activation country with support before payment.",
+        "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+        "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups.",
+        "Confirm the supported operating system and version before payment; do not assume a licence covers Windows, Mac, Android and iPhone together.",
+        "On iPhone, security tools focus on links and privacy rather than scanning the system and other apps as on Windows."
+      ]
+    }
+  ]
+},
+{
+  "id": "norton-360-premium",
+  "name": "Norton 360 Premium",
+  "category": "الحماية والاتصالات",
+  "categories": [
+    "مكافحة الفيروسات وحماية الأجهزة"
+  ],
+  "logo": "norton",
+  "logoUrl": "logos/norton.svg?v=20261031-security1",
+  "status": "available",
+  "description": "اشتراك Norton 360 Premium لمدة سنة على جهاز واحد بسعر 750 جنيه، ضمان لمدة سنة. راجع توافق الجهاز وبلد التفعيل وطريقة التسليم قبل الطلب.",
+  "descriptionEn": "Norton 360 Premium for one year on one device at EGP 750, one-year warranty. Check device compatibility, activation country and delivery before ordering.",
+  "features": [
+    "Norton 360 Premium لمدة سنة لجهاز واحد.",
+    "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+    "ضمان لمدة سنة وفق شروط العرض وسياسة المتجر."
+  ],
+  "featuresEn": [
+    "Norton 360 Premium for one year on one device.",
+    "Protection against malware and phishing within the features supported by the activated version.",
+    "One-year warranty under the offer terms and store policy."
+  ],
+  "notes": [
+    "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+    "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+    "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+    "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك.",
+    "نظام التشغيل والإصدار المدعومان يُؤكدان قبل الدفع؛ لا تفترض أن كل ترخيص يعمل على Windows وMac وأندرويد وآيفون معًا.",
+    "على iPhone تركز أدوات الحماية على الروابط والخصوصية؛ لا تقوم بفحص النظام والتطبيقات الأخرى مثل برامج Windows."
+  ],
+  "notesEn": [
+    "One-year access on one device; the warranty period is stated separately.",
+    "Confirm delivery method, licence type and activation country with support before payment.",
+    "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+    "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups.",
+    "Confirm the supported operating system and version before payment; do not assume a licence covers Windows, Mac, Android and iPhone together.",
+    "On iPhone, security tools focus on links and privacy rather than scanning the system and other apps as on Windows."
+  ],
+  "plans": [
+    {
+      "name": "سنة — جهاز واحد",
+      "planType": "Norton 360 Premium",
+      "duration": "12 شهر",
+      "price": 750,
+      "available": true,
+      "account": "تفعيل لجهاز واحد",
+      "accountType": "تفعيل لجهاز واحد",
+      "activation": "طريقة التسليم والتفعيل تُؤكد مع الدعم قبل الدفع.",
+      "warranty": "ضمان لمدة سنة",
+      "features": [
+        "Norton 360 Premium لمدة سنة لجهاز واحد.",
+        "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+        "ضمان لمدة سنة وفق شروط العرض وسياسة المتجر."
+      ],
+      "featuresEn": [
+        "Norton 360 Premium for one year on one device.",
+        "Protection against malware and phishing within the features supported by the activated version.",
+        "One-year warranty under the offer terms and store policy."
+      ],
+      "notes": [
+        "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+        "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+        "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+        "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك.",
+        "نظام التشغيل والإصدار المدعومان يُؤكدان قبل الدفع؛ لا تفترض أن كل ترخيص يعمل على Windows وMac وأندرويد وآيفون معًا.",
+        "على iPhone تركز أدوات الحماية على الروابط والخصوصية؛ لا تقوم بفحص النظام والتطبيقات الأخرى مثل برامج Windows."
+      ],
+      "notesEn": [
+        "One-year access on one device; the warranty period is stated separately.",
+        "Confirm delivery method, licence type and activation country with support before payment.",
+        "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+        "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups.",
+        "Confirm the supported operating system and version before payment; do not assume a licence covers Windows, Mac, Android and iPhone together.",
+        "On iPhone, security tools focus on links and privacy rather than scanning the system and other apps as on Windows."
+      ]
+    }
+  ]
+},
+{
+  "id": "grok-cursor-premium",
+  "name": "Grok Premium + Cursor Premium",
+  "category": "البرمجة وتطوير المواقع",
+  "categories": [
+    "مساعد كتابة الكود",
+    "محادثة ومساعد ذكي"
+  ],
+  "logo": "grok-cursor-premium",
+  "logoUrl": "logos/grok-cursor-premium.svg?v=20261031-ready1",
+  "status": "available",
+  "description": "Grok Premium + Cursor Premium لمدة شهر بسعر 1298 جنيه، بحساب جاهز يشمل البريد وكلمة مرور الحساب وكلمة مرور البريد، وضمان 28 يومًا. باقة تجمع مناقشة الأفكار وصياغة المحتوى مع المساعدة في كتابة الأكواد وفهمها وتعديلها.",
+  "descriptionEn": "Grok Premium + Cursor Premium for one month at EGP 1,298, with a ready-made account, email address, account and mailbox passwords, and a 28-day warranty. Combine idea discussion and content drafting with help writing, understanding and editing code.",
+  "features": [
+    "Grok Premium + Cursor Premium في باقة واحدة لمدة شهر.",
+    "Grok لمناقشة الأفكار وشرح الأسئلة وتنظيم مسودات المحتوى.",
+    "Cursor للمساعدة في كتابة الأكواد وفهم ملفات المشروع وتعديلها داخل محرر البرمجة.",
+    "حساب جاهز؛ يشمل التسليم البريد الإلكتروني وكلمة مرور الحساب وكلمة مرور البريد.",
+    "ضمان لمدة 28 يومًا وفق شروط العرض وسياسة المتجر.",
+    "المزايا وحدود الاستخدام حسب فئة Premium المفعّلة؛ لا يوجد وعد باستخدام غير محدود.",
+    "الرصيد المشمول في Premium الموحّدة مشترك بين استخدامات Grok المدعومة وCursor ويتجدد أسبوعيًا.",
+    "نماذج الشركات الأخرى داخل Cursor والرصيد الإضافي ليست ضمن سعر الباقة وتُحاسب منفصلًا."
+  ],
+  "featuresEn": [
+    "Grok Premium + Cursor Premium together for one month.",
+    "Use Grok to discuss ideas, explain questions and organise content drafts.",
+    "Use Cursor to help write code, understand project files and make changes inside the coding editor.",
+    "Ready-made account; delivery includes the email address, account password and mailbox password.",
+    "A 28-day warranty under the offer terms and store policy.",
+    "Features and usage limits follow the activated Premium tier; unlimited usage is not promised.",
+    "The unified Premium allowance is shared across supported Grok activity and Cursor, with a weekly reset.",
+    "Third-party models in Cursor and additional credits are outside this offer and billed separately."
+  ],
+  "notes": [
+    "هذه باقة حساب جاهز، وليست تفعيلًا على إيميلك الشخصي؛ يختلف عرضها عن باقة Cursor + Grok + X الموجودة بالمتجر.",
+    "مدة الاشتراك شهر، ومدة الضمان 28 يومًا؛ المدتان منفصلتان.",
+    "لا يتضمن وصف العرض تفعيل X Premium+ على حسابك الشخصي أو ضمان العلامة الزرقاء.",
+    "راجع نوع الخطة وموعد الانتهاء والرصيد المتبقي بعد الاستلام؛ لا نعد بعدد طلبات أو كريدت غير مذكور.",
+    "تسليم كلمات المرور يخص الحساب والبريد الجاهزين المورَّدين؛ لا ترسل كلمة مرور بريدك الشخصي أو كود تحققك في الشات.",
+    "حسابات الخدمات وطريقة استعمالها تخضع لشروط المزود؛ ماستر ستور لا يدّعي شراكة رسمية مع Grok أو Cursor.",
+    "مقارنة التوفير الحالية تستخدم مرجع Premium الموحّدة البالغ 30 دولارًا قبل الضرائب وتحويل العملة المعتمد بالمتجر؛ طريقة التسليم والضمان تخصان عرض المتجر."
+  ],
+  "notesEn": [
+    "This is a ready-made account offer, not activation on your personal email; it differs from the store’s Cursor + Grok + X offer.",
+    "The subscription lasts one month and the warranty lasts 28 days; these are separate periods.",
+    "This offer does not promise X Premium+ activation on your personal account or a blue checkmark.",
+    "Check the plan, expiry date and remaining allowance on receipt; no unspecified request or credit quota is promised.",
+    "Delivered passwords belong to the supplied account and mailbox; do not send your personal mailbox password or verification codes in chat.",
+    "Service accounts and their use are subject to provider terms; Master Store does not claim an official partnership with Grok or Cursor.",
+    "The current saving reference is the unified Premium plan at USD 30 before tax, using the store’s currency conversion; delivery and warranty terms are those of this store offer."
+  ],
+  "plans": [
+    {
+      "name": "Premium — شهر — حساب جاهز — ضمان 28 يومًا",
+      "planType": "Grok Premium + Cursor Premium",
+      "duration": "1 شهر",
+      "price": 1298,
+      "available": true,
+      "account": "حساب جاهز مع البريد وكلمات مرور الحساب والبريد",
+      "accountType": "حساب جاهز",
+      "activation": "تسليم البريد الإلكتروني وكلمة مرور الحساب وكلمة مرور البريد، مع خطوات الدخول إلى Grok وCursor.",
+      "warranty": "ضمان لمدة 28 يومًا",
+      "credits": "رصيد Premium الموحّدة المشترك حسب الحدود الظاهرة بالحساب",
+      "features": [
+        "Grok Premium + Cursor Premium في باقة واحدة لمدة شهر.",
+        "Grok لمناقشة الأفكار وشرح الأسئلة وتنظيم مسودات المحتوى.",
+        "Cursor للمساعدة في كتابة الأكواد وفهم ملفات المشروع وتعديلها داخل محرر البرمجة.",
+        "حساب جاهز؛ يشمل التسليم البريد الإلكتروني وكلمة مرور الحساب وكلمة مرور البريد.",
+        "ضمان لمدة 28 يومًا وفق شروط العرض وسياسة المتجر.",
+        "المزايا وحدود الاستخدام حسب فئة Premium المفعّلة؛ لا يوجد وعد باستخدام غير محدود.",
+        "الرصيد المشمول في Premium الموحّدة مشترك بين استخدامات Grok المدعومة وCursor ويتجدد أسبوعيًا.",
+        "نماذج الشركات الأخرى داخل Cursor والرصيد الإضافي ليست ضمن سعر الباقة وتُحاسب منفصلًا."
+      ],
+      "featuresEn": [
+        "Grok Premium + Cursor Premium together for one month.",
+        "Use Grok to discuss ideas, explain questions and organise content drafts.",
+        "Use Cursor to help write code, understand project files and make changes inside the coding editor.",
+        "Ready-made account; delivery includes the email address, account password and mailbox password.",
+        "A 28-day warranty under the offer terms and store policy.",
+        "Features and usage limits follow the activated Premium tier; unlimited usage is not promised.",
+        "The unified Premium allowance is shared across supported Grok activity and Cursor, with a weekly reset.",
+        "Third-party models in Cursor and additional credits are outside this offer and billed separately."
+      ],
+      "notes": [
+        "هذه باقة حساب جاهز، وليست تفعيلًا على إيميلك الشخصي؛ يختلف عرضها عن باقة Cursor + Grok + X الموجودة بالمتجر.",
+        "مدة الاشتراك شهر، ومدة الضمان 28 يومًا؛ المدتان منفصلتان.",
+        "لا يتضمن وصف العرض تفعيل X Premium+ على حسابك الشخصي أو ضمان العلامة الزرقاء.",
+        "راجع نوع الخطة وموعد الانتهاء والرصيد المتبقي بعد الاستلام؛ لا نعد بعدد طلبات أو كريدت غير مذكور.",
+        "تسليم كلمات المرور يخص الحساب والبريد الجاهزين المورَّدين؛ لا ترسل كلمة مرور بريدك الشخصي أو كود تحققك في الشات.",
+        "حسابات الخدمات وطريقة استعمالها تخضع لشروط المزود؛ ماستر ستور لا يدّعي شراكة رسمية مع Grok أو Cursor.",
+        "مقارنة التوفير الحالية تستخدم مرجع Premium الموحّدة البالغ 30 دولارًا قبل الضرائب وتحويل العملة المعتمد بالمتجر؛ طريقة التسليم والضمان تخصان عرض المتجر."
+      ],
+      "notesEn": [
+        "This is a ready-made account offer, not activation on your personal email; it differs from the store’s Cursor + Grok + X offer.",
+        "The subscription lasts one month and the warranty lasts 28 days; these are separate periods.",
+        "This offer does not promise X Premium+ activation on your personal account or a blue checkmark.",
+        "Check the plan, expiry date and remaining allowance on receipt; no unspecified request or credit quota is promised.",
+        "Delivered passwords belong to the supplied account and mailbox; do not send your personal mailbox password or verification codes in chat.",
+        "Service accounts and their use are subject to provider terms; Master Store does not claim an official partnership with Grok or Cursor.",
+        "The current saving reference is the unified Premium plan at USD 30 before tax, using the store’s currency conversion; delivery and warranty terms are those of this store offer."
+      ],
+      "officialPrice": {
+        "amount": 30,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://docs.x.ai/x-subscription/pricing",
+        "checkedAt": "2026-10-31",
+        "estimated": false
+      },
+      "priceComparison": {
+        "status": "reference",
+        "source": "https://docs.x.ai/x-subscription/pricing",
+        "checkedAt": "2026-10-31",
+        "priceLabel": "مرجع Premium الموحّدة — شهر",
+        "priceLabelEn": "Unified Premium reference — 1 month",
+        "savingLabel": "التوفير مقابل المرجع الحالي",
+        "savingLabelEn": "Saving against the current reference",
+        "showReferenceNote": true,
+        "note": "مرجع Premium الموحّدة: 30 دولارًا للشهر قبل الضرائب. التحويل الداخلي للمتجر 56 جنيهًا للدولار؛ عرض الحساب الجاهز وضمان 28 يومًا يختلفان عن الشراء المباشر. نسبة 56% في النص الدعائي مقارنة تاريخية بالأسعار المنفصلة على دولار بـ59 جنيهًا وليست الخصم عن الباقة الحالية.",
+        "noteEn": "Unified Premium reference: USD 30 per month before tax. The store’s internal conversion is EGP 56 per USD; ready-account delivery and the 28-day warranty differ from a direct purchase. The advertisement’s 56% figure is a historical comparison with separate plans at EGP 59 per USD, not a saving against the current bundle."
+      }
+    }
+  ]
+},
+{
+  "id": "cursor-grok-x-bundle",
+  "name": "Cursor Pro + Grok + X Premium+",
+  "category": "البرمجة وتطوير المواقع",
+  "categories": [
+    "مساعد كتابة الكود",
+    "محادثة ومساعد ذكي",
+    "تواصل ومجتمعات"
+  ],
+  "logo": "cursor-grok-x-bundle",
+  "logoUrl": "logos/cursor-grok-x-bundle.svg?v=20261028-cursor-bundle1",
+  "status": "available",
+  "description": "باقة The X Subscription Premium: مزايا Cursor Pro وSuperGrok وX Premium+ لمدة شهر بـ1000 جنيه، على إيميلك الشخصي وحساباتك المرتبطة، بضمان كامل لمدة شهر. أرسل الإيميل بعد الطلب لتأكيد الحساب وخطوات التفعيل.",
+  "descriptionEn": "The X Subscription Premium: Cursor Pro, SuperGrok and X Premium+ benefits for one month at EGP 1,000, activated on your personal email and connected accounts with a full one-month warranty. Send your email after ordering to confirm accounts and activation steps.",
+  "features": [
+    "باقة Premium من The X Subscription لمدة شهر، تجمع مزايا Cursor Pro وSuperGrok وX Premium+.",
+    "تفعيل على إيميلك الشخصي وحساباتك المرتبطة، مع ضمان كامل لمدة شهر.",
+    "Cursor: مساعدة في كتابة الكود وفهم المشروع ومراجعة التعديلات باستخدام النماذج المشمولة.",
+    "Grok: محادثة وشرح وتلخيص وأدوات صوت وصور وفيديو ضمن حدود الباقة المتاحة.",
+    "Grok Bot ضمن Premium؛ استخدامه يُحتسب من نفس الرصيد المشترك.",
+    "مزايا X Premium+ على حساب X الشخصي بعد ربطه؛ العلامة الزرقاء حسب الأهلية ومراجعة X.",
+    "رصيد أسبوعي مشترك لاستخدام نماذج Grok عبر الخدمات المدعومة؛ راجع المتبقي وموعد التجديد داخل حسابك.",
+    "نماذج الشركات الأخرى داخل Cursor، مثل Claude وGPT، استخدام إضافي مدفوع وغير مشمول في الرصيد الأسبوعي."
+  ],
+  "featuresEn": [
+    "One month of The X Subscription Premium, combining Cursor Pro, SuperGrok and X Premium+ benefits.",
+    "Activation on your personal email and connected accounts, with a full one-month warranty.",
+    "Cursor: help with coding, understanding a project and reviewing changes using included models.",
+    "Grok: chat, explanations, summaries, voice, image and video tools within the available plan limits.",
+    "Grok Bot is included with Premium and draws from the same shared usage pool.",
+    "X Premium+ benefits apply to your personal X account after linking; the blue checkmark depends on eligibility and X review.",
+    "A shared weekly pool covers Grok models across supported services; check remaining usage and reset time in your account.",
+    "Third-party models in Cursor, such as Claude and GPT, are paid additional usage and are not included in the weekly pool."
+  ],
+  "notes": [
+    "أرسل إيميلك الشخصي بعد الطلب لتأكيد الحساب المناسب وخطوات التفعيل.",
+    "أكمل تسجيل الدخول والموافقة على الربط بنفسك داخل المواقع الرسمية عند الحاجة؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات.",
+    "ربط X الشخصي مطلوب لمزاياه؛ تشابه عناوين الإيميل وحده لا يربط الحسابات تلقائيًا.",
+    "هذه الباقة تخص Cursor للبرمجة، ولا تتضمن Coursera Plus أو كورسات كورسيرا.",
+    "الرصيد ليس استخدامًا غير محدود؛ تختلف تكلفة الاستهلاك حسب الأداة والنموذج والعملية.",
+    "شحن الرصيد الإضافي وAuto Top-up ليسا ضمن سعر الباقة؛ راجع إعدادات المصروفات قبل تفعيلهما.",
+    "لو عندك اشتراك مدفوع حاليًا أو حساب عمل، راجع أهليته للربط مع الدعم قبل الدفع؛ توحيد الحسابات المكتمل دائم ولا يمكن التراجع عنه.",
+    "ضمان كامل لمدة شهر على التفعيل والوصول وفق سياسة المتجر؛ ظهور العلامة الزرقاء وطلبات تحقيق الدخل تخضع لقرارات X."
+  ],
+  "plans": [
+    {
+      "name": "Premium — شهر على إيميلك",
+      "planType": "The X Subscription Premium",
+      "duration": "1 شهر",
+      "price": 1000,
+      "available": true,
+      "account": "على إيميلك الشخصي وحساباتك المرتبطة",
+      "accountType": "على إيميلك الشخصي وحساباتك المرتبطة",
+      "activation": "أرسل إيميلك بعد الطلب؛ نؤكد الحسابات وخطوات الربط ونفعّل باقة Premium لمدة شهر على حسابك الشخصي.",
+      "warranty": "ضمان كامل لمدة شهر",
+      "credits": "رصيد أسبوعي مشترك حسب حدود Premium",
+      "notes": [
+        "أرسل إيميلك الشخصي بعد الطلب لتأكيد الحساب المناسب وخطوات التفعيل.",
+        "أكمل تسجيل الدخول والموافقة على الربط بنفسك داخل المواقع الرسمية عند الحاجة؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات.",
+        "ربط X الشخصي مطلوب لمزاياه؛ تشابه عناوين الإيميل وحده لا يربط الحسابات تلقائيًا.",
+        "هذه الباقة تخص Cursor للبرمجة، ولا تتضمن Coursera Plus أو كورسات كورسيرا.",
+        "الرصيد ليس استخدامًا غير محدود؛ تختلف تكلفة الاستهلاك حسب الأداة والنموذج والعملية.",
+        "شحن الرصيد الإضافي وAuto Top-up ليسا ضمن سعر الباقة؛ راجع إعدادات المصروفات قبل تفعيلهما.",
+        "لو عندك اشتراك مدفوع حاليًا أو حساب عمل، راجع أهليته للربط مع الدعم قبل الدفع؛ توحيد الحسابات المكتمل دائم ولا يمكن التراجع عنه.",
+        "ضمان كامل لمدة شهر على التفعيل والوصول وفق سياسة المتجر؛ ظهور العلامة الزرقاء وطلبات تحقيق الدخل تخضع لقرارات X."
+      ],
+      "officialPrice": {
+        "amount": 30,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://docs.x.ai/x-subscription/pricing",
+        "checkedAt": "2026-10-28",
+        "estimated": false
+      },
+      "priceComparison": {
+        "status": "reference",
+        "source": "https://docs.x.ai/x-subscription/pricing",
+        "checkedAt": "2026-10-28",
+        "note": "مرجع خطة Premium الموحّدة لمدة شهر: 30 دولار قبل الضرائب؛ السعر ليس مجموع اشتراكات منفصلة."
+      }
+    }
+  ]
+},
+{
+  "id": "visio-professional",
+  "name": "Microsoft Visio Professional",
+  "category": "العمل والإنتاجية",
+  "categories": [
+    "مستندات وجداول وملاحظات",
+    "خرائط ذهنية وسبورات تعاونية"
+  ],
+  "logo": "visio",
+  "logoUrl": "logos/visio.svg?v=20261028-visio1",
+  "status": "available",
+  "description": "تفعيل Microsoft Visio Professional لرسم المخططات الانسيابية والهياكل التنظيمية ومخططات الشبكات على Windows. إصدارات 2016 و2019 و2021 بسعر 380 جنيه لكل إصدار، وLTSC 2024 بسعر 350 جنيه، مع دليل لخطوات التفعيل.",
+  "descriptionEn": "Activate Microsoft Visio Professional for flowcharts, organisation charts and network diagrams on Windows. Choose 2016, 2019 or 2021 for EGP 380 per version, or LTSC 2024 for EGP 350, with an activation guide.",
+  "features": [
+    "إنشاء مخططات انسيابية لتوضيح خطوات العمل واتخاذ القرار.",
+    "رسم هياكل تنظيمية ومخططات شبكات باستخدام الأشكال والقوالب المتاحة في الإصدار.",
+    "تنظيم الأشكال والموصلات وإضافة النصوص لتقديم العمليات بشكل واضح.",
+    "برنامج Visio لسطح مكتب Windows؛ الترخيص منفصل عن Windows وMicrosoft 365.",
+    "اختر إصدار المفتاح المطابق للبرنامج المثبت؛ 2016 و2019 و2021 وLTSC 2024 اختيارات منفصلة."
+  ],
+  "featuresEn": [
+    "Create flowcharts to explain workflows and decisions.",
+    "Build organisation charts and network diagrams using the shapes and templates available in your version.",
+    "Arrange shapes and connectors and add labels to communicate processes clearly.",
+    "Visio for Windows desktop; its licence is separate from Windows and Microsoft 365.",
+    "Match the key to the installed version; 2016, 2019, 2021 and LTSC 2024 are separate options."
+  ],
+  "notes": [
+    "كل سعر يخص إصدارًا واحدًا مختارًا؛ لا يشمل تفعيل جميع الإصدارات معًا.",
+    "عدد الأجهزة وإعادة التفعيل ونقل المفتاح وشروط الضمان تُؤكد مع الدعم قبل الدفع.",
+    "التفعيل لا يمدد دورة دعم Microsoft ولا يمنح ترقية مجانية إلى إصدار أحدث.",
+    "راجع توافق إصدار Visio ومعمارية 32/64 بت مع Office الموجود على جهازك قبل التثبيت.",
+    "دليل طريقة التفعيل: https://tinyurl.com/OfficeActiveSystem"
+  ],
+  "plans": [
+    {
+      "name": "Visio Professional 2016",
+      "planType": "Professional 2016",
+      "duration": "إصدار ثابت — دفعة واحدة",
+      "price": 380,
+      "available": true,
+      "account": "مفتاح تفعيل للإصدار المختار",
+      "accountType": "مفتاح تفعيل للإصدار المختار",
+      "activation": "تسليم مفتاح تفعيل Visio للإصدار المختار، مع دليل التفعيل ومتابعة خطوات التفعيل الهاتفي عند الحاجة.",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "notes": [
+        "كل سعر يخص إصدارًا واحدًا مختارًا؛ لا يشمل تفعيل جميع الإصدارات معًا.",
+        "عدد الأجهزة وإعادة التفعيل ونقل المفتاح وشروط الضمان تُؤكد مع الدعم قبل الدفع.",
+        "التفعيل لا يمدد دورة دعم Microsoft ولا يمنح ترقية مجانية إلى إصدار أحدث.",
+        "راجع توافق إصدار Visio ومعمارية 32/64 بت مع Office الموجود على جهازك قبل التثبيت.",
+        "دليل طريقة التفعيل: https://tinyurl.com/OfficeActiveSystem"
+      ]
+    },
+    {
+      "name": "Visio Professional 2019",
+      "planType": "Professional 2019",
+      "duration": "إصدار ثابت — دفعة واحدة",
+      "price": 380,
+      "available": true,
+      "account": "مفتاح تفعيل للإصدار المختار",
+      "accountType": "مفتاح تفعيل للإصدار المختار",
+      "activation": "تسليم مفتاح تفعيل Visio للإصدار المختار، مع دليل التفعيل ومتابعة خطوات التفعيل الهاتفي عند الحاجة.",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "notes": [
+        "كل سعر يخص إصدارًا واحدًا مختارًا؛ لا يشمل تفعيل جميع الإصدارات معًا.",
+        "عدد الأجهزة وإعادة التفعيل ونقل المفتاح وشروط الضمان تُؤكد مع الدعم قبل الدفع.",
+        "التفعيل لا يمدد دورة دعم Microsoft ولا يمنح ترقية مجانية إلى إصدار أحدث.",
+        "راجع توافق إصدار Visio ومعمارية 32/64 بت مع Office الموجود على جهازك قبل التثبيت.",
+        "دليل طريقة التفعيل: https://tinyurl.com/OfficeActiveSystem"
+      ]
+    },
+    {
+      "name": "Visio Professional 2021",
+      "planType": "Professional 2021",
+      "duration": "إصدار ثابت — دفعة واحدة",
+      "price": 380,
+      "available": true,
+      "account": "مفتاح تفعيل للإصدار المختار",
+      "accountType": "مفتاح تفعيل للإصدار المختار",
+      "activation": "تسليم مفتاح تفعيل Visio للإصدار المختار، مع دليل التفعيل ومتابعة خطوات التفعيل الهاتفي عند الحاجة.",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "notes": [
+        "كل سعر يخص إصدارًا واحدًا مختارًا؛ لا يشمل تفعيل جميع الإصدارات معًا.",
+        "عدد الأجهزة وإعادة التفعيل ونقل المفتاح وشروط الضمان تُؤكد مع الدعم قبل الدفع.",
+        "التفعيل لا يمدد دورة دعم Microsoft ولا يمنح ترقية مجانية إلى إصدار أحدث.",
+        "راجع توافق إصدار Visio ومعمارية 32/64 بت مع Office الموجود على جهازك قبل التثبيت.",
+        "دليل طريقة التفعيل: https://tinyurl.com/OfficeActiveSystem"
+      ]
+    },
+    {
+      "name": "Visio Professional LTSC 2024",
+      "planType": "Professional LTSC 2024",
+      "duration": "إصدار ثابت — دفعة واحدة",
+      "price": 350,
+      "available": true,
+      "account": "مفتاح تفعيل للإصدار المختار",
+      "accountType": "مفتاح تفعيل للإصدار المختار",
+      "activation": "تسليم مفتاح تفعيل Visio للإصدار المختار، مع دليل التفعيل ومتابعة خطوات التفعيل الهاتفي عند الحاجة.",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "notes": [
+        "كل سعر يخص إصدارًا واحدًا مختارًا؛ لا يشمل تفعيل جميع الإصدارات معًا.",
+        "عدد الأجهزة وإعادة التفعيل ونقل المفتاح وشروط الضمان تُؤكد مع الدعم قبل الدفع.",
+        "التفعيل لا يمدد دورة دعم Microsoft ولا يمنح ترقية مجانية إلى إصدار أحدث.",
+        "راجع توافق إصدار Visio ومعمارية 32/64 بت مع Office الموجود على جهازك قبل التثبيت.",
+        "دليل طريقة التفعيل: https://tinyurl.com/OfficeActiveSystem"
+      ]
+    }
+  ]
+},
+{
+  "id": "xtream-iptv",
+  "name": "Xtream IPTV",
+  "category": "الترفيه",
+  "categories": [
+    "فيديو وبث وقنوات"
+  ],
+  "logo": "xtream-iptv",
+  "logoUrl": "logos/xtream-iptv.svg?v=20261028-xtream1",
+  "status": "available",
+  "description": "اشتراك IPTV على سيرفر عربي يُحدد عشوائيًا، لمدة سنة أو أكثر حسب السيرفر المستلَم، بسعر 350 جنيه. تشغيل عبر Xtream Codes على الأجهزة المتوافقة، مع قنوات عربية ورياضية وتعليق عربي حسب البث.",
+  "descriptionEn": "IPTV access on an assigned Arabic-content server for one year or longer depending on the delivered server, for EGP 350. Use Xtream Codes on compatible devices, with Arabic and sports channels and Arabic commentary where supplied.",
+  "features": [
+    "اشتراك IPTV بسيرفر عربي يُحدد عشوائيًا حسب التوفر؛ لا تختار اسم سيرفر بعينه.",
+    "مدة الوصول سنة أو أكثر حسب تاريخ انتهاء السيرفر المستلَم.",
+    "قنوات عربية ورياضية وترفيهية ضمن قائمة السيرفر المتاحة.",
+    "متابعة الدوريات الإنجليزي والإيطالي والإسباني والتركي والمصري والسعودي عبر القنوات المشمولة.",
+    "تعليق عربي للمباريات على القنوات التي توفره؛ اللغة تتبع البث المختار.",
+    "التشغيل على الهاتف أو التلفزيون أو الرسيفر المتوافق مع Xtream Codes والمتصل بالإنترنت.",
+    "يلزم تطبيق أو مشغّل IPTV متوافق؛ الاشتراك واشتراك التطبيق إن وجد خدمتان منفصلتان.",
+    "سرعة 4 ميجابت/ثانية قد تناسب بعض الجودات المنخفضة؛ الجودة الأعلى تحتاج سرعة واستقرارًا أكبر.",
+    "المشاهدة تستهلك باقة الإنترنت مثل خدمات الفيديو؛ الاستهلاك يتغير مع معدل البث والجودة والمدة."
+  ],
+  "featuresEn": [
+    "IPTV access on an Arabic-content server assigned according to availability; a specific server name cannot be selected.",
+    "Access lasts one year or longer, depending on the delivered server expiry date.",
+    "Arabic, sports and entertainment channels from the available server list.",
+    "Follow English, Italian, Spanish, Turkish, Egyptian and Saudi football leagues through the included channels.",
+    "Arabic match commentary on channels that offer it; language depends on the selected broadcast.",
+    "Watch on a phone, TV or receiver that supports Xtream Codes and has an internet connection.",
+    "A compatible IPTV player is required; service access and any paid player licence are separate.",
+    "A 4 Mbps connection may suit some lower-quality streams; higher quality requires more speed and stability.",
+    "Viewing uses your internet allowance like other video services; usage varies with bitrate, quality and viewing time."
+  ],
+  "notes": [
+    "اسم السيرفر وتاريخ انتهاء الوصول يُؤكدان عند التسليم؛ عبارة سنة أو أكثر لا تعني اشتراكًا مدى الحياة.",
+    "القنوات والبطولات والتعليق العربي حسب قائمة السيرفر والبث؛ راجع القناة أو المباراة المطلوبة قبل الدفع.",
+    "4 ميجابت/ثانية ليست 4 ميجابايت/ثانية، وليست ضمانًا لتشغيل Full HD أو 4K.",
+    "عدد الشاشات المتزامنة وشروط الضمان يُؤكدان مع الدعم قبل الدفع؛ لا يُفترض تشغيل عدة أجهزة معًا.",
+    "بيانات الدخول: رابط السيرفر واسم المستخدم وكلمة المرور، وتُضاف داخل خيار Xtream Codes في المشغّل المتوافق."
+  ],
+  "plans": [
+    {
+      "name": "سيرفر عربي عشوائي — سنة أو أكثر",
+      "planType": "IPTV",
+      "duration": "12 شهر أو أكثر حسب السيرفر المستلَم",
+      "price": 350,
+      "available": true,
+      "account": "بيانات وصول لسيرفر عربي يُحدد عشوائيًا",
+      "accountType": "بيانات وصول لسيرفر عربي يُحدد عشوائيًا",
+      "activation": "تسليم رابط السيرفر واسم المستخدم وكلمة المرور لإضافتها داخل مشغّل يدعم Xtream Codes.",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "notes": [
+        "اسم السيرفر وتاريخ انتهاء الوصول يُؤكدان عند التسليم؛ عبارة سنة أو أكثر لا تعني اشتراكًا مدى الحياة.",
+        "القنوات والبطولات والتعليق العربي حسب قائمة السيرفر والبث؛ راجع القناة أو المباراة المطلوبة قبل الدفع.",
+        "4 ميجابت/ثانية ليست 4 ميجابايت/ثانية، وليست ضمانًا لتشغيل Full HD أو 4K.",
+        "عدد الشاشات المتزامنة وشروط الضمان يُؤكدان مع الدعم قبل الدفع؛ لا يُفترض تشغيل عدة أجهزة معًا.",
+        "بيانات الدخول: رابط السيرفر واسم المستخدم وكلمة المرور، وتُضاف داخل خيار Xtream Codes في المشغّل المتوافق."
+      ]
+    }
+  ]
+},
+{
+  "id": "picsart",
+  "name": "Picsart Pro",
+  "category": "AI Tools",
+  "categories": [
+    "تعديل الصور والتصميم"
+  ],
+  "logo": "picsart",
+  "logoUrl": "logos/picsart.svg?v=20261027-picsart1",
+  "status": "available",
+  "description": "اشتراكات Picsart Pro بحساب خاص جاهز وضمان كامل، من أسبوع إلى سنة. الأسبوع بدون كريدت، والباقات الأخرى تشمل 500 كريدت شهريًا.",
+  "descriptionEn": "Picsart Pro subscriptions with a private ready-to-use account and full warranty, from one week to one year. The weekly plan has no credits; the other plans each include 500 credits per month.",
+  "features": [
+    "تحرير الصور وتجهيز تصميمات للسوشيال ميديا باستخدام أدوات الحساب المتاحة.",
+    "حساب خاص جاهز مع تسليم بيانات الدخول.",
+    "ضمان كامل طوال مدة الباقة المختارة."
+  ],
+  "featuresEn": [
+    "Edit photos and prepare social media designs using the tools available on the account.",
+    "Private ready-to-use account with login details provided.",
+    "Full warranty throughout the selected plan term."
+  ],
+  "notes": [
+    "باقة الأسبوع بدون كريدت؛ باقات الشهر و3 شهور و6 شهور والسنة تشمل 500 كريدت شهريًا.",
+    "استهلاك الكريدت يختلف حسب الأداة والعملية؛ الرصيد لا يساوي عددًا ثابتًا من الصور."
+  ],
+  "plans": [
+    {
+      "name": "Pro — خاص — 7 أيام",
+      "planType": "Pro",
+      "duration": "7 أيام",
+      "price": 65,
+      "available": true,
+      "accountType": "حساب خاص جاهز",
+      "account": "حساب خاص جاهز",
+      "activation": "تسليم حساب Picsart Pro خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "warranty": "ضمان كامل طوال الأسبوع",
+      "credits": "بدون كريدت",
+      "features": [
+        "بدون كريدت",
+        "حساب خاص جاهز مع تسليم بيانات الدخول.",
+        "ضمان كامل طوال مدة الباقة المختارة."
+      ],
+      "featuresEn": [
+        "No credits",
+        "Private ready-to-use account with login details provided.",
+        "Full warranty throughout the selected plan term."
+      ],
+      "notes": [
+        "باقة الأسبوع لا تشمل كريدت.",
+        "باقة الأسبوع بدون كريدت لا تطابق باقة رسمية أسبوعية موثقة؛ لذلك لا تُعرض لها نسبة توفير."
+      ],
+      "priceComparison": {
+        "status": "unavailable",
+        "note": "باقة الأسبوع بدون كريدت لا تطابق باقة رسمية أسبوعية موثقة؛ لذلك لا تُعرض لها نسبة توفير.",
+        "noteEn": "The weekly plan without credits has no verified matching official weekly plan, so no saving percentage is shown."
+      }
+    },
+    {
+      "name": "Pro — خاص — 1 شهر",
+      "planType": "Pro",
+      "duration": "1 شهر",
+      "price": 220,
+      "available": true,
+      "accountType": "حساب خاص جاهز",
+      "account": "حساب خاص جاهز",
+      "activation": "تسليم حساب Picsart Pro خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "warranty": "ضمان كامل طوال الشهر",
+      "credits": "500 كريدت شهريًا",
+      "features": [
+        "500 كريدت شهريًا",
+        "حساب خاص جاهز مع تسليم بيانات الدخول.",
+        "ضمان كامل طوال مدة الباقة المختارة."
+      ],
+      "featuresEn": [
+        "500 credits per month",
+        "Private ready-to-use account with login details provided.",
+        "Full warranty throughout the selected plan term."
+      ],
+      "notes": [
+        "استهلاك الكريدت يختلف حسب الأداة والعملية؛ الرصيد لا يساوي عددًا ثابتًا من الصور."
+      ],
+      "officialPrice": {
+        "amount": 15,
+        "currency": "USD",
+        "months": 1,
+        "basis": "official",
+        "source": "https://picsart.com/pricing/",
+        "checkedAt": "2026-10-27",
+        "estimated": false
+      },
+      "priceComparison": {
+        "status": "verified",
+        "planName": "Picsart Pro",
+        "source": "https://picsart.com/pricing/",
+        "checkedAt": "2026-10-27",
+        "note": "المقارنة بسعر Picsart Pro عند الدفع الشهري، وفق تحويل العملة المعروض في المتجر. قد تختلف أسعار الدول والضرائب.",
+        "noteEn": "Compared with Picsart Pro monthly billing using the store’s currency conversion. Regional prices and taxes may differ."
+      },
+      "hideOfficialPrice": true
+    },
+    {
+      "name": "Pro — خاص — 3 شهور",
+      "planType": "Pro",
+      "duration": "3 شهور",
+      "price": 550,
+      "available": true,
+      "accountType": "حساب خاص جاهز",
+      "account": "حساب خاص جاهز",
+      "activation": "تسليم حساب Picsart Pro خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "warranty": "ضمان كامل لمدة 3 شهور",
+      "credits": "500 كريدت شهريًا",
+      "features": [
+        "500 كريدت شهريًا",
+        "حساب خاص جاهز مع تسليم بيانات الدخول.",
+        "ضمان كامل طوال مدة الباقة المختارة."
+      ],
+      "featuresEn": [
+        "500 credits per month",
+        "Private ready-to-use account with login details provided.",
+        "Full warranty throughout the selected plan term."
+      ],
+      "notes": [
+        "استهلاك الكريدت يختلف حسب الأداة والعملية؛ الرصيد لا يساوي عددًا ثابتًا من الصور."
+      ],
+      "officialPrice": {
+        "amount": 45,
+        "currency": "USD",
+        "months": 3,
+        "basis": "reference",
+        "source": "https://picsart.com/pricing/",
+        "checkedAt": "2026-10-27",
+        "estimated": true
+      },
+      "priceComparison": {
+        "status": "reference",
+        "planName": "Picsart Pro",
+        "source": "https://picsart.com/pricing/",
+        "checkedAt": "2026-10-27",
+        "note": "المقارنة بتكلفة تجديد Picsart Pro شهريًا لمدة 3 شهور؛ ليست سعر باقة ربع سنوية مستقلة.",
+        "noteEn": "Compared with renewing Picsart Pro monthly for 3 months; this is not a separately sold quarterly plan."
+      },
+      "hideOfficialPrice": true
+    },
+    {
+      "name": "Pro — خاص — 6 شهور",
+      "planType": "Pro",
+      "duration": "6 شهور",
+      "price": 900,
+      "available": true,
+      "accountType": "حساب خاص جاهز",
+      "account": "حساب خاص جاهز",
+      "activation": "تسليم حساب Picsart Pro خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "warranty": "ضمان كامل لمدة 6 شهور",
+      "credits": "500 كريدت شهريًا",
+      "features": [
+        "500 كريدت شهريًا",
+        "حساب خاص جاهز مع تسليم بيانات الدخول.",
+        "ضمان كامل طوال مدة الباقة المختارة."
+      ],
+      "featuresEn": [
+        "500 credits per month",
+        "Private ready-to-use account with login details provided.",
+        "Full warranty throughout the selected plan term."
+      ],
+      "notes": [
+        "استهلاك الكريدت يختلف حسب الأداة والعملية؛ الرصيد لا يساوي عددًا ثابتًا من الصور."
+      ],
+      "officialPrice": {
+        "amount": 90,
+        "currency": "USD",
+        "months": 6,
+        "basis": "reference",
+        "source": "https://picsart.com/pricing/",
+        "checkedAt": "2026-10-27",
+        "estimated": true
+      },
+      "priceComparison": {
+        "status": "reference",
+        "planName": "Picsart Pro",
+        "source": "https://picsart.com/pricing/",
+        "checkedAt": "2026-10-27",
+        "note": "المقارنة بتكلفة تجديد Picsart Pro شهريًا لمدة 6 شهور؛ ليست سعر باقة نصف سنوية مستقلة.",
+        "noteEn": "Compared with renewing Picsart Pro monthly for 6 months; this is not a separately sold six-month plan."
+      },
+      "hideOfficialPrice": true
+    },
+    {
+      "name": "Pro — خاص — 12 شهر",
+      "planType": "Pro",
+      "duration": "12 شهر",
+      "price": 1650,
+      "available": true,
+      "accountType": "حساب خاص جاهز",
+      "account": "حساب خاص جاهز",
+      "activation": "تسليم حساب Picsart Pro خاص جاهز للاستخدام: إيميل وكلمة مرور.",
+      "warranty": "ضمان كامل لمدة سنة",
+      "credits": "500 كريدت شهريًا",
+      "features": [
+        "500 كريدت شهريًا",
+        "حساب خاص جاهز مع تسليم بيانات الدخول.",
+        "ضمان كامل طوال مدة الباقة المختارة."
+      ],
+      "featuresEn": [
+        "500 credits per month",
+        "Private ready-to-use account with login details provided.",
+        "Full warranty throughout the selected plan term."
+      ],
+      "notes": [
+        "استهلاك الكريدت يختلف حسب الأداة والعملية؛ الرصيد لا يساوي عددًا ثابتًا من الصور."
+      ],
+      "officialPrice": {
+        "amount": 126,
+        "currency": "USD",
+        "months": 12,
+        "basis": "official",
+        "source": "https://picsart.com/pricing/",
+        "checkedAt": "2026-10-27",
+        "estimated": false
+      },
+      "priceComparison": {
+        "status": "verified",
+        "planName": "Picsart Pro",
+        "source": "https://picsart.com/pricing/",
+        "checkedAt": "2026-10-27",
+        "note": "المقارنة بسعر Picsart Pro السنوي المخفّض عند الدفع لسنة كاملة، وفق تحويل العملة المعروض في المتجر. قد تختلف أسعار الدول والضرائب.",
+        "noteEn": "Compared with discounted Picsart Pro annual billing using the store’s currency conversion. Regional prices and taxes may differ."
+      },
+      "hideOfficialPrice": true
+    }
+  ]
+},
+  {
+  "id": "humanizeai-pro",
+  "name": "HumanizeAI.pro",
+  "category": "AI Tools",
+  "categories": [
+    "تدقيق وإعادة صياغة"
+  ],
+  "logo": "humanizeai-pro",
+  "status": "available",
+  "description": "HumanizeAI.pro لتحسين صياغة النصوص وجعلها أكثر سلاسة ووضوحًا. اختار Standard أو Lite لمدة شهر، بحساب جاهز يُسلّم بإيميل وباسورد، وضمان كامل طوال الشهر.",
+  "descriptionEn": "HumanizeAI.pro refines text for clearer, more natural writing. Choose Standard or Lite for one month, delivered as a ready-to-use account with email and password and full warranty throughout the month.",
+  "notes": [
+    "عدد الكلمات وحدود الاستخدام وحجم الملفات حسب الباقة؛ تُراجع قبل الدفع.",
+    "اسم الباقة المختارة ومدة الشهر وطريقة التسليم موضّحة في ملخص طلبك.",
+    "الخدمة على humanizeai.pro، وهي منفصلة عن HumanizeAI.com."
+  ],
+  "plans": [
+    {
+      "name": "Standard — شهر",
+      "planType": "Standard",
+      "duration": "1 شهر",
+      "price": 560,
+      "basePriceUSD": 10,
+      "available": true,
+      "accountType": "حساب جاهز",
+      "activation": "تسليم إيميل وكلمة مرور لحساب جاهز للاستخدام.",
+      "account": "حساب جاهز",
+      "warranty": "ضمان كامل طوال مدة الاشتراك: شهر.",
+      "features": [
+        "اشتراك Standard لمدة شهر كامل.",
+        "تسليم بيانات الدخول: الإيميل وكلمة المرور لحساب جاهز.",
+        "ضمان كامل على الاشتراك طوال الشهر.",
+        "مميزات وحدود الاستخدام الخاصة بخطة Standard."
+      ]
+    },
+    {
+      "name": "Lite — شهر",
+      "planType": "Lite",
+      "duration": "1 شهر",
+      "price": 280,
+      "basePriceUSD": 5,
+      "available": true,
+      "accountType": "حساب جاهز",
+      "activation": "تسليم إيميل وكلمة مرور لحساب جاهز للاستخدام.",
+      "account": "حساب جاهز",
+      "warranty": "ضمان كامل طوال مدة الاشتراك: شهر.",
+      "features": [
+        "اشتراك Lite لمدة شهر كامل.",
+        "تسليم بيانات الدخول: الإيميل وكلمة المرور لحساب جاهز.",
+        "ضمان كامل على الاشتراك طوال الشهر.",
+        "مميزات وحدود الاستخدام الخاصة بخطة Lite."
+      ]
+    }
+  ]
+},
+  {
+    "id": "supergrok-coursera-bundle",
+    "name": "سوبر جروك + كورسيرا بلس",
+    "category": "التعليم",
+    "categories": [
+      "محادثة ومساعد ذكي",
+      "كورسات وتعلم مهني"
+    ],
+    "logo": "grok",
+    "logoUrl": "logos/supergrok-coursera-bundle.svg",
+    "status": "available",
+    "description": "باقة مجمّعة تضم SuperGrok لمدة شهر وCoursera Plus لمدة شهر بسعر 1399 جنيه. حسابات جاهزة، مع ضمان كامل طوال الشهر وتسليم الإيميل وكلمة المرور وطريقة الوصول لكود التحقق لكل حساب.",
+    "features": [
+      "اشتراك SuperGrok لمدة شهر كامل.",
+      "اشتراك Coursera Plus لمدة شهر كامل.",
+      "الاشتراكان مشمولان في سعر واحد: 1399 ج.",
+      "حسابات جاهزة للاستخدام لكل خدمة.",
+      "تسليم الإيميل وكلمة المرور وطريقة الوصول لكود التحقق لكل حساب.",
+      "ضمان كامل على الحسابين طوال مدة الاشتراك: شهر."
+    ],
+    "featuresEn": [
+      "SuperGrok subscription for one full month.",
+      "Coursera Plus subscription for one full month.",
+      "Both subscriptions included for EGP 1,399.",
+      "Ready-to-use accounts for both services.",
+      "Email, password and instructions for accessing the verification code supplied for each account.",
+      "Full warranty for both accounts throughout the one-month subscription."
+    ],
+    "plans": [
+      {
+        "name": "SuperGrok شهر + Coursera Plus شهر",
+        "planType": "SuperGrok + Plus",
+        "duration": "1 شهر لكل اشتراك",
+        "price": 1399,
+        "available": true,
+        "activation": "تسليم حسابات جاهزة للخدمتين: إيميل + كلمة مرور + طريقة الوصول لكود التحقق لكل حساب.",
+        "account": "حسابات جاهزة",
+        "accountType": "حسابات جاهزة للخدمتين",
+        "warranty": "ضمان كامل لمدة شهر على الحسابين",
+        "notes": [
+          "السعر يشمل اشتراك SuperGrok لشهر واشتراك Coursera Plus لشهر معًا.",
+          "تُسلّم بيانات الدخول وطريقة الوصول لكود التحقق لكل حساب ضمن تفاصيل الطلب.",
+          "الضمان كامل طوال مدة الاشتراك: شهر."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gemini-coursera-bundle",
+    "name": "Coursera Plus + هدايا",
+    "category": "التعليم",
+    "logo": "gemini",
+    "logoUrl": "logos/gemini.svg?v=20261027-hq1",
+    "status": "available",
+    "description": "Coursera Plus: اشتراكات سنوية تابعة لـOrg بضمان 4 شهور أو سنة كاملة، وPlus مستقل لمدة شهر، وجميعها تشمل الهدايا.",
+    "features": [
+      "الاشتراك الأساسي: Coursera Plus لمدة 12 شهرًا.",
+      "تسليم حساب كورسيرا جاهز بضمان كامل.",
+      "هدية Gemini لمدة 3 شهور على إيميلك.",
+      "هدية Canva Pro لمدة 3 سنين على إيميلك.",
+      "الاشتراك والهدايا مشمولة في سعر واحد: 499ج."
+    ],
+    "plans": [
+      {
+        "name": "Plus تابع لـOrg — سنة — ضمان 4 شهور",
+        "duration": "12 شهر",
+        "price": 499,
+        "activation": "اشتراك Coursera Plus تابع لـOrg لمدة سنة.",
+        "account": "Plus تابع لـOrg",
+        "warranty": "ضمان لمدة 4 شهور",
+        "priceComparison": {
+          "status": "reference",
+          "planName": "Coursera Plus",
+          "billingLabel": "Plus المستقل السنوي",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-17",
+          "referenceLabel": "Plus المستقل",
+          "note": "المقارنة بسعر Coursera Plus المستقل السنوي؛ هذه الباقة تابعة لـOrg."
+        },
+        "planType": "Plus — Org",
+        "gifts": [
+          {
+            "id": "google",
+            "logo": "gemini",
+            "name": "Gemini",
+            "duration": "٣ شهور",
+            "durationEn": "3 months"
+          },
+          {
+            "id": "canva",
+            "logo": "canva",
+            "name": "Canva Pro",
+            "duration": "٣ سنين",
+            "durationEn": "3 years"
+          }
+        ],
+        "notes": [
+          "تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين.",
+          "مدة الاشتراك سنة، ومدة الضمان 4 شهور.",
+          "نسبة التوفير مقارنة بسعر Plus المستقل السنوي، وليست سعرًا رسميًا لباقة Org.",
+          "ما معنى Org؟ اختصار لكلمة Organization، أي مؤسسة أو جهة. اشتراك Plus هنا تابع للمؤسسة، وتُدار عضويته وإمكانية الوصول من خلالها. تفاصيل مدة الاشتراك والضمان موضّحة في الباقة."
+        ],
+        "officialPrice": {
+          "amount": 399,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-17"
+        }
+      }
+    ],
+    "featuresEn": [
+      "Main subscription: Coursera Plus for 12 months.",
+      "Ready-made Coursera account with full warranty.",
+      "Free Gemini gift for 3 months on your email.",
+      "Free Canva Pro gift for 3 years on your email.",
+      "The subscription and both gifts are included in one bundle."
+    ],
+    "redirectTo": {
+      "id": "coursera",
+      "plan": 0
+    },
+    "categories": [
+      "كورسات وتعلم مهني"
+    ]
+  },
+  {
+    "id": "cursor-pro",
+    "name": "Cursor Pro",
+    "category": "AI Tools",
+    "logo": "cursor",
+    "logoUrl": "logos/cursor.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Cursor Pro للبرمجة: عرض شهر بـ300ج لمدة 48 ساعة، أو باقة سنة بكود تفعيل. راجع طريقة التفعيل لكل باقة.",
+    "features": [
+      "Cursor Pro للبرمجة بمساعدة الذكاء الاصطناعي.",
+      "عرض شهر بـ300ج لمدة 48 ساعة فقط.",
+      "باقة السنة تُسلّم بكود تفعيل وتتطلب بطاقة دفع مقبولة؛ راجع تفاصيل الباقة."
+    ],
+    "featuresEn": [
+      "Cursor Pro for AI-assisted coding.",
+      "One-month offer for EGP 300, available for 48 hours.",
+      "Annual activation code requires an accepted payment card; check the selected plan."
+    ],
+    "plans": [
+      {
+        "name": "Pro — سنة بكود تفعيل",
+        "planType": "Pro",
+        "duration": "12 شهر",
+        "price": 7560,
+        "basePriceUSD": 135,
+        "activation": "تسليم كود خصم 100% لتفعيل سنة على حسابك؛ يتطلب إضافة بطاقة دفع مقبولة.",
+        "account": "كود تفعيل على حسابك الشخصي",
+        "accountType": "كود تفعيل على حسابك الشخصي",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "السعر 135 دولار للكود؛ خصم 100% يخص رسوم التفعيل عند استخدام الكود."
+        ],
+        "priceComparison": {
+          "status": "unavailable",
+          "source": "https://cursor.com/pricing",
+          "checkedAt": "2026-10-12",
+          "note": "السعر الشهري موثق، لكن إجمالي الفوترة السنوية لم يتأكد من الصفحة الحالية."
+        }
+      },
+      {
+        "name": "Pro — شهر · عرض 48 ساعة",
+        "planType": "Pro",
+        "duration": "شهر",
+        "price": 300,
+        "offerEndsAt": "2026-10-13T11:32:00Z",
+        "activation": "يُؤكد مع الدعم قبل الدفع",
+        "account": "يُؤكد مع الدعم قبل الدفع",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "features": [
+          "Cursor Pro لمدة شهر",
+          "سعر العرض 300ج",
+          "متاح للطلب لمدة 48 ساعة فقط"
+        ],
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://cursor.com/pricing",
+          "checkedAt": "2026-10-12",
+          "estimated": false
+        },
+        "priceComparison": {
+          "status": "reference",
+          "source": "https://cursor.com/pricing",
+          "checkedAt": "2026-10-12",
+          "note": "سعر الشراء المباشر لنفس الخطة والمدة؛ التسليم والضمان حسب عرض المتجر."
+        }
+      }
+    ],
+    "categories": [
+      "مساعد كتابة الكود"
+    ]
+  },
+  {
+    "id": "higgsfield-pro",
+    "name": "Higgsfield Pro",
+    "category": "AI Tools",
+    "logo": "higgsfield",
+    "logoUrl": "logos/higgsfield.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "هيجزفيلد: خطة البداية لمدة شهر بـ599ج، حساب جاهز بضمان شهر و210 كريدت، مع توفر خطة Pro السنوية بكود تفعيل.",
+    "features": [
+      "خطة البداية الشهرية أو خطة Pro السنوية؛ اختار الباقة لعرض مميزاتها."
+    ],
+    "featuresEn": [
+      "Choose the monthly Starter plan or annual Pro plan to see its features."
+    ],
+    "plans": [
+      {
+        "name": "Pro — سنة بكود تفعيل",
+        "planType": "Pro",
+        "duration": "12 شهر",
+        "price": 8960,
+        "basePriceUSD": 160,
+        "activation": "تسليم كود لتفعيل الاشتراك مباشرة على بريدك الشخصي.",
+        "account": "كود تفعيل على حسابك الشخصي",
+        "accountType": "كود تفعيل على حسابك الشخصي",
+        "warranty": "ضمان كامل لمدة سنة",
+        "notes": [],
+        "features": [
+          "خطة Pro لمدة سنة كاملة.",
+          "تسليم كود تفعيل.",
+          "تفعيل مباشر على بريدك الشخصي.",
+          "يتوفّر Seedance (سيدانس) لتوليد الفيديو داخل Higgsfield.",
+          "استخدام Seedance حسب رصيد الباقة وإعدادات الفيديو؛ Enhanced Fast إضافة مدفوعة منفصلة.",
+          "ضمان كامل طوال مدة الاشتراك: سنة كاملة."
+        ],
+        "featuresEn": [
+          "Pro plan for one full year.",
+          "Activation code delivery.",
+          "Direct activation on your personal email.",
+          "Seedance video generation is available within Higgsfield.",
+          "Seedance usage depends on plan credits and video settings; Enhanced Fast is a separate paid add-on.",
+          "Full warranty throughout the one-year subscription."
+        ]
+      },
+      {
+        "name": "خطة البداية — شهر",
+        "planType": "Starter",
+        "duration": "شهر",
+        "price": 599,
+        "credits": "210 كريدت",
+        "activation": "تسليم حساب جاهز.",
+        "account": "حساب جاهز",
+        "accountType": "حساب جاهز",
+        "warranty": "ضمان كامل لمدة شهر",
+        "features": [
+          "210 كريدت خلال مدة الاشتراك.",
+          "توليد متوازٍ يصل إلى مقطعي فيديو و4 صور في وقت واحد.",
+          "الوصول إلى Seedance 2 Fast وMini.",
+          "مدة الاشتراك شهر، مع تسليم حساب جاهز وضمان شهر."
+        ],
+        "featuresEn": [
+          "210 credits during the subscription.",
+          "Parallel generation of up to 2 videos and 4 images at once.",
+          "Access to Seedance 2 Fast and Mini.",
+          "One month, delivered as a ready-made account with a one-month warranty."
+        ],
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference"
+        },
+        "notes": []
+      }
+    ],
+    "categories": [
+      "توليد فيديو بالذكاء الاصطناعي",
+      "توليد صور بالذكاء الاصطناعي"
+    ]
+  },
+  {
+    "id": "windows-pro",
+    "featuresEn": [
+      "Choose your Windows version and edition from the plans below.",
+      "Each edition is EGP 265 with lifetime activation for the purchased version.",
+      "Full warranty for every Windows edition."
+    ],
+    "name": "Windows 7 / 8 / 8.1 / 10 / 11",
+    "category": "الإنتاجية",
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "كل إصدارات Windows من 7 إلى 11 في مكان واحد: اختار النسخة المطلوبة من 22 إصدارًا، بسعر 265 جنيه لكل نسخة وتفعيل مدى الحياة للإصدار المشترى. ضمان كامل لجميع النسخ.",
+    "features": [
+      "اختيار الإصدار والنسخة من الباقات أدناه.",
+      "كل نسخة بسعر 265 جنيه وتفعيل مدى الحياة للإصدار المشترى.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "plans": [
+      {
+        "name": "Windows 11 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 11 Pro.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+          "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 11 Pro.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "BitLocker encryption and system management tools according to edition features and device requirements.",
+          "Host Remote Desktop connections after setup.",
+          "A device compatible with Windows 11 requirements is required.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 10 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 10 Pro.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+          "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 10 Pro.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "BitLocker encryption and system management tools according to edition features and device requirements.",
+          "Host Remote Desktop connections after setup.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 7 Starter — Lifetime",
+        "planType": "Starter",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 7 Starter.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 7 Starter.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 7 Home Basic — Lifetime",
+        "planType": "Home Basic",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 7 Home Basic.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 7 Home Basic.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 7 Home Premium — Lifetime",
+        "planType": "Home Premium",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 7 Home Premium.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 7 Home Premium.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 7 Professional — Lifetime",
+        "planType": "Professional",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 7 Professional.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 7 Professional.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 7 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 7 Enterprise.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 7 Enterprise.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 7 Ultimate — Lifetime",
+        "planType": "Ultimate",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 7 Ultimate.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 7 Ultimate.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 8 — Lifetime",
+        "planType": "Core",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 8.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 8.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 8 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 8 Pro.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 8 Pro.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 8 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 8 Enterprise.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 8 Enterprise.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 8.1 — Lifetime",
+        "planType": "Core",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 8.1.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 8.1.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 8.1 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 8.1 Pro.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 8.1 Pro.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 8.1 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 8.1 Enterprise.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 8.1 Enterprise.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 10 Home — Lifetime",
+        "planType": "Home",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 10 Home.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 10 Home.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 10 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 10 Enterprise.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+          "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 10 Enterprise.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "BitLocker encryption and system management tools according to edition features and device requirements.",
+          "Host Remote Desktop connections after setup.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 10 Education — Lifetime",
+        "planType": "Education",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 10 Education.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+          "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 10 Education.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "BitLocker encryption and system management tools according to edition features and device requirements.",
+          "Host Remote Desktop connections after setup.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 10 Pro for Workstations — Lifetime",
+        "planType": "Pro for Workstations",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 10 Pro for Workstations.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+          "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 10 Pro for Workstations.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "BitLocker encryption and system management tools according to edition features and device requirements.",
+          "Host Remote Desktop connections after setup.",
+          "Microsoft standard support for this release has ended; activation does not extend security support.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 11 Home — Lifetime",
+        "planType": "Home",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 11 Home.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 11 Home.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "A device compatible with Windows 11 requirements is required.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 11 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 11 Enterprise.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+          "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 11 Enterprise.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "BitLocker encryption and system management tools according to edition features and device requirements.",
+          "Host Remote Desktop connections after setup.",
+          "A device compatible with Windows 11 requirements is required.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 11 Education — Lifetime",
+        "planType": "Education",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 11 Education.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+          "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 11 Education.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "BitLocker encryption and system management tools according to edition features and device requirements.",
+          "Host Remote Desktop connections after setup.",
+          "A device compatible with Windows 11 requirements is required.",
+          "Full warranty."
+        ]
+      },
+      {
+        "name": "Windows 11 Pro for Workstations — Lifetime",
+        "planType": "Pro for Workstations",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "مفتاح تفعيل مخصص لنسخة Windows 11 Pro for Workstations.",
+          "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+          "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+          "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+          "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Activation key specifically for Windows 11 Pro for Workstations.",
+          "Lifetime activation for the purchased version with one payment of EGP 265.",
+          "Run desktop applications compatible with the operating system release.",
+          "The installed edition must match the product key edition.",
+          "An edition intended for work, organizations, or education depending on your selection.",
+          "BitLocker encryption and system management tools according to edition features and device requirements.",
+          "Host Remote Desktop connections after setup.",
+          "A device compatible with Windows 11 requirements is required.",
+          "Full warranty."
+        ]
+      }
+    ],
+    "categories": [
+      "أنظمة التشغيل",
+      "تراخيص Windows"
+    ],
+    "descriptionEn": "Windows 7 through 11 in one place: choose from 22 editions, each EGP 265 with lifetime activation for the purchased version. Full warranty for every edition."
+  },
+  {
+    "id": "windows-7-starter",
+    "name": "Windows 7 Starter",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 7"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 7 Starter بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 7 Starter for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 7 Starter.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 7 Starter.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 7 Starter — Lifetime",
+        "planType": "Starter",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 2
+    }
+  },
+  {
+    "id": "windows-7-home-basic",
+    "name": "Windows 7 Home Basic",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 7"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 7 Home Basic بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 7 Home Basic for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 7 Home Basic.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 7 Home Basic.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 7 Home Basic — Lifetime",
+        "planType": "Home Basic",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 3
+    }
+  },
+  {
+    "id": "windows-7-home-premium",
+    "name": "Windows 7 Home Premium",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 7"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 7 Home Premium بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 7 Home Premium for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 7 Home Premium.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 7 Home Premium.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 7 Home Premium — Lifetime",
+        "planType": "Home Premium",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 4
+    }
+  },
+  {
+    "id": "windows-7-professional",
+    "name": "Windows 7 Professional",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 7"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 7 Professional بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 7 Professional for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 7 Professional.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 7 Professional.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 7 Professional — Lifetime",
+        "planType": "Professional",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 5
+    }
+  },
+  {
+    "id": "windows-7-enterprise",
+    "name": "Windows 7 Enterprise",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 7"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 7 Enterprise بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 7 Enterprise for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 7 Enterprise.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 7 Enterprise.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 7 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 6
+    }
+  },
+  {
+    "id": "windows-7-ultimate",
+    "name": "Windows 7 Ultimate",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 7"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 7 Ultimate بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 7 Ultimate for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 7 Ultimate.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 7 Ultimate.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 7 Ultimate — Lifetime",
+        "planType": "Ultimate",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 7
+    }
+  },
+  {
+    "id": "windows-8-core",
+    "name": "Windows 8",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 8"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 8 بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 8 for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 8.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 8.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 8 — Lifetime",
+        "planType": "Core",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 8
+    }
+  },
+  {
+    "id": "windows-8-pro",
+    "name": "Windows 8 Pro",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 8"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 8 Pro بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 8 Pro for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 8 Pro.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 8 Pro.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 8 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 9
+    }
+  },
+  {
+    "id": "windows-8-enterprise",
+    "name": "Windows 8 Enterprise",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 8"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 8 Enterprise بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 8 Enterprise for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 8 Enterprise.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 8 Enterprise.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 8 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 10
+    }
+  },
+  {
+    "id": "windows-8-1-core",
+    "name": "Windows 8.1",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 8.1"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 8.1 بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 8.1 for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 8.1.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 8.1.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 8.1 — Lifetime",
+        "planType": "Core",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 11
+    }
+  },
+  {
+    "id": "windows-8-1-pro",
+    "name": "Windows 8.1 Pro",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 8.1"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 8.1 Pro بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 8.1 Pro for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 8.1 Pro.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 8.1 Pro.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 8.1 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 12
+    }
+  },
+  {
+    "id": "windows-8-1-enterprise",
+    "name": "Windows 8.1 Enterprise",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 8.1"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 8.1 Enterprise بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 8.1 Enterprise for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 8.1 Enterprise.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 8.1 Enterprise.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 8.1 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 13
+    }
+  },
+  {
+    "id": "windows-10-home",
+    "name": "Windows 10 Home",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 10"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 10 Home بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 10 Home for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 10 Home.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 10 Home.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 10 Home — Lifetime",
+        "planType": "Home",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 14
+    }
+  },
+  {
+    "id": "windows-10-pro",
+    "name": "Windows 10 Pro",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 10"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 10 Pro بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 10 Pro for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 10 Pro.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 10 Pro.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 10 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 1
+    }
+  },
+  {
+    "id": "windows-10-enterprise",
+    "name": "Windows 10 Enterprise",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 10"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 10 Enterprise بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 10 Enterprise for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 10 Enterprise.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 10 Enterprise.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 10 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 15
+    }
+  },
+  {
+    "id": "windows-10-education",
+    "name": "Windows 10 Education",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 10"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 10 Education بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 10 Education for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 10 Education.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 10 Education.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 10 Education — Lifetime",
+        "planType": "Education",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 16
+    }
+  },
+  {
+    "id": "windows-10-pro-for-workstations",
+    "name": "Windows 10 Pro for Workstations",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 10"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 10 Pro for Workstations بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 10 Pro for Workstations for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 10 Pro for Workstations.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 10 Pro for Workstations.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "Microsoft standard support for this release has ended; activation does not extend security support.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 10 Pro for Workstations — Lifetime",
+        "planType": "Pro for Workstations",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "انتهى دعم Microsoft القياسي لهذا الإصدار؛ التفعيل لا يمدد الدعم الأمني.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 17
+    }
+  },
+  {
+    "id": "windows-11-home",
+    "name": "Windows 11 Home",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 11"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 11 Home بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 11 Home for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 11 Home.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 11 Home.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "A device compatible with Windows 11 requirements is required.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 11 Home — Lifetime",
+        "planType": "Home",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 18
+    }
+  },
+  {
+    "id": "windows-11-pro",
+    "name": "Windows 11 Pro",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 11"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 11 Pro بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 11 Pro for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 11 Pro.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 11 Pro.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "A device compatible with Windows 11 requirements is required.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 11 Pro — Lifetime",
+        "planType": "Pro",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 0
+    }
+  },
+  {
+    "id": "windows-11-enterprise",
+    "name": "Windows 11 Enterprise",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 11"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 11 Enterprise بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 11 Enterprise for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 11 Enterprise.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 11 Enterprise.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "A device compatible with Windows 11 requirements is required.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 11 Enterprise — Lifetime",
+        "planType": "Enterprise",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 19
+    }
+  },
+  {
+    "id": "windows-11-education",
+    "name": "Windows 11 Education",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 11"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 11 Education بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 11 Education for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 11 Education.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 11 Education.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "A device compatible with Windows 11 requirements is required.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 11 Education — Lifetime",
+        "planType": "Education",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 20
+    }
+  },
+  {
+    "id": "windows-11-pro-for-workstations",
+    "name": "Windows 11 Pro for Workstations",
+    "category": "الإنتاجية",
+    "categories": [
+      "أنظمة التشغيل",
+      "Windows 11"
+    ],
+    "logo": "microsoft",
+    "logoUrl": "logos/microsoft.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Windows 11 Pro for Workstations بسعر 265 جنيه: مفتاح تفعيل مدى الحياة للإصدار المشترى، بدفعة واحدة. اختار النسخة المطابقة لنظام جهازك. ضمان كامل لجميع النسخ.",
+    "descriptionEn": "Windows 11 Pro for Workstations for EGP 265: a lifetime activation key for the purchased version with a one-time payment. Choose the edition matching your device. Full warranty for every edition.",
+    "features": [
+      "مفتاح تفعيل مخصص لنسخة Windows 11 Pro for Workstations.",
+      "تفعيل مدى الحياة للإصدار المشترى بدفعة واحدة بسعر 265 جنيه.",
+      "تشغيل برامج سطح المكتب المتوافقة مع إصدار النظام.",
+      "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+      "إصدار موجه للعمل أو المؤسسات أو التعليم حسب النسخة المختارة.",
+      "تشفير BitLocker وأدوات إدارة النظام وفق مزايا الإصدار ومتطلبات الجهاز.",
+      "Remote Desktop للوصول إلى الجهاز عن بُعد بعد الإعداد.",
+      "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+      "ضمان كامل لجميع نسخ ويندوز."
+    ],
+    "featuresEn": [
+      "Activation key specifically for Windows 11 Pro for Workstations.",
+      "Lifetime activation for the purchased version with one payment of EGP 265.",
+      "Run desktop applications compatible with the operating system release.",
+      "The installed edition must match the product key edition.",
+      "An edition intended for work, organizations, or education depending on your selection.",
+      "BitLocker encryption and system management tools according to edition features and device requirements.",
+      "Host Remote Desktop connections after setup.",
+      "A device compatible with Windows 11 requirements is required.",
+      "Full warranty for every Windows edition."
+    ],
+    "plans": [
+      {
+        "name": "Windows 11 Pro for Workstations — Lifetime",
+        "planType": "Pro for Workstations",
+        "duration": "مدى الحياة للإصدار المشترى",
+        "price": 265,
+        "activation": "التفعيل باستخدام مفتاح المنتج.",
+        "account": "مفتاح تفعيل",
+        "accountType": "مفتاح منتج",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يلزم تطابق الإصدار المثبت على الجهاز مع نسخة المفتاح.",
+          "تتطلب النسخة جهازًا متوافقًا مع متطلبات Windows 11.",
+          "تفعيل Windows لا يشمل اشتراك Office أو Microsoft 365."
+        ],
+        "features": [
+          "ضمان كامل."
+        ],
+        "featuresEn": [
+          "Full warranty."
+        ]
+      }
+    ],
+    "redirectTo": {
+      "id": "windows-pro",
+      "plan": 21
+    }
+  },
+  {
+    "id": "king-cobra-iptv",
+    "name": "King Cobra IPTV",
+    "category": "الترفيه",
+    "logo": "premier-league",
+    "logoUrl": "logos/premier-league.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "اتفرج على كل قنوات beIN SPORTS وتابع أقوى الدوريات والبطولات بتعليق عربي، مع قنوات عربية وعالمية وأفلام ومسلسلات، واشتراك فردي بضمان كامل.",
+    "features": [
+      "كل قنوات beIN SPORTS الرياضية.",
+      "العربي مدعوم: قنوات عربية وتعليق عربي للمباريات.",
+      "جودات SD وHD وFull HD و2K و4K حسب جودة بث القناة والجهاز وسرعة الإنترنت.",
+      "الدوريات الإنجليزية والتركية والإسبانية والإيطالية والألمانية والفرنسية.",
+      "دوري أبطال أوروبا والبطولات الرياضية على القنوات المشمولة.",
+      "قنوات بالعربية والإنجليزية والتركية والإسبانية.",
+      "أفلام ومسلسلات ومحتوى للمشاهدة عند الطلب.",
+      "بيانات دخول مستقلة لكل عميل، وضمان كامل طوال مدة الاشتراك."
+    ],
+    "plans": [
+      {
+        "name": "اشتراك فردي",
+        "planType": "IPTV",
+        "duration": "1 شهر",
+        "price": 280,
+        "basePriceUSD": 5,
+        "wholePrice": true,
+        "activation": "تسليم بيانات الدخول ورابط السيرفر بعد تأكيد الطلب والدفع.",
+        "account": "اشتراك مستقل للعميل",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يشمل قنوات beIN SPORTS والقنوات العربية والعالمية ومحتوى المشاهدة عند الطلب.",
+          "الجودة تختلف حسب بث القناة والجهاز وسرعة الإنترنت.",
+          "تشغيل عبر تطبيق متوافق؛ تكلفة التطبيق إن وجدت منفصلة."
+        ]
+      }
+    ],
+    "categories": [
+      "فيديو وبث وقنوات"
+    ]
+  },
+  {
+    "id": "dino-iptv",
+    "name": "Dino IPTV",
+    "category": "الترفيه",
+    "logo": "champions-league",
+    "logoUrl": "logos/champions-league.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "اتفرج على كل قنوات beIN SPORTS وتابع أقوى الدوريات والبطولات بتعليق عربي، مع قنوات عربية وعالمية وأفلام ومسلسلات، واشتراك فردي بضمان كامل.",
+    "features": [
+      "كل قنوات beIN SPORTS الرياضية.",
+      "العربي مدعوم: قنوات عربية وتعليق عربي للمباريات.",
+      "جودات SD وHD وFull HD و2K و4K حسب جودة بث القناة والجهاز وسرعة الإنترنت.",
+      "الدوريات الإنجليزية والتركية والإسبانية والإيطالية والألمانية والفرنسية.",
+      "دوري أبطال أوروبا والبطولات الرياضية على القنوات المشمولة.",
+      "قنوات بالعربية والإنجليزية والتركية والإسبانية.",
+      "أفلام ومسلسلات ومحتوى للمشاهدة عند الطلب.",
+      "بيانات دخول مستقلة لكل عميل، وضمان كامل طوال مدة الاشتراك."
+    ],
+    "plans": [
+      {
+        "name": "اشتراك فردي",
+        "planType": "IPTV",
+        "duration": "6 شهر",
+        "price": 1288,
+        "basePriceUSD": 23,
+        "wholePrice": true,
+        "activation": "تسليم بيانات الدخول ورابط السيرفر بعد تأكيد الطلب والدفع.",
+        "account": "اشتراك مستقل للعميل",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يشمل قنوات beIN SPORTS والقنوات العربية والعالمية ومحتوى المشاهدة عند الطلب.",
+          "الجودة تختلف حسب بث القناة والجهاز وسرعة الإنترنت.",
+          "تشغيل عبر تطبيق متوافق؛ تكلفة التطبيق إن وجدت منفصلة."
+        ]
+      },
+      {
+        "name": "اشتراك فردي",
+        "planType": "IPTV",
+        "duration": "12 شهر",
+        "price": 2072,
+        "basePriceUSD": 37,
+        "wholePrice": true,
+        "activation": "تسليم بيانات الدخول ورابط السيرفر بعد تأكيد الطلب والدفع.",
+        "account": "اشتراك مستقل للعميل",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يشمل قنوات beIN SPORTS والقنوات العربية والعالمية ومحتوى المشاهدة عند الطلب.",
+          "الجودة تختلف حسب بث القناة والجهاز وسرعة الإنترنت.",
+          "تشغيل عبر تطبيق متوافق؛ تكلفة التطبيق إن وجدت منفصلة."
+        ]
+      }
+    ],
+    "categories": [
+      "فيديو وبث وقنوات"
+    ]
+  },
+  {
+    "category": "الإنتاجية",
+    "status": "available",
+    "id": "ilovepdf",
+    "name": "iLovePDF",
+    "logo": "ilovepdf",
+    "logoUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHIAAAByCAMAAAC4A3VPAAAASFBMVEX///+fn5/kMy7nR0L89/frYl706+vtdnPzpaP62Nj3wsHxkI4/Pz+NjY0vLy/Y2NiwsLAAAACpqakODg5wcHBTU1PAwMAfHx8a1A/tAAADAUlEQVR4XuzXaW6EMAyAUctbFmD2ae9/02pUaczQCpfi5k/zXeApOFYE/JN6vV6v1+OaCBEpZY4Bjqdlb69gJnw2GJqHX5PTedl9LhbBeVQ+ARXE9DdkxWX1ARRCFDMjyWLU3FRCxGJmIKmEX6MC8qCVE6ZwMuF3yYCPFB4mw/aO0zTOvMM0neyzrqVg5ub4YKSCNTjkHvP+FN9hFjmkmVEko0OaGUUWjzQziqwOafdauB1pZrsPa2a762NmBAnikAszgswOuTQDSKY1csgvEdYAEjJuSCCCZNlAaghpD6ZfhRgSyk/NDAHkJrNCHAmcfJAKRJLA2QHjXhJLZQ2kChBJ+gs6MESSlopzxDjSyt4U40mo5CxjAOmuaIVY0h9o2SEer+dnpzWTZcf6W5dxnInn62G8rZjknDHg/3KZks2xEQnF7moL0vZToCUJgki6i7yMy27rpNogm5UFWscK8fV6vY/262THVRgIwyhIVlYeMDX4/d/0okjh7+uyGbohK75dSKITDAWEqkqMwjPmba7fL1F4TP8DnvpZMrfznxv0mJsR64Bi7rdPAk0gm0W9mswlgWzH7iISpgPZzrvfkKqyGsLMQgB4IV86FWxgFk/2hqrKWG8RYREWD7LOrYS+X+Lb5KrD+Xp/YI4wgzmc/AESSBOBfMfVc+X0k6x/1WecvCHdCTJhHwxpnrC5Sw7lOIkN0iNfhMXvknKCjFtkvfjaJWcRFrmM1AyiQb7SEj59YmG5SzrMZov0OBP+fvqYoSgtMoI8OSTJkvacbZF0jgyrEIcdEhtBZlrKR0kOIUjJa7pBcodE+6SNh2+SEPcX1l1FRh2OkTRcQpIA3BuSWJEyLR0mPS+FMCVwXZJWojUk5Sg5gtkg7eXCkv4GEsObWmSQpelS0hUcSkOiK0ns5PglEluKu4WcK9IFc008SYa8TToPICUdmRrTrvk4SZTXaGmuwBkAMs9alBERbbMA23s69kEae/9J7iIlDV8liQHeTlLxEuB1yfM9PT09PT09/QO6FrmDCO8ueAAAAABJRU5ErkJggg==",
+    "description": "اشتراك iLovePDF لمدة سنة بسعر 500 جنيه، يشمل 2,000 كريدت حسب عرض المتجر.",
+    "plans": [
+      {
+        "name": "اشتراك سنوي — 2,000 Credits",
+        "duration": "12 شهر",
+        "price": 500,
+        "credits": "2,000 كريدت",
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "يشمل العرض 2,000 كريدت؛ تفاصيل استخدامها وتجددها تُؤكد قبل الدفع."
+        ],
+        "priceComparison": {
+          "planName": "Premium",
+          "source": "https://www.ilovepdf.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "مرجع Premium السنوي لا يثبت أن رصيد 2,000 كريدت جزء من الباقة الرسمية.",
+          "billingLabel": "Premium السنوي"
+        },
+        "officialPrice": {
+          "amount": 48,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.ilovepdf.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "ملفات PDF"
+    ]
+  },
+  {
+    "category": "الإنتاجية",
+    "status": "available",
+    "id": "bdf-egypt-pro",
+    "name": "BDF Egypt Pro",
+    "logo": "bdf-egypt",
+    "logoUrl": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2096%2096%22%20role%3D%22img%22%20aria-label%3D%22BDF%20Egypt%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2224%22%20fill%3D%22%23142d52%22%2F%3E%3Cpath%20d%3D%22M25%2022h30l17%2017v35H25z%22%20fill%3D%22%23fff%22%2F%3E%3Cpath%20d%3D%22M55%2022v17h17%22%20fill%3D%22%23b9d4ff%22%2F%3E%3Cpath%20d%3D%22M35%2049h26M35%2058h17%22%20stroke%3D%22%232465dc%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%2F%3E%3Crect%20x%3D%2249%22%20y%3D%2261%22%20width%3D%2230%22%20height%3D%2221%22%20rx%3D%227%22%20fill%3D%22%2310b8a6%22%2F%3E%3Cpath%20d%3D%22m57%2071%205%204%209-9%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E%0A",
+    "description": "موقعنا لمعالجة ملفات PDF. باقات Pro لفتح الأدوات المدفوعة ومعالجة الدفعات وحفظ الإعدادات. جرّب الموقع: https://bdf-egypt.vercel.app",
+    "features": [
+      "فتح الأدوات المدفوعة",
+      "معالجة عدة ملفات بنفس الإعدادات للأدوات المدعومة",
+      "حفظ واستعادة إعداداتك",
+      "حدود Pro: حتى 40 ملفًا و100 ميجابايت حسب الأداة"
+    ],
+    "plans": [
+      {
+        "name": "Pro",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 42,
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "اشتراكك في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "باقة الأدوات لا تشمل رصيد Pro AI؛ باقات الذكاء الاصطناعي متاحة بشكل منفصل.",
+          "افتح موقعنا: https://bdf-egypt.vercel.app"
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "خدمة المتجر؛ لا يوجد سعر خارجي مستقل موثق للمقارنة."
+        }
+      },
+      {
+        "name": "Pro",
+        "planType": "Pro",
+        "duration": "3 شهر",
+        "price": 108,
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "اشتراكك في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "باقة الأدوات لا تشمل رصيد Pro AI؛ باقات الذكاء الاصطناعي متاحة بشكل منفصل.",
+          "افتح موقعنا: https://bdf-egypt.vercel.app"
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "خدمة المتجر؛ لا يوجد سعر خارجي مستقل موثق للمقارنة."
+        }
+      },
+      {
+        "name": "Pro",
+        "planType": "Pro",
+        "duration": "6 شهر",
+        "price": 196,
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "اشتراكك في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "باقة الأدوات لا تشمل رصيد Pro AI؛ باقات الذكاء الاصطناعي متاحة بشكل منفصل.",
+          "افتح موقعنا: https://bdf-egypt.vercel.app"
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "خدمة المتجر؛ لا يوجد سعر خارجي مستقل موثق للمقارنة."
+        }
+      },
+      {
+        "name": "Pro",
+        "planType": "Pro",
+        "duration": "12 شهر",
+        "price": 328,
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "اشتراكك في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "باقة الأدوات لا تشمل رصيد Pro AI؛ باقات الذكاء الاصطناعي متاحة بشكل منفصل.",
+          "افتح موقعنا: https://bdf-egypt.vercel.app"
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "خدمة المتجر؛ لا يوجد سعر خارجي مستقل موثق للمقارنة."
+        }
+      }
+    ],
+    "categories": [
+      "ملفات PDF"
+    ]
+  },
+  {
+    "category": "الإنتاجية",
+    "status": "available",
+    "id": "bdf-egypt-ai",
+    "name": "BDF Egypt Pro AI",
+    "logo": "bdf-egypt",
+    "logoUrl": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2096%2096%22%20role%3D%22img%22%20aria-label%3D%22BDF%20Egypt%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2224%22%20fill%3D%22%23142d52%22%2F%3E%3Cpath%20d%3D%22M25%2022h30l17%2017v35H25z%22%20fill%3D%22%23fff%22%2F%3E%3Cpath%20d%3D%22M55%2022v17h17%22%20fill%3D%22%23b9d4ff%22%2F%3E%3Cpath%20d%3D%22M35%2049h26M35%2058h17%22%20stroke%3D%22%232465dc%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%2F%3E%3Crect%20x%3D%2249%22%20y%3D%2261%22%20width%3D%2230%22%20height%3D%2221%22%20rx%3D%227%22%20fill%3D%22%2310b8a6%22%2F%3E%3Cpath%20d%3D%22m57%2071%205%204%209-9%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E%0A",
+    "description": "رصيد ملفات لأدوات الذكاء الاصطناعي في موقعنا BDF Egypt، مع فتح صلاحيات Pro.",
+    "plans": [
+      {
+        "name": "Pro AI — 100 ملف",
+        "planType": "Pro AI",
+        "duration": "حسب الرصيد",
+        "price": 300,
+        "credits": "100 ملف",
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "رصيد AI في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "رصيد الملفات منفصل عن الاشتراك الزمني للأدوات.",
+          "موقع الخدمة: https://bdf-egypt.vercel.app"
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro AI",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "رصيد ملفات من خدمة المتجر، وليس اشتراكًا زمنيًا."
+        }
+      },
+      {
+        "name": "Pro AI — 500 ملف",
+        "planType": "Pro AI",
+        "duration": "حسب الرصيد",
+        "price": 1200,
+        "credits": "500 ملف",
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "رصيد AI في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "رصيد الملفات منفصل عن الاشتراك الزمني للأدوات.",
+          "موقع الخدمة: https://bdf-egypt.vercel.app"
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro AI",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "رصيد ملفات من خدمة المتجر، وليس اشتراكًا زمنيًا."
+        }
+      },
+      {
+        "name": "Pro AI — 1000 ملف",
+        "planType": "Pro AI",
+        "duration": "حسب الرصيد",
+        "price": 2000,
+        "credits": "1000 ملف",
+        "activation": "كود تفعيل بعد تأكيد الطلب والدفع.",
+        "account": "رصيد AI في BDF Egypt",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "رصيد الملفات منفصل عن الاشتراك الزمني للأدوات.",
+          "موقع الخدمة: https://bdf-egypt.vercel.app"
+        ],
+        "priceComparison": {
+          "planName": "BDF Egypt Pro AI",
+          "source": "https://bdf-egypt.vercel.app",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "رصيد ملفات من خدمة المتجر، وليس اشتراكًا زمنيًا."
+        }
+      }
+    ],
+    "categories": [
+      "ملفات PDF"
+    ]
+  },
+  {
+    "id": "we-gold-discount",
+    "name": "WE Gold — خصم الإنترنت المنزلي",
+    "category": "الاتصالات والإنترنت",
+    "logo": "we-gold",
+    "logoUrl": "data:image/png;base64,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",
+    "status": "available",
+    "description": "وفّر نصف قيمة الفاتورة الأساسية للإنترنت المنزلي مع عرض WE Gold. كود التفعيل بسعر 700 جنيه، للعملاء المستوفين لشروط العرض.",
+    "plans": [
+      {
+        "name": "كود خصم 50% على الفاتورة الأساسية",
+        "planType": "WE Gold",
+        "accountType": "تفعيل على اشتراكك الحالي",
+        "duration": "مدى الحياة وفق شروط العرض",
+        "price": 700,
+        "activation": "بعد تأكيد الأهلية والدفع، تستلم كود الخصم وصيغة طلبه كاملة لتفعيله.",
+        "account": "اشتراكك الحالي في WE Gold",
+        "warranty": "شروط الضمان تُؤكد قبل الدفع",
+        "features": [
+          "خصم 50% على قيمة الفاتورة الأساسية للإنترنت المنزلي",
+          "مثال توضيحي: فاتورة أساسية 300 جنيه تصبح 150 جنيه، بتوفير 150 جنيه",
+          "مثال توضيحي: فاتورة أساسية 500 جنيه تصبح 250 جنيه، بتوفير 250 جنيه",
+          "سعر شراء كود التفعيل: 700 جنيه",
+          "التفعيل على اشتراكك الحالي المؤهل في WE Gold",
+          "مدة الخصم المعلنة من المتجر: مدى الحياة وفق شروط العرض",
+          "تستلم كود التفعيل وتعليمات استخدامه بعد تأكيد الأهلية والطلب"
+        ],
+        "notes": [
+          "يشترط الاشتراك في WE Gold ومرور 5 شهور أو أكثر؛ تُراجع الأهلية مع الدعم قبل الدفع.",
+          "الأمثلة تحسب الخصم على الفاتورة الأساسية فقط؛ لا تشمل الضرائب أو الإضافات أو أي رسوم أخرى.",
+          "السعر 700 جنيه لشراء كود العرض، وليس قيمة فاتورة الإنترنت.",
+          "مدة الخصم واستمراره مرتبطة بشروط العرض وأهلية الاشتراك.",
+          "صيغة طلب الكود كاملة وشروط الضمان تُؤكد مع الدعم قبل الدفع."
+        ],
+        "priceComparison": {
+          "planName": "WE Gold — عرض الإنترنت المنزلي",
+          "source": "https://te.eg",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "50% تخص الفاتورة الأساسية حسب أهلية العرض، وليست خصمًا على سعر كود الـ700 جنيه. لا يوجد سعر رسمي موثق لهذا الكود."
+        }
+      }
+    ],
+    "categories": [
+      "عروض الإنترنت المنزلي"
+    ]
+  },
+  {
+    "id": "humanizeai-standard",
+    "name": "HumanizeAI Standard",
+    "category": "AI Tools",
+    "logo": "humanizeai",
+    "logoUrl": "data:image/png;base64,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SAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAnNBdAbJ559arkOy2Lwo0rEKIAdEwDQE88/9/S7tdblEgC7zxYA9MDC0cNL3eIfAHtEAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAHpguww3A2APCQDogfX1jdUa5XQA7JG5AHph7cKlUwtHn16JUkfBjyol3pz+GAWwIwIAemTtk0srwV0tHDvyyjQCRgHsiC0AAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEICAAASEgAAkJAAAICEBAAAJCQAACAhAQAACQkAAEhIAABAQgIAABISAACQkAAAgIQEAAAkJAAAICEBAAAJCQAASEgAAEBCAgAAEhIAAJCQAACAhAQAACQkAAAgIQEAAAkJAABISAAAQEIC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",
+    "status": "available",
+    "description": "اشتراك HumanizeAI.com بخطة Standard لمدة شهر، بحساب خاص.",
+    "plans": [
+      {
+        "name": "Standard — حساب خاص",
+        "planType": "Standard",
+        "accountType": "حساب خاص",
+        "duration": "1 شهر",
+        "price": 943.92,
+        "activation": "تسليم حساب خاص.",
+        "account": "حساب خاص غير مشترك",
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "credits": "75,000 كلمة HumanizeAI شهريًا",
+        "features": [
+          "75,000 كلمة لإعادة صياغة النص شهريًا",
+          "200,000 كلمة للكتابة بالذكاء الاصطناعي شهريًا",
+          "300,000 كلمة لفحص الذكاء الاصطناعي شهريًا",
+          "50,000 كلمة لفحص التشابه شهريًا",
+          "تدقيق لغوي وإعادة صياغة"
+        ],
+        "priceComparison": {
+          "planName": "Standard — 75,000 كلمة شهريًا",
+          "source": "https://humanizeai.com/pricing/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 24,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://humanizeai.com/pricing/",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "تدقيق وإعادة صياغة"
+    ]
+  },
+  {
+    "id": "academic-pro",
+    "name": "Academi Pro",
+    "category": "التعليم",
+    "logo": "academi",
+    "logoUrl": "data:image/png;base64,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",
+    "status": "available",
+    "description": "راجع ملفاتك قبل التسليم بتقارير تشابه Turnitin وكشف المحتوى المولّد بالذكاء الاصطناعي من Academi. اشتراك Pro لمدة شهر على حسابك الشخصي.",
+    "plans": [
+      {
+        "name": "Pro — تفعيل على حسابك الشخصي",
+        "planType": "Pro",
+        "accountType": "تفعيل على حسابك الشخصي",
+        "duration": "1 شهر",
+        "price": 750,
+        "activation": "تفعيل اشتراك Pro على حسابك الشخصي في Academi.cx.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "Pro",
+          "source": "https://academi.cx/pricing/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 15,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://academi.cx/pricing/",
+          "checkedAt": "2026-10-08"
+        },
+        "notes": [
+          "تقارير التشابه من Turnitin، أما تقارير كشف AI فمن أداة Academi الخاصة وليست تقرير Turnitin AI.",
+          "بحسب Academi، لا تُضاف الملفات المفحوصة إلى مستودع Turnitin العالمي."
+        ]
+      }
+    ],
+    "features": [
+      "نسبة تشابه النص وتقارير تفصيلية مباشرة من Turnitin.",
+      "عرض مواضع التشابه داخل الملف لتسهيل مراجعة الاقتباسات.",
+      "نسبة وتقرير كشف المحتوى المولّد بالذكاء الاصطناعي بأداة Academi الخاصة.",
+      "تحديد الأجزاء التي تشير أداة الكشف إلى احتمال كتابتها بالذكاء الاصطناعي.",
+      "رفع ملفات غير محدود ضمن اشتراك Pro، وفق سياسة المنصة.",
+      "أولوية في قائمة انتظار معالجة الملفات.",
+      "لوحة تحكم سهلة للاستخدام من الكمبيوتر والموبايل.",
+      "دعم منصة Academi على مدار الساعة."
+    ],
+    "featuresEn": [
+      "Text similarity percentages and detailed reports directly from Turnitin.",
+      "Highlighted matching passages to help review quotations and citations.",
+      "AI-content percentages and reports generated by Academi’s own detector.",
+      "Highlights passages the detector identifies as potentially AI-generated.",
+      "Unlimited document uploads with Pro, subject to the platform’s policy.",
+      "Priority access to the document-processing queue.",
+      "An easy-to-use dashboard on desktop and mobile.",
+      "24/7 support from the Academi platform."
+    ],
+    "categories": [
+      "فحص تشابه ومحتوى أكاديمي"
+    ]
+  },
+  {
+  "id": "chatgpt-go",
+  "name": "ChatGPT Go",
+  "category": "AI Tools",
+  "logo": "chatgpt",
+  "status": "available",
+  "description": "اشتراك ChatGPT Go لمدة شهر بسعر 320 جنيه، بحساب جاهز يُسلّم بإيميل وكلمة مرور، وضمان كامل طوال الشهر.",
+  "descriptionEn": "One month of ChatGPT Go for EGP 320, delivered as a ready-to-use account with email and password and full warranty throughout the month.",
+  "plans": [
+    {
+      "name": "ChatGPT Go — حساب جاهز",
+      "planType": "Go",
+      "duration": "1 شهر",
+      "price": 320,
+      "accountType": "حساب جاهز",
+      "activation": "تسليم بيانات الحساب الجاهز: الإيميل وكلمة المرور.",
+      "account": "حساب جاهز",
+      "warranty": "ضمان كامل طوال الشهر",
+      "available": true,
+      "notes": [
+        "حدود الاستخدام والأدوات حسب خطة ChatGPT Go."
+      ]
+    }
+  ],
+  "categories": [
+    "محادثة ومساعد ذكي"
+  ]
+},
+  {
+  "id": "chatgpt-plus",
+  "name": "ChatGPT Plus",
+  "category": "AI Tools",
+  "logo": "chatgpt",
+  "status": "available",
+  "description": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو حساب خاص جاهز بضمان 25 يومًا بـ700 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ1100 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
+  "plans": [
+    {
+      "name": "ChatGPT Plus — بدون ضمان",
+      "accountType": "حساب خاص",
+      "duration": "1 شهر",
+      "price": 320,
+      "activation": "تسليم Gmail + كلمة المرور + بيانات التحقق الثنائي (2FA).",
+      "account": "حساب خاص غير مشترك",
+      "warranty": "بدون ضمان",
+      "notes": [
+        "هذه الباقة لمدة شهر وبدون ضمان."
+      ],
+      "priceComparison": {
+        "planName": "ChatGPT Plus",
+        "status": "reference",
+        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+        "checkedAt": "2026-10-31",
+        "billingLabel": "Monthly billing",
+        "showReferenceNote": true,
+        "note": "مرجع الشراء المباشر لـPlus هو 20 دولارًا للشهر قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. المقارنة في السعر؛ طريقة التسليم والضمان موضحتان في عرض المتجر.",
+        "noteEn": "The direct-purchase reference for Plus is US$20 per month before tax, converted using the store rate. This compares prices; delivery method and warranty are stated in the store offer."
+      },
+      "officialPrice": {
+        "amount": 20,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+        "checkedAt": "2026-10-31"
+      },
+      "available": true
+    },
+    {
+      "name": "ChatGPT Plus — حساب جاهز",
+      "accountType": "حساب جاهز",
+      "duration": "1 شهر",
+      "price": 700,
+      "activation": "تسليم بيانات حساب جاهز.",
+      "account": "حساب خاص جاهز",
+      "warranty": "ضمان كامل",
+      "notes": [
+        "يتم تسليم حساب جاهز؛ لا يتم التفعيل على حساب العميل في هذه الباقة."
+      ],
+      "priceComparison": {
+        "planName": "ChatGPT Plus",
+        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+        "checkedAt": "2026-10-08",
+        "status": "reference",
+        "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+        "billingLabel": "فوترة شهرية"
+      },
+      "officialPrice": {
+        "amount": 20,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+        "checkedAt": "2026-10-08"
+      },
+      "available": false,
+      "hidden": true
+    },
+    {
+      "name": "ChatGPT Plus — تفعيل أو تجديد على حسابك",
+      "duration": "1 شهر",
+      "price": 1100,
+      "activation": "تفعيل اشتراك Plus جديد أو تجديده على حسابك الشخصي.",
+      "account": "حساب العميل الشخصي",
+      "warranty": "ضمان كامل",
+      "notes": [
+        "لا يتم تخزين بيانات دخولك داخل الموقع."
+      ],
+      "priceComparison": {
+        "planName": "ChatGPT Plus",
+        "status": "reference",
+        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+        "checkedAt": "2026-10-31",
+        "billingLabel": "Monthly billing",
+        "showReferenceNote": true,
+        "note": "مرجع الشراء المباشر لـPlus هو 20 دولارًا للشهر قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. المقارنة في السعر؛ طريقة التسليم والضمان موضحتان في عرض المتجر.",
+        "noteEn": "The direct-purchase reference for Plus is US$20 per month before tax, converted using the store rate. This compares prices; delivery method and warranty are stated in the store offer."
+      },
+      "officialPrice": {
+        "amount": 20,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+        "checkedAt": "2026-10-31"
+      },
+      "available": true,
+      "accountType": "تفعيل على حسابك الشخصي"
+    },
+    {
+      "name": "Plus — شهر — حساب خاص جاهز — ضمان 25 يومًا",
+      "planType": "Plus",
+      "duration": "1 شهر",
+      "price": 700,
+      "available": true,
+      "activation": "تسليم بيانات حساب ChatGPT Plus خاص جاهز للاستخدام.",
+      "account": "حساب ChatGPT Plus خاص جاهز وغير مشترك",
+      "accountType": "حساب خاص جاهز",
+      "warranty": "ضمان لمدة 25 يومًا",
+      "features": [
+        "اشتراك ChatGPT Plus لمدة شهر على حساب خاص جاهز.",
+        "حساب خاص وغير مشترك مع عملاء آخرين.",
+        "تسليم بيانات الدخول إلى حساب Plus الجاهز.",
+        "ضمان 25 يومًا من مدة الاشتراك.",
+        "الكتابة والبحث وتحليل الملفات والصور حسب أدوات وحدود Plus المتاحة."
+      ],
+      "notes": [
+        "مدة الاشتراك شهر، ومدة الضمان 25 يومًا.",
+        "هذه الباقة بحساب خاص جاهز، ولا تتطلب تفعيل Plus على حسابك الشخصي.",
+        "حدود الأدوات والنماذج تخضع لخطة Plus وتوافرها على الحساب."
+      ],
+      "featuresEn": [
+        "One month of ChatGPT Plus on a ready private account.",
+        "A private account not shared with other customers.",
+        "Receive login details for the ready Plus account.",
+        "Warranty covers 25 days of the subscription.",
+        "Writing, research, file and image analysis within available Plus tools and limits."
+      ],
+      "notesEn": [
+        "The subscription lasts one month; warranty lasts 25 days.",
+        "This offer supplies a ready private account and does not activate Plus on your personal account.",
+        "Tool and model limits depend on Plus and availability on the account."
+      ],
+      "officialPrice": {
+        "amount": 20,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+        "checkedAt": "2026-10-31"
+      },
+      "priceComparison": {
+        "planName": "ChatGPT Plus",
+        "status": "reference",
+        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+        "checkedAt": "2026-10-31",
+        "billingLabel": "Monthly billing",
+        "showReferenceNote": true,
+        "note": "مرجع الشراء المباشر لـPlus هو 20 دولارًا للشهر قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. المقارنة في السعر؛ طريقة التسليم والضمان موضحتان في عرض المتجر.",
+        "noteEn": "The direct-purchase reference for Plus is US$20 per month before tax, converted using the store rate. This compares prices; delivery method and warranty are stated in the store offer."
+      },
+      "previousStorePrice": 780
+    }
+  ],
+  "categories": [
+    "توليد صور بالذكاء الاصطناعي",
+    "مساعد كتابة الكود",
+    "محادثة ومساعد ذكي"
+  ],
+  "descriptionEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a 25-day warranty for EGP 700, or activation and renewal on your personal account for EGP 1,100. Review the delivery method and warranty of your chosen plan."
+},
+  {
+    "id": "chatgpt-teachers-k12",
+    "name": "ChatGPT للمعلمين K12",
+    "category": "AI Tools",
+    "logo": "chatgpt",
+    "status": "available",
+    "description": "باقة ChatGPT مخصصة للمعلمين K12 لمدة سنتين بـ400 جنيه، بدون ضمان.",
+    "plans": [
+      {
+        "name": "ChatGPT للمعلمين K12 — بدون ضمان",
+        "planType": "K12 Teachers",
+        "duration": "24 شهر",
+        "price": 400,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "بدون ضمان",
+        "notes": [
+          "الباقة مخصصة للمعلمين K12؛ شروط الأهلية والتفعيل تُؤكد قبل الدفع.",
+          "مدة الباقة سنتان وبدون ضمان."
+        ],
+        "priceComparison": {
+          "planName": "ChatGPT for Teachers",
+          "source": "https://help.openai.com/en/articles/12844995-chatgpt-for-teachers",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "مجاني رسميًا للمعلمين الأمريكيين K–12 المؤهلين حتى يونيو 2028. سعر المتجر ليس خصمًا من اشتراك رسمي مدفوع، ومدة 24 شهرًا تحتاج تأكيدًا قبل الدفع.",
+          "rawPrice": {
+            "amount": 0,
+            "currency": "USD",
+            "label": "مجاني للمؤهلين حتى يونيو 2028"
+          }
+        },
+        "previousStorePrice": 500
+      }
+    ],
+    "categories": [
+      "محادثة ومساعد ذكي",
+      "أدوات للمعلمين"
+    ]
+  },
+  {
+  "id": "gemini-pro",
+  "name": "Gemini Pro",
+  "category": "AI Tools",
+  "logo": "gemini",
+  "logoUrl": "logos/gemini.svg?v=20261027-hq1",
+  "status": "available",
+  "description": "باقات Google AI Pro «Gemini Pro» على إيميلك الشخصي: 18 شهرًا بسعر 300 جنيه وضمان شهر واحد، أو 3 شهور بسعر 200 جنيه وضمان 3 شهور. وتتوفر دعوة عائلية لمدة شهر بسعر 80 جنيه مع 1,000 كريدت ضمن رصيد العائلة المشترك وضمان شهر.",
+  "notes": [
+    "عرض الـ18 شهرًا المتاح حاليًا سعره 300 جنيه وضمانه شهر واحد؛ الباقتان القديمتان بسعر 200 و250 جنيه انتهتا وغير متاحتين."
+  ],
+  "plans": [
+    {
+      "name": "Gemini Pro",
+      "duration": "18 شهر",
+      "price": 200,
+      "activation": "رابط تفعيل مباشر على البريد الشخصي — بدون بطاقة أو بيانات دفع.",
+      "account": "حساب العميل الشخصي",
+      "warranty": "ضمان 3 شهور",
+      "credits": "1,000 Credit شهريًا",
+      "features": [
+        "1,000 Credit شهريًا للاستخدام داخل الخدمة"
+      ],
+      "priceComparison": {
+        "planName": "Google AI Pro — اشتراك فردي",
+        "source": "https://gemini.google/subscriptions/",
+        "checkedAt": "2026-10-08",
+        "status": "reference",
+        "note": "المقارنة محسوبة بسعر الاشتراك الشهري الأمريكي المعتاد ×18؛ لا توجد باقة رسمية مستقلة 18 شهرًا. العروض التعليمية والتجارب المجانية ليست ضمن المقارنة، والدعوات العائلية ليست 6 اشتراكات منفصلة.",
+        "billingLabel": "19.99 دولارًا ×18 شهرًا"
+      },
+      "officialPrice": {
+        "amount": 359.82,
+        "currency": "USD",
+        "months": 18,
+        "basis": "reference",
+        "source": "https://gemini.google/subscriptions/",
+        "checkedAt": "2026-10-08"
+      },
+      "available": false,
+      "hidden": true
+    },
+    {
+      "name": "Gemini العائلي",
+      "duration": "18 شهر",
+      "price": 250,
+      "activation": "نفس تفعيل Gemini Pro + 5 دعوات عائلية إضافية.",
+      "account": "حساب المتحكم + 5 دعوات إضافية",
+      "warranty": "ضمان 3 شهور",
+      "credits": "1,000 Credit شهريًا للحساب الرئيسي فقط",
+      "features": [
+        "1,000 Credit شهريًا للحساب الرئيسي فقط",
+        "5 دعوات عائلية إضافية لاستخدام Gemini"
+      ],
+      "priceComparison": {
+        "planName": "Google AI Pro — اشتراك فردي",
+        "source": "https://gemini.google/subscriptions/",
+        "checkedAt": "2026-10-08",
+        "status": "reference",
+        "note": "المقارنة محسوبة بسعر الاشتراك الشهري الأمريكي المعتاد ×18؛ لا توجد باقة رسمية مستقلة 18 شهرًا. العروض التعليمية والتجارب المجانية ليست ضمن المقارنة، والدعوات العائلية ليست 6 اشتراكات منفصلة.",
+        "billingLabel": "19.99 دولارًا ×18 شهرًا"
+      },
+      "officialPrice": {
+        "amount": 359.82,
+        "currency": "USD",
+        "months": 18,
+        "basis": "reference",
+        "source": "https://gemini.google/subscriptions/",
+        "checkedAt": "2026-10-08"
+      },
+      "available": false,
+      "hidden": true
+    },
+    {
+      "name": "Pro — دعوة عائلية — شهر على إيميلك",
+      "planType": "Google AI Pro",
+      "duration": "1 شهر",
+      "price": 80,
+      "available": true,
+      "activation": "إرسال دعوة عائلية إلى إيميلك الشخصي لتفعيل Gemini Pro لمدة شهر.",
+      "account": "حسابك الشخصي ضمن مجموعة عائلية",
+      "accountType": "دعوة عائلية على إيميلك الشخصي",
+      "warranty": "ضمان لمدة شهر",
+      "credits": "1,000 كريدت خلال الشهر ضمن رصيد العائلة المشترك",
+      "features": [
+        "اشتراك Gemini Pro لمدة شهر واحد عبر دعوة عائلية.",
+        "التفعيل على حساب Google المرتبط بإيميلك الشخصي.",
+        "1,000 كريدت ضمن رصيد مجموعة العائلة؛ الرصيد مشترك وليس حصة مستقلة لكل عضو.",
+        "ضمان لمدة شهر طوال مدة الاشتراك.",
+        "محادثة وكتابة وبحث وتحليل ملفات وفق أدوات وحدود Pro المتاحة لحسابك."
+      ],
+      "notes": [
+        "تُقبل الدعوة من إيميلك الشخصي، ويُراجع توافق بلد الحساب وأهلية الانضمام للعائلة قبل الدفع.",
+        "رصيد AI للعائلة مشترك، ويتأثر استخدامه باستهلاك المجموعة والأداة المختارة.",
+        "لا ترسل كلمة مرور Google أو أكواد التحقق في الشات؛ افتح الدعوة وسجّل الدخول بنفسك داخل Google."
+      ],
+      "featuresEn": [
+        "One month of Gemini Pro through a family invitation.",
+        "Activation on the Google account linked to your personal email.",
+        "1,000 credits in the family group allowance; credits are pooled, not a separate allocation for each member.",
+        "One-month warranty throughout the subscription term.",
+        "Chat, write, research and analyse files within Pro tools and limits available to your account."
+      ],
+      "notesEn": [
+        "Accept the invitation from your personal email; confirm account-country compatibility and family-joining eligibility before payment.",
+        "Family AI credits are shared; available usage depends on group consumption and the selected tool.",
+        "Do not send your Google password or verification codes in chat; open the invitation and sign in yourself on Google."
+      ]
+    },
+    {
+      "name": "Pro — تفعيل مباشر — 3 شهور على إيميلك",
+      "planType": "Google AI Pro",
+      "duration": "3 شهور",
+      "price": 200,
+      "available": true,
+      "activation": "تفعيل Gemini Pro لمدة 3 شهور مباشرة على إيميلك الشخصي.",
+      "account": "حساب Google الشخصي على إيميلك",
+      "accountType": "تفعيل مباشر على حسابك",
+      "warranty": "ضمان لمدة 3 شهور",
+      "features": [
+        "اشتراك Gemini Pro لمدة 3 شهور.",
+        "تفعيل مباشر على حسابك وإيميلك الشخصي.",
+        "ضمان 3 شهور يغطي مدة الاشتراك.",
+        "المساعدة في الكتابة والبحث والمذاكرة وتحليل الملفات ضمن حدود Pro."
+      ],
+      "notes": [
+        "يُراجع وضع الاشتراك الحالي وأهلية حساب Google قبل التفعيل.",
+        "الرصيد وحدود الأدوات تُراجع داخل الحساب حسب التفعيل المتاح.",
+        "أكمل أي تسجيل دخول أو موافقة مطلوبة بنفسك داخل Google؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات."
+      ],
+      "featuresEn": [
+        "Three months of Gemini Pro.",
+        "Direct activation on your personal account and email.",
+        "A three-month warranty covers the subscription term.",
+        "Help with writing, research, study and file analysis within Pro limits."
+      ],
+      "notesEn": [
+        "Your current subscription and Google account eligibility are checked before activation.",
+        "Check credits and tool limits in the account for the activated membership.",
+        "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat."
+      ]
+    },
+    {
+      "name": "Pro — 18 شهرًا على إيميلك — ضمان شهر",
+      "planType": "Google AI Pro",
+      "duration": "18 شهر",
+      "price": 300,
+      "available": true,
+      "activation": "تفعيل Google AI Pro «Gemini Pro» لمدة 18 شهرًا على إيميلك الشخصي.",
+      "account": "حساب Google الشخصي على إيميلك",
+      "accountType": "على إيميلك الشخصي",
+      "warranty": "ضمان لمدة شهر واحد",
+      "features": [
+        "اشتراك Google AI Pro «Gemini Pro» لمدة 18 شهرًا.",
+        "تفعيل الاشتراك على حساب Google المرتبط بإيميلك الشخصي.",
+        "ضمان لمدة شهر واحد؛ مدة الضمان مستقلة عن مدة الاشتراك البالغة 18 شهرًا.",
+        "المساعدة في الكتابة والبحث والمذاكرة وتحليل الملفات ضمن أدوات وحدود Pro المتاحة لحسابك.",
+        "الرصيد وحدود أدوات الصور والفيديو والتخزين تُراجع داخل الحساب بعد التفعيل؛ لا يُنقل رصيد باقة أخرى تلقائيًا."
+      ],
+      "featuresEn": [
+        "Google AI Pro (Gemini Pro) for 18 months.",
+        "Activation on the Google account linked to your personal email.",
+        "A one-month warranty; coverage is separate from the 18-month subscription term.",
+        "Help with writing, research, study and file analysis within the Pro tools and limits available to your account.",
+        "Check credits, image/video limits and storage in the activated account; another plan’s allowance is not automatically included."
+      ],
+      "notes": [
+        "يُراجع وضع الاشتراك الحالي وأهلية حساب Google قبل التفعيل.",
+        "الاشتراك 18 شهرًا، والضمان شهر واحد فقط وفق شروط العرض وسياسة المتجر.",
+        "لا يتضمن العرض عددًا محددًا من الكريدت أو دعوات عائلية إضافية.",
+        "أكمل أي تسجيل دخول أو موافقة مطلوبة بنفسك داخل Google؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات."
+      ],
+      "notesEn": [
+        "Your current subscription and Google account eligibility are checked before activation.",
+        "The subscription lasts 18 months; the warranty lasts only one month under the offer terms and store policy.",
+        "This offer does not specify a credit quota or include additional family invitations.",
+        "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat."
+      ]
+    }
+  ],
+  "categories": [
+    "توليد صور بالذكاء الاصطناعي",
+    "مساعد كتابة الكود",
+    "محادثة ومساعد ذكي"
+  ],
+  "descriptionEn": "Google AI Pro (Gemini Pro) on your personal email: 18 months for EGP 300 with a one-month warranty, or three months for EGP 200 with a three-month warranty. A one-month family invitation is also available for EGP 80 with 1,000 shared family credits and a one-month warranty.",
+  "notesEn": [
+    "The currently available 18-month offer is EGP 300 with a one-month warranty; the older EGP 200 and EGP 250 offers have ended and remain unavailable."
+  ]
+},
+  {
+    "id": "google-ai-plus",
+    "name": "Google AI Plus",
+    "category": "AI Tools",
+    "logo": "gemini",
+    "logoUrl": "logos/gemini.svg?v=20261027-hq1",
+    "status": "available",
+    "description": "اشتراك Google AI Plus على إيميلك الشخصي: 6 شهور بسعر 150 جنيه أو 12 شهر بسعر 220 جنيه. راجع تفاصيل التفعيل والضمان قبل الدفع.",
+    "categories": [
+      "توليد صور بالذكاء الاصطناعي",
+      "محادثة ومساعد ذكي"
+    ],
+    "plans": [
+      {
+        "name": "Plus — 6 شهور على إيميلك",
+        "planType": "Google AI Plus",
+        "duration": "6 شهور",
+        "price": 150,
+        "available": true,
+        "activation": "تفعيل Google AI Plus لمدة 6 شهور على إيميلك الشخصي.",
+        "account": "حساب Google الشخصي على إيميلك",
+        "accountType": "تفعيل مباشر على حسابك",
+        "warranty": "مدة وشروط الضمان تُؤكد مع الدعم قبل الدفع",
+        "features": [
+          "اشتراك Google AI Plus لمدة 6 شهور.",
+          "تفعيل مباشر على حسابك وإيميلك الشخصي.",
+          "مزايا Gemini والأدوات المؤهلة وفق حدود باقة Plus المتاحة لحسابك.",
+          "استخدام إيميلك الشخصي دون تسليم حساب جاهز بديل."
+        ],
+        "notes": [
+          "يُراجع وضع الاشتراك الحالي وأهلية حساب Google قبل التفعيل.",
+          "هذا عرض Google AI Plus؛ حدود الميزات والتخزين والرصيد تُراجع حسب الباقة والحساب قبل الدفع.",
+          "لم تُحدد مدة ضمان لهذا العرض؛ تُؤكد مع الدعم قبل الدفع.",
+          "أكمل أي تسجيل دخول أو موافقة مطلوبة بنفسك داخل Google؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات."
+        ],
+        "featuresEn": [
+          "6 months of Google AI Plus.",
+          "Direct activation on your personal account and email.",
+          "Gemini and eligible tool benefits within Plus limits available to your account.",
+          "Use your personal email without receiving a replacement ready account."
+        ],
+        "notesEn": [
+          "Your current subscription and Google account eligibility are checked before activation.",
+          "This is Google AI Plus; review feature, storage and credit limits for the plan and account before payment.",
+          "No warranty term has been specified for this offer; confirm it with support before payment.",
+          "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat."
+        ]
+      },
+      {
+        "name": "Plus — 12 شهر على إيميلك",
+        "planType": "Google AI Plus",
+        "duration": "12 شهر",
+        "price": 220,
+        "available": true,
+        "activation": "تفعيل Google AI Plus لمدة 12 شهر على إيميلك الشخصي.",
+        "account": "حساب Google الشخصي على إيميلك",
+        "accountType": "تفعيل مباشر على حسابك",
+        "warranty": "مدة وشروط الضمان تُؤكد مع الدعم قبل الدفع",
+        "features": [
+          "اشتراك Google AI Plus لمدة 12 شهر.",
+          "تفعيل مباشر على حسابك وإيميلك الشخصي.",
+          "مزايا Gemini والأدوات المؤهلة وفق حدود باقة Plus المتاحة لحسابك.",
+          "استخدام إيميلك الشخصي دون تسليم حساب جاهز بديل."
+        ],
+        "notes": [
+          "يُراجع وضع الاشتراك الحالي وأهلية حساب Google قبل التفعيل.",
+          "هذا عرض Google AI Plus؛ حدود الميزات والتخزين والرصيد تُراجع حسب الباقة والحساب قبل الدفع.",
+          "لم تُحدد مدة ضمان لهذا العرض؛ تُؤكد مع الدعم قبل الدفع.",
+          "أكمل أي تسجيل دخول أو موافقة مطلوبة بنفسك داخل Google؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات."
+        ],
+        "featuresEn": [
+          "12 months of Google AI Plus.",
+          "Direct activation on your personal account and email.",
+          "Gemini and eligible tool benefits within Plus limits available to your account.",
+          "Use your personal email without receiving a replacement ready account."
+        ],
+        "notesEn": [
+          "Your current subscription and Google account eligibility are checked before activation.",
+          "This is Google AI Plus; review feature, storage and credit limits for the plan and account before payment.",
+          "No warranty term has been specified for this offer; confirm it with support before payment.",
+          "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat."
+        ]
+      }
+    ],
+    "descriptionEn": "Google AI Plus on your personal email: six months for EGP 150 or twelve months for EGP 220. Review activation and warranty details before payment."
+  },
+  {
+    "id": "claude-pro",
+    "name": "Claude Pro",
+    "category": "AI Tools",
+    "logo": "claude",
+    "logoUrl": "logos/claude.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "تفعيل Claude Pro لمدة شهر على حسابك الشخصي بسعر 25 دولارًا (1400 جنيه بسعر صرف 56 جنيه للدولار) باستخدام وسيلة دفع المتجر.",
+    "plans": [
+      {
+        "name": "Claude Pro",
+        "duration": "1 شهر",
+        "price": 1400,
+        "basePriceUSD": 25,
+        "activation": "تفعيل خلال ساعة إلى ساعتين على حساب العميل.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "السعر خاص بعرض المتجر الحالي."
+        ],
+        "priceComparison": {
+          "planName": "Claude Pro",
+          "source": "https://claude.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://claude.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "مساعد كتابة الكود",
+      "محادثة ومساعد ذكي"
+    ]
+  },
+  {
+    "id": "perplexity-pro",
+    "name": "Perplexity Pro",
+    "category": "AI Tools",
+    "logo": "perplexity",
+    "logoUrl": "logos/perplexity.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "باقات Perplexity Pro بحساب خاص جاهز. الباقة السنوية تشمل سنة كاملة بضمان كامل، وتسليم إيميل وباسورد، بدون كريدت.",
+    "plans": [
+      {
+        "name": "Perplexity Pro",
+        "duration": "1 شهر",
+        "price": 550,
+        "activation": "تسليم حساب جاهز، وقد يطلب كود دخول أول مرة.",
+        "account": "حساب خاص جاهز",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يفضل عدم تغيير كلمة المرور حتى لا تتأثر خدمة الدعم/الضمان."
+        ],
+        "priceComparison": {
+          "planName": "Perplexity Pro",
+          "source": "https://www.perplexity.ai/hub",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.perplexity.ai/hub",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "Pro — سنة كاملة",
+        "planType": "Pro",
+        "duration": "12 شهر",
+        "price": 3999,
+        "available": true,
+        "account": "حساب خاص جاهز",
+        "activation": "تسليم حساب جاهز بإيميل وباسورد.",
+        "warranty": "ضمان كامل لمدة 12 شهرًا",
+        "credits": "لا يحتوي على كريدت — اشتراك Pro فقط",
+        "notes": [
+          "الاشتراك لمدة سنة كاملة (12 شهرًا).",
+          "تسليم إيميل وباسورد لحساب خاص.",
+          "الباقة تشمل Pro فقط ولا تتضمن أي كريدت.",
+          "ضمان كامل طوال مدة الاشتراك."
+        ],
+        "priceComparison": {
+          "status": "unavailable",
+          "note": "عرض المتجر Pro بدون كريدت؛ لا تُحسب نسبة توفير دون مطابقة محتويات الباقة الرسمية."
+        }
+      }
+    ],
+    "categories": [
+      "بحث وإجابات بالمصادر"
+    ]
+  },
+  {
+    "id": "hostinger",
+    "name": "Hostinger Unlimited",
+    "category": "البرمجة وتطوير المواقع",
+    "logo": "hostinger",
+    "logoUrl": "logos/hostinger.svg?v=20261031-hostinger1",
+    "status": "available",
+    "description": "استضافة Hostinger Unlimited لمدة سنة على بريدك الشخصي بسعر 25 دولارًا، مع مواقع غير محدودة ضمن موارد الخطة، ونطاق واحد مجاني للسنة الأولى وضمان 12 شهرًا.",
+    "categories": [
+      "قواعد بيانات واستضافة"
+    ],
+    "plans": [
+      {
+        "name": "Unlimited — سنة على إيميلك",
+        "planType": "Unlimited",
+        "duration": "12 شهر",
+        "price": 1400,
+        "basePriceUSD": 25,
+        "available": true,
+        "activation": "تفعيل Hostinger Unlimited لمدة سنة على حساب مرتبط ببريدك الشخصي.",
+        "account": "حساب Hostinger على بريدك الشخصي",
+        "accountType": "تفعيل على إيميلك الشخصي",
+        "warranty": "ضمان لمدة 12 شهرًا",
+        "features": [
+          "اشتراك Hostinger Unlimited لمدة سنة كاملة.",
+          "استضافة عدد غير محدود من مواقعك ضمن حدود موارد الخطة.",
+          "نطاق واحد مجاني للسنة الأولى حسب الأهلية وتوافر الاسم والامتداد.",
+          "التفعيل على بريدك الشخصي وحسابك في Hostinger.",
+          "ضمان اشتراك لمدة 12 شهرًا.",
+          "السعر 25 دولارًا لإجمالي السنة؛ يظهر المقابل حسب عملة المتجر المختارة."
+        ],
+        "notes": [
+          "Unlimited يخص عدد المواقع؛ التخزين والمعالج والذاكرة وقواعد البيانات تخضع لحدود الاستضافة.",
+          "يشمل العرض نطاقًا واحدًا مؤهلًا مجانًا للسنة الأولى، وليس نطاقًا مجانيًا لكل موقع.",
+          "تُراجع أهلية النطاق والامتدادات المشمولة قبل التسجيل؛ رسوم التجديد بعد السنة الأولى تُؤكد منفصلة.",
+          "ضمان المتجر لمدة 12 شهرًا يتعلق بالاشتراك وفق سياسة المتجر.",
+          "أكمل إعداد الحساب وأي تحقق مطلوب داخل Hostinger بنفسك؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات."
+        ],
+        "featuresEn": [
+          "A full year of Hostinger Unlimited.",
+          "Host an unlimited number of your websites within the plan’s resource limits.",
+          "One free domain for the first year, subject to eligibility and name and extension availability.",
+          "Activation on your personal email and Hostinger account.",
+          "A 12-month subscription warranty.",
+          "US$25 covers the full year; the equivalent follows your selected store currency."
+        ],
+        "notesEn": [
+          "Unlimited refers to website count; storage, CPU, memory and databases remain subject to hosting limits.",
+          "The offer includes one eligible free domain for the first year, not a free domain for every website.",
+          "Check domain eligibility and included extensions before registration; renewal charges after the first year are confirmed separately.",
+          "The store’s 12-month warranty covers subscription access under store policy.",
+          "Complete account setup and any required verification yourself on Hostinger; do not send passwords or verification codes in chat."
+        ],
+        "priceComparison": {
+          "planName": "Hostinger Unlimited — 12 months",
+          "status": "unavailable",
+          "source": "https://www.hostinger.com/pricing",
+          "checkedAt": "2026-10-31",
+          "showReferenceNote": true,
+          "note": "السعر الترويجي الظاهر في صفحة Hostinger مرتبط بسداد 48 شهرًا مقدمًا. لم يُوثق هنا سعر شراء مطابق لمدة 12 شهرًا، لذلك لا تُعرض نسبة توفير لعرض السنة.",
+          "noteEn": "The promotional price shown on Hostinger’s page requires paying for 48 months upfront. A matching 12-month purchase price has not been verified here, so no saving percentage is shown for this annual offer."
+        }
+      }
+    ],
+    "descriptionEn": "One year of Hostinger Unlimited hosting on your personal email for US$25, with unlimited websites within plan resources, one eligible free domain for the first year and a 12-month warranty."
+  },
+  {
+    "id": "lovable-pro",
+    "name": "Lovable",
+    "category": "AI Tools",
+    "logo": "lovable",
+    "status": "available",
+    "description": "باقات Lovable لبناء المواقع والتطبيقات بالذكاء الاصطناعي. متاح Pro لمدة 3 شهور بحساب خاص جاهز بسعر 1050 جنيه، مع 100 كريدت شهريًا + 5 يوميًا وضمان كامل، إلى جانب الباقات الشهرية والسنوية الموضحة.",
+    "plans": [
+      {
+        "name": "Pro — شهر",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 300,
+        "activation": "تفعيل على حسابك الشخصي في Lovable.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "Lovable Pro — 100 كريدت شهريًا",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-31",
+          "status": "unavailable",
+          "note": "رصيد هذا العرض غير محدد، لذلك لا تتوفر مقارنة موثقة مع باقة Pro الرسمية برصيد 100 كريدت شهريًا.",
+          "billingLabel": "Pro — 100 كريدت شهريًا",
+          "showReferenceNote": true,
+          "noteEn": "This offer does not specify its credit allowance, so there is no verified comparison with the official Pro plan containing 100 monthly credits."
+        },
+        "officialPrice": {
+          "amount": 25,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "Pro — شهر — 100 كريدت + 5 يوميًا",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 300,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "يُؤكد قبل الدفع",
+        "notes": [
+          "الرصيد الشهري والرصيد اليومي حصتان منفصلتان.",
+          "الكريدت اليومي يتجدد يوميًا ولا يتراكم لليوم التالي."
+        ],
+        "priceComparison": {
+          "planName": "Lovable Pro — 100 كريدت شهريًا",
+          "source": "https://lovable.dev/pricing",
+          "checkedAt": "2026-10-31",
+          "status": "reference",
+          "note": "مرجع Pro برصيد 100 كريدت شهريًا: 25 دولارًا للشهر قبل الضرائب. طريقة التفعيل والضمان حسب عرض المتجر.",
+          "billingLabel": "Pro — 100 كريدت شهريًا + 5 كريدت بناء يوميًا",
+          "showReferenceNote": true,
+          "noteEn": "Pro with 100 monthly credits: US$25 per month before tax. Activation and warranty follow the store offer."
+        },
+        "officialPrice": {
+          "amount": 25,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-31"
+        },
+        "credits": "100 كريدت شهريًا + 5 كريدت بناء يوميًا",
+        "features": [
+          "اشتراك Lovable Pro لمدة شهر.",
+          "100 كريدت شهريًا + 5 كريدت بناء يوميًا.",
+          "إنشاء وتعديل مواقع وتطبيقات باستخدام الأوامر النصية."
+        ]
+      },
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 1800,
+        "activation": "تفعيل مباشر على حساب Lovable",
+        "account": "حساب العميل الشخصي — بدون طلب كلمة مرور Gmail",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "طريقة التسليم والضمان يتم تأكيدهما قبل التحويل."
+        ],
+        "priceComparison": {
+          "planName": "Lovable Pro — 100 كريدت شهريًا",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-31",
+          "status": "unavailable",
+          "note": "رصيد هذا العرض غير محدد، لذلك لا تتوفر مقارنة موثقة مع باقة Pro الرسمية برصيد 100 كريدت شهريًا.",
+          "billingLabel": "250 دولارًا إجمالي السنة — Pro 100",
+          "showReferenceNote": true,
+          "noteEn": "This offer does not specify its credit allowance, so there is no verified comparison with the official Pro plan containing 100 monthly credits."
+        },
+        "officialPrice": {
+          "amount": 250,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "Pro Lite",
+        "duration": "12 شهر",
+        "price": 430,
+        "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
+        "account": "حساب العميل",
+        "warranty": "ضمان كامل",
+        "credits": "300 Credit + 5 Credits يوميًا لمدة سنة",
+        "priceComparison": {
+          "planName": "Lovable Pro / Lite — تحتاج مطابقة الرصيد",
+          "source": "https://docs.lovable.dev/introduction/subscription-plans",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "300 كريدت إجماليًا + رصيد يومي لا يطابق تلقائيًا Pro الذي يبدأ من 100 كريدت كل شهر. لم تتأكد باقة رسمية مطابقة لهذا العرض."
+        },
+        "oldPrice": 450,
+        "planType": "Pro Lite",
+        "previousStorePrice": 450,
+        "promotionEndsAt": "2026-10-28T05:15:00Z",
+        "regularPrice": 450,
+        "regularPreviousStorePrice": 650
+      },
+      {
+        "name": "Pro — 3 شهور — حساب خاص جاهز",
+        "planType": "Pro",
+        "duration": "3 شهور",
+        "price": 1050,
+        "available": true,
+        "activation": "تسليم بريد حساب Lovable خاص جاهز، مع طريقة الحصول على كود الدخول.",
+        "account": "حساب Lovable خاص جاهز للاستخدام",
+        "accountType": "حساب خاص جاهز",
+        "warranty": "ضمان كامل طوال مدة الاشتراك — 3 شهور",
+        "credits": "100 كريدت شهريًا + 5 كريدت يوميًا",
+        "features": [
+          "اشتراك Lovable Pro لمدة 3 شهور بحساب خاص جاهز.",
+          "100 كريدت تتجدد شهريًا طوال مدة الاشتراك.",
+          "5 كريدت يوميًا كحصة يومية منفصلة.",
+          "تسليم البريد وطريقة الوصول إلى كود الدخول للحساب.",
+          "ضمان كامل طوال مدة الاشتراك لمدة 3 شهور.",
+          "إنشاء وتعديل مواقع وتطبيقات بالأوامر النصية ضمن رصيد الباقة."
+        ],
+        "notes": [
+          "الرصيد الشهري والرصيد اليومي حصتان منفصلتان؛ 100 كريدت هي حصة كل شهر وليست إجمالي الثلاثة شهور.",
+          "هذه الباقة تُسلّم بحساب خاص جاهز؛ اتبع تعليمات الوصول إلى كود الدخول عند التسليم.",
+          "حدود التوليد واستهلاك الكريدت تتغير حسب نوع التعديل وتعقيد المشروع."
+        ],
+        "featuresEn": [
+          "Three months of Lovable Pro on a ready private account.",
+          "100 credits refresh each month throughout the subscription.",
+          "A separate daily allowance of 5 credits.",
+          "Receive the account email and instructions for accessing its sign-in code.",
+          "Full warranty for the complete three-month subscription term.",
+          "Build and edit websites and apps with text prompts within the plan allowance."
+        ],
+        "notesEn": [
+          "Monthly and daily credits are separate allowances; 100 credits applies to each month, not the entire three-month term.",
+          "This offer supplies a ready private account; follow the sign-in-code instructions provided at delivery.",
+          "Generation limits and credit consumption vary with the type of change and project complexity."
+        ],
+        "officialPrice": {
+          "amount": 75,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://lovable.dev/pricing",
+          "checkedAt": "2026-10-31"
+        },
+        "priceComparison": {
+          "planName": "Lovable Pro — 100 credits/month",
+          "status": "reference",
+          "source": "https://lovable.dev/pricing",
+          "checkedAt": "2026-10-31",
+          "billingLabel": "25 USD × 3 monthly subscriptions",
+          "priceLabel": "مرجع 3 اشتراكات شهرية",
+          "priceLabelEn": "Reference for 3 monthly subscriptions",
+          "savingLabel": "التوفير مقارنة بـ3 اشتراكات شهرية",
+          "savingLabelEn": "Saving vs 3 monthly subscriptions",
+          "showReferenceNote": true,
+          "note": "المرجع 25 دولارًا × 3 شهور = 75 دولارًا قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. هذه تكلفة 3 اشتراكات شهرية وليست باقة رسمية مستقلة لمدة 3 شهور؛ الحساب الجاهز وضمانه حسب عرض المتجر.",
+          "noteEn": "The reference is US$25 × 3 months = US$75 before tax, converted using the store rate. This is the cost of three monthly subscriptions, not a separate official three-month plan; ready-account delivery and warranty follow the store offer."
+        }
+      }
+    ],
+    "categories": [
+      "بناء مواقع وتطبيقات بالذكاء الاصطناعي"
+    ],
+    "descriptionEn": "Lovable plans for building websites and apps with AI. Three months of Pro on a ready private account costs EGP 1,050, with 100 monthly credits plus 5 daily and a full warranty, alongside the listed monthly and annual offers."
+  },
+  {
+  "id": "lovable-lite",
+  "name": "Lovable Pro Lite",
+  "category": "AI Tools",
+  "logo": "lovable",
+  "status": "available",
+  "description": "Lovable Pro Lite لمدة سنة: 300 كريدت إجماليًا + 5 كريدت يوميًا، تفعيل على بريدك الشخصي بدون بطاقة، وضمان كامل.",
+  "plans": [
+    {
+      "name": "Pro Lite",
+      "duration": "12 شهر",
+      "price": 430,
+      "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
+      "account": "حساب العميل",
+      "warranty": "ضمان كامل",
+      "credits": "300 Credit + 5 Credits يوميًا لمدة سنة",
+      "priceComparison": {
+        "planName": "Lovable Pro / Lite — تحتاج مطابقة الرصيد",
+        "source": "https://docs.lovable.dev/introduction/subscription-plans",
+        "checkedAt": "2026-10-08",
+        "status": "unavailable",
+        "note": "300 كريدت إجماليًا + رصيد يومي لا يطابق تلقائيًا Pro الذي يبدأ من 100 كريدت كل شهر. لم تتأكد باقة رسمية مطابقة لهذا العرض."
+      },
+      "oldPrice": 450,
+      "previousStorePrice": 450,
+      "promotionEndsAt": "2026-10-28T05:15:00Z",
+      "regularPrice": 450,
+      "regularPreviousStorePrice": 650
+    }
+  ],
+  "redirectTo": {
+    "id": "lovable-pro",
+    "plan": 3
+  },
+  "categories": [],
+  "descriptionEn": "Build websites and apps with AI using Lovable. Monthly and annual plans include one year of Pro Lite with 300 total credits plus 5 daily, personal-email activation and full warranty."
+},
+  {
+    "id": "runway-pro",
+    "name": "Runway Pro",
+    "category": "AI Tools",
+    "logo": "runway",
+    "logoUrl": "logos/runway.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "اشتراك Runway Pro لمدة 12 شهر، يُفعّل على حسابك عبر كود استرداد، بضمان 6 شهور.",
+    "plans": [
+      {
+        "name": "Runway Pro",
+        "duration": "12 شهر",
+        "price": 4600,
+        "activation": "تفعيل على حسابك عبر كود استرداد.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "6 شهور",
+        "credits": "2,250 Credit شهريًا",
+        "notes": [
+          "الرصيد الشهري يتجدد كل دورة فوترة، ولا ينتقل الرصيد غير المستخدم للشهر التالي."
+        ],
+        "priceComparison": {
+          "planName": "Runway Pro — 2,250 كريدت شهريًا",
+          "source": "https://runway.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "28 دولارًا ×12 عند الدفع السنوي"
+        },
+        "officialPrice": {
+          "amount": 336,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://runway.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "features": [
+      "إنشاء الفيديو والصور بالذكاء الاصطناعي",
+      "رصيد 2,250 Credit يتجدد شهريًا",
+      "رفع دقة الفيديو إلى 4K"
+    ],
+    "featuresEn": [
+      "AI video and image generation",
+      "2,250 credits refreshed each month",
+      "4K video upscaling"
+    ],
+    "categories": [
+      "توليد فيديو بالذكاء الاصطناعي"
+    ]
+  },
+  {
+    "id": "wink-ai",
+    "name": "Wink AI Pro",
+    "category": "AI Tools",
+    "logo": "wink",
+    "logoUrl": "logos/wink.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "حساب جاهز لأدوات Wink AI.",
+    "plans": [
+      {
+        "name": "7 أيام",
+        "duration": "7 أيام",
+        "price": 150,
+        "activation": "تسليم حساب جاهز خلال 5 دقائق",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Wink Pro",
+          "source": "https://wink.ai",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "السعر والمدة يختلفان حسب التطبيق والمنطقة؛ لم يتأكد سعر رسمي مطابق من صفحة عامة."
+        }
+      },
+      {
+        "name": "شهر",
+        "duration": "1 شهر",
+        "price": 400,
+        "activation": "حساب جاهز؛ التفاصيل تُؤكد قبل الدفع.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Wink Pro",
+          "source": "https://wink.ai",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "السعر والمدة يختلفان حسب التطبيق والمنطقة؛ لم يتأكد سعر رسمي مطابق من صفحة عامة."
+        }
+      }
+    ],
+    "categories": [
+      "مونتاج وتحسين الفيديو"
+    ]
+  },
+  {
+    "id": "grok",
+    "name": "Super Grok",
+    "category": "AI Tools",
+    "logo": "grok",
+    "status": "available",
+    "description": "المتاح من SuperGrok: اشتراك 3 شهور بـ68 دولار، حساب خاص جاهز بإيميل وباسورد وضمان كامل طوال مدة الاشتراك. باقي الباقات نفد مخزونها.",
+    "plans": [
+      {
+        "name": "SuperGrok — شهر حساب خاص",
+        "planType": "SuperGrok",
+        "duration": "1 شهر",
+        "price": 1288,
+        "basePriceUSD": 23,
+        "activation": "تسليم حساب جاهز بإيميل وباسورد.",
+        "account": "حساب خاص",
+        "accountType": "حساب خاص جاهز",
+        "warranty": "ضمان كامل طوال مدة الاشتراك",
+        "officialPrice": {
+          "amount": 30,
+          "currency": "USD",
+          "months": 1,
+          "basis": "matched",
+          "source": "https://x.ai/pricing",
+          "checkedAt": "2026-10-09"
+        },
+        "priceComparison": {
+          "planName": "SuperGrok",
+          "source": "https://x.ai/pricing",
+          "checkedAt": "2026-10-09",
+          "status": "matched",
+          "billingLabel": "Monthly"
+        },
+        "available": false
+      },
+      {
+        "name": "اشتراك واحد",
+        "duration": "10 أيام",
+        "price": 240,
+        "activation": "بريد + كلمة مرور.",
+        "account": "حساب جاهز",
+        "warranty": "5 أيام",
+        "priceComparison": {
+          "planName": "SuperGrok — شهر",
+          "source": "https://x.ai/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "مدة عرض المتجر 10 أيام.",
+          "rawPrice": {
+            "amount": 30,
+            "currency": "USD",
+            "label": "سعر الشهر الكامل"
+          }
+        },
+        "available": false
+      },
+      {
+        "name": "SuperGrok — 3 شهور بضمان كامل",
+        "planType": "SuperGrok",
+        "duration": "3 شهور",
+        "price": 3808,
+        "basePriceUSD": 68,
+        "available": true,
+        "activation": "تسليم حساب جاهز بإيميل وباسورد.",
+        "account": "حساب خاص",
+        "accountType": "حساب خاص جاهز",
+        "warranty": "ضمان كامل طوال مدة الاشتراك",
+        "officialPrice": {
+          "amount": 90,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://x.ai/pricing",
+          "checkedAt": "2026-10-09"
+        },
+        "priceComparison": {
+          "planName": "SuperGrok",
+          "source": "https://x.ai/pricing",
+          "checkedAt": "2026-10-09",
+          "status": "reference",
+          "billingLabel": "3 أشهر بالسعر الشهري الرسمي"
+        }
+      }
+    ],
+    "categories": [
+      "توليد صور بالذكاء الاصطناعي",
+      "محادثة ومساعد ذكي"
+    ]
+  },
+  {
+    "id": "prezi",
+    "name": "Prezi Plus",
+    "category": "الإنتاجية",
+    "logo": "prezi",
+    "status": "available",
+    "description": "اشتراك Prezi Plus لمدة شهر، حساب خاص غير مشترك بسعر 450 جنيه وضمان كامل طوال الشهر.",
+    "features": [
+      "Prezi AI لإنشاء العروض وتحسين النصوص والصور بالذكاء الاصطناعي.",
+      "استيراد PowerPoint وPDF وتحويل المحتوى إلى عرض قابل للتعديل.",
+      "إنشاء مشروعات غير محدودة مع التحكم في خصوصية العرض والمشاركة.",
+      "صور وأيقونات وخلفيات Premium لتجهيز عروض بتصميم أفضل.",
+      "Presenter View لقراءة ملاحظاتك أثناء العرض دون ظهورها للجمهور.",
+      "إضافة تعليق صوتي وتسجيل شرحك للعرض.",
+      "تطبيق الكمبيوتر للعمل والعرض بدون إنترنت.",
+      "تصدير العروض إلى PDF أو تنزيل نسخة محمولة للعرض.",
+      "Prezi Video: تسجيل بجودة 1080p وتنزيل MP4 وإزالة العلامة المائية من تطبيق الكمبيوتر.",
+      "Prezi Design: تصميم إنفوجرافيك وتنزيل PNG وJPG وPDF وGIF وMP4.",
+      "تخصيص ألوان العرض والهوية البصرية لتناسب مشروعك."
+    ],
+    "featuresEn": [
+      "Prezi AI for presentation creation, text improvement and AI images.",
+      "Import PowerPoint and PDF content into an editable presentation.",
+      "Create unlimited projects with presentation privacy and sharing controls.",
+      "Premium images, icons and backgrounds for polished presentations.",
+      "Presenter View keeps your speaker notes private while you present.",
+      "Add voice-over and record your presentation.",
+      "Use the desktop app to work and present offline.",
+      "Export presentations to PDF or download portable presentations.",
+      "Prezi Video: record at 1080p, export MP4 and remove the watermark using the desktop app.",
+      "Prezi Design: create infographics and download PNG, JPG, PDF, GIF and MP4.",
+      "Customize presentation colors and personal branding."
+    ],
+    "plans": [
+      {
+        "name": "Plus — شهر — حساب خاص",
+        "planType": "Plus",
+        "duration": "1 شهر",
+        "price": 450,
+        "available": true,
+        "activation": "تسليم بيانات حساب خاص.",
+        "account": "حساب خاص غير مشترك",
+        "accountType": "حساب خاص",
+        "warranty": "ضمان كامل لمدة شهر",
+        "notes": [
+          "السعر 450 جنيه للاشتراك لمدة شهر واحد.",
+          "الحساب خاص وغير مشترك، بضمان كامل طوال الشهر.",
+          "العرض بدون إنترنت ومزايا تسجيل Prezi Video المذكورة تحتاج تطبيق الكمبيوتر."
+        ],
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference"
+        },
+        "priceComparison": {
+          "planName": "Prezi Plus",
+          "status": "reference",
+          "billingLabel": "شهر واحد",
+          "note": "مرجع المقارنة 20 دولارًا لمدة شهر واحد حسب بيانات عرض المتجر."
+        }
+      }
+    ],
+    "featureSources": [
+      "https://support.prezi.com/hc/en-us/articles/360003478934-Guide-to-Prezi-plans",
+      "https://support.prezi.com/hc/en-us/articles/360036562333-What-you-get-with-Prezi-Video",
+      "https://support.prezi.com/hc/en-us/articles/360044742314-Downloading-your-content-in-Infographics-Prezi-Design"
+    ],
+    "categories": [
+      "عروض تقديمية"
+    ]
+  },
+  {
+    "id": "gamma-plus",
+    "name": "Gamma",
+    "category": "AI Tools",
+    "logo": "gamma",
+    "status": "available",
+    "description": "كل باقات Gamma في مكان واحد: Plus، حساب Workspaces، وPro الشهري والسنوي لإنشاء العروض التقديمية بالذكاء الاصطناعي.",
+    "plans": [
+      {
+        "name": "Plus",
+        "duration": "1 شهر",
+        "price": 400,
+        "activation": "تسليم حساب جاهز.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Gamma Plus",
+          "source": "https://gamma.app/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "اسم الباقة مؤكد، لكن السعر لم يظهر في الصفحة العامة؛ لا نحسب نسبة خصم غير موثقة."
+        }
+      },
+      {
+        "name": "10 Workspaces",
+        "duration": "12 شهر",
+        "price": 800,
+        "activation": "تسليم حساب جاهز.",
+        "account": "حساب واحد — الحد الأقصى للكمية 1",
+        "warranty": "ضمان كامل",
+        "credits": "20,000 Credit إجماليًا",
+        "notes": [
+          "غيّر كلمة المرور فور الاستلام.",
+          "لا يوجد ضمان لنسيان كلمة المرور.",
+          "لـ Upgrade كامل قد يلزم تزويد الدعم بكلمة المرور، ويتم التنفيذ خلال 3 أيام.",
+          "لا تترك أي Workspace بدون إذن لأن ذلك قد يفقدك صلاحيات العرض."
+        ],
+        "priceComparison": {
+          "planName": "Gamma — باقة أرصدة / Workspaces تحتاج تحديد",
+          "source": "https://gamma.app/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "10 Workspaces و20,000 كريدت لا تحدد باقة Plus أو Pro رسمية مطابقة، لذلك المقارنة السعرية غير متاحة."
+        },
+        "max_quantity": 1
+      },
+      {
+        "name": "Pro — شهر",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 600,
+        "available": true,
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "activation": "طريقة التفعيل والتسليم تُؤكد قبل الدفع.",
+        "warranty": "ضمان كامل لمدة شهر",
+        "credits": "من 4,000 إلى 9,000 كريدت — الحد الأدنى المضمون 4,000",
+        "notes": [
+          "الرصيد عند التسليم يتراوح بين 4,000 و9,000 كريدت حسب الحساب المتاح.",
+          "المضمون هو 4,000 كريدت كحد أدنى؛ 9,000 ليست مضمونة لكل حساب."
+        ]
+      },
+      {
+        "name": "Pro — سنة كاملة",
+        "planType": "Pro",
+        "duration": "12 شهر",
+        "price": 3699,
+        "available": true,
+        "activation": "تفعيل Gamma Pro على إيميلك الشخصي.",
+        "account": "على إيميلك الشخصي",
+        "warranty": "ضمان كامل لمدة 12 شهرًا"
+      }
+    ],
+    "logoUrl": "logos/gamma.svg?v=20261009-logo-review3",
+    "categories": [
+      "عروض تقديمية"
+    ]
+  },
+  {
+    "id": "gamma-account",
+    "name": "Gamma Account",
+    "category": "AI Tools",
+    "logo": "gamma",
+    "status": "available",
+    "description": "حساب واحد يحتوي على 10 Workspaces، كل Workspace به 2,000 Credit.",
+    "plans": [
+      {
+        "name": "10 Workspaces",
+        "duration": "12 شهر",
+        "price": 800,
+        "activation": "تسليم حساب جاهز.",
+        "account": "حساب واحد — الحد الأقصى للكمية 1",
+        "warranty": "ضمان كامل",
+        "credits": "20,000 Credit إجماليًا",
+        "notes": [
+          "غيّر كلمة المرور فور الاستلام.",
+          "لا يوجد ضمان لنسيان كلمة المرور.",
+          "لـ Upgrade كامل قد يلزم تزويد الدعم بكلمة المرور، ويتم التنفيذ خلال 3 أيام.",
+          "لا تترك أي Workspace بدون إذن لأن ذلك قد يفقدك صلاحيات العرض."
+        ],
+        "priceComparison": {
+          "planName": "Gamma — باقة أرصدة / Workspaces تحتاج تحديد",
+          "source": "https://gamma.app/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "10 Workspaces و20,000 كريدت لا تحدد باقة Plus أو Pro رسمية مطابقة، لذلك المقارنة السعرية غير متاحة."
+        }
+      }
+    ],
+    "logoUrl": "logos/gamma.svg?v=20261009-logo-review3",
+    "categories": [
+      "عروض تقديمية"
+    ],
+    "redirectTo": {
+      "id": "gamma-plus",
+      "plan": 1
+    }
+  },
+  {
+  "id": "elevenlabs",
+  "name": "ElevenLabs Creator / Pro",
+  "category": "AI Tools",
+  "logo": "elevenlabs",
+  "logoUrl": "logos/elevenlabs.svg?v=20261009-logo-review3",
+  "status": "available",
+  "description": "باقات ElevenLabs لتحويل النص إلى صوت: Pro ضمن مساحة عمل لمدة شهر مع 50 ألف كريدت بسعر 450 جنيه وضمان 25 يومًا، بدون استنساخ صوت. تتوفر أيضًا باقات Creator بتفاصيل ورصيد وضمان مستقل لكل اختيار.",
+  "plans": [
+    {
+      "name": "Creator — سنة على حسابك",
+      "planType": "Creator",
+      "duration": "12 شهر",
+      "price": 4500,
+      "activation": "تفعيل سنة كاملة على حسابك الشخصي بدون بطاقة دفع.",
+      "account": "حساب العميل الشخصي",
+      "accountType": "حساب العميل الشخصي",
+      "warranty": "يُؤكد مع الدعم قبل الدفع",
+      "notes": [],
+      "officialPrice": {
+        "amount": 220,
+        "currency": "USD",
+        "months": 12,
+        "basis": "matched",
+        "source": "https://elevenlabs.io/pricing",
+        "checkedAt": "2026-10-09"
+      },
+      "priceComparison": {
+        "planName": "Creator — Annual",
+        "source": "https://elevenlabs.io/pricing",
+        "checkedAt": "2026-10-09",
+        "status": "matched",
+        "billingLabel": "Annual",
+        "note": "السعر السنوي الرسمي قبل الضرائب؛ 22 دولارًا ×10 أشهر."
+      }
+    },
+    {
+      "name": "Creator — تفعيل على حسابك",
+      "duration": "3 شهور",
+      "price": 1250,
+      "activation": "تفعيل على حساب العميل.",
+      "account": "حساب العميل الشخصي",
+      "warranty": "ضمان كامل",
+      "credits": "131 Credit شهريًا",
+      "priceComparison": {
+        "planName": "ElevenLabs Creator",
+        "source": "https://elevenlabs.io/pricing",
+        "checkedAt": "2026-10-08",
+        "status": "reference",
+        "note": "رصيد عرض المتجر يُؤكد مع الدعم قبل الدفع.",
+        "billingLabel": "22 دولارًا ×3 شهور بالسعر المعتاد"
+      },
+      "officialPrice": {
+        "amount": 66,
+        "currency": "USD",
+        "months": 3,
+        "basis": "reference",
+        "source": "https://elevenlabs.io/pricing",
+        "checkedAt": "2026-10-08"
+      },
+      "previousStorePrice": 1500
+    },
+    {
+      "name": "Creator — اشتراك شهر",
+      "duration": "1 شهر",
+      "price": 500,
+      "activation": "تسليم حساب جاهز.",
+      "account": "حساب جاهز",
+      "warranty": "ضمان كامل",
+      "credits": "131,000 Credit",
+      "planType": "Creator",
+      "oldPrice": 550,
+      "notes": [
+        "مدة الاشتراك شهر كامل؛ يظهر السعر الحالي وسعر المتجر السابق في ملخص الباقة.",
+        "مدة الاشتراك شهر كامل ويشمل 131 ألف كريديت."
+      ],
+      "previousStorePrice": 550
+    },
+    {
+      "name": "Pro — شهر · مساحة عمل · 50 ألف كريدت",
+      "planType": "Pro — Workspace",
+      "duration": "1 شهر",
+      "price": 450,
+      "available": true,
+      "credits": "50,000 كريدت خلال الشهر",
+      "account": "حساب جاهز ضمن مساحة عمل",
+      "accountType": "حساب جاهز ضمن مساحة عمل",
+      "activation": "تسليم إيميل وكلمة مرور حساب ElevenLabs جاهز، مع الوصول إلى مساحة العمل.",
+      "warranty": "ضمان لمدة 25 يومًا",
+      "features": [
+        "خطة Pro لمدة شهر واحد ضمن مساحة عمل.",
+        "50 ألف كريدت متاحة للاستخدام خلال مدة الاشتراك.",
+        "حساب رسمي جاهز على منصة ElevenLabs.",
+        "عضوية بدعوة في مساحة عمل، عبر حساب جاهز مرتبط بها.",
+        "تسليم بيانات الدخول بصيغة: الإيميل | كلمة مرور حساب ElevenLabs.",
+        "ضمان 25 يومًا؛ مدة الاشتراك شهر واحد.",
+        "استنساخ الصوت غير متاح في هذه الباقة."
+      ],
+      "featuresEn": [
+        "One month of Pro access within a workspace.",
+        "50,000 credits available during the subscription term.",
+        "Official ready-to-use account on ElevenLabs.",
+        "Workspace invite membership through a linked ready-to-use account.",
+        "Login details supplied as: email | ElevenLabs account password.",
+        "25-day warranty; the subscription lasts one month.",
+        "Voice cloning is not available with this plan."
+      ],
+      "notes": [
+        "هذه باقة Pro بحصة 50 ألف كريدت داخل مساحة عمل؛ المميزات والرصيد تخص هذا العرض تحديدًا.",
+        "مدة الاشتراك شهر، والضمان 25 يومًا فقط.",
+        "استنساخ الصوت Voice Cloning غير متاح.",
+        "بيانات التسليم هي إيميل وكلمة مرور حساب ElevenLabs، وليست كلمة مرور الإيميل الشخصي للعميل.",
+        "عدد دقائق الصوت الناتجة يختلف حسب النموذج والإعدادات؛ 50 ألف كريدت ليست عددًا ثابتًا من الدقائق."
+      ]
+    }
+  ],
+  "categories": [
+    "تعليق صوتي وتحويل النص لصوت"
+  ],
+  "descriptionEn": "ElevenLabs text-to-speech plans: one month of Pro workspace access with 50,000 credits for EGP 450 and a 25-day warranty, without voice cloning. Creator plans are also available with separate credits, delivery and warranty terms."
+},
+  {
+    "id": "hedra",
+    "name": "Hedra Basic",
+    "category": "AI Tools",
+    "logo": "hedra",
+    "logoUrl": "logos/hedra.ico?v=20261016",
+    "status": "available",
+    "description": "اشتراك Hedra Basic الرسمي لمدة شهر بسعر 20 دولار، حساب جاهز بضمان كامل، والتجهيز خلال ساعتين إلى 3 ساعات.",
+    "features": [
+      "باقة Basic الرسمية لمدة شهر واحد.",
+      "2,000 كريدت خلال شهر الاشتراك.",
+      "الاستخدام التجاري مشمول وفق شروط Hedra.",
+      "سرعة التوليد الأساسية (أبطأ من الباقات الأعلى).",
+      "تسليم حساب جاهز خلال ساعتين إلى 3 ساعات.",
+      "ضمان كامل طوال شهر الاشتراك."
+    ],
+    "featuresEn": [
+      "Official Basic plan for one month.",
+      "2,000 credits during the subscription month.",
+      "Commercial use subject to Hedra’s terms.",
+      "Basic generation speed, slower than higher tiers.",
+      "Ready account prepared within 2–3 hours.",
+      "Full warranty throughout the subscription month."
+    ],
+    "plans": [
+      {
+        "name": "Basic — اشتراك رسمي",
+        "planType": "Basic",
+        "duration": "1 شهر",
+        "price": 1120,
+        "basePriceUSD": 20,
+        "credits": "2,000 Credit شهريًا",
+        "activation": "تسليم حساب جاهز خلال ساعتين إلى 3 ساعات.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل لمدة شهر",
+        "notes": [
+          "السعر الأساسي 20 دولارًا لمدة شهر واحد.",
+          "استهلاك الكريدت يختلف حسب النموذج وإعدادات التوليد."
+        ],
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "matched",
+          "source": "https://www.hedra.com/pricing",
+          "checkedAt": "2026-10-16"
+        },
+        "priceComparison": {
+          "planName": "Hedra Basic",
+          "source": "https://www.hedra.com/pricing",
+          "checkedAt": "2026-10-16",
+          "status": "matched",
+          "billingLabel": "فوترة شهرية",
+          "note": "السعر الرسمي لخطة Basic لمدة شهر؛ لا يُعرض خصم غير موجود."
+        },
+        "accountType": "حساب جاهز"
+      }
+    ],
+    "categories": [
+      "توليد فيديو بالذكاء الاصطناعي",
+      "أفاتار وفيديو ناطق"
+    ]
+  },
+  {
+    "id": "heygen",
+    "name": "HeyGen Creator",
+    "category": "AI Tools",
+    "logo": "heygen",
+    "logoUrl": "logos/heygen.svg?v=20261027-hq1",
+    "status": "available",
+    "description": "حساب HeyGen جاهز مع 1,250 Credit.",
+    "plans": [
+      {
+        "name": "1,250 Credits",
+        "duration": "1 شهر",
+        "price": 1250,
+        "activation": "تسليم حساب جاهز خلال 5–6 ساعات.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل",
+        "credits": "1,250 Credit",
+        "priceComparison": {
+          "planName": "HeyGen Creator — 600 كريدت شهريًا",
+          "source": "https://www.heygen.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "عرض المتجر 1,250 كريدت؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 29,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.heygen.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "أفاتار وفيديو ناطق"
+    ]
+  },
+  {
+    "id": "canva-pro",
+    "name": "Canva Pro",
+    "category": "التصميم",
+    "logo": "canva",
+    "status": "available",
+    "description": "تفعيل Canva Pro على البريد الشخصي.",
+    "plans": [
+      {
+        "name": "Canva Pro",
+        "duration": "3 سنوات",
+        "price": 50,
+        "activation": "تفعيل على البريد الشخصي خلال وقت قصير.",
+        "account": "حساب العميل",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Canva Pro — سنة واحدة",
+          "source": "https://www.canva.com/pricing/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "القيمة لثلاث سنوات محسوبة من السعر السنوي المعتاد ×3، وليست باقة رسمية مدفوعة مسبقًا لثلاث سنوات. تفعيل التعليم أو دعوة فريق قد يختلف عن Pro الفردي.",
+          "billingLabel": "144 دولارًا للسنة ×3 سنوات"
+        },
+        "officialPrice": {
+          "amount": 432,
+          "currency": "USD",
+          "months": 36,
+          "basis": "reference",
+          "source": "https://www.canva.com/pricing/",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "تعديل الصور والتصميم",
+      "عروض تقديمية"
+    ]
+  },
+  {
+    "id": "capcut-pro",
+    "name": "CapCut Pro",
+    "category": "التصميم",
+    "logo": "capcut",
+    "status": "available",
+    "description": "باقات CapCut Pro بعدة مدد وأرصدة كريدت. متاح شهر مع 2000 كريدت بسعر 320 ج بضمان كامل، أو شهر على إيميلك مع 500 كريدت على الأقل بسعر 270 ج مع ضمان.",
+    "plans": [
+      {
+        "name": "7 أيام",
+        "duration": "7 أيام",
+        "price": 50,
+        "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل",
+        "credits": "قد لا يوجد Credits أو تكون قليلة",
+        "notes": [
+          "لا يوجد اعتراض على عدم وجود Credits في باقة 7 أيام."
+        ],
+        "priceComparison": {
+          "planName": "CapCut Pro",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "عرض 7 أيام لا يطابق اشتراك Pro الشهري، لذلك لا نحسب خصمًا على سعر الشهر."
+        }
+      },
+      {
+        "name": "شهر",
+        "duration": "1 شهر",
+        "price": 200,
+        "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل",
+        "credits": "عادةً 500 Credit",
+        "notes": [
+          "يمكن الاعتراض إذا كان الرصيد المتفق عليه غير موجود."
+        ],
+        "priceComparison": {
+          "planName": "CapCut Pro",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "الرصيد والمميزات يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "billingLabel": "Pro الشهري"
+        },
+        "officialPrice": {
+          "amount": 19.99,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "شهر — 1600 Credits",
+        "duration": "1 شهر",
+        "price": 300,
+        "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل",
+        "credits": "1,600 Credit",
+        "notes": [
+          "يمكن الاعتراض إذا كان الرصيد المتفق عليه غير موجود."
+        ],
+        "priceComparison": {
+          "planName": "CapCut Pro",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "الرصيد والمميزات يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "billingLabel": "Pro الشهري"
+        },
+        "officialPrice": {
+          "amount": 19.99,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "3 شهور",
+        "duration": "3 شهور",
+        "price": 550,
+        "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل",
+        "credits": "يتغير عادةً بين 500–1000",
+        "priceComparison": {
+          "planName": "CapCut Pro",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "الرصيد والمميزات يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "billingLabel": "19.99 دولارًا للشهر ×3"
+        },
+        "officialPrice": {
+          "amount": 59.97,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "6 شهور",
+        "duration": "6 شهور",
+        "price": 950,
+        "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل",
+        "credits": "500–1000 Credit شهريًا",
+        "priceComparison": {
+          "planName": "CapCut Pro",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "الرصيد والمميزات يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "billingLabel": "19.99 دولارًا للشهر ×6"
+        },
+        "officialPrice": {
+          "amount": 119.94,
+          "currency": "USD",
+          "months": 6,
+          "basis": "reference",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "سنة",
+        "duration": "12 شهر",
+        "price": 1400,
+        "activation": "بريد + كلمة مرور؛ قد يطلب كود دخول.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل",
+        "credits": "يتغير عادةً بين 500–1000",
+        "priceComparison": {
+          "planName": "CapCut Pro",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "الرصيد والمميزات يختلفان حسب المنطقة والمنصة؛ الرصيد المتفق عليه يُؤكد قبل الدفع.",
+          "billingLabel": "Pro السنوي"
+        },
+        "officialPrice": {
+          "amount": 179.99,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "Pro — شهر — 2000 كريدت",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 320,
+        "available": true,
+        "credits": "2000 كريدت",
+        "activation": "تسليم حساب CapCut Pro جاهز بإيميل وكلمة مرور.",
+        "account": "حساب جاهز",
+        "accountType": "حساب جاهز",
+        "warranty": "ضمان كامل لمدة شهر",
+        "features": [
+          "اشتراك CapCut Pro لمدة شهر.",
+          "رصيد 2000 كريدت ضمن الباقة."
+        ],
+        "featuresEn": [
+          "CapCut Pro subscription for one month.",
+          "Includes 2,000 credits."
+        ]
+      },
+      {
+        "name": "Pro — شهر على إيميلك — 500 كريدت على الأقل",
+        "planType": "Pro",
+        "duration": "1 شهر",
+        "price": 270,
+        "available": true,
+        "credits": "500 كريدت على الأقل",
+        "activation": "تفعيل اشتراك CapCut Pro لمدة شهر على إيميلك الشخصي.",
+        "account": "على إيميلك الشخصي",
+        "accountType": "على إيميلك الشخصي",
+        "warranty": "ضمان لمدة شهر",
+        "features": [
+          "تفعيل CapCut Pro على إيميلك لمدة شهر.",
+          "رصيد لا يقل عن 500 كريدت."
+        ],
+        "featuresEn": [
+          "CapCut Pro activated on your email for one month.",
+          "At least 500 credits included."
+        ]
+      }
+    ],
+    "notes": [
+      "يفضل عدم تغيير كلمة المرور في الحسابات الجاهزة إلا على مسؤوليتك."
+    ],
+    "categories": [
+      "مونتاج وتحسين الفيديو"
+    ]
+  },
+  {
+    "id": "figma",
+    "name": "Figma Professional",
+    "category": "التصميم",
+    "logo": "figma",
+    "logoUrl": "logos/figma.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "اشتراك Figma لمدة 12 شهر.",
+    "plans": [
+      {
+        "name": "Professional",
+        "duration": "12 شهر",
+        "price": 750,
+        "activation": "دعوة أو حساب",
+        "account": "حسب المتوفر",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Figma Professional — Full seat",
+          "source": "https://www.figma.com/pricing/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "مقاعد Full وDev وCollab لها مميزات مختلفة؛ نوع المقعد يُؤكد قبل الدفع.",
+          "billingLabel": "16 دولارًا للمقعد شهريًا ×12، فوترة سنوية"
+        },
+        "officialPrice": {
+          "amount": 192,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.figma.com/pricing/",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "تصميم واجهات التطبيقات"
+    ]
+  },
+  {
+  "id": "freepik",
+  "name": "Freepik",
+  "category": "التصميم",
+  "logo": "freepik",
+  "logoUrl": "logos/freepik.svg?v=20261009-logo-review3",
+  "status": "available",
+  "description": "باقات Freepik على إيميلك الشخصي: Essential لمدة شهر بسعر 15 دولار، وPremium لمدة شهر بسعر 24 دولار مع 20 ألف كريدت، وضمان شهر. تتوفر أيضًا باقة Premium للتحميل فقط بحساب جاهز.",
+  "plans": [
+    {
+      "name": "Freepik Premium — تحميل فقط",
+      "notes": [
+        "يشمل تحميل الموارد فقط؛ لا يشمل أدوات أو توليد الذكاء الاصطناعي."
+      ],
+      "duration": "1 شهر",
+      "price": 450,
+      "activation": "تسليم حساب جاهز.",
+      "account": "حساب جاهز",
+      "warranty": "ضمان كامل",
+      "priceComparison": {
+        "planName": "Magnific (Freepik) Premium",
+        "source": "https://www.magnific.com/pricing",
+        "checkedAt": "2026-10-08",
+        "status": "reference",
+        "note": "أدوات AI ليست ضمن عرض المتجر.",
+        "billingLabel": "فوترة شهرية"
+      },
+      "officialPrice": {
+        "amount": 20,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://www.magnific.com/pricing",
+        "checkedAt": "2026-10-08"
+      },
+      "features": [
+        "تحميل الصور والفيكتور وملفات PSD المشمولة في عرض Premium.",
+        "موارد لتصميم المنشورات والإعلانات والمطبوعات.",
+        "تعديل الملفات باستخدام برنامج متوافق مع صيغتها.",
+        "العرض للتحميل فقط ولا يشمل توليد الصور أو أدوات AI.",
+        "الاستخدام وفق ترخيص الملف وحدود التنزيل للحساب."
+      ],
+      "featuresEn": [
+        "Download photos, vectors, and PSD assets included in the Premium offer.",
+        "Find assets for social posts, ads, and print designs.",
+        "Edit assets using software compatible with their format.",
+        "This is a download-only offer; AI generation and AI tools are not included.",
+        "Use follows each asset’s license and account download limits."
+      ]
+    },
+    {
+      "name": "Essential — شهر على إيميلك الخاص",
+      "planType": "Essential",
+      "duration": "1 شهر",
+      "price": 840,
+      "basePriceUSD": 15,
+      "available": true,
+      "account": "حسابك الشخصي على إيميلك الخاص",
+      "accountType": "حسابك الشخصي على إيميلك الخاص",
+      "activation": "تفعيل اشتراك Freepik Essential لمدة شهر على إيميلك الشخصي.",
+      "warranty": "ضمان لمدة شهر",
+      "features": [
+        "تفعيل Freepik Essential لمدة شهر واحد.",
+        "تفعيل خاص على إيميلك الشخصي.",
+        "تستخدم حسابك الشخصي؛ ليست باقة حساب جاهز مشترك.",
+        "ضمان لمدة شهر طوال مدة الاشتراك.",
+        "الأدوات ورصيد AI وحدود التنزيل حسب خطة Essential المفعّلة؛ تُراجع قبل الطلب."
+      ],
+      "featuresEn": [
+        "One month of Freepik Essential activation.",
+        "Private activation on your personal email.",
+        "Use your personal account; this is not a shared ready-account offer.",
+        "One-month warranty throughout the subscription term.",
+        "Tools, AI credits and download limits follow the activated Essential plan; review them before ordering."
+      ],
+      "notes": [
+        "السعر الأساسي 15 دولار؛ يظهر المقابل المحلي حسب تحويل المتجر.",
+        "هذه باقة Essential على حسابك الشخصي؛ شروط Premium للتحميل فقط تخص باقة أخرى.",
+        "عدد كريدت AI وحدود التنزيل والمزايا المتاحة تُؤكد قبل الدفع؛ لا يُفترض توليد أو تحميل غير محدود."
+      ]
+    },
+    {
+      "name": "Premium — شهر · 20 ألف كريدت · على إيميلك",
+      "planType": "Premium",
+      "duration": "1 شهر",
+      "price": 1344,
+      "basePriceUSD": 24,
+      "available": true,
+      "account": "حسابك الشخصي على إيميلك الخاص",
+      "accountType": "حسابك الشخصي على إيميلك الخاص",
+      "activation": "تفعيل اشتراك Freepik Premium لمدة شهر على إيميلك الشخصي، مع 20 ألف كريدت.",
+      "warranty": "ضمان لمدة شهر",
+      "credits": "20,000 كريدت خلال الشهر",
+      "features": [
+        "اشتراك Freepik Premium لمدة شهر واحد.",
+        "20 ألف كريدت لاستخدام أدوات الذكاء الاصطناعي خلال الشهر.",
+        "تفعيل خاص على إيميلك وحسابك الشخصي.",
+        "ضمان لمدة شهر طوال مدة الاشتراك.",
+        "استخدام أدوات Premium المتاحة وفق رصيد الباقة وإعدادات كل أداة."
+      ],
+      "featuresEn": [
+        "One month of Freepik Premium.",
+        "20,000 credits for AI tools during the month.",
+        "Private activation on your email and personal account.",
+        "One-month warranty throughout the subscription term.",
+        "Use available Premium tools within the plan allowance and each tool’s settings."
+      ],
+      "notes": [
+        "السعر الأساسي 24 دولار؛ يظهر المقابل المحلي حسب تحويل المتجر.",
+        "20 ألف كريدت خلال شهر الاشتراك؛ ليست عددًا ثابتًا من الصور أو مقاطع الفيديو.",
+        "استهلاك الكريدت يختلف حسب الأداة والنموذج والجودة والإعدادات.",
+        "هذه باقة Premium برصيد AI على حسابك الشخصي؛ باقة Premium للتحميل فقط بحساب جاهز اختيار آخر مستقل."
+      ]
+    }
+  ],
+  "categories": [
+    "توليد صور بالذكاء الاصطناعي",
+    "صور وقوالب وموارد جاهزة"
+  ],
+  "descriptionEn": "Freepik on your personal email: one-month Essential for US$15, or one-month Premium for US$24 with 20,000 credits, each with a one-month warranty. A separate ready-account download-only Premium offer is also available."
+},
+  {
+    "id": "adobe-express",
+    "name": "Adobe Express Premium",
+    "category": "التصميم",
+    "logo": "adobe",
+    "status": "available",
+    "description": "باقات Adobe Express Premium لمدة 12 شهرًا: تفعيل على إيميلك أو حساب جاهز بـ499 جنيه بضمان 6 شهور، أو لينك تفعيل على حسابك يحتاج بطاقة بـ200 جنيه بدون ضمان.",
+    "features": [
+      "قوالب Premium لتصميم منشورات السوشيال ميديا والعروض والفيديو.",
+      "تعديل الصور والفيديو وإزالة الخلفيات.",
+      "تغيير مقاسات التصميم بسرعة لمنصات مختلفة.",
+      "Brand Kits لتنظيم ألوان وخطوط وشعار علامتك التجارية.",
+      "أدوات ذكاء اصطناعي ضمن حدود باقة Adobe Express.",
+      "العمل من المتصفح أو تطبيق الموبايل."
+    ],
+    "featuresEn": [
+      "Premium templates for social posts, presentations, and video.",
+      "Photo and video editing and background removal.",
+      "Quickly resize designs for different channels.",
+      "Brand Kits for your logo, colors, and fonts.",
+      "AI tools within Adobe Express plan limits.",
+      "Work in your browser or on mobile."
+    ],
+    "plans": [
+      {
+        "name": "Adobe Express Premium — سنة",
+        "planType": "Premium",
+        "duration": "12 شهر",
+        "price": 499,
+        "available": true,
+        "accountType": "تفعيل على إيميلك أو حساب جاهز",
+        "activation": "تفعيل الاشتراك على إيميلك أو تسليم حساب جاهز، حسب اختيارك عند تأكيد الطلب.",
+        "account": "إيميل العميل أو حساب جاهز",
+        "warranty": "6 شهور",
+        "notes": [
+          "مدة الاشتراك 12 شهرًا، ومدة الضمان 6 شهور."
+        ],
+        "officialPrice": {
+          "amount": 119.88,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.adobe.com/express/pricing",
+          "checkedAt": "2026-10-14"
+        },
+        "priceComparison": {
+          "planName": "Adobe Express Premium",
+          "source": "https://www.adobe.com/express/pricing",
+          "checkedAt": "2026-10-14",
+          "status": "reference",
+          "billingLabel": "12 شهرًا بالسعر الشهري الرسمي",
+          "note": "المرجع يعادل 12 × 9.99 دولار بالسداد الشهري، وليس سعر خطة سنوية."
+        },
+        "previousStorePrice": 599
+      },
+      {
+        "name": "Adobe Express Premium — لينك تفعيل يحتاج بطاقة",
+        "planType": "Premium",
+        "duration": "12 شهر",
+        "price": 200,
+        "available": true,
+        "accountType": "لينك تفعيل على حسابك",
+        "activation": "تسليم لينك لتفعيل اشتراك 12 شهرًا على حسابك الشخصي. يلزم وجود بطاقة لإتمام التفعيل.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "بدون ضمان",
+        "notes": [
+          "التفعيل يحتاج بطاقة يضيفها العميل بنفسه على صفحة Adobe.",
+          "هذه الباقة بدون ضمان لمدة اشتراك 12 شهرًا.",
+          "راجع شروط التفعيل والتجديد وأي رسوم ظاهرة على صفحة Adobe قبل التأكيد."
+        ],
+        "officialPrice": {
+          "amount": 119.88,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.adobe.com/express/pricing",
+          "checkedAt": "2026-10-14"
+        },
+        "priceComparison": {
+          "planName": "Adobe Express Premium",
+          "source": "https://www.adobe.com/express/pricing",
+          "checkedAt": "2026-10-14",
+          "status": "reference",
+          "billingLabel": "12 شهرًا بالسعر الشهري الرسمي",
+          "note": "المرجع يعادل 12 × 9.99 دولار بالسداد الشهري، وليس سعر خطة سنوية."
+        }
+      }
+    ],
+    "categories": [
+      "تعديل الصور والتصميم"
+    ]
+  },
+  {
+    "id": "adobe-cc",
+    "name": "Adobe Creative Cloud Pro",
+    "category": "التصميم",
+    "logo": "adobe",
+    "status": "available",
+    "description": "اشتراك Adobe Creative Cloud Pro لمدة شهر: دعوة على حسابك الشخصي بـ450 جنيه، أو تفعيل رسمي على حسابك الشخصي بـ850 جنيه.",
+    "plans": [
+      {
+        "name": "Creative Cloud Pro — دعوة",
+        "planType": "Creative Cloud Pro",
+        "accountType": "دعوة على حسابك الشخصي",
+        "duration": "1 شهر",
+        "price": 450,
+        "activation": "دعوة تُرسل إلى حسابك الشخصي.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Creative Cloud Pro — فردي شهر بشهر",
+          "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "الدعوة المؤسسية تختلف عن الاشتراك الفردي؛ راجع طريقة التفعيل في الباقة المختارة.",
+          "billingLabel": "الشهر دون عقد سنوي — السعر الأمريكي المعتاد"
+        },
+        "officialPrice": {
+          "amount": 104.99,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "Creative Cloud Pro — تفعيل رسمي",
+        "planType": "Creative Cloud Pro",
+        "accountType": "تفعيل رسمي على حسابك الشخصي",
+        "duration": "1 شهر",
+        "price": 850,
+        "activation": "تفعيل رسمي على حسابك الشخصي.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Creative Cloud Pro — فردي شهر بشهر",
+          "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "الدعوة المؤسسية تختلف عن الاشتراك الفردي؛ راجع طريقة التفعيل في الباقة المختارة.",
+          "billingLabel": "الشهر دون عقد سنوي — السعر الأمريكي المعتاد"
+        },
+        "officialPrice": {
+          "amount": 104.99,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "مونتاج وتحسين الفيديو",
+      "تعديل الصور والتصميم"
+    ]
+  },
+  {
+    "id": "duolingo",
+    "name": "Super Duolingo",
+    "category": "التعليم",
+    "logo": "duolingo",
+    "logoUrl": "logos/duolingo.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Super Duolingo لمدة 12 شهر بـ120 جنيه فقط على إيميلك وحسابك الشخصي، بضمان كامل. تستلم لينك وتفعّله مباشرة على حسابك.",
+    "plans": [
+      {
+        "name": "12 شهر — على إيميلك الشخصي",
+        "planType": "Super",
+        "duration": "12 شهر",
+        "price": 120,
+        "currencyPrices": {"USD": 4},
+        "activation": "تسليم لينك تفعّله مباشرة على حسابك الشخصي.",
+        "account": "حسابك الشخصي على إيميلك",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Super Duolingo — فردي سنوي",
+          "source": "https://www.duolingo.com/super",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "لم يتأكد سعر سنوي رسمي محدد للمنطقة؛ يُراجع داخل التطبيق. الدعوة العائلية تختلف عن الاشتراك الفردي."
+        },
+        "oldPrice": 300,
+        "accountType": "لينك تفعيل على حسابك الشخصي",
+        "notes": [
+          "مدة الاشتراك 12 شهر.",
+          "السعر 120 جنيه فقط.",
+          "تستلم لينك وتفعّله مباشرة على حسابك الشخصي المرتبط بإيميلك.",
+          "ضمان كامل طوال مدة الاشتراك."
+        ],
+        "previousStorePrice": 300
+      }
+    ],
+    "categories": [
+      "تعلم اللغات والنطق"
+    ]
+  },
+  {
+    "id": "elsa",
+    "name": "ELSA Speak Pro",
+    "category": "التعليم",
+    "logo": "elsa",
+    "status": "available",
+    "description": "اشتراك ELSA Speak للتدريب على النطق والمحادثة.",
+    "plans": [
+      {
+        "name": "7 أيام",
+        "duration": "7 أيام",
+        "price": 90,
+        "activation": "تسليم أو تفعيل",
+        "account": "حساب فردي",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "ELSA Pro — حسب التطبيق",
+          "source": "https://elsaspeak.com/en/elsa-subscription",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "لم يتأكد سعر رسمي مطابق لمدد العرض، وقد تختلف الخطط الإقليمية وأسماء الباقات."
+        }
+      },
+      {
+        "name": "12 شهر",
+        "duration": "12 شهر",
+        "price": 1900,
+        "activation": "تسليم أو تفعيل",
+        "account": "حساب فردي",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "ELSA Pro — حسب التطبيق",
+          "source": "https://elsaspeak.com/en/elsa-subscription",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "لم يتأكد سعر رسمي مطابق لمدد العرض، وقد تختلف الخطط الإقليمية وأسماء الباقات."
+        }
+      }
+    ],
+    "logoUrl": "logos/elsa.svg?v=20261009-logo-review3",
+    "categories": [
+      "تعلم اللغات والنطق"
+    ]
+  },
+  {
+    "id": "coursera",
+    "name": "Coursera",
+    "category": "التعليم",
+    "logo": "coursera",
+    "logoUrl": "logos/coursera.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Coursera Plus: اشتراكات سنوية تابعة لـOrg بضمان 4 شهور أو سنة كاملة، وPlus مستقل لمدة شهر، وجميعها تشمل الهدايا.",
+    "plans": [
+      {
+        "name": "Plus تابع لـOrg — سنة — ضمان 4 شهور",
+        "duration": "12 شهر",
+        "price": 499,
+        "activation": "اشتراك Coursera Plus تابع لـOrg لمدة سنة.",
+        "account": "Plus تابع لـOrg",
+        "warranty": "ضمان لمدة 4 شهور",
+        "priceComparison": {
+          "status": "reference",
+          "planName": "Coursera Plus",
+          "billingLabel": "Plus المستقل السنوي",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-17",
+          "referenceLabel": "Plus المستقل",
+          "note": "المقارنة بسعر Coursera Plus المستقل السنوي؛ هذه الباقة تابعة لـOrg."
+        },
+        "planType": "Plus — Org",
+        "gifts": [
+          {
+            "id": "google",
+            "logo": "gemini",
+            "name": "Gemini",
+            "duration": "٣ شهور",
+            "durationEn": "3 months"
+          },
+          {
+            "id": "canva",
+            "logo": "canva",
+            "name": "Canva Pro",
+            "duration": "٣ سنين",
+            "durationEn": "3 years"
+          }
+        ],
+        "notes": [
+          "تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين.",
+          "مدة الاشتراك سنة، ومدة الضمان 4 شهور.",
+          "نسبة التوفير مقارنة بسعر Plus المستقل السنوي، وليست سعرًا رسميًا لباقة Org.",
+          "ما معنى Org؟ اختصار لكلمة Organization، أي مؤسسة أو جهة. اشتراك Plus هنا تابع للمؤسسة، وتُدار عضويته وإمكانية الوصول من خلالها. تفاصيل مدة الاشتراك والضمان موضّحة في الباقة."
+        ],
+        "officialPrice": {
+          "amount": 399,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-17"
+        }
+      },
+      {
+        "name": "سنة — حساب مشترك",
+        "duration": "12 شهر",
+        "price": 300,
+        "activation": "تسليم حساب مشترك.",
+        "account": "حساب مشترك",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "قد تكون بعض الدورات مؤهلة لشهادة باسمك، لكن المتجر لا يضمن الشهادات في الحساب المشترك."
+        ],
+        "priceComparison": {
+          "planName": "Coursera Plus",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "الحساب المشترك يستخدمه أكثر من شخص؛ راجع نوع الحساب قبل الطلب.",
+          "billingLabel": "Plus السنوي"
+        },
+        "officialPrice": {
+          "amount": 399,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-08"
+        },
+        "available": false,
+        "hidden": true
+      },
+      {
+        "name": "Plus تابع لـOrg — سنة — ضمان كامل",
+        "duration": "12 شهر",
+        "price": 1200,
+        "activation": "اشتراك Coursera Plus تابع لـOrg لمدة سنة.",
+        "account": "Plus تابع لـOrg",
+        "warranty": "ضمان كامل لمدة سنة",
+        "priceComparison": {
+          "status": "reference",
+          "planName": "Coursera Plus",
+          "billingLabel": "Plus المستقل السنوي",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-17",
+          "referenceLabel": "Plus المستقل",
+          "note": "المقارنة بسعر Coursera Plus المستقل السنوي؛ هذه الباقة تابعة لـOrg."
+        },
+        "planType": "Plus — Org",
+        "gifts": [
+          {
+            "id": "google",
+            "logo": "gemini",
+            "name": "Gemini",
+            "duration": "٣ شهور",
+            "durationEn": "3 months"
+          },
+          {
+            "id": "canva",
+            "logo": "canva",
+            "name": "Canva Pro",
+            "duration": "٣ سنين",
+            "durationEn": "3 years"
+          }
+        ],
+        "notes": [
+          "تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين.",
+          "نسبة التوفير مقارنة بسعر Plus المستقل السنوي، وليست سعرًا رسميًا لباقة Org.",
+          "ما معنى Org؟ اختصار لكلمة Organization، أي مؤسسة أو جهة. اشتراك Plus هنا تابع للمؤسسة، وتُدار عضويته وإمكانية الوصول من خلالها. تفاصيل مدة الاشتراك والضمان موضّحة في الباقة."
+        ],
+        "officialPrice": {
+          "amount": 399,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-17"
+        }
+      },
+      {
+        "name": "Plus مستقل — شهر",
+        "planType": "Plus مستقل",
+        "duration": "1 شهر",
+        "price": 400,
+        "activation": "تفعيل اشتراك Coursera Plus لمدة شهر.",
+        "account": "Plus مستقل غير تابع لـOrg",
+        "warranty": "ضمان كامل لمدة شهر",
+        "priceComparison": {
+          "status": "reference",
+          "planName": "Coursera Plus",
+          "billingLabel": "Plus المستقل الشهري",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-17",
+          "note": "المقارنة بسعر Coursera Plus المستقل الشهري."
+        },
+        "gifts": [
+          {
+            "id": "google",
+            "logo": "gemini",
+            "name": "Gemini",
+            "duration": "٣ شهور",
+            "durationEn": "3 months"
+          },
+          {
+            "id": "canva",
+            "logo": "canva",
+            "name": "Canva Pro",
+            "duration": "٣ سنين",
+            "durationEn": "3 years"
+          }
+        ],
+        "notes": [
+          "اشتراك Plus مستقل غير تابع لأي Org.",
+          "تشمل هدية Gemini لمدة 3 شهور وCanva Pro لمدة 3 سنين."
+        ],
+        "officialPrice": {
+          "amount": 59,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-10-17"
+        }
+      }
+    ],
+    "categories": [
+      "كورسات وتعلم مهني"
+    ]
+  },
+  {
+    "id": "quizizz",
+    "name": "Quizizz",
+    "category": "التعليم",
+    "logo": "quizizz",
+    "logoUrl": "logos/quizizz.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "اشتراك Quizizz على بريد العميل.",
+    "plans": [
+      {
+        "name": "12 شهر",
+        "duration": "12 شهر",
+        "price": 1500,
+        "activation": "تفعيل على البريد الشخصي.",
+        "account": "حساب العميل",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Wayground (Quizizz) — باقة المعلم تحتاج تحديد",
+          "source": "https://wayground.com/home/plans",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "اسم Quizizz وحده لا يحدد الباقة المدفوعة أو المقعد، لذلك لا يوجد خصم موثق لهذا العرض."
+        }
+      }
+    ],
+    "categories": [
+      "اختبارات وأنشطة تعليمية"
+    ]
+  },
+  {
+    "id": "wordwall",
+    "name": "Wordwall Pro",
+    "category": "التعليم",
+    "logo": "wordwall",
+    "status": "available",
+    "description": "اشتراك Wordwall Pro لمدة شهر أو سنة.",
+    "plans": [
+      {
+        "name": "شهر",
+        "duration": "1 شهر",
+        "price": 300,
+        "activation": "تسليم حساب جاهز",
+        "account": "إيميل وكلمة مرور",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Wordwall Pro",
+          "source": "https://wordwall.net/price-plans",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "الصفحة العامة عرضت سعرًا إقليميًا بالزلوتي البولندي، ولم يتأكد سعر مصري مطابق؛ أُزيلت المقارنة القديمة.",
+          "rawPrice": {
+            "amount": 24,
+            "currency": "PLN",
+            "label": "السعر الشهري المعروض إقليميًا؛ لا يُستخدم كنسبة خصم"
+          }
+        }
+      },
+      {
+        "name": "سنة",
+        "duration": "12 شهر",
+        "price": 1050,
+        "activation": "تسليم حساب جاهز",
+        "account": "إيميل وكلمة مرور",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Wordwall Pro",
+          "source": "https://wordwall.net/price-plans",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "الصفحة العامة عرضت سعرًا إقليميًا بالزلوتي البولندي، ولم يتأكد سعر مصري مطابق؛ أُزيلت المقارنة القديمة.",
+          "rawPrice": {
+            "amount": 24,
+            "currency": "PLN",
+            "label": "السعر الشهري المعروض إقليميًا؛ لا يُستخدم كنسبة خصم"
+          }
+        }
+      }
+    ],
+    "logoUrl": "logos/wordwall.svg?v=20261027-hq1",
+    "categories": [
+      "اختبارات وأنشطة تعليمية"
+    ]
+  },
+  {
+    "id": "turnitin",
+    "name": "Turnitin",
+    "category": "التعليم",
+    "logo": "turnitin",
+    "logoUrl": "logos/turnitin.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "خدمة فحص ملف واحد وإرسال تقرير التشابه.",
+    "plans": [
+      {
+        "name": "فحص ملف",
+        "duration": "ملف واحد",
+        "price": 250,
+        "activation": "ترسل الملف المطلوب فحصه.",
+        "account": "خدمة ملف — بدون حساب",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "الخدمة لا تضمن درجة أكاديمية أو نتيجة معينة."
+        ],
+        "priceComparison": {
+          "planName": "Turnitin Similarity — ترخيص مؤسسة",
+          "source": "https://www.turnitin.com",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "خدمة فحص ملف واحد من المتجر لا تطابق ترخيص المؤسسة. لا يوجد سعر تجزئة رسمي موثق لكل ملف."
+        }
+      }
+    ],
+    "categories": [
+      "فحص تشابه ومحتوى أكاديمي"
+    ]
+  },
+  {
+    "id": "microsoft-365",
+    "name": "Microsoft 365",
+    "category": "الإنتاجية",
+    "logo": "microsoft",
+    "status": "available",
+    "description": "اشتراك Microsoft 365 لمدة سنة.",
+    "plans": [
+      {
+        "name": "سنة",
+        "duration": "12 شهر",
+        "price": 200,
+        "activation": "حساب جاهز أو تفعيل",
+        "account": "احتفظ بالبيانات الأصلية عند استلام حساب جاهز",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Microsoft 365 Personal — سنة",
+          "source": "https://www.microsoft.com/en-eg/microsoft-365/p/microsoft-365-personal/cfq7ttc0k5bf",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر الرسمي المصري لـPersonal؛ نوع ترخيص المتجر غير محدد، وقد يختلف الحساب التعليمي أو دعوة Family.",
+          "billingLabel": "Personal السنوي — مصر"
+        },
+        "officialPrice": {
+          "amount": 2399,
+          "currency": "EGP",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.microsoft.com/en-eg/microsoft-365/p/microsoft-365-personal/cfq7ttc0k5bf",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "عروض تقديمية",
+      "مستندات وجداول وملاحظات"
+    ]
+  },
+  {
+    "id": "notion",
+    "name": "Notion Plus / Business",
+    "category": "الإنتاجية",
+    "logo": "notion",
+    "logoUrl": "logos/notion.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "خطط Notion Plus وBusiness بمدد مختلفة.",
+    "plans": [
+      {
+        "name": "Plus — 3 شهور",
+        "duration": "3 شهور",
+        "price": 400,
+        "activation": "تفعيل على البريد الشخصي أو حساب جاهز؛ قد يحتاج OTP.",
+        "account": "شخصي أو جاهز",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Notion Plus / Business — مقعد واحد",
+          "source": "https://www.notion.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "المقارنة على مقعد واحد. اشتراكات 3 و6 شهور محسوبة من الفوترة الشهرية؛ الاشتراك السنوي بسعر الفوترة السنوية.",
+          "rawPrice": {
+            "amount": 114,
+            "currency": "EUR",
+            "label": "Plus — سنة كاملة بالفوترة السنوية"
+          }
+        }
+      },
+      {
+        "name": "Business — 6 شهور",
+        "duration": "6 شهور",
+        "price": 600,
+        "activation": "حساب شخصي أو جاهز؛ قد يتطلب OTP",
+        "account": "شخصي أو جاهز",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Notion Plus / Business — مقعد واحد",
+          "source": "https://www.notion.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "المقارنة على مقعد واحد. اشتراكات 3 و6 شهور محسوبة من الفوترة الشهرية؛ الاشتراك السنوي بسعر الفوترة السنوية.",
+          "rawPrice": {
+            "amount": 234,
+            "currency": "EUR",
+            "label": "Business — سنة كاملة بالفوترة السنوية"
+          }
+        }
+      },
+      {
+        "name": "Business — 12 شهر",
+        "duration": "12 شهر",
+        "price": 950,
+        "activation": "حساب شخصي أو جاهز؛ قد يتطلب OTP",
+        "account": "شخصي أو جاهز",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Notion Plus / Business — مقعد واحد",
+          "source": "https://www.notion.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر الظاهر إقليمي باليورو، لمقعد Business واحد. طريقة التفعيل في المتجر قد تختلف.",
+          "billingLabel": "19.50 يورو شهريًا ×12، فوترة سنوية — Business"
+        },
+        "officialPrice": {
+          "amount": 234,
+          "currency": "EUR",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.notion.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "تسجيل وتلخيص الاجتماعات",
+      "مستندات وجداول وملاحظات"
+    ]
+  },
+  {
+    "id": "linkedin-premium",
+    "name": "LinkedIn Premium",
+    "category": "الإنتاجية",
+    "logo": "linkedin",
+    "status": "available",
+    "description": "تفعيل Premium على الحساب الشخصي عبر رابط يستخدم مرة واحدة.",
+    "plans": [
+      {
+        "name": "3 شهور",
+        "duration": "3 شهور",
+        "price": 250,
+        "activation": "رابط تفعيل لمرة واحدة ويتطلب بطاقة.",
+        "account": "حساب شخصي",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "بعد فتح/استخدام رابط التفعيل يُعتبر مستهلكًا ولا يمكن إعادة استخدامه."
+        ],
+        "priceComparison": {
+          "planName": "LinkedIn Premium Career — فردي",
+          "source": "https://premium.linkedin.com/careers/career",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "نوع Premium يُؤكد مع الدعم قبل الدفع.",
+          "billingLabel": "39.99 دولارًا ×3 شهور — Career"
+        },
+        "officialPrice": {
+          "amount": 119.97,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://premium.linkedin.com/careers/career",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "تطوير مهني وتوظيف"
+    ]
+  },
+  {
+    "id": "zoom",
+    "name": "Zoom Pro",
+    "category": "الإنتاجية",
+    "logo": "zoom",
+    "logoUrl": "logos/zoom.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "اشتراكات Zoom Pro بعدة مدد، بحساب جاهز أو تفعيل على بريدك.",
+    "plans": [
+      {
+        "name": "Zoom Pro — شهر (حساب جاهز)",
+        "duration": "1 شهر",
+        "price": 250,
+        "activation": "تسليم حساب جاهز.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "قد تعمل بعض الحسابات شهرًا كاملًا أو تتوقف بعد نحو 14 يومًا؛ الضمان الكامل يغطي العرض حسب شروط المتجر."
+        ],
+        "priceComparison": {
+          "planName": "Zoom Workplace Pro — مقعد واحد",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 15.99,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "Zoom Pro — 3 شهور",
+        "duration": "3 شهور",
+        "price": 550,
+        "activation": "تسليم حساب جاهز",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Zoom Workplace Pro — مقعد واحد",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "15.99 دولارًا ×3 شهور"
+        },
+        "officialPrice": {
+          "amount": 47.97,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "Zoom Pro — سنة",
+        "duration": "12 شهر",
+        "price": 1800,
+        "activation": "تسليم حساب جاهز",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Zoom Workplace Pro — مقعد واحد",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "Workplace Pro السنوي"
+        },
+        "officialPrice": {
+          "amount": 159.9,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "Zoom Pro — شهر على بريدك",
+        "duration": "1 شهر",
+        "price": 300,
+        "activation": "تفعيل على بريد العميل.",
+        "account": "حساب العميل",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Zoom Workplace Pro — مقعد واحد",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 15.99,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "اجتماعات ومكالمات"
+    ]
+  },
+  {
+    "id": "stealth-writer",
+    "name": "StealthWriter",
+    "category": "الإنتاجية",
+    "logo": "stealthwriter",
+    "logoUrl": "logos/stealthwriter-official.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "باقات StealthWriter لمدة شهر: Starter بسعر 950 جنيه بدلًا من 1050 جنيه، وPlus بسعر 2100 جنيه بدلًا من 2600 جنيه.",
+    "plans": [
+      {
+        "name": "Starter",
+        "planType": "Starter",
+        "duration": "1 شهر",
+        "price": 950,
+        "activation": "تسليم حساب",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "credits": "50 عملية إعادة صياغة يوميًا",
+        "features": [
+          "50 عملية إعادة صياغة يوميًا",
+          "50 فحص AI يوميًا",
+          "حتى 5,000 كلمة للعملية",
+          "Ghost 5.2 Pro وLegacy"
+        ],
+        "notes": [
+          "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
+        ],
+        "priceComparison": {
+          "planName": "StealthWriter Starter",
+          "source": "https://stealthwriter.ai/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://stealthwriter.ai/pricing",
+          "checkedAt": "2026-10-08"
+        },
+        "previousStorePrice": 1048.8
+      },
+      {
+        "name": "Plus",
+        "planType": "Plus",
+        "duration": "1 شهر",
+        "price": 2100,
+        "activation": "تسليم حساب",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "credits": "150 عملية إعادة صياغة يوميًا",
+        "features": [
+          "150 عملية إعادة صياغة يوميًا",
+          "150 فحص AI يوميًا",
+          "حتى 5,000 كلمة للعملية",
+          "Ghost 5.2 Pro وLegacy"
+        ],
+        "notes": [
+          "لا يوجد ضمان 100% لتجاوز كل أدوات كشف المحتوى بالذكاء الاصطناعي."
+        ],
+        "priceComparison": {
+          "planName": "StealthWriter Plus",
+          "source": "https://stealthwriter.ai/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 50,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://stealthwriter.ai/pricing",
+          "checkedAt": "2026-10-08"
+        },
+        "previousStorePrice": 2359.8
+      }
+    ],
+    "categories": [
+      "تدقيق وإعادة صياغة"
+    ]
+  },
+  {
+    "id": "icloud",
+    "name": "iCloud 4TB",
+    "category": "الإنتاجية",
+    "logo": "icloud",
+    "logoUrl": "logos/icloud.svg?v=20261027-hq1",
+    "status": "available",
+    "description": "عرض مساحة iCloud إجمالية 4TB.",
+    "plans": [
+      {
+        "name": "4TB",
+        "duration": "1 شهر",
+        "price": 1450,
+        "activation": "دعوة Apple ID عبر المشاركة العائلية.",
+        "account": "مشاركة عائلية",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "iCloud+ — 6TB، أقرب سعة أعلى",
+          "source": "https://support.apple.com/en-eg/108047",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "لا توجد باقة iCloud+ مستقلة 4TB ضمن الباقات الرسمية. أقرب سعة أعلى 6TB بسعر 1,799.99 جنيه شهريًا في مصر؛ المشاركة العائلية لا تعني سعة مستقلة مضمونة.",
+          "rawPrice": {
+            "amount": 1799.99,
+            "currency": "EGP",
+            "label": "6TB / شهر"
+          }
+        }
+      }
+    ],
+    "categories": [
+      "تخزين سحابي"
+    ]
+  },
+  {
+    "id": "surfshark",
+    "name": "Surfshark",
+    "category": "VPN والحماية",
+    "logo": "surfshark",
+    "logoUrl": "logos/surfshark.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "كوبون Surfshark لمدة شهرين.",
+    "plans": [
+      {
+        "name": "كوبون شهرين",
+        "duration": "2 شهر",
+        "price": 200,
+        "activation": "تفعيل كوبون ويتطلب بطاقة.",
+        "account": "حساب العميل",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Surfshark Starter — اشتراك VPN",
+          "source": "https://surfshark.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "كوبون شهرين قد يكون عرضًا ترويجيًا مشروطًا ولا يطابق باقة رسمية مستقلة؛ لم نحسب خصمًا."
+        }
+      }
+    ],
+    "categories": [
+      "VPN وخصوصية"
+    ]
+  },
+  {
+    "id": "nordvpn",
+    "name": "NordVPN",
+    "category": "VPN والحماية",
+    "logo": "nordvpn",
+    "logoUrl": "logos/nordvpn.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "اشتراك NordVPN لمدة 3 شهور.",
+    "plans": [
+      {
+        "name": "3 شهور",
+        "duration": "3 شهور",
+        "price": 300,
+        "activation": "تسليم حساب جاهز — لا يحتاج بطاقة",
+        "account": "إيميل وكلمة مرور",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "NordVPN Basic — اشتراك شهري",
+          "source": "https://nordvpn.com/pricing/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "فئة الحساب الجاهز تُؤكد مع الدعم قبل الدفع.",
+          "billingLabel": "14.99 دولارًا ×3 شهور — Basic"
+        },
+        "officialPrice": {
+          "amount": 44.97,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://nordvpn.com/pricing/",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "VPN وخصوصية"
+    ]
+  },
+  {
+    "id": "proton-vpn",
+    "name": "Proton VPN",
+    "category": "VPN والحماية",
+    "logo": "protonvpn",
+    "logoUrl": "logos/protonvpn.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "حساب Proton VPN لمدة سنة لجهاز واحد.",
+    "plans": [
+      {
+        "name": "سنة",
+        "duration": "12 شهر",
+        "price": 800,
+        "activation": "تسليم بريد/حساب جاهز مع كود يقدمه المتجر عند الحاجة.",
+        "account": "حساب جاهز — جهاز واحد",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Proton VPN Plus — سنة",
+          "source": "https://protonvpn.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "الأسعار في الصفحة ديناميكية ولم يظهر سعر موثوق قابل للمقارنة. عرض جهاز واحد يختلف عن عدد الأجهزة بالاشتراك الرسمي."
+        }
+      }
+    ],
+    "categories": [
+      "VPN وخصوصية"
+    ]
+  },
+  {
+    "id": "hma-vpn",
+    "name": "HMA VPN",
+    "category": "VPN والحماية",
+    "logo": "hma",
+    "logoUrl": "logos/hma.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "عرض HMA قصير المدة.",
+    "plans": [
+      {
+        "name": "عرض HMA",
+        "duration": "30 يوم",
+        "price": 100,
+        "activation": "تسليم حساب جاهز.",
+        "account": "إيميل وكلمة مرور",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "HMA VPN — شهر",
+          "source": "https://www.hidemyass.com/pricing-plans",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "السعر يتغير حسب المنطقة والعروض؛ لم يتأكد مرجع رسمي مطابق."
+        }
+      }
+    ],
+    "categories": [
+      "VPN وخصوصية"
+    ]
+  },
+  {
+    "id": "expressvpn",
+    "name": "ExpressVPN Basic",
+    "category": "VPN والحماية",
+    "logo": "expressvpn",
+    "logoUrl": "logos/expressvpn.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "اشتراك ExpressVPN قصير المدة.",
+    "plans": [
+      {
+        "name": "Basic",
+        "duration": "3 أيام",
+        "price": 50,
+        "activation": "تفعيل",
+        "account": "حسب العرض",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "ExpressVPN Basic — شهر",
+          "source": "https://www.expressvpn.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "عرض 3 أيام لا يطابق الاشتراك الشهري، لذلك لا نستخدم سعر شهر كخصم على 3 أيام."
+        }
+      }
+    ],
+    "categories": [
+      "VPN وخصوصية"
+    ]
+  },
+  {
+    "id": "spotify",
+    "name": "Spotify Premium",
+    "category": "الترفيه",
+    "logo": "spotify",
+    "logoUrl": "logos/spotify.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "تفعيل Spotify Premium على حساب العميل الشخصي.",
+    "plans": [
+      {
+        "name": "3 شهور",
+        "duration": "3 شهور",
+        "price": 100,
+        "activation": "رابط تفعيل على حساب العميل.",
+        "account": "حساب شخصي",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Spotify Premium Individual — 3 شهور",
+          "source": "https://www.spotify.com/eg-en/premium/",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "عروض التجربة المجانية لها شروط أهلية منفصلة.",
+          "billingLabel": "Premium Individual — مدفوع مقدمًا، مصر"
+        },
+        "officialPrice": {
+          "amount": 237,
+          "currency": "EGP",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://www.spotify.com/eg-en/premium/",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "موسيقى واستماع"
+    ]
+  },
+  {
+    "id": "youtube",
+    "name": "YouTube Premium",
+    "category": "الترفيه",
+    "logo": "youtube",
+    "logoUrl": "logos/youtube.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "تفعيل YouTube Premium على حسابك الشخصي.",
+    "plans": [
+      {
+        "name": "3 شهور",
+        "duration": "3 شهور",
+        "price": 200,
+        "activation": "رابط تفعيل ويتطلب بطاقة.",
+        "account": "حساب شخصي",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "YouTube Premium Individual",
+          "source": "https://www.youtube.com/premium",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "السعر يعتمد على البلد والمنصة ويظهر عند الاشتراك؛ لم يتأكد مرجع مصري مطابق لثلاثة شهور."
+        }
+      }
+    ],
+    "categories": [
+      "فيديو وبث وقنوات"
+    ]
+  },
+  {
+  "id": "kling",
+  "name": "Kling AI",
+  "category": "AI Tools",
+  "logo": "kling",
+  "logoUrl": "logos/kling.svg?v=20261009-logo-review3",
+  "status": "available",
+  "description": "باقات Kling AI لتوليد الفيديو: شهر بضمان كامل ورصيد من 1,000 إلى 1,300 كريدت بسعر 16 دولارًا، أو حزمة 1,100 كريدت بسعر 700 جنيه وضمان 5 أيام. اختر الباقة لمراجعة الرصيد والمدة والضمان.",
+  "plans": [
+    {
+      "name": "Kling AI — 1,100 Credits",
+      "duration": "حسب الرصيد",
+      "price": 700,
+      "credits": "1,100 كريدت",
+      "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+      "account": "نوع الحساب يُؤكد قبل الدفع",
+      "warranty": "5 أيام",
+      "priceComparison": {
+        "planName": "Kling AI — حزمة رصيد تحتاج تحديد",
+        "source": "https://kling.ai",
+        "checkedAt": "2026-10-08",
+        "status": "unavailable",
+        "note": "عرض 1,100 كريدت لا يحدد باقة عضوية رسمية أو مدة أو صلاحية الرصيد؛ لم تتأكد حزمة مطابقة لذلك لا يظهر خصم رسمي."
+      }
+    },
+    {
+      "name": "شهر — 1,000 إلى 1,300 كريدت — ضمان كامل",
+      "planType": "Kling AI — رصيد 1,000–1,300",
+      "duration": "1 شهر",
+      "price": 896,
+      "basePriceUSD": 16,
+      "available": true,
+      "credits": "من 1,000 إلى 1,300 كريدت خلال الشهر",
+      "activation": "طريقة التفعيل والتسليم تُؤكد مع الدعم قبل الدفع.",
+      "account": "نوع الحساب يُؤكد قبل الدفع",
+      "warranty": "ضمان كامل لمدة شهر",
+      "features": [
+        "اشتراك Kling AI لمدة شهر واحد.",
+        "رصيد عند التسليم من 1,000 إلى 1,300 كريدت للاستخدام خلال مدة الاشتراك.",
+        "ضمان كامل لمدة شهر وفق سياسة المتجر.",
+        "إنشاء فيديو من وصف نصي أو صورة ضمن أدوات وحدود الخطة المفعّلة.",
+        "استهلاك الكريدت يختلف حسب النموذج والجودة والمدة؛ الرصيد ليس عددًا ثابتًا من الفيديوهات."
+      ],
+      "featuresEn": [
+        "One month of Kling AI.",
+        "Delivered balance ranges from 1,000 to 1,300 credits for use during the subscription term.",
+        "Full one-month warranty under the store policy.",
+        "Generate video from text or an image within the activated plan’s tools and limits.",
+        "Credit usage varies by model, quality and duration; credits do not represent a fixed video count."
+      ],
+      "notes": [
+        "الحد الأدنى عند التسليم 1,000 كريدت؛ الوصول إلى 1,300 يعتمد على الرصيد الفعلي للحساب ولا يُضمن 1,300 لكل طلب.",
+        "طريقة التفعيل ونوع الحساب يُؤكدان مع الدعم قبل الدفع.",
+        "لا يوجد وعد برصيد يومي إضافي أو استخدام غير محدود أو جودة محددة لم تُذكر في العرض."
+      ],
+      "notesEn": [
+        "At least 1,000 credits on delivery; up to 1,300 depends on the account’s actual balance, so 1,300 is not guaranteed for every order.",
+        "Confirm activation method and account type with support before payment.",
+        "No additional daily allowance, unlimited usage or unspecified output quality is promised."
+      ]
+    }
+  ],
+  "categories": [
+    "توليد فيديو بالذكاء الاصطناعي"
+  ],
+  "descriptionEn": "Kling AI video-generation offers: one month with a full warranty and 1,000–1,300 credits for USD 16, or a 1,100-credit package for EGP 700 with a five-day warranty. Select a plan to review credits, duration and coverage."
+},
+  {
+    "id": "grammarly",
+    "name": "Grammarly Premium",
+    "category": "الإنتاجية",
+    "logo": "grammarly",
+    "logoUrl": "logos/grammarly.svg?v=20261027-hq1",
+    "status": "available",
+    "description": "اشتراك Grammarly Premium بمميزات الكتابة المتقدمة والتصحيح والصياغة وأدوات الذكاء الاصطناعي المتاحة في الخطة.",
+    "features": [
+      "تصحيح الأخطاء الإملائية والنحوية باحترافية",
+      "تحسين أسلوب الكتابة والصياغة",
+      "اقتراحات متقدمة للكلمات والجمل",
+      "أدوات الذكاء الاصطناعي المتاحة في الخطة",
+      "مناسب للدراسة والعمل والكتابة الاحترافية",
+      "تفعيل سريع ودعم أثناء فترة الاشتراك"
+    ],
+    "plans": [
+      {
+        "name": "شهر واحد",
+        "duration": "1 شهر",
+        "price": 300,
+        "activation": "تفعيل سريع وتسليم التفاصيل بعد تأكيد الطلب.",
+        "account": "حسب العرض المتوفر",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Grammarly Pro (بديل Premium)",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر المعتاد بالدولار: شهر 30، ثلاثة شهور 60، سنة 144. المدد الأخرى محسوبة من الدورات المتاحة؛ أسعار المنطقة قد تختلف.",
+          "billingLabel": "شهر واحد: 30 دولارًا"
+        },
+        "officialPrice": {
+          "amount": 30,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "شهرين",
+        "duration": "2 شهر",
+        "price": 450,
+        "activation": "تفعيل سريع وتسليم التفاصيل بعد تأكيد الطلب.",
+        "account": "حسب العرض المتوفر",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Grammarly Pro (بديل Premium)",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر المعتاد بالدولار: شهر 30، ثلاثة شهور 60، سنة 144. المدد الأخرى محسوبة من الدورات المتاحة؛ أسعار المنطقة قد تختلف.",
+          "billingLabel": "شهران: شهر ×2، لا توجد دورة مستقلة لشهرين"
+        },
+        "officialPrice": {
+          "amount": 60,
+          "currency": "USD",
+          "months": 2,
+          "basis": "reference",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "3 أشهر",
+        "duration": "3 شهور",
+        "price": 750,
+        "activation": "تفعيل سريع وتسليم التفاصيل بعد تأكيد الطلب.",
+        "account": "حسب العرض المتوفر",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Grammarly Pro (بديل Premium)",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر المعتاد بالدولار: شهر 30، ثلاثة شهور 60، سنة 144. المدد الأخرى محسوبة من الدورات المتاحة؛ أسعار المنطقة قد تختلف.",
+          "billingLabel": "دورة 3 شهور: 60 دولارًا"
+        },
+        "officialPrice": {
+          "amount": 60,
+          "currency": "USD",
+          "months": 3,
+          "basis": "reference",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "6 أشهر",
+        "duration": "6 شهور",
+        "price": 1100,
+        "activation": "تفعيل سريع وتسليم التفاصيل بعد تأكيد الطلب.",
+        "account": "حسب العرض المتوفر",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Grammarly Pro (بديل Premium)",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر المعتاد بالدولار: شهر 30، ثلاثة شهور 60، سنة 144. المدد الأخرى محسوبة من الدورات المتاحة؛ أسعار المنطقة قد تختلف.",
+          "billingLabel": "دورتان ربع سنويتان: 60 ×2"
+        },
+        "officialPrice": {
+          "amount": 120,
+          "currency": "USD",
+          "months": 6,
+          "basis": "reference",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08"
+        }
+      },
+      {
+        "name": "12 شهر — سنة كاملة",
+        "duration": "12 شهر",
+        "price": 1700,
+        "activation": "تفعيل سريع وتسليم التفاصيل بعد تأكيد الطلب.",
+        "account": "حسب العرض المتوفر",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Grammarly Pro (بديل Premium)",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر المعتاد بالدولار: شهر 30، ثلاثة شهور 60، سنة 144. المدد الأخرى محسوبة من الدورات المتاحة؛ أسعار المنطقة قد تختلف.",
+          "billingLabel": "السنة: 144 دولارًا"
+        },
+        "officialPrice": {
+          "amount": 144,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://support.grammarly.com/hc/en-us/articles/115000090011-How-much-does-Grammarly-Pro-cost",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "تدقيق وإعادة صياغة"
+    ]
+  },
+  {
+    "id": "quillbot",
+    "name": "QuillBot Premium",
+    "category": "الإنتاجية",
+    "logo": "quillbot",
+    "logoUrl": "logos/quillbot.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "باقات QuillBot Premium لمدة شهر، 3 شهور، 6 شهور أو سنة. الباقة السنوية بـ1200 جنيه، بمتوسط 100 جنيه للشهر.",
+    "plans": [
+      {
+        "name": "QuillBot Premium",
+        "duration": "1 شهر",
+        "price": 250,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "QuillBot Premium",
+          "source": "https://quillbot.com/premium",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "المتاح في الصفحة العامة 4.17 دولارًا شهريًا عند الدفع السنوي؛ إجمالي السنة تقريبي لأن الرقم الشهري مقرب. سعر المدد الأقصر لم يتأكد."
+        }
+      },
+      {
+        "name": "QuillBot Premium",
+        "duration": "3 شهور",
+        "price": 500,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "QuillBot Premium",
+          "source": "https://quillbot.com/premium",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "المتاح في الصفحة العامة 4.17 دولارًا شهريًا عند الدفع السنوي؛ إجمالي السنة تقريبي لأن الرقم الشهري مقرب. سعر المدد الأقصر لم يتأكد."
+        }
+      },
+      {
+        "name": "QuillBot Premium",
+        "duration": "6 شهور",
+        "price": 800,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "QuillBot Premium",
+          "source": "https://quillbot.com/premium",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "المتاح في الصفحة العامة 4.17 دولارًا شهريًا عند الدفع السنوي؛ إجمالي السنة تقريبي لأن الرقم الشهري مقرب. سعر المدد الأقصر لم يتأكد."
+        }
+      },
+      {
+        "name": "QuillBot Premium",
+        "duration": "12 شهر",
+        "price": 1200,
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "الضمان يُؤكد قبل الدفع",
+        "priceComparison": {
+          "planName": "QuillBot Premium",
+          "source": "https://quillbot.com/premium",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المتاح في الصفحة العامة 4.17 دولارًا شهريًا عند الدفع السنوي؛ إجمالي السنة تقريبي لأن الرقم الشهري مقرب. سعر المدد الأقصر لم يتأكد.",
+          "billingLabel": "تقدير 4.17 دولارًا ×12؛ الرقم الشهري مقرب"
+        },
+        "officialPrice": {
+          "amount": 50.04,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://quillbot.com/premium",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "تدقيق وإعادة صياغة"
+    ]
+  },
+  {
+    "id": "envato",
+    "name": "Envato Elements",
+    "category": "التصميم",
+    "logo": "envato",
+    "logoUrl": "logos/envato.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "Envato Elements Premium بسعر 450 جنيه: فيديوهات وصور وقوالب وموارد تصميم، مع بيانات دخول عبر بوابة وصول وضمان كامل. مدة الاشتراك تُؤكد قبل الدفع.",
+    "plans": [
+      {
+        "name": "Premium — وصول عبر بوابة",
+        "planType": "Premium",
+        "duration": "غير محددة في العرض — تُؤكد قبل الدفع",
+        "price": 450,
+        "activation": "تسليم اسم مستخدم وكلمة مرور لبوابة وصول تحوّل إلى موقع Envato.",
+        "account": "بيانات دخول لبوابة وصول",
+        "accountType": "وصول عبر بوابة",
+        "warranty": "ضمان كامل وفق تفاصيل العرض",
+        "notes": [
+          "مدة الاشتراك غير محددة في العرض المرفق؛ تُؤكد مع الدعم قبل الدفع.",
+          "تأكيد حدود التحميل وإمكانية إصدار ترخيص باسم العميل لكل مشروع قبل الدفع.",
+          "الترخيص الدائم للمشروعات المسجلة والمكتملة وفق شروط Envato لا يعني اشتراكًا دائمًا أو تنزيلات مستمرة بعد انتهاء الوصول."
+        ]
+      }
+    ],
+    "categories": [
+      "قوالب ومؤثرات فيديو",
+      "صور وقوالب وموارد جاهزة"
+    ],
+    "features": [
+      "فيديوهات Stock وصور جاهزة للمشروعات الإبداعية.",
+      "قوالب فيديو لتجهيز المقدمات والعروض والمحتوى.",
+      "قوالب مواقع وCMS وWordPress ضمن المكتبة المشمولة.",
+      "موسيقى ومؤثرات صوتية للمحتوى وفق شروط الترخيص.",
+      "قوالب تصميم وجرافيك وموارد ثلاثية الأبعاد حسب المتاح.",
+      "تسليم اسم مستخدم وكلمة مرور للدخول عبر بوابة تحويل إلى Envato.",
+      "ضمان كامل للوصول المقدم وفق تفاصيل العرض.",
+      "الاستخدام التجاري مرتبط بترخيص المشروع وفق شروط Envato."
+    ],
+    "featuresEn": [
+      "Stock videos and photos for creative projects.",
+      "Video templates for intros, presentations, and content.",
+      "Website, CMS, and WordPress templates in the included library.",
+      "Music and sound effects for content under the license terms.",
+      "Design templates, graphics, and 3D assets where available.",
+      "Receive a username and password for an access portal that redirects to Envato.",
+      "Full warranty for the access provided under the offer.",
+      "Commercial use requires project licensing under Envato terms."
+    ]
+  },
+  {
+    "id": "motion-array",
+    "name": "Motion Array",
+    "category": "التصميم",
+    "logo": "motionarray",
+    "status": "soon",
+    "description": "قريبًا في MASTER STORE.",
+    "plans": [],
+    "logoUrl": "logos/motionarray.svg?v=20261009-logo-review3",
+    "categories": [
+      "قوالب ومؤثرات فيديو"
+    ]
+  },
+  {
+    "id": "murf",
+    "name": "Murf AI",
+    "category": "AI Tools",
+    "logo": "murf",
+    "logoUrl": "logos/murf.svg?v=20261009-logo-review3",
+    "status": "soon",
+    "description": "قريبًا في MASTER STORE.",
+    "plans": [],
+    "categories": [
+      "تعليق صوتي وتحويل النص لصوت"
+    ]
+  },
+  {
+    "id": "discord",
+    "name": "Discord Nitro",
+    "category": "الترفيه",
+    "logo": "discord",
+    "logoUrl": "logos/discord.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "عضوية Discord Nitro بسعر 400 جنيه: وصول لمدة 25–45 يومًا، تشمل تعزيزين للسيرفر، مع إمكانية تغيير كلمة المرور. بلد تسجيل الحساب عشوائي.",
+    "plans": [
+      {
+        "name": "Nitro — عضوية 25–45 يومًا",
+        "planType": "Nitro",
+        "duration": "25–45 يومًا",
+        "price": 400,
+        "activation": "تسليم بيانات الدخول للحساب؛ يمكن تغيير كلمة المرور.",
+        "account": "حساب ببلد تسجيل عشوائي",
+        "accountType": "عضوية على حساب جاهز",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": [
+          "مدة الوصول ضمن نطاق 25–45 يومًا حسب الحساب المستلم.",
+          "يشمل العرض تعزيزين للسيرفر (2 Server Boosts).",
+          "بلد تسجيل الحساب عشوائي."
+        ]
+      }
+    ],
+    "categories": [
+      "تواصل ومجتمعات"
+    ],
+    "features": [
+      "عضوية Discord Nitro لمدة وصول تتراوح بين 25 و45 يومًا.",
+      "تشمل تعزيزين للسيرفر (2 Server Boosts).",
+      "يمكن تغيير كلمة مرور الحساب.",
+      "بلد تسجيل الحساب عشوائي."
+    ],
+    "featuresEn": [
+      "Discord Nitro membership with 25–45 days of access.",
+      "Includes 2 Server Boosts.",
+      "The account password can be changed.",
+      "The account registration country is random."
+    ]
+  },
+  {
+    "id": "midjourney",
+    "name": "Midjourney",
+    "category": "AI Tools",
+    "logo": "midjourney",
+    "logoUrl": "logos/midjourney.svg?v=20261009-logo-review3",
+    "status": "out",
+    "description": "الخدمة غير متوفرة حاليًا.",
+    "plans": [],
+    "categories": [
+      "توليد صور بالذكاء الاصطناعي"
+    ]
+  },
+  {
+    "id": "leonardo-ai",
+    "name": "Leonardo AI",
+    "category": "AI Tools",
+    "logo": "leonardo",
+    "logoUrl": "logos/leonardo.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "ليوناردو AI لصناعة الصور وتحريرها وتحسين دقتها: Premium شهر بـ950ج بحساب جاهز وضمان كامل، أو باقة 8,500 كريدت بـ550ج. اختار الباقة لعرض تفاصيلها.",
+    "plans": [
+      {
+        "name": "Premium — شهر — حساب جاهز",
+        "planType": "Premium",
+        "duration": "شهر",
+        "price": 950,
+        "activation": "تسليم بيانات حساب Leonardo AI جاهز للاستخدام.",
+        "account": "حساب جاهز",
+        "accountType": "حساب جاهز",
+        "warranty": "ضمان كامل طوال مدة الاشتراك",
+        "notes": [],
+        "features": [
+          "اشتراك Premium لمدة شهر كامل.",
+          "تسليم حساب جاهز للاستخدام.",
+          "ضمان كامل طوال شهر الاشتراك."
+        ],
+        "featuresEn": [
+          "Premium subscription for one full month.",
+          "Delivered as a ready-to-use account.",
+          "Full warranty throughout the subscription month."
+        ]
+      },
+      {
+        "name": "8,500 كريدت",
+        "planType": "8,500 Credits",
+        "duration": "شهر",
+        "price": 550,
+        "credits": "8,500 كريدت",
+        "activation": "يُؤكد مع الدعم قبل الدفع",
+        "account": "يُؤكد مع الدعم قبل الدفع",
+        "warranty": "يُؤكد مع الدعم قبل الدفع",
+        "notes": []
+      }
+    ],
+    "categories": [
+      "توليد صور بالذكاء الاصطناعي"
+    ],
+    "features": [
+      "إنشاء صور من وصف نصي لأفكارك ومشروعاتك.",
+      "تصميم صور للمنتجات والإعلانات ومنشورات السوشيال ميديا.",
+      "تجربة أساليب بصرية مختلفة مثل الواقعي والرسوم والتصميم المفاهيمي.",
+      "استخدام صور مرجعية لتوجيه التكوين والأسلوب ضمن النماذج الداعمة.",
+      "تعديل الصور بالأوامر النصية عبر أدوات التحرير المتاحة للحساب.",
+      "تحسين دقة الصور وإبراز التفاصيل بأدوات Upscale المتاحة.",
+      "إنتاج تنويعات للصورة ومراجعتها قبل تنزيل النتيجة النهائية.",
+      "عدد الصور واستهلاك الرصيد يختلفان حسب النموذج والجودة والأداة المستخدمة."
+    ],
+    "featuresEn": [
+      "Generate images from written descriptions for your ideas and projects.",
+      "Create visuals for products, advertisements, and social posts.",
+      "Explore visual styles such as realistic imagery, illustration, and concept art.",
+      "Use reference images to guide composition and style with supported models.",
+      "Edit images with prompts using the account’s available editing tools.",
+      "Improve resolution and details with available upscaling tools.",
+      "Generate image variations and review them before downloading the final result.",
+      "Image counts and credit usage vary by model, quality, and tool."
+    ]
+  },
+  {
+    "id": "manus",
+    "name": "Manus",
+    "category": "AI Tools",
+    "logo": "manus",
+    "logoUrl": "logos/manus.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "باقات Manus برصيد جاهز، واشتراكات Pro شهرية وسنوية.",
+    "plans": [
+      {
+        "name": "رصيد — 3,300 كرديت",
+        "duration": "رصيد استخدام",
+        "price": 380,
+        "activation": "تسليم حساب جاهز بالبريد الإلكتروني وكلمة المرور.",
+        "account": "حساب جاهز — بريد وباسورد",
+        "warranty": "25 يوم",
+        "credits": "3,300 كرديت",
+        "notes": [
+          "حساب عادي على الخطة المجانية (Free)، بدون اشتراك Pro.",
+          "السعر مقابل الحساب والرصيد المتاح، وليس اشتراك Pro."
+        ],
+        "planType": "Free",
+        "priceComparison": {
+          "status": "unavailable",
+          "note": "حساب Free برصيد جاهز؛ لا توجد حزمة رسمية مطابقة لهذا الرصيد للمقارنة."
+        }
+      },
+      {
+        "name": "رصيد — 4,000 كرديت",
+        "duration": "رصيد استخدام",
+        "price": 450,
+        "activation": "تسليم حساب جاهز بالبريد الإلكتروني وكلمة المرور.",
+        "account": "حساب جاهز — بريد وباسورد",
+        "warranty": "25 يوم",
+        "credits": "4,000 كرديت",
+        "notes": [
+          "حساب عادي على الخطة المجانية (Free)، بدون اشتراك Pro.",
+          "السعر مقابل الحساب والرصيد المتاح، وليس اشتراك Pro."
+        ],
+        "planType": "Free",
+        "priceComparison": {
+          "status": "unavailable",
+          "note": "حساب Free برصيد جاهز؛ لا توجد حزمة رسمية مطابقة لهذا الرصيد للمقارنة."
+        }
+      },
+      {
+        "name": "Pro شهر — 4,000 + 1,000 كرديت مجانًا",
+        "duration": "شهر واحد",
+        "price": 750,
+        "activation": "تسليم حساب Pro جاهز بالبريد الإلكتروني وكلمة المرور.",
+        "account": "حساب جاهز — بريد وباسورد",
+        "warranty": "20 يوم",
+        "credits": "4,000 كرديت + 1,000 كرديت مجانًا = 5,000 كرديت",
+        "notes": [
+          "1,000 كرديت هدية مشمولة في السعر.",
+          "مدة الاشتراك شهر واحد، والضمان 20 يوم."
+        ],
+        "planType": "Pro",
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus",
+          "checkedAt": "2026-10-12",
+          "estimated": false
+        },
+        "priceComparison": {
+          "status": "reference",
+          "source": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus",
+          "checkedAt": "2026-10-12",
+          "note": "مرجع المقارنة Pro مع 4,000 كرديت شهريًا؛ 1,000 كرديت إضافية هدية من المتجر."
+        }
+      },
+      {
+        "name": "Pro — سنة كاملة · 80 دولار",
+        "planType": "Pro",
+        "duration": "12 شهر",
+        "price": 4480,
+        "basePriceUSD": 80,
+        "account": "حسابك الشخصي",
+        "accountType": "تفعيل على حسابك الشخصي",
+        "activation": "تفعيل اشتراك Pro السنوي على حسابك الشخصي.",
+        "warranty": "6 شهور",
+        "credits": "4,000 كرديت شهريًا",
+        "notes": [
+          "سعر الباقة السنوية 80 دولارًا، ويظهر ما يعادله حسب عملة المتجر.",
+          "4,000 كرديت تتجدد شهريًا طوال مدة الاشتراك."
+        ],
+        "officialPrice": {
+          "amount": 199.2,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus",
+          "checkedAt": "2026-10-12",
+          "estimated": true
+        },
+        "priceComparison": {
+          "status": "reference",
+          "source": "https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus",
+          "checkedAt": "2026-10-12",
+          "note": "مرجع سنوي تقديري: 20 دولار × 12 شهر × (1 − خصم الفوترة السنوية المعلن 17%). الإجمالي النهائي يخضع لصفحة الاشتراك الرسمية."
+        }
+      }
+    ],
+    "features": [
+      "باقات Free برصيد 3,300 أو 4,000 كرديت",
+      "Pro شهر مع 1,000 كرديت هدية",
+      "Pro سنوي بتفعيل على حسابك الشخصي وضمان 6 شهور"
+    ],
+    "categories": [
+      "أتمتة المهام"
+    ]
+  },
+  {
+    "id": "gumloop",
+    "name": "Gumloop",
+    "category": "AI Tools",
+    "logo": "gumloop",
+    "logoUrl": "logos/gumloop.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "أتمتة سير العمل وربط المهام المدعومة بالذكاء الاصطناعي.",
+    "plans": [
+      {
+        "name": "20,000 Credits",
+        "duration": "حسب الرصيد",
+        "price": 350,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "credits": "20,000 Credits",
+        "priceComparison": {
+          "planName": "Gumloop Pro — 20,000 كريدت شهريًا",
+          "source": "https://www.gumloop.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "الخطة تبدأ من 37 دولارًا شهريًا؛ عرض المتجر رصيد دون مدة محددة، فلا يُحسب خصم اشتراك شهري.",
+          "rawPrice": {
+            "amount": 37,
+            "currency": "USD",
+            "label": "بداية سعر Pro / شهر"
+          }
+        }
+      }
+    ],
+    "categories": [
+      "أتمتة المهام"
+    ]
+  },
+  {
+    "id": "magic-patterns",
+    "name": "Magic Patterns Starter",
+    "category": "AI Tools",
+    "logo": "magicpatterns",
+    "logoUrl": "logos/magicpatterns.svg?v=20261027-hq1",
+    "status": "available",
+    "description": "إنشاء واجهات وتجارب رقمية من الأوصاف النصية.",
+    "plans": [
+      {
+        "name": "Starter",
+        "duration": "12 شهر",
+        "price": 450,
+        "activation": "دعوة أو حساب جاهز.",
+        "account": "حسب المتوفر",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Magic Patterns Starter — مقعد واحد",
+          "source": "https://www.magicpatterns.com/blog/new-plans-and-pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "السعر القياسي الجديد لخطة Starter بعد يونيو 2026؛ إجمالي محسوب من الفوترة الشهرية، وليس سعرًا سنويًا مستقلًا.",
+          "billingLabel": "20 دولارًا للمقعد شهريًا ×12"
+        },
+        "officialPrice": {
+          "amount": 240,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.magicpatterns.com/blog/new-plans-and-pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "بناء مواقع وتطبيقات بالذكاء الاصطناعي"
+    ]
+  },
+  {
+    "id": "factory-pro",
+    "name": "Factory Pro",
+    "category": "AI Tools",
+    "logo": "factory",
+    "logoUrl": "logos/factory.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "خطة للمطورين والفرق لبناء البرمجيات بمساعدة الذكاء الاصطناعي.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 1850,
+        "activation": "Workspace.",
+        "account": "احتفظ بالبيانات الأصلية",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Factory Pro",
+          "source": "https://factory.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "مدة الاشتراك والمميزات حسب الباقة المعروضة.",
+          "billingLabel": "20 دولارًا شهريًا ×12"
+        },
+        "officialPrice": {
+          "amount": 240,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://factory.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "مساعد كتابة الكود"
+    ]
+  },
+  {
+    "id": "framer-pro",
+    "name": "Framer Pro",
+    "category": "AI Tools",
+    "logo": "framer",
+    "logoUrl": "logos/framer.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "تصميم ونشر المواقع التفاعلية بسرعة ومن دون تعقيد.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 600,
+        "activation": "دعوة أو حساب.",
+        "account": "حسب المتوفر",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Framer Pro — موقع واحد",
+          "source": "https://www.framer.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "مقعد الفريق لا يشمل تلقائيًا استضافة Pro لموقعك.",
+          "billingLabel": "30 دولارًا ×12 — موقع Pro بالفوترة السنوية"
+        },
+        "officialPrice": {
+          "amount": 360,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.framer.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "تصميم ونشر المواقع"
+    ]
+  },
+  {
+    "id": "supabase-pro",
+    "name": "Supabase Pro",
+    "category": "AI Tools",
+    "logo": "supabase",
+    "logoUrl": "logos/supabase.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "قواعد بيانات ومصادقة وبنية خلفية للمشاريع الرقمية.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 1550,
+        "activation": "حساب أو Organization.",
+        "account": "احتفظ بالبيانات الأصلية",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Supabase Pro — مؤسسة، مشروع أساسي",
+          "source": "https://supabase.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "الاستخدام الإضافي والمشاريع الزائدة تُراجع مع الدعم قبل الدفع.",
+          "billingLabel": "25 دولارًا شهريًا ×12"
+        },
+        "officialPrice": {
+          "amount": 300,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://supabase.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "قواعد بيانات واستضافة"
+    ]
+  },
+  {
+    "id": "railway-hobby",
+    "name": "Railway Hobby",
+    "category": "الإنتاجية",
+    "logo": "railway",
+    "logoUrl": "logos/railway.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "خطة Hobby لتشغيل ونشر المشاريع والتطبيقات.",
+    "plans": [
+      {
+        "name": "Hobby",
+        "duration": "12 شهر",
+        "price": 650,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Railway Hobby — حد أدنى 5 دولارات شهريًا",
+          "source": "https://railway.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "الباقة تتضمن رصيد استخدام؛ أي استهلاك إضافي يُراجع قبل الدفع.",
+          "billingLabel": "5 دولارات شهريًا ×12"
+        },
+        "officialPrice": {
+          "amount": 60,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://railway.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "قواعد بيانات واستضافة"
+    ]
+  },
+  {
+    "id": "pangram-pro",
+    "name": "Pangram Pro",
+    "category": "الإنتاجية",
+    "logo": "pangram",
+    "status": "available",
+    "description": "أدوات احترافية لتحليل المحتوى والعمل على النصوص.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 650,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Pangram Professional",
+          "source": "https://www.pangram.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "الباقة الأقرب بالاسم Professional، لكن مدة وسعة عرض المتجر غير محددة بما يكفي للمقارنة السنوية.",
+          "rawPrice": {
+            "amount": 65,
+            "currency": "USD",
+            "label": "Professional / شهر"
+          }
+        }
+      }
+    ],
+    "logoUrl": "logos/pangram.svg?v=20261009-logo-review3",
+    "categories": [
+      "فحص تشابه ومحتوى أكاديمي"
+    ]
+  },
+  {
+    "id": "supercut-pro",
+    "name": "Supercut Pro",
+    "category": "الإنتاجية",
+    "logo": "supercut",
+    "status": "available",
+    "description": "خطة Pro لأدوات صناعة وتحرير المحتوى.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 600,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Supercut Pro — مقعد واحد",
+          "source": "https://supercut.ai/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "15 دولارًا شهريًا ×12، فوترة سنوية"
+        },
+        "officialPrice": {
+          "amount": 180,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://supercut.ai/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "logoUrl": "logos/supercut.svg?v=20261009-logo-review3",
+    "categories": [
+      "مونتاج وتحسين الفيديو"
+    ]
+  },
+  {
+    "id": "wispr-flow-pro",
+    "name": "Wispr Flow Pro",
+    "category": "الإنتاجية",
+    "logo": "wispr",
+    "status": "available",
+    "description": "إملاء صوتي ذكي وتحويل الكلام إلى نص أثناء العمل.",
+    "plans": [
+      {
+        "name": "Pro",
+        "duration": "12 شهر",
+        "price": 800,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Wispr Flow Pro — مقعد واحد",
+          "source": "https://wisprflow.ai/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "12 دولارًا شهريًا ×12، فوترة سنوية"
+        },
+        "officialPrice": {
+          "amount": 144,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://wisprflow.ai/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "logoUrl": "logos/wispr.svg?v=20261009-logo-review3",
+    "categories": [
+      "إملاء صوتي وتحويل الكلام لنص"
+    ]
+  },
+  {
+    "id": "mobbin-team",
+    "name": "Mobbin Team",
+    "category": "الإنتاجية",
+    "logo": "mobbin",
+    "status": "available",
+    "description": "مكتبة مراجع لتصميم واجهات وتجارب المستخدم.",
+    "plans": [
+      {
+        "name": "Team",
+        "duration": "12 شهر",
+        "price": 600,
+        "activation": "دعوة إلى Team.",
+        "account": "احتفظ بإعدادات الفريق",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Mobbin Team — عضو واحد",
+          "source": "https://mobbin.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "مرجع إقليمي باليورو لمقعد Team واحد؛ يختلف عن دعوة مشاهدة أو عضوية مشتركة.",
+          "billingLabel": "16 يورو شهريًا للعضو ×12، فوترة سنوية"
+        },
+        "officialPrice": {
+          "amount": 192,
+          "currency": "EUR",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://mobbin.com/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "logoUrl": "logos/mobbin.svg?v=20261009-logo-review3",
+    "categories": [
+      "تصميم واجهات التطبيقات"
+    ]
+  },
+  {
+    "id": "granola-business",
+    "name": "Granola Business AI",
+    "category": "الإنتاجية",
+    "logo": "granola",
+    "status": "available",
+    "description": "تدوين وتلخيص وتنظيم ملاحظات الاجتماعات بالذكاء الاصطناعي. اشتراك Business لمدة 4 شهور بسعر 600 جنيه، تفعيل على إيميلك أو تسليم حساب جاهز بضمان كامل.",
+    "plans": [
+      {
+        "name": "Business AI — 4 شهور",
+        "planType": "Business",
+        "duration": "4 شهور",
+        "price": 600,
+        "available": true,
+        "activation": "تفعيل على إيميلك أو تسليم حساب جاهز، حسب اختيارك.",
+        "account": "على إيميلك أو حساب جاهز",
+        "warranty": "ضمان كامل لمدة 4 شهور"
+      }
+    ],
+    "logoUrl": "logos/granola.svg?v=20261009-logo-review3",
+    "categories": [
+      "تسجيل وتلخيص الاجتماعات"
+    ],
+    "features": [
+      "تدوين وتلخيص الاجتماعات بمساعدة الذكاء الاصطناعي.",
+      "تنظيم الملاحظات والرجوع للنقاط المهمة.",
+      "خطة Business لمدة 4 شهور.",
+      "تفعيل على إيميلك أو حساب جاهز، حسب اختيارك.",
+      "ضمان كامل طوال مدة الاشتراك."
+    ]
+  },
+  {
+    "id": "jam-team",
+    "name": "Jam Team",
+    "category": "الإنتاجية",
+    "logo": "jam",
+    "logoUrl": "logos/jam.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "تسجيل ومشاركة مشكلات المواقع والتعاون عليها مع الفريق.",
+    "plans": [
+      {
+        "name": "Team",
+        "duration": "12 شهر",
+        "price": 1550,
+        "activation": "دعوة إلى Team.",
+        "account": "احتفظ بالبيانات الأصلية",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Jam Team — Creator seat",
+          "source": "https://jam.dev/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "الباقة لمقعد منشئ؛ راجع صلاحيات المقعد قبل الدفع.",
+          "billingLabel": "14 دولارًا شهريًا ×12، فوترة سنوية"
+        },
+        "officialPrice": {
+          "amount": 168,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://jam.dev/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "تتبع الأخطاء والتحليلات"
+    ]
+  },
+  {
+    "id": "readwise-reader",
+    "name": "Readwise + Reader",
+    "category": "الإنتاجية",
+    "logo": "readwise",
+    "status": "available",
+    "description": "حفظ وتنظيم ومراجعة المقالات والكتب والملاحظات.",
+    "plans": [
+      {
+        "name": "Readwise + Reader",
+        "duration": "12 شهر",
+        "price": 650,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Readwise Full + Reader",
+          "source": "https://readwise.io/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "Readwise Full السنوي"
+        },
+        "officialPrice": {
+          "amount": 119.88,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://readwise.io/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "logoUrl": "logos/readwise.svg?v=20261027-hq1",
+    "categories": [
+      "قراءة وحفظ المراجع"
+    ]
+  },
+  {
+    "id": "waking-up",
+    "name": "Waking Up",
+    "category": "الإنتاجية",
+    "logo": "wakingup",
+    "logoUrl": "logos/wakingup.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "اشتراك كامل في تطبيق Waking Up.",
+    "plans": [
+      {
+        "name": "اشتراك كامل",
+        "duration": "12 شهر",
+        "price": 650,
+        "activation": "تسليم حساب جاهز.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Waking Up — Annual",
+          "source": "https://www.wakingup.com/checkout",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "اشتراك Annual"
+        },
+        "officialPrice": {
+          "amount": 129.99,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://www.wakingup.com/checkout",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "تأمل واسترخاء"
+    ]
+  },
+  {
+    "id": "linear-business",
+    "name": "Linear Business",
+    "category": "الإنتاجية",
+    "logo": "linear",
+    "logoUrl": "logos/linear.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "إدارة المشاريع والمهام للفرق بخطة Business.",
+    "plans": [
+      {
+        "name": "Business",
+        "duration": "5 شهور",
+        "price": 600,
+        "activation": "دعوة أو حساب.",
+        "account": "حسب المتوفر",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Linear Business — مقعد واحد",
+          "source": "https://linear.app/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "الباقة مؤكدة بالاسم، لكن عرض 5 شهور لا يطابق التزام الفوترة السنوية الظاهر في الصفحة؛ لم نحسب خصمًا.",
+          "rawPrice": {
+            "amount": 192,
+            "currency": "USD",
+            "label": "16 دولارًا شهريًا ×12 — التزام سنوي"
+          }
+        }
+      }
+    ],
+    "categories": [
+      "إدارة مشاريع وفرق"
+    ]
+  },
+  {
+    "id": "posthog-scale",
+    "name": "PostHog Scale",
+    "category": "الإنتاجية",
+    "logo": "posthog",
+    "logoUrl": "logos/posthog.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "تحليلات المنتجات وسلوك المستخدمين وفق خطة Scale.",
+    "plans": [
+      {
+        "name": "Scale",
+        "duration": "12 شهر",
+        "price": 1200,
+        "activation": "تسليم حساب.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "PostHog — تسعير حسب الاستهلاك",
+          "source": "https://posthog.com/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "لا توجد قيمة اشتراك ثابتة لـScale لمدة سنة؛ المنتج وحجم الاستهلاك مطلوبان لحساب السعر."
+        }
+      }
+    ],
+    "categories": [
+      "تتبع الأخطاء والتحليلات"
+    ]
+  },
+  {
+    "id": "customerio-essentials",
+    "name": "Customer.io Essentials",
+    "category": "الإنتاجية",
+    "logo": "customerio",
+    "logoUrl": "logos/customerio.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "أدوات الرسائل والتواصل الآلي مع العملاء.",
+    "plans": [
+      {
+        "name": "Essentials",
+        "duration": "12 شهر",
+        "price": 650,
+        "activation": "تسليم حساب.",
+        "account": "بيانات دخول الحساب",
+        "warranty": "ضمان كامل",
+        "priceComparison": {
+          "planName": "Customer.io Essentials — أقل سعة",
+          "source": "https://customer.io/pricing",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "العدد الفعلي للملفات الشخصية والاستهلاك يُراجع قبل الدفع.",
+          "billingLabel": "بداية 100 دولار شهريًا ×12"
+        },
+        "officialPrice": {
+          "amount": 1200,
+          "currency": "USD",
+          "months": 12,
+          "basis": "reference",
+          "source": "https://customer.io/pricing",
+          "checkedAt": "2026-10-08"
+        }
+      }
+    ],
+    "categories": [
+      "تسويق وتواصل مع العملاء"
+    ]
+  },
+  {
+    "id": "replit-core",
+    "name": "Replit Core",
+    "category": "البرمجة وتطوير المواقع",
+    "logo": "replit",
+    "logoUrl": "logos/replit.svg",
+    "status": "available",
+    "description": "Replit Core لمدة سنة كاملة بسعر 3000 جنيه: حساب خاص جاهز أو تفعيل على إيميلك، بضمان كامل طوال السنة.",
+    "features": [
+      "بناء وتعديل المواقع والتطبيقات بمساعدة الذكاء الاصطناعي.",
+      "كتابة وتشغيل الكود من المتصفح.",
+      "إدارة المشاريع وبيئة التطوير في مكان واحد.",
+      "اشتراك Core لمدة 12 شهرًا.",
+      "ضمان كامل طوال مدة الاشتراك.",
+      "تسليم حساب خاص جاهز أو تفعيل على إيميلك."
+    ],
+    "plans": [
+      {
+        "name": "Core — سنة كاملة",
+        "planType": "Core",
+        "duration": "12 شهر",
+        "price": 3000,
+        "available": true,
+        "activation": "تسليم حساب خاص جاهز أو تفعيل مباشر على إيميلك، حسب اختيارك.",
+        "account": "حساب خاص جاهز أو على إيميلك",
+        "warranty": "ضمان كامل لمدة 12 شهرًا",
+        "notes": [
+          "موارد الذكاء الاصطناعي والنشر حسب حدود خطة Core؛ الاستهلاك الإضافي ليس مشمولًا بسعر الاشتراك."
+        ]
+      }
+    ],
+    "categories": [
+      "بناء مواقع وتطبيقات بالذكاء الاصطناعي"
+    ]
+  },
+  {
+    "id": "miro-pro",
+    "name": "Miro",
+    "category": "الإنتاجية",
+    "categories": [
+      "خرائط ذهنية وسبورات تعاونية",
+      "إدارة مشاريع وفرق"
+    ],
+    "logo": "miro",
+    "logoUrl": "logos/miro.svg",
+    "status": "available",
+    "description": "سبورة تعاونية لتنظيم الأفكار والخرائط الذهنية والتخطيط مع فريقك. باقة Pro لمدة 3 شهور بسعر 600 جنيه، على إيميلك بضمان كامل.",
+    "features": [
+      "سبورة أونلاين للتعاون وتنظيم الأفكار.",
+      "إنشاء خرائط ذهنية ومخططات للعمل.",
+      "تخطيط المشاريع وورش العمل مع الفريق.",
+      "تفعيل على إيميلك لمدة 3 شهور.",
+      "ضمان كامل طوال مدة الاشتراك."
+    ],
+    "plans": [
+      {
+        "name": "Pro — 3 شهور",
+        "planType": "Pro",
+        "duration": "3 شهور",
+        "price": 600,
+        "available": true,
+        "activation": "تفعيل اشتراك Miro على إيميلك الشخصي.",
+        "account": "على إيميلك الشخصي",
+        "warranty": "ضمان كامل لمدة 3 شهور"
+      }
+    ]
+  }
+];
+
+const categoryGroups = {"الفيديو": ["توليد فيديو بالذكاء الاصطناعي", "أفاتار وفيديو ناطق", "مونتاج وتحسين الفيديو", "قوالب ومؤثرات فيديو"], "الصور والتصميم": ["نمذجة وتصميم ثلاثي الأبعاد", "توليد صور بالذكاء الاصطناعي", "تعديل الصور والتصميم", "صور وقوالب وموارد جاهزة", "تصميم واجهات التطبيقات"], "الصوت": ["تعليق صوتي وتحويل النص لصوت", "توليد موسيقى وأغاني", "إملاء صوتي وتحويل الكلام لنص", "تسجيل وتلخيص الاجتماعات"], "البرمجة والمواقع": ["مساعد كتابة الكود", "بناء مواقع وتطبيقات بالذكاء الاصطناعي", "تصميم ونشر المواقع", "قواعد بيانات واستضافة", "تتبع الأخطاء والتحليلات"], "الكتابة والبحث": ["محادثة ومساعد ذكي", "بحث وإجابات بالمصادر", "تدقيق وإعادة صياغة", "فحص تشابه ومحتوى أكاديمي", "قراءة وحفظ المراجع"], "التعليم": ["كورسات وتعلم مهني", "تعلم اللغات والنطق", "اختبارات وأنشطة تعليمية", "أدوات للمعلمين"], "العمل والإنتاجية": ["خرائط ذهنية وسبورات تعاونية", "عروض تقديمية", "مستندات وجداول وملاحظات", "ملفات PDF", "أتمتة المهام", "إدارة مشاريع وفرق", "اجتماعات ومكالمات", "تسويق وتواصل مع العملاء", "تطوير مهني وتوظيف", "تخزين سحابي", "تفعيل ويندوز"], "الترفيه": ["موسيقى واستماع", "فيديو وبث وقنوات", "تواصل ومجتمعات", "تأمل واسترخاء"], "الحماية والاتصالات": ["مكافحة الفيروسات وحماية الأجهزة", "VPN وخصوصية", "عروض الإنترنت المنزلي"]};
+const categoryOrder = Object.keys(categoryGroups);
+function getProduct(id){ return products.find(p => p.id === id); }
+function formatPrice(value){ return Number(value).toLocaleString("en-US") + " ج"; }
+function startingPrice(product){
+  if(!product.plans || !product.plans.length) return "—";
+  const nums = product.plans.map(p => Number(p.price)).filter(Number.isFinite);
+  if(!nums.length) return "—";
+  return formatPrice(Math.min(...nums));
+}
+function statusLabel(status){
+  return status === "available" ? "متاح" : status === "soon" ? "قريبًا" : "غير متوفر";
+}
+window.MasterCatalog={products,categoryOrder,categoryGroups,getProduct,formatPrice,startingPrice,statusLabel};
+
+
