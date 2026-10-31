@@ -410,8 +410,36 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
   "على إيميلك الشخصي": "On your personal email",
   "ضمان لمدة شهر واحد": "One-month warranty"
 });
+  Object.assign(exactArToEn,{
+  "مكافحة الفيروسات وحماية الأجهزة": "Antivirus and device security",
+  "Kaspersky Premium لمدة سنة لجهاز واحد.": "Kaspersky Premium for one year on one device.",
+  "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.": "Protection against malware and phishing within the features supported by the activated version.",
+  "ضمان 300 يوم وفق شروط العرض وسياسة المتجر.": "300-day warranty under the offer terms and store policy.",
+  "يشمل عرض المتجر VPN Premium؛ التوفر والبلدان المدعومة تُراجع قبل الدفع.": "This store offer includes Premium VPN; confirm supported countries and availability before payment.",
+  "ترخيص لجهاز يعمل بنظام Windows؛ لا يشمل تفعيل أنظمة أخرى.": "For a Windows device; activation on other operating systems is not included.",
+  "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.": "One-year access on one device; the warranty period is stated separately.",
+  "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.": "Confirm delivery method, licence type and activation country with support before payment.",
+  "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.": "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+  "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك.": "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups.",
+  "سنة — جهاز واحد — Windows": "1 year — 1 device — Windows",
+  "تفعيل لجهاز واحد": "Activation for one device",
+  "طريقة التسليم والتفعيل تُؤكد مع الدعم قبل الدفع.": "Confirm delivery and activation with support before payment.",
+  "ضمان 300 يوم": "300-day warranty",
+  "Avast Premium Security + VPN لمدة سنة لجهاز واحد.": "Avast Premium Security + VPN for one year on one device.",
+  "ضمان 320 يوم وفق شروط العرض وسياسة المتجر.": "320-day warranty under the offer terms and store policy.",
+  "نظام التشغيل والإصدار المدعومان يُؤكدان قبل الدفع؛ لا تفترض أن كل ترخيص يعمل على Windows وMac وأندرويد وآيفون معًا.": "Confirm the supported operating system and version before payment; do not assume a licence covers Windows, Mac, Android and iPhone together.",
+  "VPN جزء من عرض المتجر المحدد؛ لا تعني تسمية Premium Security وحدها أن كل نسخة من المزود تشمل VPN.": "VPN is part of this specific store offer; the Premium Security name alone does not mean every provider edition includes VPN.",
+  "على iPhone تركز أدوات الحماية على الروابط والخصوصية؛ لا تقوم بفحص النظام والتطبيقات الأخرى مثل برامج Windows.": "On iPhone, security tools focus on links and privacy rather than scanning the system and other apps as on Windows.",
+  "سنة — جهاز واحد": "1 year — 1 device",
+  "ضمان 320 يوم": "320-day warranty",
+  "McAfee Total Protection لمدة سنة لجهاز واحد.": "McAfee Total Protection for one year on one device.",
+  "ضمان لمدة سنة وفق شروط العرض وسياسة المتجر.": "One-year warranty under the offer terms and store policy.",
+  "ضمان لمدة سنة": "One-year warranty",
+  "Norton 360 Premium لمدة سنة لجهاز واحد.": "Norton 360 Premium for one year on one device."
+});
   function catalogText(value,kind,productId){
     const raw=String(value??"");
+    if(state.language==="en"&&["kaspersky-premium", "avast-premium", "mcafee-total-protection", "norton-360-premium"].includes(productId)){if(kind==="description")return window.MasterCatalog.getProduct(productId).descriptionEn;if(exactArToEn[raw])return exactArToEn[raw];}
     if(state.language==="en"&&["lovable-pro","chatgpt-plus","hostinger","grok-cursor-premium"].includes(productId)){if(kind==="description")return window.MasterCatalog.getProduct(productId).descriptionEn;if(exactArToEn[raw])return exactArToEn[raw];}
     if(state.language==="en"&&["gemini-pro","google-ai-plus"].includes(productId)){if(kind==="description")return window.MasterCatalog.getProduct(productId).descriptionEn;if(exactArToEn[raw])return exactArToEn[raw];}
     if(state.language==="en"&&productId==="freepik"){if(kind==="description")return window.MasterCatalog.getProduct(productId).descriptionEn;if(exactArToEn[raw])return exactArToEn[raw];}

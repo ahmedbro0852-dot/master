@@ -1,5 +1,325 @@
 const products = [
 {
+  "id": "kaspersky-premium",
+  "name": "Kaspersky Premium",
+  "category": "الحماية والاتصالات",
+  "categories": [
+    "مكافحة الفيروسات وحماية الأجهزة"
+  ],
+  "logo": "kaspersky",
+  "logoUrl": "logos/kaspersky.svg?v=20261031-security1",
+  "status": "available",
+  "description": "اشتراك Kaspersky Premium لمدة سنة على جهاز واحد بسعر 800 جنيه، لنظام Windows، مع VPN Premium، ضمان 300 يوم. راجع توافق الجهاز وبلد التفعيل وطريقة التسليم قبل الطلب.",
+  "descriptionEn": "Kaspersky Premium for one year on one device at EGP 800, for Windows, with Premium VPN, 300-day warranty. Check device compatibility, activation country and delivery before ordering.",
+  "features": [
+    "Kaspersky Premium لمدة سنة لجهاز واحد.",
+    "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+    "ضمان 300 يوم وفق شروط العرض وسياسة المتجر.",
+    "يشمل عرض المتجر VPN Premium؛ التوفر والبلدان المدعومة تُراجع قبل الدفع.",
+    "ترخيص لجهاز يعمل بنظام Windows؛ لا يشمل تفعيل أنظمة أخرى."
+  ],
+  "featuresEn": [
+    "Kaspersky Premium for one year on one device.",
+    "Protection against malware and phishing within the features supported by the activated version.",
+    "300-day warranty under the offer terms and store policy.",
+    "This store offer includes Premium VPN; confirm supported countries and availability before payment.",
+    "For a Windows device; activation on other operating systems is not included."
+  ],
+  "notes": [
+    "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+    "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+    "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+    "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك."
+  ],
+  "notesEn": [
+    "One-year access on one device; the warranty period is stated separately.",
+    "Confirm delivery method, licence type and activation country with support before payment.",
+    "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+    "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups."
+  ],
+  "plans": [
+    {
+      "name": "سنة — جهاز واحد — Windows",
+      "planType": "Kaspersky Premium",
+      "duration": "12 شهر",
+      "price": 800,
+      "available": true,
+      "account": "تفعيل لجهاز واحد",
+      "accountType": "تفعيل لجهاز واحد",
+      "activation": "طريقة التسليم والتفعيل تُؤكد مع الدعم قبل الدفع.",
+      "warranty": "ضمان 300 يوم",
+      "features": [
+        "Kaspersky Premium لمدة سنة لجهاز واحد.",
+        "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+        "ضمان 300 يوم وفق شروط العرض وسياسة المتجر.",
+        "يشمل عرض المتجر VPN Premium؛ التوفر والبلدان المدعومة تُراجع قبل الدفع.",
+        "ترخيص لجهاز يعمل بنظام Windows؛ لا يشمل تفعيل أنظمة أخرى."
+      ],
+      "featuresEn": [
+        "Kaspersky Premium for one year on one device.",
+        "Protection against malware and phishing within the features supported by the activated version.",
+        "300-day warranty under the offer terms and store policy.",
+        "This store offer includes Premium VPN; confirm supported countries and availability before payment.",
+        "For a Windows device; activation on other operating systems is not included."
+      ],
+      "notes": [
+        "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+        "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+        "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+        "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك."
+      ],
+      "notesEn": [
+        "One-year access on one device; the warranty period is stated separately.",
+        "Confirm delivery method, licence type and activation country with support before payment.",
+        "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+        "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups."
+      ]
+    }
+  ]
+},
+{
+  "id": "avast-premium",
+  "name": "Avast Premium Security + VPN",
+  "category": "الحماية والاتصالات",
+  "categories": [
+    "مكافحة الفيروسات وحماية الأجهزة"
+  ],
+  "logo": "avast",
+  "logoUrl": "logos/avast.svg?v=20261031-security1",
+  "status": "available",
+  "description": "اشتراك Avast Premium Security + VPN لمدة سنة على جهاز واحد بسعر 300 جنيه، مع VPN Premium، ضمان 320 يوم. راجع توافق الجهاز وبلد التفعيل وطريقة التسليم قبل الطلب.",
+  "descriptionEn": "Avast Premium Security + VPN for one year on one device at EGP 300, with Premium VPN, 320-day warranty. Check device compatibility, activation country and delivery before ordering.",
+  "features": [
+    "Avast Premium Security + VPN لمدة سنة لجهاز واحد.",
+    "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+    "ضمان 320 يوم وفق شروط العرض وسياسة المتجر.",
+    "يشمل عرض المتجر VPN Premium؛ التوفر والبلدان المدعومة تُراجع قبل الدفع."
+  ],
+  "featuresEn": [
+    "Avast Premium Security + VPN for one year on one device.",
+    "Protection against malware and phishing within the features supported by the activated version.",
+    "320-day warranty under the offer terms and store policy.",
+    "This store offer includes Premium VPN; confirm supported countries and availability before payment."
+  ],
+  "notes": [
+    "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+    "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+    "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+    "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك.",
+    "نظام التشغيل والإصدار المدعومان يُؤكدان قبل الدفع؛ لا تفترض أن كل ترخيص يعمل على Windows وMac وأندرويد وآيفون معًا.",
+    "VPN جزء من عرض المتجر المحدد؛ لا تعني تسمية Premium Security وحدها أن كل نسخة من المزود تشمل VPN.",
+    "على iPhone تركز أدوات الحماية على الروابط والخصوصية؛ لا تقوم بفحص النظام والتطبيقات الأخرى مثل برامج Windows."
+  ],
+  "notesEn": [
+    "One-year access on one device; the warranty period is stated separately.",
+    "Confirm delivery method, licence type and activation country with support before payment.",
+    "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+    "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups.",
+    "Confirm the supported operating system and version before payment; do not assume a licence covers Windows, Mac, Android and iPhone together.",
+    "VPN is part of this specific store offer; the Premium Security name alone does not mean every provider edition includes VPN.",
+    "On iPhone, security tools focus on links and privacy rather than scanning the system and other apps as on Windows."
+  ],
+  "plans": [
+    {
+      "name": "سنة — جهاز واحد",
+      "planType": "Avast Premium Security + VPN",
+      "duration": "12 شهر",
+      "price": 300,
+      "available": true,
+      "account": "تفعيل لجهاز واحد",
+      "accountType": "تفعيل لجهاز واحد",
+      "activation": "طريقة التسليم والتفعيل تُؤكد مع الدعم قبل الدفع.",
+      "warranty": "ضمان 320 يوم",
+      "features": [
+        "Avast Premium Security + VPN لمدة سنة لجهاز واحد.",
+        "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+        "ضمان 320 يوم وفق شروط العرض وسياسة المتجر.",
+        "يشمل عرض المتجر VPN Premium؛ التوفر والبلدان المدعومة تُراجع قبل الدفع."
+      ],
+      "featuresEn": [
+        "Avast Premium Security + VPN for one year on one device.",
+        "Protection against malware and phishing within the features supported by the activated version.",
+        "320-day warranty under the offer terms and store policy.",
+        "This store offer includes Premium VPN; confirm supported countries and availability before payment."
+      ],
+      "notes": [
+        "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+        "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+        "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+        "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك.",
+        "نظام التشغيل والإصدار المدعومان يُؤكدان قبل الدفع؛ لا تفترض أن كل ترخيص يعمل على Windows وMac وأندرويد وآيفون معًا.",
+        "VPN جزء من عرض المتجر المحدد؛ لا تعني تسمية Premium Security وحدها أن كل نسخة من المزود تشمل VPN.",
+        "على iPhone تركز أدوات الحماية على الروابط والخصوصية؛ لا تقوم بفحص النظام والتطبيقات الأخرى مثل برامج Windows."
+      ],
+      "notesEn": [
+        "One-year access on one device; the warranty period is stated separately.",
+        "Confirm delivery method, licence type and activation country with support before payment.",
+        "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+        "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups.",
+        "Confirm the supported operating system and version before payment; do not assume a licence covers Windows, Mac, Android and iPhone together.",
+        "VPN is part of this specific store offer; the Premium Security name alone does not mean every provider edition includes VPN.",
+        "On iPhone, security tools focus on links and privacy rather than scanning the system and other apps as on Windows."
+      ]
+    }
+  ]
+},
+{
+  "id": "mcafee-total-protection",
+  "name": "McAfee Total Protection",
+  "category": "الحماية والاتصالات",
+  "categories": [
+    "مكافحة الفيروسات وحماية الأجهزة"
+  ],
+  "logo": "mcafee",
+  "logoUrl": "logos/mcafee.svg?v=20261031-security1",
+  "status": "available",
+  "description": "اشتراك McAfee Total Protection لمدة سنة على جهاز واحد بسعر 450 جنيه، ضمان لمدة سنة. راجع توافق الجهاز وبلد التفعيل وطريقة التسليم قبل الطلب.",
+  "descriptionEn": "McAfee Total Protection for one year on one device at EGP 450, one-year warranty. Check device compatibility, activation country and delivery before ordering.",
+  "features": [
+    "McAfee Total Protection لمدة سنة لجهاز واحد.",
+    "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+    "ضمان لمدة سنة وفق شروط العرض وسياسة المتجر."
+  ],
+  "featuresEn": [
+    "McAfee Total Protection for one year on one device.",
+    "Protection against malware and phishing within the features supported by the activated version.",
+    "One-year warranty under the offer terms and store policy."
+  ],
+  "notes": [
+    "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+    "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+    "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+    "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك.",
+    "نظام التشغيل والإصدار المدعومان يُؤكدان قبل الدفع؛ لا تفترض أن كل ترخيص يعمل على Windows وMac وأندرويد وآيفون معًا.",
+    "على iPhone تركز أدوات الحماية على الروابط والخصوصية؛ لا تقوم بفحص النظام والتطبيقات الأخرى مثل برامج Windows."
+  ],
+  "notesEn": [
+    "One-year access on one device; the warranty period is stated separately.",
+    "Confirm delivery method, licence type and activation country with support before payment.",
+    "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+    "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups.",
+    "Confirm the supported operating system and version before payment; do not assume a licence covers Windows, Mac, Android and iPhone together.",
+    "On iPhone, security tools focus on links and privacy rather than scanning the system and other apps as on Windows."
+  ],
+  "plans": [
+    {
+      "name": "سنة — جهاز واحد",
+      "planType": "McAfee Total Protection",
+      "duration": "12 شهر",
+      "price": 450,
+      "available": true,
+      "account": "تفعيل لجهاز واحد",
+      "accountType": "تفعيل لجهاز واحد",
+      "activation": "طريقة التسليم والتفعيل تُؤكد مع الدعم قبل الدفع.",
+      "warranty": "ضمان لمدة سنة",
+      "features": [
+        "McAfee Total Protection لمدة سنة لجهاز واحد.",
+        "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+        "ضمان لمدة سنة وفق شروط العرض وسياسة المتجر."
+      ],
+      "featuresEn": [
+        "McAfee Total Protection for one year on one device.",
+        "Protection against malware and phishing within the features supported by the activated version.",
+        "One-year warranty under the offer terms and store policy."
+      ],
+      "notes": [
+        "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+        "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+        "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+        "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك.",
+        "نظام التشغيل والإصدار المدعومان يُؤكدان قبل الدفع؛ لا تفترض أن كل ترخيص يعمل على Windows وMac وأندرويد وآيفون معًا.",
+        "على iPhone تركز أدوات الحماية على الروابط والخصوصية؛ لا تقوم بفحص النظام والتطبيقات الأخرى مثل برامج Windows."
+      ],
+      "notesEn": [
+        "One-year access on one device; the warranty period is stated separately.",
+        "Confirm delivery method, licence type and activation country with support before payment.",
+        "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+        "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups.",
+        "Confirm the supported operating system and version before payment; do not assume a licence covers Windows, Mac, Android and iPhone together.",
+        "On iPhone, security tools focus on links and privacy rather than scanning the system and other apps as on Windows."
+      ]
+    }
+  ]
+},
+{
+  "id": "norton-360-premium",
+  "name": "Norton 360 Premium",
+  "category": "الحماية والاتصالات",
+  "categories": [
+    "مكافحة الفيروسات وحماية الأجهزة"
+  ],
+  "logo": "norton",
+  "logoUrl": "logos/norton.svg?v=20261031-security1",
+  "status": "available",
+  "description": "اشتراك Norton 360 Premium لمدة سنة على جهاز واحد بسعر 750 جنيه، ضمان لمدة سنة. راجع توافق الجهاز وبلد التفعيل وطريقة التسليم قبل الطلب.",
+  "descriptionEn": "Norton 360 Premium for one year on one device at EGP 750, one-year warranty. Check device compatibility, activation country and delivery before ordering.",
+  "features": [
+    "Norton 360 Premium لمدة سنة لجهاز واحد.",
+    "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+    "ضمان لمدة سنة وفق شروط العرض وسياسة المتجر."
+  ],
+  "featuresEn": [
+    "Norton 360 Premium for one year on one device.",
+    "Protection against malware and phishing within the features supported by the activated version.",
+    "One-year warranty under the offer terms and store policy."
+  ],
+  "notes": [
+    "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+    "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+    "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+    "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك.",
+    "نظام التشغيل والإصدار المدعومان يُؤكدان قبل الدفع؛ لا تفترض أن كل ترخيص يعمل على Windows وMac وأندرويد وآيفون معًا.",
+    "على iPhone تركز أدوات الحماية على الروابط والخصوصية؛ لا تقوم بفحص النظام والتطبيقات الأخرى مثل برامج Windows."
+  ],
+  "notesEn": [
+    "One-year access on one device; the warranty period is stated separately.",
+    "Confirm delivery method, licence type and activation country with support before payment.",
+    "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+    "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups.",
+    "Confirm the supported operating system and version before payment; do not assume a licence covers Windows, Mac, Android and iPhone together.",
+    "On iPhone, security tools focus on links and privacy rather than scanning the system and other apps as on Windows."
+  ],
+  "plans": [
+    {
+      "name": "سنة — جهاز واحد",
+      "planType": "Norton 360 Premium",
+      "duration": "12 شهر",
+      "price": 750,
+      "available": true,
+      "account": "تفعيل لجهاز واحد",
+      "accountType": "تفعيل لجهاز واحد",
+      "activation": "طريقة التسليم والتفعيل تُؤكد مع الدعم قبل الدفع.",
+      "warranty": "ضمان لمدة سنة",
+      "features": [
+        "Norton 360 Premium لمدة سنة لجهاز واحد.",
+        "حماية من البرمجيات الضارة والتصيد ضمن المزايا المدعومة للنسخة المفعّلة.",
+        "ضمان لمدة سنة وفق شروط العرض وسياسة المتجر."
+      ],
+      "featuresEn": [
+        "Norton 360 Premium for one year on one device.",
+        "Protection against malware and phishing within the features supported by the activated version.",
+        "One-year warranty under the offer terms and store policy."
+      ],
+      "notes": [
+        "اشتراك لمدة سنة على جهاز واحد؛ مدة الضمان موضحة بشكل مستقل.",
+        "طريقة التسليم ونوع الترخيص وبلد التفعيل تُؤكد مع الدعم قبل الدفع.",
+        "لا ترسل كلمات المرور أو أكواد التحقق في المحادثة؛ أكمل تسجيل الدخول المطلوب داخل موقع المزود بنفسك.",
+        "الحماية تقلل المخاطر ولا تضمن منع كل هجمة؛ حدّث النظام واحتفظ بنسخة احتياطية من ملفاتك.",
+        "نظام التشغيل والإصدار المدعومان يُؤكدان قبل الدفع؛ لا تفترض أن كل ترخيص يعمل على Windows وMac وأندرويد وآيفون معًا.",
+        "على iPhone تركز أدوات الحماية على الروابط والخصوصية؛ لا تقوم بفحص النظام والتطبيقات الأخرى مثل برامج Windows."
+      ],
+      "notesEn": [
+        "One-year access on one device; the warranty period is stated separately.",
+        "Confirm delivery method, licence type and activation country with support before payment.",
+        "Do not send passwords or verification codes in chat; complete any required provider sign-in yourself.",
+        "Protection reduces risk but cannot guarantee blocking every attack; update your system and keep backups.",
+        "Confirm the supported operating system and version before payment; do not assume a licence covers Windows, Mac, Android and iPhone together.",
+        "On iPhone, security tools focus on links and privacy rather than scanning the system and other apps as on Windows."
+      ]
+    }
+  ]
+},
+{
   "id": "grok-cursor-premium",
   "name": "Grok Premium + Cursor Premium",
   "category": "البرمجة وتطوير المواقع",
@@ -7813,7 +8133,7 @@ const products = [
   }
 ];
 
-const categoryGroups = {"الفيديو": ["توليد فيديو بالذكاء الاصطناعي", "أفاتار وفيديو ناطق", "مونتاج وتحسين الفيديو", "قوالب ومؤثرات فيديو"], "الصور والتصميم": ["توليد صور بالذكاء الاصطناعي", "تعديل الصور والتصميم", "صور وقوالب وموارد جاهزة", "تصميم واجهات التطبيقات"], "الصوت": ["تعليق صوتي وتحويل النص لصوت", "توليد موسيقى وأغاني", "إملاء صوتي وتحويل الكلام لنص", "تسجيل وتلخيص الاجتماعات"], "البرمجة والمواقع": ["مساعد كتابة الكود", "بناء مواقع وتطبيقات بالذكاء الاصطناعي", "تصميم ونشر المواقع", "قواعد بيانات واستضافة", "تتبع الأخطاء والتحليلات"], "الكتابة والبحث": ["محادثة ومساعد ذكي", "بحث وإجابات بالمصادر", "تدقيق وإعادة صياغة", "فحص تشابه ومحتوى أكاديمي", "قراءة وحفظ المراجع"], "التعليم": ["كورسات وتعلم مهني", "تعلم اللغات والنطق", "اختبارات وأنشطة تعليمية", "أدوات للمعلمين"], "العمل والإنتاجية": ["خرائط ذهنية وسبورات تعاونية", "عروض تقديمية", "مستندات وجداول وملاحظات", "ملفات PDF", "أتمتة المهام", "إدارة مشاريع وفرق", "اجتماعات ومكالمات", "تسويق وتواصل مع العملاء", "تطوير مهني وتوظيف", "تخزين سحابي", "تفعيل ويندوز"], "الترفيه": ["موسيقى واستماع", "فيديو وبث وقنوات", "تواصل ومجتمعات", "تأمل واسترخاء"], "الحماية والاتصالات": ["VPN وخصوصية", "عروض الإنترنت المنزلي"]};
+const categoryGroups = {"الفيديو": ["توليد فيديو بالذكاء الاصطناعي", "أفاتار وفيديو ناطق", "مونتاج وتحسين الفيديو", "قوالب ومؤثرات فيديو"], "الصور والتصميم": ["توليد صور بالذكاء الاصطناعي", "تعديل الصور والتصميم", "صور وقوالب وموارد جاهزة", "تصميم واجهات التطبيقات"], "الصوت": ["تعليق صوتي وتحويل النص لصوت", "توليد موسيقى وأغاني", "إملاء صوتي وتحويل الكلام لنص", "تسجيل وتلخيص الاجتماعات"], "البرمجة والمواقع": ["مساعد كتابة الكود", "بناء مواقع وتطبيقات بالذكاء الاصطناعي", "تصميم ونشر المواقع", "قواعد بيانات واستضافة", "تتبع الأخطاء والتحليلات"], "الكتابة والبحث": ["محادثة ومساعد ذكي", "بحث وإجابات بالمصادر", "تدقيق وإعادة صياغة", "فحص تشابه ومحتوى أكاديمي", "قراءة وحفظ المراجع"], "التعليم": ["كورسات وتعلم مهني", "تعلم اللغات والنطق", "اختبارات وأنشطة تعليمية", "أدوات للمعلمين"], "العمل والإنتاجية": ["خرائط ذهنية وسبورات تعاونية", "عروض تقديمية", "مستندات وجداول وملاحظات", "ملفات PDF", "أتمتة المهام", "إدارة مشاريع وفرق", "اجتماعات ومكالمات", "تسويق وتواصل مع العملاء", "تطوير مهني وتوظيف", "تخزين سحابي", "تفعيل ويندوز"], "الترفيه": ["موسيقى واستماع", "فيديو وبث وقنوات", "تواصل ومجتمعات", "تأمل واسترخاء"], "الحماية والاتصالات": ["مكافحة الفيروسات وحماية الأجهزة", "VPN وخصوصية", "عروض الإنترنت المنزلي"]};
 const categoryOrder = Object.keys(categoryGroups);
 function getProduct(id){ return products.find(p => p.id === id); }
 function formatPrice(value){ return Number(value).toLocaleString("en-US") + " ج"; }

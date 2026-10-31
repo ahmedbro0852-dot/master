@@ -1,5 +1,109 @@
 /* Service-specific editorial explanations; commercial terms stay in catalog.js. */
 (function(root,factory){const value=factory();if(typeof module==='object'&&module.exports)module.exports=value;else root.MasterProductGuideProfiles=value;})(typeof window==='undefined'?globalThis:window,function(){return {
+"kaspersky-premium":{
+  "intro": "اشتراك Kaspersky Premium لمدة سنة على جهاز واحد بسعر 800 جنيه، لنظام Windows، مع VPN Premium، ضمان 300 يوم. راجع توافق الجهاز وبلد التفعيل وطريقة التسليم قبل الطلب.",
+  "introEn": "Kaspersky Premium for one year on one device at EGP 800, for Windows, with Premium VPN, 300-day warranty. Check device compatibility, activation country and delivery before ordering.",
+  "workflow": "ابدأ بتأكيد نظام جهازك وإصداره وبلد التفعيل مع الدعم. بعد استلام خطوات التفعيل، استخدم الموقع الرسمي للمزود لتنزيل النسخة المطابقة، وفعّل الاشتراك حسب التعليمات، ثم حدّث البرنامج وشغّل الفحص الأول للأدوات المدعومة. احتفظ برقم الطلب وتاريخ انتهاء الاشتراك.",
+  "workflowEn": "First confirm your device operating system, version and activation country with support. Once activation instructions arrive, download the matching application from the provider’s official website, activate as instructed, update it and run the initial checks available on your platform. Keep your order number and expiry date.",
+  "check": "هذا العرض لجهاز واحد لمدة سنة. ضمان 300 يوم؛ لا تخلط بين مدة الاشتراك والضمان. راجع توافق الجهاز وطريقة التسليم قبل الدفع، ولا تفترض وجود مزايا أو سعة VPN أو تخزين سحابي لم تُذكر في العرض.",
+  "checkEn": "This offer covers one device for one year. 300-day warranty; subscription term and warranty are separate. Confirm compatibility and delivery before payment; do not assume unspecified features, VPN allowances or cloud storage.",
+  "sections": [
+    {
+      "id": "setup-and-use",
+      "title": "التفعيل والاستخدام اليومي",
+      "titleEn": "Activation and everyday use",
+      "paragraphs": [
+        "استخدم النسخة المناسبة لنظام جهازك، ولا تثبت عدة برامج مكافحة فيروسات تعمل بالحماية الفورية في الوقت نفسه على الكمبيوتر. راجع حالة الاشتراك والتحديثات من داخل البرنامج بعد التفعيل. تختلف الأدوات بين Windows وMac وأندرويد وiOS.",
+        "ابدأ بفحص الملفات أو مراجعة أمان الجهاز حسب الوظائف المدعومة. عند ظهور تحذير، اقرأ تفاصيل الملف أو الرابط بدل تجاهله تلقائيًا. أدوات الحماية تكمل عادات الاستخدام الآمن؛ لا تجعل الرسائل المشبوهة أو تنزيل البرامج المقرصنة آمنة."
+      ],
+      "paragraphsEn": [
+        "Use the edition matching your device. Avoid running several real-time antivirus engines simultaneously on a computer. After activation, check subscription status and updates in the application. Tools differ across Windows, Mac, Android and iOS.",
+        "Start with file scanning or device-security checks where supported. Read alerts about files or links instead of automatically dismissing them. Security tools complement safe habits; they do not make suspicious messages or pirated downloads safe."
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.kaspersky.com/premium"
+  ]
+},
+"avast-premium":{
+  "intro": "اشتراك Avast Premium Security + VPN لمدة سنة على جهاز واحد بسعر 300 جنيه، مع VPN Premium، ضمان 320 يوم. راجع توافق الجهاز وبلد التفعيل وطريقة التسليم قبل الطلب.",
+  "introEn": "Avast Premium Security + VPN for one year on one device at EGP 300, with Premium VPN, 320-day warranty. Check device compatibility, activation country and delivery before ordering.",
+  "workflow": "ابدأ بتأكيد نظام جهازك وإصداره وبلد التفعيل مع الدعم. بعد استلام خطوات التفعيل، استخدم الموقع الرسمي للمزود لتنزيل النسخة المطابقة، وفعّل الاشتراك حسب التعليمات، ثم حدّث البرنامج وشغّل الفحص الأول للأدوات المدعومة. احتفظ برقم الطلب وتاريخ انتهاء الاشتراك.",
+  "workflowEn": "First confirm your device operating system, version and activation country with support. Once activation instructions arrive, download the matching application from the provider’s official website, activate as instructed, update it and run the initial checks available on your platform. Keep your order number and expiry date.",
+  "check": "هذا العرض لجهاز واحد لمدة سنة. ضمان 320 يوم؛ لا تخلط بين مدة الاشتراك والضمان. راجع توافق الجهاز وطريقة التسليم قبل الدفع، ولا تفترض وجود مزايا أو سعة VPN أو تخزين سحابي لم تُذكر في العرض.",
+  "checkEn": "This offer covers one device for one year. 320-day warranty; subscription term and warranty are separate. Confirm compatibility and delivery before payment; do not assume unspecified features, VPN allowances or cloud storage.",
+  "sections": [
+    {
+      "id": "setup-and-use",
+      "title": "التفعيل والاستخدام اليومي",
+      "titleEn": "Activation and everyday use",
+      "paragraphs": [
+        "استخدم النسخة المناسبة لنظام جهازك، ولا تثبت عدة برامج مكافحة فيروسات تعمل بالحماية الفورية في الوقت نفسه على الكمبيوتر. راجع حالة الاشتراك والتحديثات من داخل البرنامج بعد التفعيل. تختلف الأدوات بين Windows وMac وأندرويد وiOS.",
+        "ابدأ بفحص الملفات أو مراجعة أمان الجهاز حسب الوظائف المدعومة. عند ظهور تحذير، اقرأ تفاصيل الملف أو الرابط بدل تجاهله تلقائيًا. أدوات الحماية تكمل عادات الاستخدام الآمن؛ لا تجعل الرسائل المشبوهة أو تنزيل البرامج المقرصنة آمنة."
+      ],
+      "paragraphsEn": [
+        "Use the edition matching your device. Avoid running several real-time antivirus engines simultaneously on a computer. After activation, check subscription status and updates in the application. Tools differ across Windows, Mac, Android and iOS.",
+        "Start with file scanning or device-security checks where supported. Read alerts about files or links instead of automatically dismissing them. Security tools complement safe habits; they do not make suspicious messages or pirated downloads safe."
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.avast.com/premium-security"
+  ]
+},
+"mcafee-total-protection":{
+  "intro": "اشتراك McAfee Total Protection لمدة سنة على جهاز واحد بسعر 450 جنيه، ضمان لمدة سنة. راجع توافق الجهاز وبلد التفعيل وطريقة التسليم قبل الطلب.",
+  "introEn": "McAfee Total Protection for one year on one device at EGP 450, one-year warranty. Check device compatibility, activation country and delivery before ordering.",
+  "workflow": "ابدأ بتأكيد نظام جهازك وإصداره وبلد التفعيل مع الدعم. بعد استلام خطوات التفعيل، استخدم الموقع الرسمي للمزود لتنزيل النسخة المطابقة، وفعّل الاشتراك حسب التعليمات، ثم حدّث البرنامج وشغّل الفحص الأول للأدوات المدعومة. احتفظ برقم الطلب وتاريخ انتهاء الاشتراك.",
+  "workflowEn": "First confirm your device operating system, version and activation country with support. Once activation instructions arrive, download the matching application from the provider’s official website, activate as instructed, update it and run the initial checks available on your platform. Keep your order number and expiry date.",
+  "check": "هذا العرض لجهاز واحد لمدة سنة. ضمان لمدة سنة؛ لا تخلط بين مدة الاشتراك والضمان. راجع توافق الجهاز وطريقة التسليم قبل الدفع، ولا تفترض وجود مزايا أو سعة VPN أو تخزين سحابي لم تُذكر في العرض.",
+  "checkEn": "This offer covers one device for one year. One-year warranty; subscription term and warranty are separate. Confirm compatibility and delivery before payment; do not assume unspecified features, VPN allowances or cloud storage.",
+  "sections": [
+    {
+      "id": "setup-and-use",
+      "title": "التفعيل والاستخدام اليومي",
+      "titleEn": "Activation and everyday use",
+      "paragraphs": [
+        "استخدم النسخة المناسبة لنظام جهازك، ولا تثبت عدة برامج مكافحة فيروسات تعمل بالحماية الفورية في الوقت نفسه على الكمبيوتر. راجع حالة الاشتراك والتحديثات من داخل البرنامج بعد التفعيل. تختلف الأدوات بين Windows وMac وأندرويد وiOS.",
+        "ابدأ بفحص الملفات أو مراجعة أمان الجهاز حسب الوظائف المدعومة. عند ظهور تحذير، اقرأ تفاصيل الملف أو الرابط بدل تجاهله تلقائيًا. أدوات الحماية تكمل عادات الاستخدام الآمن؛ لا تجعل الرسائل المشبوهة أو تنزيل البرامج المقرصنة آمنة."
+      ],
+      "paragraphsEn": [
+        "Use the edition matching your device. Avoid running several real-time antivirus engines simultaneously on a computer. After activation, check subscription status and updates in the application. Tools differ across Windows, Mac, Android and iOS.",
+        "Start with file scanning or device-security checks where supported. Read alerts about files or links instead of automatically dismissing them. Security tools complement safe habits; they do not make suspicious messages or pirated downloads safe."
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.mcafee.com/en-us/antivirus/mcafee-total-protection.html"
+  ]
+},
+"norton-360-premium":{
+  "intro": "اشتراك Norton 360 Premium لمدة سنة على جهاز واحد بسعر 750 جنيه، ضمان لمدة سنة. راجع توافق الجهاز وبلد التفعيل وطريقة التسليم قبل الطلب.",
+  "introEn": "Norton 360 Premium for one year on one device at EGP 750, one-year warranty. Check device compatibility, activation country and delivery before ordering.",
+  "workflow": "ابدأ بتأكيد نظام جهازك وإصداره وبلد التفعيل مع الدعم. بعد استلام خطوات التفعيل، استخدم الموقع الرسمي للمزود لتنزيل النسخة المطابقة، وفعّل الاشتراك حسب التعليمات، ثم حدّث البرنامج وشغّل الفحص الأول للأدوات المدعومة. احتفظ برقم الطلب وتاريخ انتهاء الاشتراك.",
+  "workflowEn": "First confirm your device operating system, version and activation country with support. Once activation instructions arrive, download the matching application from the provider’s official website, activate as instructed, update it and run the initial checks available on your platform. Keep your order number and expiry date.",
+  "check": "هذا العرض لجهاز واحد لمدة سنة. ضمان لمدة سنة؛ لا تخلط بين مدة الاشتراك والضمان. راجع توافق الجهاز وطريقة التسليم قبل الدفع، ولا تفترض وجود مزايا أو سعة VPN أو تخزين سحابي لم تُذكر في العرض.",
+  "checkEn": "This offer covers one device for one year. One-year warranty; subscription term and warranty are separate. Confirm compatibility and delivery before payment; do not assume unspecified features, VPN allowances or cloud storage.",
+  "sections": [
+    {
+      "id": "setup-and-use",
+      "title": "التفعيل والاستخدام اليومي",
+      "titleEn": "Activation and everyday use",
+      "paragraphs": [
+        "استخدم النسخة المناسبة لنظام جهازك، ولا تثبت عدة برامج مكافحة فيروسات تعمل بالحماية الفورية في الوقت نفسه على الكمبيوتر. راجع حالة الاشتراك والتحديثات من داخل البرنامج بعد التفعيل. تختلف الأدوات بين Windows وMac وأندرويد وiOS.",
+        "ابدأ بفحص الملفات أو مراجعة أمان الجهاز حسب الوظائف المدعومة. عند ظهور تحذير، اقرأ تفاصيل الملف أو الرابط بدل تجاهله تلقائيًا. أدوات الحماية تكمل عادات الاستخدام الآمن؛ لا تجعل الرسائل المشبوهة أو تنزيل البرامج المقرصنة آمنة."
+      ],
+      "paragraphsEn": [
+        "Use the edition matching your device. Avoid running several real-time antivirus engines simultaneously on a computer. After activation, check subscription status and updates in the application. Tools differ across Windows, Mac, Android and iOS.",
+        "Start with file scanning or device-security checks where supported. Read alerts about files or links instead of automatically dismissing them. Security tools complement safe habits; they do not make suspicious messages or pirated downloads safe."
+      ]
+    }
+  ],
+  "sources": [
+    "https://us.norton.com/products/norton-360"
+  ]
+},
 "grok-cursor-premium":{
   "intro": "باقة Grok Premium + Cursor Premium تجمع مساعدًا للأفكار والمحتوى مع محرر يساعدك في العمل على الكود. العرض لمدة شهر بحساب جاهز وضمان 28 يومًا، مع تسليم بيانات الحساب والبريد. افتح «عرض المزيد» لمراجعة الاستخدام والتسليم والمقارنة السعرية.",
   "introEn": "Grok Premium + Cursor Premium combines an assistant for ideas and content with an editor that helps you work on code. This one-month ready-account offer has a 28-day warranty and includes account and mailbox credentials. Open “Show more” for usage, delivery and pricing details.",
