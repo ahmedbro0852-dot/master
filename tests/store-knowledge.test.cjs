@@ -30,6 +30,14 @@ assert.equal(products.find(p=>p.id==='supergrok-coursera-bundle').plans[0].price
  const product=products.find(p=>p.id==='freepik'),plans=JSON.parse(k.contextFor([product],rows)).details[0].plans;
  assert.equal(plans.length,3);assert.equal(plans[0].priceEGP,450);assert.equal(plans[1].priceEGP,840);assert.equal(product.plans[1].basePriceUSD,15);assert.match(plans[1].account,/الشخصي/);assert.match(plans[1].warranty,/شهر/);assert(plans[1].features.every(x=>!x.includes('للتحميل فقط')&&!x.includes('PSD')));assert(plans[0].features.some(x=>x.includes('للتحميل فقط')));assert.equal(product.plans[1].officialPrice,undefined);assert.equal(plans[2].priceEGP,1344);assert.equal(product.plans[2].basePriceUSD,24);assert.match(plans[2].credits,/20,000/);assert.match(plans[2].account,/الشخصي/);assert.match(plans[2].warranty,/شهر/);assert(plans[2].features.every(x=>!x.includes('للتحميل فقط')));assert.equal(product.plans[2].officialPrice,undefined);
 }
+// Ended 18-month indices remain stable but are never offered; Google tiers keep separate terms.
+{
+ const gemini=products.find(p=>p.id==='gemini-pro');assert(gemini.plans.slice(0,2).every(p=>p.hidden&&p.available===false));
+ const plans=JSON.parse(k.contextFor([gemini],rows)).details[0].plans;
+ assert.deepEqual(plans.map(p=>p.index),[2,3]);assert.deepEqual(plans.map(p=>p.priceEGP),[80,200]);assert.deepEqual(plans.map(p=>p.duration),['1 شهر','3 شهور']);assert.match(plans[0].credits,/1,000/);assert.match(plans[0].credits,/مشترك/);assert.match(plans[0].warranty,/شهر/);assert.match(plans[1].warranty,/3/);assert.equal(plans[1].credits,null);assert(plans.every(p=>!p.duration.includes('18')));
+ const plus=products.find(p=>p.id==='google-ai-plus'),plusPlans=JSON.parse(k.contextFor([plus],rows)).details[0].plans;
+ assert.deepEqual(plusPlans.map(p=>p.priceEGP),[150,220]);assert.deepEqual(plusPlans.map(p=>p.duration),['6 شهور','12 شهر']);assert(plusPlans.every(p=>/الشخصي/.test(p.account)&&/تؤكد|تُؤكد/.test(p.warranty)&&p.credits===null));assert(plus.plans.every(p=>!p.officialPrice));assert(ask('جوجول بلس').some(p=>p.id==='google-ai-plus'));
+}
 assert.equal(k.budgetFrom('ميزانيتي ٣٠٠ جنيه'),300);assert.equal(k.budgetFrom('budget 250 EGP'),250);assert.equal(k.budgetFrom('عايز فيديو 4k'),null);assert.equal(k.budgetFrom('budget 20 USD'),null);assert.equal(k.budgetFrom('ميزانيتي ١٬٠٠٠ جنيه'),1000);
 assert.equal(ask('هل الفاتورة ضريبية؟ ينفع أدفع Binance؟ ولو اشتريت 3 اشتراكات الخصم كام؟').length,0);
 for(const text of ['شات جو بكام؟','ChatGPT Go price','شات جي بي تي جو بضمان']){const go=ask(text);assert.equal(go.length,1);assert.equal(go[0].id,'chatgpt-go');const plan=JSON.parse(k.contextFor(go,rows)).details[0].plans[0];assert.equal(plan.priceEGP,320);assert.equal(plan.duration,'1 شهر');assert.match(plan.warranty,/كامل/);assert.match(plan.account,/جاهز/);}

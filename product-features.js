@@ -531,6 +531,7 @@ for(const id of ['surfshark','nordvpn','proton-vpn','hma-vpn','expressvpn'])entr
 
 function list(product,plan,english,translate){
  if(product.id==='freepik'&&Array.isArray(plan.features)&&Array.isArray(plan.featuresEn))return english?plan.featuresEn:plan.features;
+ if(['gemini-pro','google-ai-plus'].includes(product.id)&&Array.isArray(plan.features)&&Array.isArray(plan.featuresEn))return english?plan.featuresEn:plan.features;
  if(product.id==='windows-pro'&&plan.features&&plan.featuresEn)return english?plan.featuresEn:plan.features;
  const language=english?1:0;
  const curated=entries[product.id]?.map(row=>row[language])||[];

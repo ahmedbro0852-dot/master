@@ -66,7 +66,7 @@
     return;
   }
 
-  const popularityOrder=["cursor-grok-x-bundle","supergrok-coursera-bundle","gemini-coursera-bundle","chatgpt-plus","chatgpt-go","chatgpt-teachers-k12","gemini-pro","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","humanizeai-pro","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account"];
+  const popularityOrder=["cursor-grok-x-bundle","supergrok-coursera-bundle","gemini-coursera-bundle","chatgpt-plus","chatgpt-go","chatgpt-teachers-k12","gemini-pro","google-ai-plus","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","humanizeai-pro","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account"];
   const popularityRank=new Map(popularityOrder.map((id,index)=>[id,index]));
   const statusRank={available:0,soon:1,out:2};
   const products=[...(Catalog.products||[])].filter(product=>!product.redirectTo).sort((a,b)=>{
@@ -151,7 +151,7 @@
     return status==='available'?'ok':status==='soon'?'soon':'out';
   }
 
-  const searchAliases={'cursor-grok-x-bundle':'كيرسور كورسور كيرسر كرسر كورسر Cursor Grok X Premium اكس بريموم جروك باقة موحدة','visio-professional':'فيزيو فيزيو برو فيزيو بروفشنال فيسيو مايكروسوفت فيزيو Microsoft Visio Professional LTSC','xtream-iptv':'اكستريم إكستريم اكستريم اكستريم اي بي تي في قنوات رياضة Xtream IPTV Xtream Codes','picsart':'بيسكارت برو بيكسارت برو بيكس آرت بكسارت Picsart Pro','chatgpt-go':'شات جو شاتجو شات جي بي تي جو تشات جي بي تي جو شات جي بي تي غو ChatGPT Go','humanizeai-pro':'هيومنايز هيومانايز هيومانيز هيومنايز برو Humanize AI pro Standard Lite','capcut-pro':'كاب كات كابكت كابكات كبكات','gemini-pro':'جيمناي جيميني جيميناي جيمني جوجل','chatgpt-plus':'شات جي بي تي شاتجبت تشات','elevenlabs':'ايلفن اليفن إليفن ايليفن','higgsfield-pro':'هيجزفيلد هيجسفيلد','leonardo-ai':'ليوناردو ليناردو ليرنادو ليرنادوا','grok':'جروك غروك سوبرجروك','coursera':'كورسيرا كورسيرا بلس','supergrok-coursera-bundle':'سوبر جروك كورسيرا كورسيرا بلس','windows-pro':'ويندوز وندوز ويندز','duolingo':'دولينجو دولينغو','quillbot':'كولبوت كويلبوت كويل بوت','claude-pro':'كلود كلاود','freepik':'فريبيك فري بيك','envato':'انفاتو إنفاتو','discord':'ديسكورد ديسكورات نيترو','canva-pro':'كانفا كنفا','grammarly':'جراملي جرامرلي','lovable-pro':'لوفابل لوفبل','perplexity-pro':'بيربليكسيتي بيربلكسيتي'};
+  const searchAliases={'cursor-grok-x-bundle':'كيرسور كورسور كيرسر كرسر كورسر Cursor Grok X Premium اكس بريموم جروك باقة موحدة','visio-professional':'فيزيو فيزيو برو فيزيو بروفشنال فيسيو مايكروسوفت فيزيو Microsoft Visio Professional LTSC','xtream-iptv':'اكستريم إكستريم اكستريم اكستريم اي بي تي في قنوات رياضة Xtream IPTV Xtream Codes','picsart':'بيسكارت برو بيكسارت برو بيكس آرت بكسارت Picsart Pro','chatgpt-go':'شات جو شاتجو شات جي بي تي جو تشات جي بي تي جو شات جي بي تي غو ChatGPT Go','humanizeai-pro':'هيومنايز هيومانايز هيومانيز هيومنايز برو Humanize AI pro Standard Lite','capcut-pro':'كاب كات كابكت كابكات كبكات','gemini-pro':'جيمناي جيميني جيميناي جيمني جوجل برو','google-ai-plus':'جوجل بلس جوجل اي بلس جوجول بلس جيمناي بلس Google AI Plus','chatgpt-plus':'شات جي بي تي شاتجبت تشات','elevenlabs':'ايلفن اليفن إليفن ايليفن','higgsfield-pro':'هيجزفيلد هيجسفيلد','leonardo-ai':'ليوناردو ليناردو ليرنادو ليرنادوا','grok':'جروك غروك سوبرجروك','coursera':'كورسيرا كورسيرا بلس','supergrok-coursera-bundle':'سوبر جروك كورسيرا كورسيرا بلس','windows-pro':'ويندوز وندوز ويندز','duolingo':'دولينجو دولينغو','quillbot':'كولبوت كويلبوت كويل بوت','claude-pro':'كلود كلاود','freepik':'فريبيك فري بيك','envato':'انفاتو إنفاتو','discord':'ديسكورد ديسكورات نيترو','canva-pro':'كانفا كنفا','grammarly':'جراملي جرامرلي','lovable-pro':'لوفابل لوفبل','perplexity-pro':'بيربليكسيتي بيربلكسيتي'};
   function searchText(product){
     return normalizeSearch([
       product.name,
@@ -263,7 +263,7 @@
   function renderBestOffers(){
     const target=document.getElementById('bestOffersGrid');
     if(!target)return;
-    const picks=[['cursor-grok-x-bundle',0],['supergrok-coursera-bundle',0],['elevenlabs',2],['cursor-pro',1],['coursera',0],['lovable-pro',3],['gemini-pro',0],['capcut-pro',1],['grok',0]];
+    const picks=[['cursor-grok-x-bundle',0],['supergrok-coursera-bundle',0],['elevenlabs',2],['cursor-pro',1],['coursera',0],['lovable-pro',3],['gemini-pro',2],['capcut-pro',1],['grok',0]];
     target.innerHTML=picks.map(([id,index])=>{
       const product=Catalog.getProduct(id),plan=product?.plans?.[index];
       if(!plan||plan.hidden||plan.available===false||product.status!=='available')return '';
@@ -316,44 +316,6 @@
   document.addEventListener('masterstore:localechange',renderAll);
 
   renderAll();
-})();
-
-(function geminiDeadline(){
- const deadline=Date.parse('2026-10-30T00:00:00+03:00');
- const productView=(new URLSearchParams(location.search).get('id')||document.body.dataset.productId)==='gemini-pro';
- let clock;
- const mount=()=>{
-  const target=productView?document.getElementById('productPage'):document.querySelector('[data-product-id="gemini-pro"]');
-  if(!target||target.querySelector('[data-gemini-countdown]'))return;
-  if(productView&&!target.querySelector('.product-hero'))return;
-  if(clock)clearInterval(clock);
-  const box=document.createElement('div');
-  box.dataset.geminiCountdown='';box.className='gemini-deadline'+(productView?' gemini-deadline-detail':'');
-  box.setAttribute('role','timer');box.setAttribute('aria-live','off');
-  box.innerHTML='<span class="deadline-caption">تم مد العرض حتى ٢٩ أكتوبر</span><span class="deadline-digits" dir="ltr"></span>';
-  const digits=box.querySelector('.deadline-digits');
-  const update=()=>{
-   const en=document.documentElement.lang==='en';
-   const ms=deadline-Date.now();
-   if(ms<=0){box.textContent='انتهت مدة العرض · ٢٩ أكتوبر ٢٠٢٦';clearInterval(clock);return;}
-   let seconds=Math.floor(ms/1000);const days=Math.floor(seconds/86400);seconds%=86400;
-   const hours=Math.floor(seconds/3600);seconds%=3600;const minutes=Math.floor(seconds/60);seconds%=60;
-   const values=[days,hours,minutes,seconds],labels=en?['Days','Hours','Minutes','Seconds']:['يوم','ساعة','دقيقة','ثانية'];
-   digits.innerHTML=values.map((value,i)=>'<span class="deadline-unit"><b>'+String(value).padStart(2,'0')+'</b><small>'+labels[i]+'</small></span>').join('<span class="deadline-separator">:</span>');
-   box.setAttribute('aria-label',en?'Offer ends in '+days+' days, '+hours+' hours, '+minutes+' minutes and '+seconds+' seconds':'ينتهي العرض بعد '+days+' يوم و'+hours+' ساعة و'+minutes+' دقيقة و'+seconds+' ثانية');
-  };
-  if(productView){
-   const panel=document.createElement('aside');panel.className='gemini-offer-notice';
-   panel.innerHTML='<div><strong>تم مد العرض ٣ أيام إضافية</strong><p>عرض جيمناي ١٨ شهر متاح حتى: <b>٢٩ أكتوبر ٢٠٢٦</b>، حتى نهاية اليوم بتوقيت مصر.</p></div>';
-   panel.append(box);target.querySelector('.product-hero').after(panel);
-  }else{
-   const bottom=target.querySelector('.card-bottom');if(bottom)bottom.before(box);else target.append(box);
-  }
-  update();clock=setInterval(update,1000);
- };
- mount();
- const root=document.getElementById(productView?'productPage':'grid');
- if(root)new MutationObserver(mount).observe(root,{childList:true});
 })();
 
 (function cursorOfferTimer(){

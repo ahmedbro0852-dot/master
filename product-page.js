@@ -357,44 +357,6 @@
   });
 })();
 
-(function geminiDeadline(){
- const deadline=Date.parse('2026-10-30T00:00:00+03:00');
- const productView=new URLSearchParams(location.search).get('id')==='gemini-pro';
- let clock;
- const mount=()=>{
-  const target=productView?document.getElementById('productPage'):document.querySelector('[data-product-id="gemini-pro"]');
-  if(!target||target.querySelector('[data-gemini-countdown]'))return;
-  if(productView&&!target.querySelector('.product-hero'))return;
-  if(clock)clearInterval(clock);
-  const box=document.createElement('div');
-  box.dataset.geminiCountdown='';box.className='gemini-deadline'+(productView?' gemini-deadline-detail':'');
-  box.setAttribute('role','timer');box.setAttribute('aria-live','off');
-  box.innerHTML='<span class="deadline-caption">تم مد العرض حتى ٢٩ أكتوبر</span><span class="deadline-digits" dir="ltr"></span>';
-  const digits=box.querySelector('.deadline-digits');
-  const update=()=>{
-   const en=document.documentElement.lang==='en';
-   const ms=deadline-Date.now();
-   if(ms<=0){box.textContent='انتهت مدة العرض · ٢٩ أكتوبر ٢٠٢٦';clearInterval(clock);return;}
-   let seconds=Math.floor(ms/1000);const days=Math.floor(seconds/86400);seconds%=86400;
-   const hours=Math.floor(seconds/3600);seconds%=3600;const minutes=Math.floor(seconds/60);seconds%=60;
-   const values=[days,hours,minutes,seconds],labels=en?['Days','Hours','Minutes','Seconds']:['يوم','ساعة','دقيقة','ثانية'];
-   digits.innerHTML=values.map((value,i)=>'<span class="deadline-unit"><b>'+String(value).padStart(2,'0')+'</b><small>'+labels[i]+'</small></span>').join('<span class="deadline-separator">:</span>');
-   box.setAttribute('aria-label',en?'Offer ends in '+days+' days, '+hours+' hours, '+minutes+' minutes and '+seconds+' seconds':'ينتهي العرض بعد '+days+' يوم و'+hours+' ساعة و'+minutes+' دقيقة و'+seconds+' ثانية');
-  };
-  if(productView){
-   const panel=document.createElement('aside');panel.className='gemini-offer-notice';
-   panel.innerHTML='<div><strong>تم مد العرض ٣ أيام إضافية</strong><p>عرض جيمناي ١٨ شهر متاح حتى: <b>٢٩ أكتوبر ٢٠٢٦</b>، حتى نهاية اليوم بتوقيت مصر.</p></div>';
-   panel.append(box);target.querySelector('.product-hero').after(panel);
-  }else{
-   const bottom=target.querySelector('.card-bottom');if(bottom)bottom.before(box);else target.append(box);
-  }
-  update();clock=setInterval(update,1000);
- };
- mount();
- const root=document.getElementById(productView?'productPage':'grid');
- if(root)new MutationObserver(mount).observe(root,{childList:true});
-})();
-
 (function cursorOfferTimer(){
  const end=Date.parse('2026-10-13T11:32:00Z');
  const mount=()=>{

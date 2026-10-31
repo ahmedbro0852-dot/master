@@ -397,13 +397,71 @@
     "checkEn": "This offer’s term and conditions differ from monthly Plus. Read warranty, eligibility, and account type from the K12 offer rather than importing terms from another product."
   },
   "gemini-pro": {
-    "intro": "Gemini Pro يساعد في المحادثة والبحث والكتابة وفهم الملفات والصور، مع أدوات Google AI المؤهلة للحساب. اختيار الباقة الفردية أو العائلية يحتاج تمييز مزايا المشاركة عن حصص الاستخدام.",
-    "introEn": "Gemini Pro supports conversations, research, writing, files, and images with Google AI tools eligible for the account. Distinguish family-sharing benefits from usage allowances when comparing offers.",
-    "workflow": "حدد هل تحتاج مساعدة نصية أم عملًا بصريًا داخل أدوات Google، ثم راجع الأداة والرصيد المتاحين. في العمل على فيديو، ابدأ بلقطة تجريبية وراقب تكلفتها قبل تكرار الإنشاء.",
-    "workflowEn": "Identify whether you need text assistance or visual work in Google tools, then check the available tool and allowance. For video work, test a shot and check its cost before repeated generation.",
-    "check": "مدة الاشتراك ليست مدة الضمان. والدعوات العائلية لا تعني أرصدة مستقلة مطابقة للحساب الرئيسي؛ تفاصيل العرض المختار هي المرجع.",
-    "checkEn": "Subscription term and warranty term are different. Family invitations do not mean identical independent allowances for every member; use the selected offer’s terms."
-  },
+    "intro": "اشتراك Gemini Pro بدعوة عائلية لمدة شهر على إيميلك الشخصي بسعر 80 جنيه مع 1,000 كريدت وضمان شهر، أو تفعيل مباشر لمدة 3 شهور بسعر 200 جنيه وضمان 3 شهور.",
+    "introEn": "Gemini Pro: a one-month family invitation on your personal email for EGP 80 with 1,000 credits and a one-month warranty, or direct three-month activation for EGP 200 with a three-month warranty.",
+    "workflow": "اختار مدة وطريقة التفعيل المناسبة: الدعوة العائلية شهر، أو التفعيل المباشر 3 شهور. أرسل إيميل Google المقصود بعد الطلب، ثم أكمل قبول الدعوة أو خطوات التفعيل بنفسك، وراجع نوع الاشتراك وتاريخ انتهائه داخل الحساب.",
+    "workflowEn": "Choose the term and activation method: a one-month family invitation or direct three-month activation. Provide the intended Google email after ordering, complete invitation acceptance or activation steps yourself, and check the membership type and expiry in your account.",
+    "check": "عرض الـ18 شهر انتهى. ضمان الدعوة الشهرية شهر، وضمان التفعيل المباشر 3 شهور. رصيد 1,000 كريدت في الدعوة العائلية ضمن رصيد المجموعة المشترك؛ ليس حصة مستقلة لكل عضو. تُراجع أهلية الحساب والبلد وحالة العائلة قبل الدفع.",
+    "checkEn": "The 18-month offer has ended. The monthly invitation has a one-month warranty; direct three-month activation has a three-month warranty. The family offer’s 1,000 credits are part of the shared group allowance, not a separate allocation for every member. Check account, country and family eligibility before payment.",
+    "sources": [
+        "https://gemini.google/subscriptions/",
+        "https://support.google.com/googleone/answer/16287445",
+        "https://support.google.com/googleone/answer/9004015"
+    ],
+    "reports": [
+        {
+            "id": "activation-options",
+            "title": "الفرق بين الدعوة العائلية والتفعيل المباشر",
+            "titleEn": "Family invitation and direct activation",
+            "paragraphs": [
+                "في باقة الشهر بسعر 80 جنيه، يصل الاشتراك إلى إيميلك الشخصي عن طريق دعوة إلى مجموعة عائلية. تحتفظ بحسابك، وتقبل الدعوة داخل Google بعد التأكد من أهلية حسابك. ضمان هذه الباقة شهر واحد.",
+                "باقة 3 شهور بسعر 200 جنيه تُفعل مباشرة على إيميلك الشخصي، وضمانها 3 شهور. الرصيد والأدوات المتاحة تُراجع داخل الحساب حسب التفعيل؛ لا يُنقل رصيد عرض مختلف إليها تلقائيًا."
+            ],
+            "paragraphsEn": [
+                "The EGP 80 monthly plan reaches your personal email through a family-group invitation. Keep your own account and accept the invitation within Google after checking eligibility. This plan has a one-month warranty.",
+                "The EGP 200 three-month plan is activated directly on your personal email with a three-month warranty. Check credits and eligible tools in the activated account; do not import another offer’s allowance automatically."
+            ]
+        },
+        {
+            "id": "shared-credits",
+            "title": "فهم رصيد الدعوة العائلية",
+            "titleEn": "Understanding family-invitation credits",
+            "paragraphs": [
+                "العرض الشهري يذكر 1,000 كريدت ضمن رصيد العائلة. توضح Google أن رصيد AI المؤهل للمشاركة يكون مجمعًا بين أفراد العائلة، ويختلف الاستهلاك حسب الأداة والعملية. راجع المتبقي داخل الحساب؛ الكريدت لا تعني عددًا ثابتًا من الفيديوهات أو الصور."
+            ],
+            "paragraphsEn": [
+                "The monthly offer lists 1,000 credits within the family allowance. Google explains that eligible shared AI credits are pooled across family members, with usage varying by tool and activity. Check the remaining balance in the account; credits do not imply a fixed number of videos or images."
+            ]
+        }
+    ]
+},
+  "google-ai-plus": {
+    "intro": "اشتراك Google AI Plus على إيميلك الشخصي: 6 شهور بسعر 150 جنيه أو 12 شهر بسعر 220 جنيه. راجع تفاصيل التفعيل والضمان قبل الدفع.",
+    "introEn": "Google AI Plus on your personal email: six months for EGP 150 or twelve months for EGP 220. Review activation and warranty details before payment.",
+    "workflow": "اختار Google AI Plus لمدة 6 شهور أو 12 شهر، وحدد إيميل Google الشخصي الذي تريد التفعيل عليه. قبل الدفع، راجع الأهلية والاشتراك الحالي وشروط الضمان. بعد التفعيل، افتح إدارة الاشتراك وتأكد من ظهور Plus وتاريخ الانتهاء على حسابك.",
+    "workflowEn": "Choose six or twelve months of Google AI Plus and specify your personal Google email. Before payment, review eligibility, your current membership and warranty terms. After activation, check that Plus and the expiry date appear in your account’s membership settings.",
+    "check": "باقة Plus مستقلة عن Pro، وتختلف حدود الأدوات والرصيد والتخزين حسب العضوية والحساب. لم تُحدد مدة ضمان أو حصة كريدت في عرضي Plus؛ تُؤكد التفاصيل مع الدعم قبل الدفع. السعر هو إجمالي مدة الباقة المختارة، ولا يعني تجديدًا تلقائيًا.",
+    "checkEn": "Plus is distinct from Pro; tools, credits and storage limits depend on the membership and account. No warranty term or credit allowance was specified for these Plus offers; confirm details with support before payment. The price covers the selected full term and does not imply automatic renewal.",
+    "sources": [
+        "https://support.google.com/googleone/answer/16882689",
+        "https://one.google.com/about/google-ai-plans/"
+    ],
+    "reports": [
+        {
+            "id": "choose-plus-term",
+            "title": "اختيار مدة Google AI Plus",
+            "titleEn": "Choosing a Google AI Plus term",
+            "paragraphs": [
+                "عرض 6 شهور بسعر 150 جنيه وعرض 12 شهر بسعر 220 جنيه كلاهما على إيميلك الشخصي. تحدد المدة وقت الطلب وتُراجع على الحساب بعد التفعيل، مع الاحتفاظ ببيانات المتابعة ورقم الطلب.",
+                "استخدم Gemini للمساعدة في كتابة المسودات والتلخيص والمذاكرة، وراجع الأدوات المتاحة داخل حساب Plus. لا تعتمد على وجود مزايا Pro أو Ultra لمجرد أن جميعها تستخدم Gemini."
+            ],
+            "paragraphsEn": [
+                "The six-month offer costs EGP 150 and the twelve-month offer EGP 220, both on your personal email. Select the term when ordering and verify it in your account after activation, keeping the order reference for follow-up.",
+                "Use Gemini for drafting, summarising and study support, checking the tools available in your Plus account. Do not assume Pro or Ultra benefits merely because all plans use Gemini."
+            ]
+        }
+    ]
+},
   "claude-pro": {
     "intro": "Claude Pro مناسب لمناقشة المستندات والنصوص الطويلة وتحسين المسودات وشرح الكود. يتيح أسلوب المحادثة مراجعة الفكرة قبل تحويلها إلى نسخة نهائية تعتمدها.",
     "introEn": "Claude Pro is useful for discussing documents, refining drafts, and explaining code. A conversational workflow lets you examine an idea before approving a final version.",
