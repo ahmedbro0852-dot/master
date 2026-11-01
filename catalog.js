@@ -3960,195 +3960,196 @@ const products = [
     ]
   },
   {
-  "id": "chatgpt-go",
-  "name": "ChatGPT Go",
-  "category": "AI Tools",
-  "logo": "chatgpt",
-  "status": "available",
-  "description": "اشتراك ChatGPT Go لمدة شهر بسعر 320 جنيه، بحساب جاهز يُسلّم بإيميل وكلمة مرور، وضمان كامل طوال الشهر.",
-  "descriptionEn": "One month of ChatGPT Go for EGP 320, delivered as a ready-to-use account with email and password and full warranty throughout the month.",
-  "plans": [
-    {
-      "name": "ChatGPT Go — حساب جاهز",
-      "planType": "Go",
-      "duration": "1 شهر",
-      "price": 320,
-      "accountType": "حساب جاهز",
-      "activation": "تسليم بيانات الحساب الجاهز: الإيميل وكلمة المرور.",
-      "account": "حساب جاهز",
-      "warranty": "ضمان كامل طوال الشهر",
-      "available": true,
-      "notes": [
-        "حدود الاستخدام والأدوات حسب خطة ChatGPT Go."
-      ]
-    }
-  ],
-  "categories": [
-    "محادثة ومساعد ذكي"
-  ]
-},
+    "id": "chatgpt-go",
+    "name": "ChatGPT Go",
+    "category": "AI Tools",
+    "logo": "chatgpt",
+    "status": "available",
+    "description": "اشتراك ChatGPT Go لمدة شهر بسعر 290 جنيه، بحساب جاهز يُسلّم بإيميل وكلمة مرور، وضمان كامل طوال الشهر.",
+    "descriptionEn": "One month of ChatGPT Go for EGP 290, delivered as a ready-to-use account with email and password and full warranty throughout the month.",
+    "plans": [
+      {
+        "name": "ChatGPT Go — حساب جاهز",
+        "planType": "Go",
+        "duration": "1 شهر",
+        "price": 290,
+        "accountType": "حساب جاهز",
+        "activation": "تسليم بيانات الحساب الجاهز: الإيميل وكلمة المرور.",
+        "account": "حساب جاهز",
+        "warranty": "ضمان كامل طوال الشهر",
+        "available": true,
+        "notes": [
+          "حدود الاستخدام والأدوات حسب خطة ChatGPT Go."
+        ],
+        "previousStorePrice": 320
+      }
+    ],
+    "categories": [
+      "محادثة ومساعد ذكي"
+    ]
+  },
   {
-  "id": "chatgpt-plus",
-  "name": "ChatGPT Plus",
-  "category": "AI Tools",
-  "logo": "chatgpt",
-  "status": "available",
-  "description": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو حساب خاص جاهز بضمان 25 يومًا بـ700 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ1100 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
-  "plans": [
-    {
-      "name": "ChatGPT Plus — بدون ضمان",
-      "accountType": "حساب خاص",
-      "duration": "1 شهر",
-      "price": 320,
-      "activation": "تسليم Gmail + كلمة المرور + بيانات التحقق الثنائي (2FA).",
-      "account": "حساب خاص غير مشترك",
-      "warranty": "بدون ضمان",
-      "notes": [
-        "هذه الباقة لمدة شهر وبدون ضمان."
-      ],
-      "priceComparison": {
-        "planName": "ChatGPT Plus",
-        "status": "reference",
-        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-        "checkedAt": "2026-10-31",
-        "billingLabel": "Monthly billing",
-        "showReferenceNote": true,
-        "note": "مرجع الشراء المباشر لـPlus هو 20 دولارًا للشهر قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. المقارنة في السعر؛ طريقة التسليم والضمان موضحتان في عرض المتجر.",
-        "noteEn": "The direct-purchase reference for Plus is US$20 per month before tax, converted using the store rate. This compares prices; delivery method and warranty are stated in the store offer."
+    "id": "chatgpt-plus",
+    "name": "ChatGPT Plus",
+    "category": "AI Tools",
+    "logo": "chatgpt",
+    "status": "available",
+    "description": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو حساب خاص جاهز بضمان شهر بـ650 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ1100 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
+    "plans": [
+      {
+        "name": "ChatGPT Plus — بدون ضمان",
+        "accountType": "حساب خاص",
+        "duration": "1 شهر",
+        "price": 320,
+        "activation": "تسليم Gmail + كلمة المرور + بيانات التحقق الثنائي (2FA).",
+        "account": "حساب خاص غير مشترك",
+        "warranty": "بدون ضمان",
+        "notes": [
+          "هذه الباقة لمدة شهر وبدون ضمان."
+        ],
+        "priceComparison": {
+          "planName": "ChatGPT Plus",
+          "status": "reference",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-31",
+          "billingLabel": "Monthly billing",
+          "showReferenceNote": true,
+          "note": "مرجع الشراء المباشر لـPlus هو 20 دولارًا للشهر قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. المقارنة في السعر؛ طريقة التسليم والضمان موضحتان في عرض المتجر.",
+          "noteEn": "The direct-purchase reference for Plus is US$20 per month before tax, converted using the store rate. This compares prices; delivery method and warranty are stated in the store offer."
+        },
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-31"
+        },
+        "available": true
       },
-      "officialPrice": {
-        "amount": 20,
-        "currency": "USD",
-        "months": 1,
-        "basis": "reference",
-        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-        "checkedAt": "2026-10-31"
+      {
+        "name": "ChatGPT Plus — حساب جاهز",
+        "accountType": "حساب جاهز",
+        "duration": "1 شهر",
+        "price": 700,
+        "activation": "تسليم بيانات حساب جاهز.",
+        "account": "حساب خاص جاهز",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "يتم تسليم حساب جاهز؛ لا يتم التفعيل على حساب العميل في هذه الباقة."
+        ],
+        "priceComparison": {
+          "planName": "ChatGPT Plus",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-08",
+          "status": "reference",
+          "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
+          "billingLabel": "فوترة شهرية"
+        },
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-08"
+        },
+        "available": false,
+        "hidden": true
       },
-      "available": true
-    },
-    {
-      "name": "ChatGPT Plus — حساب جاهز",
-      "accountType": "حساب جاهز",
-      "duration": "1 شهر",
-      "price": 700,
-      "activation": "تسليم بيانات حساب جاهز.",
-      "account": "حساب خاص جاهز",
-      "warranty": "ضمان كامل",
-      "notes": [
-        "يتم تسليم حساب جاهز؛ لا يتم التفعيل على حساب العميل في هذه الباقة."
-      ],
-      "priceComparison": {
-        "planName": "ChatGPT Plus",
-        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-        "checkedAt": "2026-10-08",
-        "status": "reference",
-        "note": "المقارنة لسعر الشراء المباشر؛ طريقة التسليم والضمان حسب عرض المتجر.",
-        "billingLabel": "فوترة شهرية"
+      {
+        "name": "ChatGPT Plus — تفعيل أو تجديد على حسابك",
+        "duration": "1 شهر",
+        "price": 1100,
+        "activation": "تفعيل اشتراك Plus جديد أو تجديده على حسابك الشخصي.",
+        "account": "حساب العميل الشخصي",
+        "warranty": "ضمان كامل",
+        "notes": [
+          "لا يتم تخزين بيانات دخولك داخل الموقع."
+        ],
+        "priceComparison": {
+          "planName": "ChatGPT Plus",
+          "status": "reference",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-31",
+          "billingLabel": "Monthly billing",
+          "showReferenceNote": true,
+          "note": "مرجع الشراء المباشر لـPlus هو 20 دولارًا للشهر قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. المقارنة في السعر؛ طريقة التسليم والضمان موضحتان في عرض المتجر.",
+          "noteEn": "The direct-purchase reference for Plus is US$20 per month before tax, converted using the store rate. This compares prices; delivery method and warranty are stated in the store offer."
+        },
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-31"
+        },
+        "available": true,
+        "accountType": "تفعيل على حسابك الشخصي"
       },
-      "officialPrice": {
-        "amount": 20,
-        "currency": "USD",
-        "months": 1,
-        "basis": "reference",
-        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-        "checkedAt": "2026-10-08"
-      },
-      "available": false,
-      "hidden": true
-    },
-    {
-      "name": "ChatGPT Plus — تفعيل أو تجديد على حسابك",
-      "duration": "1 شهر",
-      "price": 1100,
-      "activation": "تفعيل اشتراك Plus جديد أو تجديده على حسابك الشخصي.",
-      "account": "حساب العميل الشخصي",
-      "warranty": "ضمان كامل",
-      "notes": [
-        "لا يتم تخزين بيانات دخولك داخل الموقع."
-      ],
-      "priceComparison": {
-        "planName": "ChatGPT Plus",
-        "status": "reference",
-        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-        "checkedAt": "2026-10-31",
-        "billingLabel": "Monthly billing",
-        "showReferenceNote": true,
-        "note": "مرجع الشراء المباشر لـPlus هو 20 دولارًا للشهر قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. المقارنة في السعر؛ طريقة التسليم والضمان موضحتان في عرض المتجر.",
-        "noteEn": "The direct-purchase reference for Plus is US$20 per month before tax, converted using the store rate. This compares prices; delivery method and warranty are stated in the store offer."
-      },
-      "officialPrice": {
-        "amount": 20,
-        "currency": "USD",
-        "months": 1,
-        "basis": "reference",
-        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-        "checkedAt": "2026-10-31"
-      },
-      "available": true,
-      "accountType": "تفعيل على حسابك الشخصي"
-    },
-    {
-      "name": "Plus — شهر — حساب خاص جاهز — ضمان 25 يومًا",
-      "planType": "Plus",
-      "duration": "1 شهر",
-      "price": 700,
-      "available": true,
-      "activation": "تسليم بيانات حساب ChatGPT Plus خاص جاهز للاستخدام.",
-      "account": "حساب ChatGPT Plus خاص جاهز وغير مشترك",
-      "accountType": "حساب خاص جاهز",
-      "warranty": "ضمان لمدة 25 يومًا",
-      "features": [
-        "اشتراك ChatGPT Plus لمدة شهر على حساب خاص جاهز.",
-        "حساب خاص وغير مشترك مع عملاء آخرين.",
-        "تسليم بيانات الدخول إلى حساب Plus الجاهز.",
-        "ضمان 25 يومًا من مدة الاشتراك.",
-        "الكتابة والبحث وتحليل الملفات والصور حسب أدوات وحدود Plus المتاحة."
-      ],
-      "notes": [
-        "مدة الاشتراك شهر، ومدة الضمان 25 يومًا.",
-        "هذه الباقة بحساب خاص جاهز، ولا تتطلب تفعيل Plus على حسابك الشخصي.",
-        "حدود الأدوات والنماذج تخضع لخطة Plus وتوافرها على الحساب."
-      ],
-      "featuresEn": [
-        "One month of ChatGPT Plus on a ready private account.",
-        "A private account not shared with other customers.",
-        "Receive login details for the ready Plus account.",
-        "Warranty covers 25 days of the subscription.",
-        "Writing, research, file and image analysis within available Plus tools and limits."
-      ],
-      "notesEn": [
-        "The subscription lasts one month; warranty lasts 25 days.",
-        "This offer supplies a ready private account and does not activate Plus on your personal account.",
-        "Tool and model limits depend on Plus and availability on the account."
-      ],
-      "officialPrice": {
-        "amount": 20,
-        "currency": "USD",
-        "months": 1,
-        "basis": "reference",
-        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-        "checkedAt": "2026-10-31"
-      },
-      "priceComparison": {
-        "planName": "ChatGPT Plus",
-        "status": "reference",
-        "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
-        "checkedAt": "2026-10-31",
-        "billingLabel": "Monthly billing",
-        "showReferenceNote": true,
-        "note": "مرجع الشراء المباشر لـPlus هو 20 دولارًا للشهر قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. المقارنة في السعر؛ طريقة التسليم والضمان موضحتان في عرض المتجر.",
-        "noteEn": "The direct-purchase reference for Plus is US$20 per month before tax, converted using the store rate. This compares prices; delivery method and warranty are stated in the store offer."
-      },
-      "previousStorePrice": 780
-    }
-  ],
-  "categories": [
-    "توليد صور بالذكاء الاصطناعي",
-    "مساعد كتابة الكود",
-    "محادثة ومساعد ذكي"
-  ],
-  "descriptionEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a 25-day warranty for EGP 700, or activation and renewal on your personal account for EGP 1,100. Review the delivery method and warranty of your chosen plan."
-},
+      {
+        "name": "Plus — شهر — حساب خاص جاهز — ضمان شهر",
+        "planType": "Plus",
+        "duration": "1 شهر",
+        "price": 650,
+        "available": true,
+        "activation": "تسليم بيانات حساب ChatGPT Plus خاص جاهز للاستخدام.",
+        "account": "حساب ChatGPT Plus خاص جاهز وغير مشترك",
+        "accountType": "حساب خاص جاهز",
+        "warranty": "ضمان كامل لمدة شهر",
+        "features": [
+          "اشتراك ChatGPT Plus لمدة شهر على حساب خاص جاهز.",
+          "حساب خاص وغير مشترك مع عملاء آخرين.",
+          "تسليم بيانات الدخول إلى حساب Plus الجاهز.",
+          "ضمان كامل طوال شهر الاشتراك.",
+          "الكتابة والبحث وتحليل الملفات والصور حسب أدوات وحدود Plus المتاحة."
+        ],
+        "notes": [
+          "مدة الاشتراك والضمان شهر كامل.",
+          "هذه الباقة بحساب خاص جاهز، ولا تتطلب تفعيل Plus على حسابك الشخصي.",
+          "حدود الأدوات والنماذج تخضع لخطة Plus وتوافرها على الحساب."
+        ],
+        "featuresEn": [
+          "One month of ChatGPT Plus on a ready private account.",
+          "A private account not shared with other customers.",
+          "Receive login details for the ready Plus account.",
+          "Full warranty throughout the subscription month.",
+          "Writing, research, file and image analysis within available Plus tools and limits."
+        ],
+        "notesEn": [
+          "The subscription and warranty both last one full month.",
+          "This offer supplies a ready private account and does not activate Plus on your personal account.",
+          "Tool and model limits depend on Plus and availability on the account."
+        ],
+        "officialPrice": {
+          "amount": 20,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-31"
+        },
+        "priceComparison": {
+          "planName": "ChatGPT Plus",
+          "status": "reference",
+          "source": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+          "checkedAt": "2026-10-31",
+          "billingLabel": "Monthly billing",
+          "showReferenceNote": true,
+          "note": "مرجع الشراء المباشر لـPlus هو 20 دولارًا للشهر قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. المقارنة في السعر؛ طريقة التسليم والضمان موضحتان في عرض المتجر.",
+          "noteEn": "The direct-purchase reference for Plus is US$20 per month before tax, converted using the store rate. This compares prices; delivery method and warranty are stated in the store offer."
+        },
+        "previousStorePrice": 700
+      }
+    ],
+    "categories": [
+      "توليد صور بالذكاء الاصطناعي",
+      "مساعد كتابة الكود",
+      "محادثة ومساعد ذكي"
+    ],
+    "descriptionEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a full one-month warranty for EGP 650, or activation and renewal on your personal account for EGP 1,100. Review the delivery method and warranty of your chosen plan."
+  },
   {
     "id": "chatgpt-teachers-k12",
     "name": "ChatGPT للمعلمين K12",
@@ -4642,7 +4643,7 @@ const products = [
     "category": "AI Tools",
     "logo": "lovable",
     "status": "available",
-    "description": "باقات Lovable لبناء المواقع والتطبيقات بالذكاء الاصطناعي. متاح Pro لمدة 3 شهور بحساب خاص جاهز بسعر 1050 جنيه، مع 100 كريدت شهريًا + 5 يوميًا وضمان كامل، إلى جانب الباقات الشهرية والسنوية الموضحة.",
+    "description": "باقات Lovable لبناء المواقع والتطبيقات بالذكاء الاصطناعي. متاح Pro لمدة 3 شهور بحساب خاص جاهز بسعر 1050 جنيه، مع 100 كريدت شهريًا + 5 يوميًا وضمان كامل، إلى جانب الباقات الشهرية والسنوية الموضحة. باقة Pro Lite السنوية متاحة بـ450 جنيه كرابط تفعيل على بريدك، مع 300 كريدت إجماليًا + 5 يوميًا وضمان كامل.",
     "plans": [
       {
         "name": "Pro — شهر",
@@ -4738,13 +4739,13 @@ const products = [
         }
       },
       {
-        "name": "Pro Lite",
+        "name": "Pro Lite — سنة — رابط تفعيل",
         "duration": "12 شهر",
         "price": 430,
         "activation": "رابط تفعيل على البريد الشخصي — بدون بطاقة.",
-        "account": "حساب العميل",
+        "account": "حسابك الشخصي على بريدك",
         "warranty": "ضمان كامل",
-        "credits": "300 Credit + 5 Credits يوميًا لمدة سنة",
+        "credits": "300 كريدت إجماليًا + 5 كريدت يوميًا لمدة سنة",
         "priceComparison": {
           "planName": "Lovable Pro / Lite — تحتاج مطابقة الرصيد",
           "source": "https://docs.lovable.dev/introduction/subscription-plans",
@@ -4757,7 +4758,31 @@ const products = [
         "previousStorePrice": 450,
         "promotionEndsAt": "2026-10-28T05:15:00Z",
         "regularPrice": 450,
-        "regularPreviousStorePrice": 650
+        "regularPreviousStorePrice": 650,
+        "features": [
+          "اشتراك Lovable Pro Lite لمدة 12 شهرًا.",
+          "رابط تفعيل على بريدك الشخصي، بدون بطاقة.",
+          "300 كريدت إجماليًا، بالإضافة إلى 5 كريدت يوميًا.",
+          "إنشاء وتعديل مواقع وتطبيقات بالأوامر النصية ضمن رصيد الباقة.",
+          "ضمان كامل وفق شروط عرض المتجر."
+        ],
+        "featuresEn": [
+          "A 12-month Lovable Pro Lite subscription.",
+          "An activation link for your personal email; no card required.",
+          "300 total credits, plus 5 daily credits.",
+          "Build and edit websites and apps with text prompts within the plan allowance.",
+          "Full warranty under the store offer terms."
+        ],
+        "notes": [
+          "300 كريدت هي الرصيد الإجمالي، وليست حصة تتجدد كل شهر.",
+          "الكريدت اليومي حصة منفصلة؛ راجع تجدد الرصيد داخل الحساب.",
+          "التسليم رابط تفعيل لحسابك الشخصي، وليس حسابًا جاهزًا."
+        ],
+        "notesEn": [
+          "The 300 credits are a total allowance, not a monthly renewal.",
+          "Daily credits are a separate allowance; check renewal in your account.",
+          "Delivery is an activation link for your own account, not a ready-made account."
+        ]
       },
       {
         "name": "Pro — 3 شهور — حساب خاص جاهز",
@@ -4823,7 +4848,7 @@ const products = [
     "categories": [
       "بناء مواقع وتطبيقات بالذكاء الاصطناعي"
     ],
-    "descriptionEn": "Lovable plans for building websites and apps with AI. Three months of Pro on a ready private account costs EGP 1,050, with 100 monthly credits plus 5 daily and a full warranty, alongside the listed monthly and annual offers."
+    "descriptionEn": "Lovable plans for building websites and apps with AI. Three months of Pro on a ready private account costs EGP 1,050, with 100 monthly credits plus 5 daily and a full warranty, alongside the listed monthly and annual offers. Annual Pro Lite costs EGP 450 with a personal-email activation link, 300 total credits plus 5 daily and a full warranty."
   },
   {
   "id": "lovable-lite",
@@ -7014,72 +7039,72 @@ const products = [
     ]
   },
   {
-  "id": "kling",
-  "name": "Kling AI",
-  "category": "AI Tools",
-  "logo": "kling",
-  "logoUrl": "logos/kling.svg?v=20261009-logo-review3",
-  "status": "available",
-  "description": "باقات Kling AI لتوليد الفيديو: شهر بضمان كامل ورصيد من 1,000 إلى 1,300 كريدت بسعر 16 دولارًا، أو حزمة 1,100 كريدت بسعر 700 جنيه وضمان 5 أيام. اختر الباقة لمراجعة الرصيد والمدة والضمان.",
-  "plans": [
-    {
-      "name": "Kling AI — 1,100 Credits",
-      "duration": "حسب الرصيد",
-      "price": 700,
-      "credits": "1,100 كريدت",
-      "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
-      "account": "نوع الحساب يُؤكد قبل الدفع",
-      "warranty": "5 أيام",
-      "priceComparison": {
-        "planName": "Kling AI — حزمة رصيد تحتاج تحديد",
-        "source": "https://kling.ai",
-        "checkedAt": "2026-10-08",
-        "status": "unavailable",
-        "note": "عرض 1,100 كريدت لا يحدد باقة عضوية رسمية أو مدة أو صلاحية الرصيد؛ لم تتأكد حزمة مطابقة لذلك لا يظهر خصم رسمي."
+    "id": "kling",
+    "name": "Kling AI",
+    "category": "AI Tools",
+    "logo": "kling",
+    "logoUrl": "logos/kling.svg?v=20261009-logo-review3",
+    "status": "available",
+    "description": "باقات Kling AI لتوليد الفيديو: Standard لمدة شهر بضمان كامل ورصيد من 1,000 إلى 1,300 كريدت بسعر 16 دولارًا، أو حزمة 1,100 كريدت بسعر 700 جنيه وضمان 5 أيام. اختر الباقة لمراجعة الرصيد والمدة والضمان.",
+    "plans": [
+      {
+        "name": "Kling AI — 1,100 Credits",
+        "duration": "حسب الرصيد",
+        "price": 700,
+        "credits": "1,100 كريدت",
+        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
+        "account": "نوع الحساب يُؤكد قبل الدفع",
+        "warranty": "5 أيام",
+        "priceComparison": {
+          "planName": "Kling AI — حزمة رصيد تحتاج تحديد",
+          "source": "https://kling.ai",
+          "checkedAt": "2026-10-08",
+          "status": "unavailable",
+          "note": "عرض 1,100 كريدت لا يحدد باقة عضوية رسمية أو مدة أو صلاحية الرصيد؛ لم تتأكد حزمة مطابقة لذلك لا يظهر خصم رسمي."
+        }
+      },
+      {
+        "name": "Standard — شهر — 1,000 إلى 1,300 كريدت — ضمان شهر",
+        "planType": "Standard",
+        "duration": "1 شهر",
+        "price": 896,
+        "basePriceUSD": 16,
+        "available": true,
+        "credits": "من 1,000 إلى 1,300 كريدت خلال الشهر",
+        "activation": "تسليم بيانات حساب Kling AI بخطة Standard.",
+        "account": "حساب Kling AI بخطة Standard",
+        "warranty": "ضمان كامل لمدة شهر",
+        "features": [
+          "اشتراك Kling AI Standard لمدة شهر واحد.",
+          "رصيد عند التسليم من 1,000 إلى 1,300 كريدت للاستخدام خلال مدة الاشتراك.",
+          "ضمان كامل لمدة شهر وفق سياسة المتجر.",
+          "إنشاء فيديو من وصف نصي أو صورة ضمن أدوات وحدود الخطة المفعّلة.",
+          "استهلاك الكريدت يختلف حسب النموذج والجودة والمدة؛ الرصيد ليس عددًا ثابتًا من الفيديوهات."
+        ],
+        "featuresEn": [
+          "One month of Kling AI Standard.",
+          "Delivered balance ranges from 1,000 to 1,300 credits for use during the subscription term.",
+          "Full one-month warranty under the store policy.",
+          "Generate video from text or an image within the activated plan’s tools and limits.",
+          "Credit usage varies by model, quality and duration; credits do not represent a fixed video count."
+        ],
+        "notes": [
+          "الحد الأدنى عند التسليم 1,000 كريدت؛ الوصول إلى 1,300 يعتمد على الرصيد الفعلي للحساب ولا يُضمن 1,300 لكل طلب.",
+          "حساب بخطة Standard؛ يُؤكد مع الدعم إن كان خاصًا أو مشتركًا قبل الدفع.",
+          "لا يوجد وعد برصيد يومي إضافي أو استخدام غير محدود أو جودة محددة لم تُذكر في العرض."
+        ],
+        "notesEn": [
+          "At least 1,000 credits on delivery; up to 1,300 depends on the account’s actual balance, so 1,300 is not guaranteed for every order.",
+          "The account uses Standard; confirm whether it is private or shared with support before payment.",
+          "No additional daily allowance, unlimited usage or unspecified output quality is promised."
+        ]
       }
-    },
-    {
-      "name": "شهر — 1,000 إلى 1,300 كريدت — ضمان كامل",
-      "planType": "Kling AI — رصيد 1,000–1,300",
-      "duration": "1 شهر",
-      "price": 896,
-      "basePriceUSD": 16,
-      "available": true,
-      "credits": "من 1,000 إلى 1,300 كريدت خلال الشهر",
-      "activation": "طريقة التفعيل والتسليم تُؤكد مع الدعم قبل الدفع.",
-      "account": "نوع الحساب يُؤكد قبل الدفع",
-      "warranty": "ضمان كامل لمدة شهر",
-      "features": [
-        "اشتراك Kling AI لمدة شهر واحد.",
-        "رصيد عند التسليم من 1,000 إلى 1,300 كريدت للاستخدام خلال مدة الاشتراك.",
-        "ضمان كامل لمدة شهر وفق سياسة المتجر.",
-        "إنشاء فيديو من وصف نصي أو صورة ضمن أدوات وحدود الخطة المفعّلة.",
-        "استهلاك الكريدت يختلف حسب النموذج والجودة والمدة؛ الرصيد ليس عددًا ثابتًا من الفيديوهات."
-      ],
-      "featuresEn": [
-        "One month of Kling AI.",
-        "Delivered balance ranges from 1,000 to 1,300 credits for use during the subscription term.",
-        "Full one-month warranty under the store policy.",
-        "Generate video from text or an image within the activated plan’s tools and limits.",
-        "Credit usage varies by model, quality and duration; credits do not represent a fixed video count."
-      ],
-      "notes": [
-        "الحد الأدنى عند التسليم 1,000 كريدت؛ الوصول إلى 1,300 يعتمد على الرصيد الفعلي للحساب ولا يُضمن 1,300 لكل طلب.",
-        "طريقة التفعيل ونوع الحساب يُؤكدان مع الدعم قبل الدفع.",
-        "لا يوجد وعد برصيد يومي إضافي أو استخدام غير محدود أو جودة محددة لم تُذكر في العرض."
-      ],
-      "notesEn": [
-        "At least 1,000 credits on delivery; up to 1,300 depends on the account’s actual balance, so 1,300 is not guaranteed for every order.",
-        "Confirm activation method and account type with support before payment.",
-        "No additional daily allowance, unlimited usage or unspecified output quality is promised."
-      ]
-    }
-  ],
-  "categories": [
-    "توليد فيديو بالذكاء الاصطناعي"
-  ],
-  "descriptionEn": "Kling AI video-generation offers: one month with a full warranty and 1,000–1,300 credits for USD 16, or a 1,100-credit package for EGP 700 with a five-day warranty. Select a plan to review credits, duration and coverage."
-},
+    ],
+    "categories": [
+      "توليد فيديو بالذكاء الاصطناعي"
+    ],
+    "descriptionEn": "Kling AI video-generation offers: Standard for one month with a full warranty and 1,000–1,300 credits for USD 16, or a 1,100-credit package for EGP 700 with a five-day warranty. Select a plan to review credits, duration and coverage."
+  },
   {
     "id": "grammarly",
     "name": "Grammarly Premium",
@@ -8301,10 +8326,128 @@ const products = [
         "warranty": "ضمان كامل لمدة 3 شهور"
       }
     ]
-  }
+  },
+{
+  "id": "quizlet-plus",
+  "name": "Quizlet Plus Unlimited",
+  "category": "التعليم",
+  "categories": [
+    "اختبارات وأنشطة تعليمية"
+  ],
+  "logo": "quizlet",
+  "logoUrl": "logos/quizlet.png?v=20261101-subscriptions2",
+  "status": "available",
+  "description": "Quizlet Plus Unlimited لمدة شهر بسعر 3.5 دولار، بحساب جاهز وضمان كامل طوال الشهر. بطاقات للمراجعة، جولات Learn غير محدودة، واختبارات تدريبية ومذاكرة بدون إعلانات وفق حدود الخدمة.",
+  "descriptionEn": "One month of Quizlet Plus Unlimited for US$3.50, supplied as a ready-made account with a full one-month warranty. Flashcards, unlimited Learn rounds, practice tests and ad-free studying within service limits.",
+  "plans": [
+    {
+      "name": "Plus Unlimited — شهر — حساب جاهز",
+      "planType": "Plus Unlimited",
+      "duration": "1 شهر",
+      "price": 196,
+      "basePriceUSD": 3.5,
+      "available": true,
+      "accountType": "حساب جاهز",
+      "account": "حساب جاهز",
+      "activation": "تسليم بيانات الدخول إلى حساب Quizlet Plus Unlimited جاهز.",
+      "warranty": "ضمان كامل لمدة شهر",
+      "features": [
+        "اشتراك Quizlet Plus Unlimited لمدة شهر.",
+        "حساب جاهز يُسلّم ببيانات الدخول.",
+        "ضمان كامل طوال شهر الاشتراك.",
+        "بطاقات تعليمية للمراجعة وتنظيم المصطلحات والمعلومات.",
+        "جولات Learn غير محدودة ووصول كامل للاختبارات التدريبية حسب الباقة.",
+        "مذاكرة بدون إعلانات، مع حلول كتب دراسية ضمن حدود الخدمة."
+      ],
+      "featuresEn": [
+        "One month of Quizlet Plus Unlimited.",
+        "A ready-made account supplied with login details.",
+        "Full warranty throughout the subscription month.",
+        "Flashcards for revision and organising terms and information.",
+        "Unlimited Learn rounds and complete access to practice tests under the plan.",
+        "Ad-free studying and textbook solutions within service limits."
+      ],
+      "notes": [
+        "Unlimited يخص مزايا الباقة المحددة؛ قد تُطبق حدود يومية أمنية على حلول الكتب.",
+        "حلول الكتب المتاحة تخص الكتب الإنجليزية المدعومة، ولا تعني توفير حل لكل كتاب أو سؤال.",
+        "هذا العرض لحساب جاهز لمدة شهر، وليس تفعيلًا على بريدك الشخصي."
+      ],
+      "notesEn": [
+        "Unlimited refers to the specified plan features; security-related daily limits may apply to textbook solutions.",
+        "Textbook solutions cover supported English-language textbooks, not every book or question.",
+        "This offer supplies a ready-made account for one month, rather than activation on your personal email."
+      ],
+      "priceComparison": {
+        "planName": "Quizlet Plus Unlimited — monthly",
+        "status": "unavailable",
+        "source": "https://quizlet.com/upgrade",
+        "checkedAt": "2026-11-01",
+        "note": "لم يتأكد سعر رسمي مطابق للدفع الشهري؛ السعر السنوي المقسّم على 12 لا يُستخدم كمرجع لشهر مستقل.",
+        "noteEn": "A matching official monthly-billing price was not verified; an annual price divided by 12 is not a standalone monthly reference."
+      }
+    }
+  ]
+},
+{
+  "id": "truecaller-gold",
+  "name": "Truecaller Gold",
+  "category": "الحماية والاتصالات",
+  "categories": [
+    "تحديد المتصل وحظر الإزعاج"
+  ],
+  "logo": "truecaller",
+  "logoUrl": "logos/truecaller.png?v=20261101-subscriptions2",
+  "status": "available",
+  "description": "Truecaller Gold لمدة سنة بسعر 14 دولارًا، بحساب جاهز وضمان المتجر. هوية اتصال ذهبية وشارة Gold مع مزايا Premium المتاحة لبلدك وجهازك. تُؤكد مدة الضمان وربط رقم الهاتف قبل الدفع.",
+  "descriptionEn": "One year of Truecaller Gold for US$14, supplied as a ready-made account with store warranty. Gold Caller ID, a Gold badge and Premium benefits available for your country and device. Confirm warranty duration and phone-number setup before payment.",
+  "plans": [
+    {
+      "name": "Gold — سنة — حساب جاهز",
+      "planType": "Gold",
+      "duration": "12 شهر",
+      "price": 784,
+      "basePriceUSD": 14,
+      "available": true,
+      "accountType": "حساب جاهز",
+      "account": "حساب جاهز",
+      "activation": "تسليم بيانات حساب Truecaller Gold جاهز؛ تُؤكد طريقة ربط رقم الهاتف قبل الدفع.",
+      "warranty": "ضمان المتجر — المدة تُؤكد قبل الدفع",
+      "features": [
+        "اشتراك Truecaller Gold لمدة 12 شهرًا.",
+        "حساب جاهز يُسلّم ببيانات الدخول مع ضمان المتجر.",
+        "هوية اتصال ذهبية وشارة Gold ضمن الأجهزة والبلدان المدعومة.",
+        "مزايا Premium، ومنها إزالة الإعلانات وحظر المكالمات المزعجة حسب توفرها."
+      ],
+      "featuresEn": [
+        "A 12-month Truecaller Gold subscription.",
+        "A ready-made account supplied with login details and store warranty.",
+        "Gold Caller ID and a Gold badge on supported devices and in supported countries.",
+        "Premium benefits, including no ads and spam blocking where available."
+      ],
+      "notes": [
+        "مدة الضمان وطريقة ربط الحساب برقم هاتفك تُؤكدان قبل الدفع.",
+        "المميزات تختلف حسب البلد ونظام التشغيل وإصدار التطبيق.",
+        "التسليم حساب جاهز؛ تأكد من توافقه مع جهازك ورقمك قبل الطلب."
+      ],
+      "notesEn": [
+        "Confirm the warranty duration and how the account connects to your phone number before payment.",
+        "Features vary by country, operating system and app version.",
+        "Delivery is a ready-made account; confirm compatibility with your device and number before ordering."
+      ],
+      "priceComparison": {
+        "planName": "Truecaller Gold — annual",
+        "status": "unavailable",
+        "source": "https://www.truecaller.com/premium",
+        "checkedAt": "2026-11-01",
+        "note": "الأسعار الرسمية تختلف حسب البلد والمنصة؛ لم يتأكد مرجع 22 دولارًا لنفس الباقة والمنطقة، لذلك لا تُعرض نسبة توفير رسمية.",
+        "noteEn": "Official prices vary by country and platform; a US$22 reference for the same tier and region was not verified, so no official saving percentage is shown."
+      }
+    }
+  ]
+}
 ];
 
-const categoryGroups = {"الفيديو": ["توليد فيديو بالذكاء الاصطناعي", "أفاتار وفيديو ناطق", "مونتاج وتحسين الفيديو", "قوالب ومؤثرات فيديو"], "الصور والتصميم": ["نمذجة وتصميم ثلاثي الأبعاد", "توليد صور بالذكاء الاصطناعي", "تعديل الصور والتصميم", "صور وقوالب وموارد جاهزة", "تصميم واجهات التطبيقات"], "الصوت": ["تعليق صوتي وتحويل النص لصوت", "توليد موسيقى وأغاني", "إملاء صوتي وتحويل الكلام لنص", "تسجيل وتلخيص الاجتماعات"], "البرمجة والمواقع": ["مساعد كتابة الكود", "بناء مواقع وتطبيقات بالذكاء الاصطناعي", "تصميم ونشر المواقع", "قواعد بيانات واستضافة", "تتبع الأخطاء والتحليلات"], "الكتابة والبحث": ["محادثة ومساعد ذكي", "بحث وإجابات بالمصادر", "تدقيق وإعادة صياغة", "فحص تشابه ومحتوى أكاديمي", "قراءة وحفظ المراجع"], "التعليم": ["كورسات وتعلم مهني", "تعلم اللغات والنطق", "اختبارات وأنشطة تعليمية", "أدوات للمعلمين"], "العمل والإنتاجية": ["خرائط ذهنية وسبورات تعاونية", "عروض تقديمية", "مستندات وجداول وملاحظات", "ملفات PDF", "أتمتة المهام", "إدارة مشاريع وفرق", "اجتماعات ومكالمات", "تسويق وتواصل مع العملاء", "تطوير مهني وتوظيف", "تخزين سحابي", "تفعيل ويندوز"], "الترفيه": ["موسيقى واستماع", "فيديو وبث وقنوات", "تواصل ومجتمعات", "تأمل واسترخاء"], "الحماية والاتصالات": ["مكافحة الفيروسات وحماية الأجهزة", "VPN وخصوصية", "عروض الإنترنت المنزلي"]};
+const categoryGroups = {"الفيديو": ["توليد فيديو بالذكاء الاصطناعي", "أفاتار وفيديو ناطق", "مونتاج وتحسين الفيديو", "قوالب ومؤثرات فيديو"], "الصور والتصميم": ["نمذجة وتصميم ثلاثي الأبعاد", "توليد صور بالذكاء الاصطناعي", "تعديل الصور والتصميم", "صور وقوالب وموارد جاهزة", "تصميم واجهات التطبيقات"], "الصوت": ["تعليق صوتي وتحويل النص لصوت", "توليد موسيقى وأغاني", "إملاء صوتي وتحويل الكلام لنص", "تسجيل وتلخيص الاجتماعات"], "البرمجة والمواقع": ["مساعد كتابة الكود", "بناء مواقع وتطبيقات بالذكاء الاصطناعي", "تصميم ونشر المواقع", "قواعد بيانات واستضافة", "تتبع الأخطاء والتحليلات"], "الكتابة والبحث": ["محادثة ومساعد ذكي", "بحث وإجابات بالمصادر", "تدقيق وإعادة صياغة", "فحص تشابه ومحتوى أكاديمي", "قراءة وحفظ المراجع"], "التعليم": ["كورسات وتعلم مهني", "تعلم اللغات والنطق", "اختبارات وأنشطة تعليمية", "أدوات للمعلمين"], "العمل والإنتاجية": ["خرائط ذهنية وسبورات تعاونية", "عروض تقديمية", "مستندات وجداول وملاحظات", "ملفات PDF", "أتمتة المهام", "إدارة مشاريع وفرق", "اجتماعات ومكالمات", "تسويق وتواصل مع العملاء", "تطوير مهني وتوظيف", "تخزين سحابي", "تفعيل ويندوز"], "الترفيه": ["موسيقى واستماع", "فيديو وبث وقنوات", "تواصل ومجتمعات", "تأمل واسترخاء"], "الحماية والاتصالات": ["مكافحة الفيروسات وحماية الأجهزة", "VPN وخصوصية", "عروض الإنترنت المنزلي", "تحديد المتصل وحظر الإزعاج"]};
 const categoryOrder = Object.keys(categoryGroups);
 function getProduct(id){ return products.find(p => p.id === id); }
 function formatPrice(value){ return Number(value).toLocaleString("en-US") + " ج"; }

@@ -611,8 +611,8 @@
     "checkEn": "Similarity reports and AI detection are different outputs. Neither should be treated as conclusive evidence of misconduct or a guarantee of academic acceptance."
   },
   "chatgpt-plus": {
-  "intro": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو حساب خاص جاهز بضمان 25 يومًا بـ700 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ1100 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
-  "introEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a 25-day warranty for EGP 700, or activation and renewal on your personal account for EGP 1,100. Review the delivery method and warranty of your chosen plan.",
+  "intro": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو حساب خاص جاهز بضمان شهر بـ650 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ1100 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
+  "introEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a full one-month warranty for EGP 650, or activation and renewal on your personal account for EGP 1,100. Review the delivery method and warranty of your chosen plan.",
   "workflow": "ابدأ بهدف واضح وقدّم المعلومات اللازمة وشكل المخرجات. اطلب مسودة قابلة للمراجعة، ثم عدّل النبرة أو ترتيب الأفكار أو طريقة الحساب خطوة بخطوة بدل إعادة الطلب كاملًا.",
   "workflowEn": "Start with a clear goal, relevant information, and desired format. Request a reviewable draft, then refine tone, structure, or calculations step by step instead of restarting the request.",
   "check": "باقات Plus في المتجر تختلف في التسليم والضمان؛ الحساب بدون ضمان ليس حسابًا جاهزًا بضمان، والتفعيل الشخصي مسار آخر كما توضح كل باقة.",
@@ -620,14 +620,14 @@
   "reports": [
     {
       "id": "private-ready-warranty",
-      "title": "الحساب الخاص الجاهز بضمان 25 يومًا",
-      "titleEn": "Ready private account with a 25-day warranty",
+      "title": "الحساب الخاص الجاهز بضمان شهر",
+      "titleEn": "Ready private account with a one-month warranty",
       "paragraphs": [
-        "الباقة الجديدة بسعر 700 جنيه هي اشتراك ChatGPT Plus لمدة شهر على حساب خاص جاهز وغير مشترك مع عملاء آخرين. تُسلّم بيانات الدخول، ومدة الضمان 25 يومًا، فتختلف مدة الضمان عن الشهر الكامل للاشتراك.",
+        "الباقة بسعر 650 جنيه هي اشتراك ChatGPT Plus لمدة شهر على حساب خاص جاهز وغير مشترك مع عملاء آخرين. تُسلّم بيانات الدخول العادية للحساب، ويغطي الضمان شهر الاشتراك كاملًا.",
         "يمكن استخدام أدوات Plus المتاحة على الحساب للكتابة والمذاكرة والبحث وتحليل الملفات والصور حسب حدود الخطة. راجع تعليمات التسليم والوصول، وتواصل مع الدعم برقم الطلب لو واجهتك مشكلة خلال فترة الضمان."
       ],
       "paragraphsEn": [
-        "The new EGP 700 offer is one month of ChatGPT Plus on a ready private account that is not shared with other customers. Login details are supplied and warranty lasts 25 days, which differs from the full subscription month.",
+        "The EGP 650 offer is one month of ChatGPT Plus on a ready private account not shared with other customers. Standard account login details are supplied, with warranty covering the full subscription month.",
         "Use the Plus tools available on the account for writing, study, research and file and image analysis within plan limits. Review delivery and access instructions, and contact support with your order reference if an issue occurs during the warranty period."
       ]
     }
@@ -773,27 +773,27 @@
     ]
 },
   "lovable-pro": {
-    "intro": "باقات Lovable لبناء المواقع والتطبيقات بالذكاء الاصطناعي. متاح Pro لمدة 3 شهور بحساب خاص جاهز بسعر 1050 جنيه، مع 100 كريدت شهريًا + 5 يوميًا وضمان كامل، إلى جانب الباقات الشهرية والسنوية الموضحة.",
-    "introEn": "Lovable plans for building websites and apps with AI. Three months of Pro on a ready private account costs EGP 1,050, with 100 monthly credits plus 5 daily and a full warranty, alongside the listed monthly and annual offers.",
-    "workflow": "ابدأ بشاشة واحدة وحدد عناصرها ومسار المستخدم. راجع التصميم والسلوك، ثم أضف شاشة أو وظيفة في كل خطوة. اختبر التسجيل والبيانات والروابط قبل اعتبار النموذج جاهزًا للاستخدام الحقيقي.",
-    "workflowEn": "Start with one screen and its user flow. Review appearance and behaviour, then add one screen or function at a time. Test authentication, data, and links before treating a prototype as ready for real use.",
-    "check": "Pro الشهرية وPro Lite السنوية لهما رصيد مختلف؛ 300 كريدت إجماليًا ليست 300 كل شهر. افصل الرصيد اليومي عن الإجمالي عند المقارنة.",
-    "checkEn": "Monthly Pro and annual Pro Lite have different allowances. A 300-total-credit offer is not 300 each month. Distinguish daily and total credits when comparing them.",
-    "reports": [
-        {
-            "id": "pro-ready-quarter",
-            "title": "Lovable Pro لمدة 3 شهور بحساب خاص جاهز",
-            "titleEn": "Three months of Lovable Pro on a ready private account",
-            "paragraphs": [
-                "الباقة بسعر 1050 جنيه تشمل حساب Lovable Pro خاصًا وجاهزًا لمدة 3 شهور، مع ضمان كامل طوال المدة. يتم تسليم البريد وطريقة الوصول إلى كود الدخول، لتبدأ استخدام الحساب وفق تعليمات التسليم.",
-                "حصة 100 كريدت تتجدد كل شهر، وبجانبها 5 كريدت يوميًا كحصة منفصلة. ابدأ بتحديد صفحة أو مهمة واضحة، وراجع النتيجة قبل طلب تعديلات إضافية حتى تتابع استهلاك الرصيد داخل المشروع."
-            ],
-            "paragraphsEn": [
-                "The EGP 1,050 offer includes a ready private Lovable Pro account for three months with a full warranty for the term. You receive the email and instructions for accessing its sign-in code, then follow the delivery instructions to start using the account.",
-                "A 100-credit allowance refreshes each month, alongside a separate allowance of 5 credits per day. Start with a specific page or task and review the result before requesting further changes so you can track project credit usage."
-            ]
-        }
-    ]
+  "intro": "باقات Lovable لبناء المواقع والتطبيقات بالذكاء الاصطناعي. متاح Pro لمدة 3 شهور بحساب خاص جاهز بسعر 1050 جنيه، مع 100 كريدت شهريًا + 5 يوميًا وضمان كامل، إلى جانب الباقات الشهرية والسنوية الموضحة. باقة Pro Lite السنوية متاحة بـ450 جنيه كرابط تفعيل على بريدك، مع 300 كريدت إجماليًا + 5 يوميًا وضمان كامل.",
+  "introEn": "Lovable plans for building websites and apps with AI. Three months of Pro on a ready private account costs EGP 1,050, with 100 monthly credits plus 5 daily and a full warranty, alongside the listed monthly and annual offers. Annual Pro Lite costs EGP 450 with a personal-email activation link, 300 total credits plus 5 daily and a full warranty.",
+  "workflow": "ابدأ بشاشة واحدة وحدد عناصرها ومسار المستخدم. راجع التصميم والسلوك، ثم أضف شاشة أو وظيفة في كل خطوة. اختبر التسجيل والبيانات والروابط قبل اعتبار النموذج جاهزًا للاستخدام الحقيقي.",
+  "workflowEn": "Start with one screen and its user flow. Review appearance and behaviour, then add one screen or function at a time. Test authentication, data, and links before treating a prototype as ready for real use.",
+  "check": "Pro الشهرية وPro Lite السنوية لهما رصيد مختلف؛ 300 كريدت إجماليًا ليست 300 كل شهر. افصل الرصيد اليومي عن الإجمالي عند المقارنة.",
+  "checkEn": "Monthly Pro and annual Pro Lite have different allowances. A 300-total-credit offer is not 300 each month. Distinguish daily and total credits when comparing them.",
+  "reports": [
+    {
+      "id": "pro-ready-quarter",
+      "title": "Lovable Pro لمدة 3 شهور بحساب خاص جاهز",
+      "titleEn": "Three months of Lovable Pro on a ready private account",
+      "paragraphs": [
+        "الباقة بسعر 1050 جنيه تشمل حساب Lovable Pro خاصًا وجاهزًا لمدة 3 شهور، مع ضمان كامل طوال المدة. يتم تسليم البريد وطريقة الوصول إلى كود الدخول، لتبدأ استخدام الحساب وفق تعليمات التسليم.",
+        "حصة 100 كريدت تتجدد كل شهر، وبجانبها 5 كريدت يوميًا كحصة منفصلة. ابدأ بتحديد صفحة أو مهمة واضحة، وراجع النتيجة قبل طلب تعديلات إضافية حتى تتابع استهلاك الرصيد داخل المشروع."
+      ],
+      "paragraphsEn": [
+        "The EGP 1,050 offer includes a ready private Lovable Pro account for three months with a full warranty for the term. You receive the email and instructions for accessing its sign-in code, then follow the delivery instructions to start using the account.",
+        "A 100-credit allowance refreshes each month, alongside a separate allowance of 5 credits per day. Start with a specific page or task and review the result before requesting further changes so you can track project credit usage."
+      ]
+    }
+  ]
 },
   "runway-pro": {
     "intro": "Runway Pro موجه للعمل على الأفكار البصرية واللقطات بالذكاء الاصطناعي. يساعد التخطيط المسبق للمشهد على تقليل التجارب العشوائية واستغلال رصيد الإنتاج بصورة أوضح.",
@@ -1112,8 +1112,8 @@
     "checkEn": "The Premium name does not include every membership type or add-on in every country. Use the listed plan details to confirm benefits."
   },
   "kling": {
-  "intro": "باقات Kling AI لتوليد الفيديو: شهر بضمان كامل ورصيد من 1,000 إلى 1,300 كريدت بسعر 16 دولارًا، أو حزمة 1,100 كريدت بسعر 700 جنيه وضمان 5 أيام. اختر الباقة لمراجعة الرصيد والمدة والضمان.",
-  "introEn": "Kling AI video-generation offers: one month with a full warranty and 1,000–1,300 credits for USD 16, or a 1,100-credit package for EGP 700 with a five-day warranty. Select a plan to review credits, duration and coverage.",
+  "intro": "باقات Kling AI لتوليد الفيديو: Standard لمدة شهر بضمان كامل ورصيد من 1,000 إلى 1,300 كريدت بسعر 16 دولارًا، أو حزمة 1,100 كريدت بسعر 700 جنيه وضمان 5 أيام. اختر الباقة لمراجعة الرصيد والمدة والضمان.",
+  "introEn": "Kling AI video-generation offers: Standard for one month with a full warranty and 1,000–1,300 credits for USD 16, or a 1,100-credit package for EGP 700 with a five-day warranty. Select a plan to review credits, duration and coverage.",
   "workflow": "اكتب موضوع اللقطة وحركة الكاميرا وما يجب أن يبقى ثابتًا. جرّب إعدادًا أوليًا، وراجع اتساق العناصر، ثم عدّل عاملًا واحدًا في كل محاولة لتعرف أثره على النتيجة.",
   "workflowEn": "Describe the subject, camera motion, and what must stay consistent. Review an initial result, then change one factor per attempt to understand its effect.",
   "check": "باقة الشهر الجديدة بسعر 16 دولارًا وضمان كامل لمدة شهر، ورصيدها عند التسليم من 1,000 إلى 1,300 كريدت. حزمة 1,100 كريدت القديمة مستقلة وضمانها 5 أيام؛ لا تُنقل شروطها إلى باقة الشهر.",
@@ -1342,5 +1342,21 @@
     "workflowEn": "Start with the meeting or project question and group ideas clearly. Use meaningful headings and colours, ending with responsibilities and next steps that can become an implementation plan.",
     "check": "عرض الثلاثة شهور على إيميلك يختلف عن أي حساب أو مقعد آخر. راجع مساحة العمل والصلاحيات قبل نقل لوحات مهمة إليها.",
     "checkEn": "The three-month personal-email offer differs from another account or seat. Check workspace permissions before moving important boards into it."
-  }
+  },
+"quizlet-plus": {
+  "intro": "Quizlet Plus Unlimited لمدة شهر بسعر 3.5 دولار، بحساب جاهز وضمان كامل طوال الشهر. بطاقات للمراجعة، جولات Learn غير محدودة، واختبارات تدريبية ومذاكرة بدون إعلانات وفق حدود الخدمة.",
+  "introEn": "One month of Quizlet Plus Unlimited for US$3.50, supplied as a ready-made account with a full one-month warranty. Flashcards, unlimited Learn rounds, practice tests and ad-free studying within service limits.",
+  "workflow": "ابدأ بمجموعة بطاقات تخص درسًا واحدًا، ثم جرّب Learn لمراجعة المصطلحات واختبارًا تدريبيًا لقياس فهمك. راجع إجاباتك والمصدر الدراسي عند وجود اختلاف، وقسّم المراجعة إلى جلسات قصيرة بدل الاعتماد على حفظ الإجابات فقط.",
+  "workflowEn": "Start with flashcards for one lesson, then use Learn to revise terms and a practice test to check understanding. Compare uncertain answers with your course material and split revision into short sessions.",
+  "check": "Unlimited يخص مزايا الباقة المحددة؛ قد تُطبق حدود يومية أمنية على حلول الكتب. حلول الكتب المتاحة تخص الكتب الإنجليزية المدعومة، ولا تعني توفير حل لكل كتاب أو سؤال. هذا العرض لحساب جاهز لمدة شهر، وليس تفعيلًا على بريدك الشخصي.",
+  "checkEn": "Unlimited refers to the specified plan features; security-related daily limits may apply to textbook solutions. Textbook solutions cover supported English-language textbooks, not every book or question. This offer supplies a ready-made account for one month, rather than activation on your personal email."
+},
+"truecaller-gold": {
+  "intro": "Truecaller Gold لمدة سنة بسعر 14 دولارًا، بحساب جاهز وضمان المتجر. هوية اتصال ذهبية وشارة Gold مع مزايا Premium المتاحة لبلدك وجهازك. تُؤكد مدة الضمان وربط رقم الهاتف قبل الدفع.",
+  "introEn": "One year of Truecaller Gold for US$14, supplied as a ready-made account with store warranty. Gold Caller ID, a Gold badge and Premium benefits available for your country and device. Confirm warranty duration and phone-number setup before payment.",
+  "workflow": "قبل الطلب، أكد مع الدعم نظام هاتفك وبلد الاستخدام ورقم الهاتف المطلوب ربطه. بعد استلام بيانات الحساب، اتبع تعليمات التسليم وتحقق من ظهور Gold داخل التطبيق الرسمي ومن إعدادات حظر المكالمات التي تحتاجها.",
+  "workflowEn": "Before ordering, confirm your phone platform, country and phone-number setup with support. Follow the supplied account instructions and check Gold status in the official app and the spam-blocking settings you need.",
+  "check": "مدة الضمان وطريقة ربط الحساب برقم هاتفك تُؤكدان قبل الدفع. المميزات تختلف حسب البلد ونظام التشغيل وإصدار التطبيق. التسليم حساب جاهز؛ تأكد من توافقه مع جهازك ورقمك قبل الطلب.",
+  "checkEn": "Confirm the warranty duration and how the account connects to your phone number before payment. Features vary by country, operating system and app version. Delivery is a ready-made account; confirm compatibility with your device and number before ordering."
+}
 };});
