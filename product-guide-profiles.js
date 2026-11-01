@@ -535,8 +535,8 @@
     "introEn": "Higgsfield is a platform for AI-assisted visual and video creation. Credit allowance, subscription term, and access method matter when choosing an offer, beyond the platform name alone.",
     "workflow": "جهز وصف اللقطة والحركة المطلوبة والصورة المرجعية إن وجدت. ابدأ بتجربة قصيرة، وراجع الإضاءة والتكوين والحركة، ثم وسّع الفكرة بعد التأكد من ملاءمة النتيجة لاستخدامك.",
     "workflowEn": "Prepare the shot description, desired movement, and any reference image. Start with a short test, check lighting, composition, and motion, then develop the idea once the result suits your purpose.",
-    "check": "خطة البداية الشهرية والخطة السنوية ليستا حصة واحدة. لا تنقل رصيد Starter إلى Pro، وراجع أي إضافة مدفوعة منفصلة قبل الاعتماد عليها.",
-    "checkEn": "The monthly Starter offer and annual plan do not share one allowance. Do not transfer Starter credits to Pro, and check separately paid add-ons before relying on them."
+    "check": "باقات Starter وPlus الشهرية وPro السنوية لها شروط مستقلة. باقة Plus الشهرية تضم 1,200 كريدت بحساب جاهز وضمان 25 يومًا؛ لا تنقل هذا الرصيد أو الضمان إلى باقة أخرى. راجع رصيد الباقة وطريقة التسليم وأي إضافات مدفوعة قبل الطلب.",
+    "checkEn": "Monthly Starter, monthly Plus, and annual Pro have separate terms. Monthly Plus includes 1,200 credits, a ready-made account, and a 25-day warranty; do not apply that allowance or warranty to another tier. Review the selected plan allowance, delivery method, and any paid add-ons before ordering."
   },
   "windows-pro": {
     "intro": "اختيار ترخيص Windows يبدأ بمطابقة الإصدار المثبت على جهازك مع المفتاح المطلوب. تجمع الصفحة إصدارات متعددة من Windows لتراجع النسخة المناسبة قبل طلب التفعيل.",

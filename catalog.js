@@ -1266,17 +1266,17 @@ const products = [
   },
   {
     "id": "higgsfield-pro",
-    "name": "Higgsfield Pro",
+    "name": "Higgsfield AI",
     "category": "AI Tools",
     "logo": "higgsfield",
     "logoUrl": "logos/higgsfield.svg?v=20261009-logo-review3",
     "status": "available",
-    "description": "هيجزفيلد: خطة البداية لمدة شهر بـ599ج، حساب جاهز بضمان شهر و210 كريدت، مع توفر خطة Pro السنوية بكود تفعيل.",
+    "description": "هيجزفيلد لإنشاء الصور والفيديو بالذكاء الاصطناعي. اختر Plus لمدة شهر بسعر 28 دولارًا: 1,200 كريدت، حساب جاهز، وضمان 25 يومًا. تتوفر أيضًا خطة البداية الشهرية وPro السنوية، ولكل باقة رصيدها وطريقة تسليمها.",
     "features": [
-      "خطة البداية الشهرية أو خطة Pro السنوية؛ اختار الباقة لعرض مميزاتها."
+      "اختر Starter الشهرية أو Plus الشهرية أو Pro السنوية لعرض شروط الباقة المحددة."
     ],
     "featuresEn": [
-      "Choose the monthly Starter plan or annual Pro plan to see its features."
+      "Choose monthly Starter, monthly Plus, or annual Pro to see the selected tier terms."
     ],
     "plans": [
       {
@@ -1336,12 +1336,68 @@ const products = [
           "basis": "reference"
         },
         "notes": []
+      },
+      {
+        "name": "Plus — شهر — 1,200 كريدت — حساب جاهز",
+        "planType": "Plus",
+        "duration": "1 شهر",
+        "price": 1568,
+        "basePriceUSD": 28,
+        "available": true,
+        "credits": "1,200 كريدت خلال الشهر",
+        "activation": "تسليم حساب Higgsfield Plus جاهز للاستخدام.",
+        "account": "حساب جاهز",
+        "accountType": "حساب جاهز",
+        "warranty": "ضمان لمدة 25 يومًا",
+        "features": [
+          "اشتراك Higgsfield Plus لمدة شهر واحد.",
+          "1,200 كريدت للاستخدام خلال شهر الاشتراك.",
+          "حساب جاهز للاستخدام بعد استلام بيانات الدخول.",
+          "ضمان لمدة 25 يومًا من بداية التفعيل.",
+          "أدوات لإنشاء الصور والفيديو بالذكاء الاصطناعي ضمن النماذج والحدود المتاحة في Plus.",
+          "استهلاك الكريدت يختلف حسب النموذج ومدة الفيديو وإعدادات الجودة؛ لا يوجد عدد ثابت مضمون من المقاطع."
+        ],
+        "featuresEn": [
+          "One month of Higgsfield Plus.",
+          "1,200 credits to use during the subscription month.",
+          "A ready-made account, usable after receiving its login details.",
+          "A 25-day warranty from activation.",
+          "AI image and video tools within the models and limits available in Plus.",
+          "Credit usage varies by model, video length, and quality settings; no fixed number of videos is guaranteed."
+        ],
+        "notes": [
+          "مدة الاشتراك شهر، ومدة الضمان 25 يومًا.",
+          "هذه باقة بحساب جاهز؛ ليست تفعيلًا على بريدك الشخصي.",
+          "المزايا وحدود الاستخدام حسب باقة Plus المفعّلة، ولا تشمل وعدًا بتوليد غير محدود أو رصيد يومي إضافي."
+        ],
+        "notesEn": [
+          "The subscription lasts one month; the warranty lasts 25 days.",
+          "This offer is delivered as a ready-made account, not activated on your personal email.",
+          "Features and usage limits follow the activated Plus tier; unlimited generation and extra daily credits are not promised."
+        ],
+        "officialPrice": {
+          "amount": 59,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://higgsfield.ai/pricing",
+          "checkedAt": "2026-11-01"
+        },
+        "priceComparison": {
+          "planName": "Higgsfield Plus — monthly billing",
+          "source": "https://higgsfield.ai/pricing",
+          "checkedAt": "2026-11-01",
+          "status": "reference",
+          "billingLabel": "السعر الشهري المباشر قبل الضرائب",
+          "note": "مقارنة بسعر Plus الرسمي 59 دولارًا عند الدفع الشهري، وليس ما يعادل الشهر في الاشتراك السنوي. عرض المتجر بحساب جاهز وضمان 25 يومًا."
+        }
       }
     ],
     "categories": [
       "توليد فيديو بالذكاء الاصطناعي",
       "توليد صور بالذكاء الاصطناعي"
-    ]
+    ],
+    "descriptionEn": "Higgsfield for AI image and video creation. Choose one month of Plus for US$28: 1,200 credits, a ready-made account, and a 25-day warranty. Monthly Starter and annual Pro are also available, each with its own allowance and delivery method."
   },
   {
     "id": "windows-pro",
