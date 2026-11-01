@@ -21,3 +21,5 @@ body.admin-app{background:#f3f5f9;color:#17283f;direction:rtl}.admin-app *{box-s
 .workspace-account-menu button[data-session-action=logout]{color:#a22b2b;background:#fff2f0}
 .workspace-account-menu button:disabled{opacity:.5;cursor:wait}
 .workspace-account-menu p{font-size:12px;line-height:1.7;margin:4px 0 0;color:#922e2e}
+
+.admin-sales-review{display:grid;grid-template-columns:minmax(150px,1fr) minmax(200px,2fr) auto;gap:12px;align-items:end;margin:16px 0;padding:14px;border:1px solid #dce5e2;border-radius:12px;background:#f6faf7}.admin-sales-review label{display:grid;gap:6px;font-size:12px}.admin-sales-review select,.admin-sales-review textarea{width:100%;box-sizing:border-box;font:inherit;padding:10px;border:1px solid #cedbd2;border-radius:8px;background:#fff;color:#183d2a}.admin-order-origin{font-size:11px;color:#526f60;overflow-wrap:anywhere}.admin-inbox-pager{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:20px}.admin-inbox-pager button:disabled{opacity:.45;cursor:default}@media(max-width:760px){.admin-sales-review{grid-template-columns:1fr}.admin-sales-review button{width:100%}}

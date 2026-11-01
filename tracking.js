@@ -13,9 +13,9 @@ function card(o){
  return '<article class="order-card tracking-card"><div class="order-top"><div><small>'+t('رقم الطلب','Order ID')+'</small><b class="record-id" dir="ltr">'+esc(o.id)+'</b></div><span class="status '+(!local&&o.status==='completed'?'ok':'soon')+'">'+esc(label)+'</span></div><h2>'+esc(o.product)+'</h2><p>'+esc(L?.catalogText(o.plan,'planName',o.productId)||o.plan)+'</p>'+progress+'<dl class="tracking-details"><div><dt>'+t('المدة','Duration')+'</dt><dd>'+esc(L?.catalogText(o.duration,'duration',o.productId)||o.duration||'—')+'</dd></div><div><dt>'+t('الكمية','Quantity')+'</dt><dd>'+esc(o.quantity||1)+'</dd></div><div><dt>'+t('إجمالي الطلب','Order total')+'</dt><dd>'+S.orderMoney(o)+'</dd></div><div><dt>'+t('الدفع','Payment')+'</dt><dd>'+esc(o.payment==='wallet'?t('رصيد الحساب','Wallet'):o.payment||'—')+'</dd></div><div><dt>'+t('تاريخ الطلب','Order date')+'</dt><dd>'+esc(when)+'</dd></div></dl>'+(local?'<p class="tracking-local-note">'+t('ده سجل للطلب على جهازك، ومش إثبات للدفع أو التنفيذ. الحالة المؤكدة من الدعم.','This device record is not proof of payment or fulfillment. Confirm status with support.')+'</p>':'')+'<a class="ghost-btn" href="invoice.html?id='+encodeURIComponent(o.id)+(local?'&amp;source=device':'')+'">'+t(local?'ملخص الطلب / PDF':'الفاتورة / PDF',local?'Order summary / PDF':'Invoice / PDF')+'</a> <a class="order-follow" target="_blank" rel="noopener" href="https://wa.me/201500950624?text='+encodeURIComponent(message)+'">'+t('تابع الطلب مع الدعم','Contact support about this order')+' ←</a></article>';
 }
 function show(){
- const q=input.value.trim().toLowerCase(),list=q?orders.filter(o=>String(o.id).toLowerCase()===q):orders;
+ const q=input.value.trim().toLowerCase(),list=q?orders.filter(o=>String(o.id).toLowerCase()===q||String(o.cartId||'').toLowerCase()===q):orders;
  results.innerHTML=list.length?list.map(card).join(''):'<section class="account-panel tracking-empty"><h2>'+t(q?'الطلب مش ظاهر هنا':'لسه مفيش طلبات ظاهرة',q?'Order not found here':'No orders to display')+'</h2><p>'+t('راجع رقم الطلب أو سجّل الدخول بالحساب اللي طلبت منه. لو طلبت كضيف من جهاز تاني، تواصل مع الدعم.','Check the order ID or sign in to the account used to order. For guest orders on another device, contact support.')+'</p></section>';
- notice.textContent=cloudError?t('تعذر تحديث طلبات الحساب. سجلات الجهاز ظاهرة فقط؛ جرّب تحديث الصفحة.','Could not refresh account orders. Showing device records only; try refreshing.'):t('عرض '+list.length+' طلب'+(user?' · بيانات الحساب من النظام':' · سجلات هذا الجهاز'),'Showing '+list.length+' orders'+(user?' · account records':' · records on this device'));
+ notice.textContent=cloudError?t('تعذر تحديث طلبات الحساب. سجلات الجهاز ظاهرة فقط؛ جرّب تحديث الصفحة.','Could not refresh account orders. Showing device records only; try refreshing.'):t('عرض '+list.length+' طلب'+' · طلبات النظام والسجلات المتاحة على الجهاز','Showing '+list.length+' orders'+' · server orders and available device records');
 }
 async function load(){
  if(busy)return;busy=true;refresh.disabled=true;form.querySelector('[type=submit]').disabled=true;notice.textContent=t('جاري تحديث الطلبات…','Refreshing orders…');results.setAttribute('aria-busy','true');cloudError=false;
@@ -28,11 +28,12 @@ async function load(){
     if(user){
      let query=C.client.from('master_store_orders').select('id,created_at,product_id,product,plan,duration,quantity,amount_piasters,payment,status').eq('user_id',user.id);
      const q=input.value.trim();
-     if(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(q))query=query.eq('id',q);
+     if(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(q))query=query.or('id.eq.'+q+',cart_id.eq.'+q);
      const data=await C.unwrap(query.order('created_at',{ascending:false}).limit(100));remote=data.map(C.asLocalOrder);
     }
    }
   }
+  if(C?.ready){const guest=await C.guestOrders();remote.push(...guest.map(C.asLocalOrder));}
   const ids=new Set(remote.map(o=>o.id));
   orders=[...remote,...S.getOrders().filter(o=>!ids.has(o.id)).map(o=>({...o,local:true}))].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
  }catch(error){cloudError=true;orders=S.getOrders().map(o=>({...o,local:true}));}

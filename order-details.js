@@ -13,7 +13,7 @@ function details(product,plan){
 }
 function buildMessage(q,contact,method,id,saved){
  const money=n=>window.MasterStore.formatCurrency(n/100,'EGP');
- const lines=['MASTER STORE',pick('رقم الطلب: ','Order reference: ')+id,pick('حالة الطلب: ','Order status: ')+pick(saved?'محفوظ في حسابي — بانتظار التنفيذ':'طلب ضيف — بانتظار تأكيد الدعم',saved?'Saved in my account — awaiting fulfillment':'Guest request — awaiting support confirmation'),''];
+ const lines=['MASTER STORE',pick('رقم الطلب: ','Order reference: ')+id,pick('حالة الطلب: ','Order status: ')+pick(saved?'محفوظ في حسابي — بانتظار التنفيذ':'طلب ضيف مسجّل في النظام — بانتظار تأكيد الدعم',saved?'Saved in my account — awaiting fulfillment':'Guest order saved in the system — awaiting support confirmation'),''];
  q.items.forEach((x,i)=>{
  const product=window.MasterCatalog?.getProduct(x.product_id),plan=product?.plans?.[x.plan_index];
  lines.push((i+1)+'. '+x.product,pick('الباقة: ','Plan: ')+x.plan,pick('الكمية: ','Quantity: ')+x.quantity,pick('سعر الوحدة: ','Unit price: ')+money(x.unit_piasters),...details(product,plan),pick('إجمالي البند حسب ملخص الطلب: ','Line total from order summary: ')+money(x.amount_piasters),'');

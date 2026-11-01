@@ -7,6 +7,8 @@
   const redirect=location.origin+'/account.html';
   const errors={
     EDIT_CONFLICT:['البيانات اتعدلت من مكان تاني. حدث اللوحة وراجع القيم قبل الحفظ.','Data changed elsewhere. Refresh and review before saving.'],
+    INVALID_ORDER:['راجع الاسم ورقم واتساب والإيميل.','Check your name, WhatsApp number and email.'],
+    RECEIPT_UNAVAILABLE:['تعذر التحقق من إيصال الطلب من هذا الجهاز. تواصل مع الدعم.','This device cannot verify the receipt. Contact support.'],
     INVALID_PLAN:['راجع السعر وحد الكمية.','Check the price and quantity limit.'],
     INVALID_DISCOUNT:['نسب الخصم من ٠ إلى ٥٠٪ ولازم تزيد مع العدد.','Discounts must be between 0 and 50% and rise with quantity.'],
     INVALID_ADJUSTMENT:['راجع المبلغ واكتب سبب تعديل الرصيد من ٦ حروف على الأقل.','Check the amount and enter a reason of at least 6 characters.'],
@@ -57,8 +59,11 @@
     request_id:id,product_key:order.productId,plan_number:order.planIndex,qty:order.quantity,
     contact:order.customer,method:order.payment,quoted_amount:quoteAmount
   }));}
-  function asLocalOrder(o){return {id:o.id,createdAt:o.created_at,productId:o.product_id,product:o.product,plan:o.plan,duration:o.duration,quantity:o.quantity,total:o.amount_piasters/100,displayTotal:o.amount_piasters/100,displayCurrency:'EGP',payment:o.payment,status:o.status,customer:o.customer};}
+  function asLocalOrder(o){return {id:o.id,cartId:o.cart_id,createdAt:o.created_at,productId:o.product_id,product:o.product,plan:o.plan,duration:o.duration,quantity:o.quantity,total:o.amount_piasters/100,displayTotal:o.amount_piasters/100,displayCurrency:'EGP',payment:o.payment,status:o.status,customer:o.customer};}
+  function guestReceipts(){try{const rows=JSON.parse(localStorage.getItem('masterStoreGuestReceiptsV1')||'[]');return Array.isArray(rows)?rows.filter(x=>typeof x.cartId==='string'&&typeof x.token==='string').slice(0,100):[];}catch{return [];}}
+  function saveGuestReceipt(cartId,token,orderIds=[]){const rows=guestReceipts().filter(x=>x.cartId!==cartId);rows.unshift({cartId,token,orderIds:orderIds.slice(0,20)});localStorage.setItem('masterStoreGuestReceiptsV1',JSON.stringify(rows.slice(0,100)));}
+  async function guestOrders(cartId){const receipts=guestReceipts().filter(x=>!cartId||x.cartId===cartId);const results=await Promise.allSettled(receipts.map(x=>unwrap(client.rpc('master_store_guest_receipt',{request_id:x.cartId,receipt_token:x.token}))));return results.flatMap(x=>x.status==='fulfilled'?x.value:[]);}
   const providersReady=fetch(url+'/auth/v1/settings',{headers:{apikey:key},signal:AbortSignal.timeout(8000)}).then(r=>r.ok?r.json():null).then(settings=>settings?.external||{}).catch(()=>({}));
   const googleReady=providersReady.then(x=>!!x.google),githubReady=providersReady.then(x=>!!x.github);
-  window.MasterCloud={ready:true,client,user,dashboard,quote,placeOrder,asLocalOrder,errorText,unwrap,redirect,googleReady,githubReady};
+  window.MasterCloud={ready:true,client,user,dashboard,quote,placeOrder,asLocalOrder,errorText,unwrap,redirect,googleReady,githubReady,guestReceipts,saveGuestReceipt,guestOrders};
 })();

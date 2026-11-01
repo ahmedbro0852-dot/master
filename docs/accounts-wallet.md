@@ -16,7 +16,7 @@ Customers first ask support for payment instructions, transfer funds, and submit
 
 Wallet checkout uses an authoritative server quote in EGP. Financial amounts are integer piastres; quantity, availability and sufficient balance are validated by the database. The customer explicitly selects wallet payment and confirms the order. Order creation and debit are one transaction. Cancelling an unfulfilled wallet order refunds it once. Completed orders cannot be silently cancelled. Bank/provider webhooks are not configured; credits require review.
 
-Guest orders remain browser-local and use the existing WhatsApp checkout. Guest history is not silently imported as paid orders. Account purchases and wallet history are stored server-side and protected by RLS.
+Guest checkout now saves orders server-side before success or the explicit WhatsApp handoff, using authoritative prices and availability. Every new submission receives its own cart reference even for a returning customer. A separate random receipt capability is hashed server-side and kept only on the originating device; it is never placed in a URL or WhatsApp message. RLS grants no guest table reads. New guest orders start pending payment, are captured by the existing CRM trigger, and can be reviewed by the administrator. Old browser-only records cannot be recovered from the server or silently promoted to paid orders.
 
 ## Catalogue changes and checks
 
@@ -41,3 +41,10 @@ Manual admin dashboard (2026-10-10):
 - Adjustments require a reason and confirmation, are idempotent, cannot make a wallet negative, and appear in the customer ledger. No service-role key is in the browser.
 - Lists show latest 500 orders, top-ups and store customers; audit shows latest 100 changes. Summary counts cover all orders.
 - Tests/admin_security.sql verifies administrator authorization, metadata impersonation rejection, manual pricing, dynamic discounts, stale-edit rejection, wallet adjustment idempotency, audit privacy, and net-price refunds. All test fixtures roll back.
+
+## Order inbox and purchase decisions (2026-11-01)
+All server-recorded orders, including earlier account orders and new guest orders, are searchable in `/admin.html`, with server-side 50-row pagination and independent fulfillment/purchase filters. Purchase outcomes are unreviewed, purchased, not purchased and follow up. Administrative notes and conflict versions live in an administrator-only table, never in customer-readable orders. Classification is reversible, audited and has no wallet, payment confirmation, cancellation, subscription activation or refund side effects. Actual payment/fulfillment buttons remain separate. Original amounts, dates and payment states are preserved. Unreviewed is the default even on historical orders; no purchase outcome is guessed.
+
+Guest checkout validates contact details, non-wallet methods, quantities and a server quote; request UUID plus receipt token makes retries idempotent. A shared contact is rate-limited to 20 order lines/hour. Account checkout uses NULL-safe ownership checks and retains atomic wallet behavior. Guest receipts and invoices refresh through the capability-protected RPC, while old device-only records remain explicitly unverified.
+
+Verification: `tests/order-inbox-security.sql` runs synthetic fixtures in one rollback transaction; no real checkout, payment or customer status is submitted. `tests/order-inbox.test.cjs` checks client submission failure, retries, local-storage failure and administrator review/pagination behavior.

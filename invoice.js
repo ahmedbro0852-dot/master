@@ -4,7 +4,7 @@ const S=window.MasterStore,C=window.MasterCloud,L=window.MasterLocale;
 const root=document.getElementById('invoiceRoot'),print=document.getElementById('printInvoice');
 const params=new URLSearchParams(location.search),crm=params.has('crm'),id=params.get('crm')||params.get('id')||params.get('cart')||'',cart=params.has('cart'),device=params.get('source')==='device';
 const E=S.escapeHtml,en=()=>L?.getState().language==='en',t=(ar,english)=>en()?english:ar;
-let records=[],local=false,loading=false,generation=0;
+let records=[],local=false,receiptMode=false,loading=false,generation=0;
 function line(o,fromDevice){
  const amount=fromDevice?Math.round(Number(o.displayTotal??o.total)*100):Number(o.amount_piasters);
  const quantity=Number(o.quantity||1),discount=fromDevice?(o.displayCurrency&&o.displayCurrency!=='EGP'?0:Math.round(Number(o.discount||0)*100)):Number(o.discount_piasters||0);
@@ -47,10 +47,13 @@ async function load(){
   else{
    if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id))throw Error('NOT_FOUND');
    if(!C?.ready)throw Error('CONNECTION');
-   const user=await C.user();if(version!==generation)return;if(!user)throw Error('SIGN_IN');
+   const receipt=crm?null:C.guestReceipts().find(x=>cart?x.cartId===id:(x.orderIds||[]).includes(id)||S.getOrders().some(o=>o.id===id&&o.cartId===x.cartId));
+   if(receipt){receiptMode=true;const guest=await C.guestOrders(receipt.cartId);if(version!==generation)return;records=cart?guest:guest.filter(x=>x.id===id);local=false;if(!records.length)throw Error('NOT_FOUND');}
+   else {const user=await C.user();if(version!==generation)return;if(!user)throw Error('SIGN_IN');
    // Existing RLS restricts this read to the order owner or a store administrator.
    let rows;if(crm){const source=await C.unwrap(C.client.from('master_crm_subscriptions').select('*,contact:master_crm_contacts(name,email,phone)').eq('id',id).limit(1));rows=source.map(o=>({...o,customer:o.contact,created_at:o.ordered_on+'T12:00:00Z',payment:t('تسجيل إداري لطلب مباشر','Direct order recorded by administration'),status:o.payment_status==='paid'?'completed':o.payment_status==='refunded'?'refunded':'pending_payment'}));}else rows=await C.unwrap(C.client.from('master_store_orders').select('id,cart_id,created_at,product,plan,duration,quantity,amount_piasters,subtotal_piasters,discount_piasters,customer,payment,status').eq(cart?'cart_id':'id',id).order('created_at',{ascending:true}).limit(50));
    if(version!==generation)return;records=rows;local=false;
+   }
   }
   render();
  }catch(error){if(version!==generation)return;records=[];failure(error.message==='SIGN_IN'?t('سجّل الدخول بالحساب صاحب الطلب لفتح الفاتورة.','Sign in with the account that placed this order.'):error.message==='NOT_FOUND'?t('الفاتورة غير متاحة هنا. راجع رقم الطلب وحسابك، أو افتح ملخص الضيف من نفس الجهاز الذي طلبت منه.','Invoice unavailable here. Check the order ID and account, or open a guest summary on the original device.'):t('تعذر تحميل بيانات الفاتورة. جرّب تحديث الحالة.','Could not load invoice data. Try refreshing.'));}
@@ -60,7 +63,7 @@ print.onclick=()=>{if(!print.disabled&&records.length)window.print();};
 document.getElementById('refreshInvoice').onclick=()=>{if(!loading)load();};
 document.getElementById('languageButton').onclick=()=>L?.setLanguage?.(en()?'ar':'en');
 document.addEventListener('masterstore:localechange',()=>{chrome();if(records.length)render();else if(!loading)load();});
-C?.client?.auth.onAuthStateChange(event=>{if(event==='SIGNED_OUT'&&!device){generation++;records=[];print.disabled=true;loading=false;root.setAttribute('aria-busy','false');failure(t('سجّل دخولك لعرض الفاتورة.','Sign in to view the invoice.'));}});
+C?.client?.auth.onAuthStateChange(event=>{if(event==='SIGNED_OUT'&&!device&&!receiptMode){generation++;records=[];print.disabled=true;loading=false;root.setAttribute('aria-busy','false');failure(t('سجّل دخولك لعرض الفاتورة.','Sign in to view the invoice.'));}});
 window.addEventListener('pageshow',event=>{if(event.persisted)load();});
 load();
 })();
