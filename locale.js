@@ -638,6 +638,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     const currencyPrice=plan.currencyPrices?.[currentMarket().currency];
     if(k==='price'&&currencyPrice!=null&&Number.isFinite(Number(currencyPrice))&&Number(currencyPrice)>=0)return Number(currencyPrice);
     if(k==='price'&&Number(plan.basePriceUSD)>0){
+      if(currentMarket().currency==='USD')return Number(plan.basePriceUSD);
       return Math.round(Number(plan.basePriceUSD)*currencyRate(currentMarket().currency)/currencyRate('USD'));
     }
     if(k==='oldPrice'&&plan.officialPrice){

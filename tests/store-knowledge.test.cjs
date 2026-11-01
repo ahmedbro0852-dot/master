@@ -81,3 +81,13 @@ for(const [id,price,days] of [['kaspersky-premium',800,'300'],['avast-premium',3
 // Newly supplied exact tiers must reach the assistant without mixing service terms.
 for(const [id,amount,months,usd] of [["quizlet-plus",196,"1 شهر",3.5],["truecaller-gold",784,"12 شهر",14]]){const product=products.find(p=>p.id===id);const plan=JSON.parse(k.contextFor([product],rows)).details[0].plans[0];assert.equal(plan.priceEGP,amount);assert.equal(plan.duration,months);assert.equal(product.plans[0].basePriceUSD,usd);assert.match(plan.account,/جاهز/);assert.equal(product.plans[0].officialPrice,undefined);}
 assert(ask("كويزليت بلس").some(p=>p.id==="quizlet-plus"));assert(ask("تروكولر جولد").some(p=>p.id==="truecaller-gold"));assert.equal(products.find(p=>p.id==="kling").plans[1].planType,"Standard");
+
+// Price formatting must retain the requested US$3.50 rather than rounding it to US$4.
+for(const [market,amount] of [['EG',196],['INTL',3.5]]){
+ const context={window:{}};
+ const locale=fs.readFileSync('locale.js','utf8').replace('  init();\n  watchTranslations();',`  state.market=${JSON.stringify(market)};`);
+ vm.runInNewContext(locale,context);
+ const quizlet=products.find(p=>p.id==='quizlet-plus').plans[0];
+ assert.equal(context.window.MasterLocale.planAmount(quizlet),amount);
+ if(market==='INTL')assert.equal(context.window.MasterLocale.planMoney(quizlet),'$3.50');
+}
