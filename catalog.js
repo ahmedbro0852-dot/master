@@ -8803,6 +8803,79 @@ const products = [
       }
     }
   ]
+},
+{
+  "id": "vercel-pro",
+  "name": "Vercel Pro",
+  "category": "البرمجة والمواقع",
+  "categories": [
+    "قواعد بيانات واستضافة",
+    "تصميم ونشر المواقع"
+  ],
+  "logo": "vercel",
+  "logoUrl": "logos/vercel.svg?v=20261102-vercel-pro1",
+  "status": "available",
+  "description": "اشتراك Vercel Pro لمدة شهر بـ750 جنيه، تفعيل على حسابك الشخصي وضمان كامل طوال الشهر. لنشر المواقع وتطبيقات الويب ومعاينة التعديلات ومتابعة الاستخدام ضمن حدود خطة Pro.",
+  "descriptionEn": "One month of Vercel Pro for EGP 750, activated on your personal account with a full one-month warranty. Deploy websites and web apps, preview changes and monitor usage within Pro plan limits.",
+  "plans": [
+    {
+      "name": "Pro — شهر — على حسابك الشخصي",
+      "planType": "Pro",
+      "duration": "1 شهر",
+      "price": 750,
+      "available": true,
+      "accountType": "تفعيل على حسابك الشخصي",
+      "account": "حسابك الشخصي في Vercel",
+      "activation": "تفعيل خطة Vercel Pro لمدة شهر على حسابك الشخصي.",
+      "warranty": "ضمان كامل لمدة شهر",
+      "features": [
+        "اشتراك Vercel Pro لمدة شهر بسعر 750 جنيه، مع التفعيل على حسابك الشخصي.",
+        "ضمان كامل طوال شهر الاشتراك.",
+        "نشر المواقع وتطبيقات الويب وربط المشروع بمستودع Git لتحديث النشر مع تغييرات الكود.",
+        "معاينات النشر تساعدك على مراجعة التعديلات قبل نشرها لزوار موقعك.",
+        "لوحة لمتابعة استخدام المشروع والإنفاق وإعدادات خطة Pro المفعلة.",
+        "مناسب للمطورين وأصحاب المواقع الذين يحتاجون مزايا Pro ضمن حدود الخطة."
+      ],
+      "featuresEn": [
+        "One month of Vercel Pro for EGP 750, activated on your personal account.",
+        "A full warranty throughout the subscription month.",
+        "Deploy websites and web apps and connect a Git repository to update deployments as code changes.",
+        "Deployment previews help you review changes before releasing them to site visitors.",
+        "A dashboard to monitor project usage, spending and the activated Pro plan settings.",
+        "For developers and site owners who need Pro features within the plan limits."
+      ],
+      "notes": [
+        "التفعيل على حسابك الشخصي؛ حدد فريق أو مساحة العمل المقصودة قبل تنفيذ الطلب.",
+        "السعر يخص اشتراك Pro الأساسي لمدة شهر. الاستهلاك الإضافي والمقاعد الإضافية والإضافات المدفوعة تُحاسب بشكل منفصل لدى Vercel وليست مشمولة في سعر المتجر.",
+        "حدود الاستخدام والرصيد المتاح وشروط التجديد تتبع الخطة المفعلة؛ راجع لوحة Usage وBilling في حسابك.",
+        "مرجع السعر الرسمي 20 دولارًا هو رسم Pro الأساسي الشهري قبل الضرائب، وليس استضافة غير محدودة."
+      ],
+      "notesEn": [
+        "Activation is on your personal account; confirm the intended team or workspace before fulfilment.",
+        "The price covers the base Pro subscription for one month. Extra usage, additional paid seats and paid add-ons are billed separately by Vercel and are not included in the store price.",
+        "Usage limits, available credit and renewal terms follow the activated plan; check Usage and Billing in your account.",
+        "The official US$20 reference is the monthly base Pro platform fee before tax, not unlimited hosting."
+      ],
+      "officialPrice": {
+        "amount": 20,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://vercel.com/pricing",
+        "checkedAt": "2026-11-02"
+      },
+      "priceComparison": {
+        "planName": "Vercel Pro — monthly base platform fee",
+        "status": "reference",
+        "source": "https://vercel.com/pricing",
+        "checkedAt": "2026-11-02",
+        "billingLabel": "Monthly base platform fee",
+        "showReferenceNote": true,
+        "note": "مرجع السعر الرسمي 20 دولارًا هو رسم Pro الأساسي الشهري قبل الضرائب، وليس استضافة غير محدودة. السعر يخص اشتراك Pro الأساسي لمدة شهر. الاستهلاك الإضافي والمقاعد الإضافية والإضافات المدفوعة تُحاسب بشكل منفصل لدى Vercel وليست مشمولة في سعر المتجر.",
+        "noteEn": "The official US$20 reference is the monthly base Pro platform fee before tax, not unlimited hosting. The price covers the base Pro subscription for one month. Extra usage, additional paid seats and paid add-ons are billed separately by Vercel and are not included in the store price."
+      }
+    }
+  ]
 }
 ];
 

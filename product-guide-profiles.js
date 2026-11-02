@@ -1390,5 +1390,13 @@
   "workflowEn": "Choose one skill and start with a path or class suited to your level. Set aside time to watch, then complete a small practical project. Keep your notes and work, using feedback or supporting lessons instead of switching between many classes without practice.",
   "check": "اشتراك المتجر شهر واحد بحساب خاص جاهز وضمان شهر. السعر الرسمي الظاهر 13.99 دولارًا شهريًا يفترض دفع سنة كاملة بقيمة 167.88 دولارًا، ولا يساوي شراء شهر مستقل.",
   "checkEn": "The store offer is one month on a ready private account with a one-month warranty. The displayed official US$13.99 monthly figure requires a full annual payment of US$167.88 and is not a standalone month."
+},
+"vercel-pro": {
+  "intro": "اشتراك Vercel Pro لمدة شهر بـ750 جنيه، تفعيل على حسابك الشخصي وضمان كامل طوال الشهر. لنشر المواقع وتطبيقات الويب ومعاينة التعديلات ومتابعة الاستخدام ضمن حدود خطة Pro.",
+  "introEn": "One month of Vercel Pro for EGP 750, activated on your personal account with a full one-month warranty. Deploy websites and web apps, preview changes and monitor usage within Pro plan limits.",
+  "workflow": "حدد الموقع أو التطبيق الذي تريد نشره، ثم تأكد من حسابك وفريق العمل الذي سيُفعّل عليه Pro. بعد التفعيل اربط المستودع واضبط متغيرات البيئة والدومين، وراجع المعاينة قبل النشر النهائي. تابع الاستخدام والفواتير بانتظام لتقدير أي استهلاك إضافي.",
+  "workflowEn": "Choose the website or app to deploy and confirm the account and team where Pro will be activated. After activation, connect the repository, configure environment variables and your domain, then review the preview before production. Monitor usage and billing regularly to understand any extra consumption.",
+  "check": "السعر يخص اشتراك Pro الأساسي لمدة شهر. الاستهلاك الإضافي والمقاعد الإضافية والإضافات المدفوعة تُحاسب بشكل منفصل لدى Vercel وليست مشمولة في سعر المتجر. حدود الاستخدام والرصيد المتاح وشروط التجديد تتبع الخطة المفعلة؛ راجع لوحة Usage وBilling في حسابك.",
+  "checkEn": "The price covers the base Pro subscription for one month. Extra usage, additional paid seats and paid add-ons are billed separately by Vercel and are not included in the store price. Usage limits, available credit and renewal terms follow the activated plan; check Usage and Billing in your account."
 }
 };});

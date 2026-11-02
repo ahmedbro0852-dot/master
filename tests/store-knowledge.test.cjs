@@ -98,3 +98,13 @@ assert.equal(products.find(p=>p.id==="heygen").plans[0].price,1250);assert.equal
 for(const [text,id] of [["اي هانت ايليت","ehunt-elite"],["ستوري بلوك","storyblocks"],["ماجك لفت","magiclight-pro"]])assert(ask(text).some(p=>p.id===id));
 
 {const p=products.find(p=>p.id==="skillshare"),plan=JSON.parse(k.contextFor([p],rows)).details[0].plans[0];assert.equal(plan.priceEGP,336);assert.equal(p.plans[0].basePriceUSD,6);assert.equal(plan.duration,"1 شهر");assert.match(plan.account,/خاص.*جاهز.*غير مشترك/);assert.match(plan.warranty,/كامل.*شهر/);assert.equal(p.plans[0].officialPrice,undefined);assert(ask("سكلشير").some(p=>p.id==="skillshare"));}
+
+// Vercel activation uses the customer account; base fee excludes paid extras.
+for(const text of ['فيرسل برو بكام؟','Vercel Pro price']) {
+ const product=ask(text).find(p=>p.id==='vercel-pro');assert(product,text);
+ const plan=JSON.parse(k.contextFor([product],rows)).details[0].plans[0];
+ assert.equal(plan.priceEGP,750);assert.equal(plan.duration,'1 شهر');
+ assert.match(plan.account,/الشخصي/);assert.match(plan.warranty,/كامل.*شهر/);
+ assert.match(plan.activation,/حسابك الشخصي/);assert(plan.notes.some(n=>/المقاعد الإضافية/.test(n)));
+ assert.equal(product.plans[0].officialPrice.amount,20);assert.equal(product.plans[0].basePriceUSD,undefined);
+}
