@@ -5452,7 +5452,7 @@ const products = [
     "logo": "heygen",
     "logoUrl": "logos/heygen.svg?v=20261027-hq1",
     "status": "available",
-    "description": "حساب HeyGen جاهز مع 1,250 Credit.",
+    "description": "باقات HeyGen لصناعة فيديوهات بأفاتار رقمي. باقة Creator لمدة شهر برصيد 600 كريدت، حساب جاهز بسعر 799 جنيه وضمان 15 يومًا، إلى جانب باقة 1,250 كريدت المعروضة بشروطها المستقلة.",
     "plans": [
       {
         "name": "1,250 Credits",
@@ -5478,11 +5478,66 @@ const products = [
           "source": "https://www.heygen.com/pricing",
           "checkedAt": "2026-10-08"
         }
+      },
+      {
+        "name": "Creator — شهر — 600 كريدت — ضمان 15 يومًا",
+        "planType": "Creator",
+        "duration": "1 شهر",
+        "price": 799,
+        "available": true,
+        "accountType": "حساب جاهز",
+        "account": "حساب جاهز",
+        "activation": "تسليم بيانات حساب HeyGen Creator جاهز للاستخدام.",
+        "warranty": "ضمان لمدة 15 يومًا",
+        "credits": "600 كريدت خلال شهر الاشتراك",
+        "features": [
+          "اشتراك HeyGen Creator لمدة شهر واحد.",
+          "600 كريدت للاستخدام في أدوات التوليد المدعومة.",
+          "حساب جاهز يُسلّم ببيانات الدخول، مع ضمان 15 يومًا.",
+          "تحويل النص إلى فيديو يقدمه أفاتار رقمي، للشروحات والعروض والمحتوى التسويقي.",
+          "تصدير حتى 1080p وإزالة علامة HeyGen ضمن مزايا Creator المتاحة."
+        ],
+        "featuresEn": [
+          "One month of HeyGen Creator.",
+          "600 credits for supported generation tools.",
+          "A ready-made account supplied with login details and a 15-day warranty.",
+          "Present scripts through digital avatars for explainers, presentations and marketing videos.",
+          "Export up to 1080p and remove HeyGen branding within available Creator features."
+        ],
+        "notes": [
+          "مدة الاشتراك شهر، ومدة الضمان 15 يومًا فقط.",
+          "600 كريدت هي رصيد هذه الباقة؛ لا تُخلط مع باقة 1,250 كريدت.",
+          "استهلاك الرصيد يختلف حسب الأداة والنموذج ومدة الفيديو؛ لا يوجد عدد ثابت مضمون من الدقائق."
+        ],
+        "notesEn": [
+          "The subscription lasts one month; warranty covers only 15 days.",
+          "This tier contains 600 credits; keep it separate from the 1,250-credit offer.",
+          "Usage varies by tool, model and video duration; no fixed number of minutes is guaranteed."
+        ],
+        "officialPrice": {
+          "amount": 29,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.heygen.com/pricing",
+          "checkedAt": "2026-11-02"
+        },
+        "priceComparison": {
+          "planName": "HeyGen Creator — 600 credits/month",
+          "status": "reference",
+          "source": "https://www.heygen.com/pricing",
+          "checkedAt": "2026-11-02",
+          "billingLabel": "Monthly billing",
+          "showReferenceNote": true,
+          "note": "مرجع Creator هو 29 دولارًا للشهر قبل الضرائب، برصيد 600 كريدت. عرض المتجر بحساب جاهز وضمان 15 يومًا؛ التحويل للجنيه حسب سعر المتجر.",
+          "noteEn": "Creator is US$29 per month before tax with 600 credits. The store offer is a ready-made account with a 15-day warranty; EGP conversion uses the store rate."
+        }
       }
     ],
     "categories": [
       "أفاتار وفيديو ناطق"
-    ]
+    ],
+    "descriptionEn": "HeyGen plans for digital-avatar videos. Creator for one month includes 600 credits, a ready-made account for EGP 799 and a 15-day warranty, alongside the separate listed 1,250-credit offer."
   },
   {
     "id": "canva-pro",
@@ -6944,12 +6999,12 @@ const products = [
   },
   {
     "id": "expressvpn",
-    "name": "ExpressVPN Basic",
+    "name": "ExpressVPN",
     "category": "VPN والحماية",
     "logo": "expressvpn",
     "logoUrl": "logos/expressvpn.svg?v=20261009-logo-review3",
     "status": "available",
-    "description": "اشتراك ExpressVPN قصير المدة.",
+    "description": "باقات ExpressVPN للوصول إلى خدمة VPN. متاح اشتراك سنتين بحساب جاهز بسعر 55 دولارًا وضمان كامل طوال مدة الاشتراك، إلى جانب باقة Basic لمدة 3 أيام. راجع شروط الباقة المختارة.",
     "plans": [
       {
         "name": "Basic",
@@ -6965,11 +7020,56 @@ const products = [
           "status": "unavailable",
           "note": "عرض 3 أيام لا يطابق الاشتراك الشهري، لذلك لا نستخدم سعر شهر كخصم على 3 أيام."
         }
+      },
+      {
+        "name": "سنتان — حساب جاهز — ضمان كامل",
+        "planType": "ExpressVPN",
+        "duration": "24 شهر",
+        "price": 3080,
+        "available": true,
+        "accountType": "حساب جاهز",
+        "account": "حساب جاهز",
+        "activation": "تسليم بيانات حساب ExpressVPN جاهز مع إرشادات الدخول.",
+        "warranty": "ضمان كامل طوال مدة الاشتراك — سنتان",
+        "basePriceUSD": 55,
+        "features": [
+          "اشتراك ExpressVPN لمدة سنتين كاملتين، 24 شهرًا.",
+          "حساب جاهز مع بيانات الدخول وإرشادات الاستخدام.",
+          "ضمان كامل طوال مدة الاشتراك.",
+          "تشفير اتصال الإنترنت واستخدام خوادم VPN المتاحة للحساب.",
+          "استخدام التطبيق الرسمي على الأجهزة المتوافقة وفق حدود الخطة المفعّلة."
+        ],
+        "featuresEn": [
+          "ExpressVPN for two full years, or 24 months.",
+          "A ready-made account with login details and usage instructions.",
+          "Full warranty throughout the subscription term.",
+          "Encrypt internet traffic and use the VPN servers available to the account.",
+          "Use the official app on compatible devices within the activated tier limits."
+        ],
+        "notes": [
+          "عدد الأجهزة المتزامنة والمستوى المفعّل يُؤكدان قبل الدفع.",
+          "العرض لمدة 24 شهرًا؛ لا يتضمن وعدًا بشهور مجانية إضافية أو تجديد تلقائي مجاني.",
+          "ميزات مثل IP مخصص أو أدوات إضافية لا تُفترض من اسم ExpressVPN وحده."
+        ],
+        "notesEn": [
+          "Confirm the activated tier and simultaneous-device limit before payment.",
+          "The offer covers 24 months; it does not promise additional free months or free automatic renewal.",
+          "Dedicated IP or extra tools are not implied by the ExpressVPN name alone."
+        ],
+        "priceComparison": {
+          "planName": "ExpressVPN — 24 months",
+          "status": "unavailable",
+          "source": "https://www.expressvpn.com/pricing",
+          "checkedAt": "2026-11-02",
+          "note": "لم يُحدد المستوى المفعّل، والعروض الرسمية الحالية قد تشمل أشهرًا إضافية؛ لذلك لا تُعرض نسبة توفير غير مطابقة.",
+          "noteEn": "The activated tier is unspecified and current official offers may include extra months, so no mismatched saving percentage is shown."
+        }
       }
     ],
     "categories": [
       "VPN وخصوصية"
-    ]
+    ],
+    "descriptionEn": "ExpressVPN access plans include two years on a ready-made account for US$55 with a full warranty throughout the term, alongside the three-day Basic offer. Review the selected plan terms."
   },
   {
     "id": "spotify",
@@ -8441,6 +8541,206 @@ const products = [
         "checkedAt": "2026-11-01",
         "note": "الأسعار الرسمية تختلف حسب البلد والمنصة؛ لم يتأكد مرجع 22 دولارًا لنفس الباقة والمنطقة، لذلك لا تُعرض نسبة توفير رسمية.",
         "noteEn": "Official prices vary by country and platform; a US$22 reference for the same tier and region was not verified, so no official saving percentage is shown."
+      }
+    }
+  ]
+},
+{
+  "id": "ehunt-elite",
+  "name": "EHunt Elite",
+  "category": "العمل والإنتاجية",
+  "categories": [
+    "تسويق وتواصل مع العملاء"
+  ],
+  "logo": "ehunt",
+  "logoUrl": "logos/ehunt.png?v=20261102-new-plans1",
+  "status": "available",
+  "description": "EHunt Elite لتحليل منتجات وكلمات ومتاجر Etsy، لمدة شهر بسعر 27 دولارًا، بحساب جاهز وضمان كامل طوال الشهر. يساعدك على دراسة المنافسين وتحسين القوائم بناءً على البيانات المتاحة.",
+  "descriptionEn": "EHunt Elite for researching Etsy products, keywords and shops. One month for US$27 on a ready-made account with a full one-month warranty. Study competitors and improve listings using available data.",
+  "plans": [
+    {
+      "name": "Elite — شهر — حساب جاهز",
+      "planType": "Elite",
+      "duration": "1 شهر",
+      "price": 1512,
+      "available": true,
+      "accountType": "حساب جاهز",
+      "account": "حساب جاهز",
+      "activation": "تسليم بيانات الدخول إلى حساب EHunt Elite جاهز.",
+      "warranty": "ضمان كامل لمدة شهر",
+      "basePriceUSD": 27,
+      "features": [
+        "اشتراك EHunt Elite لمدة شهر على حساب جاهز.",
+        "ضمان كامل طوال شهر الاشتراك.",
+        "البحث عن منتجات Etsy وتحليل اتجاهاتها ومقارنة القوائم.",
+        "تحليل الكلمات المفتاحية والوسوم للمساعدة في تحسين ظهور القوائم.",
+        "تحليل المتاجر والمنافسين ومتابعة البيانات المتاحة ضمن Elite."
+      ],
+      "featuresEn": [
+        "One month of EHunt Elite on a ready-made account.",
+        "Full warranty throughout the subscription month.",
+        "Research Etsy products, analyse trends and compare listings.",
+        "Analyse keywords and tags to help improve listing visibility.",
+        "Analyse shops and competitors and track data available under Elite."
+      ],
+      "notes": [
+        "هذه باقة EHunt لأدوات Etsy، وليست اشتراك EHunt AI المنفصل.",
+        "البيانات والتحليلات أدوات للمساعدة في القرار، ولا تضمن مبيعات أو ترتيبًا محددًا.",
+        "حدود البحث والتصدير والربط حسب خطة Elite المفعّلة؛ أرصدة EHunt AI المنفصلة غير مشمولة ما لم تُذكر."
+      ],
+      "notesEn": [
+        "This is the EHunt Etsy-tools plan, not the separate EHunt AI subscription.",
+        "Data and analytics support decisions; they do not guarantee sales or rankings.",
+        "Search, export and connection limits follow the activated Elite plan; separate EHunt AI credits are not included unless expressly stated."
+      ],
+      "officialPrice": {
+        "amount": 59.99,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://ehunt.ai/pricing",
+        "checkedAt": "2026-11-02"
+      },
+      "priceComparison": {
+        "planName": "EHunt Elite — monthly",
+        "status": "reference",
+        "source": "https://ehunt.ai/pricing",
+        "checkedAt": "2026-11-02",
+        "billingLabel": "Monthly billing",
+        "showReferenceNote": true,
+        "note": "مرجع Elite بالسداد الشهري 59.99 دولارًا، وليس ما يعادل الشهر عند الالتزام السنوي. عرض المتجر 27 دولارًا بحساب جاهز وضمان شهر.",
+        "noteEn": "The Elite monthly-billing reference is US$59.99, not the annual-billing monthly equivalent. The store offer is US$27 for a ready-made account with a one-month warranty."
+      }
+    }
+  ]
+},
+{
+  "id": "storyblocks",
+  "name": "Storyblocks",
+  "category": "التصميم",
+  "categories": [
+    "صور وقوالب وموارد جاهزة",
+    "قوالب ومؤثرات فيديو"
+  ],
+  "logo": "storyblocks",
+  "logoUrl": "logos/storyblocks.svg?v=20261102-new-plans1",
+  "status": "available",
+  "description": "اشتراك Storyblocks لمدة شهر بسعر 16 دولارًا، حساب خاص غير مشترك وضمان كامل. تحميل غير محدود للموارد المشمولة بالباقة؛ تُراجع مكتبة المحتوى ونوع الترخيص قبل الدفع.",
+  "descriptionEn": "One month of Storyblocks for US$16, with a private non-shared account and full warranty. Unlimited downloads of assets included in the plan; confirm library coverage and licence type before payment.",
+  "plans": [
+    {
+      "name": "تحميل غير محدود — شهر — حساب خاص",
+      "planType": "Storyblocks",
+      "duration": "1 شهر",
+      "price": 896,
+      "available": true,
+      "accountType": "حساب خاص جاهز",
+      "account": "حساب خاص جاهز وغير مشترك",
+      "activation": "تسليم بيانات الدخول إلى حساب Storyblocks خاص.",
+      "warranty": "ضمان كامل لمدة شهر",
+      "basePriceUSD": 16,
+      "features": [
+        "اشتراك Storyblocks لمدة شهر على حساب خاص غير مشترك.",
+        "تحميل غير محدود من مكتبة الموارد التي تشملها الباقة المفعّلة.",
+        "موارد جاهزة تساعد على تجهيز المونتاج والإعلانات والمحتوى المرئي.",
+        "ضمان كامل طوال شهر الاشتراك."
+      ],
+      "featuresEn": [
+        "One month of Storyblocks on a private, non-shared account.",
+        "Unlimited downloads from the stock library covered by the activated plan.",
+        "Stock resources for video editing, advertising and visual content.",
+        "Full warranty throughout the subscription month."
+      ],
+      "notes": [
+        "التحميل غير المحدود يخص الموارد المشمولة بالخطة؛ لا يعني توليد AI غير محدود.",
+        "نطاق المكتبة ونوع الترخيص يُراجعان قبل الدفع؛ لا تُفترض مكتبة الصوت أو باقة أعمال من هذا العرض.",
+        "ترخيص الموارد يرتبط بصاحب الحساب المرخّص؛ تأكد من أنه يغطي اسمك وطريقة استخدامك قبل استخدام الملفات تجاريًا."
+      ],
+      "notesEn": [
+        "Unlimited downloads apply to included stock assets, not unlimited AI generation.",
+        "Confirm library coverage and licence type before payment; audio-library access or a business plan is not implied.",
+        "Asset licensing is tied to the licensed account owner; confirm it covers your name and intended use before using files commercially."
+      ],
+      "priceComparison": {
+        "planName": "Storyblocks — unlimited downloads",
+        "status": "unavailable",
+        "source": "https://www.storyblocks.com/pricing",
+        "checkedAt": "2026-11-02",
+        "note": "لم يُحدد اسم الخطة الرسمية ونطاق المكتبة والترخيص، لذلك لا يُستخدم سعر باقة مختلفة لحساب خصم.",
+        "noteEn": "The official tier, library coverage and licence are unspecified, so a different plan price is not used to calculate savings."
+      }
+    }
+  ]
+},
+{
+  "id": "magiclight-pro",
+  "name": "MagicLight Pro",
+  "category": "AI Tools",
+  "categories": [
+    "توليد فيديو بالذكاء الاصطناعي"
+  ],
+  "logo": "magiclight",
+  "logoUrl": "logos/magiclight.png?v=20261102-new-plans1",
+  "status": "available",
+  "description": "MagicLight Pro لصناعة فيديوهات من القصص والنصوص والصور. عرض شهر برصيد 47,000 كريدت، بحساب جاهز وضمان شهر بسعر 1599 جنيه. استهلاك الرصيد حسب النموذج ونوع التوليد.",
+  "descriptionEn": "MagicLight Pro for making videos from stories, scripts and images. A one-month store offer with 47,000 credits, a ready-made account and a one-month warranty for EGP 1,599. Consumption depends on the model and generation type.",
+  "plans": [
+    {
+      "name": "Pro — شهر — 47,000 كريدت — حساب جاهز",
+      "planType": "Pro",
+      "duration": "1 شهر",
+      "price": 1599,
+      "available": true,
+      "accountType": "حساب جاهز",
+      "account": "حساب جاهز",
+      "activation": "تسليم بيانات حساب MagicLight Pro جاهز للاستخدام.",
+      "warranty": "ضمان لمدة شهر",
+      "credits": "47,000 كريدت خلال شهر الاشتراك",
+      "features": [
+        "اشتراك MagicLight Pro لمدة شهر على حساب جاهز.",
+        "رصيد عرض المتجر 47,000 كريدت خلال الشهر.",
+        "ضمان لمدة شهر، مع تسليم بيانات الدخول للحساب.",
+        "تحويل القصص والنصوص إلى مشاهد فيديو وتعديل ترتيبها ضمن أدوات الخطة.",
+        "توليد مشاهد من النصوص أو الصور وتصدير حتى 1080p ضمن الأدوات المدعومة."
+      ],
+      "featuresEn": [
+        "One month of MagicLight Pro on a ready-made account.",
+        "The store offer contains 47,000 credits during the month.",
+        "One-month warranty with account login details supplied.",
+        "Turn stories and scripts into video scenes and edit their sequence within plan tools.",
+        "Generate scenes from text or images and export up to 1080p within supported tools."
+      ],
+      "notes": [
+        "47,000 كريدت هي حصة عرض المتجر؛ لا تعني عددًا ثابتًا من دقائق الفيديو.",
+        "الاستهلاك يختلف حسب النموذج وطول المشهد ونوع التوليد؛ راجع تكلفة العملية داخل الحساب.",
+        "مرجع Pro الرسمي بـ44 دولارًا للشهر يظهر حاليًا برصيد 33,300؛ رصيد 47,000 يظهر مع الفوترة السنوية. المقارنة في السعر الشهري فقط وليست تطابقًا لحزمة الرصيد."
+      ],
+      "notesEn": [
+        "47,000 credits are the store-offer allowance, not a fixed number of video minutes.",
+        "Consumption varies by model, scene length and generation type; check each operation cost in the account.",
+        "Official Pro at US$44 per month currently lists 33,300 credits; 47,000 appears with annual billing. The comparison concerns monthly price, not an identical credit package."
+      ],
+      "officialPrice": {
+        "amount": 44,
+        "currency": "USD",
+        "months": 1,
+        "basis": "reference",
+        "source": "https://www.magiclight.ai/pricing/",
+        "checkedAt": "2026-11-02"
+      },
+      "priceComparison": {
+        "planName": "MagicLight Pro — monthly billing",
+        "status": "reference",
+        "source": "https://www.magiclight.ai/pricing/",
+        "checkedAt": "2026-11-02",
+        "billingLabel": "Monthly billing",
+        "showReferenceNote": true,
+        "note": "مرجع Pro بالسداد الشهري 44 دولارًا قبل الضرائب وبرصيد 33,300 كريدت عند المراجعة. عرض المتجر 47,000 كريدت بحساب جاهز وضمان شهر؛ المقارنة في السعر فقط، ولا تُستخدم قيمة 22 دولارًا المشروطة بالدفع السنوي.",
+        "noteEn": "The monthly Pro reference is US$44 before tax with 33,300 credits at review. The store offer contains 47,000 credits on a ready-made account with a one-month warranty; this is a price comparison only, not the US$22 annual-billing equivalent.",
+        "priceLabel": "مرجع Pro بالدفع الشهري",
+        "priceLabelEn": "Pro monthly-billing reference",
+        "savingLabel": "التوفير مقابل مرجع Pro الشهري",
+        "savingLabelEn": "Saving vs Pro monthly-billing reference"
       }
     }
   ]

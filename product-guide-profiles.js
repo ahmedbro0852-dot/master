@@ -869,13 +869,13 @@
     "checkEn": "Total credits alone do not establish video minutes. Consumption depends on the tool, model, and settings; Basic limits are not another tier’s limits."
   },
   "heygen": {
-    "intro": "HeyGen Creator يساعد على تقديم نص في فيديو باستخدام أفاتار رقمي. يناسب الشروحات والعروض التي تحتاج متحدثًا بصريًا مع إمكانية مراجعة النص والمشاهد قبل المشاركة.",
-    "introEn": "HeyGen Creator helps present a script through a digital-avatar video. It suits explainers and presentations that benefit from an on-screen speaker and reviewable scenes.",
-    "workflow": "اكتب نصًا مختصرًا مناسبًا للقراءة، ثم قسّمه إلى مشاهد بعناوين واضحة. راجع النطق وتوقيت ظهور العناصر، وجرّب مقطعًا قبل تجهيز العرض كاملًا.",
-    "workflowEn": "Write a concise spoken script and divide it into clearly titled scenes. Check pronunciation and on-screen timing, testing one segment before preparing the whole presentation.",
-    "check": "صلاحيات الأفاتار والدبلجة واللغات ودقائق الاستخدام تتحدد من الباقة. وجود ميزة لدى HeyGen لا يعني أنها ضمن كل حساب Creator معروض.",
-    "checkEn": "Avatar permissions, dubbing, languages, and usage minutes depend on the plan. A feature available somewhere in HeyGen is not automatically included in every Creator offer."
-  },
+  "intro": "باقات HeyGen لصناعة فيديوهات بأفاتار رقمي. باقة Creator لمدة شهر برصيد 600 كريدت، حساب جاهز بسعر 799 جنيه وضمان 15 يومًا، إلى جانب باقة 1,250 كريدت المعروضة بشروطها المستقلة.",
+  "introEn": "HeyGen plans for digital-avatar videos. Creator for one month includes 600 credits, a ready-made account for EGP 799 and a 15-day warranty, alongside the separate listed 1,250-credit offer.",
+  "workflow": "اكتب نصًا مختصرًا مناسبًا للقراءة، ثم قسّمه إلى مشاهد بعناوين واضحة. راجع النطق وتوقيت ظهور العناصر، وجرّب مقطعًا قبل تجهيز العرض كاملًا.",
+  "workflowEn": "Write a concise spoken script and divide it into clearly titled scenes. Check pronunciation and on-screen timing, testing one segment before preparing the whole presentation.",
+  "check": "كل باقة لها رصيد وضمان مستقلان. باقة Creator الجديدة 600 كريدت ومدتها شهر وضمانها 15 يومًا، وليست باقة 1,250 كريدت. الاستهلاك يتغير حسب الأداة والنموذج والمدة.",
+  "checkEn": "Each plan has separate credits and warranty. The new Creator offer contains 600 credits for one month with a 15-day warranty, distinct from the 1,250-credit tier. Usage varies by tool, model and duration."
+},
   "canva-pro": {
     "intro": "Canva Pro يجمع قوالب وموارد تصميم تساعد في إعداد منشورات وعروض وسير ذاتية. يختصر البدء من مساحة فارغة مع إبقاء اختيار المحتوى والتناسق البصري بيدك.",
     "introEn": "Canva Pro combines templates and design assets for social posts, presentations, and CVs. It reduces the need to start from a blank canvas while leaving content and visual consistency under your control.",
@@ -1088,13 +1088,13 @@
     "checkEn": "A short access term and warranty are separate conditions. Unused days do not automatically extend account validity."
   },
   "expressvpn": {
-    "intro": "ExpressVPN Basic عرض للوصول إلى خدمة VPN ضمن مدة محددة. يهم قبل الشراء التأكد من أن Basic وطريقة التسليم يناسبان جهازك واستخدامك.",
-    "introEn": "ExpressVPN Basic provides VPN access for the specified term. Before purchase, check that Basic and the delivery method suit your device and intended use.",
-    "workflow": "راجع التطبيق المناسب لجهازك واتبع خطوات الوصول المعلنة. جرّب الاتصال ثم احتفظ بطريقة الدخول ومعلومات المدة لتسهيل المتابعة إذا احتجت إلى دعم.",
-    "workflowEn": "Check the correct app for your device and follow the stated access steps. Test the connection and retain the login method and term details for support.",
-    "check": "اسم ExpressVPN لا يجعل كل باقات الخدمة متطابقة. عدد الأجهزة والصلاحيات والمدة تُؤخذ من Basic المعروضة، لا من وصف مستوى آخر.",
-    "checkEn": "ExpressVPN tiers are not interchangeable. Take device count, permissions, and term from the listed Basic offer rather than a different tier’s description."
-  },
+  "intro": "باقات ExpressVPN للوصول إلى خدمة VPN. متاح اشتراك سنتين بحساب جاهز بسعر 55 دولارًا وضمان كامل طوال مدة الاشتراك، إلى جانب باقة Basic لمدة 3 أيام. راجع شروط الباقة المختارة.",
+  "introEn": "ExpressVPN access plans include two years on a ready-made account for US$55 with a full warranty throughout the term, alongside the three-day Basic offer. Review the selected plan terms.",
+  "workflow": "راجع التطبيق المناسب لجهازك واتبع خطوات الوصول المعلنة. جرّب الاتصال ثم احتفظ بطريقة الدخول ومعلومات المدة لتسهيل المتابعة إذا احتجت إلى دعم.",
+  "workflowEn": "Check the correct app for your device and follow the stated access steps. Test the connection and retain the login method and term details for support.",
+  "check": "باقة السنتين حساب جاهز لمدة 24 شهرًا وضمان كامل طوال المدة. المستوى وعدد الأجهزة يُؤكدان قبل الدفع؛ لا تُنقل مزايا Basic أو Advanced أو Express Pro تلقائيًا إلى العرض.",
+  "checkEn": "The two-year offer supplies a ready-made account for 24 months with a full-term warranty. Confirm tier and device count before payment; Basic, Advanced and Express Pro features are not automatically interchangeable."
+},
   "spotify": {
     "intro": "Spotify Premium يركز على تجربة الاستماع داخل التطبيق بمزايا الاشتراك المتاحة. يناسب من يريد ترتيب مكتبته والاستماع على أجهزته وفق نوع التفعيل المعروض.",
     "introEn": "Spotify Premium focuses on the app’s paid listening features. It suits organising a listening library across eligible devices under the stated activation method.",
@@ -1358,5 +1358,29 @@
   "workflowEn": "Before ordering, confirm your phone platform, country and phone-number setup with support. Follow the supplied account instructions and check Gold status in the official app and the spam-blocking settings you need.",
   "check": "مدة الضمان وطريقة ربط الحساب برقم هاتفك تُؤكدان قبل الدفع. المميزات تختلف حسب البلد ونظام التشغيل وإصدار التطبيق. التسليم حساب جاهز؛ تأكد من توافقه مع جهازك ورقمك قبل الطلب.",
   "checkEn": "Confirm the warranty duration and how the account connects to your phone number before payment. Features vary by country, operating system and app version. Delivery is a ready-made account; confirm compatibility with your device and number before ordering."
+},
+"ehunt-elite": {
+  "intro": "EHunt Elite لتحليل منتجات وكلمات ومتاجر Etsy، لمدة شهر بسعر 27 دولارًا، بحساب جاهز وضمان كامل طوال الشهر. يساعدك على دراسة المنافسين وتحسين القوائم بناءً على البيانات المتاحة.",
+  "introEn": "EHunt Elite for researching Etsy products, keywords and shops. One month for US$27 on a ready-made account with a full one-month warranty. Study competitors and improve listings using available data.",
+  "workflow": "ابدأ بمنتج أو مجال واضح في Etsy. قارن اتجاهات المنتجات والكلمات المفتاحية والقوائم المنافسة، ثم اختبر تحسينات محددة في العنوان والوسوم والوصف. راجع جودة المنتج وتكلفته أيضًا؛ بيانات المنافسين وحدها لا تكفي لاتخاذ قرار البيع.",
+  "workflowEn": "Start with an Etsy product or niche. Compare trends, keywords and competing listings, then test targeted changes to titles, tags and descriptions. Assess product quality and cost too; competitor data alone is not enough for a sales decision.",
+  "check": "هذه باقة EHunt Elite لأدوات Etsy وليست EHunt AI. مدة الاشتراك والضمان شهر، والتسليم حساب جاهز. راجع حدود التصدير والصلاحيات داخل الحساب، ولا تعتبر التحليلات ضمانًا للمبيعات.",
+  "checkEn": "This is EHunt Elite for Etsy tools, not EHunt AI. The subscription and warranty last one month, with a ready-made account. Check export limits and account permissions; analytics do not guarantee sales."
+},
+"storyblocks": {
+  "intro": "اشتراك Storyblocks لمدة شهر بسعر 16 دولارًا، حساب خاص غير مشترك وضمان كامل. تحميل غير محدود للموارد المشمولة بالباقة؛ تُراجع مكتبة المحتوى ونوع الترخيص قبل الدفع.",
+  "introEn": "One month of Storyblocks for US$16, with a private non-shared account and full warranty. Unlimited downloads of assets included in the plan; confirm library coverage and licence type before payment.",
+  "workflow": "حدد نوع اللقطة أو القالب الذي يحتاجه مشروعك وابحث بكلمات دقيقة. جرّب معاينة المورد وتوافقه مع برنامج المونتاج قبل تنزيله. راجع اسم صاحب الترخيص وتغطية الاستخدام، واحتفظ ببيانات المورد والترخيص مع المشروع.",
+  "workflowEn": "Identify the footage or template your project needs and search with precise terms. Preview the asset and check editor compatibility before downloading. Review the named licensee and usage coverage, retaining asset and licence details with the project.",
+  "check": "التحميل غير المحدود يتعلق بالموارد المشمولة في المكتبة المفعّلة، وليس توليد AI. نوع الترخيص وصاحبه ونطاق المكتبة أمور مستقلة عن خصوصية الحساب وضمان الشهر.",
+  "checkEn": "Unlimited downloads concern assets in the activated stock library, not AI generation. Licence type, licensee and library coverage are separate from account privacy and the one-month warranty."
+},
+"magiclight-pro": {
+  "intro": "MagicLight Pro لصناعة فيديوهات من القصص والنصوص والصور. عرض شهر برصيد 47,000 كريدت، بحساب جاهز وضمان شهر بسعر 1599 جنيه. استهلاك الرصيد حسب النموذج ونوع التوليد.",
+  "introEn": "MagicLight Pro for making videos from stories, scripts and images. A one-month store offer with 47,000 credits, a ready-made account and a one-month warranty for EGP 1,599. Consumption depends on the model and generation type.",
+  "workflow": "جهز قصة أو نصًا قصيرًا وقسمه إلى مشاهد. حدد وصف الشخصيات وأسلوب الصورة، ثم جرّب مشهدًا واحدًا قبل إنتاج القصة كاملة. راجع تسلسل الأحداث وثبات الشخصيات والنص والصوت، ثم اختر إعدادات التصدير المناسبة لرصيدك.",
+  "workflowEn": "Prepare a short story or script and split it into scenes. Define characters and visual style, then test one scene before producing the full story. Review continuity, character consistency, script and audio before choosing export settings within your allowance.",
+  "check": "عرض المتجر يتضمن 47,000 كريدت خلال شهر وضمان شهر. مرجع Pro الشهري 44 دولارًا يظهر برصيد 33,300 كريدت، بينما 47,000 يظهر في العرض السنوي. لا تخلط بين الرصيد الفعلي للحساب ومكافآت أو حصص خطط أخرى.",
+  "checkEn": "The store offer includes 47,000 credits during one month with a one-month warranty. The US$44 monthly Pro reference lists 33,300 credits, while 47,000 appears with annual billing. Keep the delivered account balance separate from bonuses or other tiers."
 }
 };});

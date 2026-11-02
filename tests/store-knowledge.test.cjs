@@ -91,3 +91,8 @@ for(const [market,amount] of [['EG',196],['INTL',3.5]]){
  assert.equal(context.window.MasterLocale.planAmount(quizlet),amount);
  if(market==='INTL')assert.equal(context.window.MasterLocale.planMoney(quizlet),'$3.50');
 }
+
+// New November tiers retain exact credits, duration, delivery, warranty and USD pricing.
+for(const [id,index,price,duration,warranty,credits] of [["heygen",1,799,"1 شهر",/15/,/600/],["expressvpn",1,3080,"24 شهر",/سنتان/,null],["ehunt-elite",0,1512,"1 شهر",/كامل.*شهر/,null],["storyblocks",0,896,"1 شهر",/كامل.*شهر/,null],["magiclight-pro",0,1599,"1 شهر",/شهر/,/47,000/]]){const p=products.find(p=>p.id===id),plan=JSON.parse(k.contextFor([p],rows)).details[0].plans.find(p=>p.planIndex===index)||JSON.parse(k.contextFor([p],rows)).details[0].plans[index];assert.equal(plan.priceEGP,price);assert.equal(plan.duration,duration);assert.match(plan.warranty,warranty);assert.match(plan.account,/جاهز/);if(credits)assert.match(plan.credits,credits);}
+assert.equal(products.find(p=>p.id==="heygen").plans[0].price,1250);assert.equal(products.find(p=>p.id==="expressvpn").plans[0].price,50);
+for(const [text,id] of [["اي هانت ايليت","ehunt-elite"],["ستوري بلوك","storyblocks"],["ماجك لفت","magiclight-pro"]])assert(ask(text).some(p=>p.id===id));

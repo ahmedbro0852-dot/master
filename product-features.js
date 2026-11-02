@@ -530,6 +530,7 @@ const vpn=[
 for(const id of ['surfshark','nordvpn','proton-vpn','hma-vpn','expressvpn'])entries[id]=vpn;
 
 function list(product,plan,english,translate){
+ if(["heygen","expressvpn","ehunt-elite","storyblocks","magiclight-pro"].includes(product.id)&&Array.isArray(plan.features)&&Array.isArray(plan.featuresEn))return english?plan.featuresEn:plan.features;
  if(["autodesk-apps","kling"].includes(product.id)&&Array.isArray(plan.features)&&Array.isArray(plan.featuresEn))return english?plan.featuresEn:plan.features;
  if(['lovable-pro','chatgpt-plus','hostinger'].includes(product.id)&&Array.isArray(plan.features)&&Array.isArray(plan.featuresEn))return english?plan.featuresEn:plan.features;
  if(product.id==='freepik'&&Array.isArray(plan.features)&&Array.isArray(plan.featuresEn))return english?plan.featuresEn:plan.features;
