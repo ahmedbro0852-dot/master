@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://master-pi-six.vercel.app/</loc></url>
 <url><loc>https://master-pi-six.vercel.app/warranty.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/services.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/categories/video-tools.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/categories/image-design-tools.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/categories/voice-audio-tools.html</loc></url>
@@ -107,4 +108,5 @@
 <url><loc>https://master-pi-six.vercel.app/products/ehunt-elite.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/storyblocks.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/magiclight-pro.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/products/skillshare.html</loc></url>
 </urlset>

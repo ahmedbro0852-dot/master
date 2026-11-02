@@ -8744,6 +8744,65 @@ const products = [
       }
     }
   ]
+},
+{
+  "id": "skillshare",
+  "name": "Skillshare",
+  "category": "التعليم",
+  "categories": [
+    "كورسات وتعلم مهني"
+  ],
+  "logo": "skillshare",
+  "logoUrl": "logos/skillshare.svg?v=20261102-services1",
+  "status": "available",
+  "description": "اشتراك Skillshare لمدة شهر بسعر 6 دولارات، بحساب خاص جاهز وغير مشترك وضمان كامل طوال الشهر. دورات في التصميم والتصوير والمونتاج ومهارات إبداعية أخرى ضمن العضوية.",
+  "descriptionEn": "One month of Skillshare for US$6 on a ready-made private, non-shared account with a full one-month warranty. Membership classes cover design, photography, video editing and other creative skills.",
+  "plans": [
+    {
+      "name": "شهر — حساب خاص جاهز — ضمان كامل",
+      "planType": "Membership",
+      "duration": "1 شهر",
+      "price": 336,
+      "basePriceUSD": 6,
+      "available": true,
+      "accountType": "حساب خاص جاهز",
+      "account": "حساب خاص جاهز وغير مشترك",
+      "activation": "تسليم بيانات الدخول إلى حساب Skillshare خاص جاهز.",
+      "warranty": "ضمان كامل لمدة شهر",
+      "features": [
+        "اشتراك Skillshare لمدة شهر على حساب خاص جاهز وغير مشترك.",
+        "تسليم بيانات الدخول للحساب مع ضمان كامل طوال الشهر.",
+        "وصول إلى الدورات المشمولة بعضوية Skillshare في التصميم والتصوير والمونتاج ومهارات إبداعية أخرى.",
+        "التعلم حسب وقتك من الكمبيوتر أو تطبيق الهاتف.",
+        "دروس ومشاريع تطبيقية تساعدك على تجربة المهارات التي تتعلمها."
+      ],
+      "featuresEn": [
+        "One month of Skillshare on a ready-made private, non-shared account.",
+        "Account login details supplied with a full warranty throughout the month.",
+        "Access to classes included in Skillshare membership in design, photography, video editing and other creative skills.",
+        "Learn at your own pace on desktop or the mobile app.",
+        "Lessons and practical projects to help you try the skills you learn."
+      ],
+      "notes": [
+        "التسليم حساب خاص جاهز لمدة شهر، وليس تفعيلًا على بريدك الشخصي.",
+        "العرض الرسمي الظاهر 13.99 دولارًا للشهر هو ما يعادل الشهر عند دفع 167.88 دولارًا سنويًا؛ ليس سعر شراء شهر مستقل.",
+        "توفر الدورات واللغات والترجمات والتنزيل داخل التطبيق يخضع للخدمة والحساب المفعّل."
+      ],
+      "notesEn": [
+        "Delivery is a ready-made private account for one month, not activation on your personal email.",
+        "The displayed official US$13.99 monthly amount is the equivalent when paying US$167.88 annually, not the price of a standalone month.",
+        "Classes, languages, subtitles and in-app downloads depend on service and activated-account availability."
+      ],
+      "priceComparison": {
+        "planName": "Skillshare — standalone month",
+        "status": "unavailable",
+        "source": "https://www.skillshare.com/en/pricing",
+        "checkedAt": "2026-11-02",
+        "note": "مرجع 13.99 دولارًا للشهر مشروط بدفع 167.88 دولارًا سنويًا. لا نعرضه كسعر رسمي لشراء شهر مستقل أو كسعر سابق للمتجر.",
+        "noteEn": "The US$13.99 monthly equivalent requires a US$167.88 annual payment. It is not displayed as the official price for a standalone month or as a previous store price."
+      }
+    }
+  ]
 }
 ];
 

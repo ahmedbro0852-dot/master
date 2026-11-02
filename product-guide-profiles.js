@@ -1382,5 +1382,13 @@
   "workflowEn": "Prepare a short story or script and split it into scenes. Define characters and visual style, then test one scene before producing the full story. Review continuity, character consistency, script and audio before choosing export settings within your allowance.",
   "check": "عرض المتجر يتضمن 47,000 كريدت خلال شهر وضمان شهر. مرجع Pro الشهري 44 دولارًا يظهر برصيد 33,300 كريدت، بينما 47,000 يظهر في العرض السنوي. لا تخلط بين الرصيد الفعلي للحساب ومكافآت أو حصص خطط أخرى.",
   "checkEn": "The store offer includes 47,000 credits during one month with a one-month warranty. The US$44 monthly Pro reference lists 33,300 credits, while 47,000 appears with annual billing. Keep the delivered account balance separate from bonuses or other tiers."
+},
+"skillshare": {
+  "intro": "اشتراك Skillshare لمدة شهر بسعر 6 دولارات، بحساب خاص جاهز وغير مشترك وضمان كامل طوال الشهر. دورات في التصميم والتصوير والمونتاج ومهارات إبداعية أخرى ضمن العضوية.",
+  "introEn": "One month of Skillshare for US$6 on a ready-made private, non-shared account with a full one-month warranty. Membership classes cover design, photography, video editing and other creative skills.",
+  "workflow": "اختار مهارة واحدة وابدأ بمسار أو دورة تناسب مستواك. خصص وقتًا للمشاهدة ثم طبق مشروعًا صغيرًا من الدرس. احتفظ بملاحظاتك وأعمالك، وراجع التعليقات أو الدروس المكملة عند الحاجة بدل التنقل بين دورات كثيرة بدون تطبيق.",
+  "workflowEn": "Choose one skill and start with a path or class suited to your level. Set aside time to watch, then complete a small practical project. Keep your notes and work, using feedback or supporting lessons instead of switching between many classes without practice.",
+  "check": "اشتراك المتجر شهر واحد بحساب خاص جاهز وضمان شهر. السعر الرسمي الظاهر 13.99 دولارًا شهريًا يفترض دفع سنة كاملة بقيمة 167.88 دولارًا، ولا يساوي شراء شهر مستقل.",
+  "checkEn": "The store offer is one month on a ready private account with a one-month warranty. The displayed official US$13.99 monthly figure requires a full annual payment of US$167.88 and is not a standalone month."
 }
 };});

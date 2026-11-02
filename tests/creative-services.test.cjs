@@ -1,0 +1,16 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const {services,formatQuote}=require('../creative-services.js');
+assert.equal(services.length,6);assert.equal(new Set(services.map(s=>s.id)).size,6);
+const text='مونتاج إعلان لمنتج، المقاس 9:16 & بداية <مختلفة>\nمع عناوين واضحة';
+const ar=formatQuote({service:'video-editing',brief:text,format:'Reels 9:16',deadline:'بعد الاتفاق'},false);
+assert(ar.includes(text));assert(ar.includes('مونتاج فيديو'));assert(ar.includes('Reels 9:16'));assert(ar.includes('بعد الاتفاق'));
+const en=formatQuote({service:'graphic-design',brief:'Social media graphics for a new product.'},true);
+assert(en.includes('Graphic design'));assert(!en.includes('undefined'));assert(!en.includes('Preferred deadline'));
+assert.throws(()=>formatQuote({service:'https://example.com/',brief:text}),/Unknown service/);
+assert.throws(()=>formatQuote({service:'video-editing',brief:'قصير'}),/brief/);
+assert.equal(decodeURIComponent(encodeURIComponent(ar)),ar);
+const page=fs.readFileSync('services.html','utf8'),home=fs.readFileSync('index.html','utf8');
+assert(page.includes('action="https://wa.me/201500950624"'));assert(page.includes('name="text"'));assert(!page.includes('name="service-brief"'));
+assert(home.includes('id="creative-services"'));assert(page.includes('rel="canonical" href="https://master-pi-six.vercel.app/services.html"'));
+const publicAssets=require('../scripts/public-assets.json');for(const f of ['services.html','creative-services.css','creative-services.js'])assert(publicAssets.includes(f));
+console.log('PASS six service categories, exact bilingual quote details, bounded input, invalid-service rejection, WhatsApp draft destination and public delivery.');
