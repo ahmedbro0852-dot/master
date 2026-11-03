@@ -173,5 +173,6 @@
   },
   "env": {
     "MASTER_STORE_SITE": "1"
-  }
+  },
+  "ignoreCommand": "exit 0"
 }
