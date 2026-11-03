@@ -19,6 +19,8 @@ dialog{background:var(--paper);color:var(--ink);border:1px solid var(--line);bor
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
 .service-tile{color:#152139}.service-tile:first-child{color:#fff}
+
+.sidebar,.catalog-content{min-width:0}@media(max-width:880px){.catalog-shell{grid-template-columns:minmax(0,1fr)}.category-list{max-width:100%}.cat{flex-shrink:0}}
 </style></head>
 <body>
 <a class="skip" href="#catalog" data-i="skip">انتقل للاشتراكات</a>
