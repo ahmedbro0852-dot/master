@@ -3994,7 +3994,7 @@ const products = [
     "category": "AI Tools",
     "logo": "chatgpt",
     "status": "available",
-    "description": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو حساب خاص جاهز بضمان شهر بـ650 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ1100 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
+    "description": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو حساب خاص جاهز بضمان شهر بـ650 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ880 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
     "plans": [
       {
         "name": "ChatGPT Plus — بدون ضمان",
@@ -4060,7 +4060,7 @@ const products = [
       {
         "name": "ChatGPT Plus — تفعيل أو تجديد على حسابك",
         "duration": "1 شهر",
-        "price": 1100,
+        "price": 880,
         "activation": "تفعيل اشتراك Plus جديد أو تجديده على حسابك الشخصي.",
         "account": "حساب العميل الشخصي",
         "warranty": "ضمان كامل",
@@ -4148,7 +4148,7 @@ const products = [
       "مساعد كتابة الكود",
       "محادثة ومساعد ذكي"
     ],
-    "descriptionEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a full one-month warranty for EGP 650, or activation and renewal on your personal account for EGP 1,100. Review the delivery method and warranty of your chosen plan."
+    "descriptionEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a full one-month warranty for EGP 650, or activation and renewal on your personal account for EGP 880. Review the delivery method and warranty of your chosen plan."
   },
   {
     "id": "chatgpt-teachers-k12",

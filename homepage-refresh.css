@@ -117,3 +117,25 @@ html[data-custom-theme] .topbar{background:var(--theme-surface);border-color:var
  .home-category-card,.home-category-arrow,.hero-v2 .hero-actions a{transition:none!important}
  .home-category-card:hover,.hero-v2 .hero-primary:hover{transform:none}
 }
+
+/* Featured personal-account Plus plan; category tiles removed on request. */
+.home-plus-offer{box-sizing:border-box;max-width:1180px;margin:16px auto 18px;padding:20px 25px;display:flex;gap:18px;align-items:center;border:1px solid #cddfff;border-radius:22px;background:linear-gradient(115deg,#eaf3ff,#fff 76%);box-shadow:0 12px 30px rgba(31,94,255,.06)}
+.home-plus-offer *{box-sizing:border-box}
+.home-plus-offer-brand{flex:none;display:grid;place-items:center;width:67px;height:67px;border:1px solid #d6e4f8;border-radius:20px;background:#fff}
+.home-plus-offer-brand img{width:47px;height:47px;object-fit:contain}
+.home-plus-offer-info{min-width:0;flex:1}
+.home-plus-offer-kicker{display:block;font-size:11px;font-weight:800;color:#2467cb;margin-bottom:6px}
+.home-plus-offer h2{margin:0 0 5px;color:#12345f;font-size:clamp(18px,2.3vw,24px);line-height:1.5}
+.home-plus-offer p{margin:0;color:#5e7290;font-size:12px;line-height:1.8}
+.home-plus-offer-actions{display:flex;align-items:center;justify-content:flex-end;gap:15px;flex:none}
+.home-plus-offer-actions strong{font-size:25px;font-weight:900;white-space:nowrap;color:#1754d3}
+.home-plus-offer-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 15px;border-radius:12px;background:#1f5eff;color:#fff;font-weight:800;font-size:12px;text-decoration:none;white-space:nowrap}
+.home-plus-offer-actions a:hover{background:#144aca}
+.home-plus-offer-actions a:focus-visible{outline:3px solid #82adff;outline-offset:3px}
+html[data-custom-theme] .home-plus-offer{background:var(--theme-panel);border-color:var(--line);box-shadow:none}
+html[data-custom-theme] .home-plus-offer h2{color:var(--ink)}
+html[data-custom-theme] .home-plus-offer p{color:var(--muted)}
+html[data-custom-theme] .home-plus-offer-kicker,html[data-custom-theme] .home-plus-offer-actions strong{color:var(--theme-accent)}
+html[data-custom-theme] .home-plus-offer-actions a{background:var(--theme-button);color:#fff}
+@media(max-width:900px){.home-plus-offer{margin:14px 16px;flex-wrap:wrap;padding:19px}.home-plus-offer-actions{width:100%;justify-content:space-between;padding-top:9px;border-top:1px solid #d9e5f8}}
+@media(max-width:560px){.home-plus-offer{gap:12px;border-radius:18px;padding:15px}.home-plus-offer-brand{width:50px;height:50px;border-radius:14px}.home-plus-offer-brand img{width:35px;height:35px}.home-plus-offer-info{flex-basis:calc(100% - 68px)}.home-plus-offer h2{font-size:17px}.home-plus-offer p{font-size:11px}.home-plus-offer-actions strong{font-size:22px}.home-plus-offer-actions a{font-size:11px;padding-inline:12px}}
