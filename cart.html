@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>السلة — حسابي ومحفظتي | MASTER STORE</title>
-  <meta name="description" content="سجل الدخول وتابع طلباتك ومحفظتك وطلبات إضافة الرصيد في MASTER STORE.">
+  <title>سلة الاشتراكات وإتمام الطلب | MASTER STORE</title>
+  <meta name="description" content="راجع اشتراكاتك وأسعارها والخصم وطرق الدفع، ثم أكّد طلبك من MASTER STORE.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,14 +19,14 @@
 <link rel="stylesheet" href="cart-logos.css?v=1">
 <link rel="stylesheet" href="product-prices.css?v=20261027-picsart-savings1">
   <link rel="stylesheet" href="/store-assistant.css?v=20261026-actions1">
-  <link rel="stylesheet" href="/site-updates.css?v=20261025-review1">
+  <link rel="stylesheet" href="/site-updates.css?v=20261104-mobile-ux4">
+  <link rel="stylesheet" href="/cart-experience.css?v=20261104-checkout1">
 <script src="/social-links.js?v=20261025-review1"></script>
 </head>
 <body>
-  <div class="offer-bar">خصومات تصل إلى 90% على عروض مختارة <a href="index.html#products">تصفح العروض</a></div>
   <header class="topbar">
     <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png?v=20260924-sec19" alt="MASTER STORE"></a>
-    <nav id="mainNav" aria-label="التنقل الرئيسي"><a href="index.html#products">العروض</a><a href="index.html#how">طريقة الطلب</a><a class="cart-nav" href="cart.html">السلة <span data-cart-count>0</span></a><a class="faq-nav-link" href="index.html#faq">الأسئلة الشائعة</a><a href="track.html">متابعة الطلب</a><a class="creative-services-nav" href="services.html">الخدمات</a></nav>
+    <nav id="mainNav" aria-label="التنقل الرئيسي"><a href="index.html#products">العروض</a><a href="index.html#how">طريقة الطلب</a><a class="cart-nav" href="cart.html">السلة <span data-cart-count>0</span></a><a class="faq-nav-link" href="index.html#faq">الأسئلة الشائعة</a><a href="track.html">متابعة الطلب</a></nav>
     <div class="market-switcher" id="marketSwitcher">
       <select id="marketSelect" aria-label="الدولة والعملة">
         <option value="EG">🇪🇬 مصر · EGP</option>
@@ -53,7 +53,16 @@
     <button class="menu" type="button" aria-label="فتح القائمة" aria-controls="mainNav">☰</button>
   </header>
 
-  <main class="page-shell cart-shell"><h1>سلة اشتراكاتك</h1><p>كل ما تزود اشتراكات، الخصم يزيد تلقائيًا.</p><div id="cartContent"></div><p class="plan-policy-link">قبل تأكيد الطلب، راجع ضمان الباقة و<a href="warranty.html">سياسة الضمان والاستبدال</a>.</p></main>
+  <main class="page-shell cart-shell" id="main-content">
+    <div class="cart-page-heading"><span class="cart-page-eyebrow">MASTER STORE · CHECKOUT</span><h1>راجع اشتراكاتك وكمّل طلبك</h1><p>الأسعار والخصم بيتراجعوا قبل التأكيد، والتفاصيل النهائية بتظهر في ملخص الطلب.</p></div>
+    <ol class="cart-progress" aria-label="مراحل الطلب">
+      <li><span>١</span><strong>راجع اشتراكاتك</strong></li>
+      <li><span>٢</span><strong>بيانات التواصل والدفع</strong></li>
+      <li><span>٣</span><strong>تأكيد الطلب</strong></li>
+    </ol>
+    <div id="cartContent" aria-live="polite" aria-atomic="false"></div>
+    <p class="plan-policy-link">قبل تأكيد الطلب، راجع ضمان الباقة و<a href="warranty.html">سياسة الضمان والاستبدال</a>.</p>
+  </main>
 
   <footer>
     <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png?v=20260924-sec19" alt="MASTER STORE"></a>
@@ -72,9 +81,9 @@
   <script src="cloud.js?v=20261101-order-inbox1"></script>
   <script src="store.js?v=20261025-store-prices3"></script>
   <script src="order-details.js?v=20261101-order-inbox1"></script>
-  <script src="cart.js?v=20261101-order-inbox1"></script>
+  <script src="cart.js?v=20261104-checkout1"></script>
   
-  <script src="app.js?v=20261031-three-offers1"></script>
+  <script src="app.js?v=20261104-filter-ux1"></script>
   <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img decoding="async" class="whatsapp-icon" src="logos/whatsapp.svg?v=20260924-sec19" alt=""></a>
 <script src="store-faq.js?v=20261018-searchable1"></script>
   <script src="/store-assistant.js?v=20261027-welcome1" defer></script>
