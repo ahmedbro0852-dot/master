@@ -139,3 +139,38 @@ html[data-custom-theme] .home-plus-offer-kicker,html[data-custom-theme] .home-pl
 html[data-custom-theme] .home-plus-offer-actions a{background:var(--theme-button);color:#fff}
 @media(max-width:900px){.home-plus-offer{margin:14px 16px;flex-wrap:wrap;padding:19px}.home-plus-offer-actions{width:100%;justify-content:space-between;padding-top:9px;border-top:1px solid #d9e5f8}}
 @media(max-width:560px){.home-plus-offer{gap:12px;border-radius:18px;padding:15px}.home-plus-offer-brand{width:50px;height:50px;border-radius:14px}.home-plus-offer-brand img{width:35px;height:35px}.home-plus-offer-info{flex-basis:calc(100% - 68px)}.home-plus-offer h2{font-size:17px}.home-plus-offer p{font-size:11px}.home-plus-offer-actions strong{font-size:22px}.home-plus-offer-actions a{font-size:11px;padding-inline:12px}}
+
+/* Two enquiries for social media channels/pages — no unverified listings or prices. */
+#social-market,#youtube-channels,#tiktok-pages{scroll-margin-top:22px}
+.social-market{box-sizing:border-box;max-width:1180px;margin:16px auto 24px;padding:29px 30px 32px;border:1px solid #dee8f6;border-radius:26px;background:#fff;box-shadow:0 12px 32px rgba(20,52,99,.035)}
+.social-market *{box-sizing:border-box}
+.social-market-heading{margin-bottom:20px}
+.social-market-kicker{display:block;margin-bottom:7px;color:#2867d3;font-size:11px;font-weight:800}
+.social-market h2{margin:0 0 8px;color:#16345d;font-size:clamp(23px,2.8vw,31px);line-height:1.5;letter-spacing:-.4px}
+.social-market-heading p{margin:0;max-width:800px;color:#677c99;font-size:12px;line-height:1.9}
+.social-market-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.social-market-card{min-width:0;display:flex;flex-direction:column;gap:18px;min-height:261px;padding:22px;border:1px solid #dfe8f5;border-radius:20px;background:linear-gradient(143deg,#f7faff 0%,#fff 68%);transition:border-color .2s,transform .2s,box-shadow .2s}
+.social-market-card:hover{border-color:#9bbded;box-shadow:0 12px 25px rgba(25,76,140,.09);transform:translateY(-2px)}
+.social-market-card-top{display:flex;align-items:center;gap:12px}
+.social-market-brand-icon{display:grid;place-items:center;width:56px;height:56px;flex:none;border:1px solid #e4eaf4;border-radius:17px;background:#fff;box-shadow:0 5px 13px rgba(16,43,88,.045)}
+.social-market-brand-icon img{display:block;max-width:36px;max-height:36px;object-fit:contain}
+.social-market-music-note{font-size:37px;font-weight:900;line-height:1;color:#121820;text-shadow:-2px -2px #19d6db,2px 2px #ff4d83}
+.social-market-brand-name{font-weight:800;letter-spacing:1.8px;color:#6f83a0;font-size:11px}
+.social-market-card-copy{flex:1}
+.social-market-card h3{margin:0 0 7px;color:#1b385d;font-size:22px;line-height:1.5}
+.social-market-card p{margin:0;color:#667995;font-size:12px;line-height:1.9}
+.social-market-card-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.social-market-pending{font-size:10px;color:#526d91;font-weight:700}
+.social-market-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 16px;border:1px solid #1f5eff;border-radius:12px;background:#1f5eff;color:#fff!important;font-size:12px;font-weight:800;text-decoration:none;transition:background .2s}
+.social-market-cta:hover{background:#174bd3}
+.social-market-cta:focus-visible{outline:3px solid #85adfa;outline-offset:3px}
+html[data-custom-theme] .social-market{background:var(--theme-panel);border-color:var(--line);box-shadow:none}
+html[data-custom-theme] .social-market h2,html[data-custom-theme] .social-market-card h3{color:var(--ink)}
+html[data-custom-theme] .social-market p,html[data-custom-theme] .social-market-pending,html[data-custom-theme] .social-market-brand-name{color:var(--muted)}
+html[data-custom-theme] .social-market-kicker{color:var(--theme-accent)}
+html[data-custom-theme] .social-market-card{background:var(--theme-surface);border-color:var(--line)}
+html[data-custom-theme] .social-market-card:hover{border-color:var(--theme-accent)}
+html[data-custom-theme] .social-market-cta{background:var(--theme-button);border-color:var(--theme-button);color:#fff}
+@media(max-width:900px){.social-market{margin:14px 16px 22px;padding:24px 22px}}
+@media(max-width:700px){.social-market{border-radius:20px;padding:20px 16px}.social-market-grid{grid-template-columns:1fr;gap:11px}.social-market-card{min-height:unset;padding:17px;gap:12px}.social-market h2{font-size:23px}.social-market-card h3{font-size:19px}.social-market-brand-icon{width:48px;height:48px;border-radius:14px}.social-market-brand-icon img{width:31px;height:31px}.social-market-card-bottom{align-items:stretch;flex-direction:column;gap:8px}.social-market-cta{width:100%}}
+@media(prefers-reduced-motion:reduce){.social-market-card{transition:none}.social-market-card:hover{transform:none}}
