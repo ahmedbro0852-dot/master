@@ -1,0 +1,39 @@
+/* MASTER STORE visual categories — all illustrations hosted locally, no external trackers */
+.visual-explore{box-sizing:border-box;max-width:1180px;margin:24px auto 24px;padding:26px 27px 22px;background:linear-gradient(145deg,#fff,#f7faff);border:1px solid #e1eaf8;border-radius:25px;box-shadow:0 12px 32px #122f6009}
+.visual-explore *{box-sizing:border-box}
+.visual-explore-head{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:19px}
+.visual-explore-kicker{display:inline-flex;font-size:10px;color:#1f64d1;font-weight:850;letter-spacing:.6px;margin:0 0 7px}
+.visual-explore h2{font-size:clamp(23px,2.6vw,31px);line-height:1.45;color:#183759;letter-spacing:-.5px;margin:0 0 6px}
+.visual-explore-head p{font-size:12px;line-height:1.85;color:#687e98;margin:0;max-width:590px}
+.visual-explore-all{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:42px;padding:8px 14px;text-align:center;white-space:nowrap;text-decoration:none;border:1px solid #c7dcfb;border-radius:12px;background:#edf4ff;color:#205db2;font-size:11px;font-weight:800}
+.visual-explore-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.visual-explore-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;text-decoration:none;background:#fff;border:1px solid #dfe8f6;border-radius:19px;box-shadow:0 5px 18px rgba(19,49,105,.045);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.visual-explore-card:hover{transform:translateY(-4px);border-color:#83aeec;box-shadow:0 16px 35px rgba(25,70,140,.13)}
+.visual-explore-card:focus-visible,.visual-explore-more a:focus-visible,.visual-explore-all:focus-visible{outline:3px solid #77aaf4;outline-offset:3px}
+.visual-explore-media{position:relative;overflow:hidden;isolation:isolate;aspect-ratio:16/9;background:#0b1a42}
+.visual-explore-media>.visual-explore-image{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:16/9;transition:transform .35s ease}
+.visual-explore-card:hover .visual-explore-image{transform:scale(1.05)}
+.visual-explore-logo{position:absolute;inset-block-start:10px;inset-inline-start:11px;display:grid;place-items:center;width:37px;height:37px;border:1px solid #ffffffaa;border-radius:11px;background:#ffffffef;box-shadow:0 4px 16px #030b1955}
+.visual-explore-logo img{display:block;width:25px;height:25px;object-fit:contain}
+.visual-explore-gif{display:block;position:absolute;bottom:10px;inset-inline-end:10px;width:102px;aspect-ratio:224/126;border:1px solid #d1f4ff7d;border-radius:10px;overflow:hidden;background:#0b1634;box-shadow:0 3px 12px #03112875;pointer-events:none}
+.visual-explore-gif img{display:block;width:100%;height:100%;object-fit:cover}
+.visual-explore-copy{display:flex;flex-direction:column;gap:5px;flex:1;padding:15px 15px 16px}
+.visual-explore-copy h3{font-size:14px;line-height:1.6;margin:0;color:#18365f}
+.visual-explore-copy p{font-size:10px;line-height:1.7;margin:0;color:#72869e}
+.visual-explore-link{display:flex;align-items:center;gap:6px;margin-top:auto;padding-top:9px;color:#225ec5;font-weight:800;font-size:10px;line-height:1.5}
+.visual-explore-more{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:15px;font-size:10px;color:#6c7f99}
+.visual-explore-more>a{display:inline-flex;align-items:center;min-height:33px;padding:6px 11px;background:#f0f5fe;color:#2d5e9e;border:1px solid #d7e5f7;border-radius:99px;text-decoration:none;font-weight:700}
+.visual-explore-more>a:hover{background:#e1ecff;border-color:#a9cbf5}
+html[data-custom-theme] .visual-explore{background:var(--theme-panel);border-color:var(--line);box-shadow:none}
+html[data-custom-theme] .visual-explore h2,html[data-custom-theme] .visual-explore-copy h3{color:var(--ink)}
+html[data-custom-theme] .visual-explore-head p,html[data-custom-theme] .visual-explore-copy p,html[data-custom-theme] .visual-explore-more{color:var(--muted)}
+html[data-custom-theme] .visual-explore-card{background:var(--theme-surface);border-color:var(--line)}
+html[data-custom-theme] .visual-explore-all,html[data-custom-theme] .visual-explore-more>a{background:var(--theme-control);color:var(--theme-accent);border-color:var(--line)}
+/* Give catalog product logos a soft, restrained interaction. */
+.product-card.light-card .product-logo img{transition:transform .22s ease}
+.product-card.light-card:hover .product-logo img{transform:scale(1.065)}
+.product-card.light-card:focus-within{outline:2px solid #7baff4;outline-offset:2px}
+@media(max-width:1000px){.visual-explore{margin-inline:16px;padding:23px 20px}.visual-explore-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.visual-explore-media{max-height:195px}}
+@media(max-width:700px){.visual-explore{margin:18px 14px 20px;padding:17px 14px;border-radius:19px}.visual-explore-head{align-items:flex-start;gap:10px;margin-bottom:15px}.visual-explore h2{font-size:21px}.visual-explore-head p{font-size:10px}.visual-explore-all{font-size:9px;min-height:37px;padding:7px 9px;flex:none}.visual-explore-grid{gap:9px}.visual-explore-card{border-radius:14px}.visual-explore-logo{inset-block-start:7px;inset-inline-start:7px;width:31px;height:31px;border-radius:9px}.visual-explore-logo img{width:21px;height:21px}.visual-explore-gif{width:72px;bottom:6px;inset-inline-end:6px;border-radius:7px}.visual-explore-copy{padding:11px 10px 12px;gap:3px}.visual-explore-copy h3{font-size:12px}.visual-explore-copy p{font-size:9px}.visual-explore-link{font-size:9px;padding-top:6px}.visual-explore-more{margin-top:12px;gap:7px}.visual-explore-more>a{font-size:9px;min-height:30px;padding:6px 9px}}
+@media(max-width:390px){.visual-explore-head{flex-wrap:wrap}.visual-explore-all{margin-top:1px}.visual-explore-copy h3{font-size:11px}.visual-explore-copy p{display:none}.visual-explore-link{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.visual-explore-card,.visual-explore-image,.product-card.light-card .product-logo img{animation:none!important;transition:none!important}.visual-explore-card:hover,.visual-explore-card:hover .visual-explore-image,.product-card.light-card:hover .product-logo img{transform:none!important}}

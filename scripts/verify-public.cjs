@@ -35,6 +35,23 @@ assert(plus.includes('site-nav.js?v=')&&!plus.includes('src="app.js?v='),'produc
 assert(home.includes('src="app.js?v='),'homepage catalogue renderer must remain available');
 assert(home.includes('rel="preconnect" href="https://gmysuhoebcapigdidnnv.supabase.co"'),'public price connection warm-up missing');
 assert(fs.existsSync(path.join(out,'site-nav.js')),'shared navigation JS missing');
+assert(home.includes('id="visual-explore"'),'visual category explorer missing');
+assert(home.includes('store-visuals.css?v=20261104-categories1'),'new visual styling not loaded');
+assert((home.match(/class="visual-explore-card/g)||[]).length===4,'four visual categories expected');
+for(const art of ['ai-card.svg','video-card.svg','design-card.svg','study-card.svg']){
+ const p=path.join(out,'images','showcase',art);
+ assert(fs.existsSync(p),'category illustration missing: '+art);
+ assert(fs.readFileSync(p,'utf8').includes('<svg'),'invalid static SVG '+art);
+}
+const gif=path.join(out,'images','showcase','ai-orbit.gif');
+assert(fs.existsSync(gif),'animated AI illustration missing');
+const animated=fs.readFileSync(gif);
+assert(animated.slice(0,6).toString('ascii')==='GIF89a','GIF signature invalid');
+assert(animated.length<150000,'GIF asset too large');
+assert(home.includes('prefers-reduced-motion: reduce')&&home.includes('ai-card.svg'),'provide static art when motion reduced');
+for(const slug of ['writing-research-tools','video-tools','image-design-tools','education-learning'])
+ assert(home.includes('/categories/'+slug+'.html'),'category image link missing: '+slug);
+
 const inv=read('invoice.html');assert(inv.includes('invoice.js?v=20261104-warranty1')&&inv.includes('invoice.css?v=20261104-warranty1'),'warranty invoice assets missing');
 const crm=read('management.html');assert(crm.includes('management.js?v=20261104-paid-guard1')&&crm.includes('management.css?v=20261104-workflow2'),'warranty CRM workflow files not deployed');
 assert(adminPage.includes('admin-bulk-pricing.js?v=20261104-bulk-price1'),'bulk pricing module not linked');

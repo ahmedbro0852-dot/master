@@ -79,5 +79,6 @@
   "site-nav.js",
   "admin-control-center.js",
   "admin-control-center.css",
-  "admin-bulk-pricing.js"
+  "admin-bulk-pricing.js",
+  "store-visuals.css"
 ]
