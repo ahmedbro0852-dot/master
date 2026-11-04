@@ -35,6 +35,7 @@ assert(plus.includes('site-nav.js?v=')&&!plus.includes('src="app.js?v='),'produc
 assert(home.includes('src="app.js?v='),'homepage catalogue renderer must remain available');
 assert(home.includes('rel="preconnect" href="https://gmysuhoebcapigdidnnv.supabase.co"'),'public price connection warm-up missing');
 assert(fs.existsSync(path.join(out,'site-nav.js')),'shared navigation JS missing');
+const inv=read('invoice.html');assert(inv.includes('invoice.js?v=20261104-warranty1')&&inv.includes('invoice.css?v=20261104-warranty1'),'warranty invoice assets missing');
 const crm=read('management.html');assert(crm.includes('management.js?v=20261104-warranty1')&&crm.includes('management.css?v=20261104-warranty1'),'warranty CRM files not deployed');
 for(const file of ['admin-control-center.js','admin-control-center.css'])assert(fs.existsSync(path.join(out,file)),'advanced admin asset missing: '+file);
 const adminPage=read('admin.html');assert(adminPage.includes('admin-control-center.js?v=')&&adminPage.includes('admin-control-center.css?v='),'admin control center not loaded');
