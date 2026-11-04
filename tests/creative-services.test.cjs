@@ -9,8 +9,14 @@ assert(en.includes('Graphic design'));assert(!en.includes('undefined'));assert(!
 assert.throws(()=>formatQuote({service:'https://example.com/',brief:text}),/Unknown service/);
 assert.throws(()=>formatQuote({service:'video-editing',brief:'قصير'}),/brief/);
 assert.equal(decodeURIComponent(encodeURIComponent(ar)),ar);
-const page=fs.readFileSync('services.html','utf8'),home=fs.readFileSync('index.html','utf8');
-assert(page.includes('action="https://wa.me/201500950624"'));assert(page.includes('name="text"'));assert(!page.includes('name="service-brief"'));
-assert(home.includes('id="creative-services"'));assert(page.includes('rel="canonical" href="https://master-pi-six.vercel.app/services.html"'));
-const publicAssets=require('../scripts/public-assets.json');for(const f of ['services.html','creative-services.css','creative-services.js'])assert(publicAssets.includes(f));
-console.log('PASS six service categories, exact bilingual quote details, bounded input, invalid-service rejection, WhatsApp draft destination and public delivery.');
+// Keep historic quote logic under unit test, but never publish services no longer sold.
+const home=fs.readFileSync('index.html','utf8');
+assert(!home.includes('id="creative-services"'));
+const config=require('../vercel.json');
+assert(config.redirects.some(x=>x.source==='/services.html'&&x.destination==='/'&&x.permanent===false));
+const publicAssets=require('../scripts/public-assets.json');
+for(const name of ['services.html','creative-services.css','creative-services.js'])assert(!publicAssets.includes(name));
+const seoBuilder=fs.readFileSync('scripts/build-seo.cjs','utf8');
+assert(!seoBuilder.includes("origin+'/services.html'"));
+assert(!seoBuilder.includes('<a href="/services.html">'));
+console.log('PASS: historical quote formatting remains tested; unavailable creative-services page and assets are no longer published or indexed.');

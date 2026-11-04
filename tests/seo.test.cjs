@@ -5,7 +5,7 @@ vm.runInNewContext(fs.readFileSync(path.join(root,'catalog.js'),'utf8'),c);const
 const read=f=>fs.readFileSync(path.join(root,f),'utf8');
 const graph=html=>JSON.parse(html.match(/<script id="master-seo-data" type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
 const sm=read('sitemap.xml'),urls=[...sm.matchAll(/<loc>(.*?)<\/loc>/g)].map(x=>x[1]);assert.equal(new Set(urls).size,urls.length);
-assert(!urls.some(x=>/account|invoice|management|admin|cart\.html|track\.html/.test(x)));
+assert(!urls.some(x=>/account|invoice|management|admin|cart\.html|track\.html|services\.html/.test(x)));
 for(const p of catalog.products.filter(x=>!x.redirectTo)){
  const html=read('products/'+p.id+'.html'),g=graph(html)['@graph'],entity=g.find(x=>['Product','Service'].includes(x['@type']));
  assert.equal((html.match(/rel="canonical"/g)||[]).length,1);assert(html.includes('href="'+S.productUrl(p)+'"'));
@@ -18,7 +18,7 @@ for(const p of catalog.products.filter(x=>!x.redirectTo)){
  assert(S.categoryFor(p,catalog.categoryGroups).length||!S.indexable(p));
 }
 for(const url of urls){const pathname=new URL(url).pathname;if(pathname!=='/')assert(fs.existsSync(path.join(root,pathname)));}
-for(const category of S.categories){const html=read('categories/'+category.slug+'.html'),g=graph(html)['@graph'];assert.equal(g[0]['@type'],'CollectionPage');assert(g[0].mainEntity.numberOfItems>0);assert(html.includes(S.categoryUrl(category)));}
+for(const category of S.categories){const html=read('categories/'+category.slug+'.html'),g=graph(html)['@graph'];assert.equal(g[0]['@type'],'CollectionPage');assert(g[0].mainEntity.numberOfItems>0);assert(html.includes(S.categoryUrl(category)));assert(!html.includes('href="/services.html"'),'unavailable creative services must not be advertised');}
 assert(read('warranty.html').includes('rel="canonical" href="'+S.origin+'/warranty.html"'));
 const home=read('index.html');assert.equal((home.match(/id="master-seo-data"/g)||[]).length,1);assert(home.includes('dvpUjy_77Hw4vOnhyEyLAJ9m2NBAoZ1nUtnLy-ABb0s'));assert(home.includes('SEO-DIRECTORY-START'));
 const p=catalog.getProduct('windows-pro'),row={product_id:p.id,plan_index:0,price_piasters:26500,available:true};
@@ -26,4 +26,4 @@ assert.equal(S.offers(p,[row])[0].price,'265.00');assert.equal(S.offers(p,[{...r
 const exp={...p,plans:[{...p.plans[0],offerEndsAt:'2000-01-01T00:00:00Z'}]};assert.equal(S.offers(exp,[row])[0].availability,'https://schema.org/OutOfStock');
 const fallback=S.productGraph(p,catalog.categoryGroups,null)['@graph'].at(-1);assert.equal(fallback['@type'],'Service');assert(!fallback.offers);
 const config=JSON.parse(read('vercel.json'));assert(config.redirects.some(x=>x.source==='/index.html'&&x.destination==='/'));for(const name of ['account','admin','management','cart','track','invoice'])assert(config.headers.some(x=>x.source==='/'+name+'.html'&&x.headers.some(h=>h.key==='X-Robots-Tag'&&h.value.includes('noindex'))));
-console.log('PASS: static content, 87 canonical sitemap URLs, all categories, truthful offers/availability, server overrides, expired offers, no-price fallback, unchanged verification token, private-page exclusion.');
+console.log('PASS: static content, '+urls.length+' canonical sitemap URLs, all categories, truthful offers/availability, server overrides, expired offers, no-price fallback, unchanged verification token, excluded unavailable/private pages.');

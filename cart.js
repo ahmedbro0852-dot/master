@@ -2,7 +2,7 @@
 'use strict';
 const S=window.MasterStore,C=window.MasterCloud,E=S?.escapeHtml;
 const t=(ar,en)=>window.MasterLocale?.getState().language==='en'?en:ar;
-function read(){try{return JSON.parse(localStorage.getItem('master-cart-v1')||'[]').filter(x=>typeof x.product_id==='string'&&Number.isInteger(x.plan_index)&&Number.isInteger(x.quantity)&&x.quantity>0).slice(0,20);}catch{return [];}}
+function read(){try{const parsed=JSON.parse(localStorage.getItem('master-cart-v1')||'[]');return (Array.isArray(parsed)?parsed:[]).filter(x=>x&&typeof x.product_id==='string'&&Number.isInteger(x.plan_index)&&Number.isInteger(x.quantity)&&x.quantity>0&&x.quantity<=999).slice(0,20);}catch{return [];}}
 function write(items){localStorage.setItem('master-cart-v1',JSON.stringify(items));badge();}
 function badge(){document.querySelectorAll('[data-cart-count]').forEach(x=>x.textContent=read().reduce((n,x)=>n+x.quantity,0));}
 function add(product,index){const items=read(),line=items.find(x=>x.product_id===product&&x.plan_index===index);const max=window.MasterCatalog?.getProduct(product)?.plans?.[index]?.max_quantity||(product==='gamma-account'?1:5);if(line){if(line.quantity>=max)throw Error(t('وصلت للحد الأقصى للباقة.','Plan quantity limit reached.'));line.quantity++;}else{if(items.length>=20)throw Error(t('السلة ممتلئة.','Cart is full.'));items.push({product_id:product,plan_index:index,quantity:1});}write(items);}

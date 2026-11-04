@@ -155,6 +155,11 @@
   "outputDirectory": "_site",
   "redirects": [
     {
+      "source": "/services.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/products/gamma-account.html",
       "destination": "/products/gamma-plus.html?plan=1",
       "permanent": true
