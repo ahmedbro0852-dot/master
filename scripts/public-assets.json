@@ -78,5 +78,6 @@
   "homepage-refresh.css",
   "site-nav.js",
   "admin-control-center.js",
-  "admin-control-center.css"
+  "admin-control-center.css",
+  "admin-bulk-pricing.js"
 ]

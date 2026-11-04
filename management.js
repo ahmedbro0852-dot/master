@@ -60,7 +60,7 @@ function modal(title,html){const d=document.getElementById('crmDialog');d.queryS
 function field(name,label,value='',type='text',extra=''){return '<label>'+label+'<input name="'+name+'" type="'+type+'" value="'+E(String(value??''))+'" '+extra+'></label>';}
 function options(values,value){return values.map(([id,label])=>'<option value="'+id+'" '+(id===value?'selected':'')+'>'+label+'</option>').join('');}
 
-function canExtendWarranty(row){return !!(row&&row.lifecycle==='active'&&row.starts_on&&row.warranty_ends_on&&row.warranty_ends_on>row.starts_on&&row.updated_at);}
+function canExtendWarranty(row){return !!(row&&row.lifecycle==='active'&&row.payment_status==='paid'&&row.starts_on&&row.starts_on<=today()&&row.warranty_ends_on&&row.warranty_ends_on>row.starts_on&&row.updated_at);}
 function syncWarrantySelection(){
  const checks=[...root.querySelectorAll('[data-warranty-select]')];
  checks.forEach(ch=>{ch.checked=warrantySelected.has(ch.dataset.warrantySelect);});

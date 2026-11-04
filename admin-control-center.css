@@ -52,3 +52,16 @@
 /* Warranty desk entry point within owner quick controls */
 .admin-app .power-links a.power-warranty-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:11px 14px;border:1px solid #c7e6d2;background:#edf9f1;color:#17613f;border-radius:10px;font-size:11px;font-weight:800;text-decoration:none}
 .admin-app .power-links a.power-warranty-link:hover{background:#dcf2e5}
+
+/* Owner bulk price preview */
+.admin-app .power-pricing{background:#f2f8ff;border:1px solid #cde1f8;border-radius:14px;padding:18px;margin:17px 0 7px}
+.admin-app .power-pricing h4{font-size:14px;color:#20538c;margin:0 0 8px}
+.admin-app .power-pricing p{font-size:11px;line-height:1.9;color:#5c7596}
+.admin-app .power-pricing-controls{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap;margin:14px 0}
+.admin-app .power-pricing-controls label{font-size:11px;color:#225988;font-weight:700;display:flex;flex-direction:column;gap:6px}
+.admin-app .power-pricing-controls input{min-height:43px;width:140px;border:1px solid #bfd5ed;border-radius:9px;padding:9px;font-size:15px;background:white}
+.admin-app .power-pricing-controls button{min-height:43px;padding:9px 13px}
+.admin-app .power-pricing-controls button:disabled{opacity:.55;cursor:not-allowed}
+.admin-app .power-pricing-preview{background:#fff;border:1px solid #d6e4f6;border-radius:10px;padding:12px;overflow-wrap:anywhere}
+html[data-custom-theme] .admin-app .power-pricing,html[data-custom-theme] .admin-app .power-pricing-preview{background:var(--theme-panel);border-color:var(--line);color:var(--ink)}
+@media(max-width:600px){.admin-app .power-pricing{padding:13px}.admin-app .power-pricing-controls>*{flex:1 1 130px}.admin-app .power-pricing-controls input{width:100%}}

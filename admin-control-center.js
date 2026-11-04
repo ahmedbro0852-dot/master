@@ -121,6 +121,7 @@ function render(box,data,api){
  }
  get('#powerEnable').onclick=()=>bulk(true);
  get('#powerDisable').onclick=()=>bulk(false);
+ window.MasterBulkPricing?.mount(box,{plans:allPlans,selection:()=>selection,busy:()=>busy,refresh:api.refresh,notify:api.notify});
  function rowsFor(type){
   if(type==='plans')return {
    header:['Product ID','Product','Plan index','Plan','Duration','Price (EGP)','Availability','Max quantity','Last updated'],
