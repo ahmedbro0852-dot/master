@@ -806,7 +806,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
 
     if(document.querySelector('.hero-v2')){
       setHTML('.hero-kicker','<span></span> وفّر أكتر مع MASTER STORE','<span></span> Save more with MASTER STORE');
-      setHTML('.hero-copy h1','اشتراكاتك المفضلة.<br><em>بخصومات تصل إلى 90%.</em>','Your favorite subscriptions.<br><em>Save up to 90%.</em>');
+      setHTML('.hero-copy h1','كل اشتراكاتك.<br><em>في مكان واحد.</em>','All your subscriptions.<br><em>In one place.</em>');
       setText('.discount-note','على عروض مختارة','On selected offers');
       setText('.hero-copy > p','من أدوات الذكاء الاصطناعي والتصميم للتعليم والترفيه — اختار خدمتك واطلبها بسهولة مع دعم مباشر على واتساب.','AI, design, education and entertainment subscriptions — choose your service and order easily with direct WhatsApp support.');
       const acts=document.querySelectorAll('.hero-actions a');
