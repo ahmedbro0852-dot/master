@@ -100,7 +100,7 @@ html[data-custom-theme] .store-follow{background:var(--theme-surface);border-col
   .product-page .product-title p{font-size:12px!important;line-height:1.75!important;margin:6px 0 0;overflow-wrap:anywhere}
   .product-page .product-title p:not(.no-clamp){display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
   .product-page.product-intro-expanded .product-title p{display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important}
-  .product-intro-toggle{display:inline-flex;align-items:center;min-height:36px;margin-top:5px;padding:3px 1px;border:0;background:transparent;color:var(--theme-accent,var(--blue,#2459cf));font:700 11px/1.5 inherit;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+  .product-intro-toggle{display:inline-flex;align-items:center;min-height:36px;margin-top:5px;padding:3px 1px;border:0;background:transparent;color:var(--theme-accent,var(--blue,#2459cf));font-family:inherit;font-size:11px;font-weight:700;line-height:1.5;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
   .product-intro-toggle[hidden]{display:none!important}
   .product-page .product-hero>.status{position:static!important;display:inline-flex!important;margin-top:13px!important}
   .product-page .product-layout{padding-top:15px;gap:14px}
@@ -121,8 +121,7 @@ html[data-custom-theme] .store-follow{background:var(--theme-surface);border-col
 @media(max-width:420px){
   .catalog .grid{display:grid;grid-template-columns:1fr!important;gap:11px}
   .catalog .simple-service-card.product-card{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:9px;min-height:0!important;padding:13px!important}
-  .catalog .simple-service-card .card-top{display:flex!important;flex-direction:row!important;align-items:center!important;gap:13px!important;padding:0 44px 0 0!important;background:none!important;border:0!important;min-height:62px!important}
-  [dir="ltr"] .catalog .simple-service-card .card-top{padding:0 0 0 44px!important}
+  .catalog .simple-service-card .card-top{display:flex!important;flex-direction:row!important;align-items:center!important;gap:13px!important;padding:0!important;padding-inline-end:44px!important;background:none!important;border:0!important;min-height:62px!important}
   .catalog .simple-service-card .card-top .product-logo{width:58px!important;height:58px!important;min-width:58px!important;min-height:58px!important;padding:9px!important;border-radius:14px!important}
   .catalog .simple-service-card .card-top h3{font-size:15px!important;line-height:1.6!important;margin:0!important;text-align:start;overflow-wrap:anywhere}
   .catalog .simple-service-card .light-meta{grid-column:1!important;padding:0!important;margin:0!important}
