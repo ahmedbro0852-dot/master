@@ -75,3 +75,8 @@ html[data-custom-theme] .cart-discount-rules{color:var(--muted)!important}
  .cart-layout .checkout-payment span{font-size:10px}
 }
 @media(max-width:360px){.cart-layout .checkout-payment-grid{grid-template-columns:1fr}.cart-progress li strong{font-size:8px}}
+
+/* Static checkout introduction is explicitly bilingual. */
+.cart-lang-en{display:none}
+html[lang="en"] .cart-lang-ar{display:none!important}
+html[lang="en"] .cart-lang-en{display:inline}
