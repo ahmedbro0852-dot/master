@@ -6,3 +6,24 @@
 .crm-page-totals{display:flex;gap:12px 20px;flex-wrap:wrap;padding:16px;border-radius:12px;background:#f2f7fe;margin-bottom:15px;font-size:11px;line-height:1.9;color:#375b85}.crm-page-totals b{flex-basis:100%;color:#193b65}
 
 .crm-form label[hidden]{display:none}
+
+/* WARRANTY PERIOD & EXPIRY · admin CRM */
+.admin-app .crm-priority-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.crm-dates .crm-warranty-cell{min-width:0;padding:11px;border:1px solid #d9e7f9;border-radius:12px;background:#f4faff}
+.crm-warranty-cell dd{margin:5px 0}
+.crm-warranty-cell small{font-size:10px;color:#667e98;line-height:1.7;display:block;margin-top:6px}
+.crm-warranty-badge{display:inline-flex;max-width:100%;font-size:11px;font-weight:800;line-height:1.6;white-space:normal;padding:5px 9px;background:#e8f6ee;color:#157041;border-radius:9px}
+.crm-warranty-badge.soon,.crm-warranty-preview[data-state="soon"]{background:#fff0d5;color:#975d15}
+.crm-warranty-badge.expired,.crm-warranty-preview[data-state="expired"]{background:#ffeced;color:#aa3542}
+.crm-warranty-badge.missing,.crm-warranty-preview[data-state="missing"]{background:#edf1f6;color:#5b6c82}
+.crm-warranty-badge.scheduled{background:#edf3ff;color:#2c62a5}
+.crm-warranty-tools{background:#f4f9ff;border-color:#cbdff4}
+.crm-warranty-tools span{font-weight:700;color:#2b5683}
+.crm-warranty-presets{display:flex;flex:1 1 100%;flex-wrap:wrap;gap:7px}
+.crm-warranty-presets button{min-height:35px!important;padding:6px 11px;font-size:10px!important;color:#215690;background:#fff;border:1px solid #bfd4ec;border-radius:9px}
+.crm-warranty-presets button:hover{background:#e8f3ff}
+.crm-warranty-preview{flex:1 1 100%;margin:0;font-size:11px;line-height:1.8;padding:9px 11px;border-radius:9px;background:#e6f6ee;color:#176a40}
+html[data-custom-theme] .crm-warranty-cell,html[data-custom-theme] .crm-warranty-tools{background:var(--theme-panel);border-color:var(--line)}
+@media(max-width:900px){.admin-app .crm-priority-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.crm-warranty-presets button{flex:1 1 26%}.crm-warranty-tools #crmWarrantyCalculate{flex:1 1 100%}}
+@media(max-width:360px){.admin-app .crm-priority-grid{grid-template-columns:1fr}}
