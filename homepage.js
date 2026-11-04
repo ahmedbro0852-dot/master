@@ -58,4 +58,55 @@
   document.addEventListener('masterstore:localechange',translate);
   Promise.resolve(window.MasterCatalogReady).then(translate);
   translate();
+  // Pointer-driven depth is limited to one frame and one active surface.
+  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  const finePointer=matchMedia('(hover: hover) and (pointer: fine)');
+  const hero=document.querySelector('.home-universe');
+  let motionPaused=false,activeSurface=null,frame=0,lastPoint=null,heroVisible=true;
+  const motionButton=document.createElement('button');
+  motionButton.type='button';motionButton.className='home-motion-toggle';
+  hero?.append(motionButton);
+  function resetSurface(){
+    if(frame)cancelAnimationFrame(frame);frame=0;lastPoint=null;
+    if(activeSurface){activeSurface.classList.remove('is-tilting');for(const key of ['--tilt-x','--tilt-y','--glow-x','--glow-y'])activeSurface.style.removeProperty(key);}
+    activeSurface=null;
+  }
+  function syncMotion(){
+    const disabled=motionPaused||reducedMotion.matches;
+    document.body.classList.toggle('home-motion-paused',disabled||document.hidden);
+    hero?.classList.toggle('motion-offscreen',!heroVisible);
+    motionButton.hidden=reducedMotion.matches;
+    motionButton.textContent=isEnglish()?(motionPaused?'Play motion':'Pause motion'):(motionPaused?'تشغيل الحركة':'إيقاف الحركة');
+    motionButton.setAttribute('aria-pressed',String(motionPaused));
+    if(disabled||document.hidden)resetSurface();
+  }
+  motionButton.addEventListener('click',()=>{motionPaused=!motionPaused;syncMotion();});
+  reducedMotion.addEventListener('change',syncMotion);
+  finePointer.addEventListener('change',resetSurface);
+  document.addEventListener('visibilitychange',syncMotion);
+  document.addEventListener('masterstore:localechange',syncMotion);
+  if(hero&&'IntersectionObserver' in window)new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;syncMotion();},{threshold:.05}).observe(hero);
+  document.addEventListener('pointermove',event=>{
+    if(!finePointer.matches||reducedMotion.matches||motionPaused||document.hidden)return;
+    const surface=event.target.closest('.home-universe,.home-category,.home-plan');
+    if(!surface||event.target.closest('button,input,select')){resetSurface();return;}
+    if(surface!==activeSurface){resetSurface();activeSurface=surface;surface.classList.add('is-tilting');}
+    lastPoint={x:event.clientX,y:event.clientY};
+    if(frame)return;
+    frame=requestAnimationFrame(()=>{
+      frame=0;if(!activeSurface||!lastPoint)return;
+      const rect=activeSurface.getBoundingClientRect();
+      const x=Math.max(0,Math.min(1,(lastPoint.x-rect.left)/rect.width));
+      const y=Math.max(0,Math.min(1,(lastPoint.y-rect.top)/rect.height));
+      const strength=activeSurface===hero?5:7;
+      activeSurface.style.setProperty('--tilt-x',((.5-y)*strength).toFixed(2)+'deg');
+      activeSurface.style.setProperty('--tilt-y',((x-.5)*strength).toFixed(2)+'deg');
+      activeSurface.style.setProperty('--glow-x',(x*100).toFixed(1)+'%');
+      activeSurface.style.setProperty('--glow-y',(y*100).toFixed(1)+'%');
+    });
+  },{passive:true});
+  document.documentElement.addEventListener('pointerleave',resetSurface);
+  window.addEventListener('blur',resetSurface);
+  window.addEventListener('scroll',resetSurface,{passive:true});
+  syncMotion();
 })();
