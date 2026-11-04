@@ -73,7 +73,7 @@
     const rank=(statusRank[a.status]??9)-(statusRank[b.status]??9);
     return rank||((popularityRank.get(a.id)??999)-(popularityRank.get(b.id)??999));
   });
-  const categories=['الكل',...(Catalog.categoryOrder||[...new Set(products.map(p=>p.category).filter(Boolean))])];
+  const categories=['الكل','الذكاء الاصطناعي',...(Catalog.categoryOrder||[...new Set(products.map(p=>p.category).filter(Boolean))])];
   const urlFilters=new URLSearchParams(location.search);
   const validCategories=new Set([...categories,...Object.values(Catalog.categoryGroups||{}).flat()]);
   let selected=validCategories.has(urlFilters.get('category'))?urlFilters.get('category'):'الكل';
@@ -195,9 +195,9 @@
     if(loading)loading.hidden=true;
   }
 
-  const matchesCategory=(product,category)=>{const tags=product?.categories||[product?.category];return category==='الكل'||tags.includes(category)||(Catalog.categoryGroups?.[category]||[]).some(sub=>tags.includes(sub));};
+  const matchesCategory=(product,category)=>{const tags=product?.categories||[product?.category];return category==='الكل'||(category==='الذكاء الاصطناعي'&&tags.some(tag=>/الذكاء الاصطناعي|مساعد ذكي|مساعد كتابة الكود|تعليق صوتي|أفاتار|توليد موسيقى/.test(tag)))||tags.includes(category)||(Catalog.categoryGroups?.[category]||[]).some(sub=>tags.includes(sub));};
   function categoryLabel(category){
-    return category==='الكل'?ui('الكل','All'):tr(category,'category','');
+    return category==='الكل'?ui('الكل','All'):category==='الذكاء الاصطناعي'?ui(category,'Artificial intelligence'):tr(category,'category','');
   }
 
   function drawFilters(){
@@ -214,8 +214,23 @@
     });
   }
 
+  document.addEventListener('masterstore:homecategory',event=>{
+    if(!validCategories.has(event.detail))return;
+    selected=event.detail;
+    if(search)search.value='';
+    if(favoritesOnly)favoritesOnly.checked=false;
+    if(availableOnly)availableOnly.checked=false;
+    drawFilters();applyFilters();
+  });
+  document.documentElement.dataset.homeCatalogReady='true';
+
+  let homePageSize=12,homeFilterSignature='';
+  const homeMore=document.getElementById('homeShowMore');
+  homeMore?.addEventListener('click',()=>{homePageSize+=12;applyFilters();});
   function applyFilters(){
     const q=normalizeSearch(search?.value||'');
+    const signature=JSON.stringify([selected,search?.value,sort?.value,availableOnly?.checked,favoritesOnly?.checked]);
+    if(signature!==homeFilterSignature){homePageSize=12;homeFilterSignature=signature;}
     let visible=0;
     const rank=new Map(products.map((p,i)=>[p.id,i]));
     const amount=card=>{const p=cheapestPlan(Catalog.getProduct(card.dataset.productId));return p?Store.planAmount(p):null;};
@@ -228,16 +243,17 @@
       const categoryMatch=matchesCategory(Catalog.getProduct(card.dataset.productId),selected);
       const product=Catalog.getProduct(card.dataset.productId);
       const matches=(!favoritesOnly?.checked||Shopping?.read('favorites').includes(product.id))&&categoryMatch&&(!availableOnly?.checked||product?.status==='available')&&(!q||q.split(/\s+/).every(word=>(card.dataset.search||'').includes(word)));
-      card.hidden=!matches;
       if(matches)visible++;
+      card.hidden=!matches||(!!homeMore&&visible>homePageSize);
     });
 
+    if(homeMore){homeMore.hidden=visible<=homePageSize;homeMore.textContent=ui('عرض المزيد ('+Math.max(0,visible-homePageSize)+')','Show more ('+Math.max(0,visible-homePageSize)+')');}
     const url=new URL(location.href);
     const state={q:search?.value.trim()||'',category:selected==='الكل'?'':selected,available:availableOnly?.checked?'1':'',sort:sort?.value==='featured'?'':sort?.value||''};
     for(const [key,value] of Object.entries(state)){if(value)url.searchParams.set(key,value);else url.searchParams.delete(key);}
     if(url.href!==location.href)history.replaceState(history.state,'',url);
     const count=document.getElementById('catalogResultCount');
-    if(count)count.textContent=ui('عرض '+visible+' من '+products.length+' خدمة', 'Showing '+visible+' of '+products.length+' services');
+    if(count)count.textContent=ui('عرض '+Math.min(visible,homeMore?homePageSize:visible)+' من '+visible+' خدمة مطابقة', 'Showing '+Math.min(visible,homeMore?homePageSize:visible)+' of '+visible+' matching services');
     const availableLabel=document.getElementById('availableOnlyLabel');
     if(availableLabel)availableLabel.textContent=ui('المتاح فقط','Available only');
     const favoritesLabel=document.getElementById('favoritesOnlyLabel');
