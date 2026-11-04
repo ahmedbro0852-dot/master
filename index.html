@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="/site-updates.css?v=20261025-review1">
 <link rel="stylesheet" href="/shopping-tools.css?v=20261025-usability1">
   <link rel="stylesheet" href="fresh-offers.css?v=20261101-sizing2">
-<link rel="stylesheet" href="creative-services.css?v=20261102-services1">
+
 <style>
 .home-avatar-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:24px 0}.home-avatar-stack{display:flex;padding-inline-end:10px;direction:ltr}.home-avatar-stack span{display:block;flex:0 0 44px;width:44px;height:44px;margin-right:-10px;border:2px solid var(--theme-surface,#fff);border-radius:50%;background-color:#e5efff;background-image:url('images/avatars/avatars-3d-1.webp');background-size:400% 200%;background-position:calc(var(--avatar-x)*100%/3) calc(var(--avatar-y)*100%);box-shadow:0 3px 10px #10265020}.home-avatar-row a{font-size:13px;color:var(--blue,#2563eb);text-decoration:none}.home-avatar-row a:hover{text-decoration:underline}.cart-nav{display:inline-flex!important;align-items:center;gap:6px}.cart-nav svg{flex-shrink:0}.topbar>.home-cart-shortcut{display:none}@media(max-width:760px){.topbar>.home-cart-shortcut{display:inline-flex;align-items:center;justify-content:center;gap:4px;min-width:44px;min-height:44px;border-radius:12px;background:#1f5eff;color:white;text-decoration:none}.home-cart-shortcut svg{width:22px;height:22px}.home-avatar-stack span{width:38px;height:38px;flex-basis:38px}.home-avatar-row{gap:12px}}
 
@@ -71,7 +71,7 @@
       <a href="#products">العروض</a>
       <a href="#how">طريقة الطلب</a>
       <a href="#terms">ليه MASTER STORE؟</a>
-    <a class="cart-nav" href="cart.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 3h3l3 12h11l3-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg> السلة <span data-cart-count>0</span></a><a class="faq-nav-link" href="#faq">الأسئلة الشائعة</a><a href="track.html">متابعة الطلب</a><a class="creative-services-nav" href="services.html">الخدمات</a></nav>
+    <a class="cart-nav" href="cart.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 3h3l3 12h11l3-9H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg> السلة <span data-cart-count>0</span></a><a class="faq-nav-link" href="#faq">الأسئلة الشائعة</a><a href="track.html">متابعة الطلب</a></nav>
     <div class="market-switcher" id="marketSwitcher">
       <select id="marketSelect" aria-label="الدولة والعملة">
         <option value="EG">🇪🇬 مصر · EGP</option>
@@ -182,7 +182,7 @@
       <div class="home-plus-offer-actions"><strong><span class="home-only-ar">880 جنيه</span><span class="home-only-en">EGP 880</span></strong><a href="products/chatgpt-plus.html?plan=2"><span class="home-only-ar">شوف الباقة واطلبها</span><span class="home-only-en">View and order</span> <span aria-hidden="true">↗</span></a></div>
     </section>
   <section class="store-follow" id="follow-offers" aria-labelledby="follow-title"><div class="store-follow-copy"><img class="store-follow-icon" src="/logos/facebook.svg" alt="" width="49" height="49" loading="lazy"><div><h2 id="follow-title" data-follow-title>خليك متابع أحدث عروضنا</h2><p data-follow-description>تابع عروض ماستر ستور على فيسبوك وقناة واتساب، واختار الباقة المناسبة ليك.</p></div></div><div class="store-follow-actions"><a class="store-follow-facebook" href="https://www.facebook.com/share/19XBCdMAm5/" target="_blank" rel="noopener noreferrer"><span data-follow-facebook>تابعنا على فيسبوك</span> ↗</a><a class="store-follow-channel" href="https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K" target="_blank" rel="noopener noreferrer"><img src="/logos/whatsapp.svg" alt="" width="20" height="20"><span data-follow-channel>قناة عروض واتساب</span> ↗</a></div></section>
-    <nav class="store-section-links" aria-label="أقسام المتجر"><a href="#best-offers">أفضل العروض</a><a href="#products">كل الاشتراكات</a><a href="services.html">الخدمات الإبداعية</a><a href="#customer-stories">تجارب العملاء</a><a href="#how">طريقة الطلب</a><a href="#faq">الأسئلة الشائعة</a></nav>
+    <nav class="store-section-links" aria-label="أقسام المتجر"><a href="#best-offers">أفضل العروض</a><a href="#products">كل الاشتراكات</a><a href="#customer-stories">تجارب العملاء</a><a href="#how">طريقة الطلب</a><a href="#faq">الأسئلة الشائعة</a></nav>
     <section class="confidence-strip" aria-label="مميزات المتجر">
       <div><b>أسعار منافسة</b><span>عروض مختارة بتوفير كبير</span></div>
       <div><b>ضمان واضح</b><span>تفاصيل الضمان داخل كل باقة</span></div>
@@ -192,7 +192,6 @@
 
     <section class="fresh-offers" id="freshOffers" aria-labelledby="freshOffersTitle" hidden><h2 id="freshOffersTitle">🆕 أحدث العروض | تخفيضات 🔥</h2><p class="fresh-offers-note"></p><div class="fresh-offers-grid"></div></section>
     <section class="best-offers" id="best-offers" aria-labelledby="bestOffersTitle"><h2 id="bestOffersTitle">🔥 أفضل العروض</h2><div id="bestOffersGrid" class="best-offers-grid"></div></section>
-    <section class="services-teaser" id="creative-services" data-no-translate="true" aria-labelledby="creative-services-title"><div class="services-teaser-copy"><span class="svc-eyebrow"><span data-svc-text="teaser.label">أشهر خدماتنا</span></span><h2 id="creative-services-title"><span data-svc-text="teaser.title">فكرتك عندنا ليها شكل تاني.</span></h2><p><span data-svc-text="teaser.note">مونتاج، تصميم، موشن جرافيك ومواقع. خدمات إبداعية حسب احتياج مشروعك.</span></p><a class="svc-primary" href="services.html"><span data-svc-text="teaser.button">تصفح قسم الخدمات</span> <span aria-hidden="true">↙</span></a></div><div class="services-teaser-picks"><a href="services.html?service=video-editing#service-request"><span class="teaser-pick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3V9Z"/></svg></span><span><span data-svc-text="video-editing.name">مونتاج فيديو</span><small><span data-svc-text="teaser.video">من أول لقطة لآخر فريم</span></small></span><b aria-hidden="true">↗</b></a><a href="services.html?service=graphic-design#service-request"><span class="teaser-pick-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 4 6 6M4 20l4-1 12-12a2 2 0 0 0-3-3L5 16l-1 4Z"/><path d="M13 20h8"/></svg></span><span><span data-svc-text="graphic-design.name">تصميم جرافيك</span><small><span data-svc-text="teaser.design">تصميم يعبّر عن هويتك</span></small></span><b aria-hidden="true">↗</b></a></div></section>
     <section class="catalog" id="products">
       <div class="section-head">
         <div><span class="eyebrow">العروض والخدمات</span><h2>اختار اشتراكك</h2><p class="section-sub">كل التفاصيل المهمة موجودة داخل صفحة الخدمة.</p></div>
@@ -276,5 +275,5 @@
 <script src="store-faq.js?v=20261018-searchable1"></script>
   <script src="/store-assistant.js?v=20261027-welcome1" defer></script>
   <script src="/site-updates.js?v=20261025-review1" defer></script>
-<script src="creative-services.js?v=20261102-services1" defer></script></body>
+</body>
 </html>
