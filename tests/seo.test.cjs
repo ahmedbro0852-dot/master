@@ -19,11 +19,19 @@ for(const p of catalog.products.filter(x=>!x.redirectTo)){
 }
 for(const url of urls){const pathname=new URL(url).pathname;if(pathname!=='/')assert(fs.existsSync(path.join(root,pathname)));}
 for(const category of S.categories){const html=read('categories/'+category.slug+'.html'),g=graph(html)['@graph'];assert.equal(g[0]['@type'],'CollectionPage');assert(g[0].mainEntity.numberOfItems>0);assert(html.includes(S.categoryUrl(category)));assert(!html.includes('href="/services.html"'),'unavailable creative services must not be advertised');}
+for(const c of S.categories){
+ const page=read('categories/'+c.slug+'.html');
+ assert(c.guide&&c.guide.length>70,'missing original guide for '+c.slug);
+ assert(page.includes('class="seo-buyer-guide"'),'category guide is not server-rendered: '+c.slug);
+ assert(page.includes(c.guide.slice(0,25)),'wrong category guide: '+c.slug);
+}
+assert(read('product.html').includes('name="robots" content="noindex,follow"'),'dynamic checkout page must be noindex');
+assert(read('products/chatgpt-plus.html').includes('name="robots" content="index,follow"'),'static product landing page should be indexed');
 assert(read('warranty.html').includes('rel="canonical" href="'+S.origin+'/warranty.html"'));
 const home=read('index.html');assert.equal((home.match(/id="master-seo-data"/g)||[]).length,1);assert(home.includes('dvpUjy_77Hw4vOnhyEyLAJ9m2NBAoZ1nUtnLy-ABb0s'));assert(home.includes('SEO-DIRECTORY-START'));
 const p=catalog.getProduct('windows-pro'),row={product_id:p.id,plan_index:0,price_piasters:26500,available:true};
 assert.equal(S.offers(p,[row])[0].price,'265.00');assert.equal(S.offers(p,[{...row,available:false}])[0].availability,'https://schema.org/OutOfStock');assert.equal(S.offers(p,[{...row,price_piasters:123}]).length,0);assert.equal(S.offers(p,[{...row,price_piasters:123,admin_overridden:true}])[0].price,'1.23');assert.equal(S.offers(p,null).length,0);
 const exp={...p,plans:[{...p.plans[0],offerEndsAt:'2000-01-01T00:00:00Z'}]};assert.equal(S.offers(exp,[row])[0].availability,'https://schema.org/OutOfStock');
 const fallback=S.productGraph(p,catalog.categoryGroups,null)['@graph'].at(-1);assert.equal(fallback['@type'],'Service');assert(!fallback.offers);
-const config=JSON.parse(read('vercel.json'));assert(config.redirects.some(x=>x.source==='/index.html'&&x.destination==='/'));for(const name of ['account','admin','management','cart','track','invoice'])assert(config.headers.some(x=>x.source==='/'+name+'.html'&&x.headers.some(h=>h.key==='X-Robots-Tag'&&h.value.includes('noindex'))));
+const config=JSON.parse(read('vercel.json'));assert(config.headers.some(x=>x.source==='/product.html'&&x.headers.some(h=>h.key==='X-Robots-Tag'&&h.value.includes('noindex'))),'dynamic checkout header missing');assert(config.redirects.some(x=>x.source==='/index.html'&&x.destination==='/'));for(const name of ['account','admin','management','cart','track','invoice'])assert(config.headers.some(x=>x.source==='/'+name+'.html'&&x.headers.some(h=>h.key==='X-Robots-Tag'&&h.value.includes('noindex'))));
 console.log('PASS: static content, '+urls.length+' canonical sitemap URLs, all categories, truthful offers/availability, server overrides, expired offers, no-price fallback, unchanged verification token, excluded unavailable/private pages.');
