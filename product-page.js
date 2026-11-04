@@ -105,6 +105,33 @@
       '</aside>'+
     '</section>';
 
+
+  // Shorten long product introductions on phones without hiding details permanently.
+  const introDescription=root.querySelector('.product-title p');
+  let introToggle=null;
+  function updateIntroToggle(){
+    if(!introDescription||!introToggle)return;
+    const compact=window.matchMedia('(max-width:700px)').matches;
+    introToggle.hidden=!compact||introDescription.textContent.trim().length<140;
+    const expanded=root.classList.contains('product-intro-expanded');
+    introToggle.setAttribute('aria-expanded',String(expanded));
+    introToggle.textContent=ui(expanded?'إظهار أقل':'عرض الوصف كاملًا',expanded?'Show less':'Read full description');
+  }
+  if(introDescription){
+    introDescription.id='product-intro-description';
+    introToggle=document.createElement('button');
+    introToggle.type='button';
+    introToggle.className='product-intro-toggle';
+    introToggle.setAttribute('aria-controls','product-intro-description');
+    introDescription.insertAdjacentElement('afterend',introToggle);
+    introToggle.addEventListener('click',()=>{
+      root.classList.toggle('product-intro-expanded');
+      updateIntroToggle();
+    });
+    window.addEventListener('resize',updateIntroToggle,{passive:true});
+    updateIntroToggle();
+  }
+
   root.querySelector('.product-hero').insertAdjacentHTML('beforeend',window.MasterShopping?.button(p)||'');
   const selectedLink=document.createElement('button');selectedLink.type='button';selectedLink.className='selected-plan-link';root.querySelector('.summary-card').prepend(selectedLink);
   selectedLink.addEventListener('click',()=>{const radio=root.querySelector('input[name=plan]:checked');if(radio){radio.closest('.plan-option').scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});radio.focus({preventScroll:true});}});
@@ -308,6 +335,7 @@
     const statusEl=document.querySelector('.product-hero>.status');
     if(categoryEl)categoryEl.textContent=tr(p.category,'category');
     if(descEl)descEl.textContent=tr(p.description||'','description');
+    updateIntroToggle();
     if(statusEl)statusEl.textContent=tr(statusLabel(p.status),'status');
     document.querySelectorAll('.plan-option').forEach(label=>{
       const plan=plans[Number(label.querySelector('input[name=plan]')?.value)];

@@ -70,3 +70,65 @@ html[data-custom-theme] .store-follow{background:var(--theme-surface);border-col
  .topbar>.brand img{width:clamp(90px,28vw,125px)!important}
  .topbar>.account-link{padding-inline:5px!important}
 }
+
+/* Mobile conversion and readability pass · 2026-11-04 */
+/* The assistant previously shared the WhatsApp corner in RTL; keep both small and separate. */
+@media(max-width:700px){
+  .store-assistant-launcher{
+    position:fixed!important;left:auto!important;right:14px!important;
+    inset-inline-start:auto!important;inset-inline-end:auto!important;
+    bottom:calc(16px + env(safe-area-inset-bottom,0px))!important;
+    display:inline-flex!important;justify-content:center!important;align-items:center!important;
+    width:50px!important;height:50px!important;min-width:50px!important;min-height:50px!important;
+    padding:8px!important;gap:0!important;border-radius:16px!important;
+    z-index:91!important;box-shadow:0 8px 20px rgba(19,59,145,.22)!important;
+  }
+  .store-assistant-launcher>span{display:none!important}
+  .store-assistant-launcher .assistant-logo{width:30px!important;height:30px!important;flex:none}
+  .support-fab{position:fixed!important;left:12px!important;right:auto!important;width:46px!important;height:46px!important;bottom:calc(14px + env(safe-area-inset-bottom,0px))!important;z-index:90!important}
+  body:has(.mobile-order-bar) .store-assistant-launcher{bottom:calc(108px + env(safe-area-inset-bottom,0px))!important}
+  body:has(.mobile-order-bar) .support-fab{bottom:calc(109px + env(safe-area-inset-bottom,0px))!important}
+  body:has(dialog[open]) :is(.store-assistant-launcher,.support-fab){visibility:hidden}
+  .product-page{padding:17px 14px 44px}
+  .product-page .product-hero{padding:18px 16px!important;border-radius:18px!important}
+  .product-page .back-link{display:inline-flex;align-items:center;min-height:35px;margin-bottom:14px;font-size:11px}
+  .product-hero:not(.bundle-hero) .product-title{display:grid!important;grid-template-columns:67px minmax(0,1fr)!important;align-items:start!important;gap:13px!important}
+  .product-hero:not(.bundle-hero) .product-title>.product-logo{width:67px!important;height:67px!important;padding:11px!important;border-radius:17px!important}
+  .product-title>div{min-width:0!important;max-width:100%!important}
+  .product-page .product-title h1{font-size:clamp(21px,5.8vw,27px)!important;line-height:1.5!important;overflow-wrap:anywhere}
+  .product-page .product-title .eyebrow{font-size:10px;line-height:1.5}
+  .product-page .product-title p{font-size:12px!important;line-height:1.75!important;margin:6px 0 0;overflow-wrap:anywhere}
+  .product-page .product-title p:not(.no-clamp){display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+  .product-page.product-intro-expanded .product-title p{display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important}
+  .product-intro-toggle{display:inline-flex;align-items:center;min-height:36px;margin-top:5px;padding:3px 1px;border:0;background:transparent;color:var(--theme-accent,var(--blue,#2459cf));font:700 11px/1.5 inherit;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+  .product-intro-toggle[hidden]{display:none!important}
+  .product-page .product-hero>.status{position:static!important;display:inline-flex!important;margin-top:13px!important}
+  .product-page .product-layout{padding-top:15px;gap:14px}
+  .product-page .plans-block,.product-page .summary-card{padding:16px!important;border-radius:16px!important}
+  .product-page .plan-option{min-height:64px;padding:12px;gap:9px;border-radius:12px}
+  .product-page .plan-option span b{font-size:13px!important;line-height:1.65}
+  .product-page .plan-option span small{font-size:11px!important;line-height:1.65}
+  .product-page .plan-option strong{font-size:17px!important;line-height:1.55}
+  .product-page .plan-option:focus-within{outline:2px solid #709bee;outline-offset:2px}
+  .product-page .summary-card .primary{min-height:48px}
+  .product-page .safe-note{line-height:1.8}
+  .mobile-order-bar{padding:9px 14px calc(9px + env(safe-area-inset-bottom,0px))!important;gap:12px!important;min-height:76px;box-sizing:border-box}
+  .mobile-order-bar>div{min-width:0}
+  .mobile-order-bar strong{font-size:17px!important}
+  .mobile-order-bar .primary{min-width:125px;min-height:46px!important;border-radius:12px}
+  body:has(.mobile-order-bar){padding-bottom:calc(95px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:420px){
+  .catalog .grid{display:grid;grid-template-columns:1fr!important;gap:11px}
+  .catalog .simple-service-card.product-card{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:9px;min-height:0!important;padding:13px!important}
+  .catalog .simple-service-card .card-top{display:flex!important;flex-direction:row!important;align-items:center!important;gap:13px!important;padding:0 44px 0 0!important;background:none!important;border:0!important;min-height:62px!important}
+  [dir="ltr"] .catalog .simple-service-card .card-top{padding:0 0 0 44px!important}
+  .catalog .simple-service-card .card-top .product-logo{width:58px!important;height:58px!important;min-width:58px!important;min-height:58px!important;padding:9px!important;border-radius:14px!important}
+  .catalog .simple-service-card .card-top h3{font-size:15px!important;line-height:1.6!important;margin:0!important;text-align:start;overflow-wrap:anywhere}
+  .catalog .simple-service-card .light-meta{grid-column:1!important;padding:0!important;margin:0!important}
+  .catalog .simple-service-card .light-meta strong{font-size:19px!important}
+  .catalog .simple-service-card .card-bottom{grid-column:1!important;margin:0!important;padding:0!important}
+  .catalog .simple-service-card .card-bottom .card-btn{width:100%!important;min-height:42px!important;font-size:12px!important;display:flex;justify-content:center;align-items:center}
+}
+@media(min-width:701px){.product-intro-toggle{display:none!important}}
+@media(prefers-reduced-motion:reduce){.store-assistant-launcher,.product-intro-toggle{transition:none!important}}
