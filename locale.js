@@ -787,7 +787,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     if(offer){
       const a=offer.querySelector('a');
       const href=a?a.getAttribute('href'):'#products';
-      offer.innerHTML=(en?'Up to 90% off selected offers ':'خصومات تصل إلى 90% على عروض مختارة ')+
+      offer.innerHTML=(en?'Digital subscriptions and new offers ':'اشتراكات رقمية وعروض متجددة ')+
         '<a href="'+href+'">'+(en?'Browse offers':'تصفح العروض')+'</a>';
     }
     document.querySelectorAll('.topbar nav a').forEach(a=>{
@@ -805,10 +805,9 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     if(search)search.placeholder=en?'Search for a service...':'دور على خدمتك...';
 
     if(document.querySelector('.hero-v2')){
-      setHTML('.hero-kicker','<span></span> وفّر أكتر مع MASTER STORE','<span></span> Save more with MASTER STORE');
-      setHTML('.hero-copy h1','اشتراكاتك المفضلة.<br><em>بخصومات تصل إلى 90%.</em>','Your favorite subscriptions.<br><em>Save up to 90%.</em>');
-      setText('.discount-note','على عروض مختارة','On selected offers');
-      setText('.hero-copy > p','من أدوات الذكاء الاصطناعي والتصميم للتعليم والترفيه — اختار خدمتك واطلبها بسهولة مع دعم مباشر على واتساب.','AI, design, education and entertainment subscriptions — choose your service and order easily with direct WhatsApp support.');
+      setHTML('.hero-kicker','<span></span> MASTER STORE · اشتراكات رقمية','<span></span> MASTER STORE · Digital subscriptions');
+      setHTML('.hero-copy h1','كل اشتراكاتك<br><em>في مكان واحد.</em>','Your subscriptions.<br><em>All in one place.</em>');
+      setText('.hero-copy > p','اكتشف اشتراكات الذكاء الاصطناعي والتصميم والتعليم والترفيه، وقارن الباقات والضمان قبل الطلب بكل سهولة.','Discover AI, design, education and entertainment subscriptions. Compare plans and warranty terms before ordering.');
       const acts=document.querySelectorAll('.hero-actions a');
       if(acts[0])acts[0].textContent=en?'Browse offers':'تصفح العروض';
       acts.forEach(a=>{
