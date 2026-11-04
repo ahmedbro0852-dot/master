@@ -17,16 +17,25 @@ for(const address of urls){
  const relative=url.pathname==='/'?'index.html':decodeURIComponent(url.pathname.slice(1));
  assert(!relative.includes('..')&&!relative.startsWith('/'),'invalid sitemap path');
  assert(fs.existsSync(path.join(out,relative)),relative+' missing from published output');
+ // Every URL advertised for indexing must have usable server-rendered metadata.
+ const page=read(relative);
+ assert(/<title>[^<]{8,}<\/title>/i.test(page),relative+' missing page title');
+ assert(/<meta name="description" content="[^"]{25,}"/i.test(page),relative+' missing useful description');
+ assert(/<meta name="robots" content="index,follow"/i.test(page),relative+' not marked indexable');
+ assert(!/<meta name="robots" content="noindex/i.test(page),relative+' contradicts sitemap indexability');
+
  if(relative.startsWith('products/')||relative.startsWith('categories/')){
   const html=read(relative);
   assert(html.includes('rel="canonical" href="'+address+'"'),relative+' canonical URL mismatch');
   assert(/<h1(?:\s[^>]*)?>/.test(html),relative+' missing H1');
  }
  if(relative.startsWith('categories/'))assert(!read(relative).includes('href="/services.html"'),relative+' advertises unavailable services');
+ if(relative.startsWith('categories/'))assert(page.includes('class="seo-buyer-guide"'),relative+' missing buyer guide');
 }
 for(const legacy of ['services.html','creative-services.css','creative-services.js'])
  assert(!fs.existsSync(path.join(out,legacy)),legacy+' must not be published');
 const home=read('index.html'),cart=read('cart.html'),plus=read('products/chatgpt-plus.html');
+assert(read('product.html').includes('name="robots" content="noindex,follow"'),'dynamic checkout route must not be indexed');
 assert(home.includes('id="products"'),'homepage catalog missing');
 assert(home.includes('social-market-preview'),'coming-soon social preview missing');
 assert(cart.includes('id="cartContent"')&&cart.includes('cart.js?v='),'cart checkout missing');
