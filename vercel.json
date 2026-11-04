@@ -149,6 +149,15 @@
           "value": "noindex, nofollow"
         }
       ]
+    },
+    {
+      "source": "/product.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
     }
   ],
   "buildCommand": "npm run build",
