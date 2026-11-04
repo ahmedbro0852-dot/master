@@ -23,3 +23,37 @@ body.admin-app{background:#f3f5f9;color:#17283f;direction:rtl}.admin-app *{box-s
 .workspace-account-menu p{font-size:12px;line-height:1.7;margin:4px 0 0;color:#922e2e}
 
 .admin-sales-review{display:grid;grid-template-columns:minmax(150px,1fr) minmax(200px,2fr) auto;gap:12px;align-items:end;margin:16px 0;padding:14px;border:1px solid #dce5e2;border-radius:12px;background:#f6faf7}.admin-sales-review label{display:grid;gap:6px;font-size:12px}.admin-sales-review select,.admin-sales-review textarea{width:100%;box-sizing:border-box;font:inherit;padding:10px;border:1px solid #cedbd2;border-radius:8px;background:#fff;color:#183d2a}.admin-order-origin{font-size:11px;color:#526f60;overflow-wrap:anywhere}.admin-inbox-pager{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:20px}.admin-inbox-pager button:disabled{opacity:.45;cursor:default}@media(max-width:760px){.admin-sales-review{grid-template-columns:1fr}.admin-sales-review button{width:100%}}
+
+/* MASTER STORE admin: efficient triage, legible forms, and touch-friendly controls. */
+.admin-app .admin-inbox-shortcuts{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:13px 0 17px;padding:10px 12px;border:1px solid #dce6f4;border-radius:13px;background:#f6faff}
+.admin-app .admin-inbox-shortcuts button{font:inherit;font-size:11px;font-weight:700;min-height:40px;padding:8px 13px;border-radius:10px;border:1px solid #cbdced;background:#fff;color:#31557b;cursor:pointer}
+.admin-app .admin-inbox-shortcuts button.selected{background:#225bc0;color:#fff;border-color:#225bc0}
+.admin-app .admin-inbox-shortcuts button:hover:not(.selected){background:#e7f1ff;border-color:#82ace7}
+.admin-app .admin-inbox-shortcuts button:focus-visible{outline:3px solid #96bcff;outline-offset:2px}
+.admin-app .admin-inbox-pager{border-top:1px solid #e1e8f3;padding-top:17px}
+.admin-app .admin-inbox-pager span{font-size:11px;color:#637b98}
+.admin-app .admin-record-head{align-items:flex-start;gap:12px}
+.admin-app .admin-record-head h3{overflow-wrap:anywhere}
+.admin-app .admin-sales-review textarea{min-height:74px;resize:vertical;font-size:12px;line-height:1.8}
+.admin-app #adminRows[aria-busy=true]{opacity:.7;transition:opacity .2s}
+@media(max-width:800px){
+ .admin-app .admin-tabs{display:flex;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;gap:5px}
+ .admin-app .admin-tabs button{flex:0 0 auto;white-space:nowrap;padding:10px 12px;font-size:11px}
+ .admin-app .admin-inbox-shortcuts{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;overscroll-behavior-x:contain;padding:9px}
+ .admin-app .admin-inbox-shortcuts button{flex:0 0 auto;white-space:nowrap;padding:9px 12px}
+ .admin-app .admin-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:end;gap:10px}
+ .admin-app .admin-tools label{width:auto;min-width:0}
+ .admin-app .admin-tools label:first-child{grid-column:1/-1}
+ .admin-app .admin-sales-review textarea{font-size:16px}
+ .admin-app .admin-inbox-pager{gap:8px}
+}
+@media(max-width:420px){
+ .workspace-topbar{flex-wrap:wrap;gap:8px;padding:10px 12px}
+ .workspace-brand img{width:116px}
+ .workspace-top-actions{justify-content:flex-end;flex:1;min-width:0;gap:6px}
+ .workspace-top-actions>a,.workspace-account summary{font-size:10px;padding:8px}
+ .admin-app .admin-workspace{padding:13px 10px}
+ .admin-app .admin-record{padding:14px 11px}
+ .admin-app .admin-record .admin-actions{display:flex;flex-wrap:wrap;gap:8px}
+ .admin-app .admin-record .admin-actions>*{flex:1 1 130px;min-height:44px}
+}

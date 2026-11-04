@@ -22,16 +22,42 @@ function render(){
  const stats=data.stats;
  root.innerHTML='<nav class="admin-area-nav" aria-label="'+t('إدارة المتجر','Store administration')+'"><a href="management.html">'+t('العملاء والاشتراكات والطلبات المباشرة','Customers, subscriptions & direct orders')+'</a><span>'+t('المدفوعات والأسعار','Payments & pricing')+'</span></nav><div class="admin-heading"><div><span class="eyebrow">MASTER STORE</span><h1>'+t('إدارة المتجر','Store management')+'</h1><p>'+t('تحكم يدوي في الطلبات والأسعار والخصومات ورصيد العملاء.','Manage orders, prices, discounts and customer balances.')+'</p></div><button id="reloadAdmin" class="ghost-btn">'+t('تحديث البيانات','Refresh data')+'</button></div><div id="adminMessage" class="account-message" role="status" hidden></div><div class="admin-stats"><article><small>'+t('إجمالي الطلبات','Total orders')+'</small><b>'+stats.orders+'</b></article><article><small>'+t('طلبات تنتظر التنفيذ','Open orders')+'</small><b>'+stats.pending_orders+'</b></article><article><small>'+t('شحن تحت المراجعة','Pending top-ups')+'</small><b>'+stats.pending_topups+'</b></article><article><small>'+t('قيمة طلبات الموقع المكتملة','Completed website order value')+'</small><b>'+money(stats.completed_sales)+'</b></article></div><div class="admin-tabs" role="group" aria-label="'+t('أقسام الإدارة','Management sections')+'">'+[['orders','الطلبات','Orders'],['topups','شحن الرصيد','Top-ups'],['plans','الباقات والأسعار','Plans & prices'],['campaigns','الإعلانات والبوسترات','Posters & campaigns'],['discounts','خصومات السلة','Cart discounts'],['customers','العملاء والمحافظ','Customers & wallets'],['audit','سجل التغييرات','Change log']].map(x=>'<button class="'+(tab===x[0]?'selected':'')+'" data-tab="'+x[0]+'" aria-pressed="'+(tab===x[0])+'">'+t(x[1],x[2])+'</button>').join('')+'</div><section class="account-panel admin-workspace"><div id="adminTools"></div><div id="adminRows"></div></section>';
  root.querySelector('#reloadAdmin').onclick=()=>{if(!busy)load();};
- root.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{if(busy)return;tab=b.dataset.tab;query='';filter='all';outcomeFilter='all';orderPage=0;render();if(tab==='orders')refreshInbox();});
+ root.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{if(busy)return;clearTimeout(searchTimer);inboxVersion++;inboxLoading=false;tab=b.dataset.tab;query='';filter='all';outcomeFilter='all';orderPage=0;render();if(tab==='orders')refreshInbox();});
  tools();rows();
 }
 function tools(){
  const box=root.querySelector('#adminTools');
  if(['discounts','audit','campaigns'].includes(tab)){box.innerHTML='';return;}
  box.innerHTML='<div class="admin-tools"><label>'+t('بحث','Search')+'<input id="adminSearch" type="search" value="'+E(query)+'" placeholder="'+t('اسم الخدمة، العميل، أو رقم الطلب','Service, customer or order ID')+'"></label>'+(['orders','topups'].includes(tab)?'<label>'+t('الحالة','Status')+'<select id="adminFilter"><option value="all">'+t('الكل','All')+'</option>'+(tab==='orders'?['pending_payment','processing','completed','cancelled']:['pending','approved','rejected']).map(x=>'<option value="'+x+'" '+(filter===x?'selected':'')+'>'+label(x)+'</option>').join('')+'</select></label>':'')+(tab==='orders'?'<label>'+t('قرار الشراء','Purchase outcome')+'<select id="adminOutcomeFilter"><option value="all">'+t('الكل','All')+'</option>'+Object.keys(outcomes).map(x=>'<option value="'+x+'" '+(outcomeFilter===x?'selected':'')+'>'+outcomeLabel(x)+'</option>').join('')+'</select></label>':'')+'</div><p class="admin-help">'+t(tab==='plans'?'السعر بالجنيه المصري. الحفظ يظهر على المتجر والسلة؛ الطلبات القديمة تحتفظ بسعرها.':tab==='customers'?'تعديل الرصيد يحتاج سببًا، وكل حركة بتظهر في محفظة العميل وسجل الإدارة.':tab==='orders'?'كل طلبات الموقع: حسابات وضيوف، قديمة وجديدة. قرار الشراء وملاحظات المتابعة داخلية، ولا تؤكد وصول الدفع ولا تخصم أو ترد رصيدًا.':'راجع التحويل فعليًا قبل اعتماد الدفع. القائمة تعرض أحدث 500 سجل.',tab==='plans'?'Prices are in EGP. Saved changes appear in the store and cart; existing orders keep their price.':tab==='customers'?'Balance changes require a reason and appear in the customer ledger and admin log.':tab==='orders'?'All website orders: accounts and guests, old and new. Internal purchase outcomes and notes do not confirm payment, debit or refund balances.':'Verify transfers before approval. Showing the latest 500 records.')+'</p>';
- box.querySelector('#adminSearch').oninput=e=>{query=e.target.value.slice(0,120);if(tab==='orders'){orderPage=0;inboxVersion++;inboxLoading=true;root.querySelector('#adminRows').innerHTML='<p role="status">'+t('جاري البحث…','Searching…')+'</p>';clearTimeout(searchTimer);searchTimer=setTimeout(refreshInbox,300);}else rows();};
- box.querySelector('#adminFilter')?.addEventListener('change',e=>{filter=e.target.value;if(tab==='orders'){orderPage=0;refreshInbox();}else rows();});
- box.querySelector('#adminOutcomeFilter')?.addEventListener('change',e=>{outcomeFilter=e.target.value;orderPage=0;refreshInbox();});
+
+ if(tab==='orders'){
+  // Quick filters are read-only and use the existing server-side filters.
+  const shortcuts=[
+   ['all','الكل','All','all','all'],
+   ['pending','بانتظار الدفع','Awaiting payment','pending_payment','all'],
+   ['processing','جاري التنفيذ','Processing','processing','all'],
+   ['followup','يحتاج متابعة','Follow-up','all','follow_up'],
+   ['unreviewed','لم يُراجع','Unreviewed','all','unreviewed']
+  ];
+  box.innerHTML+='<div class="admin-inbox-shortcuts" role="group" aria-label="'+t('فلاتر سريعة للطلبات','Quick order filters')+'">'+shortcuts.map(x=>'<button type="button" data-inbox-shortcut="'+x[0]+'" data-inbox-status="'+x[3]+'" data-inbox-outcome="'+x[4]+'" aria-pressed="false">'+t(x[1],x[2])+'</button>').join('')+'</div>';
+  box.querySelectorAll('[data-inbox-shortcut]').forEach(button=>button.addEventListener('click',()=>{
+   if(busy)return;
+   clearTimeout(searchTimer);filter=button.dataset.inboxStatus;outcomeFilter=button.dataset.inboxOutcome;orderPage=0;
+   const sf=box.querySelector('#adminFilter'),of=box.querySelector('#adminOutcomeFilter');
+   if(sf)sf.value=filter;if(of)of.value=outcomeFilter;
+   syncQuickFilters();refreshInbox();
+  }));
+ }
+ function syncQuickFilters(){
+  box.querySelectorAll('[data-inbox-shortcut]').forEach(button=>{
+   const active=button.dataset.inboxStatus===filter&&button.dataset.inboxOutcome===outcomeFilter;
+   button.classList.toggle('selected',active);button.setAttribute('aria-pressed',String(active));
+  });
+ }
+ syncQuickFilters();
+  box.querySelector('#adminSearch').oninput=e=>{query=e.target.value.slice(0,120);clearTimeout(searchTimer);if(tab==='orders'){orderPage=0;inboxVersion++;inboxLoading=true;root.querySelector('#adminRows').innerHTML='<p role="status">'+t('جاري البحث…','Searching…')+'</p>';searchTimer=setTimeout(refreshInbox,300);}else{const currentTab=tab;searchTimer=setTimeout(()=>{if(tab===currentTab&&!busy)rows();},170);}};
+ box.querySelector('#adminFilter')?.addEventListener('change',e=>{filter=e.target.value;if(tab==='orders'){orderPage=0;syncQuickFilters();refreshInbox();}else rows();});
+ box.querySelector('#adminOutcomeFilter')?.addEventListener('change',e=>{outcomeFilter=e.target.value;orderPage=0;syncQuickFilters();refreshInbox();});
 }
 async function fetchInbox(){const v=++inboxVersion;const result=await C.unwrap(C.client.rpc('master_store_order_inbox',{search_text:query,status_filter:filter,outcome_filter:outcomeFilter,page_number:orderPage}));if(v!==inboxVersion)return;data.orders=result.orders;inboxTotal=result.total;}
 async function refreshInbox(){if(tab!=='orders'||!data)return;const v=++inboxVersion;inboxLoading=true;const box=root.querySelector('#adminRows');box?.setAttribute('aria-busy','true');if(box)box.innerHTML='<p role="status">'+t('جاري تحميل الطلبات…','Loading orders…')+'</p>';try{const result=await C.unwrap(C.client.rpc('master_store_order_inbox',{search_text:query,status_filter:filter,outcome_filter:outcomeFilter,page_number:orderPage}));if(v!==inboxVersion||tab!=='orders'||!data)return;data.orders=result.orders;inboxTotal=result.total;inboxLoading=false;rows();}catch(e){if(v!==inboxVersion)return;inboxLoading=false;if(box)box.innerHTML='<p role="alert">'+E(C.errorText(e))+'</p><button class="ghost-btn" id="retryInbox">'+t('إعادة المحاولة','Retry')+'</button>';box?.querySelector('#retryInbox')?.addEventListener('click',refreshInbox);}finally{if(v===inboxVersion)box?.setAttribute('aria-busy','false');}}

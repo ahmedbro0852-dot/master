@@ -41,7 +41,7 @@ async function checkout(e){
  e.preventDefault();if(busy||!quote)return;
  const form=e.target,b=form.querySelector('button[type=submit]');
  const chosen=form.querySelector('[name=payment]:checked');
- if(!form.reportValidity()||!chosen)return;
+ if((typeof form.reportValidity==='function'&&!form.reportValidity())||!chosen)return;
  const contact={name:form.elements.name.value.trim(),phone:form.elements.phone.value.trim(),email:form.elements.email.value.trim()};
  const method=chosen.value,items=read(),q=quote,originalLabel=b.textContent;
  busy=true;b.disabled=true;b.textContent=t('جارٍ إرسال الطلب…','Submitting your order…');
@@ -60,7 +60,7 @@ try{
  try{write([]);}catch{}root.innerHTML='<section class="account-panel cart-success"><h2>'+t('طلبك اتسجّل عند الإدارة','Your order was submitted to the store')+'</h2><p>'+t('الإجمالي بعد الخصم: ','Total after discount: ')+money(q.amount_piasters)+'</p><p class="cart-receipt-number"><b>'+t('رقم الطلب: ','Order reference: ')+'</b><span>'+E(id)+'</span></p><p>'+t(method==='wallet'?'تم خصم الرصيد. تابع حالة التنفيذ من حسابك.':'تابع مع الدعم لتأكيد التحويل والتنفيذ.',method==='wallet'?'Balance deducted. Track fulfillment in your account.':'Contact support to confirm transfer and fulfillment.')+'</p><a class="ghost-btn" href="invoice.html?cart='+encodeURIComponent(id)+'">'+t('عرض الفاتورة / حفظ PDF','View invoice / Save PDF')+'</a> <a class="primary" target="_blank" rel="noopener" href="https://wa.me/201500950624?text='+encodeURIComponent(message)+'">'+t('متابعة الطلب على واتساب','Continue on WhatsApp')+'</a> <a class="ghost" href="track.html">'+t('متابعة طلباتي','Track my orders')+'</a></section>';
 }catch(error){
  const errNode=document.getElementById('cartError');
- if(errNode){errNode.textContent=C.errorText(error);errNode.focus({preventScroll:true});errNode.scrollIntoView({block:'center',behavior:'auto'});}
+ if(errNode){errNode.textContent=C.errorText(error);errNode.focus?.({preventScroll:true});errNode.scrollIntoView?.({block:'center',behavior:'auto'});}
  b.disabled=false;b.textContent=originalLabel;
  root.querySelectorAll('.cart-qty,.cart-remove').forEach(x=>x.disabled=false);
  form.querySelectorAll('input,select').forEach(x=>x.disabled=false);
