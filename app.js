@@ -73,7 +73,7 @@
     const rank=(statusRank[a.status]??9)-(statusRank[b.status]??9);
     return rank||((popularityRank.get(a.id)??999)-(popularityRank.get(b.id)??999));
   });
-  const categories=['الكل',...(Catalog.categoryOrder||[...new Set(products.map(p=>p.category).filter(Boolean))])];
+  const categories=['الكل','الذكاء الاصطناعي',...(Catalog.categoryOrder||[...new Set(products.map(p=>p.category).filter(Boolean))])];
   const urlFilters=new URLSearchParams(location.search);
   const validCategories=new Set([...categories,...Object.values(Catalog.categoryGroups||{}).flat()]);
   let selected=validCategories.has(urlFilters.get('category'))?urlFilters.get('category'):'الكل';
@@ -195,9 +195,9 @@
     if(loading)loading.hidden=true;
   }
 
-  const matchesCategory=(product,category)=>{const tags=product?.categories||[product?.category];return category==='الكل'||tags.includes(category)||(Catalog.categoryGroups?.[category]||[]).some(sub=>tags.includes(sub));};
+  const matchesCategory=(product,category)=>{const tags=product?.categories||[product?.category];return category==='الكل'||(category==='الذكاء الاصطناعي'&&tags.some(tag=>/الذكاء الاصطناعي|مساعد ذكي|مساعد كتابة الكود|تعليق صوتي|أفاتار|توليد موسيقى/.test(tag)))||tags.includes(category)||(Catalog.categoryGroups?.[category]||[]).some(sub=>tags.includes(sub));};
   function categoryLabel(category){
-    return category==='الكل'?ui('الكل','All'):tr(category,'category','');
+    return category==='الكل'?ui('الكل','All'):category==='الذكاء الاصطناعي'?ui(category,'Artificial intelligence'):tr(category,'category','');
   }
 
   function drawFilters(){
@@ -213,6 +213,16 @@
       });
     });
   }
+
+  document.addEventListener('masterstore:homecategory',event=>{
+    if(!validCategories.has(event.detail))return;
+    selected=event.detail;
+    if(search)search.value='';
+    if(favoritesOnly)favoritesOnly.checked=false;
+    if(availableOnly)availableOnly.checked=false;
+    drawFilters();applyFilters();
+  });
+  document.documentElement.dataset.homeCatalogReady='true';
 
   function applyFilters(){
     const q=normalizeSearch(search?.value||'');
