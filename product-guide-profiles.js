@@ -611,8 +611,8 @@
     "checkEn": "Similarity reports and AI detection are different outputs. Neither should be treated as conclusive evidence of misconduct or a guarantee of academic acceptance."
   },
   "chatgpt-plus": {
-  "intro": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو حساب خاص جاهز بضمان شهر بـ650 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ1100 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
-  "introEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a full one-month warranty for EGP 650, or activation and renewal on your personal account for EGP 1,100. Review the delivery method and warranty of your chosen plan.",
+  "intro": "باقات ChatGPT Plus لمدة شهر: حساب بدون ضمان بـ320 جنيه، أو حساب خاص جاهز بضمان شهر بـ650 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ880 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
+  "introEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a full one-month warranty for EGP 650, or activation and renewal on your personal account for EGP 880. Review the delivery method and warranty of your chosen plan.",
   "workflow": "ابدأ بهدف واضح وقدّم المعلومات اللازمة وشكل المخرجات. اطلب مسودة قابلة للمراجعة، ثم عدّل النبرة أو ترتيب الأفكار أو طريقة الحساب خطوة بخطوة بدل إعادة الطلب كاملًا.",
   "workflowEn": "Start with a clear goal, relevant information, and desired format. Request a reviewable draft, then refine tone, structure, or calculations step by step instead of restarting the request.",
   "check": "باقات Plus في المتجر تختلف في التسليم والضمان؛ الحساب بدون ضمان ليس حسابًا جاهزًا بضمان، والتفعيل الشخصي مسار آخر كما توضح كل باقة.",
