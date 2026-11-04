@@ -25,7 +25,7 @@ assert(admin.includes("['advanced','مركز التحكم المتقدم'"),'adv
 assert(admin.includes('window.MasterAdvancedAdmin.render'),'advanced tab not wired');
 assert(html.includes('admin-control-center.js?v='),'admin module not included');
 assert(html.includes('admin-control-center.css?v='),'admin stylesheet not included');
-assert(css.includes('.power-table'),'responsive plan table styles missing');
+assert(css.includes('.power-table'),'responsive plan table styles missing');assert(source.includes('management.html?warranty=1'),'owner quick access to warranties missing');
 for(const name of ['admin-control-center.js','admin-control-center.css'])
  assert(require('../scripts/public-assets.json').includes(name),'admin asset missing from public build');
 assert(source.includes('master_store_admin_plan'),'writes must reuse protected administrator procedure');

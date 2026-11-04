@@ -27,3 +27,23 @@ html[data-custom-theme] .crm-warranty-cell,html[data-custom-theme] .crm-warranty
 @media(max-width:900px){.admin-app .crm-priority-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.crm-warranty-presets button{flex:1 1 26%}.crm-warranty-tools #crmWarrantyCalculate{flex:1 1 100%}}
 @media(max-width:360px){.admin-app .crm-priority-grid{grid-template-columns:1fr}}
+
+/* Owner warranty workflow: editable reminders, manual outreach and safe bulk updates */
+.crm-bulk-warranty{margin:13px 0 18px;padding:17px;border:1px solid #c8ddf4;border-radius:16px;background:#eff6ff;color:#244e78}
+.crm-bulk-warranty[hidden]{display:none!important}
+.crm-bulk-head,.crm-bulk-bar{display:flex;justify-content:space-between;align-items:center;gap:13px;flex-wrap:wrap}
+.crm-bulk-head b{display:block;color:#173f73;font-size:14px}
+.crm-bulk-head small{display:block;margin-top:6px;font-size:11px;line-height:1.8;color:#5d7898}
+.crm-bulk-select-all{display:flex;align-items:center;gap:8px;white-space:normal;font-size:11px;font-weight:700}
+.crm-bulk-select-all input,.crm-warranty-select input{width:18px;height:18px;accent-color:#2866d4;flex:none}
+.crm-bulk-bar{justify-content:flex-start;border-top:1px solid #d3e3f5;padding-top:13px;margin-top:13px}
+.crm-bulk-bar label{font-size:11px;font-weight:700;color:#305e8c}
+.crm-bulk-bar input[type=number]{width:92px;min-height:39px;margin-inline-start:8px;border:1px solid #c4d6ec;border-radius:9px;padding:7px 9px;font-size:14px}
+.crm-bulk-bar button{min-height:42px}
+.crm-bulk-bar span{font-size:11px;color:#466b8e}
+.crm-bulk-warranty>small{display:block;font-size:10px;color:#66788b;line-height:1.8;margin:11px 0 0}
+.crm-warranty-select{display:inline-flex;gap:8px;align-items:center;border:1px solid #d1e2f8;background:#f4f9ff;padding:7px 12px;margin-bottom:12px;border-radius:9px;font-size:11px;color:#245a97;font-weight:700;cursor:pointer}
+.crm-warranty-reminder{background:#eaf8ef!important;border:1px solid #c6e2ce!important;color:#17603d!important}
+#crmWarrantyWindowLabel{min-width:145px}
+#crmWarrantyExport{white-space:normal;text-align:center}
+@media(max-width:650px){.crm-bulk-warranty{padding:13px}.crm-bulk-head{align-items:stretch;flex-direction:column}.crm-bulk-bar{align-items:stretch}.crm-bulk-bar label{flex:1}.crm-bulk-bar button{flex:1}.crm-bulk-select-all{padding:9px 0}.crm-warranty-select{width:100%;justify-content:flex-start}}

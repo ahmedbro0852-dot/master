@@ -48,3 +48,7 @@
 .admin-app .power-desk :is(button,input,select,a):focus-visible{outline:3px solid #8bbdff;outline-offset:2px}
 @media(max-width:840px){.admin-app .power-head{align-items:flex-start;flex-direction:column}.admin-app .power-head>a{max-width:none}.admin-app .power-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-app .power-card{padding:16px}}
 @media(max-width:560px){.admin-app .power-stats{gap:8px}.admin-app .power-stat{padding:12px}.admin-app .power-stat b{font-size:21px}.admin-app .power-filters{grid-template-columns:1fr;gap:9px}.admin-app .power-links button{flex:1 1 43%}.admin-app .power-actions button{flex:1 1 43%}.admin-app .power-actions span{flex-basis:100%}.admin-app .power-pager{gap:8px}}
+
+/* Warranty desk entry point within owner quick controls */
+.admin-app .power-links a.power-warranty-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:11px 14px;border:1px solid #c7e6d2;background:#edf9f1;color:#17613f;border-radius:10px;font-size:11px;font-weight:800;text-decoration:none}
+.admin-app .power-links a.power-warranty-link:hover{background:#dcf2e5}
