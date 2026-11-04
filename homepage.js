@@ -79,6 +79,7 @@
     motionButton.textContent=isEnglish()?(motionPaused?'Play motion':'Pause motion'):(motionPaused?'تشغيل الحركة':'إيقاف الحركة');
     motionButton.setAttribute('aria-pressed',String(motionPaused));
     if(disabled||document.hidden)resetSurface();
+    document.dispatchEvent(new CustomEvent('masterstore:motionstate',{detail:{disabled,hidden:document.hidden}}));
   }
   motionButton.addEventListener('click',()=>{motionPaused=!motionPaused;syncMotion();});
   reducedMotion.addEventListener('change',syncMotion);
@@ -98,7 +99,7 @@
       const rect=activeSurface.getBoundingClientRect();
       const x=Math.max(0,Math.min(1,(lastPoint.x-rect.left)/rect.width));
       const y=Math.max(0,Math.min(1,(lastPoint.y-rect.top)/rect.height));
-      const strength=activeSurface===hero?5:7;
+      const strength=activeSurface===hero?10:12;
       activeSurface.style.setProperty('--tilt-x',((.5-y)*strength).toFixed(2)+'deg');
       activeSurface.style.setProperty('--tilt-y',((x-.5)*strength).toFixed(2)+'deg');
       activeSurface.style.setProperty('--glow-x',(x*100).toFixed(1)+'%');
@@ -109,4 +110,51 @@
   window.addEventListener('blur',resetSurface);
   window.addEventListener('scroll',resetSurface,{passive:true});
   syncMotion();
+  // Entrance and scroll effects never hide content before JavaScript runs.
+  const runningEntrances=new Set(),seenEntrances=new WeakSet();
+  let entranceEnabled=!motionPaused&&!reducedMotion.matches;
+  function enter(element,delay=0,heroEntry=false){
+    if(!entranceEnabled||document.hidden||seenEntrances.has(element)||!element.animate)return;
+    seenEntrances.add(element);element.dataset.motionEntered='true';
+    const animation=element.animate([
+      {opacity:0,transform:heroEntry?'perspective(1000px) translate3d(-35px,30px,-60px) rotateY(-12deg) scale(.9)':'perspective(1000px) translate3d(0,42px,-30px) rotateX(8deg) scale(.97)'},
+      {opacity:1,transform:'perspective(1000px) translate3d(0,0,0) rotateX(0deg) rotateY(0deg) scale(1)'}
+    ],{duration:heroEntry?1100:680,delay,easing:'cubic-bezier(.16,1,.3,1)',fill:'backwards'});
+    runningEntrances.add(animation);
+    animation.finished.then(()=>runningEntrances.delete(animation),()=>runningEntrances.delete(animation));
+  }
+  const revealObserver='IntersectionObserver' in window?new IntersectionObserver(entries=>{
+    const visible=entries.filter(entry=>entry.isIntersecting&&!entry.target.hidden);
+    visible.forEach((entry,index)=>{revealObserver.unobserve(entry.target);enter(entry.target,Math.min(index,5)*65);});
+  },{threshold:.08,rootMargin:'0px 0px -20px 0px'}):null;
+  function discoverEntrances(){
+    document.querySelectorAll('.home-category,.home-plan,.product-card,.home-guided>a,.confidence-strip>div,.steps article,.conversion-head,.home-section-head').forEach(el=>{
+      if(!seenEntrances.has(el))revealObserver?.observe(el);
+    });
+  }
+  enter(document.querySelector('.topbar'),0);
+  document.querySelectorAll('.home-copy>.home-eyebrow,.home-copy h1,.home-copy>p,.home-search,.home-actions,.home-proof').forEach((el,index)=>enter(el,100+index*80));
+  if(hero)enter(hero,180,true);
+  discoverEntrances();
+  for(const id of ['homePicksGrid','grid']){
+    const target=document.getElementById(id);
+    if(target)new MutationObserver(discoverEntrances).observe(target,{childList:true});
+  }
+  document.addEventListener('masterstore:motionstate',event=>{
+    entranceEnabled=!event.detail.disabled;
+    if(event.detail.disabled){runningEntrances.forEach(animation=>animation.cancel());runningEntrances.clear();}
+    else runningEntrances.forEach(animation=>event.detail.hidden?animation.pause():animation.play());
+  });
+  document.addEventListener('focusin',()=>{
+    // Keyboard focus always wins over a decorative entrance.
+    runningEntrances.forEach(animation=>{if(animation.effect?.target?.contains(document.activeElement))animation.finish();});
+  });
+  const scene=document.createElement('div');scene.className='home-particles';scene.setAttribute('aria-hidden','true');
+  for(let index=0;index<9;index++){const particle=document.createElement('i');particle.style.setProperty('--particle',index);scene.append(particle);}
+  hero?.prepend(scene);
+  const progress=document.createElement('div');progress.className='home-scroll-progress';progress.setAttribute('aria-hidden','true');document.body.append(progress);
+  let progressFrame=0;
+  function updateProgress(){progressFrame=0;const distance=document.documentElement.scrollHeight-innerHeight;progress.style.transform='scaleX('+(distance>0?Math.min(1,scrollY/distance):0)+')';}
+  window.addEventListener('scroll',()=>{if(!progressFrame)progressFrame=requestAnimationFrame(updateProgress);},{passive:true});
+  updateProgress();
 })();
