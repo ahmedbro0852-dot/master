@@ -30,6 +30,11 @@ const home=read('index.html'),cart=read('cart.html'),plus=read('products/chatgpt
 assert(home.includes('id="products"'),'homepage catalog missing');
 assert(home.includes('social-market-preview'),'coming-soon social preview missing');
 assert(cart.includes('id="cartContent"')&&cart.includes('cart.js?v='),'cart checkout missing');
+assert(cart.includes('site-nav.js?v=')&&!cart.includes('src="app.js?v='),'cart must load lightweight shared navigation');
+assert(plus.includes('site-nav.js?v=')&&!plus.includes('src="app.js?v='),'product must load lightweight shared navigation');
+assert(home.includes('src="app.js?v='),'homepage catalogue renderer must remain available');
+assert(home.includes('rel="preconnect" href="https://gmysuhoebcapigdidnnv.supabase.co"'),'public price connection warm-up missing');
+assert(fs.existsSync(path.join(out,'site-nav.js')),'shared navigation JS missing');
 assert(plus.includes('data-product-id="chatgpt-plus"'),'main product identifier missing');
 assert(read('robots.txt').includes('Sitemap: '+base+'/sitemap.xml'),'robots.txt sitemap mismatch');
 console.log('Verified '+urls.length+' published URLs, product canonical tags, available routes, cart and storefront.');

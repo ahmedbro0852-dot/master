@@ -75,5 +75,6 @@
   "campaign-admin.js",
   "fresh-offers.js",
   "fresh-offers.css",
-  "homepage-refresh.css"
+  "homepage-refresh.css",
+  "site-nav.js"
 ]
