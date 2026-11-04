@@ -35,6 +35,8 @@ assert(plus.includes('site-nav.js?v=')&&!plus.includes('src="app.js?v='),'produc
 assert(home.includes('src="app.js?v='),'homepage catalogue renderer must remain available');
 assert(home.includes('rel="preconnect" href="https://gmysuhoebcapigdidnnv.supabase.co"'),'public price connection warm-up missing');
 assert(fs.existsSync(path.join(out,'site-nav.js')),'shared navigation JS missing');
+for(const file of ['admin-control-center.js','admin-control-center.css'])assert(fs.existsSync(path.join(out,file)),'advanced admin asset missing: '+file);
+const adminPage=read('admin.html');assert(adminPage.includes('admin-control-center.js?v=')&&adminPage.includes('admin-control-center.css?v='),'admin control center not loaded');
 assert(plus.includes('data-product-id="chatgpt-plus"'),'main product identifier missing');
 assert(read('robots.txt').includes('Sitemap: '+base+'/sitemap.xml'),'robots.txt sitemap mismatch');
 console.log('Verified '+urls.length+' published URLs, product canonical tags, available routes, cart and storefront.');

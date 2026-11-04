@@ -76,5 +76,7 @@
   "fresh-offers.js",
   "fresh-offers.css",
   "homepage-refresh.css",
-  "site-nav.js"
+  "site-nav.js",
+  "admin-control-center.js",
+  "admin-control-center.css"
 ]
