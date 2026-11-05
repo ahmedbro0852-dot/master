@@ -36,6 +36,7 @@ assert(home.includes('src="app.js?v='),'homepage catalogue renderer must remain 
 assert(home.includes('rel="preconnect" href="https://gmysuhoebcapigdidnnv.supabase.co"'),'public price connection warm-up missing');
 assert(fs.existsSync(path.join(out,'site-nav.js')),'shared navigation JS missing');
 assert(home.includes('id="visual-explore"'),'visual category explorer missing');
+const lovableCatalog=read('catalog.js');assert(lovableCatalog.includes('4800')&&lovableCatalog.includes('1100'),'Lovable updated prices missing');assert(home.includes('حتى 300 كريدت خلال السنة'),'Lovable annual activation label missing');
 assert(home.includes('id="heroCatalogSearch"')&&home.includes('id="catalogSearchSuggestions"'),'search entry points missing');
 assert(home.includes('store-search.js?v=20261105-autocomplete1')&&home.includes('store-search.css?v=20261105-autocomplete1'),'live search scripts not wired');
 for(const file of ['store-search.js','store-search.css'])assert(fs.existsSync(path.join(out,file)),'missing search asset: '+file);
