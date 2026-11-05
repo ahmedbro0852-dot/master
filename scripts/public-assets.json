@@ -82,5 +82,7 @@
   "admin-bulk-pricing.js",
   "store-visuals.css",
   "store-search.css",
-  "store-search.js"
+  "store-search.js",
+  "crm-enhance.js",
+  "crm-enhance.css"
 ]

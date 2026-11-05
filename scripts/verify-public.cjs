@@ -57,7 +57,10 @@ for(const slug of ['writing-research-tools','video-tools','image-design-tools','
  assert(home.includes('/categories/'+slug+'.html'),'category image link missing: '+slug);
 
 const inv=read('invoice.html');assert(inv.includes('invoice.js?v=20261104-warranty1')&&inv.includes('invoice.css?v=20261104-warranty1'),'warranty invoice assets missing');
-const crm=read('management.html');assert(crm.includes('management.js?v=20261104-paid-guard1')&&crm.includes('management.css?v=20261104-workflow2'),'warranty CRM workflow files not deployed');
+const crm=read('management.html');
+assert(crm.includes('crm-enhance.js?v=20261105-photos1')&&crm.includes('crm-enhance.css?v=20261105-photos1'),'CRM photo and follow-up UI not linked');
+for(const entry of ['crm-enhance.js','crm-enhance.css'])assert(fs.existsSync(path.join(out,entry)),'CRM enhancement missing from public build: '+entry);
+assert(crm.includes('management.js?v=20261105-photos1')&&crm.includes('management.css?v=20261104-workflow2'),'warranty CRM workflow files not deployed');
 const adminPage=read('admin.html');
 assert(adminPage.includes('admin-bulk-pricing.js?v=20261104-bulk-price1'),'bulk pricing module not linked');
 for(const file of ['admin-control-center.js','admin-control-center.css','admin-bulk-pricing.js'])assert(fs.existsSync(path.join(out,file)),'advanced admin asset missing: '+file);
