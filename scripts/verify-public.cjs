@@ -59,7 +59,8 @@ assert(home.includes('id="heroCatalogSearch"')&&home.includes('id="catalogSearch
 assert(home.includes('store-search.js?v=20261105-autocomplete1')&&home.includes('store-search.css?v=20261105-autocomplete1'),'live search scripts not wired');
 for(const file of ['store-search.js','store-search.css'])assert(fs.existsSync(path.join(out,file)),'missing search asset: '+file);
 
-assert(home.includes('store-visuals.css?v=20261104-categories1'),'new visual styling not loaded');
+assert(home.includes('store-visuals.css?v=20261106-hd3'),'high-definition category styling not loaded');
+assert(!home.includes('ai-orbit.gif'),'obsolete GIF should not be downloaded by shoppers');
 assert((home.match(/class="visual-explore-card/g)||[]).length===4,'four visual categories expected');
 for(const art of ['ai-card.svg','video-card.svg','design-card.svg','study-card.svg']){
  const p=path.join(out,'images','showcase',art);
@@ -71,7 +72,8 @@ assert(fs.existsSync(gif),'animated AI illustration missing');
 const animated=fs.readFileSync(gif);
 assert(animated.slice(0,6).toString('ascii')==='GIF89a','GIF signature invalid');
 assert(animated.length<150000,'GIF asset too large');
-assert(home.includes('prefers-reduced-motion: reduce')&&home.includes('ai-card.svg'),'provide static art when motion reduced');
+assert(home.includes('ai-card.svg?v=20261106-hd3')&&!home.includes('visual-explore-gif'),'category artwork must be crisp, static and unobstructed');
+assert(!home.includes('class="visual-explore-logo"'),'category artwork must not be covered by tiny logo chips');
 for(const slug of ['writing-research-tools','video-tools','image-design-tools','education-learning'])
  assert(home.includes('/categories/'+slug+'.html'),'category image link missing: '+slug);
 
