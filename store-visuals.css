@@ -1,4 +1,4 @@
-/* MASTER STORE — calm, real-photo category discovery (Nov 2026) */
+/* MASTER STORE — simple, recognizable category logo artwork · 2026-11-06 */
 .visual-explore{
  box-sizing:border-box;max-width:1180px;margin:22px auto 26px;
  padding:26px 27px 23px;background:#fff;border:1px solid #e4eaf2;
@@ -6,12 +6,11 @@
 }
 .visual-explore *{box-sizing:border-box}
 .visual-explore-head{
- display:flex;align-items:center;justify-content:space-between;
- gap:22px;margin-bottom:20px;
+ display:flex;align-items:center;justify-content:space-between;gap:22px;margin-bottom:20px;
 }
 .visual-explore-kicker{
- display:inline-block;margin-bottom:6px;color:#356cb0;
- font-size:11px;font-weight:750;letter-spacing:.15px;
+ display:inline-block;margin-bottom:6px;color:#356cb0;font-size:11px;
+ font-weight:750;letter-spacing:.15px;
 }
 .visual-explore h2{
  margin:0 0 7px;color:#203956;
@@ -22,20 +21,20 @@
 }
 .visual-explore-all{
  flex:none;display:inline-flex;align-items:center;justify-content:center;
- gap:8px;min-height:41px;padding:9px 15px;
- background:#f2f6fc;border:1px solid #d9e4f3;border-radius:11px;
- color:#285b9c;font-size:12px;font-weight:800;text-decoration:none;
- white-space:nowrap;transition:background-color .2s ease,border-color .2s ease;
+ gap:8px;min-height:41px;padding:9px 15px;background:#f2f6fc;
+ border:1px solid #d9e4f3;border-radius:11px;color:#285b9c;
+ font-size:12px;font-weight:800;text-decoration:none;white-space:nowrap;
+ transition:background-color .2s ease,border-color .2s ease;
 }
 .visual-explore-all:hover{background:#e9f1fc;border-color:#bcd3f2}
 .visual-explore-grid{
  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;
 }
 .visual-explore-card{
- min-width:0;display:flex;flex-direction:column;overflow:hidden;
- background:#fff;border:1px solid #e3e8ef;border-radius:14px;
- box-shadow:0 3px 12px rgba(26,46,79,.035);
- text-decoration:none;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+ display:flex;flex-direction:column;min-width:0;overflow:hidden;
+ text-decoration:none;background:#fff;border:1px solid #e3e8ef;
+ border-radius:15px;box-shadow:0 3px 12px rgba(26,46,79,.035);
+ transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
 }
 .visual-explore-card:hover{
  transform:translateY(-2px);border-color:#bbcee8;
@@ -45,18 +44,25 @@
 .visual-explore-more a:focus-visible,
 .visual-explore-all:focus-visible{outline:3px solid #6fa8f5;outline-offset:3px}
 .visual-explore-media{
- position:relative;overflow:hidden;isolation:isolate;
- aspect-ratio:3/2;background:#e4eaf2;
+ position:relative;display:flex;align-items:center;justify-content:center;
+ min-height:157px;aspect-ratio:16/10;
+ background:linear-gradient(145deg,#edf4ff,#e8edfb);
 }
-.visual-explore-media>.visual-explore-image{
- display:block;width:100%;height:100%;object-fit:cover;
- object-position:center;filter:saturate(.94);
- transition:transform .35s ease;
+.visual-explore-video .visual-explore-media{background:linear-gradient(145deg,#edf3fc,#dfe9f6)}
+.visual-explore-design .visual-explore-media{background:linear-gradient(145deg,#e7f9f6,#e0f1fd)}
+.visual-explore-education .visual-explore-media{background:linear-gradient(145deg,#f0f6ff,#e7effe)}
+.visual-explore-symbol{
+ display:flex;align-items:center;justify-content:center;
+ width:100px;height:100px;border-radius:25px;
+ background:#fff;border:1px solid rgba(255,255,255,.95);
+ box-shadow:0 9px 24px rgba(30,60,102,.095);
 }
-.visual-explore-card:hover .visual-explore-image{transform:scale(1.035)}
+.visual-explore-symbol img{
+ display:block;max-width:70%;max-height:70%;width:70px;height:70px;
+ object-fit:contain;
+}
 .visual-explore-copy{
- display:flex;flex-direction:column;flex:1;gap:4px;
- padding:14px 14px 15px;
+ display:flex;flex-direction:column;flex:1;gap:4px;padding:14px 14px 15px;
 }
 .visual-explore-copy h3{
  margin:0;color:#233d5b;font-size:15px;font-weight:800;line-height:1.55;
@@ -95,6 +101,8 @@ html[data-custom-theme] .visual-explore-more>a{
 }
 html[data-custom-theme] .visual-explore-link,
 html[data-custom-theme] .visual-explore-kicker{color:var(--theme-accent)}
+/* Original brand logos stay on white badges in both light and dark themes. */
+html[data-custom-theme] .visual-explore-symbol{background:#fff}
 .product-card.light-card .product-logo img{transition:transform .22s ease}
 .product-card.light-card:hover .product-logo img{transform:scale(1.04)}
 .product-card.light-card:focus-within{outline:2px solid #7baff4;outline-offset:2px}
@@ -111,7 +119,9 @@ html[data-custom-theme] .visual-explore-kicker{color:var(--theme-accent)}
  .visual-explore-all{min-height:36px;padding:7px 12px;font-size:11px}
  .visual-explore-grid{gap:10px}
  .visual-explore-card{border-radius:12px}
- .visual-explore-media{aspect-ratio:4/3}
+ .visual-explore-media{min-height:112px;aspect-ratio:4/3}
+ .visual-explore-symbol{width:72px;height:72px;border-radius:20px;box-shadow:0 6px 18px rgba(30,60,102,.075)}
+ .visual-explore-symbol img{width:52px;height:52px}
  .visual-explore-copy{gap:4px;padding:10px 10px 12px}
  .visual-explore-copy h3{font-size:12px;line-height:1.5}
  .visual-explore-copy p{font-size:10px;line-height:1.5}
@@ -120,14 +130,13 @@ html[data-custom-theme] .visual-explore-kicker{color:var(--theme-accent)}
  .visual-explore-more>a{min-height:31px;padding:6px 9px;font-size:10px}
 }
 @media(max-width:360px){
+ .visual-explore-symbol{width:64px;height:64px;border-radius:17px}
+ .visual-explore-symbol img{width:48px;height:48px}
  .visual-explore-copy h3{font-size:11px}
  .visual-explore-copy p{font-size:9px}
  .visual-explore-link{font-size:9px}
 }
 @media(prefers-reduced-motion:reduce){
- .visual-explore-card,.visual-explore-image,
- .product-card.light-card .product-logo img{transition:none!important}
- .visual-explore-card:hover,
- .visual-explore-card:hover .visual-explore-image,
- .product-card.light-card:hover .product-logo img{transform:none!important}
+ .visual-explore-card,.product-card.light-card .product-logo img{transition:none!important}
+ .visual-explore-card:hover,.product-card.light-card:hover .product-logo img{transform:none!important}
 }
