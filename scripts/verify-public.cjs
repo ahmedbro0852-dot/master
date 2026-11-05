@@ -59,7 +59,7 @@ assert(home.includes('id="heroCatalogSearch"')&&home.includes('id="catalogSearch
 assert(home.includes('store-search.js?v=20261105-autocomplete1')&&home.includes('store-search.css?v=20261105-autocomplete1'),'live search scripts not wired');
 for(const file of ['store-search.js','store-search.css'])assert(fs.existsSync(path.join(out,file)),'missing search asset: '+file);
 
-assert(home.includes('store-visuals.css?v=20261106-hd3'),'high-definition category styling not loaded');
+assert(home.includes('store-visuals.css?v=20261106-natural1'),'natural category photography styling not loaded');
 assert(!home.includes('ai-orbit.gif'),'obsolete GIF should not be downloaded by shoppers');
 assert((home.match(/class="visual-explore-card/g)||[]).length===4,'four visual categories expected');
 for(const art of ['ai-card.svg','video-card.svg','design-card.svg','study-card.svg']){
@@ -72,7 +72,7 @@ assert(fs.existsSync(gif),'animated AI illustration missing');
 const animated=fs.readFileSync(gif);
 assert(animated.slice(0,6).toString('ascii')==='GIF89a','GIF signature invalid');
 assert(animated.length<150000,'GIF asset too large');
-assert(home.includes('ai-card.svg?v=20261106-hd3')&&!home.includes('visual-explore-gif'),'category artwork must be crisp, static and unobstructed');
+assert(home.includes('photo-1743796055651-41c743ff2465')&&home.includes('photo-1757845524683-611470b2d7ce')&&home.includes('photo-1716471330463-f475b00f0506')&&home.includes('photo-1769794371055-54436b54577e')&&!home.includes('visual-explore-gif'),'natural workspace photos missing from categories');
 assert(!home.includes('class="visual-explore-logo"'),'category artwork must not be covered by tiny logo chips');
 for(const slug of ['writing-research-tools','video-tools','image-design-tools','education-learning'])
  assert(home.includes('/categories/'+slug+'.html'),'category image link missing: '+slug);
