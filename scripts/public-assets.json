@@ -80,5 +80,7 @@
   "admin-control-center.js",
   "admin-control-center.css",
   "admin-bulk-pricing.js",
-  "store-visuals.css"
+  "store-visuals.css",
+  "store-search.css",
+  "store-search.js"
 ]

@@ -65,6 +65,7 @@
 <script id="master-seo-data" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://master-pi-six.vercel.app/#website","name":"MASTER STORE","alternateName":["ماستر ستور","Master Store"],"url":"https://master-pi-six.vercel.app/","inLanguage":"ar"},{"@type":"Organization","@id":"https://master-pi-six.vercel.app/#store","name":"MASTER STORE","alternateName":"ماستر ستور","url":"https://master-pi-six.vercel.app/","logo":"https://master-pi-six.vercel.app/master-store-logo.png","sameAs":["https://www.facebook.com/share/19XBCdMAm5/","https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K"]}]}</script>
   <link rel="stylesheet" href="/homepage-refresh.css?v=20261104-social-teaser4">
   <link rel="stylesheet" href="/store-visuals.css?v=20261104-categories1">
+  <link rel="stylesheet" href="/store-search.css?v=20261105-autocomplete1">
 </head>
 <body>
   <header class="topbar">
@@ -107,6 +108,23 @@
         <div class="hero-kicker"><span></span> MASTER STORE · اشتراكات رقمية</div>
         <h1>كل اشتراكاتك<br><em>في مكان واحد.</em></h1>
         <p>اكتشف اشتراكات الذكاء الاصطناعي والتصميم والتعليم والترفيه، وقارن الباقات والضمان قبل الطلب بكل سهولة.</p>
+
+        <div class="master-search master-search-hero" data-master-search="hero" role="search" aria-label="البحث عن اشتراك">
+          <div class="master-search-field">
+            <span class="master-search-icon" aria-hidden="true">⌕</span>
+            <input id="heroCatalogSearch" type="search" autocomplete="off" maxlength="120" placeholder="ابحث عن ChatGPT، Canva، CapCut..." aria-label="ابحث عن خدمة أو اشتراك">
+            <button type="button" class="master-search-clear" data-search-clear hidden aria-label="مسح البحث">×</button>
+            <button type="button" class="master-search-submit" data-search-submit><span class="home-only-ar">ابحث</span><span class="home-only-en">Search</span><span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="master-search-suggestions" id="heroSearchSuggestions" role="listbox" aria-label="اقتراحات البحث" hidden></div>
+          <div class="master-search-chips">
+            <span class="home-only-ar">الأكثر بحثًا:</span><span class="home-only-en">Popular:</span>
+            <button type="button" data-search-chip="ChatGPT">ChatGPT</button>
+            <button type="button" data-search-chip="Canva">Canva</button>
+            <button type="button" data-search-chip="CapCut">CapCut</button>
+            <button type="button" data-search-chip="Grok">Grok</button>
+          </div>
+        </div>
 
         <div class="hero-actions">
           <a class="primary hero-primary" href="#products">تصفح العروض</a>
@@ -260,7 +278,10 @@
     <section class="catalog" id="products">
       <div class="section-head">
         <div><span class="eyebrow">العروض والخدمات</span><h2>اختار اشتراكك</h2><p class="section-sub">كل التفاصيل المهمة موجودة داخل صفحة الخدمة.</p></div>
-        <label class="search"><span>⌕</span><input id="search" type="search" placeholder="دور على خدمتك..." autocomplete="off"></label>
+        <div class="master-search master-search-catalog" data-master-search="catalog" role="search" aria-label="تصفية الخدمات">
+          <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" maxlength="120" placeholder="دور على خدمتك..." autocomplete="off" aria-label="ابحث في كل خدمات المتجر"></label>
+          <div id="catalogSearchSuggestions" class="master-search-suggestions" role="listbox" aria-label="اقتراحات خدمات المتجر" hidden></div>
+        </div>
       </div>
       <section id="recentServices" class="recent-services" hidden aria-label="شفتها مؤخرًا"></section>
       <div class="filters" id="filters"></div><div class="catalog-overview"><p id="catalogResultCount" role="status" aria-live="polite"></p><label><input type="checkbox" id="availableOnly"><span id="availableOnlyLabel">المتاح فقط</span></label><label class="favorites-filter"><input type="checkbox" id="favoritesOnly"><span id="favoritesOnlyLabel">المفضلة (0)</span></label><label class="catalog-sort-compact"><select id="catalogSort" aria-label="ترتيب الخدمات"><option value="featured">ترتيب المتجر</option><option value="price-asc">السعر: الأقل أولًا</option><option value="price-desc">السعر: الأعلى أولًا</option></select></label></div>
@@ -333,7 +354,8 @@
   <script src="cart.js?v=20261101-order-inbox1"></script>
   <script src="/shopping-tools.js?v=20261025-shopping1"></script>
   <script src="fresh-offers.js?v=20261101-stories1"></script>
-  <script src="app.js?v=20261104-filter-ux1"></script>
+  <script src="app.js?v=20261105-search-all1"></script>
+  <script src="/store-search.js?v=20261105-autocomplete1"></script>
   <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img decoding="async" class="whatsapp-icon" src="logos/whatsapp.svg?v=20261009-logo-review3" alt=""></a>
 <script src="seo.js?v=20261023-seo3"></script>
 <script src="customer-stories.js?v=20261025-stories-fix1" defer></script>

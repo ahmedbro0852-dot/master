@@ -323,7 +323,10 @@
     selected='الكل';if(favoritesOnly)favoritesOnly.checked=false;if(availableOnly)availableOnly.checked=false;drawFilters();applyFilters();search?.focus();
   });
   search?.setAttribute('aria-label',ui('ابحث عن خدمة','Search services'));
-  search?.addEventListener('input',applyFilters);
+  search?.addEventListener('input',()=>{
+    if(search.value.trim()&&selected!=='الكل'){selected='الكل';drawFilters();}
+    applyFilters();
+  });
   availableOnly?.addEventListener('change',applyFilters);
   sort?.addEventListener('change',applyFilters);
   favoritesOnly?.addEventListener('change',applyFilters);
