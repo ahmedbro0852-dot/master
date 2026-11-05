@@ -33,7 +33,6 @@ assert(home.includes('social-market-preview'),'coming-soon social preview missin
 const homeSections=[
  'class="hero hero-v2"',
  'class="store-section-links"',
- 'id="visual-explore"',
  'id="best-offers"',
  'class="home-plus-offer"',
  'id="products"',
@@ -53,34 +52,13 @@ assert(plus.includes('site-nav.js?v=')&&!plus.includes('src="app.js?v='),'produc
 assert(home.includes('src="app.js?v='),'homepage catalogue renderer must remain available');
 assert(home.includes('rel="preconnect" href="https://gmysuhoebcapigdidnnv.supabase.co"'),'public price connection warm-up missing');
 assert(fs.existsSync(path.join(out,'site-nav.js')),'shared navigation JS missing');
-assert(home.includes('id="visual-explore"'),'visual category explorer missing');
+assert(!home.includes('id="visual-explore"')&&!home.includes('href="#visual-explore"'),'removed visual category explorer is still linked');
 const lovableCatalog=read('catalog.js');assert(lovableCatalog.includes('4800')&&lovableCatalog.includes('1100'),'Lovable updated prices missing');assert(home.includes('حتى 300 كريدت خلال السنة'),'Lovable annual activation label missing');
 assert(home.includes('id="heroCatalogSearch"')&&home.includes('id="catalogSearchSuggestions"'),'search entry points missing');
 assert(home.includes('store-search.js?v=20261105-autocomplete1')&&home.includes('store-search.css?v=20261105-autocomplete1'),'live search scripts not wired');
 for(const file of ['store-search.js','store-search.css'])assert(fs.existsSync(path.join(out,file)),'missing search asset: '+file);
 
-assert(home.includes('store-visuals.css?v=20261106-symbol1'),'symbol category stylesheet not loaded');
-assert(!home.includes('ai-orbit.gif'),'obsolete GIF should not be downloaded by shoppers');
-assert((home.match(/class="visual-explore-card/g)||[]).length===4,'four visual categories expected');
-for(const art of ['ai-card.svg','video-card.svg','design-card.svg','study-card.svg']){
- const p=path.join(out,'images','showcase',art);
- assert(fs.existsSync(p),'category illustration missing: '+art);
- assert(fs.readFileSync(p,'utf8').includes('<svg'),'invalid static SVG '+art);
-}
-const gif=path.join(out,'images','showcase','ai-orbit.gif');
-assert(fs.existsSync(gif),'animated AI illustration missing');
-const animated=fs.readFileSync(gif);
-assert(animated.slice(0,6).toString('ascii')==='GIF89a','GIF signature invalid');
-assert(animated.length<150000,'GIF asset too large');
-const categorySection=home.split('id="visual-explore"')[1]?.split('</section>')[0]||'';
-assert((categorySection.match(/class="visual-explore-symbol"/g)||[]).length===4,'four clean category badges expected');
-assert(!categorySection.includes('images.unsplash.com')&&!categorySection.includes('visual-explore-image'),'external category photos must not load');
-for(const logo of ['chatgpt','capcut','canva','coursera']){
- assert(categorySection.includes('/logos/'+logo+'.svg'),'category icon missing: '+logo);
- assert(fs.existsSync(path.join(out,'logos',logo+'.svg')),'category logo asset missing: '+logo);
-}
-for(const slug of ['writing-research-tools','video-tools','image-design-tools','education-learning'])
- assert(home.includes('/categories/'+slug+'.html'),'category image link missing: '+slug);
+assert(!home.includes('store-visuals.css')&&!home.includes('visual-explore-card'),'deleted category artwork is not loaded');
 
 const inv=read('invoice.html');assert(inv.includes('invoice.js?v=20261104-warranty1')&&inv.includes('invoice.css?v=20261104-warranty1'),'warranty invoice assets missing');
 const crm=read('management.html');
