@@ -29,6 +29,24 @@ for(const legacy of ['services.html','creative-services.css','creative-services.
 const home=read('index.html'),cart=read('cart.html'),plus=read('products/chatgpt-plus.html');
 assert(home.includes('id="products"'),'homepage catalog missing');
 assert(home.includes('social-market-preview'),'coming-soon social preview missing');
+
+const homeSections=[
+ 'class="hero hero-v2"',
+ 'class="store-section-links"',
+ 'id="visual-explore"',
+ 'id="best-offers"',
+ 'class="home-plus-offer"',
+ 'id="products"',
+ 'id="social-market"',
+ 'id="customer-stories"',
+ 'id="how"',
+ 'class="store-follow"',
+ 'class="wallet-intro"'
+].map(snippet=>home.indexOf(snippet));
+assert(homeSections.every((position,i)=>position!==-1&&(!i||position>homeSections[i-1])),'homepage shopping flow sections out of order');
+assert(!home.includes('class="confidence-strip"')&&!home.includes('class="home-avatar-row"'),'old duplicate homepage blocks restored');
+assert(home.includes('homepage-refresh.css?v=20261106-shopflow1'),'new homepage layout CSS is not cache-busted');
+
 assert(cart.includes('id="cartContent"')&&cart.includes('cart.js?v='),'cart checkout missing');
 assert(cart.includes('site-nav.js?v=')&&!cart.includes('src="app.js?v='),'cart must load lightweight shared navigation');
 assert(plus.includes('site-nav.js?v=')&&!plus.includes('src="app.js?v='),'product must load lightweight shared navigation');
