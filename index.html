@@ -131,7 +131,6 @@
           <a class="ghost account-hero-link" href="account.html">حسابي ومحفظتي</a><a class="ghost whatsapp-only" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب" title="واتساب"><img decoding="async" class="whatsapp-icon" src="logos/whatsapp.svg?v=20261009-logo-review3" alt=""></a>
         </div>
 
-<div class="home-avatar-row"><div class="home-avatar-stack" aria-hidden="true"><span style="--avatar-x:0;--avatar-y:0"></span><span style="--avatar-x:1;--avatar-y:0"></span><span style="--avatar-x:2;--avatar-y:0"></span><span style="--avatar-x:3;--avatar-y:0"></span><span style="--avatar-x:0;--avatar-y:1"></span><span style="--avatar-x:1;--avatar-y:1"></span><span style="--avatar-x:2;--avatar-y:1"></span><span style="--avatar-x:3;--avatar-y:1"></span></div><a href="account.html">اختار الأفاتار اللي يشبهك</a></div>
         <div class="hero-facts">
           <div><strong data-catalog-count>+65</strong><span>خدمة في الكتالوج</span></div>
           <div><strong>ضمان مكتوب</strong><span>حسب تفاصيل كل باقة</span></div>
@@ -143,7 +142,7 @@
         <div class="shelf-head">
           <div>
             <small>MASTER PICKS</small>
-            <strong>الأكثر طلبًا</strong>
+            <strong>اختيارات ماستر ستور</strong>
           </div>
           <span class="shelf-count">عروض مختارة</span>
         </div>
@@ -190,16 +189,7 @@
       </div>
     </section>
 
-
-
-  <section class="store-follow" id="follow-offers" aria-labelledby="follow-title"><div class="store-follow-copy"><img class="store-follow-icon" src="/logos/facebook.svg" alt="" width="49" height="49" loading="lazy"><div><h2 id="follow-title" data-follow-title>خليك متابع أحدث عروضنا</h2><p data-follow-description>تابع عروض ماستر ستور على فيسبوك وقناة واتساب، واختار الباقة المناسبة ليك.</p></div></div><div class="store-follow-actions"><a class="store-follow-facebook" href="https://www.facebook.com/share/19XBCdMAm5/" target="_blank" rel="noopener noreferrer"><span data-follow-facebook>تابعنا على فيسبوك</span> ↗</a><a class="store-follow-channel" href="https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K" target="_blank" rel="noopener noreferrer"><img src="/logos/whatsapp.svg" alt="" width="20" height="20"><span data-follow-channel>قناة عروض واتساب</span> ↗</a></div></section>
-    <nav class="store-section-links" aria-label="أقسام المتجر"><a href="#best-offers">أفضل العروض</a><a href="#youtube-channels">يوتيوب · قريبًا</a><a href="#tiktok-pages">تيك توك · قريبًا</a><a href="#products">كل الاشتراكات</a><a href="#customer-stories">تجارب العملاء</a><a href="#how">طريقة الطلب</a><a href="#faq">الأسئلة الشائعة</a></nav>
-    <section class="confidence-strip" aria-label="مميزات المتجر">
-      <div><b>أسعار منافسة</b><span>عروض مختارة بتوفير كبير</span></div>
-      <div><b>ضمان واضح</b><span>تفاصيل الضمان داخل كل باقة</span></div>
-      <div><b>دعم مباشر</b><span>متابعة سريعة على واتساب</span></div>
-      <div><b>طلب سريع</b><span>اختار الباقة وأرسل طلبك خلال دقائق</span></div>
-    </section>
+    <nav class="store-section-links" aria-label="اختصارات أقسام المتجر" data-no-translate="true"><a href="#visual-explore"><span class="home-only-ar" lang="ar">تصفح الأقسام</span><span class="home-only-en" lang="en">Categories</span></a><a href="#best-offers"><span class="home-only-ar" lang="ar">أفضل العروض</span><span class="home-only-en" lang="en">Best offers</span></a><a href="#products"><span class="home-only-ar" lang="ar">كل الاشتراكات</span><span class="home-only-en" lang="en">All subscriptions</span></a><a href="#social-market"><span class="home-only-ar" lang="ar">جديد قريبًا</span><span class="home-only-en" lang="en">Coming soon</span></a><a href="#how"><span class="home-only-ar" lang="ar">طريقة الطلب</span><span class="home-only-en" lang="en">How to order</span></a></nav>
 
     <!-- Visual, lightweight category discovery: official catalogue categories only. -->
     <section class="visual-explore" id="visual-explore" aria-labelledby="visual-explore-title" data-no-translate="true">
@@ -255,7 +245,23 @@
       </div>
       <div class="home-plus-offer-actions"><strong><span class="home-only-ar">880 جنيه</span><span class="home-only-en">EGP 880</span></strong><a href="products/chatgpt-plus.html?plan=2"><span class="home-only-ar">شوف الباقة واطلبها</span><span class="home-only-en">View and order</span> <span aria-hidden="true">↗</span></a></div>
     </section>
-    <!-- Upcoming social account listings: compact preview, not a purchasable catalog. -->
+
+    <section class="catalog" id="products">
+      <div class="section-head">
+        <div><span class="eyebrow">العروض والخدمات</span><h2>اختار اشتراكك</h2><p class="section-sub">كل التفاصيل المهمة موجودة داخل صفحة الخدمة.</p></div>
+        <div class="master-search master-search-catalog" data-master-search="catalog" role="search" aria-label="تصفية الخدمات">
+          <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" maxlength="120" placeholder="دور على خدمتك..." autocomplete="off" aria-label="ابحث في كل خدمات المتجر"></label>
+          <div id="catalogSearchSuggestions" class="master-search-suggestions" role="listbox" aria-label="اقتراحات خدمات المتجر" hidden></div>
+        </div>
+      </div>
+      <section id="recentServices" class="recent-services" hidden aria-label="شفتها مؤخرًا"></section>
+      <div class="filters" id="filters"></div><div class="catalog-overview"><p id="catalogResultCount" role="status" aria-live="polite"></p><label><input type="checkbox" id="availableOnly"><span id="availableOnlyLabel">المتاح فقط</span></label><label class="favorites-filter"><input type="checkbox" id="favoritesOnly"><span id="favoritesOnlyLabel">المفضلة (0)</span></label><label class="catalog-sort-compact"><select id="catalogSort" aria-label="ترتيب الخدمات"><option value="featured">ترتيب المتجر</option><option value="price-asc">السعر: الأقل أولًا</option><option value="price-desc">السعر: الأعلى أولًا</option></select></label></div>
+      <div class="grid" id="grid" aria-live="polite" aria-busy="true"></div>
+      <div class="catalog-loading" id="catalogLoading" role="status">جاري تحميل العروض...</div>
+      <div class="empty" id="empty">مفيش نتيجة مطابقة.</div>
+    </section>
+
+<!-- Upcoming social account listings: compact preview, not a purchasable catalog. -->
     <section class="social-market social-market-preview" id="social-market" aria-labelledby="social-market-title" data-no-translate="true">
       <div class="social-preview-intro">
         <span class="social-preview-eyebrow"><span class="social-preview-dot" aria-hidden="true"></span><span class="home-only-ar" lang="ar">جديدنا قريبًا</span><span class="home-only-en" lang="en">NEW · COMING SOON</span></span>
@@ -275,25 +281,11 @@
         </div>
       </div>
     </section>
-    <section class="catalog" id="products">
-      <div class="section-head">
-        <div><span class="eyebrow">العروض والخدمات</span><h2>اختار اشتراكك</h2><p class="section-sub">كل التفاصيل المهمة موجودة داخل صفحة الخدمة.</p></div>
-        <div class="master-search master-search-catalog" data-master-search="catalog" role="search" aria-label="تصفية الخدمات">
-          <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" maxlength="120" placeholder="دور على خدمتك..." autocomplete="off" aria-label="ابحث في كل خدمات المتجر"></label>
-          <div id="catalogSearchSuggestions" class="master-search-suggestions" role="listbox" aria-label="اقتراحات خدمات المتجر" hidden></div>
-        </div>
-      </div>
-      <section id="recentServices" class="recent-services" hidden aria-label="شفتها مؤخرًا"></section>
-      <div class="filters" id="filters"></div><div class="catalog-overview"><p id="catalogResultCount" role="status" aria-live="polite"></p><label><input type="checkbox" id="availableOnly"><span id="availableOnlyLabel">المتاح فقط</span></label><label class="favorites-filter"><input type="checkbox" id="favoritesOnly"><span id="favoritesOnlyLabel">المفضلة (0)</span></label><label class="catalog-sort-compact"><select id="catalogSort" aria-label="ترتيب الخدمات"><option value="featured">ترتيب المتجر</option><option value="price-asc">السعر: الأقل أولًا</option><option value="price-desc">السعر: الأعلى أولًا</option></select></label></div>
-      <div class="grid" id="grid" aria-live="polite" aria-busy="true"></div>
-      <div class="catalog-loading" id="catalogLoading" role="status">جاري تحميل العروض...</div>
-      <div class="empty" id="empty">مفيش نتيجة مطابقة.</div>
-    </section>
 
     <section class="customer-stories" id="customer-stories" aria-labelledby="stories-title">
       <div class="section-head"><div><span class="eyebrow">تجارب ومتابعة</span><h2 id="stories-title">من تعاملاتنا مع العملاء</h2><p class="section-sub">لقطات من التفعيل والتسليم ورسائل العملاء. اضغط على أي صورة لمشاهدة التفاصيل.</p></div><div class="stories-controls"><button type="button" data-stories-prev aria-label="الصور السابقة">→</button><button type="button" data-stories-toggle aria-pressed="false">إيقاف الحركة</button><button type="button" data-stories-next aria-label="الصور التالية">←</button></div></div>
       <div class="stories-window" role="region" aria-label="صور تعاملات العملاء"><div class="stories-track"></div></div>
-      <p class="stories-privacy">تم إخفاء المل وروابط التفعيل لحماية الخصوصية.</p>
+      <p class="stories-privacy">تم إخفاء بيانات التواصل وروابط التفعيل لحماية خصوصية العملاء.</p>
     </section>
  <dialog class="story-dialog" id="story-dialog" aria-labelledby="story-dialog-title"><div class="story-dialog-head"><h3 id="story-dialog-title">تفاصيل التعامل</h3><button type="button" data-close aria-label="إغلاق الصورة">✕</button></div><img class="story-dialog-image" alt=""><p>تم حجب المعلومات الحساسة لحماية الخصوصية.</p><div class="story-dialog-foot"><button type="button" data-prev>السابق</button><button type="button" data-next>التالي</button></div></dialog>
 
@@ -305,6 +297,8 @@
         <article><i>03</i><h3>أرسل الطلب</h3><p>اكتب بيانات التواصل، وفريق الدعم يتابع معاك على واتساب.</p></article>
       </div>
     </section>
+
+<section class="store-follow" id="follow-offers" aria-labelledby="follow-title"><div class="store-follow-copy"><img class="store-follow-icon" src="/logos/facebook.svg" alt="" width="49" height="49" loading="lazy"><div><h2 id="follow-title" data-follow-title>خليك متابع أحدث عروضنا</h2><p data-follow-description>تابع عروض ماستر ستور على فيسبوك وقناة واتساب، واختار الباقة المناسبة ليك.</p></div></div><div class="store-follow-actions"><a class="store-follow-facebook" href="https://www.facebook.com/share/19XBCdMAm5/" target="_blank" rel="noopener noreferrer"><span data-follow-facebook>تابعنا على فيسبوك</span> ↗</a><a class="store-follow-channel" href="https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K" target="_blank" rel="noopener noreferrer"><img src="/logos/whatsapp.svg" alt="" width="20" height="20"><span data-follow-channel>قناة عروض واتساب</span> ↗</a></div></section>
 
     <section class="wallet-intro"><div><span class="eyebrow">حسابك في MASTER STORE</span><h2>طلباتك ورصيدك معاك في أي وقت.</h2><p>سجل الدخول، اشحن محفظتك بعد تأكيد التحويل، وادفع من رصيدك.</p></div><a class="primary" href="account.html">افتح حسابك ←</a></section>
 

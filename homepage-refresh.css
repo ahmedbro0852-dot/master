@@ -278,3 +278,36 @@ html[data-custom-theme] .social-preview-status{background:var(--theme-control);c
  .social-market-preview .social-preview-tile-info small{display:none}
  .social-market-preview .social-preview-status{grid-column:1;grid-row:auto;font-size:9px;padding:3px 8px}
 }
+
+/* 2026-11-06 · Focused shopping-first homepage cleanup */
+#visual-explore,#best-offers,#freshOffers,#products,#social-market,#how,#customer-stories{scroll-margin-top:calc(var(--store-header-height,110px) + 16px)}
+.store-section-links{max-width:1180px;margin:12px auto 6px;padding:0 16px;gap:8px}
+.store-section-links a{min-height:40px;padding:8px 14px;font-weight:750;border-radius:11px;line-height:1.6}
+.visual-explore{margin-top:16px}
+.social-market.social-market-preview{margin-top:22px;margin-bottom:18px}
+.store-follow{margin-top:24px;margin-bottom:27px}
+@media(max-width:700px){
+ .topbar{grid-template-columns:minmax(80px,1fr) 40px auto 40px 40px;gap:7px 6px;padding:9px 10px}
+ .topbar .brand img{width:112px;max-width:100%;height:auto}
+ .topbar>.home-cart-shortcut{width:40px;min-width:40px;height:40px;min-height:40px}
+ .topbar .theme-picker,.topbar .theme-toggle{width:40px;flex-basis:40px}
+ .topbar .theme-toggle{height:40px;min-height:40px}
+ .topbar .menu{width:40px;min-width:40px;height:40px;min-height:40px}
+ .topbar .account-link{font-size:10px;padding:7px 6px;min-height:40px}
+ .topbar .market-switcher{gap:6px}
+ .store-section-links{display:flex;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding:0 12px 8px;margin:10px auto 4px;scrollbar-width:thin}
+ .store-section-links a{flex:0 0 auto;font-size:10px;padding:7px 12px;min-height:38px}
+ .visual-explore{margin-top:12px}
+ .social-market.social-market-preview{margin:20px 14px 22px}
+ .store-follow{margin:20px 14px 24px}
+}
+@media(max-width:350px){
+ .topbar{grid-template-columns:minmax(68px,1fr) 38px auto 38px 38px;gap:5px;padding-inline:8px}
+ .topbar .brand img{width:104px;max-width:100%}
+ .topbar>.home-cart-shortcut{width:38px;min-width:38px}
+ .topbar .theme-picker,.topbar .theme-toggle{width:38px;flex-basis:38px}
+ .topbar .theme-toggle{height:40px}
+ .topbar .menu{width:38px;min-width:38px}
+ .topbar .account-link{font-size:9px;padding-inline:4px}
+}
+
