@@ -57,6 +57,11 @@ assert(categoryPage.includes('data-category-group="محادثة ومساعد ذ�
 assert((categoryPage.match(/data-category-group=/g)||[]).length===10,'category tile count changed');
 assert(categoryPage.includes('/categories-modern.css?v=')&&categoryPage.includes('/categories-modern.js?v='),'category assets not linked');
 for(const asset of ['categories-modern.css','categories-modern.js'])assert(fs.existsSync(path.join(out,asset)),'category asset missing: '+asset);
+assert(categoryPage.includes('cat-hero-showcase')&&categoryPage.includes('id="categorySearch"'),'rich category hero or live search missing');
+assert(categoryPage.includes('/categories-modern.css?v=20261107-premium2'),'latest category styles not linked');
+assert(categoryPage.includes('/categories-modern.js?v=20261107-premium2'),'latest category interactions not linked');
+assert(read('categories-modern.css').includes('.cat-art-logo'),'premium category artwork styling missing');
+assert(read('categories-modern.js').includes('function filter()'),'category search functionality missing');
 assert(home.includes('href="/categories.html"'),'homepage category entry missing');
 assert(read('site-updates.js').includes("href:'/categories.html'"),'mobile category navigation missing');
 assert(cart.includes('id="cartContent"')&&cart.includes('cart.js?v='),'cart checkout missing');
