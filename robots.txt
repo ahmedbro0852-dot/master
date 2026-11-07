@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /db/
+Disallow: /tests/
+Disallow: /scripts/
+Sitemap: https://master-pi-six.vercel.app/sitemap.xml
