@@ -46,6 +46,11 @@ assert(homeSections.every((position,i)=>position!==-1&&(!i||position>homeSection
 assert(!home.includes('class="confidence-strip"')&&!home.includes('class="home-avatar-row"'),'old duplicate homepage blocks restored');
 assert(home.includes('homepage-refresh.css?v=20261106-shopflow1'),'new homepage layout CSS is not cache-busted');
 
+// Regression gate: both account and checkout must ship the CSS they reference.
+const mobileFix='mobile-checkout-account-fix.css';
+assert(fs.existsSync(path.join(out,mobileFix)),mobileFix+' missing from public build');
+assert(cart.includes('/'+mobileFix+'?v='),'cart missing mobile layout fix link');
+assert(read('account.html').includes('/'+mobileFix+'?v='),'account missing mobile layout fix link');
 assert(cart.includes('id="cartContent"')&&cart.includes('cart.js?v='),'cart checkout missing');
 assert(cart.includes('site-nav.js?v=')&&!cart.includes('src="app.js?v='),'cart must load lightweight shared navigation');
 assert(plus.includes('site-nav.js?v=')&&!plus.includes('src="app.js?v='),'product must load lightweight shared navigation');
