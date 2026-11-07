@@ -12,6 +12,21 @@ function localize(){
  document.querySelectorAll('[data-follow-facebook]').forEach(x=>{x.textContent=t('تابعنا على فيسبوك','Follow us on Facebook');});
  document.querySelectorAll('.footer-facebook').forEach(a=>{if(links)a.href=links.facebook;a.textContent=t('تابعنا على فيسبوك ↗','Follow us on Facebook ↗');});
 }
+
+const headerNav=document.querySelector('.topbar #mainNav');
+if(headerNav){
+ let categoryLink=headerNav.querySelector('[data-site-category-link]');
+ if(!categoryLink){
+  categoryLink=document.createElement('a');
+  categoryLink.href='/categories.html';
+  categoryLink.dataset.siteCategoryLink='';
+  headerNav.insertBefore(categoryLink,headerNav.children[1]||null);
+ }
+ const translateCategoryLink=()=>{categoryLink.textContent=t('الأقسام','Categories');};
+ document.addEventListener('masterstore:localechange',translateCategoryLink);
+ translateCategoryLink();
+}
+
 const main=document.querySelector('main');
 if(main){if(!main.id)main.id='main-content';const skip=document.createElement('a');skip.className='skip-content';skip.href='#'+main.id;skip.textContent=t('انتقل للمحتوى','Skip to content');skip.onclick=()=>{main.tabIndex=-1;main.focus({preventScroll:true});};document.body.prepend(skip);}
 const top=document.createElement('button');top.type='button';top.className='back-to-top';top.hidden=true;top.textContent='↑';top.setAttribute('aria-label',t('العودة لأعلى الصفحة','Back to top'));top.onclick=()=>window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});document.body.append(top);
@@ -27,14 +42,14 @@ document.addEventListener('masterstore:localechange',()=>{localize();top.setAttr
   const isHome=location.pathname==='/'||/\/index\.html$/i.test(location.pathname);
   const icons={
     home:'<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/>',
-    services:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+    categories:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
     search:'<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>',
     cart:'<path d="M3 4h2l2.5 11h11l2-8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/>',
     account:'<circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/>'
   };
   const entries=[
     {key:'home',href:'/',ar:'الرئيسية',en:'Home'},
-    {key:'services',href:isHome?'#products':'/#products',ar:'الخدمات',en:'Services'},
+    {key:'categories',href:'/categories.html',ar:'الأقسام',en:'Categories'},
     {key:'search',href:isHome?'#store-search-mobile':'/#store-search-mobile',ar:'بحث',en:'Search'},
     {key:'cart',href:'/cart.html',ar:'السلة',en:'Cart'},
     {key:'account',href:'/account.html',ar:'حسابي',en:'Account'}
@@ -76,8 +91,8 @@ document.addEventListener('masterstore:localechange',()=>{localize();top.setAttr
   }
   function markActive(prefer){
     const page=location.pathname.split('/').pop();
-    let active=page==='cart.html'?'cart':page==='account.html'?'account':isHome?'home':'';
-    if(isHome&&location.hash==='#products')active='services';
+    let active=page==='cart.html'?'cart':page==='account.html'?'account':page==='categories.html'?'categories':isHome?'home':'';
+    if(isHome&&new URLSearchParams(location.search).has('category'))active='categories';
     if(isHome&&location.hash==='#store-search-mobile')active='search';
     if(prefer)active=prefer;
     linkMap.forEach((link,key)=>{
