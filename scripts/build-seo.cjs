@@ -88,7 +88,7 @@ function writeHome(){
 }
 (async()=>{
  const prices=await loadPrices();writeProducts(prices);writeCategories();writeHome();
- const urls=[origin+'/',origin+'/warranty.html',...categories.map(SEO.categoryUrl),...indexed.map(SEO.productUrl)];
+ const urls=[origin+'/',origin+'/warranty.html',origin+'/categories.html',...categories.map(SEO.categoryUrl),...indexed.map(SEO.productUrl)];
  // No fabricated lastmod timestamps: catalog content can change independently of a deploy.
  fs.writeFileSync(path.join(root,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(url=>'<url><loc>'+escape(url)+'</loc></url>').join('\n')+'\n</urlset>\n');
  console.log('SEO: '+products.length+' product pages, '+categories.length+' category pages, '+urls.length+' sitemap URLs; '+(prices?prices.length+' public price records':'no unverified prices')+'.');
