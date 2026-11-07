@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/theme.css?v=20261025-contrast1">
   <script src="/theme.js?v=20261021-dark1"></script>
   <link rel="stylesheet" href="/site-updates.css?v=20261107-mobile-nav1">
-  <link rel="stylesheet" href="/categories-modern.css?v=20261107-launch1">
+  <link rel="stylesheet" href="/categories-modern.css?v=20261107-premium2">
   <link rel="stylesheet" href="/store-assistant.css?v=20261026-actions1">
 </head>
 <body>
@@ -47,16 +47,36 @@
       <a href="/"><span class="cat-ar" lang="ar">الرئيسية</span><span class="cat-en" lang="en">Home</span></a><span aria-hidden="true">/</span><span><span class="cat-ar" lang="ar">الأقسام</span><span class="cat-en" lang="en">Categories</span></span>
     </nav>
     <section class="cat-hero" aria-labelledby="categoriesTitle">
-      <div>
-        <span class="cat-kicker">MASTER STORE / <span class="cat-ar" lang="ar">اكتشف</span><span class="cat-en" lang="en">DISCOVER</span></span>
-        <h1 id="categoriesTitle"><span class="cat-ar" lang="ar">تصفّح حسب القسم</span><span class="cat-en" lang="en">Explore by category</span></h1>
-        <p><span class="cat-ar" lang="ar">كل حاجة متقسمة حسب استخدامك. اختار المجال اللي يهمك وشوف الاشتراكات والباقات التابعة له مباشرة.</span><span class="cat-en" lang="en">Find the right tools faster. Choose an area to explore its subscriptions and plans.</span></p>
+      <div class="cat-hero-copy">
+        <span class="cat-kicker">MASTER STORE · <span class="cat-ar" lang="ar">اكتشف مجالك</span><span class="cat-en" lang="en">FIND YOUR SPACE</span></span>
+        <h1 id="categoriesTitle"><span class="cat-ar" lang="ar">اكتشف الأقسام</span><span class="cat-en" lang="en">Explore categories</span></h1>
+        <p><span class="cat-ar" lang="ar">اختار المجال اللي يهمك، واستعرض كل الاشتراكات المناسبة له بسهولة ومن غير ما تدوّر كتير.</span><span class="cat-en" lang="en">Find the category that fits you, then explore all of its subscriptions in one place.</span></p>
+        <div class="cat-hero-actions">
+          <a class="cat-hero-action" href="/#products"><span class="cat-ar" lang="ar">تصفح كل الاشتراكات</span><span class="cat-en" lang="en">See all subscriptions</span> <span aria-hidden="true">↗</span></a>
+          <span class="cat-hero-detail" data-cat-total><span class="cat-ar" lang="ar">عشرات الاشتراكات الرقمية</span><span class="cat-en" lang="en">Digital subscriptions</span></span>
+        </div>
       </div>
-      <div class="cat-hero-mark" aria-hidden="true"><b>10</b><span><span class="cat-ar" lang="ar">مجالات مختلفة</span><span class="cat-en" lang="en">Categories</span></span></div>
+      <div class="cat-hero-showcase" aria-hidden="true">
+        <span class="cat-showcase-ring"></span>
+        <span class="cat-showcase-center">M</span>
+        <span class="cat-showcase-logo"><img src="/logos/chatgpt.svg" alt="" width="54" height="54" loading="lazy"></span>
+        <span class="cat-showcase-logo"><img src="/logos/gemini.svg" alt="" width="54" height="54" loading="lazy"></span>
+        <span class="cat-showcase-logo"><img src="/logos/canva.svg" alt="" width="54" height="54" loading="lazy"></span>
+        <span class="cat-showcase-logo"><img src="/logos/capcut.svg" alt="" width="54" height="54" loading="lazy"></span>
+      </div>
     </section>
-    <div class="cat-header">
-      <div><h2><span class="cat-ar" lang="ar">اختار مجالك</span><span class="cat-en" lang="en">Find your category</span></h2><p><span class="cat-ar" lang="ar">اضغط على أي قسم علشان تشوف كل خدماته</span><span class="cat-en" lang="en">Select a category to see its subscriptions</span></p></div>
-      <a class="cat-show-all" href="/#products"><span class="cat-ar" lang="ar">كل الاشتراكات</span><span class="cat-en" lang="en">All subscriptions</span> <span aria-hidden="true">↗</span></a>
+    <div class="cat-explore-toolbar">
+      <div class="cat-header">
+        <h2><span class="cat-ar" lang="ar">كل الأقسام</span><span class="cat-en" lang="en">Browse categories</span></h2>
+        <p><span class="cat-ar" lang="ar">اضغط على أي مجال علشان تشوف اشتراكاته وباقاته</span><span class="cat-en" lang="en">Choose a category to explore the available plans</span></p>
+      </div>
+      <div class="cat-search-group">
+        <label class="cat-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+          <input id="categorySearch" type="search" placeholder="ابحث عن قسم أو اشتراك..." aria-label="البحث في الأقسام والاشتراكات" autocomplete="off" maxlength="80">
+        </label>
+        <a class="cat-show-all" href="/#products"><span class="cat-ar" lang="ar">عرض الكل</span><span class="cat-en" lang="en">View all</span> <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
     <div class="cat-grid" aria-label="أقسام المتجر">
       <a class="cat-tile cat-tile--ai" data-category-group="محادثة ومساعد ذكي" href="/?category=%D9%85%D8%AD%D8%A7%D8%AF%D8%AB%D8%A9%20%D9%88%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%20%D8%B0%D9%83%D9%8A#products" aria-label="مساعدات الذكاء الاصطناعي">
@@ -110,6 +130,7 @@
         <span class="cat-tile-foot"><span><span class="cat-service-count" data-category-count><span class="cat-ar" lang="ar">تصفح الباقات</span><span class="cat-en" lang="en">Browse plans</span></span><span class="cat-preview" aria-hidden="true"></span></span><span class="cat-next" aria-hidden="true">‹</span></span>
       </a>
     </div>
+    <p class="cat-empty-result" id="categoryEmptyResult" role="status" hidden><span class="cat-ar" lang="ar">ملقيناش قسم مطابق للبحث. جرّب كلمة تانية.</span><span class="cat-en" lang="en">No matching category. Try another search.</span></p>
     <aside class="cat-bottom-cta">
       <div><h2><span class="cat-ar" lang="ar">مش لاقي اللي بتدور عليه؟</span><span class="cat-en" lang="en">Looking for something else?</span></h2>
       <p><span class="cat-ar" lang="ar">تقدر تتصفح جميع الاشتراكات أو تستخدم البحث في الصفحة الرئيسية.</span><span class="cat-en" lang="en">Browse all subscriptions or use search on the home page.</span></p></div>
@@ -131,7 +152,7 @@
   <script src="/store.js?v=20261025-store-prices3"></script>
   <script src="/cart.js?v=20261101-order-inbox1"></script>
   <script src="/site-nav.js?v=20261104-nav-split1"></script>
-  <script src="/categories-modern.js?v=20261107-launch1" defer></script>
+  <script src="/categories-modern.js?v=20261107-premium2" defer></script>
   <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img decoding="async" class="whatsapp-icon" src="/logos/whatsapp.svg?v=20260924-sec19" alt=""></a>
   <script src="/store-assistant.js?v=20261027-welcome1" defer></script>
   <script src="/site-updates.js?v=20261107-categories1" defer></script>
