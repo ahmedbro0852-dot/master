@@ -131,3 +131,59 @@ html[data-custom-theme] .store-follow{background:var(--theme-surface);border-col
 }
 @media(min-width:701px){.product-intro-toggle{display:none!important}}
 @media(prefers-reduced-motion:reduce){.store-assistant-launcher,.product-intro-toggle{transition:none!important}}
+/* Mobile UX · 2026-11-07 — thumb-friendly navigation and clear, accessible controls. */
+.mobile-shortcuts{display:none}
+@media(max-width:700px){
+  body:has(>.mobile-shortcuts){padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))}
+  .mobile-shortcuts{
+    position:fixed;bottom:0;left:0;right:0;z-index:88;
+    display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:stretch;
+    gap:3px;padding:7px max(8px,env(safe-area-inset-right,0px)) calc(7px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px));
+    background:rgba(255,255,255,.97);border-top:1px solid #dce6f4;
+    box-shadow:0 -8px 28px rgba(21,46,85,.1);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)
+  }
+  .mobile-shortcuts a{
+    position:relative;display:flex;min-width:0;min-height:53px;align-items:center;justify-content:center;
+    flex-direction:column;gap:4px;padding:6px 2px;border-radius:12px;
+    color:#5d6d85;text-align:center;text-decoration:none;font-size:10px;font-weight:750;
+    line-height:1.25;touch-action:manipulation;-webkit-tap-highlight-color:transparent
+  }
+  .mobile-shortcuts a svg{display:block;width:21px;height:21px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .mobile-shortcuts a[aria-current="page"]{background:#e9f1ff;color:#1e57bc}
+  .mobile-shortcuts a:focus-visible{outline:3px solid #74a3f8;outline-offset:-2px}
+  .mobile-shortcuts .mobile-nav-icon{position:relative;display:inline-flex}
+  .mobile-shortcuts .mobile-nav-badge{position:absolute;top:-7px;right:-13px;border-radius:99px;padding:1px 4px;min-width:16px;background:#e54859;color:white;font:800 9px/1.45 system-ui;direction:ltr}
+  .mobile-shortcuts .mobile-nav-badge[hidden]{display:none}
+  body:has(dialog[open]) .mobile-shortcuts,.mobile-shortcuts.input-active{visibility:hidden;pointer-events:none}
+  body:has(>.mobile-shortcuts) .store-assistant-launcher{bottom:calc(93px + env(safe-area-inset-bottom,0px))!important}
+  body:has(>.mobile-shortcuts) .support-fab{bottom:calc(94px + env(safe-area-inset-bottom,0px))!important}
+  body:has(>.mobile-shortcuts) .back-to-top{bottom:calc(158px + env(safe-area-inset-bottom,0px))!important}
+  .topbar .market-switcher select{font-size:16px!important}
+  .catalog .section-head{flex-direction:column;align-items:stretch;gap:13px;margin-bottom:18px}
+  .catalog .master-search-catalog{width:100%;max-width:none}
+  .catalog .master-search-catalog .search{min-height:50px}
+  .catalog .master-search-catalog input{font-size:16px}
+  .catalog .filters{scroll-snap-type:x proximity;scroll-padding-inline:12px;overscroll-behavior-inline:contain}
+  .catalog .filters .filter{min-height:44px;scroll-snap-align:start;padding:10px 15px;font-size:12px}
+  .catalog .catalog-overview{gap:8px 13px}
+  .catalog .catalog-overview label{min-height:44px}
+  .catalog .catalog-sort-compact select{font-size:16px;min-height:44px}
+  .master-search-chips button{min-height:40px;padding:8px 13px;font-size:11px}
+  .master-search-submit{min-height:44px}
+  .store-section-links a{min-height:44px}
+  .cart-layout .checkout-payment{min-height:62px}
+  .cart-layout .checkout-payment span{font-size:12px;line-height:1.5}
+  .cart-layout .cart-remove{min-height:44px}
+  .cart-layout form input:not([type=radio]),.cart-layout form select,.cart-layout form textarea{font-size:16px}
+  #products,#best-offers,#freshOffers{scroll-margin-top:18px}
+}
+@media(max-width:370px){
+  .mobile-shortcuts{gap:0;padding-inline:5px}
+  .mobile-shortcuts a{font-size:9px;min-height:52px;padding-inline:1px}
+  .mobile-shortcuts a svg{width:20px;height:20px}
+}
+html[data-custom-theme] .mobile-shortcuts{background:var(--theme-surface);border-color:var(--line);box-shadow:0 -8px 28px rgba(0,0,0,.25)}
+html[data-custom-theme] .mobile-shortcuts a{color:var(--muted)}
+html[data-custom-theme] .mobile-shortcuts a[aria-current="page"]{background:var(--theme-selected);color:var(--theme-accent)}
+@media(prefers-reduced-motion:reduce){.mobile-shortcuts,.mobile-shortcuts a{transition:none!important}}
