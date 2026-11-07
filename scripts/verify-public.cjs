@@ -51,6 +51,14 @@ const mobileFix='mobile-checkout-account-fix.css';
 assert(fs.existsSync(path.join(out,mobileFix)),mobileFix+' missing from public build');
 assert(cart.includes('/'+mobileFix+'?v='),'cart missing mobile layout fix link');
 assert(read('account.html').includes('/'+mobileFix+'?v='),'account missing mobile layout fix link');
+// Category discovery is a working navigation destination, not a mockup.
+const categoryPage=read('categories.html');
+assert(categoryPage.includes('data-category-group="محادثة ومساعد ذكي"'),'AI assistant category missing');
+assert((categoryPage.match(/data-category-group=/g)||[]).length===10,'category tile count changed');
+assert(categoryPage.includes('/categories-modern.css?v=')&&categoryPage.includes('/categories-modern.js?v='),'category assets not linked');
+for(const asset of ['categories-modern.css','categories-modern.js'])assert(fs.existsSync(path.join(out,asset)),'category asset missing: '+asset);
+assert(home.includes('href="/categories.html"'),'homepage category entry missing');
+assert(read('site-updates.js').includes("href:'/categories.html'"),'mobile category navigation missing');
 assert(cart.includes('id="cartContent"')&&cart.includes('cart.js?v='),'cart checkout missing');
 assert(cart.includes('site-nav.js?v=')&&!cart.includes('src="app.js?v='),'cart must load lightweight shared navigation');
 assert(plus.includes('site-nav.js?v=')&&!plus.includes('src="app.js?v='),'product must load lightweight shared navigation');
