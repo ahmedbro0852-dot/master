@@ -5406,7 +5406,7 @@ const products = [
   "logo": "elevenlabs",
   "logoUrl": "logos/elevenlabs.svg?v=20261009-logo-review3",
   "status": "available",
-  "description": "باقات ElevenLabs لتحويل النص إلى صوت: Pro ضمن مساحة عمل لمدة شهر مع 50 ألف كريدت بسعر 450 جنيه وضمان 25 يومًا، بدون استنساخ صوت. تتوفر أيضًا باقات Creator بتفاصيل ورصيد وضمان مستقل لكل اختيار.",
+  "description": "تخفيض باقات ElevenLabs Creator: حساب جاهز لمدة شهر بـ450 جنيه بدل 500، أو تفعيل Creator لمدة 3 شهور على حسابك بـ1100 جنيه بدل 1250. وتتوفر باقة Pro بمساحة عمل لشهر بـ450 جنيه ورصيد 50 ألف كريدت وضمان 25 يومًا، بدون استنساخ صوت؛ تختلف تفاصيل وضمان كل باقة.",
   "plans": [
     {
       "name": "Creator — سنة على حسابك",
@@ -5438,7 +5438,7 @@ const products = [
     {
       "name": "Creator — تفعيل على حسابك",
       "duration": "3 شهور",
-      "price": 1250,
+      "price": 1100,
       "activation": "تفعيل على حساب العميل.",
       "account": "حساب العميل الشخصي",
       "warranty": "ضمان كامل",
@@ -5459,23 +5459,23 @@ const products = [
         "source": "https://elevenlabs.io/pricing",
         "checkedAt": "2026-10-08"
       },
-      "previousStorePrice": 1500
+      "previousStorePrice": 1250
     },
     {
       "name": "Creator — اشتراك شهر",
       "duration": "1 شهر",
-      "price": 500,
+      "price": 450,
       "activation": "تسليم حساب جاهز.",
       "account": "حساب جاهز",
       "warranty": "ضمان كامل",
       "credits": "131,000 Credit",
       "planType": "Creator",
-      "oldPrice": 550,
+      "oldPrice": 500,
       "notes": [
         "مدة الاشتراك شهر كامل؛ يظهر السعر الحالي وسعر المتجر السابق في ملخص الباقة.",
         "مدة الاشتراك شهر كامل ويشمل 131 ألف كريديت."
       ],
-      "previousStorePrice": 550
+      "previousStorePrice": 500
     },
     {
       "name": "Pro — شهر · مساحة عمل · 50 ألف كريدت",
@@ -5518,7 +5518,7 @@ const products = [
   "categories": [
     "تعليق صوتي وتحويل النص لصوت"
   ],
-  "descriptionEn": "ElevenLabs text-to-speech plans: one month of Pro workspace access with 50,000 credits for EGP 450 and a 25-day warranty, without voice cloning. Creator plans are also available with separate credits, delivery and warranty terms."
+  "descriptionEn": "ElevenLabs Creator discounts: a ready-made one-month account for EGP 450 (was EGP 500), or three months of Creator activation on your own account for EGP 1,100 (was EGP 1,250). A separate one-month Pro workspace package remains available for EGP 450 with 50,000 credits, a 25-day warranty and no voice cloning. Delivery and warranty vary by plan."
 },
   {
     "id": "hedra",
