@@ -490,6 +490,16 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
 });
   function catalogText(value,kind,productId){
     const raw=String(value??"");
+    if(state.language==="en"&&productId==="chatgpt-go"){
+      const go=window.MasterCatalog?.getProduct("chatgpt-go");
+      if(kind==="description")return go?.descriptionEn||raw;
+      const plan=go?.plans?.find(x=>x.duration==="3 شهور"&&x.price===500);
+      const pairs=[[plan?.features,plan?.featuresEn],[plan?.notes,plan?.notesEn]];
+      for(const [arabic,english] of pairs){const i=(arabic||[]).indexOf(raw);if(i!==-1&&english?.[i])return english[i];}
+      const terms={"ChatGPT Go — 3 شهور — حساب جاهز":"ChatGPT Go — 3 months — ready account","3 شهور":"3 months","حساب خاص جاهز للاستخدام":"Ready private account","تسليم البريد وكلمة المرور وبيانات التحقق اللازمة للدخول إلى الحساب.":"Email, password and any required sign-in verification details are provided.","ضمان استبدال 70 يوم من MASTER STORE":"70-day MASTER STORE replacement warranty"};
+      if(terms[raw])return terms[raw];
+    }
+
     if(state.language==="en"&&productId==="muse-ai"){
       const product=window.MasterCatalog?.getProduct("muse-ai");
       if(kind==="description")return product?.descriptionEn||raw;

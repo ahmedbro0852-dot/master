@@ -4081,25 +4081,62 @@ const products = [
     "category": "AI Tools",
     "logo": "chatgpt",
     "status": "available",
-    "description": "اشتراك ChatGPT Go لمدة شهر بسعر 290 جنيه، بحساب جاهز يُسلّم بإيميل وكلمة مرور، وضمان كامل طوال الشهر.",
-    "descriptionEn": "One month of ChatGPT Go for EGP 290, delivered as a ready-to-use account with email and password and full warranty throughout the month.",
+    "description": "باقات ChatGPT Go بحساب جاهز: شهر بسعر 290 جنيه بضمان شهر كامل، أو 3 شهور بسعر 500 جنيه مع ضمان استبدال 70 يوم من MASTER STORE عند حذف الحساب أو تعطيله وفق شروط الباقة.",
+    "descriptionEn": "Ready-to-use ChatGPT Go accounts: one month for EGP 290 with a full one-month warranty, or three months for EGP 500 with a 70-day MASTER STORE replacement warranty if the account is deleted or deactivated, subject to the offer terms.",
     "plans": [
       {
-        "name": "ChatGPT Go — حساب جاهز",
-        "planType": "Go",
-        "duration": "1 شهر",
-        "price": 290,
-        "accountType": "حساب جاهز",
-        "activation": "تسليم بيانات الحساب الجاهز: الإيميل وكلمة المرور.",
-        "account": "حساب جاهز",
-        "warranty": "ضمان كامل طوال الشهر",
-        "available": true,
-        "notes": [
-          "حدود الاستخدام والأدوات حسب خطة ChatGPT Go."
-        ],
-        "previousStorePrice": 320
+            "name": "ChatGPT Go — حساب جاهز",
+            "planType": "Go",
+            "duration": "1 شهر",
+            "price": 290,
+            "accountType": "حساب جاهز",
+            "activation": "تسليم بيانات الحساب الجاهز: الإيميل وكلمة المرور.",
+            "account": "حساب جاهز",
+            "warranty": "ضمان كامل طوال الشهر",
+            "available": true,
+            "notes": [
+                  "حدود الاستخدام والأدوات حسب خطة ChatGPT Go."
+            ],
+            "previousStorePrice": 320
+      },
+      {
+            "name": "ChatGPT Go — 3 شهور — حساب جاهز",
+            "planType": "Go",
+            "duration": "3 شهور",
+            "price": 500,
+            "available": true,
+            "accountType": "حساب جاهز",
+            "account": "حساب خاص جاهز للاستخدام",
+            "activation": "تسليم البريد وكلمة المرور وبيانات التحقق اللازمة للدخول إلى الحساب.",
+            "warranty": "ضمان استبدال 70 يوم من MASTER STORE",
+            "features": [
+                  "حساب ChatGPT Go جاهز للاستخدام لمدة 3 شهور.",
+                  "تسليم بيانات الحساب الجاهز عند إتمام الطلب.",
+                  "مزايا الكتابة والمذاكرة وتنظيم الأفكار وفق حدود خطة ChatGPT Go.",
+                  "ضمان استبدال من المتجر لمدة 70 يومًا عند حذف الحساب أو تعطيله وفق شروط الباقة."
+            ],
+            "featuresEn": [
+                  "Three months of ChatGPT Go access on a ready-to-use account.",
+                  "Login details for the ready account are supplied after order fulfilment.",
+                  "Writing, learning and organization tools within the ChatGPT Go plan's usage limits.",
+                  "70-day store-backed replacement warranty if the account is deleted or deactivated, subject to offer terms."
+            ],
+            "notes": [
+                  "ضمان المتجر لمدة 70 يومًا يبدأ من تاريخ التسليم ويشمل الاستبدال 1:1 فقط إذا تم حذف الحساب أو تعطيله؛ لا يشمل المشكلات الناتجة عن تغيير إعدادات الحماية بواسطة العميل.",
+                  "لا يُطلب منك تغيير البريد أو كلمة المرور أو 2FA للبدء في استخدام الحساب.",
+                  "لا تعطل التحقق الثنائي (2FA)، لأن ذلك قد يؤدي إلى فقدان الدخول إذا كانت رموز التحقق تُرسل إلى البريد المرتبط بالحساب.",
+                  "تغيير إعدادات 2FA أو بيانات الدخول على مسؤولية العميل؛ يرجى التأكد من إمكانية الوصول إلى البريد قبل التعديل.",
+                  "لا تُعد هذه الباقة اشتراكًا رسميًا لمدة 3 شهور يتم شراؤه مباشرة من OpenAI؛ إنها عرض حساب جاهز من MASTER STORE."
+            ],
+            "notesEn": [
+                  "The 70-day store warranty starts at delivery and provides 1:1 replacement only if the account is deleted or deactivated; issues caused by customers changing security settings are excluded.",
+                  "You do not need to change the email, password, or 2FA settings to start using the account.",
+                  "Do not disable two-factor authentication: you may lose access if verification codes are sent to the account email.",
+                  "Changes to 2FA or login details are at the customer's risk. Verify email access before changing them.",
+                  "This is a ready-account offer from MASTER STORE, not a direct official OpenAI three-month subscription package."
+            ]
       }
-    ],
+],
     "categories": [
       "محادثة ومساعد ذكي"
     ]
