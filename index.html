@@ -66,6 +66,7 @@
   <link rel="stylesheet" href="/homepage-refresh.css?v=20261106-shopflow1">
   
   <link rel="stylesheet" href="/store-search.css?v=20261105-autocomplete1">
+  <link rel="stylesheet" href="/muse-offer.css?v=20261108-muse1">
 </head>
 <body>
   <header class="topbar">
@@ -212,6 +213,22 @@
           <div id="catalogSearchSuggestions" class="master-search-suggestions" role="listbox" aria-label="اقتراحات خدمات المتجر" hidden></div>
         </div>
       </div>
+      <!-- Static Muse offer in catalog, without reopening automated poster campaigns. -->
+      <div class="muse-feature" aria-label="Muse AI token account offers" data-no-translate="true">
+        <a class="muse-feature-art" href="product.html?id=muse-ai&amp;plan=1" aria-label="Muse AI 30 billion tokens offer">
+          <img src="images/offers/muse-ai-tokens.svg?v=20261108-muse1" alt="Muse AI: 30 مليار توكن 250 جنيه أو مليار توكن 100 جنيه — بدون ضمان" loading="lazy" decoding="async" width="1040" height="440">
+        </a>
+        <div class="muse-feature-content">
+          <div class="muse-feature-eyebrow">MASTER STORE · MUSE AI</div>
+          <h3><span class="home-only-ar" lang="ar">حساب Muse AI جاهز</span><span class="home-only-en" lang="en">Muse AI ready-made account</span></h3>
+          <p><span class="home-only-ar" lang="ar">اختار باقتك حسب رصيد التوكنات، وراجع تفاصيل التسليم والصلاحية قبل الطلب.</span><span class="home-only-en" lang="en">Choose your token package and review delivery and account validity before ordering.</span></p>
+          <div class="muse-feature-plans">
+            <a href="product.html?id=muse-ai&amp;plan=0"><span class="home-only-ar" lang="ar">مليار توكن · 100 ج</span><span class="home-only-en" lang="en">1B tokens · EGP 100</span></a>
+            <a href="product.html?id=muse-ai&amp;plan=1"><span class="home-only-ar" lang="ar">30 مليار توكن · 250 ج</span><span class="home-only-en" lang="en">30B tokens · EGP 250</span></a>
+          </div>
+          <small><span class="home-only-ar" lang="ar">⚠️ الحساب بدون ضمان</span><span class="home-only-en" lang="en">⚠️ No warranty</span></small>
+        </div>
+      </div>
       <section id="recentServices" class="recent-services" hidden aria-label="شفتها مؤخرًا"></section>
       <div class="filters" id="filters"></div><div class="catalog-overview"><p id="catalogResultCount" role="status" aria-live="polite"></p><label><input type="checkbox" id="availableOnly"><span id="availableOnlyLabel">المتاح فقط</span></label><label class="favorites-filter"><input type="checkbox" id="favoritesOnly"><span id="favoritesOnlyLabel">المفضلة (0)</span></label><label class="catalog-sort-compact"><select id="catalogSort" aria-label="ترتيب الخدمات"><option value="featured">ترتيب المتجر</option><option value="price-asc">السعر: الأقل أولًا</option><option value="price-desc">السعر: الأعلى أولًا</option></select></label></div>
       <div class="grid" id="grid" aria-live="polite" aria-busy="true"></div>
@@ -295,9 +312,9 @@
 <div class="footer-meta"><small>© 2026 MASTER STORE</small><small class="brand-disclaimer">الأسماء والعلامات التجارية مملوكة لأصحابها، ولا تعني عرض المنتجات وجود شراكة رسمية مع الشركات المالكة.</small></div>
   </footer>
 
-  <script src="catalog.js?v=20261105-lovable-4plans1"></script>
+  <script src="catalog.js?v=20261108-muse1"></script>
 <script src="catalog-live.js?v=20261026-lovable48h"></script>
-  <script src="locale.js?v=20261104-hero-layout3"></script>
+  <script src="locale.js?v=20261108-muse1"></script>
   <script src="payment-assets.js?v=20261010-wallet1"></script>
   <script src="vendor/supabase-2.102.0.js"></script>
   <script src="cloud.js?v=20261101-order-inbox1"></script>

@@ -490,6 +490,15 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
 });
   function catalogText(value,kind,productId){
     const raw=String(value??"");
+    if(state.language==="en"&&productId==="muse-ai"){
+      const product=window.MasterCatalog?.getProduct("muse-ai");
+      if(kind==="description")return product?.descriptionEn||raw;
+      const pairs=[[product?.features,product?.featuresEn],[product?.notes,product?.notesEn],...(product?.plans||[]).flatMap(plan=>[[plan.features,plan.featuresEn],[plan.notes,plan.notesEn]])];
+      for(const [arabic,english] of pairs){const index=(arabic||[]).indexOf(raw);if(index!==-1&&english?.[index])return english[index];}
+      const terms={"Muse AI — مليار توكن — حساب جاهز":"Muse AI — 1 billion tokens — ready account","Muse AI — 30 مليار توكن — حساب جاهز":"Muse AI — 30 billion tokens — ready account","حساب جاهز / رصيد توكنات":"Ready account / token allocation","الصلاحية تُؤكد قبل الدفع":"Validity confirmed before payment","حساب جاهز للاستخدام":"Ready-to-use account","حساب جاهز":"Ready account","تسليم بيانات الدخول إلى حساب جاهز للاستخدام.":"Login credentials for a ready-to-use account are delivered.","بدون ضمان":"No warranty"};
+      return terms[raw]||raw;
+    }
+
     if(state.language==="en"&&["autodesk-apps","kling","higgsfield-pro","chatgpt-go","quizlet-plus","truecaller-gold","heygen","expressvpn","ehunt-elite","storyblocks","magiclight-pro","skillshare","vercel-pro"].includes(productId)){if(kind==="description")return window.MasterCatalog.getProduct(productId).descriptionEn;if(exactArToEn[raw])return exactArToEn[raw];}
     if(state.language==="en"&&["kaspersky-premium", "avast-premium", "mcafee-total-protection", "norton-360-premium"].includes(productId)){if(kind==="description")return window.MasterCatalog.getProduct(productId).descriptionEn;if(exactArToEn[raw])return exactArToEn[raw];}
     if(state.language==="en"&&["lovable-pro","chatgpt-plus","hostinger","grok-cursor-premium"].includes(productId)){if(kind==="description")return window.MasterCatalog.getProduct(productId).descriptionEn;if(exactArToEn[raw])return exactArToEn[raw];}

@@ -1,5 +1,121 @@
 const products = [
 {
+  "id": "muse-ai",
+  "name": "Muse AI by Meta",
+  "category": "البرمجة والمواقع",
+  "categories": [
+    "مساعد كتابة الكود",
+    "محادثة ومساعد ذكي"
+  ],
+  "logo": "muse-ai",
+  "logoUrl": "logos/muse-ai.svg?v=20261108-muse1",
+  "status": "available",
+  "description": "حساب Muse AI جاهز للاستخدام بباقتين: مليار توكن بسعر 100 جنيه أو 30 مليار توكن بسعر 250 جنيه. بدون ضمان. تُؤكَّد صلاحية الحساب والاستهلاك الفعلي عند الاستلام.",
+  "descriptionEn": "Ready-made Muse AI account: 1 billion tokens for EGP 100 or 30 billion tokens for EGP 250. No warranty. Confirm account validity and actual usage conditions at handover.",
+  "features": [
+    "حساب Muse AI جاهز للاستخدام دون الحاجة لإنشاء حساب جديد.",
+    "مناسب للمساعدة في البرمجة وكتابة المحتوى وتحليل النصوص ضمن إمكانيات الحساب.",
+    "رصيد التوكنات حسب الباقة المختارة؛ راجع الرصيد الفعلي وشروط الاستهلاك عند التسليم.",
+    "لا يشمل العرض أي ضمان بعد التسليم."
+  ],
+  "featuresEn": [
+    "Ready-to-use Muse AI account; no need to create a new account.",
+    "Assistance with coding, content drafting and text analysis within the account's enabled features.",
+    "The advertised token amount depends on the selected package; verify actual balance and usage rules at handover.",
+    "This store offer does not include a post-delivery warranty."
+  ],
+  "notes": [
+    "الأسعار تخص حسابات جاهزة يبيعها MASTER STORE وليست أسعارًا رسمية معلنة من Meta أو إثبات شراكة معها.",
+    "لم تُحدَّد مدة صلاحية الحساب؛ يُرجى تأكيد تاريخ الانتهاء وقواعد تجديد/استهلاك الرصيد قبل الدفع.",
+    "الحساب بدون ضمان بعد التسليم. راجع بيانات الوصول والرصيد المتاح أثناء الاستلام.",
+    "قد تختلف النماذج والأدوات المتاحة والحدود الفعلية حسب نوع الحساب وسياسات مزود الخدمة."
+  ],
+  "notesEn": [
+    "These are MASTER STORE prices for ready-made accounts, not official Meta list prices or evidence of an affiliation.",
+    "Account validity has not been specified; confirm expiration and token-usage/renewal conditions before purchase.",
+    "No post-delivery warranty is included. Check access and the available token balance at handover.",
+    "Available models, tools and practical usage limits can vary by account and provider rules."
+  ],
+  "plans": [
+    {
+      "name": "Muse AI — مليار توكن — حساب جاهز",
+      "planType": "حساب جاهز / رصيد توكنات",
+      "duration": "الصلاحية تُؤكد قبل الدفع",
+      "price": 100,
+      "available": true,
+      "account": "حساب جاهز للاستخدام",
+      "accountType": "حساب جاهز",
+      "activation": "تسليم بيانات الدخول إلى حساب جاهز للاستخدام.",
+      "warranty": "بدون ضمان",
+      "credits": "1,000,000,000 Token",
+      "features": [
+        "رصيد معلن: 1,000,000,000 توكن حسب الباقة المختارة.",
+        "حساب Muse AI جاهز للاستخدام دون الحاجة لإنشاء حساب جديد.",
+        "مناسب للمساعدة في البرمجة وكتابة المحتوى وتحليل النصوص ضمن إمكانيات الحساب.",
+        "رصيد التوكنات حسب الباقة المختارة؛ راجع الرصيد الفعلي وشروط الاستهلاك عند التسليم.",
+        "لا يشمل العرض أي ضمان بعد التسليم."
+      ],
+      "featuresEn": [
+        "Advertised allocation: 1,000,000,000 tokens for this package.",
+        "Ready-to-use Muse AI account; no need to create a new account.",
+        "Assistance with coding, content drafting and text analysis within the account's enabled features.",
+        "The advertised token amount depends on the selected package; verify actual balance and usage rules at handover.",
+        "This store offer does not include a post-delivery warranty."
+      ],
+      "notes": [
+        "الأسعار تخص حسابات جاهزة يبيعها MASTER STORE وليست أسعارًا رسمية معلنة من Meta أو إثبات شراكة معها.",
+        "لم تُحدَّد مدة صلاحية الحساب؛ يُرجى تأكيد تاريخ الانتهاء وقواعد تجديد/استهلاك الرصيد قبل الدفع.",
+        "الحساب بدون ضمان بعد التسليم. راجع بيانات الوصول والرصيد المتاح أثناء الاستلام.",
+        "قد تختلف النماذج والأدوات المتاحة والحدود الفعلية حسب نوع الحساب وسياسات مزود الخدمة."
+      ],
+      "notesEn": [
+        "These are MASTER STORE prices for ready-made accounts, not official Meta list prices or evidence of an affiliation.",
+        "Account validity has not been specified; confirm expiration and token-usage/renewal conditions before purchase.",
+        "No post-delivery warranty is included. Check access and the available token balance at handover.",
+        "Available models, tools and practical usage limits can vary by account and provider rules."
+      ]
+    },
+    {
+      "name": "Muse AI — 30 مليار توكن — حساب جاهز",
+      "planType": "حساب جاهز / رصيد توكنات",
+      "duration": "الصلاحية تُؤكد قبل الدفع",
+      "price": 250,
+      "available": true,
+      "account": "حساب جاهز للاستخدام",
+      "accountType": "حساب جاهز",
+      "activation": "تسليم بيانات الدخول إلى حساب جاهز للاستخدام.",
+      "warranty": "بدون ضمان",
+      "credits": "30,000,000,000 Token",
+      "features": [
+        "رصيد معلن: 30,000,000,000 توكن حسب الباقة المختارة.",
+        "حساب Muse AI جاهز للاستخدام دون الحاجة لإنشاء حساب جديد.",
+        "مناسب للمساعدة في البرمجة وكتابة المحتوى وتحليل النصوص ضمن إمكانيات الحساب.",
+        "رصيد التوكنات حسب الباقة المختارة؛ راجع الرصيد الفعلي وشروط الاستهلاك عند التسليم.",
+        "لا يشمل العرض أي ضمان بعد التسليم."
+      ],
+      "featuresEn": [
+        "Advertised allocation: 30,000,000,000 tokens for this package.",
+        "Ready-to-use Muse AI account; no need to create a new account.",
+        "Assistance with coding, content drafting and text analysis within the account's enabled features.",
+        "The advertised token amount depends on the selected package; verify actual balance and usage rules at handover.",
+        "This store offer does not include a post-delivery warranty."
+      ],
+      "notes": [
+        "الأسعار تخص حسابات جاهزة يبيعها MASTER STORE وليست أسعارًا رسمية معلنة من Meta أو إثبات شراكة معها.",
+        "لم تُحدَّد مدة صلاحية الحساب؛ يُرجى تأكيد تاريخ الانتهاء وقواعد تجديد/استهلاك الرصيد قبل الدفع.",
+        "الحساب بدون ضمان بعد التسليم. راجع بيانات الوصول والرصيد المتاح أثناء الاستلام.",
+        "قد تختلف النماذج والأدوات المتاحة والحدود الفعلية حسب نوع الحساب وسياسات مزود الخدمة."
+      ],
+      "notesEn": [
+        "These are MASTER STORE prices for ready-made accounts, not official Meta list prices or evidence of an affiliation.",
+        "Account validity has not been specified; confirm expiration and token-usage/renewal conditions before purchase.",
+        "No post-delivery warranty is included. Check access and the available token balance at handover.",
+        "Available models, tools and practical usage limits can vary by account and provider rules."
+      ]
+    }
+  ]
+},
+{
   "id": "autodesk-apps",
   "name": "Autodesk Apps + 3ds Max",
   "category": "الصور والتصميم",
