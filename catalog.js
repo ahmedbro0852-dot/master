@@ -4343,16 +4343,18 @@ const products = [
       "أدوات للمعلمين"
     ]
   },
-  {
+{
   "id": "gemini-pro",
   "name": "Gemini Pro",
   "category": "AI Tools",
   "logo": "gemini",
   "logoUrl": "logos/gemini.svg?v=20261027-hq1",
   "status": "available",
-  "description": "باقات Google AI Pro «Gemini Pro» على إيميلك الشخصي: 18 شهرًا بسعر 300 جنيه وضمان شهر واحد، أو 3 شهور بسعر 200 جنيه وضمان 3 شهور. وتتوفر دعوة عائلية لمدة شهر بسعر 80 جنيه مع 1,000 كريدت ضمن رصيد العائلة المشترك وضمان شهر.",
+  "description": "باقات Gemini Pro على حساب Google الشخصي: سنتان (24 شهرًا) بسعر 300 جنيه، ويتطلب التفعيل تسليم بيانات الدخول بشكل آمن، مع ضمان شهر واحد. وتتوفر باقة 3 شهور بسعر 200 جنيه ودعوة عائلية لشهر بسعر 80 جنيه.",
   "notes": [
-    "عرض الـ18 شهرًا المتاح حاليًا سعره 300 جنيه وضمانه شهر واحد؛ الباقتان القديمتان بسعر 200 و250 جنيه انتهتا وغير متاحتين."
+    "عرض السنتين (24 شهرًا) بسعر 300 جنيه يحل محل عرض الـ18 شهرًا السابق بالسعر نفسه.",
+    "يتطلب تفعيل السنتين تقديم بيانات الدخول للحساب الشخصي بطريقة آمنة، ولا يجب إرسالها في التعليقات أو محادثات عامة.",
+    "هذا عرض من MASTER STORE وليس باقة رسمية مستقلة مدتها سنتان معلنة بسعر 300 جنيه من Google."
   ],
   "plans": [
     {
@@ -4486,40 +4488,42 @@ const products = [
       ]
     },
     {
-      "name": "Pro — 18 شهرًا على إيميلك — ضمان شهر",
+      "name": "Pro — سنتين (24 شهرًا) — تفعيل على حسابك",
       "planType": "Google AI Pro",
-      "duration": "18 شهر",
+      "duration": "24 شهر",
       "price": 300,
       "available": true,
-      "activation": "تفعيل Google AI Pro «Gemini Pro» لمدة 18 شهرًا على إيميلك الشخصي.",
-      "account": "حساب Google الشخصي على إيميلك",
-      "accountType": "على إيميلك الشخصي",
+      "activation": "يلزم تسليم بيانات تسجيل الدخول إلى حساب Google الشخصي بطريقة آمنة بعد إتمام الطلب لإجراء التفعيل.",
+      "account": "حساب Google الشخصي الخاص بالعميل",
+      "accountType": "تفعيل على حسابك الشخصي — يتطلب بيانات الدخول",
       "warranty": "ضمان لمدة شهر واحد",
       "features": [
-        "اشتراك Google AI Pro «Gemini Pro» لمدة 18 شهرًا.",
-        "تفعيل الاشتراك على حساب Google المرتبط بإيميلك الشخصي.",
-        "ضمان لمدة شهر واحد؛ مدة الضمان مستقلة عن مدة الاشتراك البالغة 18 شهرًا.",
-        "المساعدة في الكتابة والبحث والمذاكرة وتحليل الملفات ضمن أدوات وحدود Pro المتاحة لحسابك.",
-        "الرصيد وحدود أدوات الصور والفيديو والتخزين تُراجع داخل الحساب بعد التفعيل؛ لا يُنقل رصيد باقة أخرى تلقائيًا."
+        "اشتراك Gemini Pro لمدة سنتين (24 شهرًا) على حساب Google الشخصي.",
+        "يتم التفعيل مباشرة على حسابك الشخصي، وليس على حساب جاهز من المتجر.",
+        "يلزم تقديم بيانات تسجيل الدخول لتفعيل الباقة، عبر وسيلة آمنة يتم الاتفاق عليها بعد الطلب.",
+        "الكتابة والبحث والمذاكرة وتحليل الملفات ضمن أدوات وحدود Google AI Pro المتاحة.",
+        "ضمان لمدة شهر واحد وفق شروط العرض؛ مدة الضمان مستقلة عن مدة الاشتراك."
       ],
       "featuresEn": [
-        "Google AI Pro (Gemini Pro) for 18 months.",
-        "Activation on the Google account linked to your personal email.",
-        "A one-month warranty; coverage is separate from the 18-month subscription term.",
-        "Help with writing, research, study and file analysis within the Pro tools and limits available to your account.",
-        "Check credits, image/video limits and storage in the activated account; another plan’s allowance is not automatically included."
+        "Two years (24 months) of Gemini Pro access on your personal Google account.",
+        "Activation is applied to your existing account, not to a store-provided ready account.",
+        "Account login credentials are required through a secure handover process after ordering.",
+        "Writing, research, studying and file analysis within available Google AI Pro tools and limits.",
+        "One-month store warranty under the offer terms; it is separate from the subscription length."
       ],
       "notes": [
-        "يُراجع وضع الاشتراك الحالي وأهلية حساب Google قبل التفعيل.",
-        "الاشتراك 18 شهرًا، والضمان شهر واحد فقط وفق شروط العرض وسياسة المتجر.",
-        "لا يتضمن العرض عددًا محددًا من الكريدت أو دعوات عائلية إضافية.",
-        "أكمل أي تسجيل دخول أو موافقة مطلوبة بنفسك داخل Google؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات."
+        "يلزم تسليم بيانات الحساب لتفعيل الاشتراك. لا ترسل كلمة المرور أو أكواد التحقق في تعليقات عامة، وراجع طريقة التسليم الآمنة مع الدعم قبل الشراء.",
+        "تسليم بيانات حساب Google قد يتيح الوصول إلى Gmail وGoogle Drive والمعلومات الخاصة. استخدم حسابًا مناسبًا وتحقق من الجلسات وإعدادات الأمان بعد التنفيذ.",
+        "مدة الاشتراك 24 شهرًا؛ الضمان شهر واحد فقط وفق شروط العرض الحالية، وليس طوال السنتين.",
+        "التفعيل يعتمد على أهلية الحساب وبلده والاشتراكات الحالية، ويُراجع ذلك قبل الدفع.",
+        "الحدود وأرصدة أدوات الصور والفيديو والتخزين تعتمد على الخطة المفعلة؛ لا يُضمن رصيد محدد لم يُذكر في العرض."
       ],
       "notesEn": [
-        "Your current subscription and Google account eligibility are checked before activation.",
-        "The subscription lasts 18 months; the warranty lasts only one month under the offer terms and store policy.",
-        "This offer does not specify a credit quota or include additional family invitations.",
-        "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat."
+        "Login credentials are required for activation. Never share passwords or verification codes in public comments; confirm the secure transfer method with support before purchase.",
+        "Sharing Google credentials can expose Gmail, Google Drive, and personal data. Use an appropriate account, then review active sessions and security settings after fulfilment.",
+        "Subscription is 24 months; the current store warranty covers one month only, not the full two years.",
+        "Activation is subject to account eligibility, region and existing subscriptions, which are checked before payment.",
+        "Image/video tools, credits and storage depend on the actual activated plan; no unspecified credit allocation is guaranteed."
       ]
     }
   ],
@@ -4528,9 +4532,11 @@ const products = [
     "مساعد كتابة الكود",
     "محادثة ومساعد ذكي"
   ],
-  "descriptionEn": "Google AI Pro (Gemini Pro) on your personal email: 18 months for EGP 300 with a one-month warranty, or three months for EGP 200 with a three-month warranty. A one-month family invitation is also available for EGP 80 with 1,000 shared family credits and a one-month warranty.",
+  "descriptionEn": "Gemini Pro plans on your personal Google account: a 24-month (two-year) store offer for EGP 300 requiring secure account credentials for activation, with a one-month store warranty. Also available: three months for EGP 200 and a one-month family invitation for EGP 80.",
   "notesEn": [
-    "The currently available 18-month offer is EGP 300 with a one-month warranty; the older EGP 200 and EGP 250 offers have ended and remain unavailable."
+    "The 24-month EGP 300 offer replaces the previous 18-month offer at the same store price.",
+    "Activation requires account credentials through a secure process, not through public comments or chats.",
+    "This is a MASTER STORE offer, not a separately advertised official Google two-year package priced at EGP 300."
   ]
 },
 {

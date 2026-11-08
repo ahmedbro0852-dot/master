@@ -490,6 +490,18 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
 });
   function catalogText(value,kind,productId){
     const raw=String(value??"");
+    if(state.language==="en"&&productId==="gemini-pro"){
+      const gemini=window.MasterCatalog?.getProduct("gemini-pro");
+      if(kind==="description")return gemini?.descriptionEn||raw;
+      const plan=gemini?.plans?.[4];
+      for(const [ar,en] of [[gemini?.notes,gemini?.notesEn],[plan?.features,plan?.featuresEn],[plan?.notes,plan?.notesEn]]){
+        const index=(ar||[]).indexOf(raw);
+        if(index!==-1&&en?.[index])return en[index];
+      }
+      const replacements={"Pro — سنتين (24 شهرًا) — تفعيل على حسابك":"Pro — two years (24 months) — on your account","24 شهر":"24 months","حساب Google الشخصي الخاص بالعميل":"Customer's own Google account","تفعيل على حسابك الشخصي — يتطلب بيانات الدخول":"Direct activation on your account — login required","يلزم تسليم بيانات تسجيل الدخول إلى حساب Google الشخصي بطريقة آمنة بعد إتمام الطلب لإجراء التفعيل.":"Google account login details are required through a secure handover after ordering to complete activation."};
+      return replacements[raw]||raw;
+    }
+
     if(state.language==="en"&&productId==="google-ai-plus"){
       const plus=window.MasterCatalog?.getProduct("google-ai-plus");
       if(kind==="description")return plus?.descriptionEn||raw;
