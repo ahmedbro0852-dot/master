@@ -4533,92 +4533,101 @@ const products = [
     "The currently available 18-month offer is EGP 300 with a one-month warranty; the older EGP 200 and EGP 250 offers have ended and remain unavailable."
   ]
 },
-  {
-    "id": "google-ai-plus",
-    "name": "Google AI Plus",
-    "category": "AI Tools",
-    "logo": "gemini",
-    "logoUrl": "logos/gemini.svg?v=20261027-hq1",
-    "status": "available",
-    "description": "اشتراك Google AI Plus على إيميلك الشخصي: 6 شهور بسعر 150 جنيه أو 12 شهر بسعر 220 جنيه. راجع تفاصيل التفعيل والضمان قبل الدفع.",
-    "categories": [
-      "توليد صور بالذكاء الاصطناعي",
-      "محادثة ومساعد ذكي"
-    ],
-    "plans": [
-      {
-        "name": "Plus — 6 شهور على إيميلك",
-        "planType": "Google AI Plus",
-        "duration": "6 شهور",
-        "price": 150,
-        "available": true,
-        "activation": "تفعيل Google AI Plus لمدة 6 شهور على إيميلك الشخصي.",
-        "account": "حساب Google الشخصي على إيميلك",
-        "accountType": "تفعيل مباشر على حسابك",
-        "warranty": "مدة وشروط الضمان تُؤكد مع الدعم قبل الدفع",
-        "features": [
-          "اشتراك Google AI Plus لمدة 6 شهور.",
-          "تفعيل مباشر على حسابك وإيميلك الشخصي.",
-          "مزايا Gemini والأدوات المؤهلة وفق حدود باقة Plus المتاحة لحسابك.",
-          "استخدام إيميلك الشخصي دون تسليم حساب جاهز بديل."
-        ],
-        "notes": [
-          "يُراجع وضع الاشتراك الحالي وأهلية حساب Google قبل التفعيل.",
-          "هذا عرض Google AI Plus؛ حدود الميزات والتخزين والرصيد تُراجع حسب الباقة والحساب قبل الدفع.",
-          "لم تُحدد مدة ضمان لهذا العرض؛ تُؤكد مع الدعم قبل الدفع.",
-          "أكمل أي تسجيل دخول أو موافقة مطلوبة بنفسك داخل Google؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات."
-        ],
-        "featuresEn": [
-          "6 months of Google AI Plus.",
-          "Direct activation on your personal account and email.",
-          "Gemini and eligible tool benefits within Plus limits available to your account.",
-          "Use your personal email without receiving a replacement ready account."
-        ],
-        "notesEn": [
-          "Your current subscription and Google account eligibility are checked before activation.",
-          "This is Google AI Plus; review feature, storage and credit limits for the plan and account before payment.",
-          "No warranty term has been specified for this offer; confirm it with support before payment.",
-          "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat."
-        ]
-      },
-      {
-        "name": "Plus — 12 شهر على إيميلك",
-        "planType": "Google AI Plus",
-        "duration": "12 شهر",
-        "price": 220,
-        "available": true,
-        "activation": "تفعيل Google AI Plus لمدة 12 شهر على إيميلك الشخصي.",
-        "account": "حساب Google الشخصي على إيميلك",
-        "accountType": "تفعيل مباشر على حسابك",
-        "warranty": "مدة وشروط الضمان تُؤكد مع الدعم قبل الدفع",
-        "features": [
-          "اشتراك Google AI Plus لمدة 12 شهر.",
-          "تفعيل مباشر على حسابك وإيميلك الشخصي.",
-          "مزايا Gemini والأدوات المؤهلة وفق حدود باقة Plus المتاحة لحسابك.",
-          "استخدام إيميلك الشخصي دون تسليم حساب جاهز بديل."
-        ],
-        "notes": [
-          "يُراجع وضع الاشتراك الحالي وأهلية حساب Google قبل التفعيل.",
-          "هذا عرض Google AI Plus؛ حدود الميزات والتخزين والرصيد تُراجع حسب الباقة والحساب قبل الدفع.",
-          "لم تُحدد مدة ضمان لهذا العرض؛ تُؤكد مع الدعم قبل الدفع.",
-          "أكمل أي تسجيل دخول أو موافقة مطلوبة بنفسك داخل Google؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات."
-        ],
-        "featuresEn": [
-          "12 months of Google AI Plus.",
-          "Direct activation on your personal account and email.",
-          "Gemini and eligible tool benefits within Plus limits available to your account.",
-          "Use your personal email without receiving a replacement ready account."
-        ],
-        "notesEn": [
-          "Your current subscription and Google account eligibility are checked before activation.",
-          "This is Google AI Plus; review feature, storage and credit limits for the plan and account before payment.",
-          "No warranty term has been specified for this offer; confirm it with support before payment.",
-          "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat."
-        ]
-      }
-    ],
-    "descriptionEn": "Google AI Plus on your personal email: six months for EGP 150 or twelve months for EGP 220. Review activation and warranty details before payment."
-  },
+{
+  "id": "google-ai-plus",
+  "name": "Google AI Plus",
+  "category": "AI Tools",
+  "logo": "gemini",
+  "logoUrl": "logos/gemini.svg?v=20261027-hq1",
+  "status": "available",
+  "description": "عرض Google AI Plus الرسمي على إيميلك الشخصي: 6 شهور بتفعيل مباشر بسعر 130 جنيه بدل 150 جنيه، أو 12 شهرًا بسعر 220 جنيه. يشمل مزايا خطة Plus المتاحة لحسابك، ويُراجع التوافق والضمان قبل الدفع.",
+  "categories": [
+    "توليد صور بالذكاء الاصطناعي",
+    "محادثة ومساعد ذكي"
+  ],
+  "plans": [
+    {
+      "name": "Google AI Plus — 6 شهور — تفعيل مباشر على إيميلك",
+      "planType": "Google AI Plus",
+      "duration": "6 شهور",
+      "price": 130,
+      "available": true,
+      "activation": "تفعيل اشتراك Google AI Plus الرسمي لمدة 6 شهور مباشرة على إيميل Google الشخصي، بعد التحقق من أهلية الحساب.",
+      "account": "حساب Google الشخصي على إيميلك",
+      "accountType": "تفعيل مباشر على حسابك",
+      "warranty": "مدة وشروط الضمان تُؤكد مع الدعم قبل الدفع",
+      "features": [
+        "اشتراك Google AI Plus الرسمي لمدة 6 شهور على حسابك الشخصي.",
+        "تفعيل مباشر على بريدك المرتبط بحساب Google، وليس حسابًا جاهزًا.",
+        "إمكانات موسعة في Gemini تشمل الكتابة والمذاكرة والبحث وDeep Research ضمن حدود خطة Plus.",
+        "الوصول إلى مزايا Google Flow لإنشاء الصور والفيديو مع رصيد الاستخدام المخصص لخطة Plus.",
+        "مزايا إضافية في Gemini Notebook (المعروف سابقًا باسم NotebookLM) لتلخيص المصادر والدراسة وإنشاء التقارير.",
+        "مساعدة Gemini في Gmail وبعض تطبيقات Google المؤهلة حسب بلد الحساب.",
+        "مساحة Google One التخزينية المرتبطة بخطة Plus، وتختلف سعتها حسب الباقة المفعلة (400GB في الباقة الأساسية)."
+      ],
+      "notes": [
+        "يُتحقق من أهلية حساب Google وبلد الحساب والاشتراك الحالي قبل تفعيل الـ6 شهور.",
+        "الميزات الكاملة تعني مزايا Google AI Plus المعلنة للباقة، وليست جميع مزايا Pro أو Ultra. الأدوات والحدود تختلف حسب المنطقة والحساب.",
+        "رصيد Flow الشهري وحدود الصور والفيديو يتم التحقق منهما داخل الحساب حسب سياسة Google الحالية، وليس استخدامًا غير محدود.",
+        "مدة وشروط الضمان تُؤكد مع الدعم قبل الدفع، ولم يُحدد ضمان لهذا العرض بعد.",
+        "لا ترسل كلمة مرور Google أو رموز التحقق عبر الرسائل؛ أكمل أي خطوة دخول بنفسك على موقع Google."
+      ],
+      "featuresEn": [
+        "Six months of the official Google AI Plus subscription on your personal account.",
+        "Direct activation on your own Google email, not delivery of a ready-made account.",
+        "Expanded Gemini access for writing, study, research and Deep Research within Plus limits.",
+        "Access to eligible Google Flow image/video tools with the usage allowance for Plus.",
+        "Expanded Gemini Notebook (formerly NotebookLM) tools for sources, study, summaries and reports.",
+        "Gemini assistance in Gmail and other eligible Google apps, subject to region.",
+        "Google One storage associated with the activated Plus variant (400 GB for the base plan)."
+      ],
+      "notesEn": [
+        "Check Google account eligibility, country and any existing subscription before activation.",
+        "Full benefits means the benefits of Google AI Plus, not all Pro or Ultra tools; limits and availability vary by region and account.",
+        "Check monthly Flow credits and image/video limits on the account under Google's current policy; usage is not unlimited.",
+        "Confirm warranty coverage and term with support before payment; no specific warranty has been supplied.",
+        "Do not send Google passwords or verification codes over chat; complete sign-in yourself on Google's pages."
+      ],
+      "previousStorePrice": 150
+    },
+    {
+      "name": "Plus — 12 شهر على إيميلك",
+      "planType": "Google AI Plus",
+      "duration": "12 شهر",
+      "price": 220,
+      "available": true,
+      "activation": "تفعيل Google AI Plus لمدة 12 شهر على إيميلك الشخصي.",
+      "account": "حساب Google الشخصي على إيميلك",
+      "accountType": "تفعيل مباشر على حسابك",
+      "warranty": "مدة وشروط الضمان تُؤكد مع الدعم قبل الدفع",
+      "features": [
+        "اشتراك Google AI Plus لمدة 12 شهر.",
+        "تفعيل مباشر على حسابك وإيميلك الشخصي.",
+        "مزايا Gemini والأدوات المؤهلة وفق حدود باقة Plus المتاحة لحسابك.",
+        "استخدام إيميلك الشخصي دون تسليم حساب جاهز بديل."
+      ],
+      "notes": [
+        "يُراجع وضع الاشتراك الحالي وأهلية حساب Google قبل التفعيل.",
+        "هذا عرض Google AI Plus؛ حدود الميزات والتخزين والرصيد تُراجع حسب الباقة والحساب قبل الدفع.",
+        "لم تُحدد مدة ضمان لهذا العرض؛ تُؤكد مع الدعم قبل الدفع.",
+        "أكمل أي تسجيل دخول أو موافقة مطلوبة بنفسك داخل Google؛ لا ترسل كلمة المرور أو أكواد التحقق في الشات."
+      ],
+      "featuresEn": [
+        "12 months of Google AI Plus.",
+        "Direct activation on your personal account and email.",
+        "Gemini and eligible tool benefits within Plus limits available to your account.",
+        "Use your personal email without receiving a replacement ready account."
+      ],
+      "notesEn": [
+        "Your current subscription and Google account eligibility are checked before activation.",
+        "This is Google AI Plus; review feature, storage and credit limits for the plan and account before payment.",
+        "No warranty term has been specified for this offer; confirm it with support before payment.",
+        "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat."
+      ]
+    }
+  ],
+  "descriptionEn": "Google AI Plus activated directly on your personal Google account: 6 months for EGP 130 (previous store price EGP 150), or 12 months for EGP 220. Includes the Plus benefits available on your account; confirm eligibility and warranty before payment."
+},
   {
     "id": "claude-pro",
     "name": "Claude Pro",

@@ -490,6 +490,18 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
 });
   function catalogText(value,kind,productId){
     const raw=String(value??"");
+    if(state.language==="en"&&productId==="google-ai-plus"){
+      const plus=window.MasterCatalog?.getProduct("google-ai-plus");
+      if(kind==="description")return plus?.descriptionEn||raw;
+      const current=plus?.plans?.[0];
+      for(const [ar,en] of [[current?.features,current?.featuresEn],[current?.notes,current?.notesEn]]){
+        const index=(ar||[]).indexOf(raw);
+        if(index!==-1&&en?.[index])return en[index];
+      }
+      const terms={"Google AI Plus — 6 شهور — تفعيل مباشر على إيميلك":"Google AI Plus — 6 months — direct email activation","تفعيل اشتراك Google AI Plus الرسمي لمدة 6 شهور مباشرة على إيميل Google الشخصي، بعد التحقق من أهلية الحساب.":"Direct activation of the official Google AI Plus subscription for six months on your Google account after verifying eligibility."};
+      if(terms[raw])return terms[raw];
+    }
+
     if(state.language==="en"&&productId==="chatgpt-go"){
       const go=window.MasterCatalog?.getProduct("chatgpt-go");
       if(kind==="description")return go?.descriptionEn||raw;
