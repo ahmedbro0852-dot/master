@@ -1,5 +1,149 @@
 const products = [
 {
+  "id": "coursera-plus-trial-7d",
+  "name": "Coursera Plus — 7 Days Trial",
+  "category": "التعليم",
+  "categories": [
+    "كورسات وتعلم مهني"
+  ],
+  "logo": "coursera",
+  "logoUrl": "logos/coursera.svg?v=20261009-logo-review3",
+  "status": "available",
+  "description": "تجربة Coursera Plus لمدة 7 أيام بسعر خدمة المتجر 80 جنيه. وصول إلى أكثر من 10,000 دورة وبرنامج مؤهل أثناء التجربة. لا تصدر شهادات إتمام خلال التجربة.",
+  "descriptionEn": "Seven days of Coursera Plus trial access for EGP 80 as a MASTER STORE fulfilment fee. Explore 10,000+ eligible courses and programs. No course certificates can be earned during the free trial.",
+  "features": [
+    "وصول تجريبي لمدة 7 أيام إلى 10,000+ دورة وبرنامج مؤهل.",
+    "مجالات الذكاء الاصطناعي والأعمال والبرمجة وتطوير المهارات.",
+    "التعلم وإنجاز الأنشطة المسموح بها خلال الفترة التجريبية.",
+    "لا يمكن الحصول على شهادات إتمام أثناء فترة التجربة."
+  ],
+  "featuresEn": [
+    "Seven days of trial access to 10,000+ eligible courses and programs.",
+    "Subjects include AI, business, programming, and career skills.",
+    "Learn and complete eligible activities during the trial period.",
+    "Completion certificates cannot be earned during the trial."
+  ],
+  "notes": [
+    "80 جنيه هو مقابل تجهيز وتقديم التجربة من MASTER STORE؛ تجربة Coursera الرسمية مجانية للمؤهلين.",
+    "قد تحتاج بعض التجارب الرسمية إلى وسيلة دفع، وتتحول إلى اشتراك مدفوع تلقائيًا عند انتهاء 7 أيام إذا لم يتم إلغاؤها.",
+    "راجع أهلية حسابك وطريقة التفعيل والتسليم قبل الدفع.",
+    "لا تتضمن التجربة إصدار شهادات أو وصولًا دائمًا أو جميع برامج الدرجات العلمية."
+  ],
+  "notesEn": [
+    "EGP 80 is MASTER STORE's trial fulfilment charge; Coursera's official trial is free for eligible customers.",
+    "Official trials may require a payment method and may renew as paid subscriptions after seven days unless canceled.",
+    "Check account eligibility and the delivery method before payment.",
+    "The trial does not include certificates, lifetime access, or all degree programs."
+  ],
+  "plans": [
+    {
+      "name": "Coursera Plus Trial — تجربة 7 أيام",
+      "planType": "Free Trial Access",
+      "duration": "7 أيام",
+      "price": 80,
+      "available": true,
+      "account": "نوع الحساب يحدد قبل الشراء",
+      "accountType": "وصول تجريبي",
+      "activation": "تُوضح طريقة تفعيل أو تسليم التجربة قبل إتمام الطلب.",
+      "warranty": "شروط الضمان تُؤكد مع الدعم قبل الدفع",
+      "features": [
+        "10,000+ دورة وبرنامج مؤهل خلال 7 أيام.",
+        "تعلم عبر الإنترنت وفق حدود Coursera Plus Trial.",
+        "لا شهادات إتمام خلال التجربة."
+      ],
+      "featuresEn": [
+        "10,000+ eligible courses and programs for seven days.",
+        "Online learning within Coursera Plus trial limits.",
+        "No completion certificates during the trial."
+      ],
+      "notes": [
+        "سعر 80 جنيهًا هو رسوم توفير التجربة عبر المتجر وليس تكلفة رسمية تفرضها Coursera على التجربة المجانية.",
+        "التجربة رسمية للمؤهلين، وقد تتطلب وسيلة دفع وتُجدد مدفوعًا إن لم تُلغ قبل نهايتها.",
+        "طريقة التسليم والصلاحية والضمان تُؤكد قبل الدفع."
+      ],
+      "notesEn": [
+        "EGP 80 is a store fee, not Coursera's official free-trial price.",
+        "Official trial access may require payment details and convert to paid billing unless canceled.",
+        "Confirm delivery, eligibility and any store warranty before payment."
+      ]
+    }
+  ]
+},
+{
+  "id": "udemy-personal",
+  "name": "Udemy Personal Plan",
+  "category": "التعليم",
+  "categories": [
+    "كورسات وتعلم مهني"
+  ],
+  "logo": "udemy",
+  "logoUrl": "logos/udemy.svg?v=20261109-courses1",
+  "status": "available",
+  "description": "Udemy Personal Plan لمدة شهر بسعر 150 جنيه. آلاف الدورات الأعلى تقييمًا (توضح المنصة أكثر من 26,000 في صفحة الخطة)، أنشطة واختبارات، وشهادات إتمام باسم صاحب الحساب للدورات المؤهلة عند إكمالها.",
+  "descriptionEn": "One month of Udemy Personal Plan for EGP 150: access to thousands of curated high-rated courses (Udemy lists more than 26,000), exercises, tests, and downloadable completion certificates for eligible completed courses.",
+  "features": [
+    "وصول غير محدود خلال الشهر إلى آلاف الدورات المختارة داخل Personal Plan.",
+    "أكثر من 26,000 دورة مشمولة بحسب قائمة Udemy المنشورة، وقد يتغير العدد حسب البلد.",
+    "أنشطة عملية وتمارين واختبارات في الدورات المؤهلة.",
+    "شهادات إتمام باسم صاحب الحساب بعد إنهاء الدورات المؤهلة.",
+    "إمكانية تنزيل شهادات الإتمام في صورة PDF بعد استكمال متطلبات الدورة."
+  ],
+  "featuresEn": [
+    "Unlimited monthly access to curated courses within Personal Plan.",
+    "Udemy lists 26,000+ courses; exact availability can vary by region.",
+    "Practice activities, coding exercises and tests in eligible courses.",
+    "Completion certificates under the account holder's name for eligible finished courses.",
+    "Download eligible completion certificates as PDF after finishing course requirements."
+  ],
+  "notes": [
+    "ليست كل دورات Udemy مشمولة ضمن الخطة، ولا تحتفظ بالوصول للدورات بعد انتهاء الاشتراك.",
+    "عدد 28,000+ المذكور في بعض العروض ليس مضمونًا لحساب Personal Plan؛ يختلف العدد بحسب الدولة والتحديثات.",
+    "الشهادات للدورات المؤهلة بعد إتمامها، وهي شهادات إتمام وليست شهادات جامعية أو اعتمادًا مهنيًا.",
+    "تأكد من اسم صاحب حساب Udemy قبل الدراسة. يمكن تنزيل الشهادة، لكن لا يُضمن تحميل جميع ملفات أو فيديوهات الدورات.",
+    "نوع الحساب وطريقة التفعيل والضمان تُؤكد قبل الدفع."
+  ],
+  "notesEn": [
+    "Not all Udemy courses are part of Personal Plan; course access ends when subscription access expires.",
+    "Claims of 28,000+ courses vary; regional availability and Udemy's current catalog can differ.",
+    "Eligible completed courses receive completion certificates, not academic credentials or professional accreditation.",
+    "Check the account holder's Udemy name before studying. Certificates can be downloaded, but not necessarily course videos.",
+    "Confirm account type, delivery and warranty before payment."
+  ],
+  "plans": [
+    {
+      "name": "Udemy Personal — شهر",
+      "planType": "Personal Plan",
+      "duration": "1 شهر",
+      "price": 150,
+      "available": true,
+      "account": "نوع الحساب يُؤكد قبل الشراء",
+      "accountType": "اشتراك Udemy Personal",
+      "activation": "طريقة تفعيل أو تسليم حساب Udemy Personal يوضحها الدعم قبل الشراء.",
+      "warranty": "شروط الضمان تُؤكد مع الدعم قبل الدفع",
+      "features": [
+        "آلاف الدورات المختارة ضمن Personal Plan طوال مدة الشهر.",
+        "أنشطة تعليمية واختبارات في الدورات المشمولة.",
+        "شهادة إتمام باسم صاحب الحساب قابلة للتنزيل للدورات المؤهلة بعد إنهائها."
+      ],
+      "featuresEn": [
+        "Thousands of curated Personal Plan courses for one month.",
+        "Exercises and practice tests on eligible courses.",
+        "Downloadable completion certificates in the account holder's name on qualifying completed courses."
+      ],
+      "notes": [
+        "ليست كل دورات Udemy متاحة ضمن الخطة؛ عدد الدورات وميزاتها يخضع للمنطقة.",
+        "الشهادات بعد إنهاء المقررات المؤهلة فقط، وليست شهادات اعتماد أكاديمي.",
+        "تتوقف إمكانية الوصول عند انتهاء الاشتراك. راجع نوع الحساب وطريقة التفعيل قبل الدفع."
+      ],
+      "notesEn": [
+        "Not every Udemy course is included; available courses and features depend on region.",
+        "Certificates are issued only for eligible completed courses and are not academic accreditation.",
+        "Access ends after the subscription. Confirm account type and activation before payment."
+      ]
+    }
+  ]
+},
+{
   "id": "muse-ai",
   "name": "Muse AI by Meta",
   "category": "البرمجة والمواقع",

@@ -490,6 +490,16 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
 });
   function catalogText(value,kind,productId){
     const raw=String(value??"");
+    if(state.language==="en"&&['coursera-plus-trial-7d','udemy-personal'].includes(productId)){
+      const product=window.MasterCatalog?.getProduct(productId);
+      if(kind==="description")return product?.descriptionEn||raw;
+      const plan=product?.plans?.[0];
+      const pairs=[[product?.features,product?.featuresEn],[product?.notes,product?.notesEn],[plan?.features,plan?.featuresEn],[plan?.notes,plan?.notesEn]];
+      for(const [ar,en] of pairs){const i=(ar||[]).indexOf(raw);if(i!==-1&&en?.[i])return en[i];}
+      const terms={"Coursera Plus Trial — تجربة 7 أيام":"Coursera Plus Trial — 7 days","Udemy Personal — شهر":"Udemy Personal — one month","7 أيام":"7 days","1 شهر":"1 month","Free Trial Access":"Free Trial Access","وصول تجريبي":"Trial access","نوع الحساب يحدد قبل الشراء":"Account type confirmed before purchase","نوع الحساب يُؤكد قبل الشراء":"Account type confirmed before purchase","اشتراك Udemy Personal":"Udemy Personal subscription","شروط الضمان تُؤكد مع الدعم قبل الدفع":"Warranty terms confirmed with support before payment","تُوضح طريقة تفعيل أو تسليم التجربة قبل إتمام الطلب.":"Trial activation or delivery method is explained before checkout.","طريقة تفعيل أو تسليم حساب Udemy Personal يوضحها الدعم قبل الشراء.":"Support confirms Udemy Personal account activation or delivery before checkout."};
+      if(terms[raw])return terms[raw];
+    }
+
     if(state.language==="en"&&productId==="gemini-pro"){
       const gemini=window.MasterCatalog?.getProduct("gemini-pro");
       if(kind==="description")return gemini?.descriptionEn||raw;
