@@ -57,3 +57,6 @@ body.admin-app{background:#f3f5f9;color:#17283f;direction:rtl}.admin-app *{box-s
  .admin-app .admin-record .admin-actions{display:flex;flex-wrap:wrap;gap:8px}
  .admin-app .admin-record .admin-actions>*{flex:1 1 130px;min-height:44px}
 }
+
+/* Registered customer wallets */
+.admin-customer-intro{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border:1px solid #cadff3;border-radius:14px;padding:15px;background:#f4f9ff;margin:0 0 16px}.admin-customer-intro h2{font-size:17px;margin:0;color:#164876}.admin-customer-intro p{font-size:12px;line-height:1.8;color:#55718d;flex:1 1 270px;margin:0}.admin-customer-intro b{background:#1f5eff;color:white;padding:9px 13px;border-radius:11px;font-size:14px}.admin-record .admin-adjust{display:flex;gap:10px;flex-wrap:wrap;align-items:end}.admin-record .admin-adjust label{flex:1 1 175px}.admin-record .admin-adjust button{min-height:44px}@media(max-width:620px){.admin-record .admin-adjust label,.admin-record .admin-adjust button{width:100%}}
