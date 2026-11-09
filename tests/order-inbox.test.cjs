@@ -25,7 +25,7 @@ async function adminCase(){
  const root=element('root');root.querySelector=s=>element(s);root.querySelectorAll=()=>[];
  const calls=[],row={id:'fixture-order',product:'Fixture',amount_piasters:10000,quantity:1,plan:'Fixture',status:'pending_payment',customer:{name:'Test'},created_at:new Date().toISOString(),payment:'InstaPay',sales_outcome:'unreviewed',review_version:0};
  const C={ready:true,user:async()=>({id:'admin-fixture'}),unwrap:async p=>p,errorText:e=>e.message,client:{auth:{onAuthStateChange(){}},rpc:async(name,args)=>{calls.push({name,args});if(name==='master_store_admin_snapshot')return {stats:{orders:501,pending_orders:501,pending_topups:0,completed_sales:0},orders:[],customers:[],audit:[]};if(name==='master_store_order_inbox')return {orders:[row],total:501};return {};}}};
- vm.runInNewContext(source('admin.js'),{window:{MasterCloud:C,MasterStore:{escapeHtml:x=>String(x??''),formatCurrency:String}},document:{getElementById:()=>root,addEventListener(){}},location:{search:''},URLSearchParams,console,confirm:()=>true,setInterval(){},clearTimeout,setTimeout});
+ vm.runInNewContext(source('admin.js'),{window:{MasterCloud:C,MasterStore:{escapeHtml:x=>String(x??''),formatCurrency:String}},document:{getElementById:()=>root,addEventListener(){}},location:{search:'?tab=orders'},URLSearchParams,console,confirm:()=>true,setInterval(){},clearTimeout,setTimeout});
  await flush();await flush();
  assert(boxes.get('#adminRows').innerHTML.includes('طلب ضيف'));
  assert.equal(typeof reviewForm.onsubmit,'function');reviewForm.onsubmit({preventDefault(){}});await flush();await flush();
