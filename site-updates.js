@@ -144,6 +144,32 @@ document.addEventListener('masterstore:localechange',()=>{localize();top.setAttr
   updateBadge();
   if(isHome&&location.hash==='#store-search-mobile')window.setTimeout(focusSearch,150);
 })();
+/* Home subscription enquiries: prepare a WhatsApp message, never a purchase or payment. */
+(function(){
+  'use strict';
+  const form=document.getElementById('subscriptionRequestForm');if(!form)return;
+  const english=()=>window.MasterLocale?.getState?.()?.language==='en'||document.documentElement.lang==='en';
+  function localize(){
+    form.querySelectorAll('option[data-ar]').forEach(option=>{option.textContent=english()?option.dataset.en:option.dataset.ar;});
+    form.elements.service.placeholder=english()?'For example: a service name or its website':'مثلًا: اسم الخدمة أو موقعها';
+    form.elements.details.placeholder=english()?'Plan name, number of devices, or any requirements':'نوع الباقة أو عدد الأجهزة أو أي متطلبات';
+  }
+  document.addEventListener('masterstore:localechange',localize);localize();
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+    const service=form.elements.service.value.trim();
+    if(!service){form.elements.service.setCustomValidity(english()?'Enter the service name.':'اكتب اسم الاشتراك أو الخدمة.');form.elements.service.reportValidity();return;}
+    form.elements.service.setCustomValidity('');if(!form.reportValidity())return;
+    const duration=form.elements.duration.selectedOptions[0].textContent,details=form.elements.details.value.trim();
+    const text=[english()?'MASTER STORE — Subscription enquiry':'MASTER STORE — طلب اشتراك غير موجود',
+      (english()?'Service: ':'الاشتراك: ')+service,
+      (english()?'Duration: ':'المدة: ')+duration,
+      ...(details?[(english()?'Details: ':'التفاصيل: ')+details]:[]),
+      english()?'Please confirm availability and pricing before payment.':'يرجى تأكيد التوفر والسعر قبل أي دفع.'].join('\n');
+    window.location.assign('https://wa.me/201500950624?text='+encodeURIComponent(text));
+  });
+  form.elements.service.addEventListener('input',()=>form.elements.service.setCustomValidity(''));
+})();
 /* Keep checkout and support controls clear of the mobile keyboard. */
 (function(){
   'use strict';

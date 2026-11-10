@@ -33,7 +33,7 @@
 <script src="seo-config.js?v=20261026-guides-all1"></script>
 <link rel="stylesheet" href="product-prices.css?v=20261027-picsart-savings1">
   <link rel="stylesheet" href="/store-assistant.css?v=20261026-actions1">
-  <link rel="stylesheet" href="/site-updates.css?v=20261110-mobile-comfort1">
+  <link rel="stylesheet" href="/site-updates.css?v=20261110-subscription-request1">
 <link rel="stylesheet" href="/shopping-tools.css?v=20261025-usability1">
   <link rel="stylesheet" href="fresh-offers.css?v=20261101-sizing2">
 
@@ -190,7 +190,7 @@
       </div>
     </section>
 
-    <nav class="store-section-links" aria-label="اختصارات أقسام المتجر" data-no-translate="true"><a href="#best-offers"><span class="home-only-ar" lang="ar">أفضل العروض</span><span class="home-only-en" lang="en">Best offers</span></a><a href="#products"><span class="home-only-ar" lang="ar">كل الاشتراكات</span><span class="home-only-en" lang="en">All subscriptions</span></a><a href="/categories.html"><span class="home-only-ar" lang="ar">تصفح الأقسام</span><span class="home-only-en" lang="en">Browse categories</span></a><a href="#social-market"><span class="home-only-ar" lang="ar">جديد قريبًا</span><span class="home-only-en" lang="en">Coming soon</span></a><a href="#how"><span class="home-only-ar" lang="ar">طريقة الطلب</span><span class="home-only-en" lang="en">How to order</span></a></nav>
+    <nav class="store-section-links" aria-label="اختصارات أقسام المتجر" data-no-translate="true"><a href="#best-offers"><span class="home-only-ar" lang="ar">أفضل العروض</span><span class="home-only-en" lang="en">Best offers</span></a><a href="#products"><span class="home-only-ar" lang="ar">كل الاشتراكات</span><span class="home-only-en" lang="en">All subscriptions</span></a><a href="/categories.html"><span class="home-only-ar" lang="ar">تصفح الأقسام</span><span class="home-only-en" lang="en">Browse categories</span></a><a href="#request-subscription"><span class="home-only-ar" lang="ar">اطلب اشتراك</span><span class="home-only-en" lang="en">Request a service</span></a><a href="#social-market"><span class="home-only-ar" lang="ar">جديد قريبًا</span><span class="home-only-en" lang="en">Coming soon</span></a><a href="#how"><span class="home-only-ar" lang="ar">طريقة الطلب</span><span class="home-only-en" lang="en">How to order</span></a></nav>
 
     <section class="fresh-offers" id="freshOffers" aria-labelledby="freshOffersTitle" hidden><h2 id="freshOffersTitle">🆕 أحدث العروض | تخفيضات 🔥</h2><p class="fresh-offers-note"></p><div class="fresh-offers-grid"></div></section>
     <section class="best-offers" id="best-offers" aria-labelledby="bestOffersTitle"><h2 id="bestOffersTitle">🔥 أفضل العروض</h2><div id="bestOffersGrid" class="best-offers-grid"></div></section>
@@ -217,6 +217,32 @@
       <div class="grid" id="grid" aria-live="polite" aria-busy="true"></div>
       <div class="catalog-loading" id="catalogLoading" role="status">جاري تحميل العروض...</div>
       <div class="empty" id="empty">مفيش نتيجة مطابقة.</div>
+    </section>
+
+    <section class="subscription-request" id="request-subscription" aria-labelledby="subscriptionRequestTitle" data-no-translate="true">
+      <div class="subscription-request-copy">
+        <span class="subscription-request-icon" aria-hidden="true">＋</span>
+        <span class="subscription-request-kicker"><span class="home-only-ar">طلبات خاصة</span><span class="home-only-en">SPECIAL REQUESTS</span></span>
+        <h2 id="subscriptionRequestTitle"><span class="home-only-ar">اطلب اشتراك مش موجود</span><span class="home-only-en">Request a subscription</span></h2>
+        <p><span class="home-only-ar">مش لاقي الخدمة اللي محتاجها؟ ابعت اسم الاشتراك والمدة، وهنراجع التوفر والسعر ونرد عليك قبل أي دفع.</span><span class="home-only-en">Can't find the service you need? Send its name and duration. We'll confirm availability and pricing before any payment.</span></p>
+        <a href="https://wa.me/201500950624" target="_blank" rel="noopener noreferrer"><span class="home-only-ar">أو كلّمنا مباشرة على واتساب ←</span><span class="home-only-en">Or chat with us on WhatsApp →</span></a>
+      </div>
+      <form class="subscription-request-form" id="subscriptionRequestForm" aria-describedby="subscriptionRequestHelp">
+        <label for="requestedSubscription"><span class="home-only-ar">اسم الاشتراك أو الخدمة</span><span class="home-only-en">Subscription or service name</span></label>
+        <input id="requestedSubscription" name="service" type="text" required maxlength="120" autocomplete="off">
+        <label for="requestedDuration"><span class="home-only-ar">المدة المطلوبة</span><span class="home-only-en">Preferred duration</span></label>
+        <select id="requestedDuration" name="duration">
+          <option value="unsure" data-ar="مش متأكد — ساعدني أختار" data-en="Not sure — help me choose">مش متأكد — ساعدني أختار</option>
+          <option value="month" data-ar="شهر" data-en="1 month">شهر</option>
+          <option value="quarter" data-ar="٣ شهور" data-en="3 months">٣ شهور</option>
+          <option value="year" data-ar="سنة" data-en="1 year">سنة</option>
+          <option value="other" data-ar="مدة أخرى — هكتبها في التفاصيل" data-en="Other — I'll add it in the details">مدة أخرى — هكتبها في التفاصيل</option>
+        </select>
+        <label for="requestedDetails"><span class="home-only-ar">تفاصيل إضافية (اختياري)</span><span class="home-only-en">Extra details (optional)</span></label>
+        <textarea id="requestedDetails" name="details" maxlength="1000" rows="3"></textarea>
+        <button type="submit"><span class="home-only-ar">اطلبه على واتساب ↗</span><span class="home-only-en">Request via WhatsApp ↗</span></button>
+        <small id="subscriptionRequestHelp"><span class="home-only-ar">هنفتح رسالة جاهزة؛ اضغط «إرسال» داخل واتساب ليصلنا طلبك. ده استفسار عن التوفر، مش طلب شراء مؤكد.</span><span class="home-only-en">A prepared message will open. Tap Send in WhatsApp to contact us. This is an availability enquiry, not a confirmed purchase.</span></small>
+      </form>
     </section>
 
 <!-- Upcoming social account listings: compact preview, not a purchasable catalog. -->
@@ -313,6 +339,6 @@
 <script src="customer-stories.js?v=20261025-stories-fix1" defer></script>
 <script src="store-faq.js?v=20261018-searchable1"></script>
   <script src="/store-assistant.js?v=20261027-welcome1" defer></script>
-  <script src="/site-updates.js?v=20261110-mobile-comfort1" defer></script>
+  <script src="/site-updates.js?v=20261110-subscription-request1" defer></script>
 </body>
 </html>
