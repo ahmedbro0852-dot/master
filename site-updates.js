@@ -144,3 +144,22 @@ document.addEventListener('masterstore:localechange',()=>{localize();top.setAttr
   updateBadge();
   if(isHome&&location.hash==='#store-search-mobile')window.setTimeout(focusSearch,150);
 })();
+/* Keep checkout and support controls clear of the mobile keyboard. */
+(function(){
+  'use strict';
+  const root=document.documentElement;
+  const mobile=window.matchMedia('(max-width:700px)');
+  const viewport=window.visualViewport;
+  function update(){
+    const field=document.activeElement;
+    const editing=mobile.matches&&!!field?.matches?.('textarea,input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=submit]):not([type=reset]):not([type=range]):not([type=color]):not([type=file]),[contenteditable="true"]');
+    root.toggleAttribute('data-mobile-editing',editing);
+    if(mobile.matches)root.style.setProperty('--mobile-visible-height',Math.round(viewport?.height||window.innerHeight)+'px');
+    else root.style.removeProperty('--mobile-visible-height');
+  }
+  document.addEventListener('focusin',update);
+  document.addEventListener('focusout',()=>window.setTimeout(update,0));
+  viewport?.addEventListener('resize',update);
+  window.addEventListener('resize',update,{passive:true});
+  update();
+})();
