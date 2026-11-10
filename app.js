@@ -320,7 +320,7 @@
   empty?.addEventListener('click',event=>{
     if(!event.target.closest('[data-reset-search]'))return;
     if(search)search.value='';
-    selected='الكل';if(favoritesOnly)favoritesOnly.checked=false;if(availableOnly)availableOnly.checked=false;drawFilters();applyFilters();search?.focus();
+    selected='الكل';if(favoritesOnly)favoritesOnly.checked=false;if(availableOnly)availableOnly.checked=false;drawFilters();applyFilters();document.dispatchEvent(new Event('masterstore:searchreset'));search?.focus();
   });
   search?.setAttribute('aria-label',ui('ابحث عن خدمة','Search services'));
   search?.addEventListener('input',()=>{

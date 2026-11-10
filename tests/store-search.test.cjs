@@ -16,6 +16,8 @@ assert.equal(s.suggest(docs,'كانفا')[0].id,'canva-pro');
 assert.equal(s.suggest(docs,'chatgpt')[0].id,'chatgpt-plus');
 assert.equal(s.suggest(docs,'unlisted').length,0);
 assert(s.matches(docs[0],'شات بلس'));
+assert.equal(s.normalize('١٣١٬٠٠٠'),s.normalize('131000'));
+assert.equal(s.normalize('131,000'),s.normalize('131000'));
 assert(src.includes('aria-autocomplete'),'accessible suggestions required');
 assert(src.includes('event.key===\'ArrowDown\''),'keyboard option navigation required');
 const html=fs.readFileSync(__dirname+'/../index.html','utf8');
