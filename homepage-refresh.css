@@ -317,14 +317,27 @@ html[data-custom-theme] .social-preview-status{background:var(--theme-control);c
 @media(min-width:1180px){
  .topbar>.header-delivery-art{display:block;grid-column:2;grid-row:1;justify-self:start;position:relative;container-type:inline-size;width:calc(100% - 275px);height:64px;margin-block:-8px;margin-inline-start:14px;pointer-events:none;overflow:hidden}
  .header-delivery-art::before{content:"";position:absolute;inset:52px 0 3px;border-block:1px solid #e1ebfa;background:repeating-linear-gradient(90deg,transparent 0 15px,#bdd3f4 15px 33px,transparent 33px 48px) center/100% 2px no-repeat;opacity:.8}
- .header-delivery-art svg{display:block;position:absolute;left:0;top:0;width:220px;height:64px;overflow:visible;animation:header-delivery-route 9s linear infinite;will-change:transform}
+ .header-vehicle{position:absolute;left:0;top:0;width:220px;height:64px;will-change:transform}
+ .header-delivery-art svg{display:block;width:220px;height:64px;overflow:visible}
  .header-art-van{animation:header-van-bounce .65s ease-in-out infinite alternate;transform-box:view-box;transform-origin:center}
  .header-art-road{display:none}
  .header-art-wheel{transform-box:fill-box;transform-origin:center;animation:header-wheel-spin .8s linear infinite}
  .header-art-spark{animation:header-spark-glow 1.4s ease-in-out infinite alternate}
 }
-@keyframes header-delivery-route{0%{transform:translateX(-210px);opacity:0}8%{opacity:1}82%{opacity:1}96%,100%{transform:translateX(100cqw);opacity:0}}
+
 @keyframes header-van-bounce{from{transform:translateY(0)}to{transform:translateY(-1.5px)}}
 @keyframes header-wheel-spin{to{transform:rotate(360deg)}}
 @keyframes header-spark-glow{from{opacity:.25}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){.header-delivery-art svg,.header-art-van,.header-art-wheel,.header-art-spark{animation:none!important}.header-delivery-art svg{left:auto;right:0}}
+
+/* Subscription parcels share one clock with the vehicle for precise pickups. */
+.header-route-parcel{position:absolute;top:23px;left:0;width:34px;height:32px;display:grid;place-items:center;border:1px solid #c5d7f2;border-radius:8px;background:linear-gradient(145deg,#fff,#e9f2ff);box-shadow:2px 3px 0 #abc4e633,0 4px 9px #17355712;will-change:transform,opacity}
+.header-route-parcel::before{content:"";position:absolute;top:-4px;left:4px;right:3px;height:5px;background:#d2e4ff;transform:skewX(-30deg);border-radius:3px 3px 0 0}
+.header-route-parcel:nth-child(2){border-radius:50%;background:linear-gradient(145deg,#fff,#fff2d8);border-color:#eed5a6}
+.header-route-parcel:nth-child(2)::before{display:none}
+.header-route-parcel:nth-child(3){border-radius:9px 3px 9px 3px;background:linear-gradient(145deg,#fff,#e8f8f0);border-color:#b8dfcd}
+.header-route-parcel img{display:block;object-fit:contain;width:23px;height:23px}
+.header-pickup-flash{position:absolute;left:88px;top:0;width:35px;height:35px;border:2px solid #ffc85c;border-radius:50%;opacity:0;box-shadow:0 0 12px #ffd87880;pointer-events:none}
+.header-cargo{position:absolute;top:1px;left:77px;display:flex;gap:3px;direction:ltr}
+.header-cargo i{display:block;width:10px;height:10px;background:#ffce70;border:1px solid #e6a543;border-radius:2px;opacity:0;box-shadow:1px -2px 0 #ffe4a9}
+@media(prefers-reduced-motion:reduce){.header-vehicle{left:auto;right:0}.header-delivery-art svg{position:static}.header-pickup-flash,.header-cargo{display:none}}

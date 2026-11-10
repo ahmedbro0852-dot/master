@@ -95,5 +95,6 @@
   "delivery-admin.html",
   "delivery-admin.js",
   "delivery-demo.html",
-  "delivery-demo.js"
+  "delivery-demo.js",
+  "header-delivery.js"
 ]
