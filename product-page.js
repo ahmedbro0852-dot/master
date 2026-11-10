@@ -206,7 +206,7 @@
   }
 
   // First 20 services in the storefront's default order on 10 November 2026.
-  const fastDeliveryIds=new Set(['grok-cursor-premium','cursor-grok-x-bundle','supergrok-coursera-bundle','chatgpt-plus','chatgpt-go','chatgpt-teachers-k12','gemini-pro','google-ai-plus','hostinger','canva-pro','adobe-cc','capcut-pro','kling','microsoft-365','grok','claude-pro','spotify','youtube','perplexity-pro','freepik']);
+  const fastDeliveryIds=new Set(['grok-cursor-premium','cursor-grok-x-bundle','supergrok-coursera-bundle','chatgpt-plus','chatgpt-go','chatgpt-teachers-k12','gemini-pro','google-ai-plus','hostinger','canva-pro','adobe-cc','capcut-pro','kling','microsoft-365','grok','claude-pro','spotify','youtube','freepik']);
   const deliveryNotice=document.createElement('aside');
   if(deliveryNotice){
     deliveryNotice.className='product-delivery-notice';
