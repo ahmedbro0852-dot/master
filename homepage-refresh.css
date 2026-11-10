@@ -311,3 +311,15 @@ html[data-custom-theme] .social-preview-status{background:var(--theme-control);c
  .topbar .account-link{font-size:9px;padding-inline:4px}
 }
 
+
+/* Decorative branded delivery illustration fills desktop header whitespace only. */
+.header-delivery-art{display:none}
+@media(min-width:1180px){
+ .topbar>.header-delivery-art{display:block;grid-column:2;grid-row:1;justify-self:start;width:240px;height:64px;margin-block:-8px;margin-inline-start:14px;pointer-events:none;overflow:hidden}
+ .header-delivery-art svg{display:block;width:100%;height:100%;overflow:hidden}
+ .header-art-van{animation:header-van-arrive 1.15s cubic-bezier(.16,.8,.2,1) both;transform-box:view-box;transform-origin:center}
+ .header-art-spark{animation:header-spark-arrive .45s .9s both}
+}
+@keyframes header-van-arrive{from{transform:translateX(-250px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes header-spark-arrive{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){.header-art-van,.header-art-spark{animation:none!important}}
