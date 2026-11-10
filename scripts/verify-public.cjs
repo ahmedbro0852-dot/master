@@ -73,7 +73,7 @@ assert(fs.existsSync(path.join(out,'site-nav.js')),'shared navigation JS missing
 assert(!home.includes('id="visual-explore"')&&!home.includes('href="#visual-explore"'),'removed visual category explorer is still linked');
 const lovableCatalog=read('catalog.js');assert(lovableCatalog.includes('4800')&&lovableCatalog.includes('1100'),'Lovable updated prices missing');assert(home.includes('حتى 300 كريدت خلال السنة'),'Lovable annual activation label missing');
 assert(home.includes('id="heroCatalogSearch"')&&home.includes('id="catalogSearchSuggestions"'),'search entry points missing');
-assert(home.includes('store-search.js?v=20261110-search-review1')&&home.includes('store-search.css?v=20261105-autocomplete1'),'live search scripts not wired');
+assert(home.includes('store-search.js?v=20261110-mobile-search2')&&home.includes('store-search.css?v=20261105-autocomplete1'),'live search scripts not wired');
 for(const file of ['store-search.js','store-search.css'])assert(fs.existsSync(path.join(out,file)),'missing search asset: '+file);
 
 assert(!home.includes('store-visuals.css')&&!home.includes('visual-explore-card'),'deleted category artwork is not loaded');

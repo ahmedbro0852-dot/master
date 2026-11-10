@@ -223,3 +223,11 @@ html[data-custom-theme] .mobile-shortcuts a[aria-current="page"]{background:var(
 @media(pointer:coarse){
   .product-card .favorite-service{min-width:44px;min-height:44px}
 }
+
+/* Keep the catalog clear control reachable without squeezing the input. */
+.master-search-catalog .search input{flex:1;min-width:0}
+.master-search-catalog .master-search-clear{flex:none}
+@media(max-width:700px){
+  .master-search-catalog .search{gap:8px;padding-block:5px}
+  .master-search-catalog .master-search-clear{min-width:44px;min-height:44px}
+}

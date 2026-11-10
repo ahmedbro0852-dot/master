@@ -53,10 +53,11 @@ Promise.resolve(window.MasterCatalogReady).then(()=>{
   const q=String(value||'').slice(0,120);
   if(source!==hero)hero.value=q;
   if(source!==catalog)catalog.value=q;
-  const clear=hero.closest('[data-master-search]')?.querySelector('[data-search-clear]');if(clear)clear.hidden=!q;
+  for(const g of groups){const clear=g.querySelector('[data-search-clear]');if(clear)clear.hidden=!q;}
   if(source!==catalog)catalog.dispatchEvent(new Event('input',{bubbles:true}));
  }
  function jump(){
+  hero.blur?.();catalog.blur?.();
   const all=document.querySelector('#filters .filter[data-cat="الكل"]');if(all&&!all.classList.contains('active'))all.click();
   for(const key of ['availableOnly','favoritesOnly']){const input=document.getElementById(key);if(input?.checked){input.checked=false;input.dispatchEvent(new Event('change',{bubbles:true}));}}
   document.getElementById('products')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
@@ -68,7 +69,11 @@ Promise.resolve(window.MasterCatalogReady).then(()=>{
   input.addEventListener('input',()=>{setQuery(input.value,input);show(g);});
   input.addEventListener('focus',()=>show(g));
   g.addEventListener('focusout',event=>{if(!g.contains(event.relatedTarget))close();});
+  input.setAttribute('enterkeyhint','search');
+  input.setAttribute('autocapitalize','none');
+  input.setAttribute('spellcheck','false');
   input.addEventListener('keydown',event=>{
+   if(event.isComposing)return;
    if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();if(opened!==g)show(g);highlight(g,event.key==='ArrowDown'?active+1:(active<0?0:active)-1);}
    else if(event.key==='Enter'){event.preventDefault();const link=opened===g&&active>=0?options(g)[active]:null;if(link)link.click();else{setQuery(input.value,input);close();jump();}}
    else if(event.key==='Escape'&&opened===g){event.preventDefault();close();}
@@ -80,7 +85,9 @@ Promise.resolve(window.MasterCatalogReady).then(()=>{
  document.addEventListener('masterstore:searchreset',()=>{setQuery('',null);close();});
  document.addEventListener('pointerdown',event=>{if(!event.target.closest('[data-master-search]'))close();});
  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&opened)close();});
- document.addEventListener('masterstore:localechange',()=>{if(opened)show(opened);});
+ function localizeControls(){for(const g of groups)g.querySelector('[data-search-clear]')?.setAttribute('aria-label',t('مسح البحث','Clear search'));}
+ document.addEventListener('masterstore:localechange',()=>{localizeControls();if(opened)show(opened);});
+ localizeControls();
  if(catalog.value.trim())setQuery(catalog.value,null);
 }).catch(err=>console.warn('Service search suggestions unavailable:',err?.message||err));
 })();
