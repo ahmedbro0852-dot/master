@@ -4,7 +4,7 @@
   "type": "commonjs",
   "private": true,
   "scripts": {
-    "build": "node scripts/build-seo.cjs && node scripts/prepare-public.cjs && node scripts/verify-public.cjs && node tests/order-inbox.test.cjs && node tests/admin-control-center.test.cjs && node tests/master_crm_helpers.test.cjs && node tests/admin-bulk-pricing.test.cjs && node tests/store-search.test.cjs && node tests/store-search-interaction.test.cjs && node tests/mobile-viewport.test.cjs && node tests/crm-enhance.test.cjs",
+    "build": "node scripts/build-seo.cjs && node scripts/prepare-public.cjs && node scripts/verify-public.cjs && node tests/order-inbox.test.cjs && node tests/admin-control-center.test.cjs && node tests/master_crm_helpers.test.cjs && node tests/admin-bulk-pricing.test.cjs && node tests/store-search.test.cjs && node tests/store-search-interaction.test.cjs && node tests/mobile-viewport.test.cjs && node tests/delivery-sound.test.cjs && node tests/crm-enhance.test.cjs",
     "test": "node tests/store-assistant.test.cjs && node tests/store-knowledge.test.cjs && node tests/assistant-shopping.test.cjs && node tests/security-hardening.test.cjs && node tests/seo.test.cjs && node tests/lovable-promotion.test.cjs && node tests/service-guides.test.cjs && node tests/order-inbox.test.cjs && node tests/creative-services.test.cjs"
   }
 }
