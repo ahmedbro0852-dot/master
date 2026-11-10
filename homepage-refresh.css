@@ -343,13 +343,6 @@ html[data-custom-theme] .social-preview-status{background:var(--theme-control);c
 .header-cargo img{display:block;width:12px;height:12px;object-fit:contain}
 @media(prefers-reduced-motion:reduce){.header-vehicle{left:auto;right:0}.header-delivery-art svg{position:static}.header-pickup-flash,.header-cargo{display:none}}
 
-.header-delivery-sound{position:absolute;right:0;bottom:0;z-index:2;display:grid;place-items:center;width:28px;height:28px;padding:5px;min-height:0;border:1px solid #dce7f7;border-radius:50%;color:#6d84a3;background:#ffffffed;cursor:pointer;pointer-events:auto}
-.header-delivery-art .header-delivery-sound svg{width:16px;height:16px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
-.header-delivery-sound[aria-pressed="true"]{color:#2c67ca;background:#f0f6ff}
-.header-delivery-sound[aria-pressed="true"] .sound-slash,.header-delivery-sound[aria-pressed="false"] .sound-waves{display:none}
-.header-delivery-sound:hover{border-color:#8fb6ee}
-.header-delivery-sound:focus-visible{outline:2px solid #2469ed;outline-offset:2px}
-
 /* Soft collection confirmation and a quiet blue delivery lane. */
 .header-delivery-art::before{border-radius:12px;background-color:#f2f7ff55;box-shadow:0 4px 12px #cfdef51a}
 .header-pickup-flash{top:0;width:24px;height:24px;box-sizing:border-box;border-color:#7bceb3;box-shadow:0 0 10px #b0eed655;background:#ecfff6cc;display:grid;place-items:center;color:#298463}

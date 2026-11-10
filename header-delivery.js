@@ -7,7 +7,6 @@
   const parcels = [...scene.querySelectorAll('.header-route-parcel')];
   const cargo = [...scene.querySelectorAll('.header-cargo i')];
   const flash = scene.querySelector('.header-pickup-flash');
-  const soundButton = scene.querySelector('.header-delivery-sound');
   const desktop = matchMedia('(min-width:1180px)');
   const reduced = matchMedia('(prefers-reduced-motion:reduce)');
   const seen = new Set();
@@ -28,54 +27,7 @@
   const slots = [.22, .5, .78];
   let width = 0, elapsed = 0, previous = null, frame = 0, cycle = -1, inView = true;
   const clamp = n => Math.max(0, Math.min(1, n));
-  let audio = null, soundEnabled = false, userMuted = false;
-  const sounded = new Set();
-  function soundState() {
-    const english = document.documentElement.lang === 'en';
-    soundButton.setAttribute('aria-pressed', String(soundEnabled));
-    soundButton.setAttribute('aria-label', english
-      ? (soundEnabled ? 'Mute parcel pickup sound' : 'Enable parcel pickup sound')
-      : (soundEnabled ? 'كتم صوت استلام الطرود' : 'تشغيل صوت استلام الطرود'));
-  }
-  function enableSound() {
-    if (!desktop.matches || reduced.matches || document.hidden) return;
-    try {
-      const Audio = window.AudioContext || window.webkitAudioContext;
-      if (!Audio) { soundButton.hidden = true; return; }
-      audio ||= new Audio();
-      soundEnabled = true;
-      audio.resume().catch(() => { soundEnabled = false; soundState(); });
-      soundState();
-    } catch (_) { soundEnabled = false; soundState(); }
-  }
-  function chime() {
-    if (!soundEnabled || audio?.state !== 'running' || !running()) return;
-    // A very quiet, short sine note; no engine noise or background music.
-    const note = audio.createOscillator(), gain = audio.createGain(), now = audio.currentTime;
-    note.type = 'sine';
-    note.frequency.setValueAtTime(1046.5, now);
-    note.frequency.exponentialRampToValueAtTime(1396.9, now + .09);
-    gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(.009, now + .012);
-    gain.gain.exponentialRampToValueAtTime(.0001, now + .15);
-    note.connect(gain); gain.connect(audio.destination);
-    note.onended = () => { note.disconnect(); gain.disconnect(); };
-    note.start(now); note.stop(now + .16);
-  }
-  function armSound(event) {
-    if (soundButton.contains(event.target) || userMuted || soundEnabled) return;
-    enableSound();
-  }
-  document.addEventListener('pointerdown', armSound, { passive: true });
-  document.addEventListener('keydown', event => {
-    if (['Enter', ' '].includes(event.key)) armSound(event);
-  });
-  soundButton.addEventListener('click', () => {
-    if (soundEnabled) { userMuted = true; soundEnabled = false; soundState(); }
-    else { userMuted = false; enableSound(); }
-  });
   function setServices(round) {
-    sounded.clear();
     parcels.forEach((parcel, i) => {
       const product = services[(round * parcels.length + i) % services.length];
       parcel.querySelector('img').src = '/' + product.logoUrl;
@@ -103,7 +55,6 @@
       parcel.style.opacity = String(1 - clamp((t - .9) / .1));
       cargo[i].style.opacity = t > .94 ? '1' : '0';
       cargo[i].style.transform = `scale(${1 + .25 * Math.sin(clamp((t - .94) / .06) * Math.PI)})`;
-      if (t >= .94 && !sounded.has(i)) { sounded.add(i); chime(); }
       if (t > .65 && t < 1) {
         glow = Math.max(glow, Math.sin(clamp((t - .65) / .35) * Math.PI));
         flash.style.left = `${70 + i * 21}px`;
