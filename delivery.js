@@ -6,6 +6,23 @@ const rpc=(action,id=null,token=null,details={})=>C.unwrap(C.client.rpc('master_
 const errors={DELIVERY_UNAVAILABLE:'الرابط غير متاح أو انتهت صلاحيته. تواصل مع الدعم.',DELIVERY_CLAIMED:'تم استلام هذا الصندوق مسبقًا. ادخل بالحساب الذي استلمت به أو افتحه من نفس متصفح الاستلام.',RECIPIENT_REQUIRED:'اكتب الاسم ورقم واتساب صحيحًا مع رمز الدولة.',AUTH_REQUIRED:'سجّل دخولك لعرض طلبات حسابك.',INVALID_DELIVERY:'تعذر التحقق من بيانات الاستلام.',storage:'المتصفح يمنع حفظ مفتاح استرجاع التسليم. اسمح بتخزين بيانات الموقع أو جرّب متصفحًا آخر قبل الاستلام.'};
 function message(error){msg.className='error';msg.textContent=Object.entries(errors).find(([key])=>String(error?.message||error).includes(key))?.[1]||'تعذر إتمام العملية. جرّب مرة أخرى أو تواصل مع الدعم.';}
 function random(){const bytes=new Uint8Array(32);crypto.getRandomValues(bytes);return [...bytes].map(x=>x.toString(16).padStart(2,'0')).join('');}
+let muted=false,audio=null,revealTimer=null;
+function prepareSound(){
+ if(muted)return;
+ try{const Context=window.AudioContext||window.webkitAudioContext;if(!Context)return;audio=audio||new Context();audio.resume().catch(()=>{});}catch{}
+}
+function playOpenSound(){
+ if(muted||!audio||audio.state!=='running')return;
+ try{
+  const now=audio.currentTime;
+  [523.25,659.25,783.99,1046.5].forEach((frequency,index)=>{
+   const oscillator=audio.createOscillator(),gain=audio.createGain(),start=now+index*.09;
+   oscillator.type='sine';oscillator.frequency.value=frequency;
+   gain.gain.setValueAtTime(0,start);gain.gain.linearRampToValueAtTime(.055,start+.015);gain.gain.exponentialRampToValueAtTime(.001,start+.42);
+   oscillator.connect(gain);gain.connect(audio.destination);oscillator.start(start);oscillator.stop(start+.45);oscillator.onended=()=>{oscillator.disconnect();gain.disconnect();};
+  });
+ }catch{}
+}
 function showDelivery(data){
  root.classList.add('gift-open');
  root.innerHTML='<section class="panel"><span class="badge">تم الاستلام ✓</span><h1>'+esc(data.product)+'</h1><p>'+esc(data.plan)+'</p><h2>بيانات طلبك</h2><pre class="secret" id="deliveryPayload"></pre><button type="button" id="copyDelivery" class="secondary">نسخ بيانات الاستلام</button><p id="copyStatus" role="status"></p><h2>طريقة الاستخدام والتعليمات</h2><div class="instruction" id="deliveryInstructions"></div><p class="muted">احتفظ ببياناتك في مكان خاص. لا تشارك رابط الاستلام أو بيانات الدخول مع الآخرين.</p><a href="https://wa.me/201500950624" target="_blank" rel="noopener noreferrer">مساعدة من الدعم ←</a></section>';
@@ -30,15 +47,16 @@ async function start(){
  if(preview.claimed)throw new Error('DELIVERY_CLAIMED');
  let name=user?.user_metadata?.name||'';let phone='';
  if(user){try{const {data}=await C.client.from('master_store_profiles').select('name,phone').eq('user_id',user.id).maybeSingle();name=data?.name||name;phone=data?.phone||'';}catch{}}
- root.innerHTML='<section class="panel delivery-hero"><span class="kicker">طلبك جاهز من MASTER STORE</span><h1>'+esc(preview.product)+'</h1><p>'+esc(preview.plan)+'</p><div class="gift-scene"><div class="gift-box" aria-hidden="true"><span>∞</span></div></div><h2>افتح صندوق طلبك 🎁</h2><p>اكتب اسمك للاستلام'+(preview.needs_phone?' ورقم واتساب للتواصل':'')+'. '+(user?'سيتسجل الطلب في حسابك.':'يمكنك الاستلام كضيف بدون إنشاء حساب.')+'</p><form id="claimForm"><label>الاسم<input name="recipient_name" required maxlength="120" autocomplete="name"></label>'+(preview.needs_phone?'<label>رقم واتساب مع رمز الدولة<input name="recipient_phone" required type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="201XXXXXXXXX" dir="ltr"></label>':'')+'<button class="primary" type="submit">افتح الصندوق واستلم طلبك</button></form><p class="muted">الرابط خاص بصاحبه. لا تعيد إرساله. '+(!user?'احفظ بياناتك بعد الاستلام؛ الرجوع كضيف يتطلب نفس المتصفح.':'')+'</p></section>';
+ root.innerHTML='<section class="panel delivery-hero"><span class="kicker">طلبك جاهز من MASTER STORE</span><h1>'+esc(preview.product)+'</h1><p>'+esc(preview.plan)+'</p><div class="gift-scene" aria-hidden="true"><div class="gift-halo"></div><div class="gift-box"><div class="gift-face gift-front"></div><div class="gift-face gift-back"></div><div class="gift-face gift-left"></div><div class="gift-face gift-right"></div><div class="gift-face gift-bottom"></div><div class="gift-lid"><div class="gift-face gift-top"><span>✦</span></div><div class="gift-lid-edge"></div></div></div><span class="gift-particle particle-one">✦</span><span class="gift-particle particle-two">✧</span><span class="gift-particle particle-three">✦</span></div><button type="button" class="sound-toggle secondary" id="deliverySound" aria-pressed="false">الصوت مفعّل ♪ — اضغط للكتم</button><h2>افتح صندوق طلبك 🎁</h2><p>اكتب اسمك للاستلام'+(preview.needs_phone?' ورقم واتساب للتواصل':'')+'. '+(user?'سيتسجل الطلب في حسابك.':'يمكنك الاستلام كضيف بدون إنشاء حساب.')+'</p><form id="claimForm"><label>الاسم<input name="recipient_name" required maxlength="120" autocomplete="name"></label>'+(preview.needs_phone?'<label>رقم واتساب مع رمز الدولة<input name="recipient_phone" required type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="201XXXXXXXXX" dir="ltr"></label>':'')+'<button class="primary" type="submit">افتح الصندوق واستلم طلبك</button></form><p class="muted">الرابط خاص بصاحبه. لا تعيد إرساله. '+(!user?'احفظ بياناتك بعد الاستلام؛ الرجوع كضيف يتطلب نفس المتصفح.':'')+'</p></section>';
+ const soundButton=document.getElementById('deliverySound');soundButton.onclick=()=>{muted=!muted;soundButton.setAttribute('aria-pressed',String(muted));soundButton.textContent=muted?'الصوت مكتوم — اضغط للتفعيل':'الصوت مفعّل ♪ — اضغط للكتم';};
  const form=document.getElementById('claimForm');form.elements.recipient_name.value=name;if(preview.needs_phone)form.elements.recipient_phone.value=phone;
- form.onsubmit=async event=>{event.preventDefault();if(!form.reportValidity())return;const button=form.querySelector('button');button.disabled=true;msg.textContent='';try{
+ form.onsubmit=async event=>{event.preventDefault();if(!form.reportValidity())return;const button=form.querySelector('button');button.disabled=true;msg.textContent='';prepareSound();try{
   // Persist only a recovery key, never the delivered credentials. Do this before claiming.
   let key=savedKey||random();localStorage.setItem('masterDeliveryClaim:'+id,key);if(localStorage.getItem('masterDeliveryClaim:'+id)!==key)throw new Error('storage');savedKey=key;
   const result=await rpc('claim',id,token,{name:form.elements.recipient_name.value.trim(),phone:form.elements.recipient_phone?.value||'',claim_key:key});
-  root.classList.add('gift-open');button.textContent='تم فتح الصندوق ✓';setTimeout(()=>showDelivery(result),matchMedia('(prefers-reduced-motion: reduce)').matches?0:650);
+  root.classList.add('gift-open');playOpenSound();button.textContent='جاري فتح صندوقك…';revealTimer=setTimeout(()=>showDelivery(result),matchMedia('(prefers-reduced-motion: reduce)').matches?0:1400);
  }catch(error){message(error);button.disabled=false;}};
 }
 start().catch(message).finally(()=>root.setAttribute('aria-busy','false'));
-C?.client?.auth.onAuthStateChange(event=>{if(event==='SIGNED_OUT'){root.replaceChildren();msg.textContent='تم تسجيل الخروج. حدّث الصفحة للمتابعة.';}});
+C?.client?.auth.onAuthStateChange(event=>{if(event==='SIGNED_OUT'){clearTimeout(revealTimer);audio?.close().catch(()=>{});root.replaceChildren();msg.textContent='تم تسجيل الخروج. حدّث الصفحة للمتابعة.';}});
 })();
