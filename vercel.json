@@ -183,6 +183,19 @@
           "value": "no-referrer"
         }
       ]
+    },
+    {
+      "source": "/delivery-demo.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "private, no-store"
+        }
+      ]
     }
   ],
   "buildCommand": "npm run build",
