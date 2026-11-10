@@ -80,6 +80,7 @@
       const product = services[(round * parcels.length + i) % services.length];
       parcel.querySelector('img').src = '/' + product.logoUrl;
       parcel.dataset.service = product.logo;
+      cargo[i].querySelector('img').src = '/' + product.logoUrl;
     });
   }
   function draw(progress) {
@@ -93,16 +94,20 @@
       const t = clamp((progress - pickup) * duration / 900);
       const eased = t * t * (3 - 2 * t);
       const travel = Math.max(0, (width + 440) * (progress - pickup));
-      const destination = travel - 17 + i * 13;
+      const destination = travel - 17 + i * 21;
       const offset = t > 0 && t < 1 ? destination * eased : 0;
-      const lift = -21 * eased - 15 * Math.sin(t * Math.PI);
-      const shrink = .85 * clamp((t - .35) / .65);
+      const bob = t === 0 ? Math.sin(progress * Math.PI * 16 + i) * 1.5 : 0;
+      const lift = -30 * eased - 12 * Math.sin(t * Math.PI) + bob;
+      const shrink = .47 * eased;
       parcel.style.transform = `translate3d(${target - 17 + offset}px,${lift}px,0) scale(${1 - shrink}) rotate(${-10 * Math.sin(t * Math.PI)}deg)`;
-      parcel.style.opacity = String(1 - clamp((t - .78) / .22));
-      cargo[i].style.opacity = t > .82 ? '1' : '0';
-      cargo[i].style.transform = `scale(${1 + .25 * Math.sin(clamp((t - .82) / .18) * Math.PI)})`;
-      if (t >= .82 && !sounded.has(i)) { sounded.add(i); chime(); }
-      if (t > 0 && t < 1) glow = Math.max(glow, Math.sin(t * Math.PI));
+      parcel.style.opacity = String(1 - clamp((t - .9) / .1));
+      cargo[i].style.opacity = t > .94 ? '1' : '0';
+      cargo[i].style.transform = `scale(${1 + .25 * Math.sin(clamp((t - .94) / .06) * Math.PI)})`;
+      if (t >= .94 && !sounded.has(i)) { sounded.add(i); chime(); }
+      if (t > .65 && t < 1) {
+        glow = Math.max(glow, Math.sin(clamp((t - .65) / .35) * Math.PI));
+        flash.style.left = `${70 + i * 21}px`;
+      }
     });
     flash.style.opacity = String(glow);
     flash.style.transform = `scale(${.6 + glow * .65})`;

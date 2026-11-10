@@ -338,8 +338,9 @@ html[data-custom-theme] .social-preview-status{background:var(--theme-control);c
 .header-route-parcel:nth-child(3){border-radius:9px 3px 9px 3px;background:linear-gradient(145deg,#fff,#e8f8f0);border-color:#b8dfcd}
 .header-route-parcel img{display:block;object-fit:contain;width:23px;height:23px}
 .header-pickup-flash{position:absolute;left:88px;top:0;width:35px;height:35px;border:2px solid #ffc85c;border-radius:50%;opacity:0;box-shadow:0 0 12px #ffd87880;pointer-events:none}
-.header-cargo{position:absolute;top:1px;left:77px;display:flex;gap:3px;direction:ltr}
-.header-cargo i{display:block;width:10px;height:10px;background:#ffce70;border:1px solid #e6a543;border-radius:2px;opacity:0;box-shadow:1px -2px 0 #ffe4a9}
+.header-cargo{position:absolute;top:0;left:74px;display:flex;gap:3px;direction:ltr}
+.header-cargo i{display:grid;place-items:center;width:18px;height:17px;box-sizing:border-box;background:linear-gradient(135deg,#fff,#edf4ff);border:1px solid #a9c7ef;border-radius:4px;opacity:0;box-shadow:1px -1px 0 #dceaff,0 2px 3px #17499a12}
+.header-cargo img{display:block;width:12px;height:12px;object-fit:contain}
 @media(prefers-reduced-motion:reduce){.header-vehicle{left:auto;right:0}.header-delivery-art svg{position:static}.header-pickup-flash,.header-cargo{display:none}}
 
 .header-delivery-sound{position:absolute;right:0;bottom:0;z-index:2;display:grid;place-items:center;width:28px;height:28px;padding:5px;min-height:0;border:1px solid #dce7f7;border-radius:50%;color:#6d84a3;background:#ffffffed;cursor:pointer;pointer-events:auto}
@@ -348,3 +349,9 @@ html[data-custom-theme] .social-preview-status{background:var(--theme-control);c
 .header-delivery-sound[aria-pressed="true"] .sound-slash,.header-delivery-sound[aria-pressed="false"] .sound-waves{display:none}
 .header-delivery-sound:hover{border-color:#8fb6ee}
 .header-delivery-sound:focus-visible{outline:2px solid #2469ed;outline-offset:2px}
+
+/* Soft collection confirmation and a quiet blue delivery lane. */
+.header-delivery-art::before{border-radius:12px;background-color:#f2f7ff55;box-shadow:0 4px 12px #cfdef51a}
+.header-pickup-flash{top:0;width:24px;height:24px;box-sizing:border-box;border-color:#7bceb3;box-shadow:0 0 10px #b0eed655;background:#ecfff6cc;display:grid;place-items:center;color:#298463}
+.header-pickup-flash::after{content:"✓";font:700 13px/1 sans-serif}
+.header-route-parcel{box-shadow:2px 3px 0 #abc4e633,0 5px 10px #17355714}
