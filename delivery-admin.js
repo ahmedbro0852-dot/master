@@ -28,7 +28,7 @@ async function start(){
   const box=document.getElementById('deliveryCreated');box.hidden=false;box.innerHTML='<h2>الرابط جاهز للإرسال</h2><p>انسخ الرابط قبل مغادرة الصفحة. يُرسل إلى صاحب الطلب فقط.</p><input class="link-output" readonly aria-label="رابط التسليم الخاص"><div class="row"><button class="secondary" id="copyLink" type="button">نسخ الرابط</button><a id="sendLink" target="_blank" rel="noopener noreferrer">افتح واتساب لإرسال الرابط ←</a></div>';
   box.querySelector('input').value=url.href;document.getElementById('copyLink').onclick=async()=>{try{await navigator.clipboard.writeText(url.href);message('تم نسخ الرابط.');}catch{box.querySelector('input').select();message('حدّد الرابط وانسخه يدويًا.');}};
   const phone=pending.data.phone.replace(/[^0-9]/g,''),text='طلبك جاهز من MASTER STORE 🎁\n'+pending.data.product+'\nافتح رابط الاستلام الخاص بك:\n'+url.href+'\nلا تشارك الرابط مع أي شخص.';document.getElementById('sendLink').href='https://wa.me/'+phone+'?text='+encodeURIComponent(text);
-  form.reset();pending=null;message('تم تسجيل الطلب المدفوع وإنشاء صندوق التسليم.');await records();
+  form.reset();pending=null;message('تم تسجيل الطلب المدفوع وإنشاء صندوق التسليم.');await records().catch(()=>message('الرابط اتعمل بنجاح. تعذر تحديث السجل الآن؛ انسخ الرابط ثم اضغط تحديث السجل.'));
  }catch(error){message(errorText(error),true);}finally{busy=false;button.disabled=false;fields.forEach(x=>x.disabled=false);}};
  document.getElementById('refreshDeliveries').onclick=()=>records().catch(error=>message(errorText(error),true));await records();
 }
