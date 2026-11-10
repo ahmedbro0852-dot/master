@@ -170,8 +170,8 @@
   }
 
   function cardMarkup(product){
-    const active=product.status==='available'&&(product.plans||[]).length>0;
     const plan=cheapestPlan(product);
+    const active=product.status==='available'&&!!plan;
     const status=tr(Catalog.statusLabel(product.status),'status',product.id);
     const price=active&&plan?Store.planMoney(plan):'—';
     const action=active
@@ -181,7 +181,7 @@
       (Shopping?.button(product)||'')+
       (product.id==='elevenlabs'&&product.plans?.[2]?.offerEndsAt&&product.plans?.[2]?.available!==false?'<p class="plan-saving">'+ui('⏰ عرض مؤقت · الحجز خلال 24 ساعة · الاشتراك شهر كامل','⏰ Limited-time offer · Book within 24 hours · 1-month subscription')+'</p>':'')+
       '<div class="card-top">'+logoMarkup(product)+'<h3 class="service-name" dir="auto">'+esc(product.name)+'</h3></div>'+
-      (product.id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">كورسيرا سنة + جيمناي ٣ شهور + كانفا ٣ سنين</p>':'')+(product.id==='supergrok-coursera-bundle'?'<p class="bundle-card-summary">'+ui('شهر لكل اشتراك · حسابات جاهزة · ضمان كامل','One month each · Ready accounts · Full warranty')+'</p>':'')+'<div class="light-meta">'+(active&&plan?Store.priceMarkup(plan):'<strong>'+esc(price)+'</strong>')+'</div>'+
+      (product.id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">كورسيرا سنة + جيمناي ٣ شهور + كانفا ٣ سنين</p>':'')+(product.id==='supergrok-coursera-bundle'?'<p class="bundle-card-summary">'+ui('شهر لكل اشتراك · حسابات جاهزة · ضمان كامل','One month each · Ready accounts · Full warranty')+'</p>':'')+'<div class="light-meta">'+(active&&plan?'<div class="service-price-stack"><small>'+ui('يبدأ من','From')+'</small>'+Store.priceMarkup(plan)+'<span class="service-price-duration">'+esc(tr(plan.duration||plan.name||'','duration',product.id))+'</span></div>':'<strong>'+esc(price)+'</strong>')+'</div>'+
       (product.id==='picsart'&&product.plans?.[4]?.available!==false&&Store.officialDiscount(product.plans[4])?.percent>0?'<p class="plan-saving picsart-saving">'+ui('توفير '+Store.officialDiscount(product.plans[4]).percent+'% على باقة السنة','Save '+Store.officialDiscount(product.plans[4]).percent+'% on the annual plan')+'</p>':'')+
       '<div class="card-bottom light-bottom">'+action+'</div>'+
     '</article>';
@@ -252,13 +252,15 @@
     if(url.href!==location.href)history.replaceState(history.state,'',url);
     const count=document.getElementById('catalogResultCount');
     if(count)count.textContent=ui('عرض '+visible+' من '+products.length+' خدمة', 'Showing '+visible+' of '+products.length+' services');
+    const reset=document.getElementById('catalogReset');
+    if(reset){reset.hidden=!(q||selected!=='الكل'||availableOnly?.checked||favoritesOnly?.checked||(sort&&sort.value!=='featured'));reset.textContent=ui('مسح الفلاتر ×','Clear filters ×');}
     const availableLabel=document.getElementById('availableOnlyLabel');
     if(availableLabel)availableLabel.textContent=ui('المتاح فقط','Available only');
     const favoritesLabel=document.getElementById('favoritesOnlyLabel');
     if(favoritesLabel)favoritesLabel.textContent=ui('المفضلة','Favorites')+' ('+(Shopping?.read('favorites').filter(id=>Catalog.getProduct(id)&&!Catalog.getProduct(id).redirectTo).length||0)+')';
     if(empty){
       empty.hidden=visible>0;
-      empty.innerHTML='<p>'+(favoritesOnly?.checked?ui('مفيش خدمات مطابقة في المفضلة. احفظ الخدمات بعلامة القلب أو اعرض كل الخدمات.','No matching favorites. Save services with the heart button or browse all services.'):ui('مفيش نتيجة مطابقة. جرّب اسم تاني أو اعرض كل الخدمات.','No matching results. Try another name or browse all services.'))+'</p><button type="button" class="filter" data-reset-search>'+ui('عرض كل الخدمات','Show all services')+'</button>';
+      empty.innerHTML='<p>'+(favoritesOnly?.checked?ui('مفيش خدمات مطابقة في المفضلة. احفظ الخدمات بعلامة القلب أو اعرض كل الخدمات.','No matching favorites. Save services with the heart button or browse all services.'):ui('مفيش نتيجة مطابقة. جرّب اسم تاني أو اعرض كل الخدمات.','No matching results. Try another name or browse all services.'))+'</p><button type="button" class="filter" data-reset-search>'+ui('عرض كل الخدمات','Show all services')+'</button><a class="empty-request" href="#request-subscription">'+ui('اطلب اشتراك مش موجود ←','Request a missing subscription →')+'</a>';
     }
   }
 
@@ -317,9 +319,10 @@
     const link=event.target.closest('.product-card')?.querySelector('a.card-btn');
     if(link)link.click();
   });
-  empty?.addEventListener('click',event=>{
+  document.getElementById('products')?.addEventListener('click',event=>{
     if(!event.target.closest('[data-reset-search]'))return;
     if(search)search.value='';
+    if(sort){sort.value='featured';lastSortMode=null;}
     selected='الكل';if(favoritesOnly)favoritesOnly.checked=false;if(availableOnly)availableOnly.checked=false;drawFilters();applyFilters();document.dispatchEvent(new Event('masterstore:searchreset'));search?.focus();
   });
   search?.setAttribute('aria-label',ui('ابحث عن خدمة','Search services'));

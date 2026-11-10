@@ -348,3 +348,27 @@ html[data-custom-theme] .social-preview-status{background:var(--theme-control);c
 .header-pickup-flash{top:0;width:24px;height:24px;box-sizing:border-box;border-color:#7bceb3;box-shadow:0 0 10px #b0eed655;background:#ecfff6cc;display:grid;place-items:center;color:#298463}
 .header-pickup-flash::after{content:"✓";font:700 13px/1 sans-serif}
 .header-route-parcel{box-shadow:2px 3px 0 #abc4e633,0 5px 10px #17355714}
+
+/* Clear price context and easier catalog controls without changing plan terms. */
+.service-price-stack{display:flex;flex-direction:column;align-items:center;gap:4px;width:100%}
+.service-price-stack>small{font-size:11px;color:var(--muted,#62728a);font-weight:500}
+.service-price-duration{font-size:11px;line-height:1.6;color:var(--muted,#62728a);max-width:100%;overflow-wrap:anywhere;text-align:center}
+.catalog-reset{display:inline-flex;align-items:center;min-height:40px;margin:0 0 16px;padding:7px 14px;border:1px solid var(--line,#dce7f5);border-radius:12px;background:var(--card,#fff);color:var(--ink,#183457);font:inherit;font-size:12px;cursor:pointer}
+.catalog-reset[hidden],.catalog .empty[hidden]{display:none!important}
+.catalog-reset:hover{border-color:#84adea;background:var(--theme-soft,#f1f6ff)}
+.catalog-reset:focus-visible,.empty-request:focus-visible{outline:3px solid #79a5f2;outline-offset:3px}
+.empty-request{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin:8px 12px;padding:8px;color:var(--theme-accent,#2469ed);font-size:13px;font-weight:700;text-decoration:none}
+.catalog .empty{padding:26px 16px;border:1px dashed var(--line,#dce7f5);border-radius:18px;background:var(--card,#fff)}
+@media(max-width:700px){
+ .simple-service-card .service-price-stack{align-items:flex-end}
+ .simple-service-card .service-price-duration{text-align:end;font-size:11px}
+ .simple-service-card .card-top{padding-inline-end:5px}
+ .simple-service-card .card-bottom{border-top:1px solid var(--line,#e7edf6);padding-top:10px}
+ #filters .filter{min-height:44px;display:inline-flex;align-items:center;gap:6px}
+ .catalog-overview{gap:10px;align-items:center}
+ .catalog-overview>label{min-height:44px;display:inline-flex;align-items:center;gap:7px}
+ .catalog-overview input[type=checkbox]{width:18px;height:18px;accent-color:#2469ed}
+ .catalog-sort-compact select{min-height:44px;max-width:100%}
+ .catalog .search input,.master-search-input{font-size:16px!important}
+ .catalog-reset{min-height:44px;margin-bottom:12px}
+}
