@@ -205,17 +205,20 @@
     return '<div><dt>'+label+'</dt><dd>'+value+note+sourceLink+'</dd></div>';
   }
 
-  const deliveryNotice=p.id==='coursera'?document.createElement('aside'):null;
+  // First 20 services in the storefront's default order on 10 November 2026.
+  const fastDeliveryIds=new Set(['grok-cursor-premium','cursor-grok-x-bundle','supergrok-coursera-bundle','chatgpt-plus','chatgpt-go','chatgpt-teachers-k12','gemini-pro','google-ai-plus','hostinger','canva-pro','adobe-cc','capcut-pro','kling','microsoft-365','grok','claude-pro','spotify','youtube','perplexity-pro','freepik']);
+  const deliveryNotice=document.createElement('aside');
   if(deliveryNotice){
-    deliveryNotice.className='coursera-delivery-notice';
+    deliveryNotice.className='product-delivery-notice';
     deliveryNotice.setAttribute('role','status');
     deliveryNotice.setAttribute('data-no-translate','true');
     root.querySelector('.product-layout').before(deliveryNotice);
   }
   function updateDeliveryNotice(plan){
     if(!deliveryNotice)return;
-    deliveryNotice.hidden=![0,2].includes(plans.indexOf(plan))||!active||plan?.available===false;
-    deliveryNotice.innerHTML='<div class="delivery-drive" aria-hidden="true"><span class="delivery-drive-halo"></span><div class="delivery-truck"><span class="delivery-trails"></span><span class="delivery-cargo"><img src="/master-store-logo.svg" alt="" width="94" height="32" loading="lazy"></span><span class="delivery-cab"><i></i></span><span class="delivery-bumper"></span><span class="delivery-wheel wheel-rear"></span><span class="delivery-wheel wheel-front"></span><span class="delivery-carton"><i></i></span></div><span class="delivery-road"></span><span class="delivery-arrived">✓</span></div><div class="delivery-copy"><span class="delivery-stock">'+ui('● الحساب متوفر بالفعل','● Account in stock')+'</span><strong>'+ui('كورسيرا جاهز للتسليم الفوري','Coursera is ready for immediate delivery')+'</strong><p>'+ui('حساب كورسيرا جاهز للاستخدام، يُسلَّم لك فور تأكيد الدفع من الإدارة. متاح لباقة السنة بضمان ٤ شهور أو سنة.','Your Coursera account is ready to use and will be delivered as soon as administration confirms payment. Available for annual plans with a 4-month or one-year warranty.')+'</p><a href="https://wa.me/201500950624?text='+encodeURIComponent(ui('عايز أراجع الدفع والتوفر للتسليم الفوري لكورسيرا','I would like to check payment and availability for immediate Coursera delivery'))+'" target="_blank" rel="noopener noreferrer">'+ui('أكد الدفع واستلم حسابك ←','Confirm payment and receive your account →')+'</a><small>'+ui('يبدأ التسليم بعد تأكيد الإدارة وصول التحويل.','Delivery starts after administration confirms the transfer has arrived.')+'</small></div>';
+    deliveryNotice.hidden=!active||!plan||plan.hidden||plan.available===false;
+    const fast=fastDeliveryIds.has(p.id);
+    deliveryNotice.innerHTML='<div class="delivery-drive" aria-hidden="true"><span class="delivery-drive-halo"></span><div class="delivery-truck"><span class="delivery-trails"></span><span class="delivery-cargo"><img src="/master-store-logo.svg" alt="" width="94" height="32" loading="lazy"></span><span class="delivery-cab"><i></i></span><span class="delivery-bumper"></span><span class="delivery-wheel wheel-rear"></span><span class="delivery-wheel wheel-front"></span><span class="delivery-carton"><i></i></span></div><span class="delivery-road"></span><span class="delivery-arrived">✓</span></div><div class="delivery-copy"><span class="delivery-stock">'+ui('🚚 وقت التجهيز والتسليم المتوقع','🚚 Estimated preparation and delivery')+'</span><strong>'+ui(fast?'٥–١٠ دقائق':'١٠ دقائق إلى ساعة',fast?'5–10 minutes':'10 minutes to 1 hour')+'</strong><p>'+ui('نجهّز طلبك بعد تأكيد الدفع من الإدارة. المدة تقديرية وتعتمد على توفر الباقة وطريقة التفعيل.','We prepare your order after administration confirms payment. Timing is estimated and depends on plan availability and activation method.')+'</p><a href="https://wa.me/201500950624?text='+encodeURIComponent(ui('أرغب في تأكيد الدفع ووقت تجهيز طلب ','Please confirm payment and preparation time for ')+p.name+' — '+(plan?.name||plan?.duration||''))+'" target="_blank" rel="noopener noreferrer">'+ui('تابع تجهيز طلبك على واتساب ←','Follow up on your order via WhatsApp →')+'</a><small>'+ui('تبدأ المدة بعد تأكيد وصول التحويل، وليست من وقت إرسال الطلب.','The estimate starts after transfer confirmation, not when the order is submitted.')+'</small></div>';
   }
   function selectedPlan(){
     const r=radios.find(x=>x.checked);
