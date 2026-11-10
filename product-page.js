@@ -80,6 +80,13 @@
   const requestedPlan=Number(params.get('plan'));
   const initialPlan=Number.isInteger(requestedPlan)&&requestedPlan>=0&&requestedPlan<plans.length&&plans[requestedPlan].available!==false&&!plans[requestedPlan].hidden?requestedPlan:Math.max(0,plans.findIndex(x=>x.available!==false&&!x.hidden));
 
+  function planFactsMarkup(plan){
+    const esc=MasterStore.escapeHtml;
+    return '<span class="plan-quick-facts"><span>'+esc(tr(plan.duration||'يُؤكد قبل الدفع','duration'))+'</span><span>'+esc(tr(subscriptionType(plan),'accountType'))+'</span><span>'+ui('الضمان: ','Warranty: ')+esc(tr(plan.warranty||'يُؤكد قبل الدفع','warranty'))+'</span></span>'+
+      '<span class="plan-selection-state">'+ui('✓ الباقة المختارة','✓ Selected plan')+'</span>'+
+      (plan.available===false?'<span class="plan-unavailable-state">'+ui('غير متاحة حاليًا','Currently unavailable')+'</span>':'');
+  }
+
   root.innerHTML=
     '<section class="product-hero '+(p.id==='gemini-coursera-bundle'?'bundle-hero':'')+'">'+
       '<a class="back-link" href="index.html#products">'+ui('← كل المنتجات','← All products')+'</a>'+
@@ -87,11 +94,11 @@
       '<span class="status '+(p.status==='available'?'ok':p.status==='soon'?'soon':'out')+'">'+tr(statusLabel(p.status),'status')+'</span>'+
     '</section>'+
     '<section class="product-layout '+(p.id==='gemini-coursera-bundle'?'bundle-layout':'')+'">'+
-      '<div class="plans-block"><h2>'+ui('اختار الباقة','Choose a plan')+'</h2>'+
+      '<div class="plans-block"><h2>'+ui('اختار الباقة','Choose a plan')+'</h2><p class="plan-choice-help">'+ui('قارن المدة وطريقة الحساب والضمان، ثم اختار الباقة لعرض تفاصيلها.','Compare duration, account type and warranty, then select a plan for its full details.')+'</p>'+
         (plans.length?plans.map((plan,i)=>plan.hidden?'':
           '<label class="plan-option">'+
             '<input type="radio" name="plan" value="'+i+'" '+(i===initialPlan?'checked':'')+' '+(!active||plan.available===false?'disabled':'')+'>'+
-            '<span><b>'+MasterStore.escapeHtml(tr(plan.name||plan.duration,'planName'))+'</b><small>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+' · '+MasterStore.escapeHtml(tr(plan.duration||'','duration'))+' · '+MasterStore.escapeHtml(tr(subscriptionType(plan),'accountType'))+'</small>'+planSavingMarkup(plan)+'</span>'+
+            '<span><b>'+MasterStore.escapeHtml(tr(plan.name||plan.duration,'planName'))+'</b><small>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+'</small>'+planFactsMarkup(plan)+planSavingMarkup(plan)+'</span>'+
             planPriceMarkup(plan)+
           '</label>'
         ).join(''):'<div class="notice">'+ui('الخدمة غير متاحة للطلب حاليًا.','This service is currently unavailable for ordering.')+'</div>')+
@@ -360,13 +367,16 @@
       const meta=label.querySelector('span small');
       const price=label.querySelector('strong');
       if(name)name.textContent=tr(plan.name||plan.duration,'planName');
-      if(meta)meta.textContent=tr(planTier(p,plan),'planName')+' · '+tr(plan.duration||'','duration')+' · '+tr(subscriptionType(plan),'accountType');
+      if(meta)meta.textContent=tr(planTier(p,plan),'planName');
+      label.querySelectorAll('.plan-quick-facts,.plan-selection-state,.plan-unavailable-state').forEach(el=>el.remove());
+      label.querySelector('span')?.insertAdjacentHTML('beforeend',planFactsMarkup(plan));
       const oldSaving=label.querySelector('.plan-saving');
       if(oldSaving)oldSaving.remove();
       const holder=label.querySelector('span');
       if(holder)holder.insertAdjacentHTML('beforeend',planSavingMarkup(plan));
       if(price)(label.querySelector('.plan-price-tag')||price).outerHTML=planPriceMarkup(plan);
     });
+    const help=root.querySelector('.plan-choice-help');if(help)help.textContent=ui('قارن المدة وطريقة الحساب والضمان، ثم اختار الباقة لعرض تفاصيلها.','Compare duration, account type and warranty, then select a plan for its full details.');
     renderDetails();
     const back=root.querySelector('.back-link');
     if(back)back.textContent=ui('← كل المنتجات','← All products');

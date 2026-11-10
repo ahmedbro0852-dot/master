@@ -65,3 +65,25 @@ html[data-custom-theme] .product-delivery-notice{background:var(--theme-panel);c
 @keyframes delivery-van-enter{from{transform:translateX(-180px);opacity:0}to{transform:translateX(0);opacity:1}}@keyframes delivery-van-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}@keyframes delivery-wheel-spin{to{transform:rotate(360deg)}}@keyframes delivery-road-roll{to{background-position:-52px 0}}@keyframes delivery-arrival-pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
 @media(max-width:600px){.product-delivery-notice{flex-direction:column;align-items:stretch;gap:2px}.delivery-drive{flex-basis:auto;width:205px;height:150px;align-self:center}.delivery-copy strong{font-size:23px}.delivery-copy a{width:100%;justify-content:center}}
 @media(prefers-reduced-motion:reduce){.delivery-drive *{animation:none!important}}
+
+/* Readable plan comparisons and clear native radio selection. */
+.plan-choice-help{margin:-3px 0 18px;color:var(--muted,#63738b);font-size:12px;line-height:1.8}
+.plan-option{position:relative;transition:border-color .16s,box-shadow .16s;background:var(--card,#fff)}
+.plan-option:has(input:checked){border-color:var(--blue,#2469ed);box-shadow:0 0 0 2px #2469ed16;background:var(--theme-soft,#f4f8ff)}
+.plan-option:has(input:focus-visible){outline:3px solid #7faafa;outline-offset:3px}
+.plan-option:has(input:disabled){cursor:not-allowed;background:var(--theme-panel,#f6f8fb);border-style:dashed;opacity:.76}
+.plan-option .plan-quick-facts{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.plan-option .plan-quick-facts>span{display:inline-flex;align-items:center;padding:4px 8px;border:1px solid var(--line,#dbe5f4);border-radius:7px;background:var(--card,#fff);color:var(--ink,#234064);font-size:11px;line-height:1.6;overflow-wrap:anywhere}
+.plan-option .plan-selection-state{display:none;color:var(--blue,#2469ed);font-size:11px;font-weight:700;margin-top:8px}
+.plan-option:has(input:checked) .plan-selection-state{display:block}
+.plan-option .plan-unavailable-state{display:block;margin-top:8px;font-size:11px;color:var(--muted,#63738b)}
+@media(max-width:700px){
+ .plan-option{padding:15px!important;gap:10px!important;grid-template-columns:22px minmax(0,1fr)!important}
+ .plan-option input[type=radio]{width:20px;height:20px;margin:0;align-self:start;margin-top:3px}
+ .plan-option>span>b{font-size:14px;line-height:1.7}
+ .plan-option>.plan-price-tag,.plan-option>strong{grid-column:2;justify-self:start;margin-top:3px}
+ .plan-option .plan-quick-facts>span{font-size:11px;padding:4px 7px}
+ .plan-choice-help{font-size:12px}
+ .summary-card{scroll-margin-top:calc(var(--store-header-height,110px) + 18px)}
+}
+@media(prefers-reduced-motion:reduce){.plan-option{transition:none}}
