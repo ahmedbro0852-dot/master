@@ -312,14 +312,19 @@ html[data-custom-theme] .social-preview-status{background:var(--theme-control);c
 }
 
 
-/* Decorative branded delivery illustration fills desktop header whitespace only. */
+/* Branded delivery route spans the available desktop header space. */
 .header-delivery-art{display:none}
 @media(min-width:1180px){
- .topbar>.header-delivery-art{display:block;grid-column:2;grid-row:1;justify-self:start;width:240px;height:64px;margin-block:-8px;margin-inline-start:14px;pointer-events:none;overflow:hidden}
- .header-delivery-art svg{display:block;width:100%;height:100%;overflow:hidden}
- .header-art-van{animation:header-van-arrive 1.15s cubic-bezier(.16,.8,.2,1) both;transform-box:view-box;transform-origin:center}
- .header-art-spark{animation:header-spark-arrive .45s .9s both}
+ .topbar>.header-delivery-art{display:block;grid-column:2;grid-row:1;justify-self:start;position:relative;container-type:inline-size;width:calc(100% - 275px);height:64px;margin-block:-8px;margin-inline-start:14px;pointer-events:none;overflow:hidden}
+ .header-delivery-art::before{content:"";position:absolute;inset:52px 0 3px;border-block:1px solid #e1ebfa;background:repeating-linear-gradient(90deg,transparent 0 15px,#bdd3f4 15px 33px,transparent 33px 48px) center/100% 2px no-repeat;opacity:.8}
+ .header-delivery-art svg{display:block;position:absolute;left:0;top:0;width:220px;height:64px;overflow:visible;animation:header-delivery-route 9s linear infinite;will-change:transform}
+ .header-art-van{animation:header-van-bounce .65s ease-in-out infinite alternate;transform-box:view-box;transform-origin:center}
+ .header-art-road{display:none}
+ .header-art-wheel{transform-box:fill-box;transform-origin:center;animation:header-wheel-spin .8s linear infinite}
+ .header-art-spark{animation:header-spark-glow 1.4s ease-in-out infinite alternate}
 }
-@keyframes header-van-arrive{from{transform:translateX(-250px);opacity:0}to{transform:translateX(0);opacity:1}}
-@keyframes header-spark-arrive{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
-@media(prefers-reduced-motion:reduce){.header-art-van,.header-art-spark{animation:none!important}}
+@keyframes header-delivery-route{0%{transform:translateX(-210px);opacity:0}8%{opacity:1}82%{opacity:1}96%,100%{transform:translateX(100cqw);opacity:0}}
+@keyframes header-van-bounce{from{transform:translateY(0)}to{transform:translateY(-1.5px)}}
+@keyframes header-wheel-spin{to{transform:rotate(360deg)}}
+@keyframes header-spark-glow{from{opacity:.25}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.header-delivery-art svg,.header-art-van,.header-art-wheel,.header-art-spark{animation:none!important}.header-delivery-art svg{left:auto;right:0}}
