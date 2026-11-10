@@ -341,3 +341,10 @@ html[data-custom-theme] .social-preview-status{background:var(--theme-control);c
 .header-cargo{position:absolute;top:1px;left:77px;display:flex;gap:3px;direction:ltr}
 .header-cargo i{display:block;width:10px;height:10px;background:#ffce70;border:1px solid #e6a543;border-radius:2px;opacity:0;box-shadow:1px -2px 0 #ffe4a9}
 @media(prefers-reduced-motion:reduce){.header-vehicle{left:auto;right:0}.header-delivery-art svg{position:static}.header-pickup-flash,.header-cargo{display:none}}
+
+.header-delivery-sound{position:absolute;right:0;bottom:0;z-index:2;display:grid;place-items:center;width:28px;height:28px;padding:5px;min-height:0;border:1px solid #dce7f7;border-radius:50%;color:#6d84a3;background:#ffffffed;cursor:pointer;pointer-events:auto}
+.header-delivery-art .header-delivery-sound svg{width:16px;height:16px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+.header-delivery-sound[aria-pressed="true"]{color:#2c67ca;background:#f0f6ff}
+.header-delivery-sound[aria-pressed="true"] .sound-slash,.header-delivery-sound[aria-pressed="false"] .sound-waves{display:none}
+.header-delivery-sound:hover{border-color:#8fb6ee}
+.header-delivery-sound:focus-visible{outline:2px solid #2469ed;outline-offset:2px}
