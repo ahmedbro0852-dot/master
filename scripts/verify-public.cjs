@@ -90,3 +90,14 @@ assert(adminPage.includes('admin-control-center.js?v=20261104-bulk-price1')&&adm
 assert(plus.includes('data-product-id="chatgpt-plus"'),'main product identifier missing');
 assert(read('robots.txt').includes('Sitemap: '+base+'/sitemap.xml'),'robots.txt sitemap mismatch');
 console.log('Verified '+urls.length+' published URLs, product canonical tags, available routes, cart and storefront.');
+
+// Private delivery pages must publish the UI, never its database setup or an indexable receipt.
+for(const name of ['delivery.html','delivery-admin.html']){
+ assert(fs.existsSync(path.join(out,name)),name+' missing');
+ assert(read(name).includes('noindex,nofollow,noarchive'),name+' missing privacy robots directive');
+ assert(read(name).includes('name="referrer" content="no-referrer"'),name+' missing referrer protection');
+ assert(!urls.some(url=>url.endsWith('/'+name)),name+' must not be indexed');
+}
+for(const name of ['delivery.js','delivery-admin.js','delivery.css'])assert(fs.existsSync(path.join(out,name)),name+' missing');
+assert(!fs.existsSync(path.join(out,'db/delivery_links.sql')),'private delivery SQL leaked');
+console.log('PASS: private delivery pages and assets published with noindex/referrer protection; database setup excluded.');

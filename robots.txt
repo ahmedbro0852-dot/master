@@ -5,3 +5,6 @@ Disallow: /db/
 Disallow: /tests/
 Disallow: /scripts/
 Sitemap: https://master-pi-six.vercel.app/sitemap.xml
+
+Disallow: /delivery.html
+Disallow: /delivery-admin.html
