@@ -50,3 +50,5 @@ html[data-custom-theme] .price-drop-badge{background:#154838;color:#9ae7c3}
 
 /* The annual comparison is separate from the weekly starting price. */
 .simple-service-card>.picsart-saving{grid-column:1/-1;max-width:100%;width:fit-content;box-sizing:border-box;white-space:normal;overflow-wrap:anywhere;margin:0}
+
+.coursera-delivery-notice{margin:18px 0;padding:18px 20px;border:1px solid #b6dec9;border-radius:16px;background:#effbf4;color:#164b34;line-height:1.8}.coursera-delivery-notice[hidden]{display:none}.coursera-delivery-notice strong{font-size:16px}.coursera-delivery-notice p{font-size:12px;margin:6px 0}.coursera-delivery-notice a{display:inline-flex;align-items:center;min-height:44px;color:inherit;font-weight:700;font-size:12px}html[data-custom-theme] .coursera-delivery-notice{background:var(--theme-panel);border-color:var(--line);color:var(--ink)}@media(max-width:700px){.coursera-delivery-notice{padding:14px 16px;margin:14px 0}.coursera-delivery-notice strong{font-size:14px}}
