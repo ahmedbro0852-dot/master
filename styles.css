@@ -2083,3 +2083,7 @@ body{background:linear-gradient(180deg,#f8faff 0,#fff 720px);-webkit-font-smooth
 .account-link.with-avatar{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:5px 11px 5px 6px}
 .account-link.with-avatar:before{content:'';display:block;flex:0 0 30px;width:30px;height:30px;border-radius:50%;background-image:var(--account-avatar-image);background-size:400% 200%;background-position:var(--account-avatar-position);box-shadow:0 0 0 2px #fff,0 0 0 3px #dce6f2}
 @media(max-width:580px){.account-link.with-avatar{font-size:0;padding:5px;width:38px;height:38px;gap:0}.account-link.with-avatar:before{width:28px;height:28px;flex-basis:28px}}
+
+/* Keep navigation in normal flow so browsing is never covered by the header. */
+.topbar{position:relative!important;top:auto!important}
+html{--store-header-height:0px!important;scroll-padding-top:16px!important}
