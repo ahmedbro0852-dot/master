@@ -1,0 +1,37 @@
+(function(){
+'use strict';
+const C=window.MasterCloud,root=document.getElementById('deliveryAdminContent'),msg=document.getElementById('deliveryMessage');
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rpc=(action,id=null,token=null,details={})=>C.unwrap(C.client.rpc('master_delivery',{action,delivery_id:id,access_token:token,details}));
+const uuid=()=>crypto.randomUUID();const key=()=>{const a=new Uint8Array(32);crypto.getRandomValues(a);return [...a].map(n=>n.toString(16).padStart(2,'0')).join('');};
+let pending=null,busy=false;
+function message(text,error=false){msg.className=error?'error':'success';msg.textContent=text;}
+function errorText(error){const s=String(error?.message||error);if(s.includes('ADMIN_REQUIRED'))return 'هذه الصفحة متاحة لإدارة المتجر فقط.';if(s.includes('duplicate key')||s.includes('payload_hash'))return 'بيانات الحساب دي لها صندوق مسجل بالفعل. افتح السجل السابق بدل تكرار التسليم.';if(s.includes('INVALID_PHONE'))return 'راجع رقم واتساب: من ٨ إلى ١٥ رقمًا مع رمز الدولة.';return 'تعذر حفظ التسليم. لم يتم عرض رابط جديد. جرّب مرة أخرى بنفس البيانات أو حدّث الصفحة.';}
+async function records(){
+ const items=await rpc('admin_list'),host=document.getElementById('deliveryRecords');
+ if(!host)return;
+ host.innerHTML=items.length?items.map(x=>'<article><div class="row"><h3>'+esc(x.product)+'</h3><span class="badge">'+(x.revoked_at?'ملغي':x.claimed_at?'تم الاستلام':new Date(x.expires_at)<new Date()?'انتهت صلاحية الرابط':'جاهز للاستلام')+'</span></div><p>'+esc(x.plan)+'</p><small>'+esc(x.recipient_name||'الاسم يُطلب عند الاستلام')+' · '+esc(x.recipient_phone||'واتساب يُطلب عند الاستلام')+'</small><small>رقم التسليم: '+esc(x.id)+'</small><small>إنشاء: '+esc(new Date(x.created_at).toLocaleString('ar-EG'))+(x.claimed_at?' · استلام: '+esc(new Date(x.claimed_at).toLocaleString('ar-EG')):'')+'</small>'+(!x.revoked_at?'<button class="danger" type="button" data-revoke="'+esc(x.id)+'">إلغاء صلاحية رابط الاستلام</button>':'')+'</article>').join(''):'<p>لا توجد صناديق تسليم حتى الآن.</p>';
+ host.querySelectorAll('[data-revoke]').forEach(button=>button.onclick=async()=>{if(!confirm('إلغاء الوصول إلى هذا التسليم؟ سيظل سجل الطلب محفوظًا في الإدارة.'))return;button.disabled=true;try{await rpc('revoke',button.dataset.revoke);await records();message('تم إلغاء صلاحية التسليم.');}catch(error){message(errorText(error),true);button.disabled=false;}});
+}
+async function start(){
+ if(!C?.ready)throw new Error('offline');const user=await C.user();
+ if(!user){root.innerHTML='<section class="panel"><h1>إدارة صناديق التسليم</h1><p>سجّل الدخول بحساب الإدارة ثم ارجع إلى هذه الصفحة.</p><a href="account.html">تسجيل الدخول ←</a></section>';return;}
+ await rpc('admin_list');
+ root.innerHTML='<section class="panel"><span class="kicker">طلبات واتساب المدفوعة</span><h1>جهّز صندوق تسليم 🎁</h1><p>أضف تفاصيل الطلب بعد مراجعة الدفع، وأنشئ رابطًا خاصًا ترسله للعميل. أول استلام يربطه بالمستلم ويسجّله في إدارة العملاء والاشتراكات.</p><p class="muted">الرابط هو تصريح الاستلام: أرسله لصاحبه فقط. الاسم ورقم واتساب بيانات للتسجيل، وليسا تحققًا من هوية حامل الرابط. صلاحية فتح الصندوق لأول مرة ٣٠ يومًا.</p><form id="deliveryCreate"><div class="grid"><label>الخدمة<input name="product" required maxlength="160" placeholder="Coursera"></label><label>الباقة / الضمان<input name="plan" maxlength="160" placeholder="سنة — ضمان ٤ شهور"></label><label>مدة الاشتراك<input name="duration" maxlength="80" placeholder="12 شهر"></label><label>المبلغ المدفوع بالجنيه<input name="amount" required type="number" min="0" max="10000000" step="0.01" inputmode="decimal"></label><label>اسم العميل (اختياري)<input name="name" maxlength="120" autocomplete="off"></label><label>واتساب العميل (اختياري)<input name="phone" maxlength="20" type="tel" inputmode="tel" dir="ltr" placeholder="201XXXXXXXXX" autocomplete="off"><span class="field-help">إن تركته فارغًا يُطلب من العميل عند الاستلام.</span></label></div><label>بيانات التسليم الخاصة<textarea name="payload" required maxlength="20000" rows="6" autocomplete="off" spellcheck="false" placeholder="الإيميل، كلمة المرور، رابط الدخول أو رابط كود التحقق…"></textarea></label><label>طريقة التسجيل وتعليمات الاستخدام<textarea name="instructions" maxlength="5000" rows="5" placeholder="خطوات الدخول، المسموح والممنوع، وتفاصيل الضمان…"></textarea></label><label class="check"><input name="paid" type="checkbox" required><span>راجعت وصول الدفع بالفعل، والحساب جاهز ومخصص لهذا العميل وحده.</span></label><button type="submit" class="primary">إنشاء صندوق ورابط التسليم</button></form><div id="deliveryCreated" hidden></div></section><section class="panel"><div class="row"><h2>سجل التسليمات</h2><button type="button" id="refreshDeliveries" class="secondary">تحديث</button></div><div class="records" id="deliveryRecords"></div><p class="muted">نسخة الرابط تظهر عند الإنشاء فقط؛ لا تُعرض بيانات الدخول في السجل. سجلات العملاء تظهر أيضًا في صفحة العملاء والاشتراكات.</p></section>';
+ const form=document.getElementById('deliveryCreate');
+ form.onsubmit=async event=>{event.preventDefault();if(busy||!form.reportValidity())return;busy=true;const button=form.querySelector('[type=submit]');button.disabled=true;msg.textContent='';
+ const data=Object.fromEntries(new FormData(form));data.paid=true;data.amount_piasters=Math.round(Number(data.amount)*100);delete data.amount;
+ const snapshot=JSON.stringify(data);if(!pending||pending.snapshot!==snapshot)pending={id:uuid(),token:key(),snapshot,data};
+ // Freeze inputs while saving; retries reuse the same ID and token.
+ const fields=[...form.querySelectorAll('input,textarea')];fields.forEach(x=>x.disabled=true);
+ try{await rpc('create',pending.id,pending.token,pending.data);const url=new URL('/delivery.html',location.origin);url.hash=new URLSearchParams({id:pending.id,key:pending.token}).toString();
+  const box=document.getElementById('deliveryCreated');box.hidden=false;box.innerHTML='<h2>الرابط جاهز للإرسال</h2><p>انسخ الرابط قبل مغادرة الصفحة. يُرسل إلى صاحب الطلب فقط.</p><input class="link-output" readonly aria-label="رابط التسليم الخاص"><div class="row"><button class="secondary" id="copyLink" type="button">نسخ الرابط</button><a id="sendLink" target="_blank" rel="noopener noreferrer">افتح واتساب لإرسال الرابط ←</a></div>';
+  box.querySelector('input').value=url.href;document.getElementById('copyLink').onclick=async()=>{try{await navigator.clipboard.writeText(url.href);message('تم نسخ الرابط.');}catch{box.querySelector('input').select();message('حدّد الرابط وانسخه يدويًا.');}};
+  const phone=pending.data.phone.replace(/[^0-9]/g,''),text='طلبك جاهز من MASTER STORE 🎁\n'+pending.data.product+'\nافتح رابط الاستلام الخاص بك:\n'+url.href+'\nلا تشارك الرابط مع أي شخص.';document.getElementById('sendLink').href='https://wa.me/'+phone+'?text='+encodeURIComponent(text);
+  form.reset();pending=null;message('تم تسجيل الطلب المدفوع وإنشاء صندوق التسليم.');await records();
+ }catch(error){message(errorText(error),true);}finally{busy=false;button.disabled=false;fields.forEach(x=>x.disabled=false);}};
+ document.getElementById('refreshDeliveries').onclick=()=>records().catch(error=>message(errorText(error),true));await records();
+}
+start().catch(error=>{message(errorText(error),true);root.replaceChildren();}).finally(()=>root.setAttribute('aria-busy','false'));
+C?.client?.auth.onAuthStateChange(event=>{if(event==='SIGNED_OUT'){pending=null;root.replaceChildren();msg.textContent='تم تسجيل الخروج وإخفاء بيانات التسليم.';}});
+})();

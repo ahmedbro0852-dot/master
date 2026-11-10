@@ -88,5 +88,10 @@
   "store-search.css",
   "store-search.js",
   "crm-enhance.js",
-  "crm-enhance.css"
+  "crm-enhance.css",
+  "delivery.html",
+  "delivery.js",
+  "delivery.css",
+  "delivery-admin.html",
+  "delivery-admin.js"
 ]
