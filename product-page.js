@@ -205,6 +205,18 @@
     return '<div><dt>'+label+'</dt><dd>'+value+note+sourceLink+'</dd></div>';
   }
 
+  const deliveryNotice=p.id==='coursera'?document.createElement('aside'):null;
+  if(deliveryNotice){
+    deliveryNotice.className='coursera-delivery-notice';
+    deliveryNotice.setAttribute('role','status');
+    deliveryNotice.setAttribute('data-no-translate','true');
+    root.querySelector('.product-layout').before(deliveryNotice);
+  }
+  function updateDeliveryNotice(plan){
+    if(!deliveryNotice)return;
+    deliveryNotice.hidden=![0,2].includes(plans.indexOf(plan))||!active||plan?.available===false;
+    deliveryNotice.innerHTML='<strong>'+ui('⚡ تسليم فوري بعد تأكيد الدفع والتوفر','⚡ Immediate delivery after payment and availability confirmation')+'</strong><p>'+ui('متاح لباقة السنة بضمان ٤ شهور أو سنة. ابعت رقم الطلب وإثبات التحويل على واتساب لمراجعة الدفع؛ التسليم بعد اعتماد الإدارة.','For annual plans with a 4-month or one-year warranty. Send your order reference and transfer proof on WhatsApp for review; delivery follows administrator approval.')+'</p><a href="https://wa.me/201500950624?text='+encodeURIComponent(ui('عايز أراجع الدفع والتوفر للتسليم الفوري لكورسيرا','I would like to check payment and availability for immediate Coursera delivery'))+'" target="_blank" rel="noopener noreferrer">'+ui('راجع الدفع والتوفر على واتساب ←','Check payment and availability on WhatsApp →')+'</a>';
+  }
   function selectedPlan(){
     const r=radios.find(x=>x.checked);
     return plans[Number(r?.value||0)]||null;
@@ -277,6 +289,7 @@
 
   function renderDetails(){
     const plan=selectedPlan();
+    updateDeliveryNotice(plan);
     shareStatus.textContent='';shareInput.hidden=true;
     planActions.hidden=!plan;copyPlan.textContent=ui('نسخ رابط الباقة','Copy plan link');askPlan.textContent=ui('اسأل المساعد عن الباقة','Ask about this plan');shareInput.setAttribute('aria-label',ui('رابط الباقة المختارة','Selected plan link'));
     selectedLink.hidden=!plan;if(plan)selectedLink.textContent=ui('عرض الباقة المختارة: ','View selected plan: ')+tr(plan.name||plan.duration,'planName');
