@@ -183,7 +183,6 @@
       '<div class="card-top">'+logoMarkup(product)+'<h3 class="service-name" dir="auto">'+esc(product.name)+'</h3></div>'+
       (product.id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">كورسيرا سنة + جيمناي ٣ شهور + كانفا ٣ سنين</p>':'')+(product.id==='supergrok-coursera-bundle'?'<p class="bundle-card-summary">'+ui('شهر لكل اشتراك · حسابات جاهزة · ضمان كامل','One month each · Ready accounts · Full warranty')+'</p>':'')+'<div class="light-meta">'+(active&&plan?'<div class="service-price-stack"><small>'+ui('يبدأ من','From')+'</small>'+Store.priceMarkup(plan)+'<span class="service-price-duration">'+esc(tr(plan.duration||plan.name||'','duration',product.id))+'</span></div>':'<strong>'+esc(price)+'</strong>')+'</div>'+
       (product.id==='picsart'&&product.plans?.[4]?.available!==false&&Store.officialDiscount(product.plans[4])?.percent>0?'<p class="plan-saving picsart-saving">'+ui('توفير '+Store.officialDiscount(product.plans[4]).percent+'% على باقة السنة','Save '+Store.officialDiscount(product.plans[4]).percent+'% on the annual plan')+'</p>':'')+
-      '<div class="service-card-info"><span>'+esc(tr(product.category,'category',product.id))+'</span><span class="service-card-stock '+(active?'is-available':'is-unavailable')+'">'+(active?ui('متاح للطلب','Available'):esc(status))+'</span></div>'+
       '<div class="card-bottom light-bottom">'+action+'</div>'+
     '</article>';
   }

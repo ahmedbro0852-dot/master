@@ -6,8 +6,8 @@ const window={MasterLocale:{getState:()=>({language})},MasterStore:{formatCurren
 vm.runInNewContext(fs.readFileSync('order-details.js','utf8'),{window});
 const q={items:[{product_id:'gamma',plan_index:0,product:'Gamma',plan:'Pro — شهر',quantity:1,unit_piasters:60000,amount_piasters:60000}],amount_piasters:60000,subtotal_piasters:60000,discount_piasters:0};
 const build=(method='InstaPay',saved=true)=>window.MasterOrderDetails.buildMessage(q,{name:'Test Customer',phone:'test-phone',email:'test@example.invalid'},method,'test-order-id',saved);
-let message=build();assert(message.indexOf('الإجمالي:')<message.indexOf('*Gamma*'));assert.equal((message.match(/الإجمالي:/g)||[]).length,1);assert(message.includes(plan.notes[0]));assert(message.includes(plan.credits));assert(!message.includes('لا توجد هدايا'));assert(!message.includes(plan.activation));assert(message.includes('ليست إثبات دفع'));assert(!message.includes('قبل الخصم'));
-assert(build('wallet').includes('مدفوع بالمحفظة'));assert(!build('wallet',false).includes('مدفوع بالمحفظة'));assert(!build('wallet').includes('ليست إثبات دفع'));
+let message=build();assert(message.indexOf('الإجمالي:')<message.indexOf('*Gamma*'));assert.equal((message.match(/الإجمالي:/g)||[]).length,1);assert(message.includes(plan.notes[0]));assert(message.includes(plan.credits));assert(!message.includes('لا توجد هدايا'));assert(!message.includes(plan.activation));assert(message.includes('ليس إثبات دفع'));assert(!message.includes('قبل الخصم'));
+assert(build('wallet').includes('مدفوع بالمحفظة'));assert(!build('wallet',false).includes('مدفوع بالمحفظة'));assert(!build('wallet').includes('ليس إثبات دفع'));
 q.discount_piasters=6000;q.discount_percent=10;q.amount_piasters=54000;message=build();assert(message.includes('خصم الكمية: 10%'));assert(message.includes('540 EGP'));
 language='en';message=build();assert(message.includes('Payment status:'));assert(message.includes('not proof of payment'));assert(message.includes(plan.notes[0]));
 console.log('PASS: totals lead message, plan guarantees retained, conditional fields, wallet paid state, discount and English labels.');

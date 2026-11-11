@@ -396,23 +396,6 @@ html[data-custom-theme] .social-preview-status{background:var(--theme-control);c
 }
 @media(prefers-reduced-motion:reduce){.catalog .simple-service-card{transition:none}}
 
-/* Refined full catalog: clear identity, availability and price hierarchy. */
-.catalog .simple-service-card{background:var(--theme-panel,#fff);border:1px solid var(--line,#dfe7f2);box-shadow:0 5px 18px #24436c08;overflow:hidden}
-.catalog .simple-service-card .card-top{border-radius:15px;background:var(--theme-soft,#f2f6fc);border:0}
-.catalog .simple-service-card .product-logo{width:72px;height:72px;padding:11px;border-radius:19px;box-shadow:0 5px 15px #24436c0c}
-.catalog .simple-service-card .service-name{color:var(--ink,#142d55);word-break:normal;overflow-wrap:anywhere}
-.service-card-info{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;grid-column:1/-1;text-align:start;font-size:10px;line-height:1.7;color:var(--muted,#657792)}
-.service-card-stock{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:7px;white-space:nowrap;font-weight:600;background:#edf2f8;color:#607087}
-.service-card-stock.is-available{color:#176348;background:#eaf7f0}
-.service-card-stock.is-available:before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}
-.catalog .simple-service-card .card-btn{background:var(--theme-soft,#edf3ff);color:var(--theme-accent,#245ed4);border:1px solid var(--line,#d6e3fa)}
-.catalog .simple-service-card .card-btn:hover{background:var(--theme-button,#2464df);color:#fff;border-color:transparent}
-.catalog .simple-service-card .card-btn.disabled{background:var(--theme-soft,#f2f4f7);color:var(--muted,#738097);cursor:not-allowed}
-html[data-custom-theme] .service-card-stock.is-available{background:#163c32;color:#a3e4c4}
-@media(min-width:701px){.catalog .simple-service-card .card-top{min-height:170px;padding:18px 10px;gap:12px}.catalog .simple-service-card .service-name{min-height:46px}.catalog .simple-service-card .light-meta{padding:5px 0}.catalog .simple-service-card .store-price-current{font-size:23px}}
-@media(max-width:700px){.catalog .simple-service-card{padding:15px;gap:12px!important}.catalog .simple-service-card .card-top{background:transparent;gap:11px;grid-template-columns:58px minmax(0,1fr);min-height:62px}.catalog .simple-service-card .product-logo{width:58px;height:58px;padding:8px;border-radius:15px}.catalog .simple-service-card .service-name{font-size:14px;line-height:1.65}.service-card-info{font-size:10px;padding-top:2px}.catalog .simple-service-card .card-bottom{padding-top:11px}.catalog .simple-service-card .store-price-current{font-size:20px}}
-@media(max-width:359px){.catalog .simple-service-card .card-top{grid-template-columns:48px minmax(0,1fr);gap:8px}.catalog .simple-service-card .product-logo{width:48px;height:48px;padding:6px}.catalog .simple-service-card .service-name{font-size:13px}.catalog .simple-service-card{padding:12px}}
-
 /* One motion clock for travel, suspension and wheel rotation. */
 .header-delivery-art .header-art-van,.header-delivery-art .header-art-wheel{animation:none!important}
 .header-delivery-art .header-art-spark{animation:none;opacity:0;transition:opacity .3s}
