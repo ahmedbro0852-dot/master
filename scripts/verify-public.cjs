@@ -44,7 +44,7 @@ const homeSections=[
 ].map(snippet=>home.indexOf(snippet));
 assert(homeSections.every((position,i)=>position!==-1&&(!i||position>homeSections[i-1])),'homepage shopping flow sections out of order');
 assert(!home.includes('class="confidence-strip"')&&!home.includes('class="home-avatar-row"'),'old duplicate homepage blocks restored');
-assert(home.includes('homepage-refresh.css?v=20261111-store-rhythm8'),'new homepage layout CSS is not cache-busted');
+assert(home.includes('homepage-refresh.css?v=20261111-catalog-template9'),'new homepage layout CSS is not cache-busted');
 
 // Regression gate: both account and checkout must ship the CSS they reference.
 const mobileFix='mobile-checkout-account-fix.css';
