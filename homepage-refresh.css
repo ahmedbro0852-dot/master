@@ -412,3 +412,12 @@ html[data-custom-theme] .service-card-stock.is-available{background:#163c32;colo
 @media(min-width:701px){.catalog .simple-service-card .card-top{min-height:170px;padding:18px 10px;gap:12px}.catalog .simple-service-card .service-name{min-height:46px}.catalog .simple-service-card .light-meta{padding:5px 0}.catalog .simple-service-card .store-price-current{font-size:23px}}
 @media(max-width:700px){.catalog .simple-service-card{padding:15px;gap:12px!important}.catalog .simple-service-card .card-top{background:transparent;gap:11px;grid-template-columns:58px minmax(0,1fr);min-height:62px}.catalog .simple-service-card .product-logo{width:58px;height:58px;padding:8px;border-radius:15px}.catalog .simple-service-card .service-name{font-size:14px;line-height:1.65}.service-card-info{font-size:10px;padding-top:2px}.catalog .simple-service-card .card-bottom{padding-top:11px}.catalog .simple-service-card .store-price-current{font-size:20px}}
 @media(max-width:359px){.catalog .simple-service-card .card-top{grid-template-columns:48px minmax(0,1fr);gap:8px}.catalog .simple-service-card .product-logo{width:48px;height:48px;padding:6px}.catalog .simple-service-card .service-name{font-size:13px}.catalog .simple-service-card{padding:12px}}
+
+/* One motion clock for travel, suspension and wheel rotation. */
+.header-delivery-art .header-art-van,.header-delivery-art .header-art-wheel{animation:none!important}
+.header-delivery-art .header-art-spark{animation:none;opacity:0;transition:opacity .3s}
+.header-delivery-art.is-driving .header-art-spark{opacity:.5}
+.header-delivery-art .header-art-van{filter:drop-shadow(0 2px 1px #224f8d14)}
+.header-delivery-art .header-route-parcel{box-shadow:2px 3px 0 #abc4e640,0 5px 12px #17355714}
+.header-delivery-art .header-cargo i{border-color:#8eb5ea;box-shadow:1px -1px 0 #dceaff,0 3px 5px #17499a20}
+@media(prefers-reduced-motion:reduce){.header-delivery-art .header-art-spark{display:none}.header-delivery-art .header-art-van,.header-delivery-art .header-art-wheel{transform:none!important}}
