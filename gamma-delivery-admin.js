@@ -21,7 +21,7 @@ await call('stock_add',{details:d});stock.reset();status('تم حفظ الحسا
 issue.onsubmit=async e=>{e.preventDefault();if(sending)return;sending=true;const button=issue.querySelector('button');button.disabled=true;const code=hex();const order_id=issue.elements.order_id.value.trim();
 try{await call('issue',{code,order_id,details:{payment_confirmed:true}});
 const box=root.querySelector('#gammaIssued'),url=new URL('/gamma-redeem.html',location.origin);box.hidden=false;url.hash=new URLSearchParams({ticket:code}).toString();root.querySelector('#gammaCode').value='600';root.querySelector('#gammaRedeemLink').href=url.href;
-root.querySelector('#gammaCopy').onclick=async()=>{const t='MASTER STORE 🎁\\nتم تأكيد دفع طلب Gamma Pro.\\nرابط الاستلام: '+url.href+'\\nكود الاستلام: 600\\nالرابط السري خاص بطلبك، لا تشاركه مع أحد.';try{await navigator.clipboard.writeText(t);status('تم نسخ رسالة الاستلام.')}catch{status('انسخ الكود يدويًا من الخانة.')}};
+root.querySelector('#gammaCopy').onclick=async()=>{const t='MASTER STORE 🎁\nتم تأكيد دفع طلب Gamma Pro.\nرابط الاستلام: '+url.href+'\nكود الاستلام: 600\nالرابط السري خاص بطلبك، لا تشاركه مع أحد.';try{await navigator.clipboard.writeText(t);status('تم نسخ رسالة الاستلام.')}catch{status('انسخ الكود يدويًا من الخانة.')}};
 issue.reset();status('تم تأكيد الدفع وحجز حساب واحد وإصدار الرمز. انسخه قبل مغادرة الصفحة.');await refresh();
 }catch(err){status('تعذر إصدار الكود: '+err.message,true)}finally{sending=false;button.disabled=false}};
 await refresh();
