@@ -1,4 +1,11 @@
 (async function(){
+    let more=document.getElementById('catalogMore');
+    if(!more){more=document.createElement('button');more.id='catalogMore';more.className='catalog-more';more.type='button';more.setAttribute('aria-controls','grid');grid.insertAdjacentElement('afterend',more);more.addEventListener('click',()=>{const before=[...grid.querySelectorAll('.product-card')].filter(c=>!c.hidden).length;catalogLimit+=12;applyFilters();const next=[...grid.querySelectorAll('.product-card')].filter(c=>!c.hidden)[before];next?.querySelector('a.card-btn')?.focus();});}
+    more.hidden=shown>=visible;
+    more.textContent=ui('عرض المزيد · '+Math.max(0,visible-shown)+' خدمة','Show more · '+Math.max(0,visible-shown)+' services');
+    const signature=JSON.stringify([q,selected,!!favoritesOnly?.checked,!!availableOnly?.checked,sortMode]);
+    if(signature!==catalogSignature){catalogLimit=12;catalogSignature=signature;}
+    let shown=0;
   'use strict';
 
   const menu=document.querySelector('.menu');
@@ -187,7 +194,7 @@
     '</article>';
   }
 
-  let lastSortMode=null;
+  let lastSortMode=null, catalogLimit=12, catalogSignature="";
   function renderCards(){
     lastSortMode=null;
     grid.setAttribute('aria-busy','true');
@@ -242,8 +249,9 @@
       const categoryMatch=matchesCategory(Catalog.getProduct(card.dataset.productId),selected);
       const product=Catalog.getProduct(card.dataset.productId);
       const matches=(!favoritesOnly?.checked||Shopping?.read('favorites').includes(product.id))&&categoryMatch&&(!availableOnly?.checked||product?.status==='available')&&(!q||q.split(/\s+/).every(word=>(card.dataset.search||'').includes(word)));
-      card.hidden=!matches;
       if(matches)visible++;
+      card.hidden=!matches||visible>catalogLimit;
+      if(!card.hidden)shown++;
     });
 
     const url=new URL(location.href);
@@ -251,7 +259,7 @@
     for(const [key,value] of Object.entries(state)){if(value)url.searchParams.set(key,value);else url.searchParams.delete(key);}
     if(url.href!==location.href)history.replaceState(history.state,'',url);
     const count=document.getElementById('catalogResultCount');
-    if(count)count.textContent=ui('عرض '+visible+' من '+products.length+' خدمة', 'Showing '+visible+' of '+products.length+' services');
+    if(count)count.textContent=ui('عرض '+shown+' من '+visible+' خدمة'+(visible!==products.length?' مطابقة':''), 'Showing '+shown+' of '+visible+' matching services');
     const reset=document.getElementById('catalogReset');
     if(reset){reset.hidden=!(q||selected!=='الكل'||availableOnly?.checked||favoritesOnly?.checked||(sort&&sort.value!=='featured'));reset.textContent=ui('مسح الفلاتر ×','Clear filters ×');}
     const availableLabel=document.getElementById('availableOnlyLabel');

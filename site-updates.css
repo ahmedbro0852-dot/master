@@ -235,3 +235,32 @@ html[data-custom-theme] .mobile-shortcuts a[aria-current="page"]{background:var(
 /* A dedicated route for subscriptions outside the current catalogue. */
 .subscription-request{box-sizing:border-box;max-width:1180px;margin:24px auto;padding:30px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:center;border:1px solid #d6e4fa;border-radius:24px;background:linear-gradient(125deg,#edf5ff,#fff 70%);scroll-margin-top:24px}.subscription-request *{box-sizing:border-box}.subscription-request-icon{display:grid;place-items:center;width:58px;height:58px;margin-bottom:16px;border:1px solid #c4d9fc;border-radius:18px;background:#fff;color:#2461da;font:400 38px/1 system-ui}.subscription-request-kicker{display:block;color:#2863cd;font-size:11px;font-weight:800}.subscription-request h2{margin:8px 0 12px;color:#16345b;font-size:clamp(24px,3vw,32px);line-height:1.5}.subscription-request p{max-width:480px;color:#61758f;font-size:13px;line-height:1.9}.subscription-request-copy>a{display:inline-flex;align-items:center;min-height:44px;font-size:12px;font-weight:700;color:#176842}.subscription-request-form{display:grid;gap:8px;padding:22px;background:#fff;border:1px solid #e0e8f6;border-radius:18px;min-width:0}.subscription-request-form label{margin-top:5px;font-size:12px;font-weight:700;color:#274668}.subscription-request-form input,.subscription-request-form select,.subscription-request-form textarea{width:100%;min-width:0;min-height:46px;padding:10px 12px;border:1px solid #ccdaee;border-radius:10px;background:#fbfdff;color:#1b3559;font:inherit;font-size:14px}.subscription-request-form textarea{resize:vertical;line-height:1.7}.subscription-request-form button{min-height:48px;margin-top:7px;border:0;border-radius:11px;background:#1f5eff;color:#fff;font:inherit;font-size:13px;font-weight:700;cursor:pointer}.subscription-request-form small{color:#657a95;font-size:10px;line-height:1.8}.subscription-request-form :is(input,select,textarea,button):focus-visible{outline:3px solid #8ab5ff;outline-offset:2px}html[data-custom-theme] .subscription-request{background:var(--theme-panel);border-color:var(--line)}html[data-custom-theme] .subscription-request h2,html[data-custom-theme] .subscription-request-form label{color:var(--ink)}html[data-custom-theme] .subscription-request p,html[data-custom-theme] .subscription-request-form small{color:var(--muted)}html[data-custom-theme] .subscription-request-form,html[data-custom-theme] .subscription-request-form :is(input,select,textarea){background:var(--theme-surface);border-color:var(--line);color:var(--ink)}
 @media(max-width:1220px){.subscription-request{margin-inline:18px}}@media(max-width:700px){.subscription-request{grid-template-columns:minmax(0,1fr);gap:16px;margin:18px 12px;padding:20px 16px;border-radius:20px}.subscription-request-icon{width:46px;height:46px;font-size:30px;margin-bottom:12px}.subscription-request h2{font-size:24px}.subscription-request-form{padding:16px}.subscription-request-form input,.subscription-request-form select,.subscription-request-form textarea{font-size:16px}.subscription-request-copy>a{font-size:11px}}
+
+/* Storewide readability and mobile touch comfort. */
+:where(.product-page,.cart-shell,.account-page,.catalog){overflow-wrap:break-word}
+:where(.product-page,.cart-shell,.account-page) :where(input,select,textarea){box-sizing:border-box;max-width:100%;min-height:46px;font-family:inherit}
+:where(.product-page,.cart-shell,.account-page) :where(input,select,textarea):focus-visible{outline:3px solid #7eaaff;outline-offset:2px}
+:where(.checkout-dialog,.cart-summary,.auth-card,.summary-card){border-radius:20px}
+:where(.checkout-dialog,.cart-summary,.summary-card) :where(p,small){line-height:1.9}
+.product-page .product-hero{border-radius:24px;border:1px solid var(--line,#dce6f4);padding:26px;background:var(--theme-panel,#fff)}
+.product-page .product-title h1{line-height:1.5;letter-spacing:-.4px}
+.product-page .summary-card{border:1px solid var(--line,#dce6f4);box-shadow:0 12px 35px #1e4c9210}
+.product-page .summary-card .primary{min-height:50px;font-size:15px;border-radius:13px}
+.product-page .safe-note{padding:12px;border-radius:12px;background:var(--theme-soft,#f2f6fe);font-size:11px;line-height:1.9}
+.product-page .plan-option{border-radius:15px;margin-bottom:12px}
+.product-page .details-list li{line-height:1.9;padding-block:10px}
+.cart-summary .cart-total{line-height:1.7}
+@media(max-width:700px){
+ :where(.checkout-dialog,.cart-shell,.account-page) :where(input:not([type=checkbox]):not([type=radio]),select,textarea){font-size:16px}
+ .product-page .product-hero{padding:19px 16px;border-radius:19px}
+ .product-page .product-layout{gap:18px}
+ .product-page .summary-card{padding:19px 16px}
+ .product-page .product-title{gap:13px;align-items:flex-start}
+ .product-page .product-title h1{font-size:25px}
+ .product-page .plans-block>h2,.product-page .summary-card>h2{font-size:21px;line-height:1.6}
+ .cart-shell .cart-line{padding-block:18px}
+ .cart-shell .cart-line input{min-width:68px;font-size:16px}
+ .cart-shell .cart-total{font-size:21px}
+ .checkout-dialog{width:calc(100% - 16px);max-width:600px;border-radius:20px;max-height:calc(100dvh - 20px)}
+ .checkout-dialog button.primary{min-height:50px}
+}
