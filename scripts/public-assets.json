@@ -96,5 +96,8 @@
   "delivery-admin.js",
   "delivery-demo.html",
   "delivery-demo.js",
-  "header-delivery.js"
+  "header-delivery.js",
+  "gamma-redeem.html",
+  "gamma-redeem.js",
+  "gamma-delivery-admin.js"
 ]
