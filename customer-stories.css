@@ -192,3 +192,48 @@ html:not([data-custom-theme]) .reviews-timer{background:#dce6f3}
  .reviews-playback{gap:10px}
  .reviews-thumb{flex-basis:67px;width:67px;height:90px}
 }
+
+/* One cohesive conversation card instead of a loose image/text stage. */
+.reviews-showcase{padding:40px 24px 32px}
+.reviews-atmosphere{display:none}
+.reviews-heading{gap:20px}
+.reviews-heading h2{font-size:30px;line-height:1.55;margin:8px 0}
+.reviews-heading p{font-size:12px;line-height:1.9}
+.reviews-tabs{margin-top:20px;padding-bottom:16px;gap:7px}
+.reviews-theater{max-width:960px;margin:24px auto 0;padding:24px;gap:28px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--theme-surface,#102238);border:1px solid var(--line,#24415e);border-radius:24px;box-shadow:0 12px 36px #1733540b}
+.reviews-visual{height:490px;min-width:0;margin:0;border-radius:16px;background:var(--theme-panel,#0c1b2c);padding:12px}
+.reviews-main-frame{width:275px;height:466px;max-width:100%;border-radius:14px;box-shadow:0 6px 18px #17335416!important}
+.reviews-frame-top{padding:8px 12px}
+.reviews-frame-bottom{padding:7px 12px;min-height:33px}
+.reviews-story-copy{padding:16px;display:flex;flex-direction:column;align-items:stretch}
+.reviews-story-overline{align-self:flex-start;display:inline-block;padding:6px 10px;border-radius:8px;background:#71c6df12;font-size:10px}
+.reviews-story-title{font-size:25px;line-height:1.65;margin:16px 0 10px;letter-spacing:0}
+.reviews-story-copy>p{font-size:12px;line-height:1.95;margin:0 0 18px;max-width:none}
+.reviews-read{width:100%;justify-content:space-between;min-height:48px;padding:10px 15px}
+.reviews-privacy{margin:18px 0;padding-top:15px;max-width:none}
+.reviews-privacy small{font-size:10px;line-height:1.8}
+.reviews-playback{max-width:none;gap:12px}
+.reviews-timer{max-width:none;margin-top:12px}
+.reviews-film-header{max-width:960px;margin:22px auto 0;padding:0 0 12px;border-top:0}
+.reviews-filmstrip{max-width:960px;margin:auto}
+.reviews-disclaimer{max-width:960px;margin:10px auto 0;line-height:1.9}
+html:not([data-custom-theme]) .reviews-showcase{background:#f7f9fc}
+html:not([data-custom-theme]) .reviews-theater{background:#fff;border-color:#dce6f2}
+html:not([data-custom-theme]) .reviews-visual{background:linear-gradient(145deg,#edf4ff,#f7faff)}
+html:not([data-custom-theme]) .reviews-story-overline{background:#edf4ff;color:#3368b5}
+@media(max-width:700px){
+ .reviews-showcase{padding:28px 14px 24px}
+ .reviews-heading h2{font-size:24px;line-height:1.65}
+ .reviews-heading p{font-size:11px}
+ .reviews-contact{margin-top:12px;font-size:11px;padding:9px 12px}
+ .reviews-theater{margin-top:16px;padding:12px;grid-template-columns:minmax(0,1fr);gap:5px;border-radius:20px}
+ .reviews-visual{height:430px;padding:10px}
+ .reviews-main-frame{height:410px;width:250px;max-width:100%}
+ .reviews-story-copy{padding:14px 4px 4px}
+ .reviews-story-title{font-size:20px;margin:10px 0 7px}
+ .reviews-story-copy>p{font-size:11px;margin-bottom:12px}
+ .reviews-privacy{margin-block:14px;padding-top:12px}
+ .reviews-film-header{margin-top:18px}
+ .reviews-playback{gap:8px}
+ .reviews-play-toggle{font-size:11px}
+}
