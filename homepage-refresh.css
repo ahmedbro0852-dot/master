@@ -1,33 +1,5 @@
 /* MASTER STORE homepage refresh · 2026-11-04 · isolated to homepage elements */
 html{scroll-behavior:smooth}
-
-/* Unified catalog rhythm and progressively revealed services. */
-.catalog-more{display:block;margin:26px auto 8px;min-height:48px;min-width:220px;padding:12px 24px;border:1px solid #c2d6f6;border-radius:14px;background:var(--theme-panel,#fff);color:var(--theme-accent,#245ec8);font-family:inherit;font-weight:700;font-size:13px;line-height:1.7;cursor:pointer}
-.catalog-more[hidden]{display:none}
-.catalog-more:hover{border-color:#2464df;background:var(--theme-soft,#edf4ff)}
-.catalog-more:focus-visible{outline:3px solid #7faafa;outline-offset:3px}
-.catalog .product-card[hidden]{display:none!important}
-.catalog .section-head{margin-bottom:22px}
-.catalog #catalogResultCount{font-size:12px;line-height:1.8}
-.catalog .simple-service-card{border-radius:19px;padding:20px;gap:15px;transition:border-color .2s,box-shadow .2s}
-.catalog .simple-service-card .card-top{min-height:57px}
-.catalog .simple-service-card .service-name{font-size:16px;line-height:1.6}
-.catalog .simple-service-card .card-btn{min-height:46px;border-radius:12px;font-weight:700}
-.catalog .simple-service-card .service-price-stack{gap:6px}
-.catalog .simple-service-card .service-price-duration{font-size:11px;line-height:1.7}
-@media(max-width:700px){
- .hero.hero-v2{margin:12px 12px 16px;padding:25px 18px;border-radius:22px}
- .hero-v2 .hero-copy>p{line-height:1.9;margin-bottom:18px}
- .hero-v2 .hero-facts{margin-top:18px}
- .catalog .simple-service-card{padding:16px;gap:12px;border-radius:17px}
- .catalog .simple-service-card .service-name{font-size:15px}
- .catalog-more{width:calc(100% - 8px);margin-top:20px}
- .how .steps{gap:12px}
- .how .steps article{border-radius:17px}
- .store-follow{gap:18px}
- .store-follow-actions a{min-height:46px}
-}
-@media(prefers-reduced-motion:reduce){.catalog .simple-service-card{transition:none}}
 #home-categories,#products,#best-offers,#how,#faq{scroll-margin-top:18px}
 body:has(.home-categories){background:#f8faff}
 .topbar{background:#fff;border:1px solid #e8eef8;border-top:0;border-radius:0 0 18px 18px;box-shadow:0 8px 28px rgba(16,48,98,.045)}
@@ -400,3 +372,31 @@ html[data-custom-theme] .social-preview-status{background:var(--theme-control);c
  .catalog .search input,.master-search-input{font-size:16px!important}
  .catalog-reset{min-height:44px;margin-bottom:12px}
 }
+
+/* Unified catalog rhythm and progressively revealed services. */
+.catalog-more{display:block;margin:26px auto 8px;min-height:48px;min-width:220px;padding:12px 24px;border:1px solid #c2d6f6;border-radius:14px;background:var(--theme-panel,#fff);color:var(--theme-accent,#245ec8);font-family:inherit;font-weight:700;font-size:13px;line-height:1.7;cursor:pointer}
+.catalog-more[hidden]{display:none}
+.catalog-more:hover{border-color:#2464df;background:var(--theme-soft,#edf4ff)}
+.catalog-more:focus-visible{outline:3px solid #7faafa;outline-offset:3px}
+.catalog .product-card[hidden]{display:none!important}
+.catalog .section-head{margin-bottom:22px}
+.catalog #catalogResultCount{font-size:12px;line-height:1.8}
+.catalog .simple-service-card{border-radius:19px;padding:20px;gap:15px;transition:border-color .2s,box-shadow .2s}
+.catalog .simple-service-card .card-top{min-height:57px}
+.catalog .simple-service-card .service-name{font-size:16px;line-height:1.6}
+.catalog .simple-service-card .card-btn{min-height:46px;border-radius:12px;font-weight:700}
+.catalog .simple-service-card .service-price-stack{gap:6px}
+.catalog .simple-service-card .service-price-duration{font-size:11px;line-height:1.7}
+@media(max-width:700px){
+ .hero.hero-v2{margin:12px 12px 16px;padding:25px 18px;border-radius:22px}
+ .hero-v2 .hero-copy>p{line-height:1.9;margin-bottom:18px}
+ .hero-v2 .hero-facts{margin-top:18px}
+ .catalog .simple-service-card{padding:16px;gap:12px;border-radius:17px}
+ .catalog .simple-service-card .service-name{font-size:15px}
+ .catalog-more{width:calc(100% - 8px);margin-top:20px}
+ .how .steps{gap:12px}
+ .how .steps article{border-radius:17px}
+ .store-follow{gap:18px}
+ .store-follow-actions a{min-height:46px}
+}
+@media(prefers-reduced-motion:reduce){.catalog .simple-service-card{transition:none}}
