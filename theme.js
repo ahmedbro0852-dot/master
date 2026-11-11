@@ -2,7 +2,6 @@
   'use strict';
   const key = 'masterStoreThemeV1';
   const root = document.documentElement;
-  const system = window.matchMedia('(prefers-color-scheme: dark)');
   const themes = [
     {id:'light', ar:'فاتح', en:'Light', icon:'☀', color:'#f3f7fe', dark:false},
     {id:'dark', ar:'داكن', en:'Dark', icon:'☾', color:'#0b1220', dark:true},
@@ -45,7 +44,7 @@
     trigger.setAttribute('aria-expanded', 'false');
     if (focus) trigger.focus();
   }
-  apply(preference || (system.matches ? 'dark' : 'light'));
+  apply(preference || 'light');
   function mount() {
     const header = document.querySelector('.topbar');
     if (!header || header.querySelector('[data-theme-toggle]')) return;
@@ -91,11 +90,10 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount, {once:true});
   else mount();
-  system.addEventListener('change', function (event) { if (!preference) apply(event.matches ? 'dark' : 'light'); });
   window.addEventListener('storage', function (event) {
     if (event.key !== key) return;
     preference = valid(event.newValue) ? event.newValue : null;
-    apply(preference || (system.matches ? 'dark' : 'light'));
+    apply(preference || 'light');
   });
   document.addEventListener('masterstore:localechange', updateLabels);
 })();

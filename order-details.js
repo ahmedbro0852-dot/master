@@ -13,12 +13,35 @@ function details(product,plan){
 }
 function buildMessage(q,contact,method,id,saved){
  const money=n=>window.MasterStore.formatCurrency(n/100,'EGP');
- const lines=['MASTER STORE',pick('رقم الطلب: ','Order reference: ')+id,pick('حالة الطلب: ','Order status: ')+pick(saved?'محفوظ في حسابي — بانتظار التنفيذ':'طلب ضيف مسجّل في النظام — بانتظار تأكيد الدعم',saved?'Saved in my account — awaiting fulfillment':'Guest order saved in the system — awaiting support confirmation'),''];
+ const paid=method==='wallet'&&saved;
+ const lines=['*MASTER STORE — '+pick('طلب جديد','New order')+'*',pick('رقم الطلب: ','Order reference: ')+id,
+  pick('الحالة: ','Status: ')+(paid?pick('مدفوع بالمحفظة — بانتظار التنفيذ','Paid by wallet — awaiting fulfillment'):pick('بانتظار تأكيد الدعم والدفع','Awaiting support and payment confirmation')),''];
  q.items.forEach((x,i)=>{
- const product=window.MasterCatalog?.getProduct(x.product_id),plan=product?.plans?.[x.plan_index];
- lines.push((i+1)+'. '+x.product,pick('الباقة: ','Plan: ')+x.plan,pick('الكمية: ','Quantity: ')+x.quantity,pick('سعر الوحدة: ','Unit price: ')+money(x.unit_piasters),...details(product,plan),pick('إجمالي البند حسب ملخص الطلب: ','Line total from order summary: ')+money(x.amount_piasters),'');
+  const product=window.MasterCatalog?.getProduct(x.product_id),plan=product?.plans?.[x.plan_index];
+  lines.push('*'+(q.items.length>1?(i+1)+'. ':'')+x.product+' — '+x.plan+'*');
+  lines.push(pick('الكمية: ','Quantity: ')+x.quantity+' × '+money(x.unit_piasters)+(x.quantity>1?' = '+money(x.amount_piasters):''));
+  if(plan){
+   const term=[plan.duration,pick('الضمان: ','Warranty: ')+(plan.warranty||pick('يُؤكد مع الدعم','Confirm with support'))].filter(Boolean);
+   lines.push(term.join(' | '));
+   const pending=value=>/ي[ُؤو]*كد.*قبل الدفع|ت[ُؤو]*كد.*قبل الدفع|confirm.*before payment/i.test(value||'');
+   if(plan.account&&!pending(plan.account))lines.push(pick('الحساب: ','Account: ')+plan.account);
+   if(plan.activation&&!pending(plan.activation))lines.push(pick('التفعيل: ','Activation: ')+plan.activation);
+   if(plan.credits)lines.push(pick('الرصيد: ','Credits: ')+plan.credits);
+   if(plan.preparationTime||plan.preparation)lines.push(pick('التجهيز: ','Preparation: ')+(plan.preparationTime||plan.preparation));
+   const giftLines=details(product,plan).filter(line=>line.startsWith(pick('الهدايا: ','Gifts: ')));
+   if((plan.gifts||[]).length||(product?.status==='available'&&plan.available!==false&&Number(plan.price)>=2000))lines.push(...giftLines);
+   [...new Set(plan.notes||[])].forEach(note=>lines.push('• '+note));
+  }else lines.push(pick('التفعيل والضمان: يُؤكدان مع الدعم.','Activation and warranty: confirm with support.'));
+  lines.push('');
  });
- lines.push(pick('قبل خصم الكمية: ','Subtotal before quantity discount: ')+money(q.subtotal_piasters),pick('خصم الكمية: ','Quantity discount: ')+q.discount_percent+'% — '+money(q.discount_piasters),pick('الإجمالي النهائي: ','Final total: ')+money(q.amount_piasters),pick('طريقة الدفع: ','Payment method: ')+(method==='wallet'?pick('المحفظة','Wallet'):method),pick('حالة الدفع: ','Payment status: ')+(method==='wallet'&&saved?pick('تم الخصم من المحفظة.','Deducted from wallet.'):pick('بانتظار تأكيد التحويل مع الدعم؛ هذه الرسالة ليست إثبات دفع.','Awaiting transfer confirmation by support; this message is not proof of payment.')),'',pick('بيانات العميل','Customer details'),pick('الاسم: ','Name: ')+contact.name,pick('واتساب: ','WhatsApp: ')+contact.phone,pick('البريد: ','Email: ')+contact.email,'',pick('يرجى تأكيد التوفر، وبيانات الدفع، وموعد التجهيز قبل التنفيذ، وفق ضمان كل باقة.','Please confirm availability, payment details and preparation time before fulfillment, under each plan warranty.'));
+ if(Number(q.discount_piasters)>0)lines.push(pick('قبل الخصم: ','Subtotal: ')+money(q.subtotal_piasters),pick('خصم الكمية: ','Quantity discount: ')+q.discount_percent+'% — '+money(q.discount_piasters));
+ lines.push('*'+pick('الإجمالي: ','Total: ')+money(q.amount_piasters)+'*',pick('الدفع: ','Payment: ')+(method==='wallet'?pick('المحفظة','Wallet'):method));
+ if(!paid)lines.push(pick('التحويل لم يُؤكد بعد؛ الرسالة ليست إثبات دفع.','Transfer not yet confirmed; this message is not proof of payment.'));
+ lines.push('', '*'+pick('بيانات العميل','Customer details')+'*');
+ if(contact.name)lines.push(pick('الاسم: ','Name: ')+contact.name);
+ if(contact.phone)lines.push(pick('واتساب: ','WhatsApp: ')+contact.phone);
+ if(contact.email)lines.push(pick('البريد: ','Email: ')+contact.email);
+ lines.push('',pick('يرجى تأكيد التوفر وموعد التجهيز'+(paid?'':' وبيانات الدفع وطريقة التفعيل')+' قبل التنفيذ.','Please confirm availability and preparation time'+(paid?'':' plus payment and activation details')+' before fulfillment.'));
  return lines.join('\n');
 }
 window.MasterOrderDetails={planLines:details,buildMessage};
