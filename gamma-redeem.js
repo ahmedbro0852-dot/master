@@ -1,6 +1,6 @@
 (function(){'use strict';
 const C=window.MasterCloud,root=document.getElementById('gammaDelivery'),msg=document.getElementById('gammaMessage');
-const rpc=(action,code,claim_key)=>C.unwrap(C.client.rpc('master_gamma_delivery',{action,code,claim_key}));
+const rpc=(action,code,claim_key,details={})=>C.unwrap(C.client.rpc('master_gamma_delivery',{action,code,claim_key,details}));
 const newKey=()=>{const a=new Uint8Array(32);crypto.getRandomValues(a);return [...a].map(n=>n.toString(16).padStart(2,'0')).join('')};
 const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let processing=false;
@@ -14,8 +14,10 @@ root.querySelector('#gammaCopyCredentials').onclick=async()=>{try{await navigato
 }
 const form=root.querySelector('#gammaRedeemForm');
 form.onsubmit=async e=>{e.preventDefault();if(processing||!C?.ready)return;processing=true;const button=form.querySelector('button');button.disabled=true;
-const code=form.querySelector('input').value.trim().replace(/-/g,'').toLowerCase();
-if(!/^[0-9a-f]{32}$/.test(code)){report('كود غير صالح. انسخ الكود بالكامل كما وصلك.',true);processing=false;button.disabled=false;return}
+const enteredPin=form.querySelector('input').value.trim();
+const code=new URLSearchParams(location.hash.slice(1)).get('ticket')||'';
+if(enteredPin!=='600'){report('كود الاستلام غير صحيح.',true);processing=false;button.disabled=false;return}
+if(!/^[0-9a-f]{32}$/.test(code)){report('افتح رابط الاستلام السري الذي أرسله لك الدعم. الكود 600 وحده لا يكفي.',true);processing=false;button.disabled=false;return}
 try{
 let key=null;
 try{key=localStorage.getItem('masterGammaClaim:'+code)}catch{}
@@ -23,7 +25,7 @@ if(key){try{render(await rpc('read',code,key));return}catch{}}
 key=newKey();
 // Store the recovery key before redemption to allow retrying after network interruption.
 try{localStorage.setItem('masterGammaClaim:'+code,key)}catch{report('لا يمكن حفظ مفتاح الاستلام في المتصفح. فعّل تخزين الموقع وحاول مجددًا.',true);return}
-render(await rpc('redeem',code,key));report('تم استلام الحساب. احتفظ بالبيانات بشكل آمن.');
+render(await rpc('redeem',code,key,{pin:enteredPin}));report('تم استلام الحساب. احتفظ بالبيانات بشكل آمن.');
 }catch(err){report(err.message.includes('CODE_ALREADY_REDEEMED')?'هذا الرمز استُخدم من جهاز آخر. تواصل مع الدعم.':err.message.includes('CODE_EXPIRED')?'انتهت صلاحية الرمز، تواصل مع الدعم.':'تعذر استلام الحساب. تحقق من الرمز أو تواصل مع الدعم.',true)}
 finally{processing=false;button.disabled=false}};
 })();
