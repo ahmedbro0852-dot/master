@@ -24,4 +24,4 @@ if(!['GET','HEAD'].includes(req.method))return res.status(405).end();
 const item=staticFiles[path];if(!item)return res.status(404).end('Not found');
 res.setHeader('Content-Type',item[1]);const body=await readFile(root+item[0]);res.end(req.method==='HEAD'?undefined:body);
 }catch{if(!res.headersSent)res.status(500).json({ok:false,message:'تعذر إتمام الطلب'});else res.end()}
-}).listen(Number(process.env.PORT)||3000,'0.0.0.0',()=>console.log('Ramz ready on port 3000'));
+}).listen(Number(process.env.PORT)||3000,'0.0.0.0',()=>console.log('Ramz listening port',Number(process.env.PORT)||3000));
