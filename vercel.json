@@ -196,23 +196,6 @@
           "value": "private, no-store"
         }
       ]
-    },
-    {
-      "source": "/gamma-redeem.html",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow, noarchive"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "private, no-store"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "no-referrer"
-        }
-      ]
     }
   ],
   "buildCommand": "npm run build",
