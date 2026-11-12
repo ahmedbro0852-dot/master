@@ -1,0 +1,21 @@
+{
+  "name": "Ramz Inbox",
+  "image": "mcr.microsoft.com/playwright:v1.50.1-noble",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22"
+    }
+  },
+  "forwardPorts": [
+    3000
+  ],
+  "portsAttributes": {
+    "3000": {
+      "label": "Ramz Inbox",
+      "onAutoForward": "openBrowser",
+      "visibility": "private"
+    }
+  },
+  "postCreateCommand": "npm install",
+  "postStartCommand": "nohup npm start > /tmp/ramz-server.log 2>&1 &"
+}

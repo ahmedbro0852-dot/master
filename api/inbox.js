@@ -9,7 +9,7 @@ const key=typeof req.body?.key==='string'?req.body.key.trim():'';
 if(!/^[A-Za-z0-9-]{8,100}$/.test(key))return res.status(400).json({ok:false,message:'أدخل مفتاح استلام صحيحًا'});
 let browser;
 try{
-browser=await puppeteer.launch({args:chromium.args,executablePath:await chromium.executablePath(),headless:'shell'});
+browser=await puppeteer.launch({args:chromium.args,executablePath:process.env.CHROME_EXECUTABLE_PATH || await chromium.executablePath(),headless:'shell'});
 // A fresh browser per request keeps every mailbox session isolated.
 const page=await browser.newPage();
 page.setDefaultTimeout(20000);
