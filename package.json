@@ -1,1 +1,13 @@
-{"name":"code-inbox-hub","version":"1.0.0","private":true,"type":"module"}
+{
+  "name": "code-inbox-hub",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "@sparticuz/chromium": "133.0.0",
+    "puppeteer-core": "24.2.1"
+  }
+}
