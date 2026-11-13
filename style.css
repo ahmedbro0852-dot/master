@@ -40,3 +40,16 @@ footer{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap
 .store-link:hover{background:#edf5e6}.store-link:focus-visible,.footer-store:focus-visible{outline:3px solid #94b587;outline-offset:4px}
 .footer-store{color:#55794b;font:700 11px Arial,sans-serif;text-decoration:none;letter-spacing:.5px}
 @media(max-width:600px){header{padding:14px 0}.brand img{width:41px;height:41px;border-radius:10px}.brand b{font-size:13px;letter-spacing:.6px}.brand span{font-size:8px}.brand{gap:8px}.store-link{padding:8px 10px;font-size:9px;gap:6px}}
+
+/* Clear response states and small-screen usability (v1.2) */
+.guide-note{font-size:10px!important;line-height:1.9!important;color:#607965!important;margin-top:16px!important}
+#status[data-kind="info"]:not(:empty){color:#42654f;background:#f0f7ee;border-color:#dcebd8}
+#status[data-kind="success"]:not(:empty){color:#267043;background:#ecf7ed;border-color:#d7ead9}
+#status[data-kind="error"]:not(:empty){color:#96452f;background:#fff4ef;border-color:#f3ded3}
+#reveal{min-width:65px;font-size:10px;font-weight:bold}
+.message h3{overflow-wrap:anywhere}
+.code strong{min-width:0;overflow-wrap:anywhere;letter-spacing:1px}
+.code button{flex-shrink:0;min-width:94px}
+.empty-message{color:#557663!important}
+.mailbox[hidden]{display:none}
+@media(max-width:400px){.brand b{font-size:12px}.brand span{font-size:7px}.store-link{font-size:8px;padding:8px}.code strong{font-size:20px}.code{gap:6px}.code button{min-width:72px;padding:8px}}

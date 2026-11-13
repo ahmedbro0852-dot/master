@@ -10,9 +10,10 @@ const root=fileURLToPath(new URL('.',import.meta.url));
 http.createServer(async(req,res)=>{
 res.status=code=>{res.statusCode=code;return res};
 res.json=data=>{res.setHeader('Content-Type','application/json; charset=utf-8');res.end(JSON.stringify(data))};
-res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');
+res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','no-referrer');res.setHeader('X-Frame-Options','DENY');
 try{
 const path=new URL(req.url,'http://localhost').pathname;
+if(path==='/api/health'){return res.status(200).json({ok:true,service:'code-inbox',status:'online',upstreamVerified:false});}
 if(path==='/api/inbox'){
 if(req.method!=='POST')return handler(req,res);
 let chunks=[],size=0;
