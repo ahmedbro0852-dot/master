@@ -21,6 +21,8 @@ stage='form';
 await page.waitForSelector('input[placeholder^="MG-"]');
 await page.type('input[placeholder^="MG-"]',key);
 await page.waitForFunction(()=>Array.from(document.querySelectorAll('button')).some(b=>b.textContent.trim()==='Open Inbox'&&!b.disabled),{timeout:20000});
+await page.bringToFront();
+console.info('Inbox page visibility',await page.evaluate(()=>document.visibilityState));
 stage='query';
 const [upstream]=await Promise.all([
   page.waitForResponse(r=>{
@@ -28,7 +30,7 @@ const [upstream]=await Promise.all([
     if(!['/api/query','/api/inbox/query'].includes(path)||r.request().method()!=='POST')return false;
     try{return JSON.parse(r.request().postData()||'{}').metadataOnly!==true}catch{return false}
   },{timeout:70000}),
-  page.evaluate(()=>{const button=Array.from(document.querySelectorAll('button')).find(b=>b.textContent.trim()==='Open Inbox'&&!b.disabled);if(!button)throw Error('INBOX_BUTTON_UNAVAILABLE');button.click();})
+  page.click('form.mailbox-form button.primary-btn')
 ]);
 // Promise.all observes both rejections, including when a failed click closes the page.
 if(!upstream.headers()['content-type']?.includes('application/json'))return res.status(503).json({ok:false,message:'مصدر الرسائل رفض طلب الاستلام. يرجى المحاولة لاحقًا.'});
