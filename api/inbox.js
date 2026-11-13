@@ -23,7 +23,11 @@ await page.type('input[placeholder^="MG-"]',key);
 await page.waitForFunction(()=>Array.from(document.querySelectorAll('button')).some(b=>b.textContent.trim()==='Open Inbox'&&!b.disabled),{timeout:20000});
 stage='query';
 const [upstream]=await Promise.all([
-  page.waitForResponse(r=>new URL(r.url()).pathname==='/api/query'&&r.request().method()==='POST',{timeout:70000}),
+  page.waitForResponse(r=>{
+    const path=new URL(r.url()).pathname;
+    if(!['/api/query','/api/inbox/query'].includes(path)||r.request().method()!=='POST')return false;
+    try{return JSON.parse(r.request().postData()||'{}').metadataOnly!==true}catch{return false}
+  },{timeout:70000}),
   page.evaluate(()=>{const button=Array.from(document.querySelectorAll('button')).find(b=>b.textContent.trim()==='Open Inbox'&&!b.disabled);if(!button)throw Error('INBOX_BUTTON_UNAVAILABLE');button.click();})
 ]);
 // Promise.all observes both rejections, including when a failed click closes the page.
