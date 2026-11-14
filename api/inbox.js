@@ -6,6 +6,47 @@ import puppeteer from 'puppeteer-core';
 const SOURCE_URL = 'https://popcornofficial.com/';
 const QUERY_PATHS = new Set(['/api/query','/api/inbox/query']);
 
+// Warm Chromium is reused to avoid launching a separate browser for every request.
+// Every customer uses a separate incognito browser context, never a shared page,
+// cookies, local storage or service worker session.
+let sharedBrowserPromise = null;
+let activeSessions = 0;
+let idleShutdown = null;
+
+async function borrowBrowser() {
+  if (idleShutdown) { clearTimeout(idleShutdown); idleShutdown = null; }
+  if (!sharedBrowserPromise) {
+    const launching = puppeteer.launch({
+      args: chromium.args,
+      executablePath: process.env.CHROME_EXECUTABLE_PATH || await chromium.executablePath(),
+      headless: 'shell'
+    });
+    sharedBrowserPromise = launching;
+    launching.then(browser => browser.once('disconnected',() => {
+      if (sharedBrowserPromise === launching) sharedBrowserPromise = null;
+    })).catch(() => {
+      if (sharedBrowserPromise === launching) sharedBrowserPromise = null;
+    });
+  }
+  const browser = await sharedBrowserPromise;
+  if (!browser.isConnected()) { sharedBrowserPromise = null; return borrowBrowser(); }
+  activeSessions++;
+  return browser;
+}
+
+function returnBrowser() {
+  activeSessions = Math.max(0,activeSessions - 1);
+  if (activeSessions !== 0) return;
+  idleShutdown = setTimeout(async () => {
+    if (activeSessions !== 0) return;
+    const old = sharedBrowserPromise;
+    sharedBrowserPromise = null;
+    idleShutdown = null;
+    if (old) try { await (await old).close(); } catch {}
+  },120000);
+  idleShutdown.unref?.();
+}
+
 function isQuery(url,method) {
   try {
     const parsed = new URL(url,SOURCE_URL);
@@ -73,17 +114,24 @@ export default async function handler(req,res) {
   }
 
   let browser;
+  let context;
+  let borrowed=false;
   let stage='launch';
   const observed=[];
   const responseStatuses=[];
   try {
-    browser=await puppeteer.launch({
-      args:chromium.args,
-      executablePath:process.env.CHROME_EXECUTABLE_PATH || await chromium.executablePath(),
-      headless:'shell'
+    browser = await borrowBrowser();
+    borrowed = true;
+    context = await browser.createBrowserContext();
+    const page = await context.newPage();
+    page.setDefaultTimeout(14000);
+
+    // Reduce bandwidth without blocking the provider's scripts or API requests.
+    await page.setRequestInterception(true);
+    page.on('request', request => {
+      const skip = ['image','media','font'].includes(request.resourceType());
+      void (skip ? request.abort() : request.continue()).catch(() => {});
     });
-    const page=await browser.newPage();
-    page.setDefaultTimeout(18000);
 
     // Capture the page's own authorized fetch response. Unlike CDP response.json(),
     // Response.clone() is resilient to response-body eviction/navigation errors.
@@ -130,17 +178,17 @@ export default async function handler(req,res) {
     });
 
     stage='navigation';
-    const nav=await page.goto(SOURCE_URL,{waitUntil:'domcontentloaded',timeout:25000});
+    const nav=await page.goto(SOURCE_URL,{waitUntil:'domcontentloaded',timeout:20000});
     const title=await page.title();
     if (nav?.status()===403 || /verify you are human|checking your browser|just a moment|access denied/i.test(title)) {
       return res.status(503).json({ok:false,code:'SOURCE_RESTRICTED',message:'المصدر يمنع الاتصال الآلي حاليًا. يلزم الربط الرسمي مع مزود الخدمة.'});
     }
 
     stage='form';
-    const input='input[placeholder^="MG-"]';
-    await page.waitForSelector(input);
-    await page.type(input,key);
-    await page.waitForFunction(() => Array.from(document.querySelectorAll('button')).some(b=>b.textContent.trim()==='Open Inbox'&&!b.disabled),{timeout:18000});
+    const input='input[placeholder^="MG-"], input[name="key"], input[name="inboxKey"]';
+    await page.waitForSelector(input,{timeout:14000});
+    await page.type(input,key,{delay:0});
+    await page.waitForFunction(() => Array.from(document.querySelectorAll('button')).some(b=>b.textContent.trim()==='Open Inbox'&&!b.disabled),{timeout:14000});
 
     stage='query';
     const button='form.mailbox-form button.primary-btn';
@@ -157,7 +205,7 @@ export default async function handler(req,res) {
     // The provider can send metadataOnly validation first, then the full messages.
     // Never display an empty inbox unless an actual full message response exists.
     const started=Date.now();
-    while (Date.now()-started < 48000) {
+    while (Date.now()-started < 32000) {
       let browserResults=[];
       try{browserResults=await page.evaluate(()=>window.__inboxQueryCapture || []);}catch{}
       const candidates=[...browserResults,...observed];
@@ -170,12 +218,12 @@ export default async function handler(req,res) {
         const info=categorizeError(failed.data,failed.status);
         return res.status(info.status).json({ok:false,code:info.code,message:info.message});
       }
-      const restricted=candidates.find(x=>x.status===401 || x.status===403 || x.status===429);
-      if(restricted){
-        const info=categorizeError(restricted.data,restricted.status);
+      const rejected=candidates.find(x=>x.status===401 || x.status===403 || x.status===429 || x.status>=500);
+      if(rejected){
+        const info=categorizeError(rejected.data,rejected.status);
         return res.status(info.status).json({ok:false,code:info.code,message:info.message});
       }
-      await new Promise(resolve=>setTimeout(resolve,600));
+      await new Promise(resolve=>setTimeout(resolve,250));
     }
     console.error('Inbox source did not return a full inbox response', {statusCodes:responseStatuses.slice(0,10),receivedCount:observed.length});
     return res.status(responseStatuses.length ? 502 : 504).json({
@@ -194,6 +242,7 @@ export default async function handler(req,res) {
       message:timeout?'مصدر الرسائل تأخر في الرد. جرّب مرة أخرى بعد قليل.':'تعذّر استلام الرسائل من المصدر. حاول لاحقًا.'
     });
   } finally {
-    if(browser)await browser.close().catch(()=>{});
+    if(context) await context.close().catch(()=>{});
+    if(borrowed) returnBrowser();
   }
 }
