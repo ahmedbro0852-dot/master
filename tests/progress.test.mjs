@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {estimatedProgress} from '../lib/progress.mjs';
+const start=Date.parse('2026-11-14T20:00:00Z');const job={created_at:new Date(start).toISOString(),payload:{started_at:new Date(start).toISOString()}};
+test('request receipt starts at one and moves in small steps',()=>{assert.equal(estimatedProgress({...job,status:'submitting'},start),1);assert.equal(estimatedProgress({...job,status:'submitting'},start+3000),2)});
+test('pending requests never reach completion regardless of waiting time',()=>{for(const status of ['submitting','queued','processing'])assert.ok(estimatedProgress({...job,status},start+24*3600*1000)<100)});
+test('only an actually available result reaches 100 percent',()=>{assert.equal(estimatedProgress({...job,status:'succeeded'},start),95);assert.equal(estimatedProgress({...job,status:'succeeded',output:{url:'/video.mp4'}},start),100);assert.equal(estimatedProgress({...job,status:'failed'},start),null);assert.equal(estimatedProgress({...job,status:'canceled'},start),null)});
+test('refreshes preserve estimate from server timestamps',()=>{const j={...job,status:'processing'};const p=estimatedProgress(j,start+60000);assert.equal(estimatedProgress(JSON.parse(JSON.stringify(j)),start+60000),p);assert.ok(estimatedProgress(j,start+61000)>=p)});
