@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {quoteCents,videoCapacity} from '../lib/pricing.mjs';
+const model={duration_options:[6,8,15],prices:[{duration_sec:6,cost_usd_cents:7},{duration_sec:8,cost_usd_cents:10},{duration_sec:15,cost_usd_cents:18}]};
+test('each duration uses its own explicit provider price',()=>{assert.equal(quoteCents(model,6),7);assert.equal(quoteCents(model,8),10);assert.equal(quoteCents(model,15),18)});
+test('missing and unsupported prices cannot become a free or mispriced video',()=>{assert.equal(quoteCents(model,7),null);assert.equal(quoteCents({...model,prices:[]},6),null);assert.equal(quoteCents({...model,prices:[{duration_sec:6,cost_usd_cents:0}]},6),null)});
+test('a thirty cent code has model-specific capacity',()=>{assert.equal(videoCapacity(30,2),15);assert.equal(videoCapacity(30,5),6);assert.equal(videoCapacity(30,8),3);assert.equal(videoCapacity(30,7),4);assert.equal(videoCapacity(30,14),2);assert.equal(videoCapacity(30,40),0);assert.equal(videoCapacity(30,null),null);assert.equal(videoCapacity(null,2),null)});

@@ -1,4 +1,5 @@
 import {createHash} from 'node:crypto';
+import {quoteCents} from '../lib/pricing.mjs';
 const hash=v=>createHash('sha256').update(v).digest('hex');
 let catalogCache;
 export async function provider(path,body,id){const r=await fetch('https://api.royaltechno.cc/v1/'+path,{method:body?'POST':'GET',headers:{Authorization:'Bearer '+process.env.ROYAL_API_KEY,'Content-Type':'application/json',...(id?{'Idempotency-Key':id}:{})},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(25000)});let x;try{x=await r.json()}catch{x={error:{message:'الخدمة غير متاحة مؤقتًا.'}}}return {ok:r.ok,status:r.status,data:x,retryAfter:r.headers.get("retry-after")};}
@@ -34,7 +35,7 @@ export default async function handler(req,res){
   const prompt=String(body.prompt||'').trim();if(!prompt||prompt.length>m.prompt_max)return res.status(400).json({error:'راجع طول وصف المشهد'});
   const duration=Number(body.duration||m.duration_default);
   if(m.media_type==='video'&&!m.duration_options.includes(duration))return res.status(400).json({error:'مدة غير مدعومة'});
-  const price=m.prices.find(p=>p.duration_sec===duration)||m.prices[0],cost=price?.cost_usd_cents;
+  const cost=quoteCents(m,duration);
   if(!Number.isInteger(cost)||cost<=0)return res.status(400).json({error:'السعر غير متاح'});
   if(!m.aspect_ratios.includes(body.ratio))return res.status(400).json({error:'مقاس غير مدعوم'});
   if(body.image){const u=new URL(body.image);if(u.protocol!=='https:')return res.status(400).json({error:'رابط الصورة يجب أن يكون HTTPS'});}
