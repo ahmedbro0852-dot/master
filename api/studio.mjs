@@ -2,35 +2,51 @@ import {createHash} from 'node:crypto';
 import {quoteCents} from '../lib/pricing.mjs';
 import {validateReferenceImage} from '../lib/reference-image.mjs';
 const hash=v=>createHash('sha256').update(v).digest('hex');
-let catalogCache;
+let catalogCache,catalogPromise;
 // Secrets stay in Vercel: never expose keys or use a different key for an accepted job.
 const keyName=slot=>slot===0?'ROYAL_API_KEY':'ROYAL_API_KEY_'+(slot+1);
 export function providerSlots(){
  return Array.from({length:6},(_,slot)=>slot).filter(slot=>Boolean(process.env[keyName(slot)]));
 }
-export async function provider(path,body,id,slot=0){
+export async function provider(path,body,id,slot=0,timeoutMs=25000){
  const key=process.env[keyName(slot)];
  if(!key)throw Error('Provider credential is unavailable');
  const r=await fetch('https://api.royaltechno.cc/v1/'+path,{
   method:body?'POST':'GET',
   headers:{Authorization:'Bearer '+key,'Content-Type':'application/json',...(id?{'Idempotency-Key':id}:{})},
   ...(body?{body:JSON.stringify(body)}:{}),
-  signal:AbortSignal.timeout(25000)
+  signal:AbortSignal.timeout(timeoutMs)
  });
  let x;try{x=await r.json()}catch{x={error:{message:'الخدمة غير متاحة مؤقتًا.'}}}
  return {ok:r.ok,status:r.status,data:x,retryAfter:r.headers.get('retry-after')};
 }
 export async function backend(action,data){const r=await fetch(process.env.FLOW_BACKEND_URL,{method:'POST',headers:{'Content-Type':'application/json','x-studio-secret':process.env.FLOW_GATEWAY_SECRET},body:JSON.stringify({action,data}),signal:AbortSignal.timeout(45000)});const x=await r.json();if(!r.ok){const e=Error(x.error||'تعذر الاتصال بقاعدة البيانات');e.status=r.status;throw e}return x;}
-async function catalog(){
- if(catalogCache&&Date.now()-catalogCache.at<60000)return catalogCache.data;
- let lastError='تعذر عرض النماذج حاليًا';
- for(const slot of providerSlots()){
-  const r=await provider('models',undefined,undefined,slot);
-  if(r.ok){catalogCache={at:Date.now(),data:(r.data.data||[]).filter(m=>m.media_type==='video')};return catalogCache.data;}
-  lastError=r.data?.error?.message||lastError;
-  if(![401,429,503].includes(r.status))break;
+export async function catalog({allowStale=false,forceRefresh=false}={}){
+ const now=Date.now();
+ if(!forceRefresh&&catalogCache&&now-catalogCache.at<60000)return {models:catalogCache.data,stale:false};
+ async function fetchFresh(){
+  // Capped upstream wait prevents six timed-out keys exhausting a serverless request.
+  // A successful catalog is cached but is never trusted indefinitely for pricing.
+  for(const slot of providerSlots()){
+   try{
+    const r=await provider('models',undefined,undefined,slot,4000);
+    if(r.ok&&Array.isArray(r.data?.data)){
+     const models=r.data.data.filter(m=>m&&m.media_type==='video');
+     catalogCache={at:Date.now(),data:models};
+     return models;
+    }
+   }catch{ /* Timeout or broken key: try the next configured key. */ }
+  }
+  throw Object.assign(Error('تعذّر تحديث النماذج من مزوّد التوليد حاليًا'),{status:503});
  }
- throw Error(lastError);
+ try{
+  if(!catalogPromise)catalogPromise=fetchFresh().finally(()=>{catalogPromise=null;});
+  return {models:await catalogPromise,stale:false};
+ }catch(e){
+  // Only show an old catalog. Never create or price a video from stale data.
+  if(allowStale&&catalogCache&&Date.now()-catalogCache.at<10*60*1000)return {models:catalogCache.data,stale:true};
+  throw e;
+ }
 }
 function jobView(j){
  const output=j.payload?.output;
@@ -53,7 +69,7 @@ export default async function handler(req,res){
   if(!(req.headers['content-type']||'').startsWith('application/json'))return res.status(415).json({error:'JSON مطلوب'});
  }
  if(req.method!=='POST'&&['login','generate','logout'].includes(action))return res.status(405).json({error:'Method not allowed'});
- if(action==='catalog')return res.json({models:await catalog()});
+ if(action==='catalog')return res.json(await catalog({allowStale:true}));
  if(action==='login'){
   const code=String(req.body?.code||'').replace(/\s+/g,'').toUpperCase();
   if(!/^MF-[A-F0-9]{6}-[A-F0-9]{6}-[A-F0-9]{6}$/.test(code))return res.status(401).json({error:'الكود غير صحيح'});
@@ -66,7 +82,8 @@ export default async function handler(req,res){
  if(action==='generate'){
   const body=req.body||{},id=body.id;
   if(!/^[a-f0-9-]{36}$/i.test(id))return res.status(400).json({error:'رقم الطلب غير صالح'});
-  const m=(await catalog()).find(m=>m.model_id===body.model_id&&m.media_type==='video');
+  const {models:liveModels}=await catalog();
+  const m=liveModels.find(m=>m.model_id===body.model_id&&m.media_type==='video');
   if(!m)return res.status(400).json({error:'النموذج غير متاح'});
   const prompt=String(body.prompt||'').trim();if(!prompt||prompt.length>m.prompt_max)return res.status(400).json({error:'راجع طول وصف المشهد'});
   const duration=Number(body.duration||m.duration_default);
