@@ -1,0 +1,2 @@
+-- Worker authentication uses an expiring HMAC signature. No long-lived credential is stored in pg_net request headers.
+-- The private Vault secret is only read by the postgres-owned scheduler.

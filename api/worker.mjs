@@ -1,4 +1,4 @@
-import {timingSafeEqual} from 'node:crypto';
+import {timingSafeEqual,createHmac} from 'node:crypto';
 import {provider,backend} from './studio.mjs';
 function retrySeconds(value,fallback=60){if(!value)return fallback;const n=Number(value);return Math.min(86400,Math.max(60,Number.isFinite(n)?n:Math.ceil((Date.parse(value)-Date.now())/1000)||fallback));}
 export async function processJob(j){
@@ -24,7 +24,10 @@ export async function processJob(j){
 }
 export default async function handler(req,res){
  res.setHeader('Cache-Control','no-store');
- const supplied=Buffer.from(String(req.headers['x-worker-secret']||'')),expected=Buffer.from(process.env.FLOW_WORKER_SECRET||'');
- if(req.method!=='POST'||!expected.length||supplied.length!==expected.length||!timingSafeEqual(supplied,expected))return res.status(403).json({error:'Forbidden'});
+ const timestamp=String(req.headers['x-worker-timestamp']||''),signature=String(req.headers['x-worker-signature']||'');
+ const secret=process.env.FLOW_WORKER_SECRET;
+ if(req.method!=='POST'||!secret||!/^\d{10}$/.test(timestamp)||Math.abs(Date.now()/1000-Number(timestamp))>120||!/^[a-f0-9]{64}$/.test(signature))return res.status(403).json({error:'Forbidden'});
+ const expected=createHmac('sha256',secret).update('master-flow-worker:'+timestamp).digest();
+ if(!timingSafeEqual(Buffer.from(signature,'hex'),expected))return res.status(403).json({error:'Forbidden'});
  try{const jobs=await backend('claim',{});const results=await Promise.all(jobs.map(processJob));return res.json({ok:true,checked:results.length,results})}catch{return res.status(502).json({error:'Background runner unavailable'});}
 }
