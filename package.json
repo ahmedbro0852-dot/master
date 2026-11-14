@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "esbuild src.jsx --bundle --minify --outfile=public/studio.js"
+    "build": "npm run test && esbuild src.jsx --bundle --minify --outfile=public/studio.js",
+    "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
     "react": "19.2.6",

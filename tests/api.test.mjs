@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import handler from '../api/studio.mjs';
+import handler,{provider,providerSlots} from '../api/studio.mjs';
 process.env.FLOW_BACKEND_URL='https://backend.test';process.env.FLOW_GATEWAY_SECRET='test-only';process.env.ROYAL_API_KEY='test-only';
 function response(){return {statusCode:200,headers:{},setHeader(k,v){this.headers[k]=v},status(c){this.statusCode=c;return this},json(body){this.body=body;return this},redirect(c,u){this.statusCode=c;this.url=u;return this}}}
 const model={model_id:'veo-test',api_name:'veo-test',display_name:'Veo Test',media_type:'video',start_image_supported:true,prompt_max:4000,duration_default:8,duration_options:[8],aspect_ratios:['landscape'],resolution:'720p',prices:[{duration_sec:8,cost_usd_cents:2}]};
@@ -17,3 +17,42 @@ test('restored account renews the persistent secure session',async()=>{global.fe
 test('image generation cannot be restored by a direct client request',async()=>{let reserved=false;global.fetch=async(u,init)=>{const b=JSON.parse(init.body);if(b.action==='reserve')reserved=true;return Response.json({balance_cents:30,jobs:[]})};const r=response();await handler(req('generate',{id:'00000000-0000-4000-8000-000000000002',model_id:'nano-banana-pro',prompt:'image',duration:8,ratio:'landscape'}),r);assert.equal(r.statusCode,400);assert.equal(reserved,false)});
 
 test('image-to-video stores the validated frame for durable dispatch but does not echo it',async()=>{const image='data:image/jpeg;base64,'+Buffer.from([255,216,255,224,0,16,74,70,73,70,0,1]).toString('base64');let reserved;global.fetch=async(u,init)=>{const x=JSON.parse(init.body);if(x.action==='account')return Response.json({balance_cents:30,jobs:[]});reserved=x.data;return Response.json({job:{id:x.data.id,status:'submitting',request_body:x.data.request_body}})};const r=response();await handler(req('generate',{id:'00000000-0000-4000-8000-000000000003',model_id:'veo-test',prompt:'Slow camera push in',duration:8,ratio:'landscape',creation_mode:'image',image}),r);assert.equal(r.statusCode,202);assert.equal(reserved.request_body.input.start_image_url,image);assert.equal(r.body.request_body,undefined)});
+
+
+test('newly added provider secrets are routed server-side and held with each reservation',async()=>{
+ process.env.ROYAL_API_KEY_2='second-private-key-test';
+ try{
+  let reserved;
+  global.fetch=async(u,init)=>{
+   if(u.endsWith('/models'))return Response.json({data:[model]});
+   const request=JSON.parse(init.body);
+   if(request.action==='reserve'){reserved=request.data;return Response.json({job:{id:request.data.id,status:'submitting',payload:{}}});}
+   throw Error('No account query should run on generate');
+  };
+  const r=response();await handler(req('generate',{id:'00000001-0000-4000-8000-000000000004',model_id:'veo-test',prompt:'test',duration:8,ratio:'landscape'}),r);
+  assert.equal(r.statusCode,202);assert.equal(reserved.provider_key,1);
+  assert.equal(r.body.provider_key,undefined);assert.equal(r.body.request_body,undefined);
+  assert.deepEqual(providerSlots().slice(0,2),[0,1]);
+ }finally{delete process.env.ROYAL_API_KEY_2;}
+});
+test('job status uses saved database state without another supplier call',async()=>{
+ let actions=[];
+ global.fetch=async(u,init)=>{
+  assert.equal(u,'https://backend.test');
+  const request=JSON.parse(init.body);actions.push(request.action);
+  return Response.json({id:request.data.id,model:'Veo Test',status:'processing',payload:{started_at:'2026-11-14T20:00:00Z'}});
+ };
+ const q=req('status');q.query.id='00000001-0000-4000-8000-000000000005';
+ const r=response();await handler(q,r);
+ assert.equal(r.statusCode,200);assert.deepEqual(actions,['job']);assert.equal(r.body.status,'processing');
+ assert.equal(r.body.request_body,undefined);
+});
+test('provider sends secondary key only in server authorization header',async()=>{
+ process.env.ROYAL_API_KEY_2='secondary-server-secret';
+ try{
+  let bearer;
+  global.fetch=async(u,init)=>{bearer=init.headers.Authorization;return Response.json({data:[]});};
+  const r=await provider('models',undefined,undefined,1);
+  assert.equal(r.ok,true);assert.equal(bearer,'Bearer secondary-server-secret');
+ }finally{delete process.env.ROYAL_API_KEY_2;}
+});

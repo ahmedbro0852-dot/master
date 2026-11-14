@@ -5,7 +5,7 @@ export async function processJob(j){
  const identity={code_hash:j.code_hash,id:j.id};let retry=0;
  try{
   if(j.status==='submitting'&&j.request_body){
-   const r=await provider('jobs',j.request_body,j.id);
+   const r=await provider('jobs',j.request_body,j.id,Number(j.provider_key)||0);
    if(!r.ok){
     if(r.status===429||r.status>=500){retry=retrySeconds(r.retryAfter);return 'retry';}
     await backend('finish',{...identity,status:'failed',payload:r.data});return 'failed';
@@ -13,7 +13,7 @@ export async function processJob(j){
    const external_id=r.data.external_id||r.data.id;if(!external_id)return 'retry';
    j=await backend('finish',{...identity,status:r.data.status||'queued',external_id,payload:r.data});
   }else if(j.external_id&&!['succeeded','failed','canceled'].includes(j.status)){
-   const r=await provider('jobs/'+encodeURIComponent(j.external_id));
+   const r=await provider('jobs/'+encodeURIComponent(j.external_id),undefined,undefined,Number(j.provider_key)||0);
    if(!r.ok){retry=retrySeconds(r.retryAfter);return 'retry';}
    j=await backend('finish',{...identity,status:r.data.status,payload:r.data});
   }
