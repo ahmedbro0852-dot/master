@@ -1,11 +1,12 @@
 import {createHash} from 'node:crypto';
 import {quoteCents} from '../lib/pricing.mjs';
+import {validateReferenceImage} from '../lib/reference-image.mjs';
 const hash=v=>createHash('sha256').update(v).digest('hex');
 let catalogCache;
 export async function provider(path,body,id){const r=await fetch('https://api.royaltechno.cc/v1/'+path,{method:body?'POST':'GET',headers:{Authorization:'Bearer '+process.env.ROYAL_API_KEY,'Content-Type':'application/json',...(id?{'Idempotency-Key':id}:{})},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(25000)});let x;try{x=await r.json()}catch{x={error:{message:'الخدمة غير متاحة مؤقتًا.'}}}return {ok:r.ok,status:r.status,data:x,retryAfter:r.headers.get("retry-after")};}
 export async function backend(action,data){const r=await fetch(process.env.FLOW_BACKEND_URL,{method:'POST',headers:{'Content-Type':'application/json','x-studio-secret':process.env.FLOW_GATEWAY_SECRET},body:JSON.stringify({action,data}),signal:AbortSignal.timeout(45000)});const x=await r.json();if(!r.ok){const e=Error(x.error||'تعذر الاتصال بقاعدة البيانات');e.status=r.status;throw e}return x;}
 async function catalog(){if(catalogCache&&Date.now()-catalogCache.at<60000)return catalogCache.data;const r=await provider('models');if(!r.ok)throw Error(r.data.error?.message);catalogCache={at:Date.now(),data:(r.data.data||[]).filter(m=>m.media_type==='video')};return catalogCache.data;}
-function jobView(j){return {...j,id:j.id,stored:!!j.file_key,output:j.file_key?{...j.payload?.output,url:'/api/studio?action=download&id='+j.id}:j.payload?.output,error:j.payload?.error};}
+function jobView(j){return {...j,id:j.id,request_body:undefined,stored:!!j.file_key,output:j.file_key?{...j.payload?.output,url:'/api/studio?action=download&id='+j.id}:j.payload?.output,error:j.payload?.error};}
 function getCookie(req){const raw=(req.headers.cookie||'').split(';').map(x=>x.trim()).find(x=>x.startsWith('flow_session='));return raw?.slice(13)||'';}
 export default async function handler(req,res){
  res.setHeader('Cache-Control','no-store');const action=req.query.action||'account';
@@ -38,7 +39,8 @@ export default async function handler(req,res){
   const cost=quoteCents(m,duration);
   if(!Number.isInteger(cost)||cost<=0)return res.status(400).json({error:'السعر غير متاح'});
   if(!m.aspect_ratios.includes(body.ratio))return res.status(400).json({error:'مقاس غير مدعوم'});
-  if(body.image){const u=new URL(body.image);if(u.protocol!=='https:')return res.status(400).json({error:'رابط الصورة يجب أن يكون HTTPS'});}
+  if(body.image){if(!m.start_image_supported)return res.status(400).json({error:'النموذج لا يدعم صورة بداية'});try{body.image=validateReferenceImage(body.image)}catch(e){return res.status(400).json({error:e.message})}}
+  if(body.creation_mode==='image'&&!body.image)return res.status(400).json({error:'ارفع صورة البداية أولًا'});
   if(m.requires_start_image&&!body.image)return res.status(400).json({error:'النموذج يتطلب صورة مرجعية'});
   const request_body={model:m.api_name,input:{prompt,aspect_ratio:body.ratio,resolution:m.resolution,count:1,...(m.media_type==='video'?{duration_sec:duration}:{}),...(body.image?{start_image_url:body.image}:{})}};
   const reservation=await backend('reserve',{code_hash,id,cost_cents:cost,provider_key:0,model:m.display_name,prompt,request_body});
