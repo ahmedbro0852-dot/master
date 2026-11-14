@@ -2,6 +2,7 @@ import React,{useEffect,useState,useRef} from 'react';
 import {quoteCents,videoCapacity,money} from './lib/pricing.mjs';
 import {estimatedProgress,progressStage} from './lib/progress.mjs';
 import {createRoot} from 'react-dom/client';
+import StudioCat from './StudioCat.jsx';
 function Icon({name,size=18}){const p={plus:<path d="M12 5v14M5 12h14"/>,grid:<><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></>,video:<><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></>,image:<><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 5-5 4 4 4-6 5 7"/></>,lock:<><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></>,refresh:<><path d="M20 7v5h-5M4 17v-5h5M6 7a7 7 0 0 1 12-1l2 3M4 15l2 3a7 7 0 0 0 12-1"/></>,cloud:<path d="M6 18a4 4 0 0 1-1-8 7 7 0 0 1 13-2 5 5 0 0 1 0 10H6z"/>,arrow:<path d="M18 12H6m5-5-5 5 5 5"/>,check:<path d="m5 12 4 4L19 6"/>,key:<><circle cx="8" cy="8" r="5"/><path d="m12 12 9 9m-3-3 3-3m-6 0 3-3"/></>};return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{p[name]||p.plus}</svg>}
 const brandFor=model=>/seedance/i.test(model)?{logo:'bytedance-color.svg',name:'ByteDance'}:/grok/i.test(model)?{logo:'grok.svg',name:'xAI'}:{logo:'google-color.svg',name:'Google'};
 function ModelLogo({model,size=28}){const b=brandFor(model);return <img className="model-logo" src={'/models/'+b.logo} width={size} height={size} alt={b.name}/>}
@@ -12,7 +13,7 @@ function WaitJourney({job}){
  const percent=estimatedProgress(job,now),done=percent===100;
  if(percent===null)return null;
  const step=done?3:job.status==='processing'?2:1;
- return <section className={'wait-journey '+(done?'done ':'')+(paused?'paused':'')} aria-label="متابعة إنشاء الفيديو"><div className="journey-top"><div><span className="journey-kicker">{done?'فيديوك جاهز':'شوية إبداع بيتجهّز'}</span><h3>{progressStage(job)}</h3></div><div className="journey-percent"><b>{percent}<span>%</span></b><small>{done?'جاهز للمشاهدة':'تقدّم تقديري'}</small></div></div><div className="journey-track" role="progressbar" aria-label="التقدم التقديري لإنشاء الفيديو" aria-valuemin={0} aria-valuemax={100} aria-valuenow={percent}><span style={{width:percent+'%'}}/></div>{!done&&<div className="cat-lounge" aria-hidden="true"><span className="cat-spark spark-a">✧</span><span className="cat-spark spark-b">✧</span><span className="cat-spark spark-c">·</span><div className="cat-perch"><div className="peek-cat"><svg viewBox="0 0 150 145" fill="none"><path className="cat-tail" d="M111 113c30-4 31-35 15-40" stroke="#84a8df" strokeWidth="13" strokeLinecap="round"/><ellipse cx="75" cy="111" rx="32" ry="30" fill="#a9c7ef"/><path d="m40 54-4-35 29 20m45 15 4-35-29 20" fill="#98bbe9" stroke="#6897d5" strokeWidth="2" strokeLinejoin="round"/><path d="m42 42-1-15 14 14m53 1 1-15-14 14" fill="#f1c5d0"/><ellipse cx="75" cy="64" rx="40" ry="33" fill="#b7d2f4"/><path d="m63 34 12 14 12-14" stroke="#87afe2" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/><g className="cat-eyes"><ellipse cx="60" cy="61" rx="4" ry="5" fill="#234b7c"/><ellipse cx="91" cy="61" rx="4" ry="5" fill="#234b7c"/><circle cx="61" cy="59" r="1.3" fill="white"/><circle cx="92" cy="59" r="1.3" fill="white"/></g><path d="m71 72 4 4 4-4" fill="#d38da5" stroke="#d38da5" strokeWidth="2" strokeLinejoin="round"/><path d="M75 76c-2 6-7 6-10 3m10-3c2 6 7 6 10 3" stroke="#5682b9" strokeWidth="2" strokeLinecap="round"/><path d="m50 72-19-4m19 11-19 3m69-10 19-4m-19 11 19 3" stroke="#7da5d9" strokeWidth="2" strokeLinecap="round"/><path d="M50 96c15 8 35 8 50 0" stroke="#1261ed" strokeWidth="5"/><circle cx="75" cy="102" r="7" fill="#fff"/><path d="m72 105 3-5 3 5" stroke="#1261ed" strokeWidth="1.5" strokeLinecap="round"/><ellipse cx="54" cy="129" rx="13" ry="8" fill="#c9dff9"/><ellipse cx="96" cy="129" rx="13" ry="8" fill="#c9dff9"/></svg></div><div className="cat-box"><span>MASTER</span><i/><b>FLOW</b></div><div className="cat-ball"/></div><span className="cat-caption">ضيف صغير بيشاركك الانتظار</span></div>}<div className="journey-steps">{['استلام الطلب','إنشاء الفيديو','جاهز للمشاهدة'].map((label,i)=><span key={label} className={i<step?'reached':''}><i>{i<step?<Icon name="check" size={11}/>:i+1}</i>{label}</span>)}</div><div className="journey-note"><p>{done?'الفيديو جاهز! تقدر تشوفه وتنزّله من تحت.':'النسبة تقديرية وليست قياسًا مباشرًا من النموذج. هنوصل 100% لما الفيديو يبقى جاهز فعلًا. تقدر تقفل الموقع وترجع له في أي وقت.'}</p>{!done&&<button type="button" onClick={()=>pause(x=>!x)}>{paused?'تشغيل الحركة':'إيقاف الحركة'}</button>}</div></section>
+ return <section className={'wait-journey '+(done?'done ':'')+(paused?'paused':'')} aria-label="متابعة إنشاء الفيديو"><div className="journey-top"><div><span className="journey-kicker">{done?'فيديوك جاهز':'شوية إبداع بيتجهّز'}</span><h3>{progressStage(job)}</h3></div><div className="journey-percent"><b>{percent}<span>%</span></b><small>{done?'جاهز للمشاهدة':'تقدّم تقديري'}</small></div></div><div className="journey-track" role="progressbar" aria-label="التقدم التقديري لإنشاء الفيديو" aria-valuemin={0} aria-valuemax={100} aria-valuenow={percent}><span style={{width:percent+'%'}}/></div>{!done&&<StudioCat paused={paused} stage={job.status}/>}<div className="journey-steps">{['استلام الطلب','إنشاء الفيديو','جاهز للمشاهدة'].map((label,i)=><span key={label} className={i<step?'reached':''}><i>{i<step?<Icon name="check" size={11}/>:i+1}</i>{label}</span>)}</div><div className="journey-note"><p>{done?'الفيديو جاهز! تقدر تشوفه وتنزّله من تحت.':'النسبة تقديرية وليست قياسًا مباشرًا من النموذج. هنوصل 100% لما الفيديو يبقى جاهز فعلًا. تقدر تقفل الموقع وترجع له في أي وقت.'}</p>{!done&&<button type="button" onClick={()=>pause(x=>!x)}>{paused?'تشغيل الحركة':'إيقاف الحركة'}</button>}</div></section>
 }
 function App(){
  const [account,A]=useState(null),[models,M]=useState([]),[model,S]=useState(''),[prompt,P]=useState(''),[ratio,R]=useState('landscape'),[duration,D]=useState(8),[image,I]=useState(''),[imageMode,IM]=useState(false),[fileName,FN]=useState(''),[uploading,UP]=useState(false),[jobs,J]=useState([]),[error,E]=useState(''),[busy,B]=useState(false),[code,C]=useState(''),[tab,U]=useState('create'),[login,Q]=useState(false),[ready,Ready]=useState(false);const submitting=useRef(false);
@@ -23,7 +24,27 @@ function App(){
  useEffect(()=>{if(list.length&&!list.some(m=>m.model_id===model))S(list[0].model_id)},[models]);
  useEffect(()=>{if(selected){if(!selected.start_image_supported){IM(false);I('');FN('')}D(selected.duration_default||8);if(!selected.aspect_ratios.includes(ratio))R(selected.aspect_ratios[0])}},[model]);
  const active=jobs.filter(j=>['submitting','queued','processing'].includes(j.status));
- useEffect(()=>{let inFlight=false;const timer=setInterval(async()=>{if(inFlight)return;inFlight=true;try{await Promise.all(jobs.filter(j=>['submitting','queued','processing'].includes(j.status)).map(async j=>{const x=await api('status',null,'&id='+j.id);J(old=>old.map(o=>o.id===x.id?x:o));if(['succeeded','failed','canceled'].includes(x.status))refresh()}))}catch(e){E(e.message)}finally{inFlight=false}},20000);return()=>clearInterval(timer)},[jobs]);
+ // The background worker polls the supplier. Browsers refresh the account once,
+ // only while a pending job is visible, instead of requesting every job separately.
+ useEffect(()=>{
+  if(!active.length)return;
+  let inFlight=false,disposed=false;
+  async function sync(){
+   if(disposed||document.hidden||inFlight)return;
+   inFlight=true;
+   try{
+    const a=await api('account');
+    if(!disposed){A(a);J((a.jobs||[]).filter(videoJob));}
+   }catch(e){
+    if(!disposed&&e.status===401){A(null);J([]);}
+    else if(!disposed){E('الاتصال انقطع مؤقتًا؛ طلبك محفوظ وبيكمل في الخلفية.');}
+   }finally{inFlight=false;}
+  }
+  const timer=setInterval(sync,30000);
+  document.addEventListener('visibilitychange',sync);
+  return()=>{disposed=true;clearInterval(timer);document.removeEventListener('visibilitychange',sync);};
+ },[active.length]);
+
  async function activate(e){e.preventDefault();B(true);E('');try{const x=await api('login',{code});A(x);J((x.jobs||[]).filter(videoJob));C('');Q(false);if((x.jobs||[]).some(j=>['submitting','queued','processing'].includes(j.status)))U('jobs')}catch(e){E(e.message)}finally{B(false)}}
  async function chooseImage(event){
  const file=event.target.files?.[0];event.target.value='';if(!file)return;

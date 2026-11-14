@@ -13,7 +13,7 @@ Supabase schema is isolated under `master_flow`, RLS enabled with no browser acc
 ## Limits and accounting
 One active generation per code, three globally. Atomic row locks and advisory locks enforce budgets and admission. Idempotent request UUIDs prevent duplicate charges. Provider-declared failure/cancellation refunds exactly once; ambiguous submission timeouts remain held for operator reconciliation rather than risking duplicate generation.
 
-Video-only customer library with existing historical records retained in storage. 500 MiB of private archived results per code; 100 MiB per file; 5 GiB total application budget. Archives are copied automatically by the background runner after completion; browser refresh is an additional fallback. File retrieval validates code ownership and issues five-minute signed URLs. Sharing a redemption code grants its holder access to its balance and library.
+Video-only customer library with existing historical records retained in storage. 500 MiB of private archived results per code; 100 MiB per file; 5 GiB total application budget. Archives are copied automatically by the background runner after completion. Browser refreshing only reads the durable job and never resubmits or downloads the result on its own. File retrieval validates code ownership and issues five-minute signed URLs. Sharing a redemption code grants its holder access to its balance and library.
 
 Provider credentials are intentionally not pooled across trial accounts. The ten promotional wallets total $3 internal credit; supplier funding must independently cover all promised deliveries.
 
@@ -30,4 +30,4 @@ The customer can choose text-to-video or image-to-video. JPG, PNG and WebP files
 
 The exact source frame is retained privately in the durable request until the supplier job ID has been persisted; a database trigger then clears the large request body. The source frame is not echoed in browser job/status responses. Uploaded-source bytes are not a public storage bucket.
 
-The wait panel now uses an animated SVG kitten, with a pause control and reduced-motion support. Its percentage is explicitly estimated and only reaches 100 when an output URL is actually available.
+The wait panel uses a shaded sandy-colored SVG kitten with independent breathing, ear, head, eye, whisker, tail, paw and ball animations. Tapping the kitten replays its paw gesture. It is local and does not need remote image downloads; pause and prefers-reduced-motion support remain available. While jobs are active, a visible browser syncs its entire account once every 30 seconds, while the background worker continues independently. Its percentage is explicitly estimated and only reaches 100 when an output URL is actually available.
