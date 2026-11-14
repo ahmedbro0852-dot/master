@@ -11,6 +11,7 @@ const updated = document.querySelector('#updated');
 const reveal = document.querySelector('#reveal');
 let busy = false;
 let lastRequest = 0;
+let progressTimer = null;
 
 reveal.addEventListener('click', () => {
   key.type = key.type === 'password' ? 'text' : 'password';
@@ -95,6 +96,18 @@ async function lookup(event) {
   const previousResults = !mailbox.hidden;
   showStatus(previousResults ? 'جارٍ تحديث الرسائل بدون مسح النتائج الحالية…' : 'جارٍ الاتصال بالمصدر والتحقق من المفتاح…', 'info');
   setBusy(true);
+  const started = Date.now();
+  clearInterval(progressTimer);
+  progressTimer = setInterval(() => {
+    const seconds = Math.floor((Date.now() - started) / 1000);
+    if (seconds >= 7 && seconds < 17) {
+      showStatus('بنفتح صندوق الرسائل ونتأكد من الاتصال بالمصدر…', 'info');
+    } else if (seconds >= 17 && seconds < 36) {
+      showStatus('الاتصال بالمصدر مستمر، والرسائل السابقة محفوظة لو بتعمل تحديث…', 'info');
+    } else if (seconds >= 36) {
+      showStatus('مصدر الرسائل متأخر في الرد. لو الاتصال فشل هنوضح السبب بدل الانتظار من غير نتيجة.', 'info');
+    }
+  }, 2500);
   try {
     const response = await fetch('/api/inbox', {
       method: 'POST',
@@ -118,6 +131,8 @@ async function lookup(event) {
     // Keep the previously fetched messages visible when a refresh fails.
     if (!previousResults) mailbox.hidden = true;
   } finally {
+    clearInterval(progressTimer);
+    progressTimer = null;
     setBusy(false);
   }
 }

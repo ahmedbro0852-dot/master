@@ -53,3 +53,32 @@ footer{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap
 .empty-message{color:#557663!important}
 .mailbox[hidden]{display:none}
 @media(max-width:400px){.brand b{font-size:12px}.brand span{font-size:7px}.store-link{font-size:8px;padding:8px}.code strong{font-size:20px}.code{gap:6px}.code button{min-width:72px;padding:8px}}
+
+/* Performance and accessibility polish: no external fonts or animation libraries */
+body { font-family:system-ui,Tahoma,Arial,sans-serif; }
+.panel>p,.guide-note { font-size:13px!important; }
+label { font-size:13px; }
+input::placeholder { font-size:13px; }
+.primary { font-size:15px; min-height:54px; }
+#status { font-size:13px; }
+.message h3 { font-size:16px; }
+.meta { font-size:12px; }
+.message summary { font-size:13px; }
+#messages>p { font-size:13px; }
+#refresh,#close { font-size:12px; }
+button { touch-action:manipulation; }
+.primary:disabled::before {
+  content:"";display:inline-block;width:13px;height:13px;margin-inline-end:10px;
+  border:2px solid #ffffffaa;border-top-color:#fff;border-radius:50%;
+  animation:inbox-spin .65s linear infinite;vertical-align:middle;
+}
+@keyframes inbox-spin { to { transform:rotate(360deg); } }
+@media(max-width:600px){
+  .hero p{font-size:13px;}
+  .panel>p,.guide-note{font-size:13px!important;}
+  .primary{font-size:14px;}
+  #status{font-size:13px;}
+  .help-line{font-size:11px;}
+  .mailbox{padding:22px 17px;}
+}
+@media(prefers-reduced-motion:reduce){.primary:disabled::before{animation:none}}
