@@ -337,3 +337,15 @@ footer{font-size:10px;color:#8da0b7;padding:36px 0}
  html{scroll-behavior:auto}
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* Local editor recovery and network resilience */
+.draft-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:1px 0 16px;padding:10px 12px;background:#f4f8ff;border:1px solid #dfebff;border-radius:11px;color:#6184ab}
+.draft-toolbar>span{display:inline-flex;align-items:center;gap:7px;font-size:10px;line-height:1.8}
+.draft-toolbar svg{color:#249879;flex-shrink:0}
+.draft-toolbar button{background:transparent;border:0!important;color:#5377ae;font-size:10px!important;font-weight:700;padding:6px 8px;border-radius:7px;box-shadow:none}
+.draft-toolbar button:hover{color:#1f5ad2;background:#eaf2ff}
+.network-banner{display:flex;align-items:flex-start;gap:11px;padding:15px 17px;margin:0 0 18px;border-radius:12px;background:#fff8e9;border:1px solid #f4dda7;color:#9c7031;line-height:1.9;font-size:12px}
+.network-banner svg{color:#c88b27;flex-shrink:0;margin-top:3px}
+.network-banner b{color:#825617}
+@media(max-width:650px){.draft-toolbar{gap:6px;padding:8px 9px}.draft-toolbar>span{font-size:9px}.draft-toolbar button{font-size:9px!important}.network-banner{padding:12px;font-size:11px}}
