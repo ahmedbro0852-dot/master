@@ -6,3 +6,18 @@ test('durable request is dispatched with its original idempotency key and releas
 test('supplier throttling preserves reservation and honors Retry-After',async()=>{const calls=[];global.fetch=async(u,init)=>{if(u.endsWith('/jobs'))return Response.json({error:{message:'wait'}},{status:429,headers:{'Retry-After':'600'}});const q=JSON.parse(init.body);calls.push(q);return Response.json({})};assert.equal(await processJob({id:'test',code_hash:'test',status:'submitting',request_body:{model:'veo'}}),'retry');assert.equal(calls.some(c=>c.action==='finish'),false);assert.equal(calls.at(-1).data.retry_seconds,600)});
 test('completed jobs archive without any browser request',async()=>{const calls=[];global.fetch=async(u,init)=>{const q=JSON.parse(init.body);calls.push(q.action);return Response.json({stored:true})};assert.equal(await processJob({id:'test',code_hash:'test',status:'succeeded'}),'succeeded');assert.deepEqual(calls,['archive','release'])});
 test('signed scheduler callback is accepted, stale signatures are rejected',async()=>{const {createHmac}=await import('node:crypto');const ts=String(Math.floor(Date.now()/1000));const sig=createHmac('sha256',process.env.FLOW_WORKER_SECRET).update('master-flow-worker:'+ts).digest('hex');global.fetch=async()=>Response.json([]);const mk=()=>({setHeader(){},status(s){this.code=s;return this},json(body){this.body=body;return this}});const ok=mk();await worker({method:'POST',headers:{'x-worker-timestamp':ts,'x-worker-signature':sig}},ok);assert.equal(ok.body.ok,true);const stale=mk();await worker({method:'POST',headers:{'x-worker-timestamp':'1000000000','x-worker-signature':sig}},stale);assert.equal(stale.code,403)});
+
+
+test('existing provider key sticks to the accepted supplier job',async()=>{
+ process.env.ROYAL_API_KEY_2='worker-secondary-secret';
+ try{
+  let bearer;
+  global.fetch=async(u,init)=>{
+   if(u.includes('/jobs/')){bearer=init.headers.Authorization;return Response.json({id:'job_started',status:'succeeded',output:{url:'https://royaltechno.cc/clip.mp4'}});}
+   const q=JSON.parse(init.body);
+   return Response.json(q.action==='finish'?{status:'succeeded',file_key:'already-stored'}:{});
+  };
+  const result=await processJob({id:'00000001-0000-4000-8000-000000000006',code_hash:'test',status:'processing',external_id:'job_started',provider_key:1});
+  assert.equal(result,'succeeded');assert.equal(bearer,'Bearer worker-secondary-secret');
+ }finally{delete process.env.ROYAL_API_KEY_2;}
+});
