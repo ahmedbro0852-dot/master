@@ -24,3 +24,10 @@ Generation reserves credit and saves the exact provider request before returning
 
 ## Model brand assets
 Google, ByteDance and Grok marks are vendored from the MIT-licensed Lobe Icons project, with attribution under public/models/LICENSE.txt. Model cards identify the model and its maker; maker logos are not claims of a commercial partnership.
+
+## Image-to-video
+The customer can choose text-to-video or image-to-video. JPG, PNG and WebP files are accepted up to 20 MiB in the browser and rasterized to at most a 1600-pixel long edge as JPEG. The server accepts a maximum 3 MiB decoded raster frame, validates its MIME type and signature, and rejects unsupported model/frame combinations before reserving credit. An HTTPS reference link is still supported as an alternative. Generation remains video-only.
+
+The exact source frame is retained privately in the durable request until the supplier job ID has been persisted; a database trigger then clears the large request body. The source frame is not echoed in browser job/status responses. Uploaded-source bytes are not a public storage bucket.
+
+The wait panel now uses an animated SVG kitten, with a pause control and reduced-motion support. Its percentage is explicitly estimated and only reaches 100 when an output URL is actually available.
