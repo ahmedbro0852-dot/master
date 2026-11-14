@@ -17,6 +17,14 @@ Video-only customer library with existing historical records retained in storage
 
 Provider credentials are intentionally not pooled across trial accounts. The ten promotional wallets total $3 internal credit; supplier funding must independently cover all promised deliveries.
 
+## Reliability hardening
+
+Video submission uses a short-lived (30-minute) browser-side SHA-256 fingerprint of the exact parameters, with a request UUID retained in sessionStorage. If an API response disappears after reservation, a manual retry of the same inputs reuses that UUID; the database returns the existing job rather than charging again. Successful submissions clear the retry token; changed inputs always produce a new UUID. The token stores no video frames or description, only the digest, timestamp, and UUID.
+
+The public catalog falls back through configured provider credentials when a key times out or its model API fails. The supplier model request has a 4-second per-key timeout and a single in-flight refresh per serverless instance. Last-good data may be displayed for up to 10 minutes with an explicit stale flag, but the API rejects new generation attempts when a fresh price cannot be verified. The browser disables generation while stale and rechecks for availability.
+
+Account history includes the persisted refunded flag, so clients accurately display which failed or canceled jobs had their promotional balance returned. The additive production patch is in `supabase/refund-visibility.sql`. A supplier's API balance is separate from promotional customer credit; these protections cannot create supplier funding.
+
 ## Persistent sessions and unattended generation
 Login is a single code field. The HttpOnly Secure SameSite cookie lasts one year and renews on account restoration; temporary network errors never log the user out. Clearing cookies, private browsing, logging out, or changing devices requires entering the code again.
 
