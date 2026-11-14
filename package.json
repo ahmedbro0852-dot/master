@@ -1,10 +1,18 @@
 {
-  "name": "master-store-assistant",
-  "version": "1.0.0",
-  "type": "commonjs",
+  "name": "master-flow-studio",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "node scripts/build-seo.cjs && node scripts/prepare-public.cjs && node scripts/verify-public.cjs && node tests/order-inbox.test.cjs && node tests/admin-control-center.test.cjs && node tests/master_crm_helpers.test.cjs && node tests/admin-bulk-pricing.test.cjs && node tests/store-search.test.cjs && node tests/store-search-interaction.test.cjs && node tests/mobile-viewport.test.cjs && node tests/subscription-request.test.cjs && node tests/delivery-sound.test.cjs && node tests/crm-enhance.test.cjs",
-    "test": "node tests/store-assistant.test.cjs && node tests/store-knowledge.test.cjs && node tests/assistant-shopping.test.cjs && node tests/security-hardening.test.cjs && node tests/seo.test.cjs && node tests/lovable-promotion.test.cjs && node tests/service-guides.test.cjs && node tests/order-inbox.test.cjs && node tests/creative-services.test.cjs"
+    "build": "esbuild src.jsx --bundle --minify --outfile=public/studio.js"
+  },
+  "dependencies": {
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.0"
   }
 }
