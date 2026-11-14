@@ -25,6 +25,12 @@ The public catalog falls back through configured provider credentials when a key
 
 Account history includes the persisted refunded flag, so clients accurately display which failed or canceled jobs had their promotional balance returned. The additive production patch is in `supabase/refund-visibility.sql`. A supplier's API balance is separate from promotional customer credit; these protections cannot create supplier funding.
 
+## Local editor continuity and CI
+
+The browser automatically saves the text prompt, chosen video model, format, duration, and creation mode as a short, local draft (90-day inactivity expiry). HTTPS reference links may be restored, but locally uploaded image bytes, activation codes, tokens and payment details are **never** saved in localStorage. Reloading the browser, leaving the site, or coming back later retains the draft; image uploads must be selected again. The editor includes a clear-draft control and an offline banner. Requests are not sent while the browser reports offline; reconnecting refreshes account and model data.
+
+GitHub Actions `.github/workflows/flow-studio-ci.yml` runs `npm ci --ignore-scripts` and the tested production bundle build for feature and production branches. The workflow uses pinned checkout/setup-node actions and has read-only repository permissions.
+
 ## Persistent sessions and unattended generation
 Login is a single code field. The HttpOnly Secure SameSite cookie lasts one year and renews on account restoration; temporary network errors never log the user out. Clearing cookies, private browsing, logging out, or changing devices requires entering the code again.
 
