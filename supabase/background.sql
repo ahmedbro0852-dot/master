@@ -31,7 +31,7 @@ begin
  select * into c from master_flow.codes where code_hash=p_data->>'code_hash' and active=true for update;
  if c.id is null then return jsonb_build_object('error','الكود غير صحيح أو موقوف.','http',401);end if;
  if p_action in ('login','account','library') then
-  select coalesce(jsonb_agg(to_jsonb(q) order by q.created_at desc),'[]') into v from (select id,external_id,model,prompt,cost_cents,status,payload,created_at,file_key,archive_state from master_flow.jobs where code_id=c.id order by created_at desc limit 100) q;
+  select coalesce(jsonb_agg(to_jsonb(q) order by q.created_at desc),'[]') into v from (select id,external_id,model,prompt,cost_cents,status,refunded,payload,created_at,file_key,archive_state from master_flow.jobs where code_id=c.id order by created_at desc limit 100) q;
   select coalesce(sum(file_size),0) into total from master_flow.jobs where code_id=c.id;
   return jsonb_build_object('label',c.label,'balance_cents',c.balance_cents,'granted_cents',c.granted_cents,'jobs',v,'storage_used',total,'storage_limit',524288000);
  elsif p_action='reserve' then
