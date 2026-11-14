@@ -1,8 +1,8 @@
 import {createHash} from 'node:crypto';
 const hash=v=>createHash('sha256').update(v).digest('hex');
 let catalogCache;
-async function provider(path,body,id){const r=await fetch('https://api.royaltechno.cc/v1/'+path,{method:body?'POST':'GET',headers:{Authorization:'Bearer '+process.env.ROYAL_API_KEY,'Content-Type':'application/json',...(id?{'Idempotency-Key':id}:{})},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(25000)});let x;try{x=await r.json()}catch{x={error:{message:'الخدمة غير متاحة مؤقتًا.'}}}return {ok:r.ok,status:r.status,data:x};}
-async function backend(action,data){const r=await fetch(process.env.FLOW_BACKEND_URL,{method:'POST',headers:{'Content-Type':'application/json','x-studio-secret':process.env.FLOW_GATEWAY_SECRET},body:JSON.stringify({action,data}),signal:AbortSignal.timeout(45000)});const x=await r.json();if(!r.ok){const e=Error(x.error||'تعذر الاتصال بقاعدة البيانات');e.status=r.status;throw e}return x;}
+export async function provider(path,body,id){const r=await fetch('https://api.royaltechno.cc/v1/'+path,{method:body?'POST':'GET',headers:{Authorization:'Bearer '+process.env.ROYAL_API_KEY,'Content-Type':'application/json',...(id?{'Idempotency-Key':id}:{})},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(25000)});let x;try{x=await r.json()}catch{x={error:{message:'الخدمة غير متاحة مؤقتًا.'}}}return {ok:r.ok,status:r.status,data:x,retryAfter:r.headers.get("retry-after")};}
+export async function backend(action,data){const r=await fetch(process.env.FLOW_BACKEND_URL,{method:'POST',headers:{'Content-Type':'application/json','x-studio-secret':process.env.FLOW_GATEWAY_SECRET},body:JSON.stringify({action,data}),signal:AbortSignal.timeout(45000)});const x=await r.json();if(!r.ok){const e=Error(x.error||'تعذر الاتصال بقاعدة البيانات');e.status=r.status;throw e}return x;}
 async function catalog(){if(catalogCache&&Date.now()-catalogCache.at<60000)return catalogCache.data;const r=await provider('models');if(!r.ok)throw Error(r.data.error?.message);catalogCache={at:Date.now(),data:r.data.data||[]};return catalogCache.data;}
 function jobView(j){return {...j,id:j.id,stored:!!j.file_key,output:j.file_key?{...j.payload?.output,url:'/api/studio?action=download&id='+j.id}:j.payload?.output,error:j.payload?.error};}
 function getCookie(req){const raw=(req.headers.cookie||'').split(';').map(x=>x.trim()).find(x=>x.startsWith('flow_session='));return raw?.slice(13)||'';}
@@ -17,15 +17,15 @@ export default async function handler(req,res){
  if(req.method!=='POST'&&['login','generate','logout'].includes(action))return res.status(405).json({error:'Method not allowed'});
  if(action==='catalog')return res.json({models:await catalog()});
  if(action==='login'){
-  const code=String(req.body?.code||'').trim().toUpperCase();
+  const code=String(req.body?.code||'').replace(/\s+/g,'').toUpperCase();
   if(!/^MF-[A-F0-9]{6}-[A-F0-9]{6}-[A-F0-9]{6}$/.test(code))return res.status(401).json({error:'الكود غير صحيح'});
   const code_hash=hash(code),ip_hash=hash(process.env.FLOW_GATEWAY_SECRET+(req.headers['x-forwarded-for']||'unknown'));
-  const account=await backend('login',{code_hash,ip_hash});res.setHeader('Set-Cookie',`flow_session=${code_hash}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=2592000`);return res.json({...account,jobs:account.jobs.map(jobView)});
+  const account=await backend('login',{code_hash,ip_hash});res.setHeader('Set-Cookie',`flow_session=${code_hash}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=31536000`);return res.json({...account,jobs:account.jobs.map(jobView)});
  }
  if(action==='logout'){res.setHeader('Set-Cookie','flow_session=; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=0');return res.json({ok:true});}
  const code_hash=getCookie(req);if(!/^[a-f0-9]{64}$/.test(code_hash))return res.status(401).json({error:'أدخل كود الهدية للمتابعة'});
  const account=await backend('account',{code_hash});
- if(action==='account')return res.json({...account,jobs:account.jobs.map(jobView)});
+ if(action==='account'){res.setHeader('Set-Cookie',`flow_session=${code_hash}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=31536000`);return res.json({...account,jobs:account.jobs.map(jobView)});}
  if(action==='generate'){
   const body=req.body||{},id=body.id;
   if(!/^[a-f0-9-]{36}$/i.test(id))return res.status(400).json({error:'رقم الطلب غير صالح'});
@@ -39,13 +39,9 @@ export default async function handler(req,res){
   if(!m.aspect_ratios.includes(body.ratio))return res.status(400).json({error:'مقاس غير مدعوم'});
   if(body.image){const u=new URL(body.image);if(u.protocol!=='https:')return res.status(400).json({error:'رابط الصورة يجب أن يكون HTTPS'});}
   if(m.requires_start_image&&!body.image)return res.status(400).json({error:'النموذج يتطلب صورة مرجعية'});
-  const reservation=await backend('reserve',{code_hash,id,cost_cents:cost,provider_key:0,model:m.display_name,prompt});
-  if(reservation.existing)return res.json(jobView(reservation.job));
-  const r=await provider('jobs',{model:m.api_name,input:{prompt,aspect_ratio:body.ratio,resolution:m.resolution,count:1,...(m.media_type==='video'?{duration_sec:duration}:{}),...(body.image?{start_image_url:body.image}:{})}},id);
-  if(!r.ok){await backend('finish',{code_hash,id,status:'failed',payload:r.data});return res.status(r.status).json({error:r.data.error?.message||'رفض المزوّد الطلب. تم رد رصيد الكود.'});}
-  const external_id=r.data.external_id||r.data.id;
-  if(!external_id)return res.status(502).json({error:'لم يصل رقم الطلب. لا تُعد الإرسال؛ تواصل مع الدعم برقم '+id});
-  const j=await backend('finish',{code_hash,id,external_id,status:r.data.status||'queued',payload:r.data});return res.json(jobView(j));
+  const request_body={model:m.api_name,input:{prompt,aspect_ratio:body.ratio,resolution:m.resolution,count:1,...(m.media_type==='video'?{duration_sec:duration}:{}),...(body.image?{start_image_url:body.image}:{})}};
+  const reservation=await backend('reserve',{code_hash,id,cost_cents:cost,provider_key:0,model:m.display_name,prompt,request_body});
+  return res.status(reservation.existing?200:202).json(jobView(reservation.job));
  }
  const id=String(req.query.id||'');if(!/^[a-f0-9-]{36}$/i.test(id))return res.status(400).json({error:'رقم الطلب غير صالح'});
  let j=await backend('job',{code_hash,id});

@@ -16,3 +16,8 @@ One active generation per code, three globally. Atomic row locks and advisory lo
 500 MiB of private archived results per code; 100 MiB per file; 5 GiB total application budget. Archives are copied on job status refresh after completion. Keep the page open or use refresh to complete archival. File retrieval validates code ownership and issues five-minute signed URLs. Sharing a redemption code grants its holder access to its balance and library.
 
 Provider credentials are intentionally not pooled across trial accounts. The ten promotional wallets total $3 internal credit; supplier funding must independently cover all promised deliveries.
+
+## Persistent sessions and unattended generation
+Login is a single code field. The HttpOnly Secure SameSite cookie lasts one year and renews on account restoration; temporary network errors never log the user out. Clearing cookies, private browsing, logging out, or changing devices requires entering the code again.
+
+Generation reserves credit and saves the exact provider request before returning HTTP 202. The browser never owns dispatch. A Supabase pg_cron task checks the durable queue every minute and calls the protected Vercel worker. Worker leases last three minutes, prevent duplicate dispatches, honor supplier Retry-After, and use the job UUID as provider idempotency key. Completed files are archived without an open browser. Worker access uses FLOW_WORKER_SECRET stored in Vercel and Supabase Vault; no plaintext secret belongs in source. The archived-file limits still apply.
