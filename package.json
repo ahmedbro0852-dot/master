@@ -1,16 +1,1 @@
-{
-  "name": "code-inbox-hub",
-  "version": "1.1.0",
-  "private": true,
-  "type": "module",
-  "engines": {
-    "node": "22.x"
-  },
-  "dependencies": {
-    "@sparticuz/chromium": "133.0.0",
-    "puppeteer-core": "24.2.1"
-  },
-  "scripts": {
-    "start": "node server.js"
-  }
-}
+{"name":"master-code-desk","version":"2.0.0","private":true,"type":"module","engines":{"node":">=22"},"scripts":{"start":"node server.js"}}

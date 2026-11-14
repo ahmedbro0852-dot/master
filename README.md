@@ -1,14 +1,7 @@
-# رمز — Code Inbox
+# MASTER STORE code desk
 
-## Try on GitHub Codespaces
-Open this branch in a GitHub Codespace (Code → Codespaces → Create codespace on code-inbox-standalone).
-Wait for setup and open port 3000 from the Ports panel. The port should stay private.
-The server starts automatically; if needed run `npm start`.
-Enter your inbox key in the website only. Do not commit keys, messages, screenshots, or browser sessions.
+Independent customer request portal with private order tracking and manual code delivery. No upstream scraping, no source name in customer UI.
 
-The browser runs in the Codespace, independently of Vercel. Source-provider restrictions still apply. No challenge bypass is implemented. Every request uses an isolated browser that closes afterward.
-Codespaces may consume your GitHub included usage allowance. Stop the Codespace after testing.
+Configure ADMIN_PASSWORD (18+ characters), DATA_SECRET (28+ characters), DATA_FILE=/data/requests.json. Attach persistent volume at /data.
 
-## Local
-Node 22, `npm install`, then `npm start`.
-Set CHROME_EXECUTABLE_PATH to an installed Chrome/Chromium executable if needed.
+Customers enter their order reference, not third-party mailbox credentials. Admin interface at /admin requires password. Codes expire after 20 minutes. Automated retrieval requires permissioned vendor integration.
