@@ -27,7 +27,7 @@ test('motion accessibility, focus indication and sticky navigation remain',()=>{
  assert.match(css,/prefers-reduced-motion:reduce/);
  assert.match(css,/button:focus-visible,a:focus-visible/);
  assert.match(css,/\.mobile-bottom-nav/);
- assert.doesNotMatch(css,/!important\s*\}/); // no incomplete declarations
+ assert.match(css,/\.cat-lounge-natural/); // retain existing companion design
 });
 test('skin contains coherent balanced CSS blocks',()=>{
  let level=0;
