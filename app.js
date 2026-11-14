@@ -1,153 +1,32 @@
-const form = document.querySelector('#lookup');
-const key = document.querySelector('#key');
-const submit = document.querySelector('#submit');
-const refresh = document.querySelector('#refresh');
-const closeButton = document.querySelector('#close');
-const status = document.querySelector('#status');
-const mailbox = document.querySelector('#mailbox');
-const messages = document.querySelector('#messages');
-const count = document.querySelector('#count');
-const updated = document.querySelector('#updated');
-const reveal = document.querySelector('#reveal');
-const providerHelp = document.querySelector('#provider-help');
-let busy = false;
-let lastRequest = 0;
-let progressTimer = null;
-
-reveal.addEventListener('click', () => {
-  key.type = key.type === 'password' ? 'text' : 'password';
-  reveal.setAttribute('aria-label', key.type === 'password' ? 'إظهار المفتاح' : 'إخفاء المفتاح');
-  reveal.textContent = key.type === 'password' ? 'إظهار' : 'إخفاء';
-});
-
-function node(tag, value, className) {
-  const element = document.createElement(tag);
-  if (value != null) element.textContent = String(value);
-  if (className) element.className = className;
-  return element;
+const $=s=>document.querySelector(s);
+let current=null,timer=null;
+function stop(){if(timer)clearInterval(timer);timer=null}
+function store(){if(current)localStorage.setItem('master_code_request_v2',JSON.stringify(current));else localStorage.removeItem('master_code_request_v2')}
+function showError(text){$('#error').textContent=text||'';$('#error').hidden=!text}
+function render(r){
+$('#ticket').textContent=r.ticket||current.ticket;
+let ready=r.status==='ready',pending=r.status==='pending';
+$('#badge').textContent=ready?'تم الاستلام ✓':pending?'قيد التجهيز':r.status==='expired'?'الكود انتهت صلاحيته':'تم إغلاق الطلب';
+$('#badge').className='badge'+(ready?' ok':pending?'':' bad');
+$('#title').textContent=ready?'الكود جاهز!':pending?'بنجهّز الكود':'حالة الطلب';
+$('#details').textContent=ready?'انسخ كودك قبل انتهاء صلاحيته.':pending?'تم استلام طلبك، وفريق المتجر بيتابع توفير الكود.':'تقدر تعمل طلب جديد لو محتاج كود تاني.';
+$('#pulse').hidden=!pending;$('#code-wrap').hidden=!ready;
+if(ready){$('#code').textContent=r.code||'';$('#expires').textContent='صالح لحد '+new Date(r.expiresAt).toLocaleTimeString('ar-EG');}
+$('#track-status').textContent=pending?'بنحدث الحالة تلقائيًا كل 5 ثوانٍ.':ready?'تم تسليم الكود بنجاح.':'انتهى الطلب الحالي.';
+if(!pending)stop();
 }
-
-function showStatus(message, type = 'error') {
-  status.textContent = message || '';
-  status.dataset.kind = type;
-  if (type !== 'error') providerHelp.hidden = true;
+async function check(){
+if(!current)return;
+try{const res=await fetch('/api/status',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({id:current.id,token:current.token}),cache:'no-store'});const data=await res.json();if(!res.ok||!data.ok)throw Error(data.message||'تعذر التحديث');render({...data.request,ticket:current.ticket});}
+catch(e){$('#track-status').textContent=e.message||'تعذر تحديث الطلب؛ حاول مرة ثانية.';}
 }
-
-function setBusy(value) {
-  busy = value;
-  submit.disabled = value;
-  refresh.disabled = value;
-  key.readOnly = value;
-  form.setAttribute('aria-busy', String(value));
-  submit.textContent = value ? 'جارٍ الاتصال بصندوق الرسائل…' : 'عرض الرسائل ←';
-  refresh.textContent = value ? 'جارٍ التحديث…' : '↻ تحديث';
-}
-
-function renderMessages(items) {
-  const fragment = document.createDocumentFragment();
-  if (!items.length) {
-    fragment.append(node('p', 'صندوقك فارغ حاليًا. لو منتظر كود جديد، اطلب إرساله ثم اضغط «تحديث».', 'empty-message'));
-  }
-  for (const item of items) {
-    const message = node('article', null, 'message');
-    message.append(node('p', item.from || 'مرسل غير معروف', 'meta'));
-    message.append(node('h3', item.subject || 'رسالة بدون عنوان'));
-    if (item.receivedDateTime) {
-      const date = new Date(item.receivedDateTime);
-      if (!Number.isNaN(date.getTime())) message.append(node('p', date.toLocaleString('ar-EG'), 'meta'));
-    }
-    if (item.code) {
-      const codeWrap = node('div', null, 'code');
-      const codeText = node('strong', item.code);
-      codeText.dir = 'ltr';
-      const copy = node('button', 'نسخ الكود');
-      copy.type = 'button';
-      copy.setAttribute('aria-label', 'نسخ كود التحقق');
-      copy.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(String(item.code));
-          copy.textContent = 'تم النسخ ✓';
-        } catch {
-          copy.textContent = 'حدد الكود وانسخه';
-        }
-      });
-      codeWrap.append(codeText, copy);
-      message.append(codeWrap);
-    }
-    const details = document.createElement('details');
-    details.append(node('summary', 'عرض تفاصيل الرسالة'));
-    details.append(node('pre', item.bodyText || 'لا يوجد نص للرسالة'));
-    message.append(details);
-    fragment.append(message);
-  }
-  messages.replaceChildren(fragment);
-  count.textContent = '(' + items.length + ')';
-  updated.textContent = 'آخر تحديث: ' + new Date().toLocaleTimeString('ar-EG');
-  mailbox.hidden = false;
-}
-
-async function lookup(event) {
-  event?.preventDefault();
-  if (busy) return;
-  if (!form.reportValidity()) return;
-  if (Date.now() - lastRequest < 5000) {
-    showStatus('انتظر 5 ثوانٍ على الأقل بين كل محاولة وتانية.', 'info');
-    return;
-  }
-  lastRequest = Date.now();
-  const previousResults = !mailbox.hidden;
-  showStatus(previousResults ? 'جارٍ تحديث الرسائل بدون مسح النتائج الحالية…' : 'جارٍ الاتصال بالمصدر والتحقق من المفتاح…', 'info');
-  setBusy(true);
-  const started = Date.now();
-  clearInterval(progressTimer);
-  progressTimer = setInterval(() => {
-    const seconds = Math.floor((Date.now() - started) / 1000);
-    if (seconds >= 7 && seconds < 17) {
-      showStatus('بنفتح صندوق الرسائل ونتأكد من الاتصال بالمصدر…', 'info');
-    } else if (seconds >= 17 && seconds < 36) {
-      showStatus('الاتصال بالمصدر مستمر، والرسائل السابقة محفوظة لو بتعمل تحديث…', 'info');
-    } else if (seconds >= 36) {
-      showStatus('مصدر الرسائل متأخر في الرد. لو الاتصال فشل هنوضح السبب بدل الانتظار من غير نتيجة.', 'info');
-    }
-  }, 2500);
-  try {
-    const response = await fetch('/api/inbox', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ key: key.value.trim() }),
-      cache: 'no-store',
-      signal: AbortSignal.timeout(90000)
-    });
-    if (!response.headers.get('Content-Type')?.includes('application/json')) {
-      throw new Error('خدمة الاستلام لا تستجيب بشكل صحيح حاليًا.');
-    }
-    const data = await response.json();
-    if (!response.ok || !data.ok) {
-      const err = new Error(data.message || 'تعذّر استلام الرسائل من المصدر.');
-      err.providerCode = data.code || '';
-      throw err;
-    }
-    renderMessages(Array.isArray(data.messages) ? data.messages : []);
-    showStatus(data.messages?.length ? 'تم تحديث صندوق الرسائل بنجاح.' : 'الاتصال بالمصدر نجح، لكن لا توجد رسائل حاليًا.', 'success');
-  } catch (error) {
-    const timeout = error.name === 'TimeoutError' || error.name === 'AbortError';
-    showStatus(timeout ? 'مصدر الرسائل تأخر في الاستجابة. حاول التحديث بعد قليل.' : (error.message || 'حصل خطأ في الاتصال. حاول مجددًا.'), 'error');
-    providerHelp.hidden = !['SOURCE_RESTRICTED','SOURCE_FAILURE','SOURCE_TIMEOUT','SOURCE_ERROR','SOURCE_INCOMPLETE'].includes(error.providerCode);
-    // Keep the previously fetched messages visible when a refresh fails.
-    if (!previousResults) mailbox.hidden = true;
-  } finally {
-    clearInterval(progressTimer);
-    progressTimer = null;
-    setBusy(false);
-  }
-}
-
-form.addEventListener('submit', lookup);
-refresh.addEventListener('click', () => lookup());
-closeButton.addEventListener('click', () => {
-  messages.replaceChildren();
-  mailbox.hidden = true;
-  key.value = '';
-  showStatus('');
-  key.focus();
-});
+function activate(data){current={id:data.id,token:data.token,ticket:data.ticket};store();$('#entry').hidden=true;$('#tracking').hidden=false;render({status:'pending',ticket:data.ticket});stop();timer=setInterval(()=>void check(),5000);void check();}
+$('#request-form').onsubmit=async e=>{
+e.preventDefault();if(!e.target.reportValidity())return;const btn=$('#submit');btn.disabled=true;btn.textContent='جارٍ فتح الطلب…';showError('');
+try{const res=await fetch('/api/request',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({ref:$('#order').value.trim()}),cache:'no-store'});const data=await res.json();if(!res.ok||!data.ok)throw Error(data.message||'تعذر الطلب');$('#order').value='';activate(data);}
+catch(err){showError(err.message||'حصل خطأ، جرب تاني.')}finally{btn.disabled=false;btn.textContent='استلام الكود ←';}
+};
+$('#refresh').onclick=()=>void check();
+$('#again').onclick=()=>{stop();current=null;store();$('#entry').hidden=false;$('#tracking').hidden=true;showError('');$('#order').focus()};
+$('#copy').onclick=async()=>{try{await navigator.clipboard.writeText($('#code').textContent);$('#copy').textContent='اتنسخ ✓'}catch{$('#copy').textContent='حدد الكود وانسخه'}};
+try{const saved=JSON.parse(localStorage.getItem('master_code_request_v2')||'null');if(saved?.id&&saved?.token&&saved?.ticket)activate(saved)}catch{localStorage.removeItem('master_code_request_v2')}
