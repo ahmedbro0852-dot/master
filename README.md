@@ -13,7 +13,7 @@ Supabase schema is isolated under `master_flow`, RLS enabled with no browser acc
 ## Limits and accounting
 One active generation per code, three globally. Atomic row locks and advisory locks enforce budgets and admission. Idempotent request UUIDs prevent duplicate charges. Provider-declared failure/cancellation refunds exactly once; ambiguous submission timeouts remain held for operator reconciliation rather than risking duplicate generation.
 
-500 MiB of private archived results per code; 100 MiB per file; 5 GiB total application budget. Archives are copied on job status refresh after completion. Keep the page open or use refresh to complete archival. File retrieval validates code ownership and issues five-minute signed URLs. Sharing a redemption code grants its holder access to its balance and library.
+500 MiB of private archived results per code; 100 MiB per file; 5 GiB total application budget. Archives are copied automatically by the background runner after completion; browser refresh is an additional fallback. File retrieval validates code ownership and issues five-minute signed URLs. Sharing a redemption code grants its holder access to its balance and library.
 
 Provider credentials are intentionally not pooled across trial accounts. The ten promotional wallets total $3 internal credit; supplier funding must independently cover all promised deliveries.
 
