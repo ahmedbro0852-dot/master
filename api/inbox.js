@@ -6,47 +6,8 @@ import puppeteer from 'puppeteer-core';
 const SOURCE_URL = 'https://popcornofficial.com/';
 const QUERY_PATHS = new Set(['/api/query','/api/inbox/query']);
 
-// Warm Chromium is reused to avoid launching a separate browser for every request.
-// Every customer uses a separate incognito browser context, never a shared page,
-// cookies, local storage or service worker session.
-let sharedBrowserPromise = null;
-let activeSessions = 0;
-let idleShutdown = null;
-
-async function borrowBrowser() {
-  if (idleShutdown) { clearTimeout(idleShutdown); idleShutdown = null; }
-  if (!sharedBrowserPromise) {
-    const launching = puppeteer.launch({
-      args: chromium.args,
-      executablePath: process.env.CHROME_EXECUTABLE_PATH || await chromium.executablePath(),
-      headless: 'shell'
-    });
-    sharedBrowserPromise = launching;
-    launching.then(browser => browser.once('disconnected',() => {
-      if (sharedBrowserPromise === launching) sharedBrowserPromise = null;
-    })).catch(() => {
-      if (sharedBrowserPromise === launching) sharedBrowserPromise = null;
-    });
-  }
-  const browser = await sharedBrowserPromise;
-  if (!browser.isConnected()) { sharedBrowserPromise = null; return borrowBrowser(); }
-  activeSessions++;
-  return browser;
-}
-
-function returnBrowser() {
-  activeSessions = Math.max(0,activeSessions - 1);
-  if (activeSessions !== 0) return;
-  idleShutdown = setTimeout(async () => {
-    if (activeSessions !== 0) return;
-    const old = sharedBrowserPromise;
-    sharedBrowserPromise = null;
-    idleShutdown = null;
-    if (old) try { await (await old).close(); } catch {}
-  },120000);
-  idleShutdown.unref?.();
-}
-
+// One browser per request. Fresh Chromium avoids stale/disconnected sessions
+// and keeps customer keys, cookies, and inboxes isolated.
 function isQuery(url,method) {
   try {
     const parsed = new URL(url,SOURCE_URL);
@@ -114,16 +75,16 @@ export default async function handler(req,res) {
   }
 
   let browser;
-  let context;
-  let borrowed=false;
   let stage='launch';
   const observed=[];
   const responseStatuses=[];
   try {
-    browser = await borrowBrowser();
-    borrowed = true;
-    context = await browser.createBrowserContext();
-    const page = await context.newPage();
+    browser = await puppeteer.launch({
+      args: chromium.args,
+      executablePath: process.env.CHROME_EXECUTABLE_PATH || await chromium.executablePath(),
+      headless: 'shell'
+    });
+    const page = await browser.newPage();
     page.setDefaultTimeout(14000);
 
     // Reduce bandwidth without blocking the provider's scripts or API requests.
@@ -243,10 +204,9 @@ export default async function handler(req,res) {
     const timeout=error?.name==='TimeoutError';
     return res.status(timeout?504:502).json({
       ok:false,code:timeout?'SOURCE_TIMEOUT':'SOURCE_FAILURE',
-      message:timeout?'مصدر الرسائل تأخر في الرد. جرّب مرة أخرى بعد قليل.':'تعذّر استلام الرسائل من المصدر. حاول لاحقًا.'
+      message:timeout?'مصدر الرسائل تأخر في الرد. جرّب مرة أخرى بعد قليل.':'تعذّر تشغيل خدمة استلام الرسائل. يمكنك استخدام المصدر مباشرة لحين حل المشكلة.'
     });
   } finally {
-    if(context) await context.close().catch(()=>{});
-    if(borrowed) returnBrowser();
+    if(browser) await browser.close().catch(()=>{});
   }
 }

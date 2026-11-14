@@ -132,7 +132,7 @@ async function lookup(event) {
   } catch (error) {
     const timeout = error.name === 'TimeoutError' || error.name === 'AbortError';
     showStatus(timeout ? 'مصدر الرسائل تأخر في الاستجابة. حاول التحديث بعد قليل.' : (error.message || 'حصل خطأ في الاتصال. حاول مجددًا.'), 'error');
-    providerHelp.hidden = !['SOURCE_RESTRICTED'].includes(error.providerCode);
+    providerHelp.hidden = !['SOURCE_RESTRICTED','SOURCE_FAILURE','SOURCE_TIMEOUT','SOURCE_ERROR','SOURCE_INCOMPLETE'].includes(error.providerCode);
     // Keep the previously fetched messages visible when a refresh fails.
     if (!previousResults) mailbox.hidden = true;
   } finally {
