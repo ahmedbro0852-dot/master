@@ -180,8 +180,10 @@ export default async function handler(req,res) {
     stage='navigation';
     const nav=await page.goto(SOURCE_URL,{waitUntil:'domcontentloaded',timeout:20000});
     const title=await page.title();
-    if (nav?.status()===403 || /verify you are human|checking your browser|just a moment|access denied/i.test(title)) {
-      return res.status(503).json({ok:false,code:'SOURCE_RESTRICTED',message:'المصدر يمنع الاتصال الآلي حاليًا. يلزم الربط الرسمي مع مزود الخدمة.'});
+    const isChallenge=/verify you are human|checking your browser|just a moment|access denied/i.test(title);
+    if (nav?.status()===403 || isChallenge) {
+      console.warn('Inbox provider navigation restricted',{httpStatus:nav?.status()||null,challengePage:isChallenge});
+      return res.status(503).json({ok:false,code:'SOURCE_RESTRICTED',message:'المصدر رفض اتصال الموقع. جرّب فتح المصدر مباشرة، ولو شغال اطلب من مزود الخدمة تفعيل التكامل الرسمي.'});
     }
 
     stage='form';
@@ -216,11 +218,13 @@ export default async function handler(req,res) {
       const failed=candidates.find(x=>x.data && (x.data.ok===false || x.data.success===false));
       if(failed){
         const info=categorizeError(failed.data,failed.status);
+        console.warn('Inbox provider query failed',{httpStatus:failed.status,reason:info.code});
         return res.status(info.status).json({ok:false,code:info.code,message:info.message});
       }
       const rejected=candidates.find(x=>x.status===401 || x.status===403 || x.status===429 || x.status>=500);
       if(rejected){
         const info=categorizeError(rejected.data,rejected.status);
+        console.warn('Inbox provider query rejected',{httpStatus:rejected.status,reason:info.code});
         return res.status(info.status).json({ok:false,code:info.code,message:info.message});
       }
       await new Promise(resolve=>setTimeout(resolve,250));

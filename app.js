@@ -9,6 +9,7 @@ const messages = document.querySelector('#messages');
 const count = document.querySelector('#count');
 const updated = document.querySelector('#updated');
 const reveal = document.querySelector('#reveal');
+const providerHelp = document.querySelector('#provider-help');
 let busy = false;
 let lastRequest = 0;
 let progressTimer = null;
@@ -29,6 +30,7 @@ function node(tag, value, className) {
 function showStatus(message, type = 'error') {
   status.textContent = message || '';
   status.dataset.kind = type;
+  if (type !== 'error') providerHelp.hidden = true;
 }
 
 function setBusy(value) {
@@ -121,13 +123,16 @@ async function lookup(event) {
     }
     const data = await response.json();
     if (!response.ok || !data.ok) {
-      throw new Error(data.message || 'تعذّر استلام الرسائل من المصدر.');
+      const err = new Error(data.message || 'تعذّر استلام الرسائل من المصدر.');
+      err.providerCode = data.code || '';
+      throw err;
     }
     renderMessages(Array.isArray(data.messages) ? data.messages : []);
     showStatus(data.messages?.length ? 'تم تحديث صندوق الرسائل بنجاح.' : 'الاتصال بالمصدر نجح، لكن لا توجد رسائل حاليًا.', 'success');
   } catch (error) {
     const timeout = error.name === 'TimeoutError' || error.name === 'AbortError';
     showStatus(timeout ? 'مصدر الرسائل تأخر في الاستجابة. حاول التحديث بعد قليل.' : (error.message || 'حصل خطأ في الاتصال. حاول مجددًا.'), 'error');
+    providerHelp.hidden = !['SOURCE_RESTRICTED'].includes(error.providerCode);
     // Keep the previously fetched messages visible when a refresh fails.
     if (!previousResults) mailbox.hidden = true;
   } finally {
