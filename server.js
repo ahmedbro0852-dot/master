@@ -3,7 +3,7 @@ import {readFile,readdir} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import handler from './api/inbox.js';
 if(!process.env.CHROME_EXECUTABLE_PATH){
-try{const folders=await readdir('/ms-playwright');const name=folders.find(n=>/^chromium-\\d+$/.test(n));if(name)process.env.CHROME_EXECUTABLE_PATH='/ms-playwright/'+name+'/chrome-linux/chrome';}catch{}
+try{const folders=await readdir('/ms-playwright');const name=folders.find(n=>/^chromium-\d+$/.test(n));if(name)process.env.CHROME_EXECUTABLE_PATH='/ms-playwright/'+name+'/chrome-linux/chrome';}catch{}
 }
 const staticFiles={'/':['index.html','text/html; charset=utf-8'],'/app.js':['app.js','text/javascript; charset=utf-8'],'/style.css':['style.css','text/css; charset=utf-8']};
 const root=fileURLToPath(new URL('.',import.meta.url));
