@@ -3,7 +3,7 @@ const hash=v=>createHash('sha256').update(v).digest('hex');
 let catalogCache;
 export async function provider(path,body,id){const r=await fetch('https://api.royaltechno.cc/v1/'+path,{method:body?'POST':'GET',headers:{Authorization:'Bearer '+process.env.ROYAL_API_KEY,'Content-Type':'application/json',...(id?{'Idempotency-Key':id}:{})},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(25000)});let x;try{x=await r.json()}catch{x={error:{message:'الخدمة غير متاحة مؤقتًا.'}}}return {ok:r.ok,status:r.status,data:x,retryAfter:r.headers.get("retry-after")};}
 export async function backend(action,data){const r=await fetch(process.env.FLOW_BACKEND_URL,{method:'POST',headers:{'Content-Type':'application/json','x-studio-secret':process.env.FLOW_GATEWAY_SECRET},body:JSON.stringify({action,data}),signal:AbortSignal.timeout(45000)});const x=await r.json();if(!r.ok){const e=Error(x.error||'تعذر الاتصال بقاعدة البيانات');e.status=r.status;throw e}return x;}
-async function catalog(){if(catalogCache&&Date.now()-catalogCache.at<60000)return catalogCache.data;const r=await provider('models');if(!r.ok)throw Error(r.data.error?.message);catalogCache={at:Date.now(),data:r.data.data||[]};return catalogCache.data;}
+async function catalog(){if(catalogCache&&Date.now()-catalogCache.at<60000)return catalogCache.data;const r=await provider('models');if(!r.ok)throw Error(r.data.error?.message);catalogCache={at:Date.now(),data:(r.data.data||[]).filter(m=>m.media_type==='video')};return catalogCache.data;}
 function jobView(j){return {...j,id:j.id,stored:!!j.file_key,output:j.file_key?{...j.payload?.output,url:'/api/studio?action=download&id='+j.id}:j.payload?.output,error:j.payload?.error};}
 function getCookie(req){const raw=(req.headers.cookie||'').split(';').map(x=>x.trim()).find(x=>x.startsWith('flow_session='));return raw?.slice(13)||'';}
 export default async function handler(req,res){
@@ -29,7 +29,7 @@ export default async function handler(req,res){
  if(action==='generate'){
   const body=req.body||{},id=body.id;
   if(!/^[a-f0-9-]{36}$/i.test(id))return res.status(400).json({error:'رقم الطلب غير صالح'});
-  const m=(await catalog()).find(m=>m.model_id===body.model_id&&['video','image'].includes(m.media_type));
+  const m=(await catalog()).find(m=>m.model_id===body.model_id&&m.media_type==='video');
   if(!m)return res.status(400).json({error:'النموذج غير متاح'});
   const prompt=String(body.prompt||'').trim();if(!prompt||prompt.length>m.prompt_max)return res.status(400).json({error:'راجع طول وصف المشهد'});
   const duration=Number(body.duration||m.duration_default);
