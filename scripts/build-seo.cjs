@@ -46,7 +46,7 @@ function writeProducts(prices){
   }).join('')+'<p>راجع السعر والتوفر الحاليين عند الطلب؛ يتم تأكيد الدفع والتسليم وفق تفاصيل الباقة.</p><a href="/product.html?id='+encodeURIComponent(p.id)+'">اختيار الباقة والطلب</a></section>';
   content+=ProductGuides.render(p.id,false,undefined,{product:p,catalog:catalog.products,priceRows:prices,featuresFor:plan=>sandbox.window.MasterProductFeatures.list(p,plan,false,x=>String(x||''))});
   if(WindowsGuide.match(p)){
-   content=content.replace('</section><section class="plans-block">','</section>'+WindowsGuide.nav(false)+'<section class="plans-block" id="windows-plans">')+'<div id="windows-guide-root">'+WindowsGuide.render(false)+'</div>';
+   content=content.replace('</section><section class="plans-block">','</section>'+WindowsGuide.nav(false)+'<section class="plans-block" id="windows-plans">')+'<div id="windows-guide-root">'+WindowsGuide.render(false,p)+'</div>';
   }
   let html=template.replace('<head>','<head>\n  <base href="/">\n  <link rel="canonical" href="'+url+'">')
    .replace(/<title>[^<]*<\/title>/,'<title>'+escape(title)+'</title>')
