@@ -4820,7 +4820,7 @@ const products = [
         "name": "Pro — سنة كاملة",
         "planType": "Pro",
         "duration": "12 شهر",
-        "price": 3999,
+        "price": 2999,
         "available": true,
         "account": "حساب خاص جاهز",
         "activation": "تسليم حساب جاهز بإيميل وباسورد.",
