@@ -160,7 +160,7 @@
     const oldNav=root.querySelector('#windows-guide-nav');
     if(oldNav)oldNav.outerHTML=guide.nav(isEn());
     else root.querySelector('.product-hero').insertAdjacentHTML('afterend',guide.nav(isEn()));
-    if(previous)previous.innerHTML=guide.render(isEn());
+    if(previous)previous.innerHTML=guide.render(isEn(),p);
     else root.insertAdjacentHTML('beforeend','<div id="windows-guide-root">'+guide.render(isEn())+'</div>');
     for(const id of opened){const detail=document.getElementById(id);if(detail)detail.open=true;}
   }
