@@ -53,3 +53,29 @@
 .product-offer-poster .poster-image-credits summary{cursor:pointer;list-style:none;display:grid;place-items:center;width:36px;min-height:32px;margin-inline:auto;padding:4px;font-size:17px}
 .product-offer-poster .poster-image-credits summary::-webkit-details-marker{display:none}
 .product-offer-poster .poster-image-credits p{margin:8px 0 0;overflow-wrap:anywhere}
+
+
+/* Product-specific troubleshooting cards shared by all subscription pages. */
+.subscription-troubleshooting{margin:26px 0 10px;padding:22px;border:1px solid var(--line,#dce5f0);border-radius:18px;background:var(--theme-panel,#f8faff);color:var(--ink,#172b4d);text-align:start}
+.subscription-troubleshooting-head>span{display:block;color:#1f5eff;font-size:10px;font-weight:800;letter-spacing:.08em}
+.subscription-troubleshooting-head h3{margin:7px 0 6px;color:var(--ink,#172b4d);font-size:19px;line-height:1.7}
+.subscription-troubleshooting-head p{margin:0 0 15px;color:var(--muted,#66758c);font-size:12px;line-height:2}
+.subscription-troubleshooting-list{display:grid;gap:8px}
+.subscription-troubleshooting-item{overflow:hidden;border:1px solid var(--line,#e1e8f1);border-radius:12px;background:var(--theme-surface,#fff)}
+.subscription-troubleshooting-item[open]{border-color:#a9c3fa}
+.subscription-troubleshooting-item summary{display:flex;align-items:center;gap:12px;padding:13px;cursor:pointer;list-style:none}
+.subscription-troubleshooting-item summary::-webkit-details-marker{display:none}
+.subscription-troubleshooting-item summary strong{flex:1;color:var(--ink,#172b4d);font-size:12px;line-height:1.9}
+.subscription-troubleshooting-number{display:grid;place-items:center;flex:none;width:31px;height:29px;border-radius:9px;background:#edf3ff;color:#2058c5;font-size:10px;font-weight:800;direction:ltr}
+.subscription-troubleshooting-plus{display:grid;place-items:center;flex:none;width:25px;height:25px;border-radius:8px;background:var(--theme-panel,#f0f4fb);color:#1f5eff;font-size:19px;transition:transform .2s}
+.subscription-troubleshooting-item[open] .subscription-troubleshooting-plus{transform:rotate(45deg)}
+.subscription-troubleshooting-answer{padding:0 56px 15px 16px;color:var(--muted,#60718a);font-size:12px;line-height:2.1}
+.subscription-troubleshooting-answer b{color:#1f5eff;font-size:11px}
+.subscription-troubleshooting-answer p{margin:4px 0 0}
+.subscription-troubleshooting-note{margin:13px 0 0;padding:10px 12px;border-inline-start:3px solid #e3a32a;border-radius:8px;background:#fff8e8;color:#70551e;font-size:11px;line-height:1.9}
+.subscription-troubleshooting-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:15px}
+.subscription-troubleshooting-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:39px;padding:8px 12px;border-radius:10px;text-decoration:none;font-size:11px;font-weight:700}
+.subscription-troubleshooting-all{border:1px solid #cbdaf7;background:#edf3ff;color:#174ebc}
+.subscription-troubleshooting-contact{background:#1f5eff;color:#fff}
+@media(max-width:600px){.subscription-troubleshooting{padding:15px;margin-top:20px;border-radius:14px}.subscription-troubleshooting-head h3{font-size:17px}.subscription-troubleshooting-item summary{gap:8px;padding:11px}.subscription-troubleshooting-item summary strong{font-size:11px}.subscription-troubleshooting-answer{padding:0 48px 13px 12px;font-size:11px}.subscription-troubleshooting-actions{display:grid;grid-template-columns:1fr}.subscription-troubleshooting-actions a{width:100%}}
+html[data-custom-theme] .subscription-troubleshooting-note{background:#3a2f18;color:#f7d99a;border-color:#d49b2f}
