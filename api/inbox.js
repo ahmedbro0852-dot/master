@@ -80,51 +80,15 @@ export default async function handler(req,res) {
   const responseStatuses=[];
   try {
     browser = await puppeteer.launch({
-      args: chromium.args,
+      args: process.env.CHROME_EXECUTABLE_PATH ? ['--no-sandbox','--disable-dev-shm-usage'] : chromium.args,
       executablePath: process.env.CHROME_EXECUTABLE_PATH || await chromium.executablePath(),
-      headless: 'shell'
+      headless: true
     });
     const page = await browser.newPage();
     page.setDefaultTimeout(14000);
 
-    // Reduce bandwidth without blocking the provider's scripts or API requests.
-    await page.setRequestInterception(true);
-    page.on('request', request => {
-      const skip = ['image','media','font'].includes(request.resourceType());
-      void (skip ? request.abort() : request.continue()).catch(() => {});
-    });
-
-    // Capture the page's own authorized fetch response. Unlike CDP response.json(),
-    // Response.clone() is resilient to response-body eviction/navigation errors.
-    await page.evaluateOnNewDocument(() => {
-      const captured=[];
-      Object.defineProperty(window,'__inboxQueryCapture',{value:captured});
-      const originalFetch=window.fetch;
-      window.fetch=function(...args){
-        let tracked=false,metadataOnly=false;
-        try{
-          const input=args[0];
-          const href=typeof input==='string'?input:input?.url;
-          const u=new URL(href,location.href);
-          const method=String(args[1]?.method || input?.method || 'GET').toUpperCase();
-          tracked=u.origin===location.origin && method==='POST' &&
-            (u.pathname==='/api/query'||u.pathname==='/api/inbox/query');
-          if(typeof args[1]?.body==='string') {
-            try{metadataOnly=JSON.parse(args[1].body).metadataOnly===true;}catch{}
-          }
-        }catch{}
-        return originalFetch.apply(this,args).then(response=>{
-          if(tracked) {
-            response.clone().text().then(text=>{
-              let data=null;
-              try{data=JSON.parse(text);}catch{}
-              captured.push({status:response.status,metadataOnly,data});
-            }).catch(()=>captured.push({status:response.status,metadataOnly,data:null}));
-          }
-          return response;
-        });
-      };
-    });
+    // Let the provider load its complete page and perform its own requests.
+    // Do not replace fetch or intercept resources in the provider's session.
 
     // Extra fallback for XHR-based requests. Errors are absorbed to avoid
     // unhandled Puppeteer promise rejections that previously restarted Railway.
@@ -134,7 +98,9 @@ export default async function handler(req,res) {
       void response.text().then(text => {
         let data=null;
         try{data=JSON.parse(text);}catch{}
-        observed.push({status:response.status(),metadataOnly:isMetadata(response.request()),data});
+        const metadataOnly=isMetadata(response.request());
+        observed.push({status:response.status(),metadataOnly,data});
+        if(response.status()>=400) console.warn('Inbox response status',{httpStatus:response.status(),metadataOnly,jsonResponse:data!==null,securityScreen:/verify you are human|checking your browser|automated traffic|security checkpoint|captcha/i.test(text)});
       }).catch(() => {});
     });
 
@@ -169,10 +135,10 @@ export default async function handler(req,res) {
     // Never display an empty inbox unless an actual full message response exists.
     const started=Date.now();
     while (Date.now()-started < 32000) {
-      let browserResults=[];
-      try{browserResults=await page.evaluate(()=>window.__inboxQueryCapture || []);}catch{}
-      const candidates=[...browserResults,...observed];
-      const valid=candidates.find(x => !x.metadataOnly && x.data?.ok !== false &&
+      // Metadata validation and full inbox checks run concurrently. A failed
+      // metadata request must not cancel a successful full inbox request.
+      const candidates=observed.filter(x => !x.metadataOnly);
+      const valid=candidates.find(x => x.status >= 200 && x.status < 300 && x.data?.ok !== false &&
         x.data?.success !== false && getMessages(x.data) !== null);
       if (valid) return res.status(200).json({ok:true,messages:normalize(getMessages(valid.data))});
 
