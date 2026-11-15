@@ -4950,240 +4950,254 @@ const products = [
     "descriptionEn": "One year of Hostinger Unlimited hosting on your personal email for US$25, with unlimited websites within plan resources, one eligible free domain for the first year and a 12-month warranty."
   },
   {
-    "id": "lovable-pro",
-    "name": "Lovable",
-    "category": "AI Tools",
-    "logo": "lovable",
-    "status": "available",
-    "description": "باقات Lovable لبناء المواقع والتطبيقات بالذكاء الاصطناعي: Pro شهر بحساب جاهز 350ج، Pro 3 شهور بحساب جاهز 1100ج، Pro سنة على حسابك الشخصي 4800ج، وسنة برابط تفعيل على حسابك الشخصي حتى 300 كريدت بـ450ج.",
-    "plans": [
-      {
-        "name": "باقة سابقة غير متاحة",
-        "planType": "Pro",
-        "duration": "1 شهر",
-        "price": 350,
-        "hidden": true,
-        "available": false,
-        "activation": "لم تعد متاحة؛ اختر إحدى الأربع باقات الحالية.",
-        "account": "غير متاحة",
-        "warranty": "غير متاحة"
-      },
-      {
-        "name": "Pro — شهر — حساب جاهز",
-        "planType": "Pro",
-        "duration": "1 شهر",
-        "price": 350,
-        "activation": "تسليم حساب Lovable Pro جاهز للاستخدام.",
-        "account": "حساب جاهز للاستخدام",
-        "warranty": "يُؤكد قبل الدفع",
-        "notes": [
-          "حساب جاهز للاستخدام، وليس تفعيلًا على الحساب الشخصي.",
-          "تأكد من تفاصيل تسجيل الدخول وشروط الضمان قبل الدفع."
-        ],
-        "priceComparison": {
-          "planName": "Lovable Pro — حساب جاهز",
-          "status": "unavailable",
-          "note": "لا توجد مقارنة رسمية موثقة تطابق تسليم الحساب الجاهز."
-        },
-        "features": [
-          "اشتراك Lovable Pro لمدة شهر بحساب جاهز.",
-          "تسليم بيانات الوصول للحساب الجاهز.",
-          "إنشاء وتعديل مواقع وتطبيقات ضمن موارد الباقة."
-        ],
-        "available": true,
-        "accountType": "حساب جاهز",
-        "featuresEn": [
-          "One month of Lovable Pro on a ready account.",
-          "Receive access instructions for the ready account.",
-          "Build and edit websites and apps within plan resources."
-        ]
-      },
-      {
-        "name": "Pro — سنة — حسابك الشخصي",
-        "duration": "12 شهر",
-        "price": 4800,
-        "activation": "تفعيل على حسابك الشخصي في Lovable.",
-        "account": "حساب العميل الشخصي",
-        "warranty": "ضمان كامل وفق شروط المتجر",
-        "notes": [
-          "مدة الاشتراك سنة (12 شهرًا) على حساب العميل الشخصي.",
-          "رصيد الكريدت لهذه الباقة يُؤكد قبل الدفع."
-        ],
-        "priceComparison": {
-          "planName": "Lovable Pro — سنة على حسابك",
-          "status": "unavailable",
-          "note": "لا توجد مقارنة سعر رسمية موثقة مطابقة لطريقة تفعيل العرض."
-        },
-        "planType": "Pro",
-        "available": true,
-        "accountType": "تفعيل على حسابك",
-        "features": [
-          "Lovable Pro لمدة سنة كاملة.",
-          "التفعيل على حسابك الشخصي في Lovable.",
-          "بناء وتعديل مواقع وتطبيقات بالذكاء الاصطناعي ضمن موارد الباقة."
-        ],
-        "featuresEn": [
-          "One full year of Lovable Pro.",
-          "Activation on your personal Lovable account.",
-          "Build and edit websites and apps within the plan resources."
-        ]
-      },
-      {
-        "name": "سنة — رابط تفعيل — حتى 300 كريدت",
-        "duration": "12 شهر",
-        "price": 450,
-        "activation": "رابط تفعيل على حسابك الشخصي في Lovable.",
-        "account": "حساب العميل الشخصي",
-        "warranty": "ضمان كامل وفق شروط المتجر",
-        "credits": "حتى 300 كريدت خلال السنة (وليست شهريًا)",
-        "priceComparison": {
-          "planName": "Lovable — رابط تفعيل سنة حتى 300 كريدت",
-          "status": "unavailable",
-          "note": "لا توجد مقارنة رسمية موثقة لباقة مطابقة بهذا الرصيد."
-        },
-        "planType": "Pro Lite",
-        "features": [
-          "رابط تفعيل Lovable على حسابك الشخصي لمدة سنة.",
-          "رصيد حتى 300 كريدت خلال مدة الاشتراك، وليس كل شهر.",
-          "بناء وتعديل المواقع والتطبيقات ضمن رصيد الباقة."
-        ],
-        "featuresEn": [
-          "One-year Lovable activation link for your personal account.",
-          "Up to 300 credits for the subscription term, not monthly.",
-          "Build and edit websites and apps within the credit balance."
-        ],
-        "notes": [
-          "حتى 300 كريدت طوال السنة، وليست 300 كريدت شهريًا.",
-          "التسليم رابط تفعيل على حساب العميل الشخصي وليس حسابًا جاهزًا.",
-          "أي رصيد يومي إضافي — إن وُجد — يُؤكد قبل الدفع."
-        ],
-        "notesEn": [
-          "Up to 300 credits for one year, not 300 monthly credits.",
-          "Delivered as an activation link for your personal account, not a ready-made account.",
-          "Any additional daily allowance must be confirmed before purchase."
-        ],
-        "available": true,
-        "accountType": "رابط تفعيل"
-      },
-      {
-        "name": "Pro — 3 شهور — حساب جاهز",
-        "planType": "Pro",
-        "duration": "3 شهور",
-        "price": 1100,
-        "available": true,
-        "activation": "تسليم حساب Lovable Pro جاهز للاستخدام.",
-        "account": "حساب Lovable خاص جاهز للاستخدام",
-        "accountType": "حساب جاهز",
-        "warranty": "ضمان كامل طوال مدة الاشتراك — 3 شهور",
-        "credits": "100 كريدت شهريًا + 5 كريدت يوميًا",
-        "features": [
-          "اشتراك Lovable Pro لمدة 3 شهور بحساب خاص جاهز.",
-          "100 كريدت تتجدد شهريًا طوال مدة الاشتراك.",
-          "5 كريدت يوميًا كحصة يومية منفصلة.",
-          "تسليم البريد وطريقة الوصول إلى كود الدخول للحساب.",
-          "ضمان كامل طوال مدة الاشتراك لمدة 3 شهور.",
-          "إنشاء وتعديل مواقع وتطبيقات بالأوامر النصية ضمن رصيد الباقة."
-        ],
-        "notes": [
-          "الرصيد الشهري والرصيد اليومي حصتان منفصلتان؛ 100 كريدت هي حصة كل شهر وليست إجمالي الثلاثة شهور.",
-          "هذه الباقة تُسلّم بحساب خاص جاهز؛ اتبع تعليمات الوصول إلى كود الدخول عند التسليم.",
-          "حدود التوليد واستهلاك الكريدت تتغير حسب نوع التعديل وتعقيد المشروع."
-        ],
-        "featuresEn": [
-          "Three months of Lovable Pro on a ready private account.",
-          "100 credits refresh each month throughout the subscription.",
-          "A separate daily allowance of 5 credits.",
-          "Receive the account email and instructions for accessing its sign-in code.",
-          "Full warranty for the complete three-month subscription term.",
-          "Build and edit websites and apps with text prompts within the plan allowance."
-        ],
-        "notesEn": [
-          "Monthly and daily credits are separate allowances; 100 credits applies to each month, not the entire three-month term.",
-          "This offer supplies a ready private account; follow the sign-in-code instructions provided at delivery.",
-          "Generation limits and credit consumption vary with the type of change and project complexity."
-        ],
-        "officialPrice": {
-          "amount": 75,
-          "currency": "USD",
-          "months": 3,
-          "basis": "reference",
-          "source": "https://lovable.dev/pricing",
-          "checkedAt": "2026-10-31"
-        },
-        "priceComparison": {
-          "planName": "Lovable Pro — 100 credits/month",
-          "status": "reference",
-          "source": "https://lovable.dev/pricing",
-          "checkedAt": "2026-10-31",
-          "billingLabel": "25 USD × 3 monthly subscriptions",
-          "priceLabel": "مرجع 3 اشتراكات شهرية",
-          "priceLabelEn": "Reference for 3 monthly subscriptions",
-          "savingLabel": "التوفير مقارنة بـ3 اشتراكات شهرية",
-          "savingLabelEn": "Saving vs 3 monthly subscriptions",
-          "showReferenceNote": true,
-          "note": "المرجع 25 دولارًا × 3 شهور = 75 دولارًا قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. هذه تكلفة 3 اشتراكات شهرية وليست باقة رسمية مستقلة لمدة 3 شهور؛ الحساب الجاهز وضمانه حسب عرض المتجر.",
-          "noteEn": "The reference is US$25 × 3 months = US$75 before tax, converted using the store rate. This is the cost of three monthly subscriptions, not a separate official three-month plan; ready-account delivery and warranty follow the store offer."
-        }
-      }
-    ],
-    "categories": [
-      "بناء مواقع وتطبيقات بالذكاء الاصطناعي"
-    ],
-    "descriptionEn": "Lovable AI website and app-building plans: Pro for one month on a ready account for EGP 350; Pro for three months on a ready account for EGP 1,100; Pro for one year on your personal account for EGP 4,800; or a one-year activation link for your personal account with up to 300 credits for EGP 450."
-  },
-  {
-    "id": "lovable-lite",
-    "name": "Lovable — رابط تفعيل سنة",
-    "category": "AI Tools",
-    "logo": "lovable",
-    "status": "available",
-    "description": "رابط تفعيل Lovable على حسابك الشخصي لمدة سنة، حتى 300 كريدت بسعر 450 جنيه.",
-    "plans": [
-      {
-        "name": "سنة — رابط تفعيل — حتى 300 كريدت",
-        "duration": "12 شهر",
-        "price": 450,
-        "activation": "رابط تفعيل على حسابك الشخصي في Lovable.",
-        "account": "حساب العميل الشخصي",
-        "warranty": "ضمان كامل وفق شروط المتجر",
-        "credits": "حتى 300 كريدت خلال السنة (وليست شهريًا)",
-        "priceComparison": {
-          "planName": "Lovable — رابط تفعيل سنة حتى 300 كريدت",
-          "status": "unavailable",
-          "note": "لا توجد مقارنة رسمية موثقة لباقة مطابقة بهذا الرصيد."
-        },
-        "planType": "Pro Lite",
-        "features": [
-          "رابط تفعيل Lovable على حسابك الشخصي لمدة سنة.",
-          "رصيد حتى 300 كريدت خلال مدة الاشتراك، وليس كل شهر.",
-          "بناء وتعديل المواقع والتطبيقات ضمن رصيد الباقة."
-        ],
-        "featuresEn": [
-          "One-year Lovable activation link for your personal account.",
-          "Up to 300 credits for the subscription term, not monthly.",
-          "Build and edit websites and apps within the credit balance."
-        ],
-        "notes": [
-          "حتى 300 كريدت طوال السنة، وليست 300 كريدت شهريًا.",
-          "التسليم رابط تفعيل على حساب العميل الشخصي وليس حسابًا جاهزًا.",
-          "أي رصيد يومي إضافي — إن وُجد — يُؤكد قبل الدفع."
-        ],
-        "notesEn": [
-          "Up to 300 credits for one year, not 300 monthly credits.",
-          "Delivered as an activation link for your personal account, not a ready-made account.",
-          "Any additional daily allowance must be confirmed before purchase."
-        ],
-        "available": true,
-        "accountType": "رابط تفعيل"
-      }
-    ],
-    "redirectTo": {
-      "id": "lovable-pro",
-      "plan": 3
+  "id": "lovable-pro",
+  "name": "Lovable",
+  "category": "AI Tools",
+  "logo": "lovable",
+  "status": "available",
+  "description": "ابنِ مواقع وتطبيقات بالأوامر النصية مع Lovable: Pro شهر بحساب جاهز بـ230ج، Pro سنة على إيميلك الشخصي بـ3000ج، وPro Lite سنة بـ420ج. راجع رصيد كل باقة وطريقة تفعيلها قبل الطلب.",
+  "plans": [
+    {
+      "name": "باقة سابقة غير متاحة",
+      "planType": "Pro",
+      "duration": "1 شهر",
+      "price": 350,
+      "hidden": true,
+      "available": false,
+      "activation": "لم تعد متاحة؛ اختر إحدى الأربع باقات الحالية.",
+      "account": "غير متاحة",
+      "warranty": "غير متاحة"
     },
-    "categories": [],
-    "descriptionEn": "One-year Lovable activation link for your personal account, up to 300 credits, EGP 450."
+    {
+      "name": "Pro — شهر — حساب جاهز",
+      "planType": "Pro",
+      "duration": "1 شهر",
+      "price": 230,
+      "activation": "تسليم حساب Lovable Pro جاهز للاستخدام.",
+      "account": "حساب جاهز للاستخدام",
+      "warranty": "ضمان كامل لمدة شهر",
+      "notes": [
+        "حساب جاهز للاستخدام بضمان كامل طوال الشهر.",
+        "الرصيد الشهري والرصيد اليومي حصتان منفصلتان."
+      ],
+      "priceComparison": {
+        "planName": "Lovable Pro — حساب جاهز",
+        "status": "unavailable",
+        "note": "لا توجد مقارنة رسمية موثقة تطابق تسليم الحساب الجاهز."
+      },
+      "features": [
+        "اشتراك Lovable Pro لمدة شهر بحساب جاهز.",
+        "تسليم بيانات الوصول للحساب الجاهز.",
+        "إنشاء وتعديل مواقع وتطبيقات ضمن موارد الباقة.",
+        "100 كريدت شهريًا + 5 كريدت يوميًا"
+      ],
+      "available": true,
+      "accountType": "حساب جاهز",
+      "featuresEn": [
+        "One month of Lovable Pro on a ready account.",
+        "Receive access instructions for the ready account.",
+        "Build and edit websites and apps within plan resources.",
+        "100 monthly credits plus a separate allowance of 5 daily credits."
+      ],
+      "manualPrice": true,
+      "credits": "100 كريدت شهريًا + 5 كريدت يوميًا",
+      "notesEn": [
+        "Ready account with full warranty throughout the month.",
+        "Monthly and daily credits are separate allowances."
+      ]
+    },
+    {
+      "name": "Pro — سنة — حسابك الشخصي",
+      "duration": "12 شهر",
+      "price": 3000,
+      "activation": "تفعيل على حسابك الشخصي في Lovable.",
+      "account": "حساب العميل الشخصي",
+      "warranty": "ضمان كامل لمدة سنة",
+      "notes": [
+        "التفعيل على إيميلك الشخصي لمدة سنة كاملة.",
+        "الرصيد الشهري والرصيد اليومي حصتان منفصلتان."
+      ],
+      "priceComparison": {
+        "planName": "Lovable Pro — سنة على حسابك",
+        "status": "unavailable",
+        "note": "لا توجد مقارنة سعر رسمية موثقة مطابقة لطريقة تفعيل العرض."
+      },
+      "planType": "Pro",
+      "available": true,
+      "accountType": "تفعيل على حسابك",
+      "features": [
+        "Lovable Pro لمدة سنة كاملة.",
+        "التفعيل على حسابك الشخصي في Lovable.",
+        "بناء وتعديل مواقع وتطبيقات بالذكاء الاصطناعي ضمن موارد الباقة.",
+        "100 كريدت شهريًا + 5 كريدت يوميًا"
+      ],
+      "featuresEn": [
+        "One full year of Lovable Pro.",
+        "Activation on your personal Lovable account.",
+        "Build and edit websites and apps within the plan resources.",
+        "100 monthly credits plus a separate allowance of 5 daily credits."
+      ],
+      "manualPrice": true,
+      "credits": "100 كريدت شهريًا + 5 كريدت يوميًا",
+      "notesEn": [
+        "Activation on your personal email for one full year.",
+        "Monthly and daily credits are separate allowances."
+      ]
+    },
+    {
+      "name": "Pro Lite — سنة — 300 كريدت + 5 يوميًا",
+      "duration": "12 شهر",
+      "price": 420,
+      "activation": "رابط تفعيل على حسابك الشخصي في Lovable.",
+      "account": "حساب العميل الشخصي",
+      "warranty": "ضمان كامل وفق شروط المتجر",
+      "credits": "300 كريدت مرة واحدة + 5 كريدت يوميًا",
+      "priceComparison": {
+        "planName": "Lovable — رابط تفعيل سنة حتى 300 كريدت",
+        "status": "unavailable",
+        "note": "لا توجد مقارنة رسمية موثقة لباقة مطابقة بهذا الرصيد."
+      },
+      "planType": "Pro Lite",
+      "features": [
+        "Lovable Pro Lite لمدة سنة على إيميلك الشخصي.",
+        "300 كريدت مرة واحدة + 5 كريدت يوميًا",
+        "بناء وتعديل المواقع والتطبيقات ضمن رصيد الباقة."
+      ],
+      "featuresEn": [
+        "One year of Lovable Pro Lite on your personal email.",
+        "300 credits once plus 5 daily credits.",
+        "Build and edit websites and apps within the plan allowance."
+      ],
+      "notes": [
+        "رصيد 300 كريدت يُمنح مرة واحدة، وليس شهريًا.",
+        "التفعيل عبر رابط ويخضع لأهلية الحساب للعرض."
+      ],
+      "notesEn": [
+        "300 credits are granted once, not monthly.",
+        "Activation uses a link and is subject to account eligibility."
+      ],
+      "available": true,
+      "accountType": "رابط تفعيل",
+      "manualPrice": true
+    },
+    {
+      "name": "Pro — 3 شهور — حساب جاهز",
+      "planType": "Pro",
+      "duration": "3 شهور",
+      "price": 1100,
+      "available": true,
+      "activation": "تسليم حساب Lovable Pro جاهز للاستخدام.",
+      "account": "حساب Lovable خاص جاهز للاستخدام",
+      "accountType": "حساب جاهز",
+      "warranty": "ضمان كامل طوال مدة الاشتراك — 3 شهور",
+      "credits": "100 كريدت شهريًا + 5 كريدت يوميًا",
+      "features": [
+        "اشتراك Lovable Pro لمدة 3 شهور بحساب خاص جاهز.",
+        "100 كريدت تتجدد شهريًا طوال مدة الاشتراك.",
+        "5 كريدت يوميًا كحصة يومية منفصلة.",
+        "تسليم البريد وطريقة الوصول إلى كود الدخول للحساب.",
+        "ضمان كامل طوال مدة الاشتراك لمدة 3 شهور.",
+        "إنشاء وتعديل مواقع وتطبيقات بالأوامر النصية ضمن رصيد الباقة."
+      ],
+      "notes": [
+        "الرصيد الشهري والرصيد اليومي حصتان منفصلتان؛ 100 كريدت هي حصة كل شهر وليست إجمالي الثلاثة شهور.",
+        "هذه الباقة تُسلّم بحساب خاص جاهز؛ اتبع تعليمات الوصول إلى كود الدخول عند التسليم.",
+        "حدود التوليد واستهلاك الكريدت تتغير حسب نوع التعديل وتعقيد المشروع."
+      ],
+      "featuresEn": [
+        "Three months of Lovable Pro on a ready private account.",
+        "100 credits refresh each month throughout the subscription.",
+        "A separate daily allowance of 5 credits.",
+        "Receive the account email and instructions for accessing its sign-in code.",
+        "Full warranty for the complete three-month subscription term.",
+        "Build and edit websites and apps with text prompts within the plan allowance."
+      ],
+      "notesEn": [
+        "Monthly and daily credits are separate allowances; 100 credits applies to each month, not the entire three-month term.",
+        "This offer supplies a ready private account; follow the sign-in-code instructions provided at delivery.",
+        "Generation limits and credit consumption vary with the type of change and project complexity."
+      ],
+      "officialPrice": {
+        "amount": 75,
+        "currency": "USD",
+        "months": 3,
+        "basis": "reference",
+        "source": "https://lovable.dev/pricing",
+        "checkedAt": "2026-10-31"
+      },
+      "priceComparison": {
+        "planName": "Lovable Pro — 100 credits/month",
+        "status": "reference",
+        "source": "https://lovable.dev/pricing",
+        "checkedAt": "2026-10-31",
+        "billingLabel": "25 USD × 3 monthly subscriptions",
+        "priceLabel": "مرجع 3 اشتراكات شهرية",
+        "priceLabelEn": "Reference for 3 monthly subscriptions",
+        "savingLabel": "التوفير مقارنة بـ3 اشتراكات شهرية",
+        "savingLabelEn": "Saving vs 3 monthly subscriptions",
+        "showReferenceNote": true,
+        "note": "المرجع 25 دولارًا × 3 شهور = 75 دولارًا قبل الضرائب، محسوبًا بالجنيه حسب تحويل المتجر. هذه تكلفة 3 اشتراكات شهرية وليست باقة رسمية مستقلة لمدة 3 شهور؛ الحساب الجاهز وضمانه حسب عرض المتجر.",
+        "noteEn": "The reference is US$25 × 3 months = US$75 before tax, converted using the store rate. This is the cost of three monthly subscriptions, not a separate official three-month plan; ready-account delivery and warranty follow the store offer."
+      }
+    }
+  ],
+  "categories": [
+    "بناء مواقع وتطبيقات بالذكاء الاصطناعي"
+  ],
+  "descriptionEn": "Build websites and apps with Lovable: Pro for one month on a ready account for EGP 230, Pro for one year on your personal email for EGP 3,000, or Pro Lite for one year for EGP 420. Check each plan’s credits and activation method."
+},
+  {
+  "id": "lovable-lite",
+  "name": "Lovable — رابط تفعيل سنة",
+  "category": "AI Tools",
+  "logo": "lovable",
+  "status": "available",
+  "description": "Lovable Pro Lite سنة بـ420ج: 300 كريدت مرة واحدة + 5 يوميًا، على إيميلك الشخصي.",
+  "plans": [
+    {
+      "name": "Pro Lite — سنة — 300 كريدت + 5 يوميًا",
+      "duration": "12 شهر",
+      "price": 420,
+      "activation": "رابط تفعيل على حسابك الشخصي في Lovable.",
+      "account": "حساب العميل الشخصي",
+      "warranty": "ضمان كامل وفق شروط المتجر",
+      "credits": "300 كريدت مرة واحدة + 5 كريدت يوميًا",
+      "priceComparison": {
+        "planName": "Lovable — رابط تفعيل سنة حتى 300 كريدت",
+        "status": "unavailable",
+        "note": "لا توجد مقارنة رسمية موثقة لباقة مطابقة بهذا الرصيد."
+      },
+      "planType": "Pro Lite",
+      "features": [
+        "Lovable Pro Lite لمدة سنة على إيميلك الشخصي.",
+        "300 كريدت مرة واحدة + 5 كريدت يوميًا",
+        "بناء وتعديل المواقع والتطبيقات ضمن رصيد الباقة."
+      ],
+      "featuresEn": [
+        "One year of Lovable Pro Lite on your personal email.",
+        "300 credits once plus 5 daily credits.",
+        "Build and edit websites and apps within the plan allowance."
+      ],
+      "notes": [
+        "رصيد 300 كريدت يُمنح مرة واحدة، وليس شهريًا.",
+        "التفعيل عبر رابط ويخضع لأهلية الحساب للعرض."
+      ],
+      "notesEn": [
+        "300 credits are granted once, not monthly.",
+        "Activation uses a link and is subject to account eligibility."
+      ],
+      "available": true,
+      "accountType": "رابط تفعيل",
+      "manualPrice": true
+    }
+  ],
+  "redirectTo": {
+    "id": "lovable-pro",
+    "plan": 3
   },
+  "categories": [],
+  "descriptionEn": "One year of Lovable Pro Lite for EGP 420: 300 credits once plus 5 daily, on your personal email."
+},
   {
     "id": "runway-pro",
     "name": "Runway Pro",
@@ -5281,94 +5295,96 @@ const products = [
     ]
   },
   {
-    "id": "grok",
-    "name": "Super Grok",
-    "category": "AI Tools",
-    "logo": "grok",
-    "status": "available",
-    "description": "المتاح من SuperGrok: اشتراك 3 شهور بـ68 دولار، حساب خاص جاهز بإيميل وباسورد وضمان كامل طوال مدة الاشتراك. باقي الباقات نفد مخزونها.",
-    "plans": [
-      {
-        "name": "SuperGrok — شهر حساب خاص",
-        "planType": "SuperGrok",
-        "duration": "1 شهر",
-        "price": 1288,
-        "basePriceUSD": 23,
-        "activation": "تسليم حساب جاهز بإيميل وباسورد.",
-        "account": "حساب خاص",
-        "accountType": "حساب خاص جاهز",
-        "warranty": "ضمان كامل طوال مدة الاشتراك",
-        "officialPrice": {
-          "amount": 30,
-          "currency": "USD",
-          "months": 1,
-          "basis": "matched",
-          "source": "https://x.ai/pricing",
-          "checkedAt": "2026-10-09"
-        },
-        "priceComparison": {
-          "planName": "SuperGrok",
-          "source": "https://x.ai/pricing",
-          "checkedAt": "2026-10-09",
-          "status": "matched",
-          "billingLabel": "Monthly"
-        },
-        "available": false
+  "id": "grok",
+  "name": "Super Grok",
+  "category": "AI Tools",
+  "logo": "grok",
+  "status": "available",
+  "description": "Grok Plus لمدة أسبوع بـ230ج، حساب خاص جاهز مع ضمان 5 أيام. تتوفر الباقات الأخرى حسب المخزون.",
+  "plans": [
+    {
+      "name": "SuperGrok — شهر حساب خاص",
+      "planType": "SuperGrok",
+      "duration": "1 شهر",
+      "price": 1288,
+      "basePriceUSD": 23,
+      "activation": "تسليم حساب جاهز بإيميل وباسورد.",
+      "account": "حساب خاص",
+      "accountType": "حساب خاص جاهز",
+      "warranty": "ضمان كامل طوال مدة الاشتراك",
+      "officialPrice": {
+        "amount": 30,
+        "currency": "USD",
+        "months": 1,
+        "basis": "matched",
+        "source": "https://x.ai/pricing",
+        "checkedAt": "2026-10-09"
       },
-      {
-        "name": "اشتراك واحد",
-        "duration": "10 أيام",
-        "price": 240,
-        "activation": "بريد + كلمة مرور.",
-        "account": "حساب جاهز",
-        "warranty": "5 أيام",
-        "priceComparison": {
-          "planName": "SuperGrok — شهر",
-          "source": "https://x.ai/pricing",
-          "checkedAt": "2026-10-08",
-          "status": "unavailable",
-          "note": "مدة عرض المتجر 10 أيام.",
-          "rawPrice": {
-            "amount": 30,
-            "currency": "USD",
-            "label": "سعر الشهر الكامل"
-          }
-        },
-        "available": false
+      "priceComparison": {
+        "planName": "SuperGrok",
+        "source": "https://x.ai/pricing",
+        "checkedAt": "2026-10-09",
+        "status": "matched",
+        "billingLabel": "Monthly"
       },
-      {
-        "name": "SuperGrok — 3 شهور بضمان كامل",
-        "planType": "SuperGrok",
-        "duration": "3 شهور",
-        "price": 3808,
-        "basePriceUSD": 68,
-        "available": true,
-        "activation": "تسليم حساب جاهز بإيميل وباسورد.",
-        "account": "حساب خاص",
-        "accountType": "حساب خاص جاهز",
-        "warranty": "ضمان كامل طوال مدة الاشتراك",
-        "officialPrice": {
-          "amount": 90,
-          "currency": "USD",
-          "months": 3,
-          "basis": "reference",
-          "source": "https://x.ai/pricing",
-          "checkedAt": "2026-10-09"
-        },
-        "priceComparison": {
-          "planName": "SuperGrok",
-          "source": "https://x.ai/pricing",
-          "checkedAt": "2026-10-09",
-          "status": "reference",
-          "billingLabel": "3 أشهر بالسعر الشهري الرسمي"
-        }
+      "available": false
+    },
+    {
+      "name": "Grok Plus — أسبوع — حساب خاص جاهز",
+      "duration": "7 أيام",
+      "price": 230,
+      "activation": "بريد + كلمة مرور.",
+      "account": "حساب خاص جاهز",
+      "warranty": "ضمان 5 أيام",
+      "available": true,
+      "planType": "Grok Plus",
+      "manualPrice": true,
+      "accountType": "حساب خاص جاهز",
+      "features": [
+        "اشتراك لمدة أسبوع.",
+        "حساب خاص جاهز للاستخدام.",
+        "ضمان 5 أيام."
+      ],
+      "featuresEn": [
+        "One-week subscription.",
+        "Private ready-to-use account.",
+        "Five-day warranty."
+      ]
+    },
+    {
+      "name": "SuperGrok — 3 شهور بضمان كامل",
+      "planType": "SuperGrok",
+      "duration": "3 شهور",
+      "price": 3808,
+      "basePriceUSD": 68,
+      "available": true,
+      "activation": "تسليم حساب جاهز بإيميل وباسورد.",
+      "account": "حساب خاص",
+      "accountType": "حساب خاص جاهز",
+      "warranty": "ضمان كامل طوال مدة الاشتراك",
+      "officialPrice": {
+        "amount": 90,
+        "currency": "USD",
+        "months": 3,
+        "basis": "reference",
+        "source": "https://x.ai/pricing",
+        "checkedAt": "2026-10-09"
+      },
+      "priceComparison": {
+        "planName": "SuperGrok",
+        "source": "https://x.ai/pricing",
+        "checkedAt": "2026-10-09",
+        "status": "reference",
+        "billingLabel": "3 أشهر بالسعر الشهري الرسمي"
       }
-    ],
-    "categories": [
-      "توليد صور بالذكاء الاصطناعي",
-      "محادثة ومساعد ذكي"
-    ]
-  },
+    }
+  ],
+  "categories": [
+    "توليد صور بالذكاء الاصطناعي",
+    "محادثة ومساعد ذكي"
+  ],
+  "descriptionEn": "Grok Plus for one week for EGP 230, on a private ready account with a five-day warranty. Other plans depend on stock."
+},
   {
     "id": "prezi",
     "name": "Prezi Plus",
@@ -8658,40 +8674,54 @@ const products = [
     ]
   },
   {
-    "id": "replit-core",
-    "name": "Replit Core",
-    "category": "البرمجة وتطوير المواقع",
-    "logo": "replit",
-    "logoUrl": "logos/replit.svg",
-    "status": "available",
-    "description": "Replit Core لمدة سنة كاملة بسعر 3000 جنيه: حساب خاص جاهز أو تفعيل على إيميلك، بضمان كامل طوال السنة.",
-    "features": [
-      "بناء وتعديل المواقع والتطبيقات بمساعدة الذكاء الاصطناعي.",
-      "كتابة وتشغيل الكود من المتصفح.",
-      "إدارة المشاريع وبيئة التطوير في مكان واحد.",
-      "اشتراك Core لمدة 12 شهرًا.",
-      "ضمان كامل طوال مدة الاشتراك.",
-      "تسليم حساب خاص جاهز أو تفعيل على إيميلك."
-    ],
-    "plans": [
-      {
-        "name": "Core — سنة كاملة",
-        "planType": "Core",
-        "duration": "12 شهر",
-        "price": 3000,
-        "available": true,
-        "activation": "تسليم حساب خاص جاهز أو تفعيل مباشر على إيميلك، حسب اختيارك.",
-        "account": "حساب خاص جاهز أو على إيميلك",
-        "warranty": "ضمان كامل لمدة 12 شهرًا",
-        "notes": [
-          "موارد الذكاء الاصطناعي والنشر حسب حدود خطة Core؛ الاستهلاك الإضافي ليس مشمولًا بسعر الاشتراك."
-        ]
-      }
-    ],
-    "categories": [
-      "بناء مواقع وتطبيقات بالذكاء الاصطناعي"
-    ]
-  },
+  "id": "replit-core",
+  "name": "Replit Core",
+  "category": "البرمجة وتطوير المواقع",
+  "logo": "replit",
+  "logoUrl": "logos/replit.svg",
+  "status": "available",
+  "description": "Replit Core سنة على إيميلك الشخصي بـ2350ج، مع رصيد استخدام 20 دولارًا شهريًا وضمان كامل طوال السنة.",
+  "features": [
+    "بناء وتعديل المواقع والتطبيقات بمساعدة الذكاء الاصطناعي.",
+    "كتابة وتشغيل الكود من المتصفح.",
+    "إدارة المشاريع وبيئة التطوير في مكان واحد.",
+    "اشتراك Core لمدة 12 شهرًا.",
+    "ضمان كامل طوال مدة الاشتراك.",
+    "التفعيل على إيميلك الشخصي."
+  ],
+  "plans": [
+    {
+      "name": "Core — سنة كاملة",
+      "planType": "Core",
+      "duration": "12 شهر",
+      "price": 2350,
+      "available": true,
+      "activation": "تفعيل Replit Core على إيميلك الشخصي.",
+      "account": "على إيميلك الشخصي",
+      "warranty": "ضمان كامل لمدة 12 شهرًا",
+      "notes": [
+        "موارد الذكاء الاصطناعي والنشر حسب حدود خطة Core؛ الاستهلاك الإضافي ليس مشمولًا بسعر الاشتراك."
+      ],
+      "manualPrice": true,
+      "accountType": "تفعيل على حسابك",
+      "credits": "رصيد استخدام 20 دولارًا شهريًا",
+      "features": [
+        "Core لمدة سنة على إيميلك الشخصي.",
+        "رصيد استخدام 20 دولارًا شهريًا.",
+        "ضمان كامل طوال السنة."
+      ],
+      "featuresEn": [
+        "One year of Core on your personal email.",
+        "US$20 usage credit each month.",
+        "Full one-year warranty."
+      ]
+    }
+  ],
+  "categories": [
+    "بناء مواقع وتطبيقات بالذكاء الاصطناعي"
+  ],
+  "descriptionEn": "One year of Replit Core on your personal email for EGP 2,350, with US$20 monthly usage credit and full one-year warranty."
+},
   {
     "id": "miro-pro",
     "name": "Miro",

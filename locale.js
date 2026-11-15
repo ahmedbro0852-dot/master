@@ -534,6 +534,16 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
       if(terms[raw])return terms[raw];
     }
 
+    if(state.language==="en"&&["lovable-pro","lovable-lite","replit-core","grok"].includes(productId)){
+      const product=window.MasterCatalog?.getProduct(productId);
+      if(kind==="description"&&product?.descriptionEn)return product.descriptionEn;
+      for(const plan of product?.plans||[]){
+        if(raw===plan.credits&&plan.featuresEn?.length){const index=(plan.features||[]).indexOf(raw);if(index>=0&&plan.featuresEn[index])return plan.featuresEn[index];}
+        for(const [ar,en] of [[plan.features,plan.featuresEn],[plan.notes,plan.notesEn]]){const i=(ar||[]).indexOf(raw);if(i>=0&&en?.[i])return en[i];}
+      }
+    }
+
+
     if(state.language==="en"&&productId==="muse-ai"){
       const product=window.MasterCatalog?.getProduct("muse-ai");
       if(kind==="description")return product?.descriptionEn||raw;

@@ -8,7 +8,7 @@
   label();document.body.append(top);
   top.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'}));
   let scheduled=false;
-  const update=()=>{top.classList.toggle('is-visible',window.scrollY>650);scheduled=false;};
+  const update=()=>{const visible=window.scrollY>650;top.classList.toggle('is-visible',visible);top.inert=!visible;top.setAttribute('aria-hidden',String(!visible));scheduled=false;};
   window.addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(update);}},{passive:true});
   update();
   document.addEventListener('masterstore:localechange',label);
