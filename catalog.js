@@ -4291,7 +4291,7 @@ const products = [
     "category": "AI Tools",
     "logo": "chatgpt",
     "status": "available",
-    "description": "باقات ChatGPT Plus لمدة شهر: حساب خاص جاهز بضمان شهر بـ650 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ880 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
+    "description": "باقات ChatGPT Plus لمدة شهر: حساب خاص جاهز بضمان شهر بـ600 جنيه، أو تفعيل وتجديد على حسابك الشخصي بـ880 جنيه. راجع طريقة التسليم وضمان الباقة المختارة.",
     "plans": [
       {
         "name": "ChatGPT Plus — بدون ضمان",
@@ -4390,7 +4390,7 @@ const products = [
         "name": "Plus — شهر — حساب خاص جاهز — ضمان شهر",
         "planType": "Plus",
         "duration": "1 شهر",
-        "price": 650,
+        "price": 600,
         "available": true,
         "activation": "تسليم بيانات حساب ChatGPT Plus خاص جاهز للاستخدام.",
         "account": "حساب ChatGPT Plus خاص جاهز وغير مشترك",
