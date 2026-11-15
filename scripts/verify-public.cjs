@@ -4,7 +4,7 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const root=path.resolve(__dirname,'..'),out=path.join(root,'_site'),base='https://master-pi-six.vercel.app';
 const read=relative=>fs.readFileSync(path.join(out,relative),'utf8');
 assert(fs.existsSync(out),'public build directory not found');
-for(const name of ['index.html','cart.html','robots.txt','sitemap.xml','warranty.html','products/chatgpt-plus.html','categories/video-tools.html'])
+for(const name of ['index.html','cart.html','robots.txt','sitemap.xml','warranty.html','common-problems.html','products/chatgpt-plus.html','categories/video-tools.html'])
  assert(fs.existsSync(path.join(out,name)),name+' missing from output');
 const xml=read('sitemap.xml');
 const urls=[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match=>match[1]);
@@ -26,8 +26,13 @@ for(const address of urls){
 }
 for(const legacy of ['services.html','creative-services.css','creative-services.js'])
  assert(!fs.existsSync(path.join(out,legacy)),legacy+' must not be published');
-const home=read('index.html'),cart=read('cart.html'),plus=read('products/chatgpt-plus.html');
+const home=read('index.html'),cart=read('cart.html'),plus=read('products/chatgpt-plus.html'),commonProblems=read('common-problems.html');
 assert(home.includes('id="products"'),'homepage catalog missing');
+assert(home.includes('href="/common-problems.html"'),'homepage help centre link missing');
+assert(plus.includes('id="subscription-troubleshooting"'),'product-specific troubleshooting missing from subscription page');
+assert(commonProblems.includes('id="commonProblemsApp"')&&commonProblems.includes('common-problems.js?v=20261115-support1'),'common problems app not linked');
+assert(xml.includes(base+'/common-problems.html'),'common problems page missing from sitemap');
+for(const file of ['common-problems.html','common-problems.css','common-problems.js','subscription-troubleshooting.js'])assert(fs.existsSync(path.join(out,file)),'help centre asset missing: '+file);
 assert(home.includes('social-market-preview'),'coming-soon social preview missing');
 
 const homeSections=[
