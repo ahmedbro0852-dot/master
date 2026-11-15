@@ -154,8 +154,8 @@ const family=p=>{
 };
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function issuesFor(product){
- const id=String(product?.id||''),family=familyFor=family(product);
- const special=overrides[id]||[],base=sets[family]||sets.general,seen=new Set(),rows=[];
+ const id=String(product?.id||''),group=family(product);
+ const special=overrides[id]||[],base=sets[group]||sets.general,seen=new Set(),rows=[];
  for(const row of [...special,...base]){const key=row[0];if(seen.has(key))continue;seen.add(key);rows.push(row);if(rows.length===6)break;}
  return rows.map((r,i)=>({id:i+1,question:r[0],answer:r[1],questionEn:r[2],answerEn:r[3]}));
 }
