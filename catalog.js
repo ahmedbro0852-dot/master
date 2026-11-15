@@ -4792,7 +4792,7 @@ const products = [
       {
         "name": "Perplexity Pro",
         "duration": "1 شهر",
-        "price": 550,
+        "price": 499,
         "activation": "تسليم حساب جاهز، وقد يطلب كود دخول أول مرة.",
         "account": "حساب خاص جاهز",
         "warranty": "ضمان كامل",
