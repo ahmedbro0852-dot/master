@@ -29,15 +29,15 @@ function getMessages(data) {
 function categorizeError(data,status) {
   const reason = String(data?.message || data?.error || data?.detail || '');
   if (/invalid|disabled|unavailable|inactive|expired|not found|not exist|wrong key/i.test(reason)) {
-    return {status:400,code:'KEY_NOT_ACTIVE',message:'مفتاح الاستلام غير نشط أو غير موجود لدى المصدر. تأكد منه مع البائع.'};
+    return {status:400,code:'KEY_NOT_ACTIVE',message:'مفتاح الاستلام غير نشط أو منتهي. تأكد من مفتاح طلبك أو تواصل مع دعم MASTER STORE.'};
   }
   if (status===429 || /rate.?limit|too many|429/i.test(reason)) {
-    return {status:429,code:'SOURCE_RATE_LIMIT',message:'مصدر الرسائل طلب تقليل المحاولات. حاول مرة أخرى بعد دقائق.'};
+    return {status:429,code:'SOURCE_RATE_LIMIT',message:'محاولات متكررة خلال وقت قصير. انتظر دقائق ثم حاول مجددًا.'};
   }
   if (status===401 || status===403) {
-    return {status:503,code:'SOURCE_RESTRICTED',message:'مصدر الرسائل لا يسمح بالاتصال حاليًا. يلزم مراجعة الربط مع مزود الخدمة.'};
+    return {status:503,code:'SOURCE_RESTRICTED',message:'تعذّر فتح صندوقك حاليًا. حاول بعد قليل، أو تواصل مع دعم MASTER STORE.'};
   }
-  return {status:502,code:'SOURCE_ERROR',message:'مصدر الرسائل ردّ بخطأ. حاول من المصدر مباشرة أو تواصل مع البائع.'};
+  return {status:502,code:'SOURCE_ERROR',message:'تعذّر تحديث صندوقك حاليًا. حاول مرة أخرى بعد قليل.'};
 }
 
 function extractCode(message) {
@@ -110,7 +110,7 @@ export default async function handler(req,res) {
     const isChallenge=/verify you are human|checking your browser|just a moment|access denied/i.test(title);
     if (nav?.status()===403 || isChallenge) {
       console.warn('Inbox provider navigation restricted',{httpStatus:nav?.status()||null,challengePage:isChallenge});
-      return res.status(503).json({ok:false,code:'SOURCE_RESTRICTED',message:'المصدر رفض اتصال الموقع. جرّب فتح المصدر مباشرة، ولو شغال اطلب من مزود الخدمة تفعيل التكامل الرسمي.'});
+      return res.status(503).json({ok:false,code:'SOURCE_RESTRICTED',message:'خدمة الاستلام غير متاحة مؤقتًا. حاول لاحقًا أو تواصل مع دعم MASTER STORE.'});
     }
 
     stage='form';
@@ -161,8 +161,8 @@ export default async function handler(req,res) {
       ok:false,
       code:responseStatuses.length?'SOURCE_INCOMPLETE':'SOURCE_TIMEOUT',
       message:responseStatuses.length
-        ? 'المصدر ردّ لكن لم يرسل بيانات الرسائل كاملة. جرّب الاستلام من المصدر مباشرة.'
-        : 'مصدر الرسائل لم يرد على طلب الاستلام. قد يكون الربط الخارجي متوقفًا.'
+        ? 'لم يكتمل تحديث صندوقك. حاول مرة أخرى بعد قليل.'
+        : 'انتهت مهلة تحديث صندوقك. حاول مرة أخرى.'
     });
   } catch(error) {
     // Deliberately log only stage and error type, never key or email contents.
@@ -170,7 +170,7 @@ export default async function handler(req,res) {
     const timeout=error?.name==='TimeoutError';
     return res.status(timeout?504:502).json({
       ok:false,code:timeout?'SOURCE_TIMEOUT':'SOURCE_FAILURE',
-      message:timeout?'مصدر الرسائل تأخر في الرد. جرّب مرة أخرى بعد قليل.':'تعذّر تشغيل خدمة استلام الرسائل. يمكنك استخدام المصدر مباشرة لحين حل المشكلة.'
+      message:timeout?'تأخر تحديث صندوقك. جرّب مرة أخرى بعد قليل.':'تعذّر فتح صندوقك مؤقتًا. حاول بعد قليل أو تواصل مع دعم MASTER STORE.'
     });
   } finally {
     if(browser) await browser.close().catch(()=>{});

@@ -9,7 +9,6 @@ const messages = document.querySelector('#messages');
 const count = document.querySelector('#count');
 const updated = document.querySelector('#updated');
 const reveal = document.querySelector('#reveal');
-const providerHelp = document.querySelector('#provider-help');
 let busy = false;
 let lastRequest = 0;
 let progressTimer = null;
@@ -30,7 +29,6 @@ function node(tag, value, className) {
 function showStatus(message, type = 'error') {
   status.textContent = message || '';
   status.dataset.kind = type;
-  if (type !== 'error') providerHelp.hidden = true;
 }
 
 function setBusy(value) {
@@ -96,18 +94,18 @@ async function lookup(event) {
   }
   lastRequest = Date.now();
   const previousResults = !mailbox.hidden;
-  showStatus(previousResults ? 'جارٍ تحديث الرسائل بدون مسح النتائج الحالية…' : 'جارٍ الاتصال بالمصدر والتحقق من المفتاح…', 'info');
+  showStatus(previousResults ? 'جارٍ تحديث الرسائل بدون مسح النتائج الحالية…' : 'جارٍ التحقق من مفتاحك وفتح صندوقك…', 'info');
   setBusy(true);
   const started = Date.now();
   clearInterval(progressTimer);
   progressTimer = setInterval(() => {
     const seconds = Math.floor((Date.now() - started) / 1000);
     if (seconds >= 7 && seconds < 17) {
-      showStatus('بنفتح صندوق الرسائل ونتأكد من الاتصال بالمصدر…', 'info');
+      showStatus('بنفتح صندوقك ونبحث عن أحدث الرسائل…', 'info');
     } else if (seconds >= 17 && seconds < 36) {
-      showStatus('الاتصال بالمصدر مستمر، والرسائل السابقة محفوظة لو بتعمل تحديث…', 'info');
+      showStatus('جارٍ تحديث صندوقك، لحظات وتظهر النتيجة…', 'info');
     } else if (seconds >= 36) {
-      showStatus('مصدر الرسائل متأخر في الرد. لو الاتصال فشل هنوضح السبب بدل الانتظار من غير نتيجة.', 'info');
+      showStatus('الاستلام بياخد وقت أطول من المعتاد. بننتظر نتيجة صندوقك…', 'info');
     }
   }, 2500);
   try {
@@ -123,16 +121,15 @@ async function lookup(event) {
     }
     const data = await response.json();
     if (!response.ok || !data.ok) {
-      const err = new Error(data.message || 'تعذّر استلام الرسائل من المصدر.');
+      const err = new Error(data.message || 'تعذّر تحديث صندوقك. حاول مرة أخرى.');
       err.providerCode = data.code || '';
       throw err;
     }
     renderMessages(Array.isArray(data.messages) ? data.messages : []);
-    showStatus(data.messages?.length ? 'تم تحديث صندوق الرسائل بنجاح.' : 'الاتصال بالمصدر نجح، لكن لا توجد رسائل حاليًا.', 'success');
+    showStatus(data.messages?.length ? 'تم تحديث صندوق الرسائل بنجاح.' : 'صندوقك جاهز. لا يوجد كود حديث حاليًا؛ اطلب إرساله ثم حدّث الرسائل.', 'success');
   } catch (error) {
     const timeout = error.name === 'TimeoutError' || error.name === 'AbortError';
-    showStatus(timeout ? 'مصدر الرسائل تأخر في الاستجابة. حاول التحديث بعد قليل.' : (error.message || 'حصل خطأ في الاتصال. حاول مجددًا.'), 'error');
-    providerHelp.hidden = !['SOURCE_RESTRICTED','SOURCE_FAILURE','SOURCE_TIMEOUT','SOURCE_ERROR','SOURCE_INCOMPLETE'].includes(error.providerCode);
+    showStatus(timeout ? 'تأخر تحديث صندوقك. حاول مرة أخرى بعد قليل.' : (error.message || 'حصل خطأ في الاتصال. حاول مجددًا.'), 'error');
     // Keep the previously fetched messages visible when a refresh fails.
     if (!previousResults) mailbox.hidden = true;
   } finally {
