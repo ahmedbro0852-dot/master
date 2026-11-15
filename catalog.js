@@ -4448,46 +4448,7 @@ const products = [
     ],
     "descriptionEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a full one-month warranty for EGP 650, or activation and renewal on your personal account for EGP 880. Review the delivery method and warranty of your chosen plan."
   },
-  {
-    "id": "chatgpt-teachers-k12",
-    "name": "ChatGPT للمعلمين K12",
-    "category": "AI Tools",
-    "logo": "chatgpt",
-    "status": "available",
-    "description": "باقة ChatGPT مخصصة للمعلمين K12 لمدة سنتين بـ400 جنيه، بدون ضمان.",
-    "plans": [
-      {
-        "name": "ChatGPT للمعلمين K12 — بدون ضمان",
-        "planType": "K12 Teachers",
-        "duration": "24 شهر",
-        "price": 400,
-        "activation": "طريقة التفعيل تُؤكد قبل الدفع.",
-        "account": "نوع الحساب يُؤكد قبل الدفع",
-        "warranty": "بدون ضمان",
-        "notes": [
-          "الباقة مخصصة للمعلمين K12؛ شروط الأهلية والتفعيل تُؤكد قبل الدفع.",
-          "مدة الباقة سنتان وبدون ضمان."
-        ],
-        "priceComparison": {
-          "planName": "ChatGPT for Teachers",
-          "source": "https://help.openai.com/en/articles/12844995-chatgpt-for-teachers",
-          "checkedAt": "2026-10-08",
-          "status": "unavailable",
-          "note": "مجاني رسميًا للمعلمين الأمريكيين K–12 المؤهلين حتى يونيو 2028. سعر المتجر ليس خصمًا من اشتراك رسمي مدفوع، ومدة 24 شهرًا تحتاج تأكيدًا قبل الدفع.",
-          "rawPrice": {
-            "amount": 0,
-            "currency": "USD",
-            "label": "مجاني للمؤهلين حتى يونيو 2028"
-          }
-        },
-        "previousStorePrice": 500
-      }
-    ],
-    "categories": [
-      "محادثة ومساعد ذكي",
-      "أدوات للمعلمين"
-    ]
-  },
+  
 {
   "id": "gemini-pro",
   "name": "Gemini Pro",
@@ -4495,12 +4456,8 @@ const products = [
   "logo": "gemini",
   "logoUrl": "logos/gemini.svg?v=20261027-hq1",
   "status": "available",
-  "description": "باقات Gemini Pro على حساب Google الشخصي: سنتان (24 شهرًا) بسعر 300 جنيه، ويتطلب التفعيل تسليم بيانات الدخول بشكل آمن، مع ضمان شهر واحد. وتتوفر باقة 3 شهور بسعر 200 جنيه ودعوة عائلية لشهر بسعر 80 جنيه.",
-  "notes": [
-    "عرض السنتين (24 شهرًا) بسعر 300 جنيه يحل محل عرض الـ18 شهرًا السابق بالسعر نفسه.",
-    "يتطلب تفعيل السنتين تقديم بيانات الدخول للحساب الشخصي بطريقة آمنة، ولا يجب إرسالها في التعليقات أو محادثات عامة.",
-    "هذا عرض من MASTER STORE وليس باقة رسمية مستقلة مدتها سنتان معلنة بسعر 300 جنيه من Google."
-  ],
+  "description": "Google AI Pro لمدة شهر بـ80 جنيه، دعوة على إيميلك الشخصي. راجع تفاصيل الرصيد والضمان قبل الدفع.",
+  "notes": [],
   "plans": [
     {
       "name": "Gemini Pro",
@@ -4597,14 +4554,15 @@ const products = [
         "Accept the invitation from your personal email; confirm account-country compatibility and family-joining eligibility before payment.",
         "Family AI credits are shared; available usage depends on group consumption and the selected tool.",
         "Do not send your Google password or verification codes in chat; open the invitation and sign in yourself on Google."
-      ]
+      ],
+      "hidden": false
     },
     {
       "name": "Pro — تفعيل مباشر — 3 شهور على إيميلك",
       "planType": "Google AI Pro",
       "duration": "3 شهور",
       "price": 200,
-      "available": true,
+      "available": false,
       "activation": "تفعيل Gemini Pro لمدة 3 شهور مباشرة على إيميلك الشخصي.",
       "account": "حساب Google الشخصي على إيميلك",
       "accountType": "تفعيل مباشر على حسابك",
@@ -4630,14 +4588,15 @@ const products = [
         "Your current subscription and Google account eligibility are checked before activation.",
         "Check credits and tool limits in the account for the activated membership.",
         "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat."
-      ]
+      ],
+      "hidden": true
     },
     {
       "name": "Pro — سنتين (24 شهرًا) — تفعيل على حسابك",
       "planType": "Google AI Pro",
       "duration": "24 شهر",
       "price": 300,
-      "available": true,
+      "available": false,
       "activation": "يلزم تسليم بيانات تسجيل الدخول إلى حساب Google الشخصي بطريقة آمنة بعد إتمام الطلب لإجراء التفعيل.",
       "account": "حساب Google الشخصي الخاص بالعميل",
       "accountType": "تفعيل على حسابك الشخصي — يتطلب بيانات الدخول",
@@ -4669,7 +4628,8 @@ const products = [
         "Subscription is 24 months; the current store warranty covers one month only, not the full two years.",
         "Activation is subject to account eligibility, region and existing subscriptions, which are checked before payment.",
         "Image/video tools, credits and storage depend on the actual activated plan; no unspecified credit allocation is guaranteed."
-      ]
+      ],
+      "hidden": true
     }
   ],
   "categories": [
@@ -4677,12 +4637,8 @@ const products = [
     "مساعد كتابة الكود",
     "محادثة ومساعد ذكي"
   ],
-  "descriptionEn": "Gemini Pro plans on your personal Google account: a 24-month (two-year) store offer for EGP 300 requiring secure account credentials for activation, with a one-month store warranty. Also available: three months for EGP 200 and a one-month family invitation for EGP 80.",
-  "notesEn": [
-    "The 24-month EGP 300 offer replaces the previous 18-month offer at the same store price.",
-    "Activation requires account credentials through a secure process, not through public comments or chats.",
-    "This is a MASTER STORE offer, not a separately advertised official Google two-year package priced at EGP 300."
-  ]
+  "descriptionEn": "One month of Google AI Pro for EGP 80, activated by invitation on your personal email. Review credits and warranty before payment.",
+  "notesEn": []
 },
 {
   "id": "google-ai-plus",
@@ -4691,7 +4647,7 @@ const products = [
   "logo": "gemini",
   "logoUrl": "logos/gemini.svg?v=20261027-hq1",
   "status": "available",
-  "description": "عرض Google AI Plus الرسمي على إيميلك الشخصي: 6 شهور بتفعيل مباشر بسعر 130 جنيه بدل 150 جنيه، أو 12 شهرًا بسعر 220 جنيه. يشمل مزايا خطة Plus المتاحة لحسابك، ويُراجع التوافق والضمان قبل الدفع.",
+  "description": "Google AI Plus لمدة 6 شهور على إيميلك الشخصي بـ130 جنيه. راجع أهلية الحساب وتفاصيل الباقة قبل الدفع.",
   "categories": [
     "توليد صور بالذكاء الاصطناعي",
     "محادثة ومساعد ذكي"
@@ -4739,14 +4695,15 @@ const products = [
         "Confirm warranty coverage and term with support before payment; no specific warranty has been supplied.",
         "Do not send Google passwords or verification codes over chat; complete sign-in yourself on Google's pages."
       ],
-      "previousStorePrice": 150
+      "previousStorePrice": 150,
+      "hidden": false
     },
     {
       "name": "Plus — 12 شهر على إيميلك",
       "planType": "Google AI Plus",
       "duration": "12 شهر",
       "price": 220,
-      "available": true,
+      "available": false,
       "activation": "تفعيل Google AI Plus لمدة 12 شهر على إيميلك الشخصي.",
       "account": "حساب Google الشخصي على إيميلك",
       "accountType": "تفعيل مباشر على حسابك",
@@ -4774,10 +4731,11 @@ const products = [
         "This is Google AI Plus; review feature, storage and credit limits for the plan and account before payment.",
         "No warranty term has been specified for this offer; confirm it with support before payment.",
         "Complete any required sign-in or approval yourself on Google; do not send passwords or verification codes in chat."
-      ]
+      ],
+      "hidden": true
     }
   ],
-  "descriptionEn": "Google AI Plus activated directly on your personal Google account: 6 months for EGP 130 (previous store price EGP 150), or 12 months for EGP 220. Includes the Plus benefits available on your account; confirm eligibility and warranty before payment."
+  "descriptionEn": "Six months of Google AI Plus on your personal email for EGP 130. Check account eligibility and plan details before payment."
 },
   {
     "id": "claude-pro",
