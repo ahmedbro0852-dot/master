@@ -8216,7 +8216,7 @@ const products = [
       {
         "name": "Pro",
         "duration": "12 شهر",
-        "price": 1550,
+        "price": 4700,
         "activation": "حساب أو Organization.",
         "account": "احتفظ بالبيانات الأصلية",
         "warranty": "ضمان كامل",
