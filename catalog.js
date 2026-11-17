@@ -6312,7 +6312,7 @@ const products = [
     "category": "التصميم",
     "logo": "adobe",
     "status": "available",
-    "description": "اشتراك Adobe Creative Cloud Pro لمدة شهر: دعوة على حسابك الشخصي بـ450 جنيه، أو تفعيل رسمي على حسابك الشخصي بـ850 جنيه.",
+    "description": "Adobe Creative Cloud Pro: حساب خاص جاهز لمدة 3 شهور بـ550 جنيه (مش Team ولا دعوة) بضمان متجر 20 يوم، إضافة إلى خيارات الاشتراك الشهري الموجودة. يشمل برامج التصميم والمونتاج، مع 100GB مساحة سحابية وأدوات ذكاء اصطناعي حسب حالة الحساب.",
     "plans": [
       {
         "name": "Creative Cloud Pro — دعوة",
@@ -6365,12 +6365,54 @@ const products = [
           "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
           "checkedAt": "2026-10-08"
         }
+      },
+      {
+        "name": "Creative Cloud Pro — حساب خاص جاهز 3 شهور",
+        "planType": "Creative Cloud Pro — Ready Account",
+        "duration": "3 شهور",
+        "price": 550,
+        "available": true,
+        "accountType": "حساب خاص جاهز — مش Team ولا دعوة",
+        "account": "حساب جاهز خاص",
+        "activation": "تسليم بيانات دخول حساب خاص جاهز للاستخدام؛ لا يحتاج قبول دعوة أو الانضمام إلى Team. يتم توضيح حالة الاشتراك أو الفترة التجريبية وتاريخ انتهائها قبل الدفع.",
+        "warranty": "20 يوم من المتجر",
+        "features": [
+          "Photoshop وIllustrator للتصميم وتعديل الصور.",
+          "Premiere Pro وAfter Effects للمونتاج والمؤثرات.",
+          "Lightroom وInDesign وبرامج Creative Cloud الأخرى المتاحة بالحساب.",
+          "100GB مساحة تخزين سحابية بحسب الباقة الظاهرة.",
+          "أدوات Adobe Firefly والذكاء الاصطناعي وفق رصيد وحدود الحساب."
+        ],
+        "featuresEn": [
+          "Photoshop and Illustrator for design and image editing.",
+          "Premiere Pro and After Effects for video editing and motion effects.",
+          "Lightroom, InDesign and other Creative Cloud apps included in the account.",
+          "100GB cloud storage as displayed on the account.",
+          "Adobe Firefly AI features subject to the account's available credits and limits."
+        ],
+        "notes": [
+          "السعر 550 جنيه للمدة المعلنة (3 شهور)، أي نحو 183.33 جنيه شهريًا كمقارنة حسابية فقط، وليس دفعًا شهريًا.",
+          "الحساب خاص وجاهز للاستخدام، وليس اشتراك Team أو دعوة على حسابك الشخصي.",
+          "الضمان من MASTER STORE لمدة 20 يوم فقط، وهو أقصر من مدة الوصول المعلنة.",
+          "الصورة المعروضة من Adobe توضح وجود Free Trial لمدة 91 يومًا؛ قد تكون مدة الوصول فترة تجريبية وليست اشتراكًا مدفوعًا لثلاثة أشهر. يُوضَّح وضع كل حساب قبل الدفع.",
+          "قد توجد وسيلة دفع مرتبطة بالحساب، وقد يتم تجديد الاشتراك برسوم بعد انتهاء التجربة إن لم يُلغ؛ يجب مراجعة صفحة الفوترة والتجديد والإلغاء قبل الاستخدام.",
+          "تختلف ميزات AI وعدد الأرصدة المتاحة حسب شروط Adobe وحالة الحساب عند التسليم."
+        ],
+        "notesEn": [
+          "EGP 550 for the advertised three months, about EGP 183.33/month as an arithmetic comparison only; payment is not monthly.",
+          "A private ready-to-use account, not an Adobe Team seat or invitation to your own account.",
+          "MASTER STORE's warranty is 20 days, shorter than the advertised access period.",
+          "The Adobe screenshot shows a 91-day Free Trial; access may be trial-based rather than three paid months. The actual subscription status is disclosed before payment.",
+          "A payment method may be attached, and automatic paid renewal may occur if the trial is not canceled; check billing, renewal and cancellation details.",
+          "AI features and credit allowances depend on the account's current Adobe entitlements."
+        ]
       }
     ],
     "categories": [
       "مونتاج وتحسين الفيديو",
       "تعديل الصور والتصميم"
-    ]
+    ],
+    "descriptionEn": "Adobe Creative Cloud Pro: private ready-to-use account for 3 months at EGP 550 (not a Team seat or invitation), with a 20-day store warranty, alongside existing monthly options. Includes creative apps, 100GB cloud storage and available AI features subject to the account's current entitlements."
   },
   {
     "id": "duolingo",
