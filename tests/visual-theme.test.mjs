@@ -34,3 +34,14 @@ test('skin contains coherent balanced CSS blocks',()=>{
  for(const c of css){if(c==='{')level++;if(c==='}')level--;assert.ok(level>=0,'stray closing bracket')}
  assert.equal(level,0);
 });
+
+test('activation code remains visible for both signed-in and first-time visitors',()=>{
+ assert.match(jsx,/className="code-access-panel" id="code-access"/);
+ assert.match(jsx,/className="code-access-form" onSubmit=\{activate\}/);
+ assert.match(jsx,/id="studio-code-input"/);
+ assert.match(jsx,/account\?'تفعيل كود آخر':'تفعيل الكود'/);
+ assert.match(jsx,/className="code-switch-shortcut"/);
+ assert.match(jsx,/كل كود له رصيده وفيديوهاته المستقلة/);
+ assert.match(css,/\.code-access-fields input/);
+ assert.match(css,/@media\(max-width:650px\)\{\.code-access-panel/);
+});

@@ -349,3 +349,24 @@ footer{font-size:10px;color:#8da0b7;padding:36px 0}
 .network-banner svg{color:#c88b27;flex-shrink:0;margin-top:3px}
 .network-banner b{color:#825617}
 @media(max-width:650px){.draft-toolbar{gap:6px;padding:8px 9px}.draft-toolbar>span{font-size:9px}.draft-toolbar button{font-size:9px!important}.network-banner{padding:12px;font-size:11px}}
+
+/* Code activation stays visible to returning and first-time users. */
+.code-access-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,1.12fr);gap:22px;align-items:center;margin:0 0 22px;padding:22px 25px;border:1px solid #bed5fa;border-radius:18px;background:linear-gradient(115deg,#f0f6ff,#fff 75%);box-shadow:0 8px 24px #164d9810}
+.code-access-panel-heading{display:flex;align-items:flex-start;gap:13px;min-width:0}
+.code-access-panel-icon{flex-shrink:0;display:grid;place-items:center;width:45px;height:45px;border-radius:13px;background:#e0edff;color:#205cba}
+.code-access-eyebrow{display:block;color:#275cb3;font-weight:800;font-size:11px;margin-bottom:3px}
+.code-access-panel h2{color:#183c71;font-size:18px;margin:0 0 6px;line-height:1.7}
+.code-access-panel-heading p{font-size:12px;color:#5c7190;line-height:1.9;margin:0}
+.code-access-form{min-width:0}
+.code-access-form>label{display:block;font-size:12px;font-weight:800;color:#345476;margin-bottom:7px}
+.code-access-fields{display:flex;gap:9px;align-items:stretch}
+.code-access-fields input{width:100%;min-width:0;flex:1;border:1px solid #c5d6ee;border-radius:11px;background:white;color:#142d4f;font-size:15px;padding:12px 14px;text-align:left;direction:ltr;min-height:49px;letter-spacing:.25px}
+.code-access-fields input::placeholder{color:#9aaec5}
+.code-access-fields input:focus-visible{outline:3px solid #9ebcff;outline-offset:1px;border-color:#4f85e7}
+.code-access-fields button{flex-shrink:0;min-height:49px;border:1px solid #1a5cdb;border-radius:11px;color:#fff;background:#2265e8;font-size:12px;font-weight:800;padding:10px 16px}
+.code-access-fields button:hover{background:#164eb9;color:#fff}
+.code-access-fields button:disabled{opacity:.6;cursor:wait}
+.code-access-form>small{display:block;margin-top:8px;font-size:10px;line-height:1.8;color:#7183a0}
+.headeractions .code-switch-shortcut{border-color:#b8d1fa;background:#eaf3ff;color:#245eb7;font-weight:800}
+@media(max-width:1100px){.code-access-panel{grid-template-columns:1fr}}
+@media(max-width:650px){.code-access-panel{padding:17px 15px;gap:15px;border-radius:15px;margin-bottom:17px}.code-access-panel h2{font-size:16px}.code-access-panel-heading p{font-size:11px}.code-access-fields{flex-direction:column}.code-access-fields input{min-height:48px;font-size:16px}.code-access-fields button{width:100%;min-height:47px;font-size:13px}.code-access-form>small{font-size:10px}.headeractions .code-switch-shortcut{font-size:11px}}
