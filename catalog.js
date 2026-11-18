@@ -6312,33 +6312,43 @@ const products = [
     "category": "التصميم",
     "logo": "adobe",
     "status": "available",
-    "description": "Adobe Creative Cloud Pro: حساب خاص جاهز لمدة 3 شهور بـ550 جنيه (مش Team ولا دعوة) بضمان متجر 20 يوم، إضافة إلى خيارات الاشتراك الشهري الموجودة. يشمل برامج التصميم والمونتاج، مع 100GB مساحة سحابية وأدوات ذكاء اصطناعي حسب حالة الحساب.",
+    "description": "Adobe Creative Cloud Pro: حساب خاص جاهز لمدة شهر بـ450 جنيه وضمان كامل طوال الشهر، مش Team ولا دعوة. متاح أيضًا تفعيل على حسابك الشخصي، وباقة حساب جاهز لمدة 3 شهور بـ550 جنيه بضمان 20 يوم. يشمل تطبيقات التصميم والمونتاج المتاحة وفق صلاحيات كل حساب.",
     "plans": [
       {
-        "name": "Creative Cloud Pro — دعوة",
-        "planType": "Creative Cloud Pro",
-        "accountType": "دعوة على حسابك الشخصي",
+        "name": "Creative Cloud Pro — حساب خاص جاهز — شهر",
+        "planType": "Creative Cloud Pro — Ready Account",
+        "accountType": "حساب خاص جاهز — مش Team ولا دعوة",
         "duration": "1 شهر",
         "price": 450,
-        "activation": "دعوة تُرسل إلى حسابك الشخصي.",
-        "account": "حساب العميل الشخصي",
-        "warranty": "ضمان كامل",
-        "priceComparison": {
-          "planName": "Creative Cloud Pro — فردي شهر بشهر",
-          "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
-          "checkedAt": "2026-10-08",
-          "status": "reference",
-          "note": "الدعوة المؤسسية تختلف عن الاشتراك الفردي؛ راجع طريقة التفعيل في الباقة المختارة.",
-          "billingLabel": "الشهر دون عقد سنوي — السعر الأمريكي المعتاد"
-        },
-        "officialPrice": {
-          "amount": 104.99,
-          "currency": "USD",
-          "months": 1,
-          "basis": "reference",
-          "source": "https://helpx.adobe.com/sg/account/individual/subscriptions-and-plans/plan-types-and-eligibility/changes-to-individual-plan.html",
-          "checkedAt": "2026-10-08"
-        }
+        "activation": "تسليم بيانات دخول حساب أدوبي جاهز خاص للاستخدام لمدة شهر، من دون دعوة أو الانضمام إلى Team. يُراجَع تاريخ انتهاء الاشتراك وشروط الفوترة قبل التسليم.",
+        "account": "حساب جاهز خاص",
+        "warranty": "ضمان كامل لمدة شهر",
+        "features": [
+          "Photoshop لتعديل الصور وتصميم الإعلانات والبوسترات.",
+          "Premiere Pro للمونتاج والريلز والفيديوهات.",
+          "After Effects للموشن جرافيك والمؤثرات.",
+          "Illustrator للشعارات والرسومات، وLightroom وInDesign حسب تطبيقات الحساب.",
+          "Adobe Firefly وميزات الذكاء الاصطناعي والمساحة السحابية بحسب الحدود المتاحة في الحساب."
+        ],
+        "featuresEn": [
+          "Photoshop for image editing and ad design.",
+          "Premiere Pro for professional video editing.",
+          "After Effects for motion graphics and visual effects.",
+          "Illustrator, Lightroom and InDesign when included in the account.",
+          "Adobe Firefly, AI tools and cloud storage subject to account entitlements and limits."
+        ],
+        "notes": [
+          "450 جنيه مصري مقابل حساب جاهز خاص لمدة شهر، وليس دعوة على إيميل العميل أو مقعد Team.",
+          "ضمان MASTER STORE كامل طوال الشهر وفق شروط الضمان المعلنة في المتجر.",
+          "يشمل التطبيقات والميزات المتاحة فعليًا بحسب نوع وحالة حساب Adobe عند التسليم.",
+          "يتحقق العميل من صلاحية الوصول وتاريخ انتهاء الاشتراك وحالة الفوترة أو التجربة والتجديد قبل الاستلام."
+        ],
+        "notesEn": [
+          "EGP 450 for a private ready-to-use account for one month; not an invitation or Team seat.",
+          "Full MASTER STORE warranty throughout the month, subject to published store warranty terms.",
+          "Apps, credits and entitlements are limited to what is available on the delivered Adobe account.",
+          "Review access status, expiry, trial/billing status and renewal terms before taking delivery."
+        ]
       },
       {
         "name": "Creative Cloud Pro — تفعيل رسمي",
@@ -6412,7 +6422,7 @@ const products = [
       "مونتاج وتحسين الفيديو",
       "تعديل الصور والتصميم"
     ],
-    "descriptionEn": "Adobe Creative Cloud Pro: private ready-to-use account for 3 months at EGP 550 (not a Team seat or invitation), with a 20-day store warranty, alongside existing monthly options. Includes creative apps, 100GB cloud storage and available AI features subject to the account's current entitlements."
+    "descriptionEn": "Adobe Creative Cloud Pro: a private ready-to-use one-month account for EGP 450 with a full one-month store warranty, not a Team seat or invitation. Personal-account activation and a separate 3-month ready account for EGP 550 with a 20-day warranty are also offered. Creative app access depends on the activated account."
   },
   {
     "id": "duolingo",
