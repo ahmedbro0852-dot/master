@@ -50,7 +50,7 @@
       const history=rentals.filter(r=>r.account_id===a.id).sort((x,y)=>y.created_at.localeCompare(x.created_at));
       return '<article class="reuse-account">'+
         '<div class="reuse-account-header"><div><strong>'+esc(a.product)+' — '+esc(a.plan)+'</strong><p class="reuse-email" dir="ltr">'+esc(a.login_email)+'</p></div><span class="reuse-badge '+cls+'">'+esc(state)+'</span></div>'+
-        '<div class="reuse-details"><span>الاشتراك الأصلي: <b>'+Number(a.supplier_term_months)+' شهور</b></span><span>نهاية صلاحية المزوّد: <b>'+displayDate(a.supplier_ends_on)+'</b></span>'+
+        '<div class="reuse-details"><span>الاشتراك الأصلي: <b>'+(a.supplier_term_months ? Number(a.supplier_term_months)+' شهور' : 'غير محدد')+'</b></span><span>نهاية صلاحية المزوّد: <b>'+displayDate(a.supplier_ends_on)+'</b></span>'+
         (rental?'<span>العميل: <b>'+esc(rental.customer_label||'غير مسجل')+'</b></span><span>التسليم: <b>'+displayDate(rental.starts_on)+'</b></span><span>نهاية حق الاستخدام: <b>'+displayDate(rental.ends_on)+'</b></span><span>التنبيه الأول: <b>'+displayDate(addDays(rental.ends_on,-3))+'</b></span><span>التنبيه العاجل: <b>'+displayDate(addDays(rental.ends_on,-2))+'</b></span>':'')+'</div>'+
         '<div class="reuse-actions">'+(!rental&&!a.retired?'<button type="button" class="primary" data-rent="'+a.id+'">تسجيل بيع جديد</button>':'')+
         (rental?'<button type="button" class="ghost-btn" data-close="'+rental.id+'" '+(left>0?'disabled title="لا يجوز الاسترداد قبل اكتمال مدة العميل"':'')+'>تأكيد استرداد الحساب</button>':'')+
@@ -75,7 +75,7 @@
       '<label>الإيميل المستخدم للدخول <input name="login_email" type="email" maxlength="254" required autocomplete="off"></label>'+
       '<label>الخدمة <input name="product" maxlength="120" placeholder="ElevenLabs" required></label>'+
       '<label>الباقة <input name="plan" maxlength="120" placeholder="Creator"></label>'+
-      '<label>مدة الاشتراك الأصلي (بالشهور) <input name="supplier_term_months" type="number" min="1" max="60" value="3" required></label>'+
+      '<label>مدة الاشتراك الأصلي (بالشهور) — إن كانت معروفة <input name="supplier_term_months" type="number" min="1" max="60" placeholder="اختياري"></label>'+
       '<label>تاريخ انتهاء الاشتراك الأصلي (اختياري) <input name="supplier_ends_on" type="date"></label>'+
       '<label class="reuse-wide">ملاحظات داخلية <textarea name="internal_note" rows="2" maxlength="1000"></textarea></label>'+
       '<button type="submit" class="primary">حفظ الحساب</button><small class="reuse-wide">لا نخزن كلمة مرور الحساب أو مفتاح التحقق الثنائي هنا.</small></form></details></section>'+
@@ -90,7 +90,7 @@
     root.querySelector('#reuseCancel').onclick=()=>{root.querySelector('#reuseAssign').hidden=true;};
     root.querySelector('#reuseAddAccount').onsubmit=e=>{e.preventDefault();perform(async()=>{
       const f=e.currentTarget,v=new FormData(f);
-      const record={login_email:String(v.get('login_email')||'').trim().toLowerCase(),product:String(v.get('product')||'').trim(),plan:String(v.get('plan')||'').trim(),supplier_term_months:Number(v.get('supplier_term_months')),supplier_ends_on:v.get('supplier_ends_on')||null,internal_note:String(v.get('internal_note')||'').trim()};
+      const record={login_email:String(v.get('login_email')||'').trim().toLowerCase(),product:String(v.get('product')||'').trim(),plan:String(v.get('plan')||'').trim(),supplier_term_months:v.get('supplier_term_months')?Number(v.get('supplier_term_months')):null,supplier_ends_on:v.get('supplier_ends_on')||null,internal_note:String(v.get('internal_note')||'').trim()};
       const out=await C.client.from(ACCOUNTS).insert(record).select('id').single();
       if(out.error)throw out.error;
       f.reset();f.closest('details').open=false;
