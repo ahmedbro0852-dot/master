@@ -19,6 +19,13 @@
   const days = end => Math.round((Date.parse(end+'T12:00:00Z')-Date.parse(today()+'T12:00:00Z'))/86400000);
   const displayDate = date => date ? new Intl.DateTimeFormat('ar-EG',{timeZone:'UTC',day:'numeric',month:'long',year:'numeric'}).format(new Date(date+'T12:00:00Z')) : 'لم يُحدَّد';
   const activeFor = id => rentals.find(r=>r.account_id===id && r.status==='active');
+  const formatMoney = piasters => piasters == null ? 'غير مسجل' : (Number(piasters)/100).toLocaleString('ar-EG',{maximumFractionDigits:2})+' جنيه';
+  function toPiasters(value) {
+    if(value === '' || value == null)return null;
+    const number=Number(value);
+    if(!Number.isFinite(number) || number<0 || number>1000000)throw Error('راجع قيمة السعر بالجنيه.');
+    return Math.round(number*100);
+  }
   function statusMessage(message, isError) {
     const box = root.querySelector('#reuseFeedback');
     if (!box) return;
@@ -32,12 +39,13 @@
     const urgent = active.filter(a=>days(activeFor(a.id).ends_on)>=0 && days(activeFor(a.id).ends_on)<=2);
     const overdue = active.filter(a=>days(activeFor(a.id).ends_on)<0);
     const ready = accounts.filter(a=>!a.retired && !activeFor(a.id));
+    const totalSalesValue = rentals.reduce((sum,r)=>sum+Number(r.sale_price_piasters||0),0);
     root.querySelector('#reuseSummary').innerHTML =
       '<article><span>حسابات مع العملاء</span><b>'+active.length+'</b></article>'+
       '<article class="attention"><span>خلال 3 أيام</span><b>'+soon.length+'</b></article>'+
       '<article class="urgent"><span>خلال يومين</span><b>'+urgent.length+'</b></article>'+
       '<article class="late"><span>فات موعدها</span><b>'+overdue.length+'</b></article>'+
-      '<article><span>جاهزة لإعادة البيع</span><b>'+ready.length+'</b></article>';
+      '<article><span>جاهزة لإعادة البيع</span><b>'+ready.length+'</b></article>'+ '<article><span>قيمة دورات البيع المسجلة (ليست تحصيلاً مؤكداً)</span><b class="reuse-total-money">'+formatMoney(totalSalesValue)+'</b></article>';
     const list = root.querySelector('#reuseList');
     const sorted = [...accounts].sort((a,b)=>{
       const ar=activeFor(a.id),br=activeFor(b.id);
@@ -50,13 +58,13 @@
       const history=rentals.filter(r=>r.account_id===a.id).sort((x,y)=>y.created_at.localeCompare(x.created_at));
       return '<article class="reuse-account">'+
         '<div class="reuse-account-header"><div><strong>'+esc(a.product)+' — '+esc(a.plan)+'</strong><p class="reuse-email" dir="ltr">'+esc(a.login_email)+'</p></div><span class="reuse-badge '+cls+'">'+esc(state)+'</span></div>'+
-        '<div class="reuse-details"><span>الاشتراك الأصلي: <b>'+(a.supplier_term_months ? Number(a.supplier_term_months)+' شهور' : 'غير محدد')+'</b></span><span>نهاية صلاحية المزوّد: <b>'+displayDate(a.supplier_ends_on)+'</b></span>'+
-        (rental?'<span>العميل: <b>'+esc(rental.customer_label||'غير مسجل')+'</b></span><span>التسليم: <b>'+displayDate(rental.starts_on)+'</b></span><span>نهاية حق الاستخدام: <b>'+displayDate(rental.ends_on)+'</b></span><span>التنبيه الأول: <b>'+displayDate(addDays(rental.ends_on,-3))+'</b></span><span>التنبيه العاجل: <b>'+displayDate(addDays(rental.ends_on,-2))+'</b></span>':'')+'</div>'+
+        '<div class="reuse-details"><span>الاشتراك الأصلي: <b>'+(a.supplier_term_months ? Number(a.supplier_term_months)+' شهور' : 'غير محدد')+'</b></span><span>نهاية صلاحية المزوّد: <b>'+displayDate(a.supplier_ends_on)+'</b></span><span>سعر بيع الشهر: <b>'+formatMoney(a.monthly_price_piasters)+'</b></span>'+
+        (rental?'<span>العميل: <b>'+esc(rental.customer_label||'غير مسجل')+'</b></span><span>التسليم: <b>'+displayDate(rental.starts_on)+'</b></span><span>نهاية حق الاستخدام: <b>'+displayDate(rental.ends_on)+'</b></span><span>قيمة البيع المسجلة: <b>'+formatMoney(rental.sale_price_piasters)+'</b></span><span>التنبيه الأول: <b>'+displayDate(addDays(rental.ends_on,-3))+'</b></span><span>التنبيه العاجل: <b>'+displayDate(addDays(rental.ends_on,-2))+'</b></span>':'')+'</div>'+
         '<div class="reuse-actions">'+(!rental&&!a.retired?'<button type="button" class="primary" data-rent="'+a.id+'">تسجيل بيع جديد</button>':'')+
         (rental?'<button type="button" class="ghost-btn" data-close="'+rental.id+'" '+(left>0?'disabled title="لا يجوز الاسترداد قبل اكتمال مدة العميل"':'')+'>تأكيد استرداد الحساب</button>':'')+
-        '<button type="button" class="ghost-btn" data-expiry="'+a.id+'">تعديل نهاية الاشتراك الأصلي</button></div>'+
+        '<button type="button" class="ghost-btn" data-expiry="'+a.id+'">تعديل نهاية الاشتراك الأصلي</button><button type="button" class="ghost-btn" data-price="'+a.id+'">تعديل سعر الشهر</button></div>'+ 
         (a.internal_note?'<p class="reuse-note">'+esc(a.internal_note)+'</p>':'')+
-        '<details class="reuse-history"><summary>سجل دورات البيع ('+history.length+')</summary><div>'+history.map(r=>'<p><b>'+displayDate(r.starts_on)+' ← '+displayDate(r.ends_on)+'</b> · '+esc(r.customer_label||'عميل غير مسجل')+' · '+(r.status==='active'?'الحساب مع العميل':'تم الاسترداد')+'</p>').join('')+'</div></details>'+
+        '<details class="reuse-history"><summary>سجل دورات البيع ('+history.length+')</summary><div>'+history.map(r=>'<p><b>'+displayDate(r.starts_on)+' ← '+displayDate(r.ends_on)+'</b> · '+esc(r.customer_label||'عميل غير مسجل')+' · '+formatMoney(r.sale_price_piasters)+' · '+(r.status==='active'?'الحساب مع العميل':'تم الاسترداد')+'</p>').join('')+'</div></details>'+
       '</article>';
     }).join('') : '<p class="reuse-empty">لا توجد حسابات مسجلة. أضف أول حساب من النموذج أعلاه.</p>';
   }
@@ -76,13 +84,13 @@
       '<label>الخدمة <input name="product" maxlength="120" placeholder="ElevenLabs" required></label>'+
       '<label>الباقة <input name="plan" maxlength="120" placeholder="Creator"></label>'+
       '<label>مدة الاشتراك الأصلي (بالشهور) — إن كانت معروفة <input name="supplier_term_months" type="number" min="1" max="60" placeholder="اختياري"></label>'+
-      '<label>تاريخ انتهاء الاشتراك الأصلي (اختياري) <input name="supplier_ends_on" type="date"></label>'+
+      '<label>تاريخ انتهاء الاشتراك الأصلي (اختياري) <input name="supplier_ends_on" type="date"></label>'+ '<label>سعر بيع الشهر بالجنيه (اختياري) <input name="monthly_price_egp" type="number" min="0" max="1000000" step="0.01" placeholder="مثال: 450"></label>'+ 
       '<label class="reuse-wide">ملاحظات داخلية <textarea name="internal_note" rows="2" maxlength="1000"></textarea></label>'+
       '<button type="submit" class="primary">حفظ الحساب</button><small class="reuse-wide">لا نخزن كلمة مرور الحساب أو مفتاح التحقق الثنائي هنا.</small></form></details></section>'+
       '<section id="reuseAssign" class="reuse-panel" hidden><h2 id="reuseAssignTitle">تسجيل بيع جديد</h2><form id="reuseRentForm" class="reuse-form">'+
       '<input name="account_id" type="hidden"><label>اسم العميل أو رقم الطلب (اختياري) <input name="customer_label" maxlength="180"></label>'+
       '<label>تاريخ التسليم <input name="starts_on" type="date" required></label>'+
-      '<label>المدة المباعة بالأيام <input name="term_days" type="number" value="30" min="1" max="365" required></label>'+
+      '<label>المدة المباعة بالأيام <input name="term_days" type="number" value="30" min="1" max="365" required></label>'+ '<label>قيمة البيع بالجنيه <input name="sale_price_egp" type="number" min="0" max="1000000" step="0.01" placeholder="سعر بيع الدورة"></label>'+ 
       '<label class="reuse-wide">ملاحظة خاصة بالدورة <textarea name="internal_note" rows="2" maxlength="1000"></textarea></label>'+
       '<button type="submit" class="primary">حفظ الدورة</button><button type="button" id="reuseCancel" class="ghost-btn">إلغاء</button></form></section>'+
       '<div class="reuse-list-heading"><h2>سجل الحسابات</h2><button type="button" id="reuseRefresh" class="ghost-btn">تحديث التنبيهات</button></div><div id="reuseList" class="reuse-list"></div>';
@@ -90,7 +98,7 @@
     root.querySelector('#reuseCancel').onclick=()=>{root.querySelector('#reuseAssign').hidden=true;};
     root.querySelector('#reuseAddAccount').onsubmit=e=>{e.preventDefault();perform(async()=>{
       const f=e.currentTarget,v=new FormData(f);
-      const record={login_email:String(v.get('login_email')||'').trim().toLowerCase(),product:String(v.get('product')||'').trim(),plan:String(v.get('plan')||'').trim(),supplier_term_months:v.get('supplier_term_months')?Number(v.get('supplier_term_months')):null,supplier_ends_on:v.get('supplier_ends_on')||null,internal_note:String(v.get('internal_note')||'').trim()};
+      const record={login_email:String(v.get('login_email')||'').trim().toLowerCase(),product:String(v.get('product')||'').trim(),plan:String(v.get('plan')||'').trim(),supplier_term_months:v.get('supplier_term_months')?Number(v.get('supplier_term_months')):null,supplier_ends_on:v.get('supplier_ends_on')||null,monthly_price_piasters:toPiasters(v.get('monthly_price_egp')),internal_note:String(v.get('internal_note')||'').trim()};
       const out=await C.client.from(ACCOUNTS).insert(record).select('id').single();
       if(out.error)throw out.error;
       f.reset();f.closest('details').open=false;
@@ -101,15 +109,16 @@
       if(!account||activeFor(account.id)||account.retired)throw Error('الحساب غير متاح للبيع الآن.');
       const start=String(v.get('starts_on')),term=Number(v.get('term_days')),end=addDays(start,term);
       if(account.supplier_ends_on && end>account.supplier_ends_on)throw Error('مدة العميل تتجاوز صلاحية حساب المزوّد؛ راجع الاشتراك أولًا.');
-      const result=await C.client.from(RENTALS).insert({account_id:account.id,customer_label:String(v.get('customer_label')||'').trim(),starts_on:start,ends_on:end,internal_note:String(v.get('internal_note')||'').trim()}).select('id').single();
+      const result=await C.client.from(RENTALS).insert({account_id:account.id,customer_label:String(v.get('customer_label')||'').trim(),starts_on:start,ends_on:end,sale_price_piasters:toPiasters(v.get('sale_price_egp')),internal_note:String(v.get('internal_note')||'').trim()}).select('id').single();
       if(result.error)throw result.error;
       root.querySelector('#reuseAssign').hidden=true;
       await load();statusMessage('تم تسجيل البيع. سيظهر التنبيه قبل نهاية المدة بـ3 أيام ويومين.');
     });};
     root.querySelector('#reuseList').onclick=e=>{
-      const rent=e.target.closest('[data-rent]'),close=e.target.closest('[data-close]'),expiry=e.target.closest('[data-expiry]');
-      if(rent){const a=accounts.find(x=>x.id===rent.dataset.rent);if(!a)return;const section=root.querySelector('#reuseAssign'),f=root.querySelector('#reuseRentForm');f.reset();f.elements.account_id.value=a.id;f.elements.starts_on.value=today();root.querySelector('#reuseAssignTitle').textContent='تسجيل بيع جديد — '+a.product+' / '+a.login_email;section.hidden=false;section.scrollIntoView({behavior:'smooth',block:'start'});}
+      const rent=e.target.closest('[data-rent]'),close=e.target.closest('[data-close]'),expiry=e.target.closest('[data-expiry]'),price=e.target.closest('[data-price]');
+      if(rent){const a=accounts.find(x=>x.id===rent.dataset.rent);if(!a)return;const section=root.querySelector('#reuseAssign'),f=root.querySelector('#reuseRentForm');f.reset();f.elements.account_id.value=a.id;f.elements.starts_on.value=today();f.elements.sale_price_egp.value=a.monthly_price_piasters==null?'':String(a.monthly_price_piasters/100);root.querySelector('#reuseAssignTitle').textContent='تسجيل بيع جديد — '+a.product+' / '+a.login_email;section.hidden=false;section.scrollIntoView({behavior:'smooth',block:'start'});}
       if(close){const r=rentals.find(x=>x.id===close.dataset.close);if(!r||days(r.ends_on)>0)return;if(!confirm('هل استرددت الحساب فعليًا وألغيت وصول العميل السابق؟ لن يُحذف سجل البيع.'))return;perform(async()=>{const x=await C.client.from(RENTALS).update({status:'closed',closed_at:new Date().toISOString()}).eq('id',r.id).eq('status','active').select('id');if(x.error)throw x.error;if(!x.data.length)throw Error('السجل تغير. حدّث البيانات.');await load();statusMessage('تم تسجيل الاسترداد؛ الحساب متاح لدورة بيع جديدة بعد التحقق من صلاحيته.');});}
+      if(price){const a=accounts.find(x=>x.id===price.dataset.price);if(!a)return;const next=prompt('سعر بيع الشهر بالجنيه (تعديل الحساب للمبيعات المقبلة فقط):',a.monthly_price_piasters==null?'':String(a.monthly_price_piasters/100));if(next===null)return;perform(async()=>{const x=await C.client.from(ACCOUNTS).update({monthly_price_piasters:toPiasters(next)}).eq('id',a.id).select('id');if(x.error)throw x.error;await load();statusMessage('تم تحديث سعر بيع الشهر. لن تتغير قيمة دورات البيع السابقة.');});}
       if(expiry){const a=accounts.find(x=>x.id===expiry.dataset.expiry);if(!a)return;const next=prompt('أدخل تاريخ انتهاء الاشتراك الأصلي بصيغة YYYY-MM-DD. اتركه فارغًا إذا لم يُعرف.',a.supplier_ends_on||'');if(next===null)return;if(next!==''&&!/^\d{4}-\d{2}-\d{2}$/.test(next)){statusMessage('اكتب تاريخًا صحيحًا بالصيغة YYYY-MM-DD.',true);return;}perform(async()=>{const x=await C.client.from(ACCOUNTS).update({supplier_ends_on:next||null}).eq('id',a.id).select('id');if(x.error)throw x.error;await load();statusMessage('تم تحديث تاريخ انتهاء الاشتراك الأصلي.');});}
     };
   }
