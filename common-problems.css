@@ -1,0 +1,43 @@
+/* Dedicated searchable help centre. */
+.common-problems-page{max-width:1180px;margin:0 auto;padding:34px 24px 80px;color:var(--ink,#172b4d)}
+.common-problem-hero{position:relative;overflow:hidden;padding:clamp(26px,5vw,58px);border:1px solid #dce7fb;border-radius:28px;background:linear-gradient(135deg,#eef5ff 0%,#f8fbff 58%,#e9f1ff 100%);color:#10254a}
+.common-problem-eyebrow,.common-problem-section-heading>div>span,.common-problem-product>div>span,.common-problem-contact>div>span{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;color:#2563eb}
+.common-problem-hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center;margin-top:22px}
+.common-problem-hero h1{max-width:720px;margin:0;font-size:clamp(30px,5vw,54px);line-height:1.5;letter-spacing:-1.5px;color:#10254a}
+.common-problem-hero p{max-width:700px;margin:14px 0 0;font-size:14px;line-height:2.1;color:#526581}
+.common-problem-stats{display:flex;align-items:center;gap:12px;margin-top:24px}.common-problem-stats strong{font-size:35px;line-height:1;color:#1f5eff}.common-problem-stats span{font-size:12px;color:#526581}
+.common-problem-hero-card{padding:24px;border:1px solid #d7e4fb;border-radius:20px;background:#ffffffc9;box-shadow:0 14px 40px #16386b0c}
+.common-problem-hero-card>span{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:#e5efff;color:#1454d4;font-size:24px;font-weight:800}
+.common-problem-hero-card b{display:block;margin-top:14px;font-size:15px;color:#10254a}.common-problem-hero-card p{font-size:12px;line-height:2;margin-top:8px}
+.common-problem-explorer{margin-top:54px}.common-problem-section-heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}.common-problem-section-heading h2,.common-problem-product h2,.common-problem-contact h2{margin:6px 0 0;font-size:clamp(22px,3vw,30px);line-height:1.6;color:var(--ink,#172b4d)}
+.common-problem-count{font-size:12px;color:var(--muted,#64748b);white-space:nowrap}
+.common-problem-search{display:flex;align-items:center;gap:12px;min-height:58px;padding:0 17px;border:1px solid var(--line,#dce4ef);border-radius:16px;background:var(--theme-surface,#fff);box-shadow:0 8px 28px #122c5008}
+.common-problem-search:focus-within{border-color:#3974ef;box-shadow:0 0 0 4px #3974ef17}.common-problem-search>span{font-size:30px;color:#6880a4}.common-problem-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--ink,#172b4d);font:inherit;font-size:13px}
+.common-problem-categories{display:flex;gap:8px;flex-wrap:wrap;margin:17px 0 22px}
+.common-problem-categories button,.common-problem-empty button{border:1px solid var(--line,#dce4ef);border-radius:999px;background:var(--theme-surface,#fff);padding:9px 13px;color:var(--muted,#53657f);font:inherit;font-size:11px;cursor:pointer;transition:.18s}
+.common-problem-categories button:hover,.common-problem-empty button:hover{border-color:#8eaff4;color:#1f5eff}
+.common-problem-categories button[aria-pressed=true]{border-color:#153d91;background:#153d91;color:#fff}
+.common-problem-list{display:grid;gap:10px}
+.common-problem-item{overflow:hidden;border:1px solid var(--line,#e1e8f1);border-radius:15px;background:var(--theme-surface,#fff);color:var(--ink,#172b4d);transition:border-color .18s,box-shadow .18s}
+.common-problem-item[open]{border-color:#a9c3fa;box-shadow:0 8px 26px #1a3b700b}
+.common-problem-item summary{display:flex;align-items:center;gap:14px;min-height:64px;padding:14px 17px;cursor:pointer;list-style:none}
+.common-problem-item summary::-webkit-details-marker{display:none}
+.common-problem-number{flex:none;display:grid;place-items:center;width:38px;height:34px;border-radius:10px;background:#edf3ff;color:#2058c5;font-size:10px;font-weight:800;direction:ltr}
+.common-problem-item summary strong{flex:1;font-size:12px;line-height:1.9;font-weight:650}
+.common-problem-chevron{flex:none;color:#3970d5;font-size:22px;transition:transform .2s}.common-problem-item[open] .common-problem-chevron{transform:rotate(180deg)}
+.common-problem-answer{padding:0 70px 20px;color:var(--muted,#5c6e87);font-size:12px;line-height:2.15}
+.common-problem-answer b{display:inline-block;margin-bottom:5px;color:#1e5bc5;font-size:11px}.common-problem-answer p{margin:0}.common-problem-answer small{display:block;margin-top:8px;color:var(--muted,#8794a8);font-size:10px}
+.common-problem-empty{padding:30px;text-align:center;border:1px dashed var(--line,#cbd5e1);border-radius:16px;background:var(--theme-panel,#f8fafc);color:var(--ink,#172b4d)}
+.common-problem-empty p{color:var(--muted,#64748b);font-size:12px}.common-problem-empty button{margin-top:8px}
+.common-problem-product,.common-problem-contact{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:48px;padding:26px;border:1px solid var(--line,#dce5f0);border-radius:20px;background:var(--theme-panel,#f7f9fd)}
+.common-problem-product p,.common-problem-contact p{margin:8px 0 0;color:var(--muted,#63748b);font-size:12px;line-height:2}
+.common-problem-product-action{display:flex;gap:9px;min-width:min(480px,52%)}.common-problem-product-action select{flex:1;min-width:0;min-height:46px;padding:0 12px;border:1px solid var(--line,#dce4ef);border-radius:12px;background:var(--theme-surface,#fff);color:var(--ink,#172b4d);font:inherit;font-size:11px}
+.common-problem-product-action button,.common-problem-contact>a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 16px;border:0;border-radius:12px;background:#1f5eff;color:#fff;text-decoration:none;font:inherit;font-size:11px;font-weight:700;cursor:pointer}
+.common-problem-contact{background:linear-gradient(120deg,#f1f6ff,#f8fbff);border-color:#d8e5fb}.common-problem-contact>a{white-space:nowrap}
+html[data-custom-theme] .common-problem-hero{background:linear-gradient(135deg,#172a49,#172d51 60%,#14223a);border-color:var(--line);color:var(--ink)}
+html[data-custom-theme] .common-problem-hero h1,html[data-custom-theme] .common-problem-hero-card b{color:var(--ink)}
+html[data-custom-theme] .common-problem-hero p,html[data-custom-theme] .common-problem-stats span{color:var(--muted)}
+html[data-custom-theme] .common-problem-hero-card,html[data-custom-theme] .common-problem-contact{background:var(--theme-panel);border-color:var(--line)}
+html[data-custom-theme] .common-problem-hero-card>span,.common-problem-number{background:var(--theme-panel)}
+@media(max-width:760px){.common-problems-page{padding:20px 14px 54px}.common-problem-hero{border-radius:20px;padding:24px 19px}.common-problem-hero-grid{grid-template-columns:1fr;gap:18px}.common-problem-hero h1{font-size:31px}.common-problem-hero-card{padding:18px}.common-problem-explorer{margin-top:38px}.common-problem-section-heading{align-items:start;flex-direction:column;gap:5px}.common-problem-item summary{gap:10px;padding:12px}.common-problem-number{width:32px;height:30px}.common-problem-item summary strong{font-size:11px}.common-problem-answer{padding:0 54px 17px 15px;font-size:11px}.common-problem-product,.common-problem-contact{align-items:stretch;flex-direction:column;padding:20px;margin-top:32px;gap:16px}.common-problem-product-action{min-width:0;flex-direction:column}.common-problem-product-action button,.common-problem-contact>a{width:100%}}
+@media(prefers-reduced-motion:reduce){.common-problem-item,.common-problem-chevron,.common-problem-categories button{transition:none}}

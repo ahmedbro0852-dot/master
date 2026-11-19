@@ -1,0 +1,49 @@
+/* MASTER STORE · Faster CRM registration, follow-up and private photo gallery */
+.crm-enhance-quick{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:12px 0 20px;padding:13px 15px;background:linear-gradient(120deg,#eaf3ff,#f4f9ff);border:1px solid #c9def8;border-radius:15px}
+.crm-enhance-quick strong{font-size:12px;color:#1d4b81;margin-inline-end:6px}
+.crm-enhance-quick button{min-height:40px;padding:9px 13px;border:1px solid #cfddf0;background:#fff;color:#27588d;font:inherit;font-size:11px;font-weight:800;border-radius:9px;cursor:pointer}
+.crm-enhance-quick button:hover{background:#deedff;border-color:#9bbde7}
+.crm-enhance-quick kbd{display:inline-block;font-size:9px;border:1px solid #d2ddef;padding:2px 4px;border-radius:5px;color:#6883a2}
+.crm-enhance-photos{background:#ebf6ff!important;border:1px solid #c9dffd!important;color:#235c9b!important}
+.crm-enhance-followup{background:#eaf8f0!important;border:1px solid #c8e6d6!important;color:#1a7049!important}
+.crm-enhance-dialog{width:min(780px,calc(100vw - 20px));max-height:min(90vh,900px);border:1px solid #cbdced;background:#fff;color:#233c5f;box-shadow:0 24px 80px rgba(7,26,63,.33);border-radius:20px;padding:22px;overscroll-behavior:contain}
+.crm-enhance-dialog::backdrop{background:rgba(4,19,43,.72);backdrop-filter:blur(3px)}
+.crm-enhance-dialog-head{display:flex;align-items:start;justify-content:space-between;gap:18px;margin-bottom:17px}
+.crm-enhance-dialog-head h2{font-size:21px;line-height:1.5;margin:0 0 6px;color:#174574}
+.crm-enhance-dialog-head p{font-size:11px;line-height:1.9;margin:0;color:#6a809a}
+.crm-enhance-dialog-head button{flex:none;min-width:42px}
+.crm-enhance-upload{display:grid;gap:7px;padding:19px;border:2px dashed #afcef0;background:#f1f8ff;border-radius:13px;color:#27598e}
+.crm-enhance-upload b{font-size:13px}
+.crm-enhance-upload small{font-size:10px;color:#68839f}
+.crm-enhance-upload input{width:100%;font-size:12px;max-width:100%}
+.crm-enhance-upload input::file-selector-button{padding:10px 14px;margin-inline-end:10px;font:inherit;font-weight:800;border:0;border-radius:8px;background:#255dc6;color:#fff}
+.crm-enhance-status{margin:12px 0;font-size:11px;color:#55718d;line-height:1.8}
+.crm-enhance-status[data-error=true]{color:#b03846;background:#fff1f1;padding:10px;border-radius:8px}
+.crm-enhance-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;max-height:50vh;overflow-y:auto}
+.crm-enhance-image{margin:0;padding:9px;border:1px solid #dce7f4;border-radius:12px;background:#f9fbff;min-width:0}
+.crm-enhance-image>img{display:block;width:100%;height:125px;object-fit:contain;background:#edf4fc;border-radius:8px}
+.crm-enhance-image figcaption{font-size:10px;color:#5c7898;line-height:1.8;margin:8px 0;overflow-wrap:anywhere;min-height:30px}
+.crm-enhance-image-actions{display:flex;flex-wrap:wrap;gap:6px}
+.crm-enhance-image-actions button{font-size:10px;min-height:35px;padding:6px 8px}
+.crm-enhance-image-actions button.danger{color:#ab3340;border-color:#e8c6cc}
+.crm-enhance-empty{grid-column:1/-1;padding:22px;text-align:center;border:1px dashed #ccdded;border-radius:12px;font-size:12px;color:#6d83a0}
+.crm-enhance-note form>label{display:grid;gap:10px;color:#225078;font-size:12px;font-weight:800}
+.crm-enhance-note textarea{box-sizing:border-box;width:100%;min-height:140px;resize:vertical;padding:13px;border:1px solid #bed2eb;border-radius:10px;color:#174071;background:#f9fbfe;font:inherit;line-height:1.75}
+.crm-enhance-note form>p{font-size:11px;line-height:1.9;color:#637b99}
+.crm-enhance-note-actions{display:flex;justify-content:flex-end;gap:12px}
+.crm-enhance-template{display:grid;gap:11px;min-width:0;padding:16px;border-radius:12px;border:1px solid #c7ddf6;background:#f1f7ff;margin:0 0 14px}
+.crm-enhance-template strong{font-size:12px;color:#225289}
+.crm-enhance-template small{display:block;font-size:10px;line-height:1.9;color:#637f9e;margin-top:5px}
+.crm-enhance-template-row{display:flex;align-items:center;gap:9px;min-width:0}
+.crm-enhance-template-row select,.crm-enhance-template-row input{flex:1;min-width:0;width:100%;padding:10px;border:1px solid #c7dbee;border-radius:9px;background:#fff;color:#264969;font:inherit;font-size:12px}
+.crm-enhance-template-row button{flex:none;min-height:42px;font-size:11px}
+.crm-enhance-today{display:inline-flex;justify-content:center;align-items:center;width:max-content;max-width:100%;border:1px solid #b9dbd2;border-radius:9px;background:#e4f6ed;color:#1c6c4d;font-weight:800;padding:9px 12px;font:inherit;font-size:11px;cursor:pointer}
+html[data-custom-theme] .crm-enhance-dialog,html[data-custom-theme] .crm-enhance-template,html[data-custom-theme] .crm-enhance-quick,html[data-custom-theme] .crm-enhance-image,html[data-custom-theme] .crm-enhance-upload{background:var(--theme-panel);border-color:var(--line);color:var(--ink)}
+html[data-custom-theme] .crm-enhance-dialog-head h2,html[data-custom-theme] .crm-enhance-template strong{color:var(--ink)}
+html[data-custom-theme] .crm-enhance-dialog-head p,html[data-custom-theme] .crm-enhance-template small{color:var(--muted)}
+html[data-custom-theme] .crm-enhance-quick button{background:var(--theme-control);border-color:var(--line);color:var(--theme-accent)}
+html[data-custom-theme] .crm-enhance-note textarea{background:var(--theme-surface);border-color:var(--line);color:var(--ink)}
+.crm-enhance-dialog :is(button,textarea,input):focus-visible,.crm-enhance-quick button:focus-visible,.crm-enhance-template :is(button,input,select):focus-visible{outline:3px solid #8db8f5;outline-offset:2px}
+@media(max-width:750px){.crm-enhance-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.crm-enhance-dialog{padding:15px}.crm-enhance-image>img{height:110px}}
+@media(max-width:530px){.crm-enhance-quick{gap:7px;padding:11px}.crm-enhance-quick strong{flex:1 1 100%}.crm-enhance-quick button{flex:1 1 45%}.crm-enhance-gallery{gap:8px}.crm-enhance-image{padding:7px}.crm-enhance-image>img{height:95px}.crm-enhance-template-row{align-items:stretch;flex-direction:column}.crm-enhance-template-row button,.crm-enhance-today{width:100%}.crm-enhance-dialog-head h2{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.crm-enhance-dialog,.crm-enhance-quick{scroll-behavior:auto}}

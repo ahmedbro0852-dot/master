@@ -1,0 +1,47 @@
+body.admin-app{background:#f7f8fc;color:#20233b;font-family:Alexandria,system-ui,sans-serif}
+.reuse-shell{max-width:1160px;margin:32px auto 70px;padding:0 18px}
+.reuse-heading{padding:22px 0 16px}
+.reuse-heading>span{font-size:12px;letter-spacing:.1em;color:#7660be;font-weight:800}
+.reuse-heading h1{font-size:clamp(23px,3vw,34px);line-height:1.45;margin:8px 0}
+.reuse-heading p{max-width:850px;color:#5c6075;line-height:1.9;font-size:14px}
+.reuse-stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:18px 0 24px}
+.reuse-stats article{background:#fff;border:1px solid #e6e8f4;border-radius:16px;padding:17px 14px;box-shadow:0 5px 20px #18235a0a}
+.reuse-stats span{display:block;font-size:12px;color:#5a5e72;line-height:1.65}
+.reuse-stats b{display:block;font-size:27px;margin-top:6px;color:#312759}
+.reuse-stats .attention{background:#fff7e9;border-color:#ffd999}
+.reuse-stats .urgent,.reuse-stats .late{background:#fff0f0;border-color:#ffc8c8}
+.reuse-panel{background:#fff;border:1px solid #e5e8f2;border-radius:18px;padding:19px;margin:14px 0}
+.reuse-panel summary{font-weight:800;cursor:pointer;color:#3f287d}
+.reuse-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;padding-top:18px;align-items:end}
+.reuse-form label{font-size:12px;font-weight:700;line-height:1.8}
+.reuse-form input,.reuse-form textarea{font:inherit;font-size:13px;display:block;width:100%;box-sizing:border-box;border:1px solid #d6d9e7;border-radius:11px;padding:12px;background:#fff;color:#20233b;margin-top:6px}
+.reuse-wide{grid-column:1/-1}
+.reuse-form button,.reuse-actions button,.reuse-list-heading button{font-family:inherit;font-size:12px;cursor:pointer}
+.reuse-form button:disabled,.reuse-actions button:disabled{opacity:.45;cursor:not-allowed}
+.reuse-list-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:25px 0 14px}
+.reuse-list-heading h2{font-size:20px;margin:0}
+.reuse-list{display:grid;gap:14px}
+.reuse-account{border:1px solid #e5e7f3;border-radius:18px;background:#fff;padding:19px;box-shadow:0 5px 22px #1c1e4510}
+.reuse-account-header{display:flex;justify-content:space-between;gap:16px;align-items:start;flex-wrap:wrap}
+.reuse-account-header strong{font-size:16px;line-height:1.8}
+.reuse-email{font:14px system-ui,sans-serif;color:#615b75;margin:6px 0;overflow-wrap:anywhere;text-align:right}
+.reuse-badge{border-radius:100px;padding:10px 12px;font-size:11px;font-weight:800;background:#eff2ff;color:#354a96;line-height:1.5}
+.reuse-badge.ready{background:#e9f9ed;color:#176739}
+.reuse-badge.soon{background:#fff1d4;color:#865008}
+.reuse-badge.urgent,.reuse-badge.overdue{background:#ffeded;color:#a52431}
+.reuse-badge.retired{background:#f0f0f0;color:#555}
+.reuse-details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;font-size:12px;margin:16px 0}
+.reuse-details span{background:#f8f9ff;border-radius:9px;padding:10px;line-height:1.8}
+.reuse-details b{color:#303355}
+.reuse-actions{display:flex;gap:9px;flex-wrap:wrap;margin:10px 0}
+.reuse-note{font-size:12px;color:#555;background:#f7f5ff;padding:12px;border-radius:10px}
+.reuse-history{border-top:1px solid #ebedf5;padding-top:12px;font-size:12px;color:#4a4b61}
+.reuse-history summary{cursor:pointer;font-weight:700}
+.reuse-history p{line-height:1.9}
+.reuse-feedback{margin:14px 0;border-radius:12px;background:#e9f9f0;padding:12px;color:#185e38;line-height:1.8;font-size:13px}
+.reuse-feedback.error{background:#fff0ef;color:#a3202c}
+.reuse-empty{background:#fff;padding:25px;border-radius:14px;text-align:center}
+.reuse-loading{padding:40px;text-align:center}
+.reuse-account .primary,.reuse-form .primary{background:#6d44d3;border:1px solid #6d44d3;border-radius:9px;padding:11px 15px;color:white}
+.reuse-account .ghost-btn,.reuse-form .ghost-btn,.reuse-list-heading .ghost-btn{background:white;border:1px solid #dadbe8;border-radius:9px;padding:11px 15px;color:#3f3365}
+@media(max-width:850px){.reuse-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.reuse-form{grid-template-columns:1fr}.reuse-details{grid-template-columns:1fr}.reuse-account-header{flex-direction:column}.reuse-shell{margin-top:16px}}

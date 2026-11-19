@@ -1,0 +1,101 @@
+/* Consistent current / former store prices across cards, plans and cart. */
+.store-price-pair{display:inline-flex!important;flex-wrap:wrap;align-items:center;gap:6px 10px;max-width:100%;min-width:0;line-height:1.45;vertical-align:middle}
+.store-price-pair>.store-price-current{display:inline;grid-column:auto!important;font-weight:800;white-space:nowrap;margin:0}
+.plan-previous-price{display:inline-flex;align-items:baseline;gap:5px;max-width:100%;font-size:12px;font-weight:400;color:var(--muted,#7a8799);line-height:1.6;vertical-align:middle}
+.plan-previous-price small{display:inline!important;margin:0!important;font-size:9px!important;font-weight:500;color:inherit;white-space:nowrap}
+.plan-previous-price del{color:var(--muted,#7a8799);text-decoration-line:line-through;text-decoration-thickness:1.5px;text-decoration-color:#e28e93;white-space:nowrap;font-size:12px!important;font-weight:500}
+.price-drop-badge{display:inline-flex;align-items:center;border-radius:7px;padding:3px 6px;background:#e7f7ef;color:#13724b;font:700 10px/1.3 Arial,sans-serif;white-space:nowrap}
+.details-list .plan-previous-price{margin-inline-start:10px}
+.plan-option>.store-price-pair{justify-content:flex-end;text-align:end}
+.plan-option>span{min-width:0}
+.plan-option .plan-saving{white-space:normal;overflow-wrap:anywhere;width:fit-content;max-width:100%;box-sizing:border-box}
+.light-meta .store-price-pair{justify-content:center;width:100%}
+.best-offer .store-price-pair{justify-content:flex-end}
+.best-offer .store-price-current{font-size:20px}
+.cart-unit-price{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:8px}
+.cart-unit-price .store-price-current{font-size:15px}
+.cart-unit-price .plan-previous-price del{font-size:11px!important}
+.cart-unit-quantity{font-size:11px;color:var(--muted,#7a8799)}
+.bundle-layout .plan-price-tag{grid-column:2!important}
+html[data-custom-theme] .price-drop-badge{background:#154838;color:#9ae7c3}
+@media(max-width:580px){.plan-option>.plan-price-tag{grid-column:2;justify-content:flex-start;text-align:start}.store-price-pair{gap:5px 8px}.plan-previous-price del{font-size:11px!important}.best-offer .store-price-current{font-size:18px}}
+
+.best-offer>div{min-width:0;max-width:100%}
+.best-offer .plan-saving{width:fit-content;max-width:100%;box-sizing:border-box;overflow-wrap:anywhere}
+
+/* Keep the annual Lovable offer readable instead of squeezing it beside its price. */
+.best-offer.lovable-offer{min-width:0}
+.lovable-offer .lovable-offer-copy{min-width:0}
+.lovable-offer .lovable-offer-copy h3{font-size:16px;line-height:1.5;overflow-wrap:normal}
+.lovable-offer .lovable-offer-credits,.lovable-offer .lovable-offer-period{margin:0;max-width:100%;width:100%;box-sizing:border-box;line-height:1.8;overflow-wrap:normal}
+.lovable-offer .lovable-offer-credits{font-size:13px;font-weight:600;color:var(--ink,#142b4d)}
+.lovable-offer .lovable-offer-period{font-size:11px;color:var(--muted,#667085)}
+.best-offer.lovable-offer>.store-price-pair{justify-content:center;gap:8px 12px}
+.best-offer.lovable-offer .store-price-current{font-size:24px}
+@media(max-width:700px){
+ .best-offer.lovable-offer{display:grid;grid-template-columns:48px minmax(0,1fr);grid-template-areas:"logo copy" "credits credits" "period period" "price price" "action action";align-items:center;gap:10px 12px;text-align:start;padding:16px}
+ .best-offer.lovable-offer>.product-logo{grid-area:logo;width:48px;height:48px;padding:7px}
+ .lovable-offer>.lovable-offer-copy{grid-area:copy}
+ .lovable-offer>.lovable-offer-credits{grid-area:credits}
+ .lovable-offer>.lovable-offer-period{grid-area:period}
+ .best-offer.lovable-offer>.store-price-pair{grid-area:price;justify-content:flex-start;width:100%;padding-top:2px}
+ .best-offer.lovable-offer>.card-btn{grid-area:action;min-height:44px;margin:0}
+}
+@media(max-width:400px){
+ .shelf-feature{grid-template-columns:42px minmax(0,1fr);gap:10px}
+ .shelf-feature>div{min-width:0}
+ .shelf-feature>strong{grid-column:2;justify-self:start}
+ .shelf-feature b{overflow-wrap:normal}
+}
+
+/* The annual comparison is separate from the weekly starting price. */
+.simple-service-card>.picsart-saving{grid-column:1/-1;max-width:100%;width:fit-content;box-sizing:border-box;white-space:normal;overflow-wrap:anywhere;margin:0}
+
+.product-delivery-notice{margin:18px 0;padding:18px 20px;border:1px solid #b6dec9;border-radius:16px;background:#effbf4;color:#164b34;line-height:1.8}.product-delivery-notice[hidden]{display:none}.product-delivery-notice strong{font-size:16px}.product-delivery-notice p{font-size:12px;margin:6px 0}.product-delivery-notice a{display:inline-flex;align-items:center;min-height:44px;color:inherit;font-weight:700;font-size:12px}html[data-custom-theme] .product-delivery-notice{background:var(--theme-panel);border-color:var(--line);color:var(--ink)}@media(max-width:700px){.product-delivery-notice{padding:14px 16px;margin:14px 0}.product-delivery-notice strong{font-size:14px}}
+
+/* Illustrated delivery card, motion stays decorative and respects reduced motion. */
+.product-delivery-notice{display:flex;align-items:center;gap:26px;padding:24px 28px;background:linear-gradient(115deg,#edf5ff,#fff);border:1px solid #bfd5ff;color:#153763;box-shadow:0 10px 28px #1f5eff12;overflow:hidden}
+.delivery-copy{flex:1;min-width:0}.delivery-copy strong{display:block;font-size:clamp(21px,3vw,30px);line-height:1.5;color:#164ecc}.delivery-stock{display:inline-block;padding:4px 10px;margin-bottom:8px;border-radius:30px;background:#def8e8;color:#14663b;font-size:12px;font-weight:800}.delivery-copy p{font-size:14px;line-height:1.9}.delivery-copy a{padding:10px 18px;margin-top:6px;border-radius:12px;background:#1f5eff;color:white;min-height:44px;box-sizing:border-box;text-decoration:none}.delivery-copy small{display:block;font-size:11px;line-height:1.8;margin-top:9px;color:#58708d}
+html[data-custom-theme] .product-delivery-notice{background:var(--theme-panel);color:var(--ink)}html[data-custom-theme] .delivery-copy strong{color:var(--theme-accent)}html[data-custom-theme] .delivery-copy small{color:var(--muted)}
+@media(max-width:600px){.product-delivery-notice{gap:12px;padding:18px 14px;align-items:flex-start}.delivery-copy strong{font-size:21px}.delivery-copy p{font-size:12px}.delivery-copy a{font-size:12px}.delivery-stock{font-size:10px}.delivery-copy small{font-size:10px}}
+
+
+/* Branded delivery van: finite decorative motion, no pop-up or campaign. */
+.delivery-drive{position:relative;flex:0 0 205px;height:168px;direction:ltr;overflow:hidden;isolation:isolate}.delivery-drive-halo{position:absolute;inset:7px 15px;border-radius:50%;background:radial-gradient(ellipse,#d9eaff,transparent 72%)}.delivery-truck{position:absolute;width:172px;height:85px;left:14px;bottom:28px;animation:delivery-van-enter .85s cubic-bezier(.2,.8,.2,1) both,delivery-van-bounce .55s .85s 5}.delivery-cargo{position:absolute;left:2px;top:0;width:113px;height:69px;border:2px solid #2a64d9;border-radius:12px 7px 4px 5px;background:linear-gradient(140deg,#fff,#ecf4ff);box-shadow:inset 0 -8px #cee0ff}.delivery-cargo img{position:absolute;left:8px;top:17px;width:94px;height:32px;object-fit:contain}.delivery-cab{position:absolute;left:114px;top:21px;width:51px;height:49px;border:2px solid #1749bd;border-radius:8px 19px 4px 0;background:linear-gradient(120deg,#4f93ff,#1e58de)}.delivery-cab i{position:absolute;left:8px;top:6px;width:31px;height:19px;background:#bfeaff;border-radius:3px 10px 3px 3px;border:2px solid #2360bd;box-shadow:inset 5px 0 #ffffff50}.delivery-cab:after{content:'';position:absolute;right:1px;bottom:8px;width:7px;height:8px;background:#ffda69;border-radius:2px}.delivery-bumper{position:absolute;left:0;right:3px;bottom:13px;height:9px;border-radius:4px;background:#143f9c}.delivery-wheel{position:absolute;bottom:0;width:28px;height:28px;border-radius:50%;border:6px solid #16355d;background:conic-gradient(#a4bedc 0 25%,#e3efff 25% 50%,#a4bedc 50% 75%,#e3efff 75%);box-shadow:0 3px 0 #a3c1e620;animation:delivery-wheel-spin .55s linear 6}.wheel-rear{left:23px}.wheel-front{right:18px}.delivery-carton{position:absolute;left:37px;top:-25px;width:44px;height:28px;background:#f7c16a;border:1px solid #d69732;border-radius:4px;transform:rotate(-5deg);box-shadow:0 3px 0 #143f9c12}.delivery-carton i{position:absolute;left:17px;top:0;bottom:0;width:8px;background:#fff0c9}.delivery-trails{position:absolute;left:-12px;top:25px;width:25px;height:4px;border-radius:4px;background:#80b0ff;box-shadow:-9px 10px #a5c7ff,-3px 20px #80b0ff}.delivery-road{position:absolute;left:4px;right:4px;bottom:22px;height:3px;border-radius:3px;background:repeating-linear-gradient(90deg,#aac6ef 0 16px,transparent 16px 26px);animation:delivery-road-roll .65s linear 5}.delivery-arrived{position:absolute;right:4px;top:9px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#23b776;color:#fff;font:800 20px system-ui;box-shadow:0 4px 12px #1d995a22;animation:delivery-arrival-pop .5s .65s both}
+@keyframes delivery-van-enter{from{transform:translateX(-180px);opacity:0}to{transform:translateX(0);opacity:1}}@keyframes delivery-van-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}@keyframes delivery-wheel-spin{to{transform:rotate(360deg)}}@keyframes delivery-road-roll{to{background-position:-52px 0}}@keyframes delivery-arrival-pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+@media(max-width:600px){.product-delivery-notice{flex-direction:column;align-items:stretch;gap:2px}.delivery-drive{flex-basis:auto;width:205px;height:150px;align-self:center}.delivery-copy strong{font-size:23px}.delivery-copy a{width:100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.delivery-drive *{animation:none!important}}
+
+/* Readable plan comparisons and clear native radio selection. */
+.plan-choice-help{margin:-3px 0 18px;color:var(--muted,#63738b);font-size:12px;line-height:1.8}
+.plan-option{position:relative;transition:border-color .16s,box-shadow .16s;background:var(--card,#fff)}
+.plan-option:has(input:checked){border-color:var(--blue,#2469ed);box-shadow:0 0 0 2px #2469ed16;background:var(--theme-soft,#f4f8ff)}
+.plan-option:has(input:focus-visible){outline:3px solid #7faafa;outline-offset:3px}
+.plan-option:has(input:disabled){cursor:not-allowed;background:var(--theme-panel,#f6f8fb);border-style:dashed;opacity:.76}
+.plan-option .plan-quick-facts{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.plan-option .plan-quick-facts>span{display:inline-flex;align-items:center;padding:4px 8px;border:1px solid var(--line,#dbe5f4);border-radius:7px;background:var(--card,#fff);color:var(--ink,#234064);font-size:11px;line-height:1.6;overflow-wrap:anywhere}
+.plan-option .plan-selection-state{display:none;color:var(--blue,#2469ed);font-size:11px;font-weight:700;margin-top:8px}
+.plan-option:has(input:checked) .plan-selection-state{display:block}
+.plan-option .plan-unavailable-state{display:block;margin-top:8px;font-size:11px;color:var(--muted,#63738b)}
+@media(max-width:700px){
+ .plan-option{padding:15px!important;gap:10px!important;grid-template-columns:22px minmax(0,1fr)!important}
+ .plan-option input[type=radio]{width:20px;height:20px;margin:0;align-self:start;margin-top:3px}
+ .plan-option>span>b{font-size:14px;line-height:1.7}
+ .plan-option>.plan-price-tag,.plan-option>strong{grid-column:2;justify-self:start;margin-top:3px}
+ .plan-option .plan-quick-facts>span{font-size:11px;padding:4px 7px}
+ .plan-choice-help{font-size:12px}
+ .summary-card{scroll-margin-top:calc(var(--store-header-height,110px) + 18px)}
+}
+@media(prefers-reduced-motion:reduce){.plan-option{transition:none}}
+
+/* Sharper delivery illustration and a softer road animation. */
+.delivery-drive{perspective:650px}
+.delivery-cargo{background:linear-gradient(145deg,#fff 30%,#e3eeff);box-shadow:inset 0 -7px #cbdfff,3px 4px 0 #98b9ec30}
+.delivery-cab{background:linear-gradient(135deg,#6dafff,#2865e8 65%,#1748be);box-shadow:inset 0 -5px #1746aa44}
+.delivery-truck{filter:drop-shadow(0 8px 5px #1b4c9b18);animation:delivery-van-enter 1.25s cubic-bezier(.16,1,.3,1) both,delivery-van-cruise 1.1s 1.25s 3}
+.delivery-road{height:4px;bottom:21px;opacity:.8;animation:delivery-road-roll 1.05s linear 4}
+.delivery-wheel{animation:delivery-wheel-spin 1.05s linear 4}
+.delivery-carton{box-shadow:2px 3px 0 #d79c4140,0 4px 6px #143f9c18}
+.delivery-arrived{animation:delivery-arrival-pop .6s 1.1s both}
+@keyframes delivery-van-cruise{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-1px) rotate(-.25deg)}65%{transform:translateY(.5px) rotate(.15deg)}}
+@media(prefers-reduced-motion:reduce){.delivery-drive *{animation:none!important}}
