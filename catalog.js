@@ -4914,7 +4914,7 @@ const products = [
   "category": "AI Tools",
   "logo": "lovable",
   "status": "available",
-  "description": "ابنِ مواقع وتطبيقات بالأوامر النصية مع Lovable: Pro شهر بحساب جاهز بـ230ج، Pro سنة على إيميلك الشخصي بـ3000ج، وPro Lite سنة بـ420ج. راجع رصيد كل باقة وطريقة تفعيلها قبل الطلب.",
+  "description": "Lovable Pro متاح بباقتين فقط: سنة على حسابك الشخصي بـ3000ج، أو 3 شهور بحساب خاص جاهز بـ1000ج مع ضمان كامل و100 كريدت شهريًا + 5 يوميًا.",
   "plans": [
     {
       "name": "باقة سابقة غير متاحة",
@@ -4923,7 +4923,7 @@ const products = [
       "price": 350,
       "hidden": true,
       "available": false,
-      "activation": "لم تعد متاحة؛ اختر إحدى الأربع باقات الحالية.",
+      "activation": "لم تعد متاحة؛ اختر باقة السنة أو باقة 3 شهور.",
       "account": "غير متاحة",
       "warranty": "غير متاحة"
     },
@@ -4932,6 +4932,7 @@ const products = [
       "planType": "Pro",
       "duration": "1 شهر",
       "price": 230,
+      "hidden": true,
       "activation": "تسليم حساب Lovable Pro جاهز للاستخدام.",
       "account": "حساب جاهز للاستخدام",
       "warranty": "ضمان كامل لمدة شهر",
@@ -4950,7 +4951,7 @@ const products = [
         "إنشاء وتعديل مواقع وتطبيقات ضمن موارد الباقة.",
         "100 كريدت شهريًا + 5 كريدت يوميًا"
       ],
-      "available": true,
+      "available": false,
       "accountType": "حساب جاهز",
       "featuresEn": [
         "One month of Lovable Pro on a ready account.",
@@ -5007,6 +5008,7 @@ const products = [
       "name": "Pro Lite — سنة — 300 كريدت + 5 يوميًا",
       "duration": "12 شهر",
       "price": 420,
+      "hidden": true,
       "activation": "رابط تفعيل على حسابك الشخصي في Lovable.",
       "account": "حساب العميل الشخصي",
       "warranty": "ضمان كامل وفق شروط المتجر",
@@ -5035,7 +5037,7 @@ const products = [
         "300 credits are granted once, not monthly.",
         "Activation uses a link and is subject to account eligibility."
       ],
-      "available": true,
+      "available": false,
       "accountType": "رابط تفعيل",
       "manualPrice": true
     },
@@ -5043,11 +5045,11 @@ const products = [
       "name": "Pro — 3 شهور — حساب جاهز",
       "planType": "Pro",
       "duration": "3 شهور",
-      "price": 1100,
+      "price": 1000,
       "available": true,
       "activation": "تسليم حساب Lovable Pro جاهز للاستخدام.",
       "account": "حساب Lovable خاص جاهز للاستخدام",
-      "accountType": "حساب جاهز",
+      "accountType": "حساب خاص",
       "warranty": "ضمان كامل طوال مدة الاشتراك — 3 شهور",
       "credits": "100 كريدت شهريًا + 5 كريدت يوميًا",
       "features": [
@@ -5103,20 +5105,21 @@ const products = [
   "categories": [
     "بناء مواقع وتطبيقات بالذكاء الاصطناعي"
   ],
-  "descriptionEn": "Build websites and apps with Lovable: Pro for one month on a ready account for EGP 230, Pro for one year on your personal email for EGP 3,000, or Pro Lite for one year for EGP 420. Check each plan’s credits and activation method."
+  "descriptionEn": "Build websites and apps with Lovable Pro: one year on your own account for EGP 3,000, or three months on a ready private account for EGP 1,000 with full warranty and 100 monthly credits plus 5 daily credits."
 },
   {
   "id": "lovable-lite",
   "name": "Lovable — رابط تفعيل سنة",
   "category": "AI Tools",
   "logo": "lovable",
-  "status": "available",
-  "description": "Lovable Pro Lite سنة بـ420ج: 300 كريدت مرة واحدة + 5 يوميًا، على إيميلك الشخصي.",
+  "status": "out",
+  "description": "باقة Lovable Pro Lite لم تعد متاحة؛ انتقل إلى Lovable Pro لاختيار السنة أو 3 شهور.",
   "plans": [
     {
       "name": "Pro Lite — سنة — 300 كريدت + 5 يوميًا",
       "duration": "12 شهر",
       "price": 420,
+      "hidden": true,
       "activation": "رابط تفعيل على حسابك الشخصي في Lovable.",
       "account": "حساب العميل الشخصي",
       "warranty": "ضمان كامل وفق شروط المتجر",
@@ -5145,17 +5148,17 @@ const products = [
         "300 credits are granted once, not monthly.",
         "Activation uses a link and is subject to account eligibility."
       ],
-      "available": true,
+      "available": false,
       "accountType": "رابط تفعيل",
       "manualPrice": true
     }
   ],
   "redirectTo": {
     "id": "lovable-pro",
-    "plan": 3
+    "plan": 4
   },
   "categories": [],
-  "descriptionEn": "One year of Lovable Pro Lite for EGP 420: 300 credits once plus 5 daily, on your personal email."
+  "descriptionEn": "Lovable Pro Lite is no longer offered. See Lovable Pro for the one-year or three-month plans."
 },
   {
     "id": "runway-pro",
