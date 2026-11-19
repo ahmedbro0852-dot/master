@@ -76,7 +76,15 @@ assert(home.includes('src="app.js?v='),'homepage catalogue renderer must remain 
 assert(home.includes('rel="preconnect" href="https://gmysuhoebcapigdidnnv.supabase.co"'),'public price connection warm-up missing');
 assert(fs.existsSync(path.join(out,'site-nav.js')),'shared navigation JS missing');
 assert(!home.includes('id="visual-explore"')&&!home.includes('href="#visual-explore"'),'removed visual category explorer is still linked');
-const lovableCatalog=read('catalog.js');assert(lovableCatalog.includes('"price": 3000')&&lovableCatalog.includes('"price": 230')&&lovableCatalog.includes('1100'),'Lovable updated prices missing');assert(home.includes('300 كريدت مرة واحدة + 5 يوميًا'),'Lovable annual activation label missing');
+const lovableCatalog=read('catalog.js');
+const lovableSandbox={window:{}};
+require('node:vm').runInNewContext(lovableCatalog,lovableSandbox);
+const lovable=lovableSandbox.window.MasterCatalog.getProduct('lovable-pro');
+const lovableVisible=lovable.plans.map((plan,index)=>({plan,index})).filter(({plan})=>!plan.hidden&&plan.available!==false);
+assert.deepEqual(Array.from(lovableVisible,({index})=>index),[2,4],'only Lovable annual and three-month plans should be published');
+assert.equal(lovable.plans[2].price,3000,'Lovable annual price');
+assert.equal(lovable.plans[4].price,1000,'Lovable three-month price');
+assert(home.includes('Lovable Pro — حساب خاص')&&home.includes('100 كريدت شهريًا + 5 يوميًا'),'Lovable private three-month homepage offer missing');
 assert(home.includes('id="heroCatalogSearch"')&&home.includes('id="catalogSearchSuggestions"'),'search entry points missing');
 assert(home.includes('store-search.js?v=20261110-mobile-search2')&&home.includes('store-search.css?v=20261105-autocomplete1'),'live search scripts not wired');
 for(const file of ['store-search.js','store-search.css'])assert(fs.existsSync(path.join(out,file)),'missing search asset: '+file);
