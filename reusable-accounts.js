@@ -115,9 +115,9 @@
   }
   async function perform(fn) {
     if(busy)return;busy=true;
-    root.querySelectorAll('button').forEach(b=>b.disabled=true);
+    const buttons=[...root.querySelectorAll('button')].map(button=>({button,disabled:button.disabled}));buttons.forEach(x=>{x.button.disabled=true;});
     try{await fn();}catch(err){statusMessage(err.code==='23505'?'هذا الحساب مسجل بالفعل أو لديه دورة بيع مفتوحة.':String(err.message||err),true);}
-    finally{busy=false;draw();}
+    finally{busy=false;buttons.forEach(x=>{if(x.button.isConnected)x.button.disabled=x.disabled;});draw();}
   }
   async function init() {
     try {
