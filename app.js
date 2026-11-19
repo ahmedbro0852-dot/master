@@ -271,27 +271,25 @@
 
   function updateShelf(){
     const shelf=document.querySelector('.shelf-feature strong');
-    const lovable=Catalog.getProduct('lovable-lite');
-    if(shelf&&lovable?.plans?.[0])shelf.textContent=Store.planMoney(lovable.plans[0]);
+    const lovable=Catalog.getProduct('lovable-pro');
+    if(shelf&&lovable?.plans?.[4])shelf.textContent=Store.planMoney(lovable.plans[4]);
   }
 
 
   function renderBestOffers(){
     const target=document.getElementById('bestOffersGrid');
     if(!target)return;
-    const picks=[['cursor-grok-x-bundle',0],['supergrok-coursera-bundle',0],['elevenlabs',2],['cursor-pro',1],['coursera',0],['lovable-pro',3],['gemini-pro',2],['capcut-pro',1],['grok',0]];
+    const picks=[['cursor-grok-x-bundle',0],['supergrok-coursera-bundle',0],['elevenlabs',2],['cursor-pro',1],['coursera',0],['lovable-pro',4],['gemini-pro',2],['capcut-pro',1],['grok',0]];
     target.innerHTML=picks.map(([id,index])=>{
       const product=Catalog.getProduct(id),plan=product?.plans?.[index];
       if(!plan||plan.hidden||plan.available===false||product.status!=='available')return '';
-      if(id==='lovable-pro'&&index===3){
-        const active=plan.promotionEndsAt&&Date.now()<Date.parse(plan.promotionEndsAt);
+      if(id==='lovable-pro'&&index===4){
         return '<article class="best-offer lovable-offer">'+logoMarkup(product)+
-          '<div class="lovable-offer-copy"><h3>Lovable Pro Lite</h3><small>'+ui('اشتراك سنة كاملة','One-year subscription')+'</small></div>'+
-          '<p class="lovable-offer-credits">'+ui('300 كريدت إجماليًا + 5 يوميًا','300 total credits + 5 daily')+'</p>'+
-          (active?'<p class="lovable-offer-period">'+ui('عرض 48 ساعة · حتى 28 أكتوبر، 8:15 صباحًا بتوقيت مصر','48-hour offer · Until 28 Oct, 8:15 AM Egypt time')+'</p>':'')+
-          Store.priceMarkup(plan)+'<a class="card-btn soft-btn" href="products/lovable-pro.html?plan=3">'+ui('شوف الباقة','View offer')+'</a></article>';
+          '<div class="lovable-offer-copy"><h3>Lovable Pro</h3><small>'+ui('3 شهور · حساب خاص جاهز · ضمان كامل','Three months · private ready account · full warranty')+'</small></div>'+
+          '<p class="lovable-offer-credits">'+ui('100 كريدت شهريًا + 5 كريدت يوميًا','100 monthly credits + 5 daily credits')+'</p>'+
+          Store.priceMarkup(plan)+'<a class="card-btn soft-btn" href="products/lovable-pro.html?plan=4">'+ui('شوف الباقة','View offer')+'</a></article>';
       }
-      return '<article class="best-offer '+(id==='gemini-coursera-bundle'?'bundle-featured':'')+'">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3>'+(id==='elevenlabs'&&plan.offerEndsAt?'<p class="plan-saving">'+ui('⏰ عرض مؤقت · مهلة الحجز 24 ساعة · الاشتراك شهر كامل','⏰ Limited-time offer · Book within 24 hours · 1-month subscription')+'</p>':'')+(id==='lovable-pro'&&index===3?'<p class="plan-saving">'+ui('Pro Lite · 300 كريدت + 5 يوميًا · سنة كاملة','Pro Lite · 300 total credits + 5 daily · One year')+'</p>'+(Date.now()<Date.parse(plan.promotionEndsAt)?'<p class="plan-saving">'+ui('عرض 48 ساعة · حتى 28 أكتوبر، 8:15 صباحًا بتوقيت مصر','48-hour offer · Ends 28 Oct, 8:15 AM Egypt time')+'</p>':''):'')+(id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">اشتراك سنة بضمان كامل + هديتين مجانًا</p>':'')+(id==='supergrok-coursera-bundle'?'<p class="bundle-card-summary">'+ui('سوبر جروك شهر + كورسيرا بلس شهر · ضمان كامل','SuperGrok + Coursera Plus · One month each · Full warranty')+'</p>':'')+'<small>'+esc(id==='lovable-pro'&&index===1?ui('شهر · 100 كريدت + 5 يوميًا','Month · 100 credits + 5 daily'):tr(plan.duration,'duration',id))+'</small></div>'+Store.priceMarkup(plan)+'<a class="card-btn soft-btn" href="products/'+encodeURIComponent(id)+'.html?plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
+      return '<article class="best-offer '+(id==='gemini-coursera-bundle'?'bundle-featured':'')+'">'+logoMarkup(product)+'<div><h3>'+esc(product.name)+'</h3>'+(id==='elevenlabs'&&plan.offerEndsAt?'<p class="plan-saving">'+ui('⏰ عرض مؤقت · مهلة الحجز 24 ساعة · الاشتراك شهر كامل','⏰ Limited-time offer · Book within 24 hours · 1-month subscription')+'</p>':'')+(id==='lovable-pro'&&index===4?'<p class="plan-saving">'+ui('3 شهور · حساب خاص · ضمان كامل · 100 كريدت شهريًا','3 months · private account · full warranty · 100 monthly credits')+'</p>':'')+(id==='gemini-coursera-bundle'?'<p class="bundle-card-summary">اشتراك سنة بضمان كامل + هديتين مجانًا</p>':'')+(id==='supergrok-coursera-bundle'?'<p class="bundle-card-summary">'+ui('سوبر جروك شهر + كورسيرا بلس شهر · ضمان كامل','SuperGrok + Coursera Plus · One month each · Full warranty')+'</p>':'')+'<small>'+esc(id==='lovable-pro'&&index===1?ui('شهر · 100 كريدت + 5 يوميًا','Month · 100 credits + 5 daily'):tr(plan.duration,'duration',id))+'</small></div>'+Store.priceMarkup(plan)+'<a class="card-btn soft-btn" href="products/'+encodeURIComponent(id)+'.html?plan='+index+'">'+ui('شوف الباقة','View offer')+'</a></article>';
     }).join('');
     bindLogoFallbacks(target);
   }
