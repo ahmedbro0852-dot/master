@@ -9217,6 +9217,74 @@ const products = [
       }
     }
   ]
+},
+{
+  "id": "scispace-premium",
+  "name": "SciSpace Premium",
+  "category": "التعليم",
+  "categories": [
+    "بحث وإجابات بالمصادر",
+    "قراءة وحفظ المراجع",
+    "تدقيق وإعادة صياغة",
+    "التعليم"
+  ],
+  "status": "available",
+  "description": "اشتراك SciSpace Premium لمدة شهر بحساب خاص جاهز، 1,200 كريدت لاستخدام SciSpace Agent، وأدوات البحث وتحليل الأوراق العلمية والكتابة الأكاديمية، بسعر 750 جنيه وضمان كامل طوال الشهر.",
+  "descriptionEn": "One-month SciSpace Premium subscription on a ready private account. Includes 1,200 SciSpace Agent credits and research, literature-review, paper analysis, and academic writing features for EGP 750, with a full one-month store warranty.",
+  "features": [
+    "البحث في الدراسات العلمية ومراجعة الأدبيات (Literature Review).",
+    "محادثات مع ملفات PDF وشرح وتلخيص الأوراق العلمية.",
+    "أدوات مساعدة للكتابة الأكاديمية وإعادة الصياغة وتوليد الاستشهادات."
+  ],
+  "featuresEn": [
+    "Research literature searches and literature review.",
+    "Chats with PDFs, paper analysis, and summaries.",
+    "Academic writing, paraphrasing, and citations."
+  ],
+  "plans": [
+    {
+      "name": "Premium — شهر — حساب خاص",
+      "planType": "Premium",
+      "duration": "1 شهر",
+      "price": 750,
+      "available": true,
+      "account": "حساب خاص جاهز",
+      "accountType": "Private Account",
+      "activation": "تسليم سريع لبيانات الحساب الخاص بعد تأكيد الدفع.",
+      "warranty": "ضمان كامل طوال مدة الاشتراك (30 يومًا)",
+      "credits": "1,200 كريدت لـ SciSpace Agent خلال شهر الاشتراك",
+      "features": [
+        "1,200 كريدت لاستخدام SciSpace Agent طوال الشهر.",
+        "استخراج أفكار ومعلومات من 30 ورقة بحثية.",
+        "تشغيل مهمتين بالتوازي، مع الوصول إلى نماذج ذكاء اصطناعي عالية الجودة.",
+        "بحث غير محدود في الدراسات السابقة ومحادثات PDF وفق مزايا الاشتراك.",
+        "تلخيص غير محدود للأوراق العلمية وإعادة صياغة النصوص.",
+        "إجراءات كتابة أكاديمية وتوليد مراجع واستشهادات بدون حدود وفق الباقة.",
+        "إضافة حتى 50 عمودًا في جداول مراجعة الأدبيات.",
+        "تصدير غير محدود للنتائج مع أدوات الكشف والبودكاست المتاحة في الباقة."
+      ],
+      "featuresEn": [
+        "1,200 SciSpace Agent credits during the subscription month.",
+        "Extract insights from 30 research papers.",
+        "Run two parallel tasks with access to high-quality AI models.",
+        "Unlimited literature-review searches and PDF chats under the offered plan.",
+        "Unlimited paper summaries and paraphraser outputs.",
+        "Unlimited academic Writer actions and citation generation according to the plan.",
+        "Up to 50 columns in literature-review tables.",
+        "Unlimited exports, with available AI detection and podcast features."
+      ],
+      "notes": [
+        "مدة الاشتراك والضمان شهر واحد (30 يومًا) من تاريخ التسليم.",
+        "الرصيد 1,200 كريدت مخصص لاستخدام SciSpace Agent؛ ليس رصيدًا غير محدود.",
+        "تخضع أدوات الذكاء الاصطناعي والحدود المعلنة لتوافر المميزات في الحساب."
+      ],
+      "notesEn": [
+        "The subscription and the store warranty each last 30 days from delivery.",
+        "The 1,200-credit allowance is for SciSpace Agent; Agent usage is not unlimited.",
+        "AI features and listed tool limits are subject to plan availability on the supplied account."
+      ]
+    }
+  ]
 }
 ];
 
