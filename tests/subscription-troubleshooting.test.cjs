@@ -5,7 +5,7 @@ vm.runInNewContext(fs.readFileSync('product-features.js','utf8'),sandbox);
 const products=sandbox.window.MasterCatalog.products.filter(p=>!p.redirectTo);
 const support=require('../subscription-troubleshooting.js'),common=require('../common-problems.js');
 const Guides=require('../product-guides.js'),Windows=require('../windows-guide.js');
-assert.equal(products.length,103,'catalog product count changed; review full support coverage');
+assert.equal(products.length,104,'catalog product count changed; review full support coverage');
 assert.equal(common.problems.length,120,'common problems library must contain 120 entries');
 assert.equal(new Set(common.problems.map(p=>p.id)).size,120,'common problem IDs must be unique');
 assert(common.categories.length>=12,'expected broad support categories');
