@@ -2,7 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://master-pi-six.vercel.app/</loc></url>
 <url><loc>https://master-pi-six.vercel.app/warranty.html</loc></url>
-<url><loc>https://master-pi-six.vercel.app/services.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/common-problems.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/categories.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/categories/video-tools.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/categories/image-design-tools.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/categories/voice-audio-tools.html</loc></url>
@@ -12,6 +13,9 @@
 <url><loc>https://master-pi-six.vercel.app/categories/productivity-windows.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/categories/entertainment.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/categories/security-internet.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/products/coursera-plus-trial-7d.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/products/udemy-personal.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/products/muse-ai.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/autodesk-apps.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/kaspersky-premium.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/avast-premium.html</loc></url>
@@ -37,7 +41,6 @@
 <url><loc>https://master-pi-six.vercel.app/products/academic-pro.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/chatgpt-go.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/chatgpt-plus.html</loc></url>
-<url><loc>https://master-pi-six.vercel.app/products/chatgpt-teachers-k12.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/gemini-pro.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/google-ai-plus.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/claude-pro.html</loc></url>
@@ -53,6 +56,8 @@
 <url><loc>https://master-pi-six.vercel.app/products/hedra.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/heygen.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/canva-pro.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/products/alight-motion-premium.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/products/canva-business-admin.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/capcut-pro.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/figma.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/freepik.html</loc></url>
@@ -110,4 +115,5 @@
 <url><loc>https://master-pi-six.vercel.app/products/magiclight-pro.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/skillshare.html</loc></url>
 <url><loc>https://master-pi-six.vercel.app/products/vercel-pro.html</loc></url>
+<url><loc>https://master-pi-six.vercel.app/products/scispace-premium.html</loc></url>
 </urlset>

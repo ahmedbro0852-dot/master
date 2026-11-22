@@ -159,9 +159,11 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
 
 
   const PRODUCT_DESC_EN={
+    "alight-motion-premium":"A one-year mobile video editing and motion graphics subscription for EGP 700 with a full one-year warranty.",
+    "canva-business-admin":"A one-month Canva admin account for EGP 350 with up to 100 members and full warranty throughout the subscription.",
     "prezi":"Prezi Plus for one month: a private, non-shared account at EGP 450, with full warranty throughout the month.",
     "hedra":"Official Hedra Basic subscription for one month at $20: a ready account with full warranty, prepared within 2–3 hours.",
-    "adobe-express":"Adobe Express Premium for 12 months: activation on your email or a ready-made account for EGP 499 with a 6-month warranty, or an activation link for your account requiring a card for EGP 200 with no warranty.",
+    "adobe-express":"Adobe Express Premium for 12 months: activation on your email or a ready-made account for EGP 499 with a 6-month warranty, or a redemption link for your account without a payment card for EGP 200 with no warranty.",
     "academic-pro":"Review your documents before submission with Turnitin similarity reports and AI-content detection from Academi. One month of Pro on your personal account.",
 "cursor-pro":"Cursor Pro for coding for one year at $135. A 100% discount activation code on your personal account requiring an accepted payment card.",
 "higgsfield-pro":"Higgsfield for AI image and video creation. Choose one month of Plus for US$28: 1,200 credits, a ready-made account, and a 25-day warranty. Monthly Starter and annual Pro are also available, each with its own allowance and delivery method.",
@@ -239,7 +241,19 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     "الإنتاجية":"Productivity","VPN والحماية":"VPN & Security","الترفيه":"Entertainment"
   };
   const CATALOG_EXACT_EN={
-    "Adobe Express Premium — لينك تفعيل يحتاج بطاقة":"Adobe Express Premium — activation link, card required",
+    "Premium — سنة":"Premium \u2014 1 year",
+    "Business Admin — شهر — حتى 100 عضو":"Business Admin \u2014 1 month \u2014 up to 100 members",
+    "حساب أدمن جاهز":"Ready admin account",
+    "ضمان سنة كاملة":"Full one-year warranty",
+    "ضمان كامل طوال مدة الاشتراك":"Full warranty throughout the subscription",
+    "سجّل الدخول ببيانات الحساب. لو واجهت مشكلة على آيفون، جرّب تسجيل الدخول أولًا على أندرويد، ثم اربط الحساب ببريد Gmail شخصي واستخدم تسجيل الدخول عبر Google على آيفون.":"Sign in with the account details. If iPhone sign-in fails, sign in on Android first, link a personal Gmail address, then use Google sign-in on iPhone.",
+    "يُوصى بربط الحساب ببريد Gmail شخصي بعد أول تسجيل دخول. مشاكل البريد الأصلي بعد ذلك خارج تغطية الضمان.":"Link a personal Gmail address after first sign-in. Subsequent issues with the original email are outside warranty coverage.",
+    "تستلم بريد الحساب وتعليمات استلام كود التحقق بعد الدفع. اختار تسجيل الدخول بالبريد الإلكتروني في Canva، ثم أدخل كود التحقق.":"After payment you receive the account email and verification instructions. Choose email sign-in in Canva and enter the verification code.",
+    "تاريخ انتهاء الاشتراك ممكن يختلف يوم أو يومين.":"The subscription expiry date may vary by one or two days.",
+    "تستلم لينك استرداد لتفعيل اشتراك 12 شهرًا على حساب Adobe الشخصي بدون إضافة بطاقة بنكية.":"Redeem a 12-month subscription on your personal Adobe account using the supplied link, with no payment card required.",
+    "افتح لينك الاسترداد وسجّل الدخول بحساب Adobe الشخصي لتفعيل الاشتراك.":"Open the redemption link and sign in to your personal Adobe account to activate the subscription.",
+    "لينك استرداد على حسابك":"Redemption link for your account",
+    "Adobe Express Premium — لينك استرداد بدون بطاقة":"Adobe Express Premium — redemption link, no card required",
     "لينك تفعيل على حسابك":"Activation link for your account",
     "تسليم لينك لتفعيل اشتراك 12 شهرًا على حسابك الشخصي. يلزم وجود بطاقة لإتمام التفعيل.":"Receive a link to activate a 12-month subscription on your personal account. A card is required to complete activation.",
     "التفعيل يحتاج بطاقة يضيفها العميل بنفسه على صفحة Adobe.":"Activation requires a card, entered by the customer directly on Adobe’s page.",

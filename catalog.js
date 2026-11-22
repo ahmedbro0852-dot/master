@@ -269,19 +269,21 @@ const products = [
   "logo": "autodesk",
   "logoUrl": "logos/autodesk.svg?v=20261031-autodesk1",
   "status": "available",
-  "description": "باقة تطبيقات Autodesk المشمولة بالتفعيل، بما فيها 3ds Max، لمدة 3 سنوات بسعر 380 جنيه وضمان سنة واحدة. يُؤكد نوع الترخيص وقائمة التطبيقات والإصدارات وطريقة التفعيل قبل الدفع.",
-  "descriptionEn": "Autodesk applications covered by activation, including 3ds Max, for three years at EGP 380 with a one-year warranty. Confirm licence type, the application/version list and activation method before payment.",
+  "description": "باقة تطبيقات Autodesk المشمولة بالتفعيل، بما فيها AutoCAD و3ds Max وRevit، لمدة 3 سنوات بسعر 500 جنيه وضمان سنة واحدة. يُؤكد نوع الترخيص وقائمة التطبيقات والإصدارات وطريقة التفعيل قبل الدفع.",
+  "descriptionEn": "Autodesk applications covered by activation, including AutoCAD, 3ds Max, and Revit, for three years at EGP 500 with a one-year warranty. Confirm licence type, the application/version list and activation method before payment.",
   "features": [
     "وصول إلى تطبيقات Autodesk المشمولة بالتفعيل لمدة 3 سنوات، بما فيها 3ds Max.",
     "3ds Max للنمذجة والتحريك والإظهار ثلاثي الأبعاد ضمن النسخة المتاحة.",
     "ضمان لمدة سنة واحدة وفق شروط العرض وسياسة المتجر.",
-    "نوع الترخيص وطريقة التفعيل وقائمة التطبيقات والإصدارات المتاحة تُؤكد قبل الدفع."
+    "نوع الترخيص وطريقة التفعيل وقائمة التطبيقات والإصدارات المتاحة تُؤكد قبل الدفع.",
+    "3ds Max, Advance Steel, Alias AutoStudio, Arnold, AutoCAD (Including Specialized Toolsets), AutoCAD LT, CFD Ultimate, Civil 3D, Cloud Worksharing, Fabrication CADmep, Fabrication CAMduct, Fabrication ESTmep, Factory Design Utilities, Flame, FlexSim, Flow Production Tracking, Forma for Buildings, Forma for Construction, Forma Site Design, Fusion with FeatureCAM, Fusion for Institutions, Fusion with Moldflow Adviser, Fusion with Netfabb, Golaem, InfraWorks, Inventor CAM Ultimate, Inventor Nastran, Inventor Nesting, Inventor Professional, Inventor Tolerance Analysis, Maya, MotionBuilder, Mudbox, Navisworks Manage, NavPack Core, OptQuest, Point Layout, PowerInspect Ultimate, PowerShape Ultimate, ReCap Pro, Revit, Robot Structural Analysis Professional, Structural Bridge Design, Vault Professional, Vehicle Tracking, VRED Professional"
   ],
   "featuresEn": [
     "Access to the Autodesk applications covered by the activation for three years, including 3ds Max.",
     "3ds Max for 3D modelling, animation and rendering within the available edition.",
     "One-year warranty under the offer terms and store policy.",
-    "Confirm licence type, activation method and the available application/version list before payment."
+    "Confirm licence type, activation method and the available application/version list before payment.",
+    "3ds Max, Advance Steel, Alias AutoStudio, Arnold, AutoCAD (Including Specialized Toolsets), AutoCAD LT, CFD Ultimate, Civil 3D, Cloud Worksharing, Fabrication CADmep, Fabrication CAMduct, Fabrication ESTmep, Factory Design Utilities, Flame, FlexSim, Flow Production Tracking, Forma for Buildings, Forma for Construction, Forma Site Design, Fusion with FeatureCAM, Fusion for Institutions, Fusion with Moldflow Adviser, Fusion with Netfabb, Golaem, InfraWorks, Inventor CAM Ultimate, Inventor Nastran, Inventor Nesting, Inventor Professional, Inventor Tolerance Analysis, Maya, MotionBuilder, Mudbox, Navisworks Manage, NavPack Core, OptQuest, Point Layout, PowerInspect Ultimate, PowerShape Ultimate, ReCap Pro, Revit, Robot Structural Analysis Professional, Structural Bridge Design, Vault Professional, Vehicle Tracking, VRED Professional"
   ],
   "notes": [
     "مدة عرض المتجر 3 سنوات، والضمان سنة واحدة فقط.",
@@ -302,7 +304,7 @@ const products = [
       "name": "تطبيقات Autodesk + 3ds Max — 3 سنوات",
       "planType": "تطبيقات Autodesk المشمولة",
       "duration": "36 شهر",
-      "price": 380,
+      "price": 500,
       "available": true,
       "account": "نوع الحساب وطريقة التفعيل يُؤكدان قبل الدفع",
       "activation": "تُؤكد قائمة التطبيقات ونوع الترخيص وطريقة التفعيل مع الدعم قبل الدفع.",
@@ -311,13 +313,15 @@ const products = [
         "وصول إلى تطبيقات Autodesk المشمولة بالتفعيل لمدة 3 سنوات، بما فيها 3ds Max.",
         "3ds Max للنمذجة والتحريك والإظهار ثلاثي الأبعاد ضمن النسخة المتاحة.",
         "ضمان لمدة سنة واحدة وفق شروط العرض وسياسة المتجر.",
-        "نوع الترخيص وطريقة التفعيل وقائمة التطبيقات والإصدارات المتاحة تُؤكد قبل الدفع."
+        "نوع الترخيص وطريقة التفعيل وقائمة التطبيقات والإصدارات المتاحة تُؤكد قبل الدفع.",
+        "3ds Max, Advance Steel, Alias AutoStudio, Arnold, AutoCAD (Including Specialized Toolsets), AutoCAD LT, CFD Ultimate, Civil 3D, Cloud Worksharing, Fabrication CADmep, Fabrication CAMduct, Fabrication ESTmep, Factory Design Utilities, Flame, FlexSim, Flow Production Tracking, Forma for Buildings, Forma for Construction, Forma Site Design, Fusion with FeatureCAM, Fusion for Institutions, Fusion with Moldflow Adviser, Fusion with Netfabb, Golaem, InfraWorks, Inventor CAM Ultimate, Inventor Nastran, Inventor Nesting, Inventor Professional, Inventor Tolerance Analysis, Maya, MotionBuilder, Mudbox, Navisworks Manage, NavPack Core, OptQuest, Point Layout, PowerInspect Ultimate, PowerShape Ultimate, ReCap Pro, Revit, Robot Structural Analysis Professional, Structural Bridge Design, Vault Professional, Vehicle Tracking, VRED Professional"
       ],
       "featuresEn": [
         "Access to the Autodesk applications covered by the activation for three years, including 3ds Max.",
         "3ds Max for 3D modelling, animation and rendering within the available edition.",
         "One-year warranty under the offer terms and store policy.",
-        "Confirm licence type, activation method and the available application/version list before payment."
+        "Confirm licence type, activation method and the available application/version list before payment.",
+        "3ds Max, Advance Steel, Alias AutoStudio, Arnold, AutoCAD (Including Specialized Toolsets), AutoCAD LT, CFD Ultimate, Civil 3D, Cloud Worksharing, Fabrication CADmep, Fabrication CAMduct, Fabrication ESTmep, Factory Design Utilities, Flame, FlexSim, Flow Production Tracking, Forma for Buildings, Forma for Construction, Forma Site Design, Fusion with FeatureCAM, Fusion for Institutions, Fusion with Moldflow Adviser, Fusion with Netfabb, Golaem, InfraWorks, Inventor CAM Ultimate, Inventor Nastran, Inventor Nesting, Inventor Professional, Inventor Tolerance Analysis, Maya, MotionBuilder, Mudbox, Navisworks Manage, NavPack Core, OptQuest, Point Layout, PowerInspect Ultimate, PowerShape Ultimate, ReCap Pro, Revit, Robot Structural Analysis Professional, Structural Bridge Design, Vault Professional, Vehicle Tracking, VRED Professional"
       ],
       "notes": [
         "مدة عرض المتجر 3 سنوات، والضمان سنة واحدة فقط.",
@@ -5853,6 +5857,76 @@ const products = [
     ]
   },
   {
+    "id": "alight-motion-premium",
+    "name": "Alight Motion Premium",
+    "category": "الفيديو",
+    "categories": [
+      "الفيديو"
+    ],
+    "status": "available",
+    "description": "اشتراك مونتاج وموشن جرافيك على الموبايل لمدة سنة بـ700 جنيه، بضمان سنة كاملة.",
+    "descriptionEn": "A one-year mobile video editing and motion graphics subscription for EGP 700 with a full one-year warranty.",
+    "features": [
+      "تصدير بدون علامة مائية واستخدام حزم التأثيرات المدفوعة.",
+      "مشاركة حزم المشاريع واستخدام مزايا الأعضاء.",
+      "تأثيرات انتقال وتحكم متقدم في السرعة وكائنات الكاميرا والطبقات الرئيسية.",
+      "مساحة تخزين سحابية 100 جيجابايت ضمن العرض."
+    ],
+    "featuresEn": [
+      "Watermark-free export and premium effect packs.",
+      "Project package sharing and members-only features.",
+      "Transitions, advanced speed controls, camera objects and master layers.",
+      "100 GB of cloud storage included in this offer."
+    ],
+    "plans": [
+      {
+        "name": "Premium — سنة",
+        "duration": "12 شهر",
+        "price": 700,
+        "available": true,
+        "account": "حساب جاهز",
+        "warranty": "ضمان سنة كاملة",
+        "activation": "سجّل الدخول ببيانات الحساب. لو واجهت مشكلة على آيفون، جرّب تسجيل الدخول أولًا على أندرويد، ثم اربط الحساب ببريد Gmail شخصي واستخدم تسجيل الدخول عبر Google على آيفون.",
+        "notes": [
+          "يُوصى بربط الحساب ببريد Gmail شخصي بعد أول تسجيل دخول. مشاكل البريد الأصلي بعد ذلك خارج تغطية الضمان."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "canva-business-admin",
+    "name": "Canva Pro Business Admin",
+    "category": "التصميم",
+    "categories": [
+      "تعديل الصور والتصميم",
+      "عروض تقديمية"
+    ],
+    "logo": "canva",
+    "status": "available",
+    "description": "حساب أدمن Canva لمدة شهر بـ350 جنيه، يتيح إضافة حتى 100 عضو مع ضمان كامل طوال مدة الاشتراك.",
+    "descriptionEn": "A one-month Canva admin account for EGP 350 with up to 100 members and full warranty throughout the subscription.",
+    "features": [
+      "إضافة وإدارة حتى 100 عضو."
+    ],
+    "featuresEn": [
+      "Add and manage up to 100 members."
+    ],
+    "plans": [
+      {
+        "name": "Business Admin — شهر — حتى 100 عضو",
+        "duration": "1 شهر",
+        "price": 350,
+        "available": true,
+        "account": "حساب أدمن جاهز",
+        "warranty": "ضمان كامل طوال مدة الاشتراك",
+        "activation": "تستلم بريد الحساب وتعليمات استلام كود التحقق بعد الدفع. اختار تسجيل الدخول بالبريد الإلكتروني في Canva، ثم أدخل كود التحقق.",
+        "notes": [
+          "تاريخ انتهاء الاشتراك ممكن يختلف يوم أو يومين."
+        ]
+      }
+    ]
+  },
+  {
     "id": "capcut-pro",
     "name": "CapCut Pro",
     "category": "التصميم",
@@ -6223,7 +6297,7 @@ const products = [
     "category": "التصميم",
     "logo": "adobe",
     "status": "available",
-    "description": "باقات Adobe Express Premium لمدة 12 شهرًا: تفعيل على إيميلك أو حساب جاهز بـ499 جنيه بضمان 6 شهور، أو لينك تفعيل على حسابك يحتاج بطاقة بـ200 جنيه بدون ضمان.",
+    "description": "باقات Adobe Express Premium لمدة 12 شهرًا: تفعيل على إيميلك أو حساب جاهز بـ499 جنيه بضمان 6 شهور، أو لينك استرداد على حسابك بدون بطاقة بـ200 جنيه بدون ضمان.",
     "features": [
       "قوالب Premium لتصميم منشورات السوشيال ميديا والعروض والفيديو.",
       "تعديل الصور والفيديو وإزالة الخلفيات.",
@@ -6273,17 +6347,17 @@ const products = [
         "previousStorePrice": 599
       },
       {
-        "name": "Adobe Express Premium — لينك تفعيل يحتاج بطاقة",
+        "name": "Adobe Express Premium — لينك استرداد بدون بطاقة",
         "planType": "Premium",
         "duration": "12 شهر",
         "price": 200,
         "available": true,
-        "accountType": "لينك تفعيل على حسابك",
-        "activation": "تسليم لينك لتفعيل اشتراك 12 شهرًا على حسابك الشخصي. يلزم وجود بطاقة لإتمام التفعيل.",
+        "accountType": "لينك استرداد على حسابك",
+        "activation": "تستلم لينك استرداد لتفعيل اشتراك 12 شهرًا على حساب Adobe الشخصي بدون إضافة بطاقة بنكية.",
         "account": "حساب العميل الشخصي",
         "warranty": "بدون ضمان",
         "notes": [
-          "التفعيل يحتاج بطاقة يضيفها العميل بنفسه على صفحة Adobe.",
+          "افتح لينك الاسترداد وسجّل الدخول بحساب Adobe الشخصي لتفعيل الاشتراك.",
           "هذه الباقة بدون ضمان لمدة اشتراك 12 شهرًا.",
           "راجع شروط التفعيل والتجديد وأي رسوم ظاهرة على صفحة Adobe قبل التأكيد."
         ],

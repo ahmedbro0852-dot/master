@@ -1,12 +1,12 @@
 /* Service-specific editorial explanations; commercial terms stay in catalog.js. */
 (function(root,factory){const value=factory();if(typeof module==='object'&&module.exports)module.exports=value;else root.MasterProductGuideProfiles=value;})(typeof window==='undefined'?globalThis:window,function(){return {
 "autodesk-apps":{
-  "intro": "باقة تطبيقات Autodesk المشمولة بالتفعيل، بما فيها 3ds Max، لمدة 3 سنوات بسعر 380 جنيه وضمان سنة واحدة. يُؤكد نوع الترخيص وقائمة التطبيقات والإصدارات وطريقة التفعيل قبل الدفع.",
-  "introEn": "Autodesk applications covered by activation, including 3ds Max, for three years at EGP 380 with a one-year warranty. Confirm licence type, the application/version list and activation method before payment.",
+  "intro": "باقة تطبيقات Autodesk المشمولة بالتفعيل، بما فيها 3ds Max، لمدة 3 سنوات بسعر 500 جنيه وضمان سنة واحدة. يُؤكد نوع الترخيص وقائمة التطبيقات والإصدارات وطريقة التفعيل قبل الدفع.",
+  "introEn": "Autodesk applications covered by activation, including 3ds Max, for three years at EGP 500 with a one-year warranty. Confirm licence type, the application/version list and activation method before payment.",
   "workflow": "حدد التطبيقات والإصدارات المطلوبة، وابدأ بـ3ds Max إن كان هدفك النمذجة أو الإظهار ثلاثي الأبعاد. راجع مع الدعم نوع الترخيص وتوافق نظام جهازك وطريقة التفعيل، ثم نزّل النسخة المطابقة من Autodesk وتحقق من التطبيقات الظاهرة في حسابك بعد التفعيل.",
   "workflowEn": "Identify the applications and versions you need, starting with 3ds Max for modelling or visualisation. Confirm licence type, system compatibility and activation with support, then download the matching version from Autodesk and check the applications visible in your account.",
-  "check": "السعر 380 جنيه لمدة 3 سنوات، والضمان سنة واحدة. نطاق التطبيقات والإصدارات وعدد الأجهزة ونوع الترخيص تُؤكد قبل الدفع. لا تفترض أن هذا اشتراك تجاري أو أن الخدمات السحابية والإضافات المدفوعة مشمولة.",
-  "checkEn": "EGP 380 for three years, with a one-year warranty. Confirm application/version coverage, device count and licence type before payment. Do not assume commercial-use rights or included cloud services and paid add-ons.",
+  "check": "السعر 500 جنيه لمدة 3 سنوات، والضمان سنة واحدة. نطاق التطبيقات والإصدارات وعدد الأجهزة ونوع الترخيص تُؤكد قبل الدفع. لا تفترض أن هذا اشتراك تجاري أو أن الخدمات السحابية والإضافات المدفوعة مشمولة.",
+  "checkEn": "EGP 500 for three years, with a one-year warranty. Confirm application/version coverage, device count and licence type before payment. Do not assume commercial-use rights or included cloud services and paid add-ons.",
   "sections": [
     {
       "id": "three-year-offer",
@@ -948,8 +948,8 @@
     "introEn": "Adobe Express Premium helps create designs and promotional clips using available templates and assets. It suits producing content variations without starting a complex design project each time.",
     "workflow": "جهز الشعار والألوان والخطوط ثم اختر قالبًا يوافق المحتوى. راجع النسخة الأصلية قبل تغيير المقاس لمنصات أخرى، وافحص اقتصاص الصور وترتيب النص في كل نسخة.",
     "workflowEn": "Prepare the logo, colours, and fonts, then choose a suitable template. Review the original before resizing for other platforms, checking image crops and text placement in each version.",
-    "check": "بعض العروض على إيميلك وأخرى حساب جاهز أو رابط يحتاج بطاقة. الضمان وطريقة التسليم لا يتحددان من اسم Premium وحده.",
-    "checkEn": "Offers may use personal-email activation, a ready account, or a link requiring a card. The Premium name alone does not establish delivery method or warranty."
+    "check": "بعض العروض على إيميلك وأخرى حساب جاهز أو رابط استرداد بدون بطاقة. الضمان وطريقة التسليم لا يتحددان من اسم Premium وحده.",
+    "checkEn": "Offers may use personal-email activation, a ready account, or a redemption link without a payment card. The Premium name alone does not establish delivery method or warranty."
   },
   "adobe-cc": {
     "intro": "Adobe Creative Cloud Pro يضم تطبيقات إبداعية وفق الترخيص المفعّل للتصميم وتحرير الصور والمونتاج. فائدته لمن يحتاج العمل على ملفات احترافية قابلة للتعديل بين مراحل المشروع.",
