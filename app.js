@@ -66,7 +66,7 @@
     return;
   }
 
-  const popularityOrder=["grok-cursor-premium","cursor-grok-x-bundle","supergrok-coursera-bundle","gemini-coursera-bundle","chatgpt-plus","chatgpt-go","chatgpt-teachers-k12","gemini-pro","google-ai-plus","hostinger","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","humanizeai-pro","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account"];
+  const popularityOrder=["grok-cursor-premium","cursor-grok-x-bundle","supergrok-coursera-bundle","gemini-coursera-bundle","chatgpt-plus","chatgpt-go","chatgpt-teachers-k12","gemini-pro","google-ai-plus","hostinger","canva-pro","adobe-cc","capcut-pro","kling","microsoft-365","grok","claude-pro","spotify","youtube","netflix","perplexity-pro","scispace-premium","freepik","runway-pro","elevenlabs","academic-pro","humanizeai-standard","humanizeai-pro","grammarly","quillbot","coursera","duolingo","notion","figma","linkedin-premium","zoom","manus","lovable-pro","lovable-lite","gamma-plus","gamma-account"];
   const popularityRank=new Map(popularityOrder.map((id,index)=>[id,index]));
   const statusRank={available:0,soon:1,out:2};
   const products=[...(Catalog.products||[])].filter(product=>!product.redirectTo).sort((a,b)=>{
