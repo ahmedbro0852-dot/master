@@ -1391,6 +1391,14 @@
   "check": "اشتراك المتجر شهر واحد بحساب خاص جاهز وضمان شهر. السعر الرسمي الظاهر 13.99 دولارًا شهريًا يفترض دفع سنة كاملة بقيمة 167.88 دولارًا، ولا يساوي شراء شهر مستقل.",
   "checkEn": "The store offer is one month on a ready private account with a one-month warranty. The displayed official US$13.99 monthly figure requires a full annual payment of US$167.88 and is not a standalone month."
 },
+"scispace-premium": {
+  "intro": "اشتراك SciSpace Premium لمدة شهر بسعر 750 جنيه، بحساب خاص جاهز وضمان كامل طوال الشهر. يشمل 1,200 كريدت لاستخدام SciSpace Agent وأدوات البحث العلمي وقراءة الأبحاث والكتابة الأكاديمية.",
+  "introEn": "One month of SciSpace Premium for EGP 750 on a ready private account with a full one-month store warranty. Includes 1,200 SciSpace Agent credits and tools for literature review, paper analysis and academic writing.",
+  "workflow": "بعد استلام بيانات الحساب، ادخل إلى SciSpace وتأكد من تفعيل Premium ورصيد SciSpace Agent. ابدأ بسؤال بحث محدد أو ارفع ورقة علمية، ثم استخدم أدوات Literature Review للمقارنة بين الدراسات وChat with PDF لفهم النصوص. راجع المراجع والاقتباسات قبل استخدام أي نتيجة في عمل أكاديمي.",
+  "workflowEn": "Sign in with the delivered account and check the Premium entitlement and SciSpace Agent allowance. Start with a focused research question or upload a paper, then use Literature Review to compare studies and Chat with PDF to inspect individual sources. Verify citations and quoted claims before using generated results in academic work.",
+  "check": "العرض لشهر واحد بسعر 750 جنيه وضمان شهر كامل. كريدت SciSpace Agent محددة بـ1,200 خلال الشهر وليست غير محدودة. حدود استخراج البيانات من الأوراق وتشغيل المهام وأدوات البحث والكتابة تتبع الباقة الفعلية على الحساب. يجب التحقق من دقة الاستشهادات والمخرجات؛ أدوات كشف النصوص الآلية لا تثبت وحدها أصالة المحتوى.",
+  "checkEn": "This is a one-month EGP 750 offer with a full one-month store warranty. SciSpace Agent is limited to 1,200 credits for the month, not unlimited. Paper extraction, parallel task limits and other features depend on the delivered plan. Check generated citations and analyses against the original papers; automated AI-detection results cannot independently establish authorship."
+},
 "vercel-pro": {
   "intro": "اشتراك Vercel Pro لمدة شهر بـ750 جنيه، تفعيل على حسابك الشخصي وضمان كامل طوال الشهر. لنشر المواقع وتطبيقات الويب ومعاينة التعديلات ومتابعة الاستخدام ضمن حدود خطة Pro.",
   "introEn": "One month of Vercel Pro for EGP 750, activated on your personal account with a full one-month warranty. Deploy websites and web apps, preview changes and monitor usage within Pro plan limits.",
