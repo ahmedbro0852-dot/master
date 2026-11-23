@@ -5859,6 +5859,7 @@ const products = [
   {
     "id": "alight-motion-premium",
     "name": "Alight Motion Premium",
+    "logoUrl": "logos/alight-motion.webp",
     "category": "الفيديو",
     "categories": [
       "الفيديو"
@@ -6294,6 +6295,7 @@ const products = [
   {
     "id": "adobe-express",
     "name": "Adobe Express Premium",
+    "logoUrl": "logos/adobe-express.webp",
     "category": "التصميم",
     "logo": "adobe",
     "status": "available",
@@ -9295,6 +9297,7 @@ const products = [
 {
   "id": "scispace-premium",
   "name": "SciSpace Premium",
+  "logo": "scispace",
   "category": "التعليم",
   "categories": [
     "بحث وإجابات بالمصادر",
