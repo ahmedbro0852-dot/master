@@ -515,8 +515,8 @@
     "checkEn": "This is HumanizeAI.pro, not HumanizeAI.com. The separate domains have different plans and allowances; check the service name before comparing word limits."
   },
   "supergrok-coursera-bundle": {
-    "intro": "تجمع هذه الباقة SuperGrok للمحادثة والمساعدة في التفكير مع Coursera Plus للتعلم المنظم. تناسب من يريد مناقشة ما يتعلمه إلى جانب متابعة دورة لها منهج وتقييمات.",
-    "introEn": "This bundle combines SuperGrok for conversations and thinking support with Coursera Plus for structured learning. It suits someone who wants to discuss a topic while following a course with its own syllabus and assessments.",
+    "intro": "تجمع هذه الباقة Grok Premium للمحادثة والمساعدة في التفكير مع Coursera Plus للتعلم المنظم. تناسب من يريد مناقشة ما يتعلمه إلى جانب متابعة دورة لها منهج وتقييمات.",
+    "introEn": "This bundle combines Grok Premium for conversations and thinking support with Coursera Plus for structured learning. It suits someone who wants to discuss a topic while following a course with its own syllabus and assessments.",
     "workflow": "اختر هدفًا تعليميًا واحدًا، ثم ابحث عن دورة مشمولة في Coursera. استخدم مساعد المحادثة لشرح المصطلحات وإعداد أسئلة مراجعة، مع الرجوع إلى مادة الدورة عند التحقق من الإجابات.",
     "workflowEn": "Choose one learning goal and an included Coursera course. Use the chat assistant to explain terminology and prepare revision questions, returning to the course material to check answers.",
     "check": "الاشتراكان لهما حسابان وبيانات وصول منفصلة. الوصول إلى Coursera Plus لا يعني أن كل درجة جامعية أو برنامج على Coursera مشمول.",
