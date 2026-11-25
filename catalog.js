@@ -1329,7 +1329,7 @@ const products = [
 },
   {
     "id": "supergrok-coursera-bundle",
-    "name": "سوبر جروك + كورسيرا بلس",
+    "name": "Grok Premium + Coursera Plus",
     "category": "التعليم",
     "categories": [
       "محادثة ومساعد ذكي",
@@ -1338,38 +1338,75 @@ const products = [
     "logo": "grok",
     "logoUrl": "logos/supergrok-coursera-bundle.svg",
     "status": "available",
-    "description": "باقة مجمّعة تضم SuperGrok لمدة شهر وCoursera Plus لمدة شهر بسعر 1399 جنيه. حسابات جاهزة، مع ضمان كامل طوال الشهر وتسليم الإيميل وكلمة المرور وطريقة الوصول لكود التحقق لكل حساب.",
+    "description": "عرض Grok Premium مع Coursera Plus لمدة شهر لكل اشتراك بسعر 1000 جنيه فقط، وضمان 20 يومًا على الحسابين. السعر الرسمي للاشتراكين منفصلين 89 دولارًا شهريًا قبل الضرائب حسب أسعار المزودين المعلنة، وقد تختلف الأسعار حسب الدولة.",
+    "descriptionEn": "Grok Premium and Coursera Plus bundled by MASTER STORE for one month each at EGP 1,000, with a 20-day store warranty on both accounts. Separate standard subscriptions are listed at USD 89/month in total before taxes; regional prices may vary.",
     "features": [
-      "اشتراك SuperGrok لمدة شهر كامل.",
-      "اشتراك Coursera Plus لمدة شهر كامل.",
-      "الاشتراكان مشمولان في سعر واحد: 1399 ج.",
-      "حسابات جاهزة للاستخدام لكل خدمة.",
-      "تسليم الإيميل وكلمة المرور وطريقة الوصول لكود التحقق لكل حساب.",
-      "ضمان كامل على الحسابين طوال مدة الاشتراك: شهر."
+      "Grok Premium لمدة شهر للمحادثة والبحث والمساعدة في الكتابة وفق حدود الاستخدام الرسمية للخطة.",
+      "Coursera Plus لمدة شهر للوصول إلى أكثر من 10,000 دورة وبرنامج مؤهل.",
+      "شهادات إتمام للدورات المشمولة بعد استكمال متطلباتها داخل الاشتراك.",
+      "الحسابان لمدة شهر كامل، مع ضمان متجر لمدة 20 يومًا.",
+      "سعر الباقة في MASTER STORE: 1000 جنيه للحسابين معًا.",
+      "الأسعار الرسمية المنفصلة: Grok Premium ‏30$ شهريًا + Coursera Plus ‏59$ شهريًا = 89$ قبل الضرائب."
     ],
     "featuresEn": [
-      "SuperGrok subscription for one full month.",
-      "Coursera Plus subscription for one full month.",
-      "Both subscriptions included for EGP 1,399.",
-      "Ready-to-use accounts for both services.",
-      "Email, password and instructions for accessing the verification code supplied for each account.",
-      "Full warranty for both accounts throughout the one-month subscription."
+      "One month of Grok Premium for AI assistance, subject to the plan's official usage limits.",
+      "One month of Coursera Plus with access to 10,000+ eligible courses and learning programmes.",
+      "Completion certificates for included courses after all course requirements are met.",
+      "One-month access to both services; 20-day MASTER STORE warranty.",
+      "MASTER STORE bundle price: EGP 1,000 for both subscriptions.",
+      "Separate standard prices: Grok Premium USD 30/month plus Coursera Plus USD 59/month = USD 89/month before tax."
+    ],
+    "notes": [
+      "باقة MASTER STORE تجمع اشتراكين مستقلين؛ ليست باقة رسمية موحّدة من Coursera وxAI.",
+      "مقارنة 89$ مستندة إلى الأسعار الرسمية المنفصلة في 25 نوفمبر 2026، وقد تختلف حسب البلد والعروض والضرائب.",
+      "Grok Premium هنا تعني خطة The X Subscription Premium (وليست خطة Super أو X Premium+ منفصلة).",
+      "صلاحية الاشتراك شهر، أما ضمان المتجر فهو 20 يومًا فقط."
+    ],
+    "notesEn": [
+      "This is a MASTER STORE bundle of two separate subscriptions, not a joint official offer from Coursera and xAI.",
+      "The USD 89 comparison uses the suppliers' separate published prices as checked on 25 November 2026; regional offers and taxes may differ.",
+      "Grok Premium refers to The X Subscription Premium tier, not the Super tier or a separate X Premium+ plan.",
+      "Subscription duration is one month; the store warranty lasts 20 days."
     ],
     "plans": [
       {
-        "name": "SuperGrok شهر + Coursera Plus شهر",
-        "planType": "SuperGrok + Plus",
-        "duration": "1 شهر لكل اشتراك",
-        "price": 1399,
+        "name": "Grok Premium شهر + Coursera Plus شهر — ضمان 20 يوم",
+        "planType": "Grok Premium + Coursera Plus",
+        "duration": "شهر لكل اشتراك",
+        "price": 1000,
         "available": true,
-        "activation": "تسليم حسابات جاهزة للخدمتين: إيميل + كلمة مرور + طريقة الوصول لكود التحقق لكل حساب.",
-        "account": "حسابات جاهزة",
-        "accountType": "حسابات جاهزة للخدمتين",
-        "warranty": "ضمان كامل لمدة شهر على الحسابين",
+        "activation": "تسليم حسابين جاهزين للاستخدام مع بيانات الدخول وطريقة الحصول على رمز التحقق لكل خدمة.",
+        "account": "حسابان جاهزان",
+        "accountType": "حساب جاهز لكل خدمة",
+        "warranty": "ضمان 20 يومًا على الحسابين",
+        "officialPrice": {
+          "amount": 89,
+          "currency": "USD",
+          "months": 1,
+          "basis": "reference",
+          "source": "https://www.coursera.org/courseraplus",
+          "checkedAt": "2026-11-25"
+        },
+        "priceComparison": {
+          "status": "reference",
+          "priceLabel": "السعر الرسمي للاشتراكين منفصلين (89$)",
+          "priceLabelEn": "Separate official monthly prices (USD 89)",
+          "referenceLabel": "الاشتراكان منفصلان بالسعر الرسمي",
+          "source": "https://docs.x.ai/x-subscription/pricing",
+          "checkedAt": "2026-11-25",
+          "showReferenceNote": true,
+          "note": "مقارنة مرجعية: Grok Premium ‏30$ من xAI + Coursera Plus ‏59$ من coursera.org، دون ضرائب. لا توجد باقة مشتركة رسمية؛ تختلف الأسعار حسب البلد.",
+          "noteEn": "Reference comparison: xAI Grok Premium USD 30 plus Coursera Plus USD 59 monthly, before taxes. This is not an official joint bundle; prices vary by region."
+        },
         "notes": [
-          "السعر يشمل اشتراك SuperGrok لشهر واشتراك Coursera Plus لشهر معًا.",
-          "تُسلّم بيانات الدخول وطريقة الوصول لكود التحقق لكل حساب ضمن تفاصيل الطلب.",
-          "الضمان كامل طوال مدة الاشتراك: شهر."
+          "يشمل السعر كلا الاشتراكين لمدة شهر، بضمان 20 يومًا من MASTER STORE.",
+          "سعر الاشتراكين الرسمي منفصلين 89 دولارًا شهريًا قبل الضرائب، وليس سعرًا رسميًا لهذه الباقة.",
+          "يتم تسليم بيانات الدخول والتحقق للحسابين عند تنفيذ الطلب."
+        ],
+        "notesEn": [
+          "Both one-month subscriptions are included, with a 20-day MASTER STORE warranty.",
+          "The combined separate standard price is USD 89/month before tax, not an official bundle price.",
+          "Login and verification access instructions for both accounts are provided on fulfilment."
         ]
       }
     ]
