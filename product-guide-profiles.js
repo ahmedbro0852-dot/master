@@ -147,12 +147,12 @@
   ]
 },
 "grok-cursor-premium":{
-  "intro": "باقة Grok Premium + Cursor Premium تجمع مساعدًا للأفكار والمحتوى مع محرر يساعدك في العمل على الكود. العرض لمدة شهر بحساب جاهز وضمان 28 يومًا، مع تسليم بيانات الحساب والبريد. افتح «عرض المزيد» لمراجعة الاستخدام والتسليم والمقارنة السعرية.",
-  "introEn": "Grok Premium + Cursor Premium combines an assistant for ideas and content with an editor that helps you work on code. This one-month ready-account offer has a 28-day warranty and includes account and mailbox credentials. Open “Show more” for usage, delivery and pricing details.",
+  "intro": "باقة Grok Premium + Cursor Premium تجمع مساعدًا للأفكار والمحتوى مع محرر يساعدك في العمل على الكود. العرض لمدة شهر بحساب جاهز وضمان 20 يومًا، مع تسليم بيانات الحساب والبريد. افتح «عرض المزيد» لمراجعة الاستخدام والتسليم والمقارنة السعرية.",
+  "introEn": "Grok Premium + Cursor Premium combines an assistant for ideas and content with an editor that helps you work on code. This one-month ready-account offer has a 20-day warranty and includes account and mailbox credentials. Open “Show more” for usage, delivery and pricing details.",
   "workflow": "ابدأ بتنظيم فكرتك مع Grok، ثم حوّلها إلى مهمة برمجية محددة داخل Cursor. اطلب تفسير الملفات أو تعديل جزء صغير، وراجع النتيجة واختبرها قبل اعتمادها. تابع لوحة الاستخدام لتعرف الرصيد المتبقي وموعد تجدده.",
   "workflowEn": "Organise an idea with Grok, then turn it into a focused coding task in Cursor. Ask for a file explanation or a small change, review the result and test it before accepting. Use the usage dashboard to track remaining allowance and its reset time.",
-  "check": "راجع أن العرض حساب جاهز لمدة شهر وضمانه 28 يومًا، وليس تفعيلًا على بريدك الشخصي. لا تفترض وجود رصيد مستقل لكل تطبيق أو شمول نماذج الشركات الأخرى. تفاصيل X والتوثيق على حسابك الشخصي ليست وعدًا ضمن هذا العرض.",
-  "checkEn": "Check that this is a one-month ready account with a 28-day warranty, not activation on your personal email. Do not assume separate quotas for each application or included third-party models. X benefits or verification on your personal account are not promised by this offer.",
+  "check": "راجع أن العرض حساب جاهز لمدة شهر وضمانه 20 يومًا، وليس تفعيلًا على بريدك الشخصي. لا تفترض وجود رصيد مستقل لكل تطبيق أو شمول نماذج الشركات الأخرى. تفاصيل X والتوثيق على حسابك الشخصي ليست وعدًا ضمن هذا العرض.",
+  "checkEn": "Check that this is a one-month ready account with a 20-day warranty, not activation on your personal email. Do not assume separate quotas for each application or included third-party models. X benefits or verification on your personal account are not promised by this offer.",
   "sections": [
     {
       "id": "grok-uses",
@@ -186,11 +186,11 @@
       "titleEn": "Account delivery and the warranty period",
       "paragraphs": [
         "هذا العرض يسلّم حسابًا جاهزًا، وليس دعوة أو تفعيلًا على إيميلك الشخصي. بيانات التسليم هي البريد الإلكتروني وكلمة مرور حساب الخدمة وكلمة مرور البريد المورَّد، مع خطوات الدخول. بعد الاستلام تحقّق من الوصول إلى Grok وCursor ونوع الخطة وتاريخ انتهائها.",
-        "مدة الاشتراك شهر، بينما الضمان 28 يومًا وفق شروط العرض وسياسة المتجر. احتفظ برقم الطلب وتواصل مع الدعم عند وجود مشكلة وصول خلال الضمان. كلمات المرور المذكورة تخص الحساب الجاهز الذي يصلك؛ لا يطلب هذا الوصف إرسال كلمة مرور حسابك الشخصي أو رمز تحققك."
+        "مدة الاشتراك شهر، بينما الضمان 20 يومًا وفق شروط العرض وسياسة المتجر. احتفظ برقم الطلب وتواصل مع الدعم عند وجود مشكلة وصول خلال الضمان. كلمات المرور المذكورة تخص الحساب الجاهز الذي يصلك؛ لا يطلب هذا الوصف إرسال كلمة مرور حسابك الشخصي أو رمز تحققك."
       ],
       "paragraphsEn": [
         "This offer delivers a ready-made account rather than an invitation or activation on your personal email. Delivery includes the email address, service account password and supplied mailbox password, with sign-in instructions. Check access to Grok and Cursor, the plan and its expiry after receipt.",
-        "The subscription lasts one month, while the warranty lasts 28 days under the offer terms and store policy. Keep your order number and contact support about access problems during coverage. The stated passwords belong to the supplied account; this description does not ask for your personal password or verification code."
+        "The subscription lasts one month, while the warranty lasts 20 days under the offer terms and store policy. Keep your order number and contact support about access problems during coverage. The stated passwords belong to the supplied account; this description does not ask for your personal password or verification code."
       ]
     },
     {
@@ -211,12 +211,12 @@
       "title": "السعر الرسمي الحالي والمقارنة التاريخية",
       "titleEn": "Current official reference and historical comparison",
       "paragraphs": [
-        "مرجع Premium الموحّدة الحالي 30 دولارًا للشهر قبل الضرائب؛ مقارنة السعر أعلى الصفحة تستخدم تحويل العملة المعتمد بالمتجر. الحساب الجاهز وضمان 28 يومًا من شروط عرض ماستر ستور، ولا يعني المرجع أن التسليم والضمان مطابقان للشراء المباشر من المزود.",
+        "مرجع Premium الموحّدة الحالي 30 دولارًا للشهر قبل الضرائب؛ مقارنة السعر أعلى الصفحة تستخدم تحويل العملة المعتمد بالمتجر. الحساب الجاهز وضمان 20 يومًا من شروط عرض ماستر ستور، ولا يعني المرجع أن التسليم والضمان مطابقان للشراء المباشر من المزود.",
         "النص الدعائي يقارن أيضًا بأسعار منفصلة قديمة: SuperGrok بـ30 دولارًا وCursor Pro بـ20 دولارًا، بإجمالي 50 دولارًا. على دولار بـ59 جنيهًا فقط، تعادل 1770 + 1180 = 2950 جنيهًا؛ وبسعر الإعلان 1298 جنيهًا يكون الفرق 1652 جنيهًا، نحو 56%. هذه مقارنة تاريخية بفئتين قديمتين، وليست خصمًا عن السعر الرسمي الحالي للباقة الموحّدة.",
         "وبنفس حساب الإعلان على دولار بـ59 جنيهًا، فإن مرجع الباقة الموحّدة 30 دولارًا يعادل 1770 جنيهًا والفرق 472 جنيهًا، نحو 26.7%. مثال التحويل هذا ثابت لتوضيح نص الإعلان؛ نسبة التوفير المعروضة أعلى الصفحة تتبع السعر الحالي وتحويل العملة المعتمد بالمتجر."
       ],
       "paragraphsEn": [
-        "The current unified Premium reference is USD 30 per month before tax; the comparison above uses the store’s currency conversion. Ready-account delivery and the 28-day warranty are Master Store offer terms, not a promise of identical delivery or coverage to a direct provider purchase.",
+        "The current unified Premium reference is USD 30 per month before tax; the comparison above uses the store’s currency conversion. Ready-account delivery and the 20-day warranty are Master Store offer terms, not a promise of identical delivery or coverage to a direct provider purchase.",
         "The advertisement also uses older standalone prices: USD 30 for SuperGrok and USD 20 for Cursor Pro, totalling USD 50. Specifically at EGP 59 per USD, these equal EGP 1,770 + 1,180 = 2,950; against the advertised EGP 1,298, the difference is EGP 1,652, about 56%. This is a historical comparison of legacy tiers, not the saving against today’s unified bundle.",
         "At that same advertisement rate of EGP 59 per USD, the USD 30 unified reference equals EGP 1,770, a difference of EGP 472, about 26.7%. This fixed conversion example explains the advertisement; the saving shown above follows the current offer price and the store’s currency conversion."
       ]
@@ -515,8 +515,8 @@
     "checkEn": "This is HumanizeAI.pro, not HumanizeAI.com. The separate domains have different plans and allowances; check the service name before comparing word limits."
   },
   "supergrok-coursera-bundle": {
-    "intro": "تجمع هذه الباقة Grok Premium للمحادثة والمساعدة في التفكير مع Coursera Plus للتعلم المنظم. تناسب من يريد مناقشة ما يتعلمه إلى جانب متابعة دورة لها منهج وتقييمات.",
-    "introEn": "This bundle combines Grok Premium for conversations and thinking support with Coursera Plus for structured learning. It suits someone who wants to discuss a topic while following a course with its own syllabus and assessments.",
+    "intro": "تجمع هذه الباقة SuperGrok للمحادثة والمساعدة في التفكير مع Coursera Plus للتعلم المنظم. تناسب من يريد مناقشة ما يتعلمه إلى جانب متابعة دورة لها منهج وتقييمات.",
+    "introEn": "This bundle combines SuperGrok for conversations and thinking support with Coursera Plus for structured learning. It suits someone who wants to discuss a topic while following a course with its own syllabus and assessments.",
     "workflow": "اختر هدفًا تعليميًا واحدًا، ثم ابحث عن دورة مشمولة في Coursera. استخدم مساعد المحادثة لشرح المصطلحات وإعداد أسئلة مراجعة، مع الرجوع إلى مادة الدورة عند التحقق من الإجابات.",
     "workflowEn": "Choose one learning goal and an included Coursera course. Use the chat assistant to explain terminology and prepare revision questions, returning to the course material to check answers.",
     "check": "الاشتراكان لهما حسابان وبيانات وصول منفصلة. الوصول إلى Coursera Plus لا يعني أن كل درجة جامعية أو برنامج على Coursera مشمول.",
