@@ -9,7 +9,7 @@ function render(id,en=false,route,options={}){
  // Windows already has a full edition-by-edition guide; keep it in one place.
  if(!p||p.redirectTo||id==='windows-pro')return '';if(!copy)return troubleshooting?.render(p,en,route)||'';
  const ui=(ar,english)=>en?english:ar,txt=key=>copy[en?key+'En':key];
- const displayNames={'supergrok-coursera-bundle':'SuperGrok + Coursera Plus','we-gold-discount':'WE Gold — Home Internet Discount','chatgpt-teachers-k12':'ChatGPT for K12 Teachers'};
+ const displayNames={'supergrok-coursera-bundle':'Grok Premium + Coursera Plus','we-gold-discount':'WE Gold — Home Internet Discount','chatgpt-teachers-k12':'ChatGPT for K12 Teachers'};
  const name=en?(displayNames[id]||p.name):p.name;
  const translate=options.translate||((v,kind)=>en&&root.MasterLocale?root.MasterLocale.catalogText(v,kind,id):String(v||''));
  const featuresFor=options.featuresFor||((plan)=>root.MasterProductFeatures?.list(p,plan,en,translate)||[]);
