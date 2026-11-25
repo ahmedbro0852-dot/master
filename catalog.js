@@ -671,14 +671,14 @@ const products = [
   "logo": "grok-cursor-premium",
   "logoUrl": "logos/grok-cursor-premium.svg?v=20261031-ready1",
   "status": "available",
-  "description": "Grok Premium + Cursor Premium لمدة شهر بسعر 1298 جنيه، بحساب جاهز يشمل البريد وكلمة مرور الحساب وكلمة مرور البريد، وضمان 28 يومًا. باقة تجمع مناقشة الأفكار وصياغة المحتوى مع المساعدة في كتابة الأكواد وفهمها وتعديلها.",
-  "descriptionEn": "Grok Premium + Cursor Premium for one month at EGP 1,298, with a ready-made account, email address, account and mailbox passwords, and a 28-day warranty. Combine idea discussion and content drafting with help writing, understanding and editing code.",
+  "description": "Grok Premium + Cursor Premium لمدة شهر بسعر 1000 جنيه، بحساب جاهز يشمل البريد وكلمة مرور الحساب وكلمة مرور البريد، وضمان 20 يومًا. باقة تجمع مناقشة الأفكار وصياغة المحتوى مع المساعدة في كتابة الأكواد وفهمها وتعديلها.",
+  "descriptionEn": "Grok Premium + Cursor Premium for one month at EGP 1,000, with a ready-made account, email address, account and mailbox passwords, and a 20-day warranty. Combine idea discussion and content drafting with help writing, understanding and editing code.",
   "features": [
     "Grok Premium + Cursor Premium في باقة واحدة لمدة شهر.",
     "Grok لمناقشة الأفكار وشرح الأسئلة وتنظيم مسودات المحتوى.",
     "Cursor للمساعدة في كتابة الأكواد وفهم ملفات المشروع وتعديلها داخل محرر البرمجة.",
     "حساب جاهز؛ يشمل التسليم البريد الإلكتروني وكلمة مرور الحساب وكلمة مرور البريد.",
-    "ضمان لمدة 28 يومًا وفق شروط العرض وسياسة المتجر.",
+    "ضمان لمدة 20 يومًا وفق شروط العرض وسياسة المتجر.",
     "المزايا وحدود الاستخدام حسب فئة Premium المفعّلة؛ لا يوجد وعد باستخدام غير محدود.",
     "الرصيد المشمول في Premium الموحّدة مشترك بين استخدامات Grok المدعومة وCursor ويتجدد أسبوعيًا.",
     "نماذج الشركات الأخرى داخل Cursor والرصيد الإضافي ليست ضمن سعر الباقة وتُحاسب منفصلًا."
@@ -688,14 +688,14 @@ const products = [
     "Use Grok to discuss ideas, explain questions and organise content drafts.",
     "Use Cursor to help write code, understand project files and make changes inside the coding editor.",
     "Ready-made account; delivery includes the email address, account password and mailbox password.",
-    "A 28-day warranty under the offer terms and store policy.",
+    "A 20-day warranty under the offer terms and store policy.",
     "Features and usage limits follow the activated Premium tier; unlimited usage is not promised.",
     "The unified Premium allowance is shared across supported Grok activity and Cursor, with a weekly reset.",
     "Third-party models in Cursor and additional credits are outside this offer and billed separately."
   ],
   "notes": [
     "هذه باقة حساب جاهز، وليست تفعيلًا على إيميلك الشخصي؛ يختلف عرضها عن باقة Cursor + Grok + X الموجودة بالمتجر.",
-    "مدة الاشتراك شهر، ومدة الضمان 28 يومًا؛ المدتان منفصلتان.",
+    "مدة الاشتراك شهر، ومدة الضمان 20 يومًا؛ المدتان منفصلتان.",
     "لا يتضمن وصف العرض تفعيل X Premium+ على حسابك الشخصي أو ضمان العلامة الزرقاء.",
     "راجع نوع الخطة وموعد الانتهاء والرصيد المتبقي بعد الاستلام؛ لا نعد بعدد طلبات أو كريدت غير مذكور.",
     "تسليم كلمات المرور يخص الحساب والبريد الجاهزين المورَّدين؛ لا ترسل كلمة مرور بريدك الشخصي أو كود تحققك في الشات.",
@@ -704,7 +704,7 @@ const products = [
   ],
   "notesEn": [
     "This is a ready-made account offer, not activation on your personal email; it differs from the store’s Cursor + Grok + X offer.",
-    "The subscription lasts one month and the warranty lasts 28 days; these are separate periods.",
+    "The subscription lasts one month and the warranty lasts 20 days; these are separate periods.",
     "This offer does not promise X Premium+ activation on your personal account or a blue checkmark.",
     "Check the plan, expiry date and remaining allowance on receipt; no unspecified request or credit quota is promised.",
     "Delivered passwords belong to the supplied account and mailbox; do not send your personal mailbox password or verification codes in chat.",
@@ -713,22 +713,22 @@ const products = [
   ],
   "plans": [
     {
-      "name": "Premium — شهر — حساب جاهز — ضمان 28 يومًا",
+      "name": "Premium — شهر — حساب جاهز — ضمان 20 يومًا",
       "planType": "Grok Premium + Cursor Premium",
       "duration": "1 شهر",
-      "price": 1298,
+      "price": 1000,
       "available": true,
       "account": "حساب جاهز مع البريد وكلمات مرور الحساب والبريد",
       "accountType": "حساب جاهز",
       "activation": "تسليم البريد الإلكتروني وكلمة مرور الحساب وكلمة مرور البريد، مع خطوات الدخول إلى Grok وCursor.",
-      "warranty": "ضمان لمدة 28 يومًا",
+      "warranty": "ضمان لمدة 20 يومًا",
       "credits": "رصيد Premium الموحّدة المشترك حسب الحدود الظاهرة بالحساب",
       "features": [
         "Grok Premium + Cursor Premium في باقة واحدة لمدة شهر.",
         "Grok لمناقشة الأفكار وشرح الأسئلة وتنظيم مسودات المحتوى.",
         "Cursor للمساعدة في كتابة الأكواد وفهم ملفات المشروع وتعديلها داخل محرر البرمجة.",
         "حساب جاهز؛ يشمل التسليم البريد الإلكتروني وكلمة مرور الحساب وكلمة مرور البريد.",
-        "ضمان لمدة 28 يومًا وفق شروط العرض وسياسة المتجر.",
+        "ضمان لمدة 20 يومًا وفق شروط العرض وسياسة المتجر.",
         "المزايا وحدود الاستخدام حسب فئة Premium المفعّلة؛ لا يوجد وعد باستخدام غير محدود.",
         "الرصيد المشمول في Premium الموحّدة مشترك بين استخدامات Grok المدعومة وCursor ويتجدد أسبوعيًا.",
         "نماذج الشركات الأخرى داخل Cursor والرصيد الإضافي ليست ضمن سعر الباقة وتُحاسب منفصلًا."
@@ -738,14 +738,14 @@ const products = [
         "Use Grok to discuss ideas, explain questions and organise content drafts.",
         "Use Cursor to help write code, understand project files and make changes inside the coding editor.",
         "Ready-made account; delivery includes the email address, account password and mailbox password.",
-        "A 28-day warranty under the offer terms and store policy.",
+        "A 20-day warranty under the offer terms and store policy.",
         "Features and usage limits follow the activated Premium tier; unlimited usage is not promised.",
         "The unified Premium allowance is shared across supported Grok activity and Cursor, with a weekly reset.",
         "Third-party models in Cursor and additional credits are outside this offer and billed separately."
       ],
       "notes": [
         "هذه باقة حساب جاهز، وليست تفعيلًا على إيميلك الشخصي؛ يختلف عرضها عن باقة Cursor + Grok + X الموجودة بالمتجر.",
-        "مدة الاشتراك شهر، ومدة الضمان 28 يومًا؛ المدتان منفصلتان.",
+        "مدة الاشتراك شهر، ومدة الضمان 20 يومًا؛ المدتان منفصلتان.",
         "لا يتضمن وصف العرض تفعيل X Premium+ على حسابك الشخصي أو ضمان العلامة الزرقاء.",
         "راجع نوع الخطة وموعد الانتهاء والرصيد المتبقي بعد الاستلام؛ لا نعد بعدد طلبات أو كريدت غير مذكور.",
         "تسليم كلمات المرور يخص الحساب والبريد الجاهزين المورَّدين؛ لا ترسل كلمة مرور بريدك الشخصي أو كود تحققك في الشات.",
@@ -754,7 +754,7 @@ const products = [
       ],
       "notesEn": [
         "This is a ready-made account offer, not activation on your personal email; it differs from the store’s Cursor + Grok + X offer.",
-        "The subscription lasts one month and the warranty lasts 28 days; these are separate periods.",
+        "The subscription lasts one month and the warranty lasts 20 days; these are separate periods.",
         "This offer does not promise X Premium+ activation on your personal account or a blue checkmark.",
         "Check the plan, expiry date and remaining allowance on receipt; no unspecified request or credit quota is promised.",
         "Delivered passwords belong to the supplied account and mailbox; do not send your personal mailbox password or verification codes in chat.",
@@ -779,8 +779,8 @@ const products = [
         "savingLabel": "التوفير مقابل المرجع الحالي",
         "savingLabelEn": "Saving against the current reference",
         "showReferenceNote": true,
-        "note": "مرجع Premium الموحّدة: 30 دولارًا للشهر قبل الضرائب. التحويل الداخلي للمتجر 56 جنيهًا للدولار؛ عرض الحساب الجاهز وضمان 28 يومًا يختلفان عن الشراء المباشر. نسبة 56% في النص الدعائي مقارنة تاريخية بالأسعار المنفصلة على دولار بـ59 جنيهًا وليست الخصم عن الباقة الحالية.",
-        "noteEn": "Unified Premium reference: USD 30 per month before tax. The store’s internal conversion is EGP 56 per USD; ready-account delivery and the 28-day warranty differ from a direct purchase. The advertisement’s 56% figure is a historical comparison with separate plans at EGP 59 per USD, not a saving against the current bundle."
+        "note": "مرجع Premium الموحّدة: 30 دولارًا للشهر قبل الضرائب. التحويل الداخلي للمتجر 56 جنيهًا للدولار؛ عرض الحساب الجاهز وضمان 20 يومًا يختلفان عن الشراء المباشر.",
+        "noteEn": "Unified Premium reference: USD 30 per month before tax. The store’s internal conversion is EGP 56 per USD; ready-account delivery and the 20-day warranty differ from a direct purchase."
       }
     }
   ]
@@ -1329,7 +1329,7 @@ const products = [
 },
   {
     "id": "supergrok-coursera-bundle",
-    "name": "Grok Premium + Coursera Plus",
+    "name": "سوبر جروك + كورسيرا بلس",
     "category": "التعليم",
     "categories": [
       "محادثة ومساعد ذكي",
@@ -1338,75 +1338,38 @@ const products = [
     "logo": "grok",
     "logoUrl": "logos/supergrok-coursera-bundle.svg",
     "status": "available",
-    "description": "عرض Grok Premium مع Coursera Plus لمدة شهر لكل اشتراك بسعر 1000 جنيه فقط، وضمان 20 يومًا على الحسابين. السعر الرسمي للاشتراكين منفصلين 89 دولارًا شهريًا قبل الضرائب حسب أسعار المزودين المعلنة، وقد تختلف الأسعار حسب الدولة.",
-    "descriptionEn": "Grok Premium and Coursera Plus bundled by MASTER STORE for one month each at EGP 1,000, with a 20-day store warranty on both accounts. Separate standard subscriptions are listed at USD 89/month in total before taxes; regional prices may vary.",
+    "description": "باقة مجمّعة تضم SuperGrok لمدة شهر وCoursera Plus لمدة شهر بسعر 1399 جنيه. حسابات جاهزة، مع ضمان كامل طوال الشهر وتسليم الإيميل وكلمة المرور وطريقة الوصول لكود التحقق لكل حساب.",
     "features": [
-      "Grok Premium لمدة شهر للمحادثة والبحث والمساعدة في الكتابة وفق حدود الاستخدام الرسمية للخطة.",
-      "Coursera Plus لمدة شهر للوصول إلى أكثر من 10,000 دورة وبرنامج مؤهل.",
-      "شهادات إتمام للدورات المشمولة بعد استكمال متطلباتها داخل الاشتراك.",
-      "الحسابان لمدة شهر كامل، مع ضمان متجر لمدة 20 يومًا.",
-      "سعر الباقة في MASTER STORE: 1000 جنيه للحسابين معًا.",
-      "الأسعار الرسمية المنفصلة: Grok Premium ‏30$ شهريًا + Coursera Plus ‏59$ شهريًا = 89$ قبل الضرائب."
+      "اشتراك SuperGrok لمدة شهر كامل.",
+      "اشتراك Coursera Plus لمدة شهر كامل.",
+      "الاشتراكان مشمولان في سعر واحد: 1399 ج.",
+      "حسابات جاهزة للاستخدام لكل خدمة.",
+      "تسليم الإيميل وكلمة المرور وطريقة الوصول لكود التحقق لكل حساب.",
+      "ضمان كامل على الحسابين طوال مدة الاشتراك: شهر."
     ],
     "featuresEn": [
-      "One month of Grok Premium for AI assistance, subject to the plan's official usage limits.",
-      "One month of Coursera Plus with access to 10,000+ eligible courses and learning programmes.",
-      "Completion certificates for included courses after all course requirements are met.",
-      "One-month access to both services; 20-day MASTER STORE warranty.",
-      "MASTER STORE bundle price: EGP 1,000 for both subscriptions.",
-      "Separate standard prices: Grok Premium USD 30/month plus Coursera Plus USD 59/month = USD 89/month before tax."
-    ],
-    "notes": [
-      "باقة MASTER STORE تجمع اشتراكين مستقلين؛ ليست باقة رسمية موحّدة من Coursera وxAI.",
-      "مقارنة 89$ مستندة إلى الأسعار الرسمية المنفصلة في 25 نوفمبر 2026، وقد تختلف حسب البلد والعروض والضرائب.",
-      "Grok Premium هنا تعني خطة The X Subscription Premium (وليست خطة Super أو X Premium+ منفصلة).",
-      "صلاحية الاشتراك شهر، أما ضمان المتجر فهو 20 يومًا فقط."
-    ],
-    "notesEn": [
-      "This is a MASTER STORE bundle of two separate subscriptions, not a joint official offer from Coursera and xAI.",
-      "The USD 89 comparison uses the suppliers' separate published prices as checked on 25 November 2026; regional offers and taxes may differ.",
-      "Grok Premium refers to The X Subscription Premium tier, not the Super tier or a separate X Premium+ plan.",
-      "Subscription duration is one month; the store warranty lasts 20 days."
+      "SuperGrok subscription for one full month.",
+      "Coursera Plus subscription for one full month.",
+      "Both subscriptions included for EGP 1,399.",
+      "Ready-to-use accounts for both services.",
+      "Email, password and instructions for accessing the verification code supplied for each account.",
+      "Full warranty for both accounts throughout the one-month subscription."
     ],
     "plans": [
       {
-        "name": "Grok Premium شهر + Coursera Plus شهر — ضمان 20 يوم",
-        "planType": "Grok Premium + Coursera Plus",
-        "duration": "شهر لكل اشتراك",
-        "price": 1000,
+        "name": "SuperGrok شهر + Coursera Plus شهر",
+        "planType": "SuperGrok + Plus",
+        "duration": "1 شهر لكل اشتراك",
+        "price": 1399,
         "available": true,
-        "activation": "تسليم حسابين جاهزين للاستخدام مع بيانات الدخول وطريقة الحصول على رمز التحقق لكل خدمة.",
-        "account": "حسابان جاهزان",
-        "accountType": "حساب جاهز لكل خدمة",
-        "warranty": "ضمان 20 يومًا على الحسابين",
-        "officialPrice": {
-          "amount": 89,
-          "currency": "USD",
-          "months": 1,
-          "basis": "reference",
-          "source": "https://www.coursera.org/courseraplus",
-          "checkedAt": "2026-11-25"
-        },
-        "priceComparison": {
-          "status": "reference",
-          "priceLabel": "السعر الرسمي للاشتراكين منفصلين (89$)",
-          "priceLabelEn": "Separate official monthly prices (USD 89)",
-          "referenceLabel": "الاشتراكان منفصلان بالسعر الرسمي",
-          "source": "https://docs.x.ai/x-subscription/pricing",
-          "checkedAt": "2026-11-25",
-          "showReferenceNote": true,
-          "note": "مقارنة مرجعية: Grok Premium ‏30$ من xAI + Coursera Plus ‏59$ من coursera.org، دون ضرائب. لا توجد باقة مشتركة رسمية؛ تختلف الأسعار حسب البلد.",
-          "noteEn": "Reference comparison: xAI Grok Premium USD 30 plus Coursera Plus USD 59 monthly, before taxes. This is not an official joint bundle; prices vary by region."
-        },
+        "activation": "تسليم حسابات جاهزة للخدمتين: إيميل + كلمة مرور + طريقة الوصول لكود التحقق لكل حساب.",
+        "account": "حسابات جاهزة",
+        "accountType": "حسابات جاهزة للخدمتين",
+        "warranty": "ضمان كامل لمدة شهر على الحسابين",
         "notes": [
-          "يشمل السعر كلا الاشتراكين لمدة شهر، بضمان 20 يومًا من MASTER STORE.",
-          "سعر الاشتراكين الرسمي منفصلين 89 دولارًا شهريًا قبل الضرائب، وليس سعرًا رسميًا لهذه الباقة.",
-          "يتم تسليم بيانات الدخول والتحقق للحسابين عند تنفيذ الطلب."
-        ],
-        "notesEn": [
-          "Both one-month subscriptions are included, with a 20-day MASTER STORE warranty.",
-          "The combined separate standard price is USD 89/month before tax, not an official bundle price.",
-          "Login and verification access instructions for both accounts are provided on fulfilment."
+          "السعر يشمل اشتراك SuperGrok لشهر واشتراك Coursera Plus لشهر معًا.",
+          "تُسلّم بيانات الدخول وطريقة الوصول لكود التحقق لكل حساب ضمن تفاصيل الطلب.",
+          "الضمان كامل طوال مدة الاشتراك: شهر."
         ]
       }
     ]
