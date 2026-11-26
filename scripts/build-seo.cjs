@@ -39,7 +39,31 @@ function writeInternational(){
  }
 }
 
-const directory='<section class="seo-directory" id="site-directory"><h2>تصفح أقسام ماستر ستور</h2><nav class="seo-category-links" aria-label="أقسام الاشتراكات">'+categoryLinks()+internationalLinks()+'</nav><details><summary>دليل الاشتراكات والخدمات</summary><nav class="seo-product-links" aria-label="كل صفحات الخدمات">'+indexed.map(p=>'<a href="'+SEO.productUrl(p)+'">'+escape(p.name)+'</a>').join('')+'</nav></details></section>';
+
+const buyingGuides=[
+ {slug:'compare-chatgpt-plus-go-gemini',title:'مقارنة اشتراكات ChatGPT Plus وGo وGemini',description:'قارن طرق التفعيل ومدد الباقات والضمان في ماستر ستور واختر الاشتراك المناسب لحسابك واستخدامك.',intro:'اختيار مساعد ذكاء اصطناعي لا يعتمد على السعر فقط. حدد هل تريد الاحتفاظ بحسابك الحالي، وما المدة التي تحتاجها، وهل تحتاج رصيدًا منفصلًا أو تقبل باقة عائلية. المقارنة التالية تخص عروض ماستر ستور، لا جميع الخطط الرسمية.',items:[
+ ['chatgpt-plus','لمن يريد تفعيل Plus على حسابه الشخصي أو حسابًا خاصًا جاهزًا.','تأكد من اختيار نوع التفعيل الصحيح؛ مزايا النماذج وحدود الاستخدام تتبع الخطة.'],
+ ['chatgpt-go','لمن يفضّل حسابًا جاهزًا ومدة أقصر أو أطول حسب الباقات المعروضة.','ضمان الاستبدال في باقة الثلاثة شهور ليس ضمانًا يغطي المدة كلها؛ راجع شرط 70 يومًا.'],
+ ['gemini-pro','لمن يفضّل استخدام بريد Google الشخصي ضمن عرض الدعوة العائلية.','تحقق من أهلية البلد والعائلة؛ الرصيد المشترك يتأثر باستخدام المجموعة.'],
+ ['google-ai-plus','لمن يريد خطة Google AI Plus على حسابه الشخصي.','لا تفترض أنها تشمل كل مزايا Pro أو Ultra؛ تحقق من الأهلية والرصيد قبل الدفع.']
+ ],checks:['إذا كان الحفاظ على محادثاتك وإعداداتك مهمًا، راجع الباقات المخصصة لحسابك الحالي بدل الحساب الجاهز.','إذا كنت ستستخدم أدوات الفيديو أو الصور بكثرة، تحقق من الرصيد والحدود الخاصة بالأداة المطلوبة قبل الدفع.','إذا كنت خارج مصر، أكد أهلية بلدك وطريقة الدفع والعملة مع الدعم.']},
+ {slug:'compare-canva-capcut',title:'Canva Pro أم CapCut Pro؟ اختيار اشتراك التصميم والمونتاج',description:'دليل اختيار Canva Pro للتصميم والعروض أو CapCut Pro للمونتاج، مع مقارنة طرق التفعيل والكريدت والضمان.',intro:'لو هدفك إنتاج محتوى للسوشيال ميديا، حدد نوع العمل أولًا: تصميم بوستر أو عرض تقديمي، أم تحرير فيديو وقص المشاهد؟ قد تحتاج الأداتين في مشروع واحد، لكن لا تحتاج بالضرورة شراء الاثنين.',items:[
+ ['canva-pro','لإنشاء التصميمات والمنشورات والعروض المرئية.','تحقق من نوع العضوية والتفعيل على بريدك وما تشمل الباقة من خصائص قبل الشراء.'],
+ ['capcut-pro','لتحرير الفيديو وترتيب المقاطع وإعداد محتوى مرئي متحرك.','قارن الباقات الجاهزة والتفعيل على بريدك، والرصيد المحدد؛ باقة الأسبوع لا تتضمن ضمان وجود كريدت.']
+ ],checks:['لتصميم إعلان ثابت، ابدأ بأداة التصميم وقارن القوالب والتصدير المطلوب.','لمونتاج فيديو قصير، جرّب سير العمل المطلوب وتحقق من توفر الخصائص على جهازك.','إذا كنت تعتمد على خصائص تعمل بالكريدت، اختر الرصيد حسب احتياجك، لا حسب مدة الاشتراك فقط.']}
+];
+const buyingUrl=g=>origin+'/categories/'+g.slug+'.html';
+const buyingLinks=()=>buyingGuides.map(g=>'<a href="'+buyingUrl(g)+'">'+escape(g.title)+'</a>').join('');
+function writeBuyingGuides(){
+ for(const g of buyingGuides){
+ const url=buyingUrl(g),title=g.title+' | ماستر ستور';
+ const cards=g.items.map(([id,use,check])=>{const p=indexed.find(x=>x.id===id);if(!p)return '';const plans=(p.plans||[]).filter(x=>!x.hidden&&x.available!==false);return '<article class="seo-service-card"><h2><a href="'+SEO.productUrl(p)+'">'+escape(p.name)+'</a></h2><p>'+escape(use)+'</p><h3>الباقات المدرجة</h3><ul>'+plans.map(x=>'<li>'+escape(x.name)+' · '+escape(x.duration||'راجع المدة')+' · '+escape(x.warranty||'راجع الضمان')+'</li>').join('')+'</ul><p>'+escape(check)+'</p><a class="seo-card-link" href="'+SEO.productUrl(p)+'">راجع السعر والتفعيل والتوفر الحالي ←</a></article>';}).join('');
+ const html='<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+escape(title)+'</title><meta name="description" content="'+escape(g.description)+'"><meta name="robots" content="index,follow"><link rel="canonical" href="'+url+'"><link rel="icon" href="/master-mark.svg"><link rel="stylesheet" href="/theme.css"><link rel="stylesheet" href="/seo-pages.css"></head><body class="seo-landing"><header><a href="/"><img src="/master-store-logo.svg" alt="MASTER STORE" width="170" height="55"></a><a href="/#products">تصفح المتجر</a></header><main><h1>'+escape(g.title)+'</h1><p class="seo-intro">'+escape(g.intro)+'</p><section class="seo-card-grid">'+cards+'</section><section><h2>كيف تختار قبل الدفع؟</h2><ol>'+g.checks.map(x=>'<li>'+escape(x)+'</li>').join('')+'</ol><p>تتغير الأسعار والتوفر والحدود حسب الباقة والمنطقة؛ راجع الصفحة الخاصة بالمنتج وشروط مزود الخدمة قبل الطلب.</p><p><a href="/common-problems.html">دليل حل مشاكل الاشتراكات</a> · <a href="/warranty.html">شروط الضمان</a> · <a href="/categories/international-subscriptions.html">الطلب من خارج مصر</a></p></section></main><footer>MASTER STORE · <a href="/">الصفحة الرئيسية</a></footer></body></html>';
+ fs.writeFileSync(path.join(root,'categories',g.slug+'.html'),html);
+ }
+}
+
+const directory='<section class="seo-directory" id="site-directory"><h2>تصفح أقسام ماستر ستور</h2><nav class="seo-category-links" aria-label="أقسام الاشتراكات">'+categoryLinks()+internationalLinks()+buyingLinks()+'</nav><details><summary>دليل الاشتراكات والخدمات</summary><nav class="seo-product-links" aria-label="كل صفحات الخدمات">'+indexed.map(p=>'<a href="'+SEO.productUrl(p)+'">'+escape(p.name)+'</a>').join('')+'</nav></details></section>';
 async function loadPrices(){
  if(process.env.MASTER_SEO_OFFLINE==='1')return null;
  try{
@@ -69,6 +93,7 @@ function writeProducts(prices){
    const before=offer&&former>Number(offer.price)*100?'<span class="plan-previous-price"><small>السعر السابق</small><del>'+escape((former/100).toLocaleString('en-US'))+' ج</del></span>':'';
    return '<article class="account-panel"><h3>'+escape(plan.name)+'</h3>'+(offer?'<p><strong>السعر: '+escape(offer.price)+' جنيه مصري</strong> · '+(offer.availability.endsWith('/InStock')?'متاح للطلب':'غير متاح حاليًا')+'</p>':'')+before+'<p>المدة: '+escape(plan.duration||'راجع تفاصيل الباقة')+'</p><p>'+escape(plan.activation)+'</p><p>الضمان: '+escape(plan.warranty||'يُؤكد مع الدعم')+'</p>'+(details.length?'<ul>'+details.map(f=>'<li>'+escape(f)+'</li>').join('')+'</ul>':'')+(plan.notes?.length?'<ul>'+plan.notes.map(n=>'<li>'+escape(n)+'</li>').join('')+'</ul>':'')+'</article>';
   }).join('')+'<p>راجع السعر والتوفر الحاليين عند الطلب؛ يتم تأكيد الدفع والتسليم وفق تفاصيل الباقة.</p><a href="/product.html?id='+encodeURIComponent(p.id)+'">اختيار الباقة والطلب</a></section>';
+  const relevantGuides=buyingGuides.filter(g=>g.items.some(item=>item[0]===p.id));if(relevantGuides.length)content+='<section class="seo-related"><h2>دليل اختيار الاشتراك</h2><ul>'+relevantGuides.map(g=>'<li><a href="'+buyingUrl(g)+'">'+escape(g.title)+'</a></li>').join('')+'</ul></section>';
   content+=ProductGuides.render(p.id,false,undefined,{product:p,catalog:catalog.products,priceRows:prices,featuresFor:plan=>sandbox.window.MasterProductFeatures.list(p,plan,false,x=>String(x||''))});
   if(WindowsGuide.match(p)){
    content=content.replace('</section><section class="plans-block">','</section>'+WindowsGuide.nav(false)+'<section class="plans-block" id="windows-plans">')+'<div id="windows-guide-root">'+WindowsGuide.render(false,p)+'</div>';
@@ -117,8 +142,8 @@ function writeHome(){
  fs.writeFileSync(path.join(root,'index.html'),html);
 }
 (async()=>{
- const prices=await loadPrices();writeProducts(prices);writeCategories();writeInternational();writeHome();
- const urls=[origin+'/',origin+'/warranty.html',origin+'/common-problems.html',origin+'/categories.html',...categories.map(SEO.categoryUrl),...internationalPages.map(internationalUrl),...indexed.map(SEO.productUrl)];
+ const prices=await loadPrices();writeProducts(prices);writeCategories();writeInternational();writeBuyingGuides();writeHome();
+ const urls=[origin+'/',origin+'/warranty.html',origin+'/common-problems.html',origin+'/categories.html',...categories.map(SEO.categoryUrl),...internationalPages.map(internationalUrl),...buyingGuides.map(buyingUrl),...indexed.map(SEO.productUrl)];
  // No fabricated lastmod timestamps: catalog content can change independently of a deploy.
  fs.writeFileSync(path.join(root,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(url=>'<url><loc>'+escape(url)+'</loc></url>').join('\n')+'\n</urlset>\n');
  console.log('SEO: '+products.length+' product pages, '+categories.length+' category pages, '+urls.length+' sitemap URLs; '+(prices?prices.length+' public price records':'no unverified prices')+'.');
