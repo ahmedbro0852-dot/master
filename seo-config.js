@@ -5,6 +5,7 @@ const origin='https://master-pi-six.vercel.app';
 const social=typeof module==='object'&&module.exports?require('./social-links.js'):window.MasterSocialLinks;
 const profileLinks=[social?.facebook,social?.whatsappChannel].filter(Boolean);
 const categories=[
+ {name:'محادثة ومساعد ذكي',slug:'ai-chat-assistants',title:'اشتراكات الذكاء الاصطناعي والمساعدات الذكية',description:'قارن اشتراكات ChatGPT وGemini وSuper Grok وغيرها من المساعدات الذكية. تعرف على الباقات المتاحة وأسعار المتجر بالجنيه المصري وطرق التفعيل والضمان قبل الشراء.'},
  {name:'الفيديو',slug:'video-tools',title:'اشتراكات أدوات الفيديو والمونتاج',description:'قارن باقات توليد الفيديو بالذكاء الاصطناعي والأفاتار والمونتاج. راجع مدة الاشتراك وطريقة التفعيل والضمان لكل خدمة قبل الطلب.'},
  {name:'الصور والتصميم',slug:'image-design-tools',title:'اشتراكات أدوات الصور والتصميم',description:'تصفح أدوات توليد الصور وتعديلها والتصميم وموارد الصور والقوالب. اختر الخدمة حسب استخدامك وراجع الباقات والتفعيل والضمان.'},
  {name:'الصوت',slug:'voice-audio-tools',title:'اشتراكات أدوات التعليق الصوتي والصوت',description:'اكتشف خدمات التعليق الصوتي وتحويل النص إلى صوت والإملاء وتلخيص الاجتماعات. راجع حدود الرصيد ومدة كل باقة وتفاصيل التفعيل.'},
@@ -26,7 +27,21 @@ function categoryFor(p,groups={}){
  return categories.filter(c=>c.slug===fallback[p.category]);
 }
 const indexable=p=>!p.redirectTo&&p.status!=='soon'&&(p.plans||[]).some(x=>!x.hidden);
-function productTitle(p){return (p.id.startsWith('windows-')?'تفعيل '+p.name:(p.id==='turnitin'?'فحص ملف ':p.id==='we-gold-discount'?'تفعيل ':'اشتراك ')+p.name+' — المميزات والباقات')+' | ماستر ستور';}
+const searchTitles={
+ 'chatgpt-plus':'اشتراك ChatGPT Plus (شات جي بي تي بلس) | ماستر ستور',
+ 'chatgpt-go':'اشتراك ChatGPT Go | ماستر ستور',
+ 'gemini-pro':'اشتراك Gemini Pro (جيميني برو) | ماستر ستور',
+ 'canva-pro':'اشتراك Canva Pro (كانفا برو) | ماستر ستور',
+ 'capcut-pro':'اشتراك CapCut Pro (كاب كات برو) | ماستر ستور',
+ 'gamma-plus':'اشتراك Gamma للعروض التقديمية | ماستر ستور',
+ 'elevenlabs':'اشتراك ElevenLabs للتعليق الصوتي | ماستر ستور',
+ 'perplexity-pro':'اشتراك Perplexity Pro للبحث | ماستر ستور',
+ 'lovable-pro':'اشتراك Lovable لبناء المواقع | ماستر ستور',
+ 'grok':'اشتراك Super Grok (سوبر جروك) | ماستر ستور',
+ 'adobe-express':'اشتراك Adobe Express Premium | ماستر ستور',
+ 'adobe-cc':'اشتراك Adobe Creative Cloud Pro | ماستر ستور'
+};
+function productTitle(p){if(Object.hasOwn(searchTitles,p.id))return searchTitles[p.id];return (p.id.startsWith('windows-')?'تفعيل '+p.name:(p.id==='turnitin'?'فحص ملف ':p.id==='we-gold-discount'?'تفعيل ':'اشتراك ')+p.name+' — المميزات والباقات')+' | ماستر ستور';}
 function productDescription(p,english=false){const profiles=typeof module==='object'&&module.exports?require('./product-guide-profiles.js'):globalThis.MasterProductGuideProfiles;return shortDescription(profiles?.[p.id]?.[english?'introEn':'intro']||(english?p.descriptionEn:p.description)||p.name);}
 function image(p){const candidate=p.logoUrl&&!p.logoUrl.startsWith('data:')?p.logoUrl:p.logo?'logos/'+encodeURIComponent(p.logo)+'.svg':'master-store-logo.png';try{const u=new URL(candidate,origin+'/');return u.protocol==='https:'?u.href:origin+'/master-store-logo.png';}catch{return origin+'/master-store-logo.png';}}
 function shortDescription(text){return String(text||'').replace(/\s+/g,' ').trim().slice(0,220);}
