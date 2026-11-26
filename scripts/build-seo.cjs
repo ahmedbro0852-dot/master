@@ -14,7 +14,32 @@ const dataScript=data=>'<script id="master-seo-data" type="application/ld+json">
 const categoryProducts=c=>indexed.filter(p=>SEO.categoryFor(p,catalog.categoryGroups).some(x=>x.slug===c.slug));
 const categories=SEO.categories.filter(c=>categoryProducts(c).length);
 const categoryLinks=()=>categories.map(c=>'<a href="'+SEO.categoryUrl(c)+'">'+escape(c.name)+'</a>').join('');
-const directory='<section class="seo-directory" id="site-directory"><h2>تصفح أقسام ماستر ستور</h2><nav class="seo-category-links" aria-label="أقسام الاشتراكات">'+categoryLinks()+'</nav><details><summary>دليل الاشتراكات والخدمات</summary><nav class="seo-product-links" aria-label="كل صفحات الخدمات">'+indexed.map(p=>'<a href="'+SEO.productUrl(p)+'">'+escape(p.name)+'</a>').join('')+'</nav></details></section>';
+
+const internationalPages=[{lang:'ar',slug:'international-subscriptions',title:'اشتراكات الذكاء الاصطناعي حول العالم | ماستر ستور',description:'قارن اشتراكات ChatGPT وCanva وCapCut وGemini. دليل الطلب من الأردن وأمريكا وفلسطين وسوريا، والعملات والتفعيل وشروط الضمان.'},{lang:'en',slug:'ai-subscriptions-international',title:'AI Subscriptions: ChatGPT, Canva & CapCut | MASTER STORE',description:'Compare AI and creative subscription plans, activation options, payment enquiries and warranty terms at MASTER STORE.'}];
+const internationalUrl=p=>origin+'/categories/'+p.slug+'.html';
+const internationalLinks=()=>internationalPages.map(p=>'<a lang="'+p.lang+'" href="'+internationalUrl(p)+'">'+(p.lang==='ar'?'الاشتراكات خارج مصر':'International AI subscriptions (English)')+'</a>').join('');
+function writeInternational(){
+ const selected=[
+ ['chatgpt-plus','ChatGPT Plus','للعمل والكتابة وتحليل الملفات؛ راجع حدود الباقة ونوع الحساب.','For writing, work and file analysis; check plan limits and account type.'],
+ ['canva-pro','Canva Pro','للتصميم والعروض والمحتوى المرئي؛ قارن نوع العضوية ومدة الوصول.','For design, presentations and visual content; compare membership types and access duration.'],
+ ['capcut-pro','CapCut Pro','للمونتاج والفيديو؛ تأكد من توافق الجهاز وطريقة التفعيل.','For video editing; check device compatibility and activation method.'],
+ ['gemini-pro','Google Gemini','للمهام البحثية والإنتاجية؛ راجع مزايا كل باقة وأهليتها.','For research and productivity; review plan features and eligibility.'],
+ ['gamma-plus','Gamma','لإنشاء العروض والمستندات؛ راجع الرصيد والمدة.','For presentations and documents; review credits and duration.'],
+ ['elevenlabs','ElevenLabs','للتعليق الصوتي وتحويل النص لصوت؛ قارن الرصيد والاستخدامات.','For voiceovers and text-to-speech; compare credits and use cases.']
+ ].filter(item=>indexed.some(p=>p.id===item[0]));
+ for(const page of internationalPages){
+  const en=page.lang==='en',url=internationalUrl(page),other=internationalPages.find(p=>p.lang!==page.lang);
+  const intro=en?'Browse digital subscription options from MASTER STORE. Before ordering, check the plan, account type, duration, activation method and warranty. Availability depends on your country and the service provider.':'لو بتبحث عن اشتراكات رقمية من خارج مصر، قارن الباقات حسب نوع الحساب والمدة وطريقة التفعيل والضمان. توفر كل خدمة يعتمد على بلدك وشروط مزود الخدمة.';
+  const countries=en?'<h2>Ordering from abroad</h2><h3>Jordan</h3><p>Choose Jordan in the store currency selector to view JOD estimates. Confirm the final amount and payment method with support before paying.</p><h3>United States and other international markets</h3><p>Choose International (USD) and English in the store selector. Ask support to confirm the plan is available in your location and which payment methods apply.</p><h3>Palestine and Syria</h3><p>Contact support to check whether the specific service and payment method are available in your location. Do not assume every plan is supported; service-provider restrictions apply.</p>':'<h2>الطلب من خارج مصر</h2><h3>الأردن</h3><p>اختر الأردن من قائمة الدول في المتجر لعرض تقديرات الأسعار بالدينار الأردني. أكد المبلغ النهائي وطريقة الدفع مع الدعم قبل التحويل.</p><h3>الولايات المتحدة والأسواق الدولية</h3><p>اختر دولي (USD) من قائمة الدول، ويمكنك اختيار الإنجليزية من قائمة اللغة. استفسر من الدعم عن توفر الباقة وطريقة الدفع في بلدك.</p><h3>فلسطين وسوريا</h3><p>تواصل مع الدعم للتأكد من إمكانية توفير الخدمة وطريقة الدفع المناسبة لبلدك. لا تفترض إتاحة كل الباقات؛ تسري شروط وقيود مزود الخدمة.</p>';
+  const checks=en?'<h2>Before you pay</h2><ol><li>Compare the available plans on the product page.</li><li>Check whether the plan uses your own account or a provided account, and review the warranty.</li><li>Confirm current availability, final price, payment and delivery terms with support.</li></ol>':'<h2>قبل الدفع</h2><ol><li>قارن الباقات المتاحة في صفحة المنتج.</li><li>راجع نوع الحساب والضمان، سواء كان التفعيل على حسابك أو حسابًا جاهزًا.</li><li>أكد التوفر والسعر النهائي والدفع والتسليم مع الدعم.</li></ol>';
+  const cards=selected.map(([id,name,ar,eng])=>'<article class="seo-service-card"><h2><a href="'+SEO.productUrl({id})+'">'+escape(name)+'</a></h2><p>'+escape(en?eng:ar)+'</p><a class="seo-card-link" href="'+SEO.productUrl({id})+'">'+(en?'View plans (language selector available)':'عرض الباقات والتفعيل')+'</a></article>').join('');
+  const alternate=internationalPages.map(p=>'<link rel="alternate" hreflang="'+p.lang+'" href="'+internationalUrl(p)+'">').join('');
+  const html='<!doctype html><html lang="'+page.lang+'" dir="'+(en?'ltr':'rtl')+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+escape(page.title)+'</title><meta name="description" content="'+escape(page.description)+'"><meta name="robots" content="index,follow"><link rel="canonical" href="'+url+'">'+alternate+'<meta property="og:title" content="'+escape(page.title)+'"><meta property="og:description" content="'+escape(page.description)+'"><meta property="og:url" content="'+url+'"><meta property="og:type" content="website"><link rel="icon" href="/master-mark.svg"><link rel="stylesheet" href="/theme.css"><link rel="stylesheet" href="/seo-pages.css"><style>main{max-width:1100px;margin:auto;padding:24px 16px}main>section:not(.seo-card-grid){margin:32px 0;line-height:1.85}.seo-landing main{text-align:start}</style></head><body class="seo-landing"><header><a href="/"><img src="/master-store-logo.svg" alt="MASTER STORE" width="170" height="55"></a><a href="'+internationalUrl(other)+'" lang="'+other.lang+'">'+(en?'العربية':'English')+'</a><a href="/#products">'+(en?'Browse store':'تصفح المتجر')+'</a></header><main><h1>'+escape(en?'AI subscriptions for international customers':'اشتراكات الذكاء الاصطناعي للعملاء حول العالم')+'</h1><p class="seo-intro">'+escape(intro)+'</p><section class="seo-card-grid">'+cards+'</section><section>'+countries+'</section><section>'+checks+'<p><a href="https://wa.me/201500950624" target="_blank" rel="noopener noreferrer">'+(en?'Contact support on WhatsApp':'تواصل مع الدعم عبر واتساب')+'</a></p></section></main><footer><a href="/warranty.html">'+(en?'Warranty and terms':'سياسة الضمان والشروط')+'</a> · MASTER STORE</footer></body></html>';
+  fs.writeFileSync(path.join(root,'categories',page.slug+'.html'),html);
+ }
+}
+
+const directory='<section class="seo-directory" id="site-directory"><h2>تصفح أقسام ماستر ستور</h2><nav class="seo-category-links" aria-label="أقسام الاشتراكات">'+categoryLinks()+internationalLinks()+'</nav><details><summary>دليل الاشتراكات والخدمات</summary><nav class="seo-product-links" aria-label="كل صفحات الخدمات">'+indexed.map(p=>'<a href="'+SEO.productUrl(p)+'">'+escape(p.name)+'</a>').join('')+'</nav></details></section>';
 async function loadPrices(){
  if(process.env.MASTER_SEO_OFFLINE==='1')return null;
  try{
@@ -87,8 +112,8 @@ function writeHome(){
  fs.writeFileSync(path.join(root,'index.html'),html);
 }
 (async()=>{
- const prices=await loadPrices();writeProducts(prices);writeCategories();writeHome();
- const urls=[origin+'/',origin+'/warranty.html',origin+'/common-problems.html',origin+'/categories.html',...categories.map(SEO.categoryUrl),...indexed.map(SEO.productUrl)];
+ const prices=await loadPrices();writeProducts(prices);writeCategories();writeInternational();writeHome();
+ const urls=[origin+'/',origin+'/warranty.html',origin+'/common-problems.html',origin+'/categories.html',...categories.map(SEO.categoryUrl),...internationalPages.map(internationalUrl),...indexed.map(SEO.productUrl)];
  // No fabricated lastmod timestamps: catalog content can change independently of a deploy.
  fs.writeFileSync(path.join(root,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(url=>'<url><loc>'+escape(url)+'</loc></url>').join('\n')+'\n</urlset>\n');
  console.log('SEO: '+products.length+' product pages, '+categories.length+' category pages, '+urls.length+' sitemap URLs; '+(prices?prices.length+' public price records':'no unverified prices')+'.');
