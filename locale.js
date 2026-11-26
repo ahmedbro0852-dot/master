@@ -781,8 +781,9 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
 
   function updateDocumentDirection(){
     const en=state.language==='en';
-    document.documentElement.lang=en?'en':'ar';
-    document.documentElement.dir=en?'ltr':'rtl';
+    const lang=en?'en':'ar',dir=en?'ltr':'rtl';
+    if(document.documentElement.lang!==lang)document.documentElement.lang=lang;
+    if(document.documentElement.dir!==dir)document.documentElement.dir=dir;
     const page=location.pathname.split('/').pop()||'index.html';
     const titles={'index.html':['ماستر ستور | الاشتراكات والخدمات الرقمية','MASTER STORE | Digital subscriptions & services'],'cart.html':['سلة اشتراكاتك | ماستر ستور','Your cart | MASTER STORE'],'account.html':['حسابك | ماستر ستور','Your account | MASTER STORE'],'track.html':['متابعة الطلب | ماستر ستور','Track your order | MASTER STORE'],'warranty.html':['سياسة الضمان والاستبدال | ماستر ستور','Warranty & replacement policy | MASTER STORE']};
     if(titles[page])document.title=titles[page][en?1:0];
@@ -842,12 +843,12 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
   }
 
   function setText(selector,ar,en){
-    const el=document.querySelector(selector);
-    if(el)el.textContent=state.language==='en'?en:ar;
+    const el=document.querySelector(selector),value=state.language==='en'?en:ar;
+    if(el&&el.textContent!==value)el.textContent=value;
   }
   function setHTML(selector,ar,en){
-    const el=document.querySelector(selector);
-    if(el)el.innerHTML=state.language==='en'?en:ar;
+    const el=document.querySelector(selector),value=state.language==='en'?en:ar;
+    if(el&&el.innerHTML!==value)el.innerHTML=value;
   }
 
   function applyStaticTranslations(){
@@ -1010,10 +1011,11 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
       const res=await fetch(FX_URL,{cache:'no-store'});
       const data=await res.json();
       if(data&&data.result==='success'&&data.rates){
+        const previousRates=JSON.stringify(state.rates);
         state.rates={...FALLBACK_RATES,...data.rates};
         state.rateSource='live';
         localStorage.setItem(FX_KEY,JSON.stringify({at:Date.now(),rates:data.rates}));
-        emit();
+        if(previousRates!==JSON.stringify(state.rates))emit();
       }
     }catch(_){}
   }
@@ -1038,18 +1040,19 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
     }catch(_){}
     const latest=getPref();
     if(latest.manualMarket&&MARKETS[latest.market])return;
+    const previousMarket=state.market,previousLanguage=state.language;
     state.market=marketFromCountry(country);
     if(!latest.language){
       state.language=state.market==='INTL'?'en':'ar';
     }
     savePref({manualMarket:false,detectedAt:Date.now()});
-    apply();
-    emit();
+    if(previousMarket!==state.market||previousLanguage!==state.language){apply();emit();}
   }
 
   function init(){
     const pref=getPref();
     if(pref.market&&MARKETS[pref.market])state.market=pref.market;
+    else if(inferCountry())state.market=marketFromCountry(inferCountry());
     if(pref.language==='en'||pref.language==='ar')state.language=pref.language;
     else {
       const nav=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase();
