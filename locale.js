@@ -1011,11 +1011,11 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
       const res=await fetch(FX_URL,{cache:'no-store'});
       const data=await res.json();
       if(data&&data.result==='success'&&data.rates){
-        const currency=currentMarket().currency,previousRate=currencyRate(currency);
+        const previousRates=JSON.stringify(state.rates);
         state.rates={...FALLBACK_RATES,...data.rates};
         state.rateSource='live';
         localStorage.setItem(FX_KEY,JSON.stringify({at:Date.now(),rates:data.rates}));
-        if(previousRate!==currencyRate(currency))emit();
+        if(previousRates!==JSON.stringify(state.rates))emit();
       }
     }catch(_){}
   }
