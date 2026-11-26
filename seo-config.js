@@ -28,10 +28,18 @@ function categoryFor(p,groups={}){
 }
 const indexable=p=>!p.redirectTo&&p.status!=='soon'&&(p.plans||[]).some(x=>!x.hidden);
 const searchTitles={
- 'chatgpt-plus':'اشتراك ChatGPT Plus (شات جي بي تي بلس) | ماستر ستور',
+ "heygen":"HeyGen Creator | اشتراك فيديو وأفاتار | ماستر ستور",
+ "coursera":"Coursera Plus | اشتراكات شهر وسنة | ماستر ستور",
+ "grammarly":"Grammarly Premium | اشتراكات شهرية وسنوية | ماستر ستور",
+ "picsart":"Picsart Pro | اشتراك خاص حتى سنة | ماستر ستور",
+ "vercel-pro":"Vercel Pro | اشتراك شهر على حسابك | ماستر ستور",
+ "hostinger":"Hostinger Unlimited | استضافة سنة | ماستر ستور",
+ "cursor-grok-x-bundle":"Cursor Pro + Grok + X Premium+ | ماستر ستور",
+ "jam-team":"Jam Team | اشتراك سنوي لتوثيق الأخطاء | ماستر ستور",
+ 'chatgpt-plus':"اشتراك ChatGPT Plus (شات جي بي تي بلس) | ماستر ستور",
  'chatgpt-go':'اشتراك ChatGPT Go | ماستر ستور',
  'gemini-pro':'اشتراك Gemini Pro (جيميني برو) | ماستر ستور',
- 'canva-pro':'اشتراك Canva Pro (كانفا برو) | ماستر ستور',
+ 'canva-pro':"اشتراك Canva Pro (كانفا برو) | ماستر ستور",
  'capcut-pro':'اشتراك CapCut Pro (كاب كات برو) | ماستر ستور',
  'gamma-plus':'اشتراك Gamma للعروض التقديمية | ماستر ستور',
  'elevenlabs':'اشتراك ElevenLabs للتعليق الصوتي | ماستر ستور',
@@ -42,7 +50,22 @@ const searchTitles={
  'adobe-cc':'اشتراك Adobe Creative Cloud Pro | ماستر ستور'
 };
 function productTitle(p){if(Object.hasOwn(searchTitles,p.id))return searchTitles[p.id];return (p.id.startsWith('windows-')?'تفعيل '+p.name:(p.id==='turnitin'?'فحص ملف ':p.id==='we-gold-discount'?'تفعيل ':'اشتراك ')+p.name+' — المميزات والباقات')+' | ماستر ستور';}
-function productDescription(p,english=false){const profiles=typeof module==='object'&&module.exports?require('./product-guide-profiles.js'):globalThis.MasterProductGuideProfiles;return shortDescription(profiles?.[p.id]?.[english?'introEn':'intro']||(english?p.descriptionEn:p.description)||p.name);}
+const searchDescriptions={
+  "jam-team": "اشتراك Jam Team لمدة 12 شهرًا بدعوة إلى الفريق. راجع تفاصيل المقعد والتفعيل والضمان قبل الطلب.",
+  "cursor-grok-x-bundle": "قارن تفاصيل باقة Cursor Pro وGrok وX Premium+ الشهرية على حسابك الشخصي، وطريقة الربط والضمان قبل الطلب.",
+  "hostinger": "استضافة Hostinger Unlimited لمدة سنة على بريدك الشخصي بضمان 12 شهرًا. راجع حدود الخطة والسعر والتفعيل.",
+  "vercel-pro": "اشتراك Vercel Pro لمدة شهر على حسابك الشخصي بضمان شهر. راجع تفاصيل التفعيل وحدود الاستخدام والسعر.",
+  "picsart": "باقات Picsart Pro بحساب خاص من أسبوع حتى سنة. قارن مدة الاشتراك والرصيد والضمان والسعر قبل الطلب.",
+  "grammarly": "قارن اشتراكات Grammarly Premium من شهر إلى سنة، مع تفاصيل التفعيل والضمان وحدود أدوات الكتابة قبل الطلب.",
+  "coursera": "قارن باقات Coursera Plus المستقلة الشهرية والسنوية التابعة لمؤسسة. راجع نوع الوصول والضمان والدورات المشمولة.",
+  "heygen": "قارن باقات HeyGen Creator الشهرية لإنشاء فيديوهات بالأفاتار، وراجع رصيد الكريدت ومدة الضمان لكل باقة.",
+  "chatgpt-plus": "اشتراك ChatGPT Plus لمدة شهر: تفعيل أو تجديد على حسابك الشخصي أو حساب خاص جاهز. قارن السعر والضمان قبل الطلب.",
+  "canva-pro": "اشتراك Canva Pro للتصميم والعروض التقديمية. راجع الباقة والتفعيل على البريد الشخصي والسعر وشروط الضمان قبل الطلب.",
+  "gemini-pro": "قارن باقات Google Gemini Pro للذكاء الاصطناعي، وراجع مدة الاشتراك وطريقة التفعيل والأهلية والسعر والضمان قبل الطلب.",
+  "lovable-pro": "قارن باقات Lovable Pro لبناء المواقع والتطبيقات بالذكاء الاصطناعي. راجع مدة الباقة والرصيد والسعر والتفعيل والضمان.",
+  "chatgpt-go": "قارن باقات ChatGPT Go المتاحة وراجع مدة الاشتراك ونوع الحساب والسعر وطريقة التفعيل والضمان قبل الطلب."
+};
+function productDescription(p,english=false){if(!english&&Object.hasOwn(searchDescriptions,p.id))return searchDescriptions[p.id];const profiles=typeof module==='object'&&module.exports?require('./product-guide-profiles.js'):globalThis.MasterProductGuideProfiles;return shortDescription(profiles?.[p.id]?.[english?'introEn':'intro']||(english?p.descriptionEn:p.description)||p.name);}
 function image(p){const candidate=p.logoUrl&&!p.logoUrl.startsWith('data:')?p.logoUrl:p.logo?'logos/'+encodeURIComponent(p.logo)+'.svg':'master-store-logo.png';try{const u=new URL(candidate,origin+'/');return u.protocol==='https:'?u.href:origin+'/master-store-logo.png';}catch{return origin+'/master-store-logo.png';}}
 function shortDescription(text){return String(text||'').replace(/\s+/g,' ').trim().slice(0,220);}
 function offers(p,rows,now=Date.now()){
