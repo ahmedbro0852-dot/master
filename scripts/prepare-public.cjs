@@ -17,7 +17,7 @@ function optimizeStorefront(){
  fs.writeFileSync(path.join(dir,'alexandria.css'),font.css);
  fs.writeFileSync(path.join(dir,'OFL.txt'),font.license);
  const pages=[path.join(output,'index.html'),path.join(output,'product.html'),...['products','categories'].flatMap(d=>fs.readdirSync(path.join(output,d)).filter(f=>f.endsWith('.html')).map(f=>path.join(output,d,f))),...['categories.html','common-problems.html','warranty.html'].map(f=>path.join(output,f))];
- for(const file of pages){if(!fs.existsSync(file))continue;let html=fs.readFileSync(file,'utf8');html=html.replace(/<link\b[^>]*href="https:\/\/fonts\.googleapis\.com\/css2\?family=Alexandria:wght@[^"]+"[^>]*>/g,'<link rel="stylesheet" href="/assets/fonts/alexandria.css">');fs.writeFileSync(file,html);}
+ for(const file of pages){if(!fs.existsSync(file))continue;let html=fs.readFileSync(file,'utf8');html=html.replace(/<link\b[^>]*href="https:\/\/fonts\.googleapis\.com\/css2\?family=Alexandria:wght@[^"]+"[^>]*>/g,'<link rel="stylesheet" href="/assets/fonts/alexandria.css">');html=html.replace(/(locale\.js\?v=)[^"']+/g,(_,prefix)=>prefix+'20261127-render-dedup1').replace(/(app\.js\?v=)[^"']+/g,(_,prefix)=>prefix+'20261127-render-dedup1');fs.writeFileSync(file,html);}
  const catalogPath=path.join(output,'catalog.js'),source=fs.readFileSync(catalogPath,'utf8'),start=source.indexOf('['),end=source.indexOf('\n];',start);
  if(start<0||end<0)throw Error('Unexpected catalog structure');
  const original=JSON.parse(source.slice(start,end+2)),compact=JSON.stringify(original);
