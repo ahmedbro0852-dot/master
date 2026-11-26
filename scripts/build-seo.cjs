@@ -63,7 +63,7 @@ function writeBuyingGuides(){
  }
 }
 
-const directory='<section class="seo-directory" id="site-directory"><h2>تصفح أقسام ماستر ستور</h2><nav class="seo-category-links" aria-label="أقسام الاشتراكات">'+categoryLinks()+internationalLinks()+buyingLinks()+'</nav><details><summary>دليل الاشتراكات والخدمات</summary><nav class="seo-product-links" aria-label="كل صفحات الخدمات">'+indexed.map(p=>'<a href="'+SEO.productUrl(p)+'">'+escape(p.name)+'</a>').join('')+'</nav></details></section>';
+const directory='<section class="seo-directory" id="site-directory"><h2>تصفح أقسام ماستر ستور</h2><nav class="seo-category-links" aria-label="أقسام الاشتراكات">'+categoryLinks()+internationalLinks()+buyingLinks()+'<a href="'+origin+'/categories/about-master-store.html">عن ماستر ستور والتواصل</a></nav><details><summary>دليل الاشتراكات والخدمات</summary><nav class="seo-product-links" aria-label="كل صفحات الخدمات">'+indexed.map(p=>'<a href="'+SEO.productUrl(p)+'">'+escape(p.name)+'</a>').join('')+'</nav></details></section>';
 async function loadPrices(){
  if(process.env.MASTER_SEO_OFFLINE==='1')return null;
  try{
@@ -143,7 +143,7 @@ function writeHome(){
 }
 (async()=>{
  const prices=await loadPrices();writeProducts(prices);writeCategories();writeInternational();writeBuyingGuides();writeHome();
- const urls=[origin+'/',origin+'/warranty.html',origin+'/common-problems.html',origin+'/categories.html',...categories.map(SEO.categoryUrl),...internationalPages.map(internationalUrl),...buyingGuides.map(buyingUrl),...indexed.map(SEO.productUrl)];
+ const urls=[origin+'/',origin+'/warranty.html',origin+'/common-problems.html',origin+'/categories.html',origin+'/categories/about-master-store.html',...categories.map(SEO.categoryUrl),...internationalPages.map(internationalUrl),...buyingGuides.map(buyingUrl),...indexed.map(SEO.productUrl)];
  // No fabricated lastmod timestamps: catalog content can change independently of a deploy.
  fs.writeFileSync(path.join(root,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(url=>'<url><loc>'+escape(url)+'</loc></url>').join('\n')+'\n</urlset>\n');
  console.log('SEO: '+products.length+' product pages, '+categories.length+' category pages, '+urls.length+' sitemap URLs; '+(prices?prices.length+' public price records':'no unverified prices')+'.');
