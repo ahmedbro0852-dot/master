@@ -106,6 +106,11 @@ function writeHome(){
  html=html.replace(/(<meta property="og:title" content=")[^"]*(")/,(_,a,b)=>a+'ماستر ستور | اشتراكات وخدمات رقمية'+b);
  html=html.replace(/\n*<script id="master-seo-data" type="application\/ld\+json">[\s\S]*?<\/script>\n*/,'\n');
  html=html.replace('</head>',dataScript(SEO.homeGraph)+'\n</head>');
+
+ const priorityIds=['chatgpt-plus','chatgpt-go','capcut-pro','gamma-plus','perplexity-pro','adobe-cc','adobe-express','coursera-plus-trial-7d'];
+ const priorityLinks=priorityIds.map(id=>indexed.find(p=>p.id===id)).filter(Boolean).map(p=>'<a href="'+SEO.productUrl(p)+'" lang="en">'+escape(p.name)+'</a>').join('');
+ const priorityBlock='<!-- SEO-PRIORITY-START --><nav class="seo-category-links" aria-label="روابط سريعة للاشتراكات ودليل المساعدة" style="margin:12px 0 18px;gap:10px 18px;font-size:14px">'+priorityLinks+'<a href="/common-problems.html">دليل حل المشكلات</a>'+internationalLinks()+'</nav><!-- SEO-PRIORITY-END -->';
+ if(html.includes('<!-- SEO-PRIORITY-START -->'))html=html.replace(/<!-- SEO-PRIORITY-START -->[\s\S]*?<!-- SEO-PRIORITY-END -->/,priorityBlock);else html=html.replace('<section id="recentServices"',priorityBlock+'\n      <section id="recentServices"');
  const block='<!-- SEO-DIRECTORY-START -->'+directory+'<!-- SEO-DIRECTORY-END -->';
  if(html.includes('<!-- SEO-DIRECTORY-START -->'))html=html.replace(/<!-- SEO-DIRECTORY-START -->[\s\S]*?<!-- SEO-DIRECTORY-END -->/,block);else html=html.replace('  <footer>',block+'\n  <footer>');
  html=html.replace(/<noscript>[\s\S]*?<\/noscript>/,'<noscript><section><h2>اشتراكات وخدمات ماستر ستور</h2><ul>'+indexed.map(p=>'<li><a href="'+SEO.productUrl(p)+'">'+escape(p.name)+'</a> — '+escape(p.description)+'</li>').join('')+'</ul></section></noscript>');
