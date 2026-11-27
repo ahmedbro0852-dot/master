@@ -1,47 +1,159 @@
 (()=>{
 'use strict';
+
 const S=window.MasterStore,C=window.MasterCloud,L=window.MasterLocale;
-const form=document.getElementById('trackingForm'),input=document.getElementById('trackingId'),results=document.getElementById('trackingResults'),notice=document.getElementById('trackingNotice'),refresh=document.getElementById('trackingRefresh');
-const esc=S.escapeHtml,t=(ar,en)=>L?.getState().language==='en'?en:ar;
-let orders=[],user=null,busy=false,cloudError=false;
-const states={pending_payment:['بانتظار تأكيد الدفع','Awaiting payment'],processing:['جاري تنفيذ الطلب','Processing'],completed:['تم التنفيذ','Completed'],cancelled:['تم الإلغاء','Cancelled']};
-function card(o){
- const local=o.local,label=local?t('محفوظ على الجهاز — التأكيد مع الدعم','Saved on this device — confirm with support'):(states[o.status]?.[L?.getState().language==='en'?1:0]||t('راجع الدعم لتأكيد الحالة','Contact support for status'));
- const date=new Date(o.createdAt),when=Number.isNaN(date.getTime())?'—':date.toLocaleString(L?.getState().language==='en'?'en-GB':'ar-EG');
- const progress=!local&&['pending_payment','processing','completed'].includes(o.status)?'<ol class="tracking-progress">'+['pending_payment','processing','completed'].map((s,i)=>'<li class="'+(i<=['pending_payment','processing','completed'].indexOf(o.status)?'reached':'')+'">'+esc(states[s][L?.getState().language==='en'?1:0])+'</li>').join('')+'</ol>':'';
- const message=t('متابعة طلب MASTER STORE','MASTER STORE order follow-up')+'\n'+t('رقم الطلب: ','Order ID: ')+o.id+'\n'+o.product+'\n'+o.plan;
- return '<article class="order-card tracking-card"><div class="order-top"><div><small>'+t('رقم الطلب','Order ID')+'</small><b class="record-id" dir="ltr">'+esc(o.id)+'</b></div><span class="status '+(!local&&o.status==='completed'?'ok':'soon')+'">'+esc(label)+'</span></div><h2>'+esc(o.product)+'</h2><p>'+esc(L?.catalogText(o.plan,'planName',o.productId)||o.plan)+'</p>'+progress+'<dl class="tracking-details"><div><dt>'+t('المدة','Duration')+'</dt><dd>'+esc(L?.catalogText(o.duration,'duration',o.productId)||o.duration||'—')+'</dd></div><div><dt>'+t('الكمية','Quantity')+'</dt><dd>'+esc(o.quantity||1)+'</dd></div><div><dt>'+t('إجمالي الطلب','Order total')+'</dt><dd>'+S.orderMoney(o)+'</dd></div><div><dt>'+t('الدفع','Payment')+'</dt><dd>'+esc(o.payment==='wallet'?t('رصيد الحساب','Wallet'):o.payment||'—')+'</dd></div><div><dt>'+t('تاريخ الطلب','Order date')+'</dt><dd>'+esc(when)+'</dd></div></dl>'+(local?'<p class="tracking-local-note">'+t('ده سجل للطلب على جهازك، ومش إثبات للدفع أو التنفيذ. الحالة المؤكدة من الدعم.','This device record is not proof of payment or fulfillment. Confirm status with support.')+'</p>':'')+'<a class="ghost-btn" href="invoice.html?id='+encodeURIComponent(o.id)+(local?'&amp;source=device':'')+'">'+t(local?'ملخص الطلب / PDF':'الفاتورة / PDF',local?'Order summary / PDF':'Invoice / PDF')+'</a> <a class="order-follow" target="_blank" rel="noopener" href="https://wa.me/201500950624?text='+encodeURIComponent(message)+'">'+t('تابع الطلب مع الدعم','Contact support about this order')+' ←</a></article>';
+const form=document.getElementById('trackingForm');
+const input=document.getElementById('trackingId');
+const results=document.getElementById('trackingResults');
+const notice=document.getElementById('trackingNotice');
+const refresh=document.getElementById('trackingRefresh');
+const clear=document.getElementById('trackingClear');
+const login=document.getElementById('trackingLogin');
+const support=document.getElementById('trackingSupport');
+const submit=form.querySelector('[type=submit]');
+const esc=S.escapeHtml;
+const t=(ar,en)=>L?.getState().language==='en'?en:ar;
+const supportUrl='https://wa.me/201500950624';
+const steps=['pending_payment','processing','completed'];
+const states={
+  pending_payment:['بانتظار تأكيد الدفع','Awaiting payment confirmation'],
+  processing:['جاري تنفيذ الطلب','Processing'],
+  completed:['تم التنفيذ','Completed'],
+  cancelled:['تم الإلغاء','Cancelled']
+};
+let orders=[],cloudError=false,loading=false,version=0;
+
+function orderMessage(id){
+  return t('متابعة طلب MASTER STORE','MASTER STORE order follow-up')+'\n'+t('رقم الطلب: ','Order ID: ')+id;
 }
+
+function card(order){
+  const {id,local,status}=order;
+  const label=local?t('سجل على الجهاز','Saved on this device'):(states[status]?t(...states[status]):t('راجع الدعم لتأكيد الحالة','Contact support for status'));
+  const tone=!local&&status==='completed'?'ok':!local&&status==='cancelled'?'out':'soon';
+  const date=new Date(order.createdAt);
+  const when=Number.isNaN(date.getTime())?'—':date.toLocaleString(t('ar-EG','en-GB'));
+  const step=local?-1:steps.indexOf(status);
+  const progress=step<0?'':'<ol class="tracking-progress" aria-label="'+t('مراحل تنفيذ الطلب','Order progress')+'">'+steps.map((value,index)=>
+    '<li class="'+(index<=step?'reached':'')+'"'+(index===step?' aria-current="step"':'')+'>'+t(...states[value])+'</li>'
+  ).join('')+'</ol>';
+  const message=orderMessage(id)+'\n'+order.product+'\n'+order.plan;
+  const details=[
+    [t('المدة','Duration'),L?.catalogText(order.duration,'duration',order.productId)||order.duration||'—'],
+    [t('الكمية','Quantity'),order.quantity||1],
+    [t('إجمالي الطلب','Order total'),S.orderMoney(order)],
+    [t('الدفع','Payment'),order.payment==='wallet'?t('رصيد الحساب','Wallet'):order.payment||'—'],
+    [t('تاريخ الطلب','Order date'),when]
+  ];
+  return '<article class="order-card tracking-card">'+
+    '<div class="order-top"><div><small>'+t('رقم الطلب','Order ID')+'</small><b class="record-id" dir="ltr">'+esc(id)+'</b></div>'+
+    '<span class="status '+tone+'">'+esc(label)+'</span></div>'+
+    '<h2 dir="auto">'+esc(order.product)+'</h2><p>'+esc(L?.catalogText(order.plan,'planName',order.productId)||order.plan)+'</p>'+
+    progress+'<dl class="tracking-details">'+details.map(([title,value])=>'<div><dt>'+title+'</dt><dd>'+esc(value)+'</dd></div>').join('')+'</dl>'+
+    (local?'<p class="tracking-local-note">'+t('ده سجل على جهازك. تواصل مع الدعم لتأكيد حالة الدفع والتنفيذ.','This record is saved on your device. Contact support to confirm payment and fulfillment.')+'</p>':'')+
+    '<div class="tracking-card-actions">'+
+      '<button class="ghost-btn" data-copy-order type="button">'+t('انسخ رقم الطلب','Copy order ID')+'</button>'+
+      '<a class="ghost-btn" href="invoice.html?id='+encodeURIComponent(id)+(local?'&amp;source=device':'')+'">'+t(local?'ملخص الطلب / PDF':'الفاتورة / PDF',local?'Order summary / PDF':'Invoice / PDF')+'</a>'+
+      '<a class="order-follow" target="_blank" rel="noopener" href="'+supportUrl+'?text='+encodeURIComponent(message)+'">'+t('اسأل الدعم عن الطلب','Ask support about this order')+'</a>'+
+    '</div></article>';
+}
+
+function updateSearchControls(){
+  clear.hidden=!input.value;
+  const id=input.value.trim();
+  support.href=id?supportUrl+'?text='+encodeURIComponent(orderMessage(id)):supportUrl;
+}
+
 function show(){
- const q=input.value.trim().toLowerCase(),list=q?orders.filter(o=>String(o.id).toLowerCase()===q||String(o.cartId||'').toLowerCase()===q):orders;
- results.innerHTML=list.length?list.map(card).join(''):'<section class="account-panel tracking-empty"><h2>'+t(q?'الطلب مش ظاهر هنا':'لسه مفيش طلبات ظاهرة',q?'Order not found here':'No orders to display')+'</h2><p>'+t('راجع رقم الطلب أو سجّل الدخول بالحساب اللي طلبت منه. لو طلبت كضيف من جهاز تاني، تواصل مع الدعم.','Check the order ID or sign in to the account used to order. For guest orders on another device, contact support.')+'</p></section>';
- notice.textContent=cloudError?t('تعذر تحديث طلبات الحساب. سجلات الجهاز ظاهرة فقط؛ جرّب تحديث الصفحة.','Could not refresh account orders. Showing device records only; try refreshing.'):t('عرض '+list.length+' طلب'+' · طلبات النظام والسجلات المتاحة على الجهاز','Showing '+list.length+' orders'+' · server orders and available device records');
-}
-async function load(){
- if(busy)return;busy=true;refresh.disabled=true;form.querySelector('[type=submit]').disabled=true;notice.textContent=t('جاري تحديث الطلبات…','Refreshing orders…');results.setAttribute('aria-busy','true');cloudError=false;
- try{
-  let remote=[];user=null;
-  if(C?.ready){
-   const auth=await C.client.auth.getSession();if(auth.error)throw auth.error;
-   if(auth.data.session){
-    const verified=await C.client.auth.getUser();if(verified.error)throw verified.error;user=verified.data.user;
-    if(user){
-     let query=C.client.from('master_store_orders').select('id,created_at,product_id,product,plan,duration,quantity,amount_piasters,payment,status').eq('user_id',user.id);
-     const q=input.value.trim();
-     if(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(q))query=query.or('id.eq.'+q+',cart_id.eq.'+q);
-     const data=await C.unwrap(query.order('created_at',{ascending:false}).limit(100));remote=data.map(C.asLocalOrder);
-    }
-   }
+  updateSearchControls();
+  if(loading){
+    notice.textContent=t('جاري تحديث الطلبات…','Refreshing orders…');
+    return;
   }
-  if(C?.ready){const guest=await C.guestOrders();remote.push(...guest.map(C.asLocalOrder));}
-  const ids=new Set(remote.map(o=>o.id));
-  orders=[...remote,...S.getOrders().filter(o=>!ids.has(o.id)).map(o=>({...o,local:true}))].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
- }catch(error){cloudError=true;orders=S.getOrders().map(o=>({...o,local:true}));}
- finally{busy=false;refresh.disabled=false;form.querySelector('[type=submit]').disabled=false;results.setAttribute('aria-busy','false');document.getElementById('trackingLogin').hidden=!!user;show();}
+  const query=input.value.trim().toLowerCase();
+  const matches=query?orders.filter(order=>[order.id,order.cartId].some(id=>String(id||'').toLowerCase()===query)):orders;
+  results.innerHTML=matches.length?matches.map(card).join(''):
+    '<section class="account-panel tracking-empty"><h2>'+t(query?'الطلب مش ظاهر هنا':'لسه مفيش طلبات ظاهرة',query?'Order not found here':'No orders to display')+'</h2>'+
+    '<p>'+t('راجع الرقم أو سجّل الدخول بنفس الحساب المستخدم في الطلب.','Check the ID or sign in with the account used to place the order.')+'</p></section>';
+  notice.textContent=cloudError?t('تعذّر تحديث بعض السجلات. اضغط «حدّث الحالة» للمحاولة مرة تانية.','Some records could not refresh. Select “Refresh status” to retry.'):
+    t('الطلبات المعروضة: '+matches.length,'Orders shown: '+matches.length);
 }
-form.addEventListener('submit',e=>{e.preventDefault();load();});refresh.addEventListener('click',load);
-input.addEventListener('input',()=>{if(!input.value.trim())load();});
+
+async function fetchAccountOrders(query){
+  if(!C?.ready)return {signedIn:false,orders:[]};
+  const auth=await C.client.auth.getSession();
+  if(auth.error)throw auth.error;
+  if(!auth.data.session)return {signedIn:false,orders:[]};
+  const verified=await C.client.auth.getUser();
+  if(verified.error)throw verified.error;
+  const user=verified.data.user;
+  if(!user)return {signedIn:false,orders:[]};
+  let request=C.client.from('master_store_orders')
+    .select('id,cart_id,created_at,product_id,product,plan,duration,quantity,amount_piasters,payment,status').eq('user_id',user.id);
+  if(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(query)){
+    request=request.or('id.eq.'+query+',cart_id.eq.'+query);
+  }
+  const rows=await C.unwrap(request.order('created_at',{ascending:false}).limit(100));
+  return {signedIn:true,orders:rows.map(C.asLocalOrder)};
+}
+
+async function load(){
+  const current=++version;
+  loading=true;refresh.disabled=true;submit.disabled=true;
+  results.setAttribute('aria-busy','true');
+  show();
+  const [account,guest]=await Promise.allSettled([
+    fetchAccountOrders(input.value.trim()),
+    C?.ready?C.guestOrders():[]
+  ]);
+  if(current!==version)return;
+  const remote=[
+    ...(account.status==='fulfilled'?account.value.orders:[]),
+    ...(guest.status==='fulfilled'&&C?.ready?guest.value.map(C.asLocalOrder):[])
+  ];
+  const indexed=new Map(remote.map(order=>[order.id,order]));
+  for(const order of S.getOrders())if(order?.id&&!indexed.has(order.id))indexed.set(order.id,{...order,local:true});
+  orders=[...indexed.values()].sort((first,second)=>new Date(second.createdAt)-new Date(first.createdAt));
+  cloudError=account.status==='rejected'||guest.status==='rejected';
+  login.hidden=account.status==='fulfilled'&&account.value.signedIn;
+  loading=false;refresh.disabled=false;submit.disabled=false;
+  results.setAttribute('aria-busy','false');
+  show();
+}
+
+function setReferenceFromHash(){
+  const id=location.hash.startsWith('#order=')?new URLSearchParams(location.hash.slice(1)).get('order'):'';
+  input.value=(id||'').slice(0,input.maxLength);
+}
+
+form.addEventListener('submit',event=>{event.preventDefault();load();});
+refresh.addEventListener('click',load);
+clear.addEventListener('click',()=>{
+  if(location.hash.startsWith('#order='))history.replaceState(history.state,'',location.pathname+location.search);
+  input.value='';input.focus();load();
+});
+input.addEventListener('input',()=>{if(input.value.trim())updateSearchControls();else load();});
+window.addEventListener('hashchange',()=>{setReferenceFromHash();load();});
 document.addEventListener('masterstore:localechange',show);
-C?.client.auth.onAuthStateChange(event=>{if(event==='SIGNED_OUT'){user=null;orders=S.getOrders().map(o=>({...o,local:true}));document.getElementById('trackingLogin').hidden=false;show();}});
+results.addEventListener('click',async event=>{
+  const button=event.target.closest('[data-copy-order]');
+  if(!button)return;
+  const reference=button.closest('.tracking-card').querySelector('.record-id');
+  try{
+    await navigator.clipboard.writeText(reference.textContent);
+    button.textContent=t('تم النسخ','Copied');
+  }catch{
+    const selection=window.getSelection(),range=document.createRange();
+    range.selectNodeContents(reference);selection.removeAllRanges();selection.addRange(range);
+    button.textContent=t('اتحدد الرقم للنسخ','ID selected for copying');
+  }
+  setTimeout(()=>{button.textContent=t('انسخ رقم الطلب','Copy order ID');},2400);
+});
+C?.client?.auth.onAuthStateChange(event=>{
+  if(event!=='SIGNED_OUT')return;
+  version++;orders=[];loading=false;login.hidden=false;show();
+  setTimeout(load,0);
+});
+setReferenceFromHash();
 load();
 })();

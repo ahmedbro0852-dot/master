@@ -63,10 +63,14 @@ assert((categoryPage.match(/data-category-group=/g)||[]).length===10,'category t
 assert(categoryPage.includes('/categories-modern.css?v=')&&categoryPage.includes('/categories-modern.js?v='),'category assets not linked');
 for(const asset of ['categories-modern.css','categories-modern.js'])assert(fs.existsSync(path.join(out,asset)),'category asset missing: '+asset);
 assert(categoryPage.includes('cat-hero-showcase')&&categoryPage.includes('id="categorySearch"'),'rich category hero or live search missing');
-assert(categoryPage.includes('/categories-modern.css?v=20261107-premium2'),'latest category styles not linked');
-assert(categoryPage.includes('/categories-modern.js?v=20261107-premium2'),'latest category interactions not linked');
+assert(categoryPage.includes('/categories-modern.css?v=20261127-discovery1'),'latest category styles not linked');
+assert(categoryPage.includes('/categories-modern.js?v=20261127-discovery1'),'latest category interactions not linked');
 assert(read('categories-modern.css').includes('.cat-art-logo'),'premium category artwork styling missing');
 assert(read('categories-modern.js').includes('function filter()'),'category search functionality missing');
+const trackingPage=read('track.html');
+assert(trackingPage.includes('/tracking.css?v=')&&trackingPage.includes('id="trackingSupport"'),'tracking page assets missing');
+assert(fs.existsSync(path.join(out,'tracking.css')),'tracking stylesheet not published');
+for(const asset of ['categories-modern.js','tracking.js'])new (require('node:vm').Script)(read(asset),{filename:asset});
 assert(home.includes('href="/categories.html"'),'homepage category entry missing');
 assert(read('site-updates.js').includes("href:'/categories.html'"),'mobile category navigation missing');
 assert(cart.includes('id="cartContent"')&&cart.includes('cart.js?v='),'cart checkout missing');

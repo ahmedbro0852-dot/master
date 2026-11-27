@@ -17,12 +17,12 @@
 <meta name="robots" content="noindex,follow">
   <link rel="stylesheet" href="/store-assistant.css?v=20261026-actions1">
   <link rel="stylesheet" href="/site-updates.css?v=20261111-store-comfort2">
+<link rel="stylesheet" href="/tracking.css?v=20261127-tracking1">
 <script src="/social-links.js?v=20261025-review1"></script>
 </head>
 <body>
-  <div class="offer-bar">خصومات تصل إلى 90% على عروض مختارة <a href="index.html#products">تصفح العروض</a></div>
   <header class="topbar">
-    <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png?v=20260924-sec19" alt="MASTER STORE"></a>
+    <a class="brand" href="index.html"><img decoding="async" src="/assets/storefront-logo-480.webp" alt="MASTER STORE" width="160" height="48"></a>
     <nav id="mainNav" aria-label="التنقل الرئيسي"><a href="index.html#products">العروض</a><a href="index.html#how">طريقة الطلب</a><a class="cart-nav" href="cart.html">السلة <span data-cart-count>0</span></a><a href="track.html" aria-current="page">متابعة الطلب</a><a class="creative-services-nav" href="services.html">الخدمات</a></nav>
     <div class="market-switcher" id="marketSwitcher">
       <select id="marketSelect" aria-label="الدولة والعملة">
@@ -50,16 +50,35 @@
     <button class="menu" type="button" aria-label="فتح القائمة" aria-controls="mainNav">☰</button>
   </header>
 
-  <main class="account-page tracking-page">
-<div class="section-head"><div><span class="eyebrow">MASTER STORE</span><h1>متابعة طلبك</h1><p>ابحث برقم الطلب، وراجع الحالة والتفاصيل أو تواصل مع الدعم.</p></div><a class="ghost-btn" href="account.html">حسابي ومحفظتي</a></div>
-<section class="account-panel"><form id="trackingForm" class="tracking-form"><label for="trackingId">رقم الطلب</label><div><input id="trackingId" maxlength="80" autocomplete="off" dir="ltr" placeholder="MS-… / رقم الطلب"><button class="primary" type="submit">بحث</button><button class="ghost-btn" id="trackingRefresh" type="button">تحديث</button></div></form><p id="trackingNotice" role="status" aria-live="polite"></p><a href="account.html" id="trackingLogin">سجّل الدخول لعرض طلبات حسابك وحالتها الحالية ←</a></section>
-<div id="trackingResults" class="orders-list" aria-live="polite"></div>
-<p class="tracking-help">طلبات الضيف محفوظة على نفس الجهاز والمتصفح فقط. لو طلبك مش ظاهر، تواصل مع الدعم برقم الطلب.</p>
-<a class="order-follow" href="https://wa.me/201500950624" target="_blank" rel="noopener">التواصل مع الدعم</a>
-</main>
+  <main class="account-page tracking-page" id="main-content">
+    <header class="tracking-heading" data-no-translate="true">
+      <h1><span class="tracking-ar" lang="ar">متابعة طلبك</span><span class="tracking-en" lang="en">Track your order</span></h1>
+      <p><span class="tracking-ar" lang="ar">اكتب رقم الطلب الموجود في رسالة التأكيد أو الفاتورة.</span><span class="tracking-en" lang="en">Enter the order ID from your confirmation or invoice.</span></p>
+    </header>
+    <section class="account-panel tracking-search-panel">
+      <form id="trackingForm" class="tracking-form" data-no-translate="true">
+        <label for="trackingId"><span class="tracking-ar" lang="ar">رقم الطلب</span><span class="tracking-en" lang="en">Order ID</span></label>
+        <div class="tracking-search-row">
+          <input id="trackingId" maxlength="80" autocomplete="off" autocapitalize="none" spellcheck="false" dir="ltr" placeholder="MS-…">
+          <button class="primary" type="submit"><span class="tracking-ar" lang="ar">بحث</span><span class="tracking-en" lang="en">Search</span></button>
+          <button class="ghost-btn" id="trackingClear" type="button" hidden><span class="tracking-ar" lang="ar">مسح</span><span class="tracking-en" lang="en">Clear</span></button>
+        </div>
+      </form>
+      <div class="tracking-search-actions" data-no-translate="true">
+        <a href="account.html" id="trackingLogin"><span class="tracking-ar" lang="ar">سجّل الدخول لعرض طلبات حسابك</span><span class="tracking-en" lang="en">Sign in to see your account orders</span></a>
+        <button class="ghost-btn" id="trackingRefresh" type="button"><span class="tracking-ar" lang="ar">حدّث الحالة</span><span class="tracking-en" lang="en">Refresh status</span></button>
+      </div>
+      <p id="trackingNotice" role="status"></p>
+    </section>
+    <div id="trackingResults" class="orders-list" aria-live="polite"></div>
+    <div class="tracking-support" data-no-translate="true">
+      <p class="tracking-help"><span class="tracking-ar" lang="ar">لو طلبت كضيف، افتح المتابعة من نفس الجهاز والمتصفح أو كلّم الدعم برقم الطلب.</span><span class="tracking-en" lang="en">For guest orders, use the same device and browser or contact support with the order ID.</span></p>
+      <a class="order-follow" id="trackingSupport" href="https://wa.me/201500950624" target="_blank" rel="noopener"><span class="tracking-ar" lang="ar">تواصل مع الدعم</span><span class="tracking-en" lang="en">Contact support</span></a>
+    </div>
+  </main>
 
   <footer>
-    <a class="brand" href="index.html"><img decoding="async" src="master-store-logo.png?v=20260924-sec19" alt="MASTER STORE"></a>
+    <a class="brand" href="index.html"><img decoding="async" src="/assets/storefront-logo-480.webp" alt="MASTER STORE" width="160" height="48"></a>
     <p>رقم الطلب هو أسرع طريقة للمتابعة مع خدمة العملاء.</p>
     <a class="footer-facebook" href="https://www.facebook.com/share/19XBCdMAm5/" target="_blank" rel="noopener noreferrer">تابعنا على فيسبوك</a>
     <a class="footer-whatsapp-channel" href="https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K" target="_blank" rel="noopener noreferrer">قناة عروض واتساب</a>
@@ -73,8 +92,8 @@
   <script src="cloud.js?v=20261101-order-inbox1"></script>
   <script src="store.js?v=20261025-store-prices3"></script>
   <script src="cart.js?v=20261101-order-inbox1"></script>
-  <script src="tracking.js?v=20261101-order-inbox1"></script>
-  <script src="app.js?v=20261031-three-offers1"></script>
+  <script src="tracking.js?v=20261127-tracking1"></script>
+  <script src="/site-nav.js?v=20261104-nav-split1"></script>
   <a class="support-fab" href="https://wa.me/201500950624" target="_blank" rel="noopener" aria-label="واتساب"><img decoding="async" class="whatsapp-icon" src="logos/whatsapp.svg?v=20260924-sec19" alt=""></a>
   <script src="/store-assistant.js?v=20261027-welcome1" defer></script>
   <script src="/site-updates.js?v=20261110-mobile-comfort1" defer></script>
