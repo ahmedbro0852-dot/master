@@ -1,0 +1,76 @@
+.tracking-page {
+  --track-ink: var(--ink, #183350);
+  --track-muted: var(--muted, #485e78);
+  --track-accent: var(--theme-accent, #194fb3);
+  --track-line: var(--line, #d9e5f4);
+  max-width: 900px;
+}
+.tracking-en { display: none; }
+html[lang="en"] .tracking-ar { display: none; }
+html[lang="en"] .tracking-en { display: inline; }
+.tracking-page [hidden] { display: none !important; }
+
+.tracking-heading {
+  margin-bottom: 16px;
+  padding: clamp(18px, 4vw, 34px);
+  border: 1px solid var(--track-line);
+  border-radius: 22px;
+  background: var(--theme-panel, #edf5ff);
+}
+.tracking-heading h1 { margin: 0 0 6px; color: var(--track-ink); }
+.tracking-heading p { margin: 0; color: var(--track-muted); font-size: .9375rem; line-height: 1.7; }
+.tracking-search-panel { margin: 0; }
+.tracking-form > label { color: var(--track-ink); font-weight: 700; }
+.tracking-form > .tracking-search-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 8px;
+}
+.tracking-form input { width: 100%; min-width: 0; min-height: 48px; }
+.tracking-form :is(button, input):focus-visible { outline-offset: 2px; }
+.tracking-search-actions,
+.tracking-card-actions,
+.tracking-support { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.tracking-search-actions { margin-top: 12px; }
+.tracking-search-actions a { color: var(--track-accent); }
+.tracking-search-actions button { margin-inline-start: auto; }
+.tracking-page #trackingNotice:empty { display: none; }
+.tracking-page #trackingNotice { color: var(--track-muted); font-size: .8125rem; margin: 9px 0 0; }
+.tracking-page .tracking-card .order-top > div { min-width: 0; }
+.tracking-card .record-id { color: var(--track-ink); unicode-bidi: isolate; user-select: all; }
+.tracking-card .order-top small, .tracking-card p, .tracking-details dt,
+.tracking-page .tracking-help { color: var(--track-muted); }
+.tracking-card .tracking-progress { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.tracking-card .tracking-progress li {
+  padding: 8px;
+  border: 1px solid var(--track-line);
+  border-top: 3px solid var(--track-line);
+  border-radius: 8px;
+  color: var(--track-muted);
+  font-size: .75rem;
+}
+.tracking-card .tracking-progress .reached { border-top-color: var(--track-accent); color: var(--track-accent); }
+.tracking-card .tracking-progress [aria-current="step"] {
+  background: var(--theme-selected, #e5efff);
+  font-weight: 700;
+}
+.tracking-details { border-color: var(--track-line); }
+.tracking-card-actions { margin-block-start: 14px; }
+.tracking-card .tracking-card-actions .order-follow { margin: 0; }
+.tracking-card-actions button, .tracking-card-actions a, .tracking-support a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.tracking-page .order-follow { color: var(--track-accent); }
+.tracking-support { justify-content: space-between; margin-top: 14px; }
+.tracking-support .tracking-help { flex: 1 1 280px; margin: 0; font-size: .875rem; }
+
+@media (max-width: 600px) {
+  .tracking-page { padding-inline: 14px; }
+  .tracking-page .tracking-search-panel { padding: 15px; }
+  .tracking-search-row .primary, .tracking-search-row .ghost-btn { padding-inline: 9px; }
+  .tracking-details { gap: 12px; }
+  .tracking-card .tracking-progress { gap: 5px; }
+  .tracking-card .tracking-progress li { padding: 7px 4px; }
+}
