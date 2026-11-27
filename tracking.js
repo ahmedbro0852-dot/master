@@ -23,6 +23,14 @@ const states={
 };
 let orders=[],cloudError=false,loading=false,version=0;
 
+function reference(value){
+  return String(value||'').trim().toLowerCase();
+}
+
+function searchedOrderId(value){
+  return reference(value).replace(/^ms-[co]-(?=.+)/,'');
+}
+
 function orderMessage(id){
   return t('متابعة طلب MASTER STORE','MASTER STORE order follow-up')+'\n'+t('رقم الطلب: ','Order ID: ')+id;
 }
@@ -70,8 +78,9 @@ function show(){
     notice.textContent=t('جاري تحديث الطلبات…','Refreshing orders…');
     return;
   }
-  const query=input.value.trim().toLowerCase();
-  const matches=query?orders.filter(order=>[order.id,order.cartId].some(id=>String(id||'').toLowerCase()===query)):orders;
+  const query=reference(input.value);
+  const orderId=searchedOrderId(query);
+  const matches=query?orders.filter(order=>[order.id,order.cartId].some(id=>[query,orderId].includes(reference(id)))):orders;
   results.innerHTML=matches.length?matches.map(card).join(''):
     '<section class="account-panel tracking-empty"><h2>'+t(query?'الطلب مش ظاهر هنا':'لسه مفيش طلبات ظاهرة',query?'Order not found here':'No orders to display')+'</h2>'+
     '<p>'+t('راجع الرقم أو سجّل الدخول بنفس الحساب المستخدم في الطلب.','Check the ID or sign in with the account used to place the order.')+'</p></section>';
@@ -103,7 +112,7 @@ async function load(){
   results.setAttribute('aria-busy','true');
   show();
   const [account,guest]=await Promise.allSettled([
-    fetchAccountOrders(input.value.trim()),
+    fetchAccountOrders(searchedOrderId(input.value)),
     C?.ready?C.guestOrders():[]
   ]);
   if(current!==version)return;

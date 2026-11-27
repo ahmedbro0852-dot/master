@@ -14,7 +14,7 @@ let pendingCheckoutAnchor=window.location?.hash==='#cartCheckout';
 const money=n=>S.formatCurrency(n/100,'EGP');
 function cartLogo(id,name){const product=window.MasterCatalog?.getProduct(id);const local=product?.logo?'logos/'+encodeURIComponent(product.logo)+'.svg':'master-store-logo.png';const src=id==='gemini-coursera-bundle'?'logos/coursera.svg':product?.logoUrl||local;return '<img class="cart-product-logo" src="'+E(src)+'" data-logo-fallback="'+E(local)+'" alt="'+E(name)+'" width="56" height="56" decoding="async">';}
 function cartUnitPrice(line){const plan=window.MasterCatalog?.getProduct(line.product_id)?.plans?.[line.plan_index];return plan?S.priceMarkup({...plan,price:line.unit_piasters/100,available:true},{currency:'EGP',showSaving:false}):'<strong>'+money(line.unit_piasters)+'</strong>';}
-async function render(){
+async function render({priceChanged=false}={}){
  checkoutObserver?.disconnect();
  const previousForm=root.querySelector('#cartCheckout');if(previousForm)checkoutDraft={name:previousForm.elements.name.value,phone:previousForm.elements.phone.value,email:previousForm.elements.email.value,payment:previousForm.querySelector('[name=payment]:checked')?.value};
  const current=++version,items=read();quote=null;
@@ -43,6 +43,13 @@ async function render(){
  root.querySelectorAll('.cart-remove').forEach(b=>b.onclick=()=>{write(items.filter(x=>!(x.product_id===b.dataset.product&&x.plan_index===+b.dataset.plan)));requestId=crypto.randomUUID();render();});
  const form=root.querySelector('#cartCheckout');
  form.onsubmit=checkout;
+ if(priceChanged){
+   const note=document.createElement('p');
+   note.className='cart-price-update';note.tabIndex=-1;note.setAttribute('role','status');
+   note.textContent=t('السعر اتحدّث. راجع الإجمالي الجديد قبل ما تأكد الطلب تاني.','The price changed. Review the updated total before confirming again.');
+   root.querySelector('.cart-summary').before(note);
+   note.focus();
+ }
  const reviewBar=root.querySelector('.cart-review-bar');
  if('IntersectionObserver' in window){
    checkoutObserver=new IntersectionObserver(([entry])=>{
@@ -79,6 +86,10 @@ try{
  checkoutObserver?.disconnect();
  try{write([]);}catch{}root.innerHTML='<section class="account-panel cart-success"><h2>'+t('طلبك اتسجّل عند الإدارة','Your order was submitted to the store')+'</h2><p>'+t('الإجمالي بعد الخصم: ','Total after discount: ')+money(q.amount_piasters)+'</p><p class="cart-receipt-number"><b>'+t('رقم الطلب: ','Order reference: ')+'</b><span>'+E(id)+'</span></p><p>'+t(method==='wallet'?'تم خصم الرصيد. تابع حالة التنفيذ من حسابك.':'تابع مع الدعم لتأكيد التحويل والتنفيذ.',method==='wallet'?'Balance deducted. Track fulfillment in your account.':'Contact support to confirm transfer and fulfillment.')+'</p><a class="ghost-btn" href="invoice.html?cart='+encodeURIComponent(id)+'">'+t('عرض الفاتورة / حفظ PDF','View invoice / Save PDF')+'</a> <a class="primary" target="_blank" rel="noopener" href="https://wa.me/201500950624?text='+encodeURIComponent(message)+'">'+t('متابعة الطلب على واتساب','Continue on WhatsApp')+'</a> <a class="ghost" href="track.html#order='+encodeURIComponent(id)+'">'+t('متابعة الطلب','Track order')+'</a></section>';
 }catch(error){
+ if(String(error?.message||error).includes('PRICE_CHANGED')){
+   await render({priceChanged:true});
+   return;
+ }
  const errNode=document.getElementById('cartError');
  if(errNode){errNode.textContent=C.errorText(error);errNode.focus?.({preventScroll:true});errNode.scrollIntoView?.({block:'center',behavior:'auto'});}
  b.disabled=false;b.textContent=originalLabel;
