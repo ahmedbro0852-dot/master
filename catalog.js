@@ -4450,7 +4450,7 @@ const products = [
       "مساعد كتابة الكود",
       "محادثة ومساعد ذكي"
     ],
-    "descriptionEn": "Monthly ChatGPT Plus offers: a no-warranty account for EGP 320, a ready private account with a full one-month warranty for EGP 650, or activation and renewal on your personal account for EGP 880. Review the delivery method and warranty of your chosen plan."
+    "descriptionEn": "One-month ChatGPT Plus plans: a ready private account for EGP 600 with a one-month warranty, or activation and renewal on your personal account for EGP 880. Check delivery and warranty details for the selected plan."
   },
   
 {

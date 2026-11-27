@@ -639,3 +639,13 @@ html[data-custom-theme] .storefront-hero .hero-primary:hover { background: var(-
   .storefront-picks-grid a { flex-direction: column; justify-content: center; gap: 5px; font-size: .8125rem; text-align: center; }
   .catalog .simple-service-card .card-btn { font-size: .8125rem; }
 }
+
+/* Keep storefront utility labels legible with custom themes. */
+html[data-custom-theme] .subscription-request-kicker,
+html[data-custom-theme] .subscription-request-copy > a { color: var(--theme-accent); }
+html[data-custom-theme] .social-market-music-note { color: var(--ink); }
+.reviews-playback > [data-review-step] { color: #174ec2; }
+html[data-custom-theme] .reviews-playback > [data-review-step] {
+  background: var(--theme-control);
+  color: var(--theme-accent);
+}
