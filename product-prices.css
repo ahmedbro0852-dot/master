@@ -233,3 +233,15 @@ html[data-custom-theme] .product-page :is(
   }
   .product-page .mobile-order-bar > .primary { flex: none; }
 }
+
+.product-page .wholesale-plan-link {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 9px;
+  color: var(--theme-accent, #174ea9);
+  text-align: center;
+}
+.product-page .wholesale-plan-link[hidden] { display: none; }

@@ -110,6 +110,7 @@
           '<div id="planNotices"></div>'+
           '<div id="summaryPlanPrice" class="summary-plan-price" hidden></div>'+
           (active?'<button id="buyBtn" class="primary full" type="button">'+ui('شراء الآن','Buy now')+'</button>':'<button class="primary full disabled" disabled>'+ui('غير متاح حاليًا','Currently unavailable')+'</button>')+
+          '<a class="ghost-btn full wholesale-plan-link" href="/#wholesale" hidden></a>'+
           '<p class="safe-note">'+ui('بعد إرسال الطلب، فريق الدعم هيتواصل معاك لتأكيد التوفر وبيانات الدفع.','After you send the order, support will confirm availability and payment details.')+'</p>'+
           '<div id="planTerms"></div>'+
         '</div>'+
@@ -322,6 +323,13 @@
     const viewSelectedLabel=ui('عرض الباقة المختارة: ','View selected plan: ')+planName;
     selectedLink.hidden=!plan;if(plan)selectedLink.textContent=viewSelectedLabel;
     summaryPlanPrice.hidden=!plan;
+    const wholesaleLink=root.querySelector('.wholesale-plan-link');
+    wholesaleLink.hidden=!active||!plan||plan.hidden||plan.available===false;
+    if(!wholesaleLink.hidden){
+      const request=new URLSearchParams({wholesaleProduct:p.id,wholesalePlan:String(plans.indexOf(plan))});
+      wholesaleLink.href='/?'+request+'#wholesale';
+      wholesaleLink.textContent=ui('اطلب كمية للتوزيع','Request a bulk quote');
+    }
     if(!plan){planNotices.replaceChildren();planTerms.replaceChildren();planFeatures.innerHTML=window.MasterProductGuides?MasterProductGuides.render(p.id,isEn(),location.pathname+location.search,{product:p,catalog:MasterCatalog.products,translate:tr,featuresFor:plan=>subscriptionFeatures(p,plan)}):'';return;}
     const buy=document.getElementById('buyBtn');if(buy)buy.disabled=plan.available===false;
     const mobilePrice=document.getElementById('mobilePlanPrice');
