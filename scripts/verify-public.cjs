@@ -49,7 +49,7 @@ const homeSections=[
 ].map(snippet=>home.indexOf(snippet));
 assert(homeSections.every((position,i)=>position!==-1&&(!i||position>homeSections[i-1])),'homepage shopping flow sections out of order');
 assert(!home.includes('class="confidence-strip"')&&!home.includes('class="home-avatar-row"'),'old duplicate homepage blocks restored');
-assert(home.includes('homepage-refresh.css?v=20261127-wholesale1'),'new homepage layout CSS is not cache-busted');
+assert(home.includes('homepage-refresh.css?v=20261128-wholesale2'),'new homepage layout CSS is not cache-busted');
 
 // Regression gate: both account and checkout must ship the CSS they reference.
 const mobileFix='mobile-checkout-account-fix.css';
@@ -73,6 +73,8 @@ assert(fs.existsSync(path.join(out,'tracking.css')),'tracking stylesheet not pub
 for(const asset of ['categories-modern.js','tracking.js'])new (require('node:vm').Script)(read(asset),{filename:asset});
 assert(home.includes('href="/categories.html"'),'homepage category entry missing');
 assert(home.includes('id="wholesaleRequestForm"')&&home.includes('/wholesale-request.js?v='),'wholesale enquiry missing');
+assert(home.includes('class="hero-wholesale-link" href="#wholesale"'),'wholesale link missing from the homepage hero');
+assert(home.indexOf('id="wholesale"')<home.indexOf('id="products"'),'wholesale section must appear before the catalogue');
 assert(fs.existsSync(path.join(out,'wholesale-request.js')),'wholesale enquiry script missing from build');
 assert(read('site-updates.js').includes("href:'/categories.html'"),'mobile category navigation missing');
 assert(cart.includes('id="cartContent"')&&cart.includes('cart.js?v='),'cart checkout missing');
