@@ -36,7 +36,7 @@ for(const file of ['common-problems.html','common-problems.css','common-problems
 assert(home.includes('social-market-preview'),'coming-soon social preview missing');
 
 const homeSections=[
- 'class="hero hero-v2"',
+ 'class="hero hero-v2 storefront-hero"',
  'class="store-section-links"',
  'id="best-offers"',
  'class="home-plus-offer"',
@@ -49,7 +49,7 @@ const homeSections=[
 ].map(snippet=>home.indexOf(snippet));
 assert(homeSections.every((position,i)=>position!==-1&&(!i||position>homeSections[i-1])),'homepage shopping flow sections out of order');
 assert(!home.includes('class="confidence-strip"')&&!home.includes('class="home-avatar-row"'),'old duplicate homepage blocks restored');
-assert(home.includes('homepage-refresh.css?v=20261111-message-release11'),'new homepage layout CSS is not cache-busted');
+assert(home.includes('homepage-refresh.css?v=20261127-storefront1'),'new homepage layout CSS is not cache-busted');
 
 // Regression gate: both account and checkout must ship the CSS they reference.
 const mobileFix='mobile-checkout-account-fix.css';
@@ -84,7 +84,7 @@ const lovableVisible=lovable.plans.map((plan,index)=>({plan,index})).filter(({pl
 assert.deepEqual(Array.from(lovableVisible,({index})=>index),[2,4],'only Lovable annual and three-month plans should be published');
 assert.equal(lovable.plans[2].price,3000,'Lovable annual price');
 assert.equal(lovable.plans[4].price,1000,'Lovable three-month price');
-assert(home.includes('Lovable Pro — حساب خاص')&&home.includes('100 كريدت شهريًا + 5 يوميًا'),'Lovable private three-month homepage offer missing');
+assert(home.includes('class="shelf-feature" href="/products/lovable-pro.html?plan=4"')&&home.includes('حساب خاص · 3 شهور · ضمان كامل')&&home.includes('100 كريدت شهريًا + 5 يوميًا'),'Lovable private three-month homepage offer missing');
 assert(home.includes('id="heroCatalogSearch"')&&home.includes('id="catalogSearchSuggestions"'),'search entry points missing');
 assert(home.includes('store-search.js?v=20261110-mobile-search2')&&home.includes('store-search.css?v=20261105-autocomplete1'),'live search scripts not wired');
 for(const file of ['store-search.js','store-search.css'])assert(fs.existsSync(path.join(out,file)),'missing search asset: '+file);
