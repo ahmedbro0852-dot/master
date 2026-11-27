@@ -516,8 +516,47 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
   "حدود الاستخدام والرصيد المتاح وشروط التجديد تتبع الخطة المفعلة؛ راجع لوحة Usage وBilling في حسابك.": "Usage limits, available credit and renewal terms follow the activated plan; check Usage and Billing in your account.",
   "مرجع السعر الرسمي 20 دولارًا هو رسم Pro الأساسي الشهري قبل الضرائب، وليس استضافة غير محدودة.": "The official US$20 reference is the monthly base Pro platform fee before tax, not unlimited hosting."
 });
+  // Translate the purchased plan's terms before falling back to general help text.
+  const planFactsEn = {
+    "ضمان كامل لمدة شهر": "Full one-month warranty",
+    "ضمان كامل لمدة 12 شهرًا": "Full 12-month warranty",
+    "ضمان لمدة 20 يومًا": "20-day warranty",
+    "ضمان كامل لمدة شهر على الحسابين": "Full one-month warranty for both accounts",
+    "ضمان 5 أيام": "5-day warranty",
+    "20 يوم من المتجر": "20-day store warranty",
+    "ضمان لمدة 4 شهور": "4-month warranty",
+    "ضمان كامل لمدة سنة": "Full one-year warranty",
+    "ضمان كامل لمدة 4 شهور": "Full 4-month warranty",
+    "ضمان كامل لمدة 3 شهور": "Full 3-month warranty",
+    "ضمان كامل طوال مدة الاشتراك (30 يومًا)": "Full warranty throughout the 30-day subscription",
+    "ضمان كامل طوال مدة الاشتراك — 3 شهور": "Full warranty throughout the 3-month subscription",
+    "شروط الضمان تُؤكد قبل الدفع": "Confirm warranty terms before payment",
+    "يُؤكد مع الدعم قبل الدفع": "Confirm with support before payment",
+    "حسب الرصيد": "Depends on the available credits",
+    "شهر": "One month",
+    "شهر واحد": "One month",
+    "رصيد استخدام": "Usage credits",
+    "1 شهر لكل اشتراك": "1 month per subscription",
+    "مدى الحياة وفق شروط العرض": "Lifetime access under the offer terms",
+    "حسب العرض المتوفر": "Depends on the available offer",
+    "اشتراكك في BDF Egypt": "Your BDF Egypt subscription",
+    "اشتراك مستقل للعميل": "Standalone subscription for the customer",
+    "رصيد AI في BDF Egypt": "BDF Egypt AI credits",
+    "على إيميلك الشخصي": "On your personal email",
+    "حساب جاهز — بريد وباسورد": "Ready account with email and password",
+    "حساب جاهز خاص": "Ready private account",
+    "Plus تابع لـOrg": "Plus under an organization",
+    "حسابات جاهزة": "Ready accounts",
+    "اشتراكك الحالي في WE Gold": "Your existing WE Gold subscription",
+    "حسابك الشخصي على إيميلك": "Your personal account, on your email",
+    "Plus مستقل غير تابع لـOrg": "Standalone Plus account",
+    "حسابك الشخصي": "Your personal account",
+    "على إيميلك أو حساب جاهز": "On your email or as a ready account"
+  };
+
   function catalogText(value,kind,productId){
     const raw=String(value??"");
+    if(state.language==="en"&&["duration","warranty","account","accountType"].includes(kind)&&Object.hasOwn(planFactsEn,raw))return planFactsEn[raw];
     if(state.language==="en"&&['coursera-plus-trial-7d','udemy-personal'].includes(productId)){
       const product=window.MasterCatalog?.getProduct(productId);
       if(kind==="description")return product?.descriptionEn||raw;

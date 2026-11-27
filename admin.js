@@ -6,7 +6,7 @@ const status={pending:['بانتظار المراجعة','Pending review'],appro
 const label=s=>status[s]?.[en()?1:0]||s;
 const date=s=>new Date(s).toLocaleString(en()?'en-GB':'ar-EG');
 const adminParams=new URLSearchParams(location.search);
-const adminTabs=['customers','orders','advanced','topups','plans','campaigns','discounts','audit'];
+const adminTabs=['customers','orders','advanced','topups','plans','campaigns','discounts','audit','funnel'];
 let data=null,tab=adminTabs.includes(adminParams.get('tab'))?adminParams.get('tab'):(adminParams.has('order')?'orders':'customers'),query=adminParams.get('order')||'',filter='all',busy=false,loadVersion=0,orderPage=0,outcomeFilter='all',inboxTotal=0,inboxLoading=false,inboxVersion=0,searchTimer;
 const outcomes={unreviewed:['لم يُراجع','Unreviewed'],purchased:['اشترى','Purchased'],not_purchased:['لم يشترِ','Did not purchase'],follow_up:['يحتاج متابعة','Follow up']};
 const outcomeLabel=x=>outcomes[x]?.[en()?1:0]||x;
@@ -22,14 +22,14 @@ async function load(){
 }
 function render(){
  const stats=data.stats;
- root.innerHTML='<nav class="admin-area-nav" aria-label="'+t('إدارة المتجر','Store administration')+'"><a href="management.html">'+t('العملاء والاشتراكات والطلبات المباشرة','Customers, subscriptions & direct orders')+'</a><span>'+t('المدفوعات والأسعار','Payments & pricing')+'</span></nav><div class="admin-heading"><div><span class="eyebrow">MASTER STORE</span><h1>'+t('إدارة المتجر','Store management')+'</h1><p>'+t('تحكم يدوي في الطلبات والأسعار والخصومات ورصيد العملاء.','Manage orders, prices, discounts and customer balances.')+'</p></div><button id="reloadAdmin" class="ghost-btn">'+t('تحديث البيانات','Refresh data')+'</button></div><div id="adminMessage" class="account-message" role="status" hidden></div><div class="admin-stats"><article><small>'+t('العملاء المسجلين','Registered customers')+'</small><b>'+Number(stats.registered_customers??data.customers?.length??0)+'</b></article><article><small>'+t('إجمالي الطلبات','Total orders')+'</small><b>'+stats.orders+'</b></article><article><small>'+t('طلبات تنتظر التنفيذ','Open orders')+'</small><b>'+stats.pending_orders+'</b></article><article><small>'+t('شحن تحت المراجعة','Pending top-ups')+'</small><b>'+stats.pending_topups+'</b></article><article><small>'+t('قيمة طلبات الموقع المكتملة','Completed website order value')+'</small><b>'+money(stats.completed_sales)+'</b></article></div><div class="admin-tabs" role="group" aria-label="'+t('أقسام الإدارة','Management sections')+'">'+[['customers','العملاء والأرصدة','Customers & balances'],['orders','الطلبات','Orders'],['advanced','مركز التحكم المتقدم','Advanced controls'],['topups','شحن الرصيد','Top-ups'],['plans','الباقات والأسعار','Plans & prices'],['campaigns','الإعلانات والبوسترات','Posters & campaigns'],['discounts','خصومات السلة','Cart discounts'],['audit','سجل التغييرات','Change log']].map(x=>'<button class="'+(tab===x[0]?'selected':'')+'" data-tab="'+x[0]+'" aria-pressed="'+(tab===x[0])+'">'+t(x[1],x[2])+'</button>').join('')+'</div><section class="account-panel admin-workspace"><div id="adminTools"></div><div id="adminRows"></div></section>';
+ root.innerHTML='<nav class="admin-area-nav" aria-label="'+t('إدارة المتجر','Store administration')+'"><a href="management.html">'+t('العملاء والاشتراكات والطلبات المباشرة','Customers, subscriptions & direct orders')+'</a><span>'+t('المدفوعات والأسعار','Payments & pricing')+'</span></nav><div class="admin-heading"><div><span class="eyebrow">MASTER STORE</span><h1>'+t('إدارة المتجر','Store management')+'</h1><p>'+t('تحكم يدوي في الطلبات والأسعار والخصومات ورصيد العملاء.','Manage orders, prices, discounts and customer balances.')+'</p></div><button id="reloadAdmin" class="ghost-btn">'+t('تحديث البيانات','Refresh data')+'</button></div><div id="adminMessage" class="account-message" role="status" hidden></div><div class="admin-stats"><article><small>'+t('العملاء المسجلين','Registered customers')+'</small><b>'+Number(stats.registered_customers??data.customers?.length??0)+'</b></article><article><small>'+t('إجمالي الطلبات','Total orders')+'</small><b>'+stats.orders+'</b></article><article><small>'+t('طلبات تنتظر التنفيذ','Open orders')+'</small><b>'+stats.pending_orders+'</b></article><article><small>'+t('شحن تحت المراجعة','Pending top-ups')+'</small><b>'+stats.pending_topups+'</b></article><article><small>'+t('قيمة طلبات الموقع المكتملة','Completed website order value')+'</small><b>'+money(stats.completed_sales)+'</b></article></div><div class="admin-tabs" role="group" aria-label="'+t('أقسام الإدارة','Management sections')+'">'+[['customers','العملاء والأرصدة','Customers & balances'],['orders','الطلبات','Orders'],['advanced','مركز التحكم المتقدم','Advanced controls'],['topups','شحن الرصيد','Top-ups'],['plans','الباقات والأسعار','Plans & prices'],['campaigns','الإعلانات والبوسترات','Posters & campaigns'],['discounts','خصومات السلة','Cart discounts'],['audit','سجل التغييرات','Change log'],['funnel','مسار الشراء','Purchase funnel']].map(x=>'<button class="'+(tab===x[0]?'selected':'')+'" data-tab="'+x[0]+'" aria-pressed="'+(tab===x[0])+'">'+t(x[1],x[2])+'</button>').join('')+'</div><section class="account-panel admin-workspace"><div id="adminTools"></div><div id="adminRows"></div></section>';
  root.querySelector('#reloadAdmin').onclick=()=>{if(!busy)load();};
  root.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{if(busy)return;clearTimeout(searchTimer);inboxVersion++;inboxLoading=false;tab=b.dataset.tab;query='';filter='all';outcomeFilter='all';orderPage=0;render();if(tab==='orders')refreshInbox();});
  tools();rows();
 }
 function tools(){
  const box=root.querySelector('#adminTools');
- if(['discounts','audit','campaigns','advanced'].includes(tab)){box.innerHTML='';return;}
+ if(['discounts','audit','campaigns','advanced','funnel'].includes(tab)){box.innerHTML='';return;}
  box.innerHTML='<div class="admin-tools"><label>'+t('بحث','Search')+'<input id="adminSearch" type="search" value="'+E(query)+'" placeholder="'+t(tab==='customers'?'اسم العميل أو البريد أو الهاتف':'اسم الخدمة، العميل، أو رقم الطلب',tab==='customers'?'Name, email or phone':'Service, customer or order ID')+'"></label>'+(['orders','topups'].includes(tab)?'<label>'+t('الحالة','Status')+'<select id="adminFilter"><option value="all">'+t('الكل','All')+'</option>'+(tab==='orders'?['pending_payment','processing','completed','cancelled']:['pending','approved','rejected']).map(x=>'<option value="'+x+'" '+(filter===x?'selected':'')+'>'+label(x)+'</option>').join('')+'</select></label>':'')+(tab==='orders'?'<label>'+t('قرار الشراء','Purchase outcome')+'<select id="adminOutcomeFilter"><option value="all">'+t('الكل','All')+'</option>'+Object.keys(outcomes).map(x=>'<option value="'+x+'" '+(outcomeFilter===x?'selected':'')+'>'+outcomeLabel(x)+'</option>').join('')+'</select></label>':'')+'</div><p class="admin-help">'+t(tab==='plans'?'السعر بالجنيه المصري. الحفظ يظهر على المتجر والسلة؛ الطلبات القديمة تحتفظ بسعرها.':tab==='customers'?'تعديل الرصيد يحتاج سببًا، وكل حركة بتظهر في محفظة العميل وسجل الإدارة.':tab==='orders'?'كل طلبات الموقع: حسابات وضيوف، قديمة وجديدة. قرار الشراء وملاحظات المتابعة داخلية، ولا تؤكد وصول الدفع ولا تخصم أو ترد رصيدًا.':'راجع التحويل فعليًا قبل اعتماد الدفع. القائمة تعرض أحدث 500 سجل.',tab==='plans'?'Prices are in EGP. Saved changes appear in the store and cart; existing orders keep their price.':tab==='customers'?'Balance changes require a reason and appear in the customer ledger and admin log.':tab==='orders'?'All website orders: accounts and guests, old and new. Internal purchase outcomes and notes do not confirm payment, debit or refund balances.':'Verify transfers before approval. Showing the latest 500 records.')+'</p>';
 
  if(tab==='orders'){
@@ -64,8 +64,35 @@ function tools(){
 async function fetchInbox(){const v=++inboxVersion;const result=await C.unwrap(C.client.rpc('master_store_order_inbox',{search_text:query,status_filter:filter,outcome_filter:outcomeFilter,page_number:orderPage}));if(v!==inboxVersion)return;data.orders=result.orders;inboxTotal=result.total;}
 async function refreshInbox(){if(tab!=='orders'||!data)return;const v=++inboxVersion;inboxLoading=true;const box=root.querySelector('#adminRows');box?.setAttribute('aria-busy','true');if(box)box.innerHTML='<p role="status">'+t('جاري تحميل الطلبات…','Loading orders…')+'</p>';try{const result=await C.unwrap(C.client.rpc('master_store_order_inbox',{search_text:query,status_filter:filter,outcome_filter:outcomeFilter,page_number:orderPage}));if(v!==inboxVersion||tab!=='orders'||!data)return;data.orders=result.orders;inboxTotal=result.total;inboxLoading=false;rows();}catch(e){if(v!==inboxVersion)return;inboxLoading=false;if(box)box.innerHTML='<p role="alert">'+E(C.errorText(e))+'</p><button class="ghost-btn" id="retryInbox">'+t('إعادة المحاولة','Retry')+'</button>';box?.querySelector('#retryInbox')?.addEventListener('click',refreshInbox);}finally{if(v===inboxVersion)box?.setAttribute('aria-busy','false');}}
 function matching(x){return (!query||JSON.stringify(x).toLowerCase().includes(query.toLowerCase()))&&(filter==='all'||x.status===filter);}
+async function renderFunnel(box){
+  box.innerHTML='<p role="status">'+t('جاري تحميل المسار…','Loading purchase funnel…')+'</p>';
+  const stages=[
+    ['product_view','فتح صفحة اشتراك متاح','Available subscription viewed'],
+    ['plan_choice','الضغط على شراء باقة','Plan purchase opened'],
+    ['cart_ready','ظهور نموذج إتمام الطلب','Checkout form shown'],
+    ['order_submit','محاولة تأكيد الطلب','Order submission attempted'],
+    ['order_recorded','تسجيل الطلب بنجاح','Order recorded']
+  ];
+  const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Africa/Cairo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  const start=new Date(today+'T00:00:00Z');
+  start.setUTCDate(start.getUTCDate()-6);
+  try{
+    const entries=await C.unwrap(C.client.from('master_store_funnel_daily').select('stage,visits').gte('day',start.toISOString().slice(0,10)).lte('day',today));
+    if(!box.isConnected)return;
+    const totals=new Map(stages.map(([stage])=>[stage,0]));
+    for(const row of entries)if(totals.has(row.stage))totals.set(row.stage,totals.get(row.stage)+Number(row.visits));
+    const number=new Intl.NumberFormat(en()?'en':'ar-EG');
+    box.innerHTML='<section class="admin-funnel"><h2>'+t('مسار الشراء','Purchase funnel')+'</h2>'+
+      '<p>'+t('آخر ٧ أيام بتوقيت القاهرة. كل خطوة بتتحسب مرة لكل تبويب في اليوم.','Last 7 days in Cairo time. Each step is counted once per tab per day.')+'</p>'+
+      '<dl>'+stages.map(([stage,ar,english])=>'<div><dt>'+t(ar,english)+'</dt><dd>'+number.format(totals.get(stage))+'</dd></div>').join('')+'</dl></section>';
+  }catch(error){
+    if(box.isConnected)box.innerHTML='<p role="alert">'+E(C.errorText(error))+'</p>';
+  }
+}
+
 function rows(){
  const box=root.querySelector('#adminRows');
+ if(tab==='funnel'){renderFunnel(box);return;}
  if(tab==='advanced'){window.MasterAdvancedAdmin.render(box,data,{openTab:key=>root.querySelector('[data-tab="'+key+'"]')?.click(),refresh:load,notify});return;}
   if(tab==='campaigns'){window.MasterCampaignAdmin.render(box);return;}
  if(tab==='discounts'){discounts(box);return;}

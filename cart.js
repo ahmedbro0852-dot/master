@@ -43,6 +43,7 @@ async function render({priceChanged=false}={}){
  root.querySelectorAll('.cart-remove').forEach(b=>b.onclick=()=>{write(items.filter(x=>!(x.product_id===b.dataset.product&&x.plan_index===+b.dataset.plan)));requestId=crypto.randomUUID();render();});
  const form=root.querySelector('#cartCheckout');
  form.onsubmit=checkout;
+ window.MasterFunnel?.mark('cart_ready');
  if(priceChanged){
    const note=document.createElement('p');
    note.className='cart-price-update';note.tabIndex=-1;note.setAttribute('role','status');
@@ -70,7 +71,7 @@ async function checkout(e){
  if((typeof form.reportValidity==='function'&&!form.reportValidity())||!chosen)return;
  const contact={name:form.elements.name.value.trim(),phone:form.elements.phone.value.trim(),email:form.elements.email.value.trim()};
  const method=chosen.value,items=read(),q=quote,originalLabel=b.textContent;
- busy=true;b.disabled=true;b.textContent=t('جارٍ إرسال الطلب…','Submitting your order…');
+ busy=true;window.MasterFunnel?.mark('order_submit');b.disabled=true;b.textContent=t('جارٍ إرسال الطلب…','Submitting your order…');
  root.querySelectorAll('.cart-qty,.cart-remove').forEach(x=>x.disabled=true);
  form.querySelectorAll('input,select').forEach(x=>x.disabled=true);
 try{
@@ -80,6 +81,7 @@ try{
  if(user){const result=await C.unwrap(C.client.rpc('master_store_checkout_cart',{request_id:requestId,items,contact,method,quoted_amount:q.amount_piasters}));orders=result.orders;id=result.cart_id;}
  else{const result=await C.unwrap(C.client.rpc('master_store_guest_checkout',{request_id:requestId,receipt_token:receiptToken,items,contact,method,quoted_amount:q.amount_piasters}));orders=result.orders;id=result.cart_id;try{C.saveGuestReceipt(id,receiptToken,orders.map(x=>x.id));orders.forEach(x=>S.saveOrder({...C.asLocalOrder(x),cartId:id,serverSaved:true}));}catch{/* Server receipt is already committed; never report a failed purchase because local storage is full. */}}
 
+ window.MasterFunnel?.mark('order_recorded');
  try{sessionStorage.removeItem('masterStoreCheckoutAttemptV1');}catch{}
  try{S.saveProfile(contact);}catch{}checkoutDraft=null;
  const message=window.MasterOrderDetails.buildMessage(q,contact,method,id,!!user);

@@ -53,6 +53,7 @@ const server = http.createServer((request, response) => {
     const deliveryKey = 'b'.repeat(64);
     const deliveryPayload = 'Simulated delivery. No usable login credentials.';
     const checkoutCalls = [];
+    const funnelCalls = [];
     let price = 88000;
     let submittedOrder;
     let savedReceipt;
@@ -93,6 +94,10 @@ const server = http.createServer((request, response) => {
           return reply([]);
         case '/rest/v1/rpc/master_store_quote_cart':
           return reply(quote(body.items));
+        case '/rest/v1/rpc/master_store_record_funnel':
+          assert.deepEqual(Object.keys(body), ['event_stage']);
+          funnelCalls.push(body.event_stage);
+          return reply(null);
         case '/rest/v1/rpc/master_store_guest_checkout': {
           checkoutCalls.push(body);
           if (checkoutCalls.length === 1) {
@@ -202,7 +207,8 @@ const server = http.createServer((request, response) => {
     await page.goto(origin + '/track.html#order=' + encodeURIComponent(printableNumber));
     await page.locator('.tracking-progress [aria-current=step]').getByText('Completed').waitFor();
     assert.deepEqual(errorMessages, []);
-    console.log('PASS: guest checkout, updated quote, retry, invoice reference, tracking stages, and simulated delivery recovery.');
+    assert.deepEqual(funnelCalls, ['product_view', 'plan_choice', 'cart_ready', 'order_submit', 'order_recorded']);
+    console.log('PASS: guest checkout, updated quote, retry, invoice tracking, simulated delivery recovery, and deduplicated funnel stages.');
   } finally {
     await browser.close();
     server.close();
