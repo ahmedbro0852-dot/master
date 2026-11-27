@@ -61,6 +61,20 @@
     "يُؤكد مع الدعم قبل الدفع":"Confirm with support before payment",
     "سيرفر عربي عشوائي — سنة أو أكثر":"Assigned Arabic-content server — one year or longer",
     'العروض':'Offers','طريقة الطلب':'How to order','ليه MASTER STORE؟':'Why MASTER STORE?',
+    'حل المشاكل':'Troubleshooting',
+    'دليل حل المشكلات':'Troubleshooting guide',
+    'الاشتراكات خارج مصر':'International subscriptions (Arabic)',
+    'مقارنة اشتراكات ChatGPT Plus وGo وGemini':'Compare ChatGPT Plus, ChatGPT Go, and Gemini',
+    'Canva Pro أم CapCut Pro؟ اختيار اشتراك التصميم والمونتاج':'Canva Pro or CapCut Pro? Choose a design or video editing subscription',
+    'عن ماستر ستور والتواصل':'About Master Store and contact information',
+    '🎁 عرض طلباتي المستلمة من واتساب':'🎁 View orders delivered via WhatsApp',
+    'روابط سريعة للاشتراكات ودليل المساعدة':'Subscription and help links',
+    'دور على خدمتك...':'Search for a service...',
+    'البحث عن اشتراك':'Find a subscription',
+    'ابحث عن خدمة أو اشتراك':'Search for a service or subscription',
+    'اقتراحات البحث':'Search suggestions',
+    'ضمان لمدة شهر':'One-month warranty',
+    'Pro — دعوة عائلية — شهر على إيميلك':'Pro — family invitation — one month on your email',
     'طلباتي':'My orders','حسابي':'My account','حسابي ومحفظتي':'My account & wallet','افتح حسابك ←':'Open your account →','حسابك في MASTER STORE':'Your MASTER STORE account','طلباتك ورصيدك معاك في أي وقت.':'Your orders and balance, anytime.','سجل الدخول، اشحن محفظتك بعد تأكيد التحويل، وادفع من رصيدك.':'Sign in, top up after transfer verification, and pay with your balance.','تصفح العروض':'Browse offers','خدمة العملاء':'Customer support','واتساب':'WhatsApp',
     'اختار الباقة':'Choose a plan','تفاصيل الباقة':'Plan details','تفاصيل داخل المنتج':'See product details',
     'غير متاح حاليًا':'Currently unavailable','غير متوفر':'Unavailable','متاح':'Available',
@@ -523,7 +537,7 @@ const exactEnToAr=Object.fromEntries(Object.entries(exactArToEn).map(([a,e])=>[e
         if(index!==-1&&en?.[index])return en[index];
       }
       const replacements={"Pro — سنتين (24 شهرًا) — تفعيل على حسابك":"Pro — two years (24 months) — on your account","24 شهر":"24 months","حساب Google الشخصي الخاص بالعميل":"Customer's own Google account","تفعيل على حسابك الشخصي — يتطلب بيانات الدخول":"Direct activation on your account — login required","يلزم تسليم بيانات تسجيل الدخول إلى حساب Google الشخصي بطريقة آمنة بعد إتمام الطلب لإجراء التفعيل.":"Google account login details are required through a secure handover after ordering to complete activation."};
-      return replacements[raw]||raw;
+      return replacements[raw]||exactArToEn[raw]||raw;
     }
 
     if(state.language==="en"&&productId==="google-ai-plus"){

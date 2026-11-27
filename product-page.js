@@ -106,9 +106,13 @@
       '</div>'+
       '<aside class="summary-card">'+
         '<h2>'+ui('تفاصيل الباقة','Plan details')+'</h2>'+
-        '<div id="planDetails"></div>'+
-        (active?'<button id="buyBtn" class="primary full" type="button">'+ui('شراء الآن','Buy now')+'</button>':'<button class="primary full disabled" disabled>'+ui('غير متاح حاليًا','Currently unavailable')+'</button>')+
-        '<p class="safe-note">'+ui('بعد إرسال الطلب، فريق الدعم هيتواصل معاك لتأكيد التوفر وبيانات الدفع.','After you send the order, support will confirm availability and payment details.')+'</p>'+
+        '<div id="planDetails">'+
+          '<div id="planNotices"></div>'+
+          '<div id="summaryPlanPrice" class="summary-plan-price" hidden></div>'+
+          (active?'<button id="buyBtn" class="primary full" type="button">'+ui('شراء الآن','Buy now')+'</button>':'<button class="primary full disabled" disabled>'+ui('غير متاح حاليًا','Currently unavailable')+'</button>')+
+          '<p class="safe-note">'+ui('بعد إرسال الطلب، فريق الدعم هيتواصل معاك لتأكيد التوفر وبيانات الدفع.','After you send the order, support will confirm availability and payment details.')+'</p>'+
+          '<div id="planTerms"></div>'+
+        '</div>'+
       '</aside>'+
     '</section>';
 
@@ -119,8 +123,9 @@
   function updateIntroToggle(){
     if(!introDescription||!introToggle)return;
     const compact=window.matchMedia('(max-width:700px)').matches;
-    introToggle.hidden=!compact||introDescription.textContent.trim().length<140;
     const expanded=root.classList.contains('product-intro-expanded');
+    const clipped=introDescription.scrollHeight>introDescription.clientHeight;
+    introToggle.hidden=!compact||(!expanded&&!clipped);
     introToggle.setAttribute('aria-expanded',String(expanded));
     introToggle.textContent=ui(expanded?'إظهار أقل':'عرض الوصف كاملًا',expanded?'Show less':'Read full description');
   }
@@ -136,16 +141,17 @@
       updateIntroToggle();
     });
     window.addEventListener('resize',updateIntroToggle,{passive:true});
+    document.fonts?.ready.then(updateIntroToggle);
     updateIntroToggle();
   }
 
   root.querySelector('.product-hero').insertAdjacentHTML('beforeend',window.MasterShopping?.button(p)||'');
-  const selectedLink=document.createElement('button');selectedLink.type='button';selectedLink.className='selected-plan-link';root.querySelector('.summary-card').prepend(selectedLink);
+  const selectedLink=document.createElement('button');selectedLink.type='button';selectedLink.className='selected-plan-link';root.querySelector('.summary-card > h2').insertAdjacentElement('afterend',selectedLink);
   selectedLink.addEventListener('click',()=>{const radio=root.querySelector('input[name=plan]:checked');if(radio){radio.closest('.plan-option').scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});radio.focus({preventScroll:true});}});
 
   const planActions=document.createElement('div');planActions.className='plan-tools';
   planActions.innerHTML='<div class="plan-tool-buttons"><button type="button" data-copy-plan></button><button type="button" data-ask-plan></button></div><p class="plan-tool-status" role="status" aria-live="polite"></p><input class="plan-share-url" type="text" readonly hidden>';
-  selectedLink.insertAdjacentElement('afterend',planActions);
+  root.querySelector('#planDetails').insertAdjacentElement('afterend',planActions);
   const copyPlan=planActions.querySelector('[data-copy-plan]'),askPlan=planActions.querySelector('[data-ask-plan]'),shareStatus=planActions.querySelector('.plan-tool-status'),shareInput=planActions.querySelector('input');
   const planUrl=()=>{const url=new URL('/products/'+encodeURIComponent(p.id)+'.html',location.origin);url.searchParams.set('plan',String(plans.indexOf(selectedPlan())));return url.href;};
   copyPlan.addEventListener('click',async()=>{const url=planUrl();try{if(!navigator.clipboard?.writeText)throw Error('clipboard');await navigator.clipboard.writeText(url);shareInput.hidden=true;shareStatus.textContent=ui('تم نسخ رابط الباقة المختارة ✓','Selected plan link copied ✓');}catch{shareInput.value=url;shareInput.hidden=false;shareInput.focus();shareInput.select();shareStatus.textContent=ui('انسخ الرابط من الخانة دي.','Copy the link from this field.');}});
@@ -169,7 +175,7 @@
   if(active&&plans.length){
     const bar=document.createElement('div');
     bar.className='mobile-order-bar';
-    bar.innerHTML='<div><button type="button" class="mobile-plan-jump"><small>'+ui('الباقة المختارة','Selected plan')+'</small></button><strong id="mobilePlanPrice"></strong></div><button class="primary" id="mobileBuyBtn" type="button">'+ui('شراء الآن','Buy now')+'</button>';
+    bar.innerHTML='<div><button type="button" class="mobile-plan-jump"><small></small><strong id="mobilePlanPrice"></strong></button></div><button class="primary" id="mobileBuyBtn" type="button">'+ui('شراء الآن','Buy now')+'</button>';
     root.appendChild(bar);
     bar.querySelector('.mobile-plan-jump').addEventListener('click',()=>selectedLink.click());
     document.getElementById('mobileBuyBtn').addEventListener('click',()=>document.getElementById('buyBtn')?.click());
@@ -177,7 +183,9 @@
 
   bindProductLogoFallback();
 
-  const planDetails=document.getElementById('planDetails');
+  const planNotices=document.getElementById('planNotices');
+  const summaryPlanPrice=document.getElementById('summaryPlanPrice');
+  const planTerms=document.getElementById('planTerms');
   const planFeatures=document.getElementById('planFeatures');
   const radios=[...document.querySelectorAll('input[name="plan"]')];
 
@@ -214,18 +222,26 @@
 
   // First 20 services in the storefront's default order on 10 November 2026.
   const fastDeliveryIds=new Set(['grok-cursor-premium','cursor-grok-x-bundle','supergrok-coursera-bundle','chatgpt-plus','chatgpt-go','chatgpt-teachers-k12','gemini-pro','google-ai-plus','hostinger','canva-pro','adobe-cc','capcut-pro','kling','microsoft-365','grok','claude-pro','spotify','youtube','freepik']);
-  const deliveryNotice=document.createElement('aside');
-  if(deliveryNotice){
-    deliveryNotice.className='product-delivery-notice';
-    deliveryNotice.setAttribute('role','status');
-    deliveryNotice.setAttribute('data-no-translate','true');
-    root.querySelector('.product-layout').before(deliveryNotice);
-  }
+  const deliveryNotice=document.createElement('details');
+  deliveryNotice.className='product-delivery-notice';
+  deliveryNotice.setAttribute('data-no-translate','true');
+  root.querySelector('.product-layout').before(deliveryNotice);
+
   function updateDeliveryNotice(plan){
-    if(!deliveryNotice)return;
     deliveryNotice.hidden=!active||!plan||plan.hidden||plan.available===false;
+    if(deliveryNotice.hidden)return;
     const fast=fastDeliveryIds.has(p.id);
-    deliveryNotice.innerHTML='<div class="delivery-drive" aria-hidden="true"><span class="delivery-drive-halo"></span><div class="delivery-truck"><span class="delivery-trails"></span><span class="delivery-cargo"><img src="/master-store-logo.svg" alt="" width="94" height="32" loading="lazy"></span><span class="delivery-cab"><i></i></span><span class="delivery-bumper"></span><span class="delivery-wheel wheel-rear"></span><span class="delivery-wheel wheel-front"></span><span class="delivery-carton"><i></i></span></div><span class="delivery-road"></span><span class="delivery-arrived">✓</span></div><div class="delivery-copy"><span class="delivery-stock">'+ui('🚚 وقت التجهيز والتسليم المتوقع','🚚 Estimated preparation and delivery')+'</span><strong>'+ui(fast?'٥–١٠ دقائق':'١٠ دقائق إلى ساعة',fast?'5–10 minutes':'10 minutes to 1 hour')+'</strong><p>'+ui('نجهّز طلبك بعد تأكيد الدفع من الإدارة. المدة تقديرية وتعتمد على توفر الباقة وطريقة التفعيل.','We prepare your order after administration confirms payment. Timing is estimated and depends on plan availability and activation method.')+'</p><a href="https://wa.me/201500950624?text='+encodeURIComponent(ui('أرغب في تأكيد الدفع ووقت تجهيز طلب ','Please confirm payment and preparation time for ')+p.name+' — '+(plan?.name||plan?.duration||''))+'" target="_blank" rel="noopener noreferrer">'+ui('تابع تجهيز طلبك على واتساب ←','Follow up on your order via WhatsApp →')+'</a><small>'+ui('تبدأ المدة بعد تأكيد وصول التحويل، وليست من وقت إرسال الطلب.','The estimate starts after transfer confirmation, not when the order is submitted.')+'</small></div>';
+    const estimate=ui(fast?'٥–١٠ دقائق':'١٠ دقائق إلى ساعة',fast?'5–10 minutes':'10 minutes to 1 hour');
+    const followUp=encodeURIComponent(ui('أرغب في تأكيد الدفع ووقت تجهيز طلب ','Please confirm payment and preparation time for ')+p.name+' — '+(plan.name||plan.duration||''));
+    deliveryNotice.innerHTML=
+      '<summary><span class="delivery-estimate-label">'+ui('وقت التسليم المتوقع بعد تأكيد الدفع','Estimated delivery after payment confirmation')+'</span><strong>'+estimate+'</strong></summary>'+
+      '<div class="delivery-notice-body">'+
+        '<div class="delivery-drive" aria-hidden="true"><span class="delivery-drive-halo"></span><div class="delivery-truck"><span class="delivery-trails"></span><span class="delivery-cargo"><img src="/master-store-logo.svg" alt="" width="94" height="32" loading="lazy"></span><span class="delivery-cab"><i></i></span><span class="delivery-bumper"></span><span class="delivery-wheel wheel-rear"></span><span class="delivery-wheel wheel-front"></span><span class="delivery-carton"><i></i></span></div><span class="delivery-road"></span><span class="delivery-arrived">✓</span></div>'+
+        '<div class="delivery-copy">'+
+          '<p>'+ui('المدة تقديرية وتعتمد على توفر الباقة وطريقة التفعيل.','Timing is estimated and depends on plan availability and activation method.')+'</p>'+
+          '<a href="https://wa.me/201500950624?text='+followUp+'" target="_blank" rel="noopener noreferrer">'+ui('تابع تجهيز طلبك على واتساب','Follow up on WhatsApp')+'</a>'+
+        '</div>'+
+      '</div>';
   }
   function selectedPlan(){
     const r=radios.find(x=>x.checked);
@@ -302,25 +318,33 @@
     updateDeliveryNotice(plan);
     shareStatus.textContent='';shareInput.hidden=true;
     planActions.hidden=!plan;copyPlan.textContent=ui('نسخ رابط الباقة','Copy plan link');askPlan.textContent=ui('اسأل المساعد عن الباقة','Ask about this plan');shareInput.setAttribute('aria-label',ui('رابط الباقة المختارة','Selected plan link'));
-    selectedLink.hidden=!plan;if(plan)selectedLink.textContent=ui('عرض الباقة المختارة: ','View selected plan: ')+tr(plan.name||plan.duration,'planName');
-    if(!plan){planDetails.innerHTML='';planFeatures.innerHTML=window.MasterProductGuides?MasterProductGuides.render(p.id,isEn(),location.pathname+location.search,{product:p,catalog:MasterCatalog.products,translate:tr,featuresFor:plan=>subscriptionFeatures(p,plan)}):'';return;}
+    const planName=plan?tr(plan.name||plan.duration,'planName'):'';
+    const viewSelectedLabel=ui('عرض الباقة المختارة: ','View selected plan: ')+planName;
+    selectedLink.hidden=!plan;if(plan)selectedLink.textContent=viewSelectedLabel;
+    summaryPlanPrice.hidden=!plan;
+    if(!plan){planNotices.replaceChildren();planTerms.replaceChildren();planFeatures.innerHTML=window.MasterProductGuides?MasterProductGuides.render(p.id,isEn(),location.pathname+location.search,{product:p,catalog:MasterCatalog.products,translate:tr,featuresFor:plan=>subscriptionFeatures(p,plan)}):'';return;}
     const buy=document.getElementById('buyBtn');if(buy)buy.disabled=plan.available===false;
     const mobilePrice=document.getElementById('mobilePlanPrice');
     if(mobilePrice)mobilePrice.textContent=MasterStore.planMoney(plan);
     const mobileBuy=document.getElementById('mobileBuyBtn');
     if(mobileBuy)mobileBuy.textContent=ui('شراء الآن','Buy now');
-    const mobileLabel=root.querySelector('.mobile-order-bar small');
-    if(mobileLabel)mobileLabel.textContent=ui('عرض الباقة المختارة ↗','View selected plan ↗');
+    const mobilePlanJump=root.querySelector('.mobile-plan-jump');
+    if(mobilePlanJump){
+      mobilePlanJump.setAttribute('aria-label',viewSelectedLabel);
+      mobilePlanJump.title=planName;
+      mobilePlanJump.firstElementChild.textContent=planName;
+    }
+    summaryPlanPrice.innerHTML='<span>'+ui('سعر الباقة','Plan price')+'</span><strong>'+MasterStore.planMoney(plan)+'</strong>'+previousStorePriceMarkup(plan);
     const notes=[...(p.notes||[]),...(plan.notes||[])];
     const features=subscriptionFeatures(p,plan);
     const comparableOfficial=!!plan.officialPrice&&plan.priceComparison?.status!=='unavailable';
     const showBefore=(!plan.officialPrice&&plan.oldPrice)||comparableOfficial;
     const saving=Math.max(0,showBefore?MasterStore.planAmount(plan,'oldPrice')-MasterStore.planAmount(plan):0);
-    planDetails.innerHTML=
+    planNotices.innerHTML=
       (plan.promotionEndsAt&&Date.now()<Date.parse(plan.promotionEndsAt)?'<div class="notice" role="note">'+ui('⏳ عرض 48 ساعة: 430ج بدل 450ج · حتى 28 أكتوبر 2026، الساعة 8:15 صباحًا بتوقيت مصر. الاشتراك سنة كاملة: 300 كريدت إجماليًا + 5 يوميًا.','⏳ 48-hour offer: EGP 430 instead of 450 · Ends 28 October 2026 at 8:15 AM Egypt time. One-year subscription: 300 total credits plus 5 daily.')+'</div>':'')+
-      (p.id==='elevenlabs'&&plan.offerEndsAt?'<div class="notice" role="note">'+ui('⏰ عرض مؤقت: مهلة الحجز 24 ساعة فقط. مدة الاشتراك شهر كامل.','⏰ Limited-time offer: book within 24 hours. Subscription lasts one full month.')+'</div>':'')+
+      (p.id==='elevenlabs'&&plan.offerEndsAt?'<div class="notice" role="note">'+ui('⏰ عرض مؤقت: مهلة الحجز 24 ساعة فقط. مدة الاشتراك شهر كامل.','⏰ Limited-time offer: book within 24 hours. Subscription lasts one full month.')+'</div>':'');
+    planTerms.innerHTML=
       '<dl class="details-list">'+
-        '<div><dt>'+ui('السعر','Price')+'</dt><dd>'+MasterStore.planMoney(plan)+previousStorePriceMarkup(plan)+'</dd></div>'+
         ((!plan.hideOfficialPrice&&showBefore)?'<div><dt>'+(comparableOfficial?(plan.priceComparison?.priceLabel?MasterStore.escapeHtml(ui(plan.priceComparison.priceLabel,plan.priceComparison.priceLabelEn||plan.priceComparison.priceLabel)):(plan.priceComparison?.referenceLabel?ui('سعر Plus المستقل للمقارنة','Standalone Plus reference price'):ui('السعر الرسمي','Official price'))):ui('السعر قبل العرض','Before discount'))+'</dt><dd>'+(saving?'<del>'+MasterStore.planMoney(plan,'oldPrice')+'</del>':MasterStore.planMoney(plan,'oldPrice'))+(saving?' <strong class="saving">'+(plan.officialPrice?ui('توفير','Save'):ui('وفر','Save'))+' '+MasterStore.formatCurrency(saving,MasterStore.getMarket().currency)+'</strong>':'')+'</dd></div>':'')+
         discountDetail(plan)+
         '<div><dt>'+ui('نوع الباقة','Plan tier')+'</dt><dd>'+MasterStore.escapeHtml(tr(planTier(p,plan),'planName'))+'</dd></div>'+
@@ -332,8 +356,8 @@
         (plan.credits?'<div><dt>'+ui('الرصيد','Credits')+'</dt><dd>'+MasterStore.escapeHtml(tr(plan.credits,'credits'))+'</dd></div>':'')+
       '</dl>'+
       (notes.length?'<div class="plan-notes"><b>'+ui('ملاحظات مهمة','Important notes')+'</b><ul>'+notes.map(n=>'<li>'+MasterStore.escapeHtml(tr(n,'note'))+'</li>').join('')+'</ul></div>':'');
-    planDetails.insertAdjacentHTML('beforeend',premiumGifts(plan));
-    planDetails.querySelectorAll('.present-trigger').forEach(button=>button.addEventListener('click',()=>{
+    planTerms.insertAdjacentHTML('beforeend',premiumGifts(plan));
+    planTerms.querySelectorAll('.present-trigger').forEach(button=>button.addEventListener('click',()=>{
       const present=button.closest('.gift-present'),open=present.classList.toggle('is-unwrapped'),id=button.dataset.gift;
       button.setAttribute('aria-expanded',String(open));
       button.setAttribute('aria-label',ui((open?'إغلاق':'فتح')+' الهدية '+(id==='google'?1:2),(open?'Close':'Open')+' gift '+(id==='google'?1:2)));
@@ -342,7 +366,7 @@
       const index=plans.indexOf(plan),state=openedGifts.get(index)||new Set();if(open){state.add(id);playGiftChime();}else state.delete(id);openedGifts.set(index,state);
     }));
     if(p.id==='gemini-coursera-bundle'){
-      planDetails.insertAdjacentHTML('afterbegin',"<section class=\"bundle-inclusions\"><div class=\"bundle-primary-detail\"><span class=\"bundle-label\">الاشتراك الأساسي</span><h3>Coursera Plus</h3><p>١٢ شهرًا من الكورسات · حساب جاهز</p><span class=\"bundle-guarantee\">✓ ضمان كامل لكورسيرا</span></div><div class=\"bundle-gift-details\"><span class=\"bundle-label\">هدايا مشمولة مجانًا</span><div class=\"bundle-gift-row\"><img src=\"logos/gemini.svg?v=20261027-hq1\" alt=\"\"><div><strong>Gemini</strong><p>٣ شهور على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div><div class=\"bundle-gift-row\"><img src=\"logos/canva.svg\" alt=\"\"><div><strong>Canva Pro</strong><p>٣ سنين على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div></div><p class=\"bundle-total-note\">الاشتراك والهدايا معًا بـ٤٩٩ج · بدون تكلفة إضافية للهدايا</p></section>");
+      planTerms.insertAdjacentHTML('afterbegin',"<section class=\"bundle-inclusions\"><div class=\"bundle-primary-detail\"><span class=\"bundle-label\">الاشتراك الأساسي</span><h3>Coursera Plus</h3><p>١٢ شهرًا من الكورسات · حساب جاهز</p><span class=\"bundle-guarantee\">✓ ضمان كامل لكورسيرا</span></div><div class=\"bundle-gift-details\"><span class=\"bundle-label\">هدايا مشمولة مجانًا</span><div class=\"bundle-gift-row\"><img src=\"logos/gemini.svg?v=20261027-hq1\" alt=\"\"><div><strong>Gemini</strong><p>٣ شهور على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div><div class=\"bundle-gift-row\"><img src=\"logos/canva.svg\" alt=\"\"><div><strong>Canva Pro</strong><p>٣ سنين على إيميلك</p></div><span class=\"bundle-free-tag\">مجانًا</span></div></div><p class=\"bundle-total-note\">الاشتراك والهدايا معًا بـ٤٩٩ج · بدون تكلفة إضافية للهدايا</p></section>");
     }
     planFeatures.innerHTML=features.length?'<div class="plan-features"><b>'+ui('مميزات الاشتراك','Subscription features')+'</b><ul>'+features.map(n=>'<li>'+MasterStore.escapeHtml(n)+'</li>').join('')+'</ul></div>':'';
     if(window.MasterProductGuides)planFeatures.insertAdjacentHTML('beforeend',MasterProductGuides.render(p.id,isEn(),location.pathname+location.search,{product:p,catalog:MasterCatalog.products,translate:tr,featuresFor:plan=>subscriptionFeatures(p,plan)}));
