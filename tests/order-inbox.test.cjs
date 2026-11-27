@@ -17,6 +17,7 @@ async function cartCase({fail=false,storageFull=false}={}){
  await window.runCheckout({preventDefault(){},target:form});
  if(fail){assert.equal(error.textContent,'Network');assert.equal(button.disabled,false);assert.equal(JSON.parse(local.getItem('master-cart-v1')).length,1);await window.runCheckout({preventDefault(){},target:form});assert.equal(calls[0].args.request_id,calls[1].args.request_id);assert.equal(calls[0].args.receipt_token,calls[1].args.receipt_token);}
  assert(calls.every(x=>x.name==='master_store_guest_checkout'));assert.equal(calls.at(-1).args.quoted_amount,10000);assert(root.innerHTML.includes('طلبك اتسجّل عند الإدارة'));assert.equal(session.getItem('masterStoreCheckoutAttemptV1'),null);assert.equal(JSON.parse(local.getItem('master-cart-v1')).length,0);
+ assert(root.innerHTML.includes('track.html#order='+encodeURIComponent(calls.at(-1).args.request_id)),'tracking link missing the order reference');
  assert(!root.innerHTML.includes(calls.at(-1).args.receipt_token),'receipt capability leaked into HTML/URL');
 }
 async function adminCase(){
