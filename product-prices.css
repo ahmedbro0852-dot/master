@@ -191,7 +191,7 @@ html[data-custom-theme] .price-drop-badge{background:#154838;color:#9ae7c3}
   color: var(--theme-accent, #174ec2);
   font-size: .75rem;
 }
-.product-page .details-list :is(dt, dd > small) { color: var(--muted, #465d7d); }
+.product-page .details-list :is(dt, dd > small, dd del) { color: var(--muted, #465d7d); }
 html[data-custom-theme] .product-page :is(
   .official-price-source,
   .subscription-troubleshooting-head > span,
