@@ -62,7 +62,7 @@
 }
 
 </style>
-  <link rel="stylesheet" href="/homepage-refresh.css?v=20261111-message-release11">
+  <link rel="stylesheet" href="/homepage-refresh.css?v=20261127-storefront1">
   
   <link rel="stylesheet" href="/store-search.css?v=20261105-autocomplete1">
 <script id="master-seo-data" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://master-pi-six.vercel.app/#website","name":"MASTER STORE","alternateName":["ماستر ستور","Master Store"],"url":"https://master-pi-six.vercel.app/","inLanguage":"ar"},{"@type":"Organization","@id":"https://master-pi-six.vercel.app/#store","name":"MASTER STORE","alternateName":"ماستر ستور","url":"https://master-pi-six.vercel.app/","logo":"https://master-pi-six.vercel.app/master-store-logo.png","sameAs":["https://www.facebook.com/share/19XBCdMAm5/","https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K"]}]}</script>
@@ -128,18 +128,18 @@
   </header>
 
   <main>
-    <section class="hero hero-v2">
+    <section class="hero hero-v2 storefront-hero" aria-labelledby="storefront-title">
       <div class="hero-copy">
         <div class="hero-kicker"><span></span> MASTER STORE · اشتراكات رقمية</div>
-        <h1>كل اشتراكاتك<br><em>في مكان واحد.</em></h1>
+        <h1 id="storefront-title">كل اشتراكاتك<br><em>في مكان واحد.</em></h1>
         <p>اكتشف اشتراكات الذكاء الاصطناعي والتصميم والتعليم والترفيه، وقارن الباقات والضمان قبل الطلب بكل سهولة.</p>
 
         <div class="master-search master-search-hero" data-master-search="hero" role="search" aria-label="البحث عن اشتراك">
           <div class="master-search-field">
             <span class="master-search-icon" aria-hidden="true">⌕</span>
-            <input id="heroCatalogSearch" type="search" autocomplete="off" maxlength="120" placeholder="ابحث عن ChatGPT، Canva، CapCut..." aria-label="ابحث عن خدمة أو اشتراك">
+            <input id="heroCatalogSearch" type="search" autocomplete="off" maxlength="120" placeholder="دور على خدمتك..." aria-label="ابحث عن خدمة أو اشتراك">
             <button type="button" class="master-search-clear" data-search-clear hidden aria-label="مسح البحث">×</button>
-            <button type="button" class="master-search-submit" data-search-submit><span class="home-only-ar">ابحث</span><span class="home-only-en">Search</span><span aria-hidden="true">↗</span></button>
+            <button type="button" class="master-search-submit" data-search-submit><span class="home-only-ar">ابحث</span><span class="home-only-en">Search</span></button>
           </div>
           <div class="master-search-suggestions" id="heroSearchSuggestions" role="listbox" aria-label="اقتراحات البحث" hidden></div>
           <div class="master-search-chips">
@@ -163,61 +163,30 @@
         </div>
       </div>
 
-      <div class="subscription-shelf" aria-label="مجموعة من أشهر خدمات MASTER STORE">
-        <div class="shelf-head">
+      <aside class="storefront-picks" aria-labelledby="storefront-picks-title" data-no-translate="true">
+        <h2 id="storefront-picks-title"><span class="home-only-ar">اختيارات ماستر ستور</span><span class="home-only-en">Master Store picks</span></h2>
+        <div class="storefront-picks-grid">
+          <a href="/products/claude-pro.html"><img src="/logos/claude.svg" alt="" width="30" height="30" decoding="async"><bdi>Claude Pro</bdi></a>
+          <a href="/products/perplexity-pro.html"><img src="/logos/perplexity.svg" alt="" width="30" height="30" decoding="async"><bdi>Perplexity Pro</bdi></a>
+          <a href="/products/figma.html"><img src="/logos/figma.svg" alt="" width="30" height="30" decoding="async"><bdi>Figma</bdi></a>
+          <a href="/products/coursera.html"><img src="/logos/coursera.svg" alt="" width="30" height="30" decoding="async"><bdi>Coursera</bdi></a>
+        </div>
+        <a class="shelf-feature" href="/products/lovable-pro.html?plan=4">
+          <span class="feature-logo"><img src="/logos/lovable.svg" alt="" width="34" height="34" decoding="async"></span>
           <div>
-            <small>MASTER PICKS</small>
-            <strong>اختيارات ماستر ستور</strong>
+            <b><bdi>Lovable Pro</bdi></b>
+            <small><span class="home-only-ar">حساب خاص · 3 شهور · ضمان كامل</span><span class="home-only-en">Private account · 3 months · Full warranty</span></small>
+            <span><span class="home-only-ar">100 كريدت شهريًا + 5 يوميًا</span><span class="home-only-en">100 credits/month + 5/day</span></span>
           </div>
-          <span class="shelf-count">عروض مختارة</span>
-        </div>
-
-        <div class="logo-lane lane-one">
-          <div class="lane-track">
-            <span><img decoding="async" width="36" height="36" src="logos/chatgpt.svg?v=20261009-logo-review3" alt="ChatGPT"><b>ChatGPT</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/canva.svg?v=20261009-logo-review3" alt="Canva"><b>Canva</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/notion.svg?v=20261009-logo-review3" alt="Notion"><b>Notion</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/capcut.svg?v=20261009-logo-review3" alt="CapCut"><b>CapCut</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/claude.svg?v=20261009-logo-review3" alt="Claude"><b>Claude</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/chatgpt.svg?v=20261009-logo-review3" alt=""><b>ChatGPT</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/canva.svg?v=20261009-logo-review3" alt=""><b>Canva</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/notion.svg?v=20261009-logo-review3" alt=""><b>Notion</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/capcut.svg?v=20261009-logo-review3" alt=""><b>CapCut</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/claude.svg?v=20261009-logo-review3" alt=""><b>Claude</b></span>
-          </div>
-        </div>
-
-        <div class="logo-lane lane-two">
-          <div class="lane-track">
-            <span><img decoding="async" width="36" height="36" src="logos/spotify.svg?v=20261009-logo-review3" alt="Spotify"><b>Spotify</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/youtube.svg?v=20261009-logo-review3" alt="YouTube"><b>YouTube</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/duolingo.svg?v=20261009-logo-review3" alt="Duolingo"><b>Duolingo</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/nordvpn.svg?v=20261009-logo-review3" alt="NordVPN"><b>NordVPN</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/figma.svg?v=20261009-logo-review3" alt="Figma"><b>Figma</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/spotify.svg?v=20261009-logo-review3" alt=""><b>Spotify</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/youtube.svg?v=20261009-logo-review3" alt=""><b>YouTube</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/duolingo.svg?v=20261009-logo-review3" alt=""><b>Duolingo</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/nordvpn.svg?v=20261009-logo-review3" alt=""><b>NordVPN</b></span>
-            <span><img decoding="async" width="36" height="36" src="logos/figma.svg?v=20261009-logo-review3" alt=""><b>Figma</b></span>
-          </div>
-        </div>
-
-        <div class="shelf-feature">
-          <div class="feature-logo"><img decoding="async" width="36" height="36" src="logos/lovable.svg?v=20261009-logo-review3" alt="Lovable"></div>
-          <div><small>3 شهور · ضمان كامل</small><b>Lovable Pro — حساب خاص</b><span>100 كريدت شهريًا + 5 يوميًا</span></div>
           <strong>1000 ج</strong>
-        </div>
-
-        <div class="shelf-footer">
-          <span>AI</span><i></i><span>Design</span><i></i><span>Study</span><i></i><span>VPN</span><i></i><span>Entertainment</span>
-        </div>
-      </div>
+        </a>
+      </aside>
     </section>
 
     <nav class="store-section-links" aria-label="اختصارات أقسام المتجر" data-no-translate="true"><a href="#best-offers"><span class="home-only-ar" lang="ar">أفضل العروض</span><span class="home-only-en" lang="en">Best offers</span></a><a href="#products"><span class="home-only-ar" lang="ar">كل الاشتراكات</span><span class="home-only-en" lang="en">All subscriptions</span></a><a href="/categories.html"><span class="home-only-ar" lang="ar">تصفح الأقسام</span><span class="home-only-en" lang="en">Browse categories</span></a><a href="#request-subscription"><span class="home-only-ar" lang="ar">اطلب اشتراك</span><span class="home-only-en" lang="en">Request a service</span></a><a href="#social-market"><span class="home-only-ar" lang="ar">جديد قريبًا</span><span class="home-only-en" lang="en">Coming soon</span></a><a href="#how"><span class="home-only-ar" lang="ar">طريقة الطلب</span><span class="home-only-en" lang="en">How to order</span></a></nav>
 
     <section class="fresh-offers" id="freshOffers" aria-labelledby="freshOffersTitle" hidden><h2 id="freshOffersTitle">🆕 أحدث العروض | تخفيضات 🔥</h2><p class="fresh-offers-note"></p><div class="fresh-offers-grid"></div></section>
-    <section class="best-offers" id="best-offers" aria-labelledby="bestOffersTitle"><h2 id="bestOffersTitle">🔥 أفضل العروض</h2><div id="bestOffersGrid" class="best-offers-grid"></div></section>
+    <section class="best-offers" id="best-offers" aria-labelledby="bestOffersTitle"><h2 id="bestOffersTitle" data-no-translate="true"><span class="home-only-ar">أفضل العروض</span><span class="home-only-en">Best offers</span></h2><div id="bestOffersGrid" class="best-offers-grid"></div></section>
     <section class="home-plus-offer" aria-label="عرض تفعيل ChatGPT Plus على حسابك الشخصي" data-no-translate="true">
       <div class="home-plus-offer-brand"><img src="/logos/chatgpt.svg" alt="ChatGPT" width="52" height="52" loading="lazy"></div>
       <div class="home-plus-offer-info">
