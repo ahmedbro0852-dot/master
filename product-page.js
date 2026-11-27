@@ -373,6 +373,7 @@
   }
   radios.forEach(r=>r.onchange=()=>{shareStatus.textContent='';shareInput.hidden=true;const url=new URL(location.href);url.searchParams.set('plan',r.value);history.replaceState(history.state,'',url);renderDetails();});
   renderDetails();
+  if(active&&plans.some(plan=>!plan.hidden&&plan.available!==false))window.MasterFunnel?.mark('product_view');
   window.MasterPlanComparison?.mount({root,product:p});
   if(window.MasterLocale)window.MasterLocale.apply(); // re-translate dynamic product content
 
@@ -434,6 +435,7 @@
       }
     });
     dialog.showModal();
+    window.MasterFunnel?.mark('plan_choice');
   });
 })();
 
@@ -445,7 +447,7 @@
   if(!root||root.querySelector('[data-cursor-offer]'))return;
   const box=document.createElement('div');box.dataset.cursorOffer='';box.setAttribute('role','timer');box.setAttribute('aria-live','off');box.style.cssText='color:#c62828;font-size:11px;line-height:1.8;margin:10px 0;text-align:center';
   const update=()=>{const en=document.documentElement.lang==='en';let s=Math.max(0,Math.floor((end-Date.now())/1000));const h=Math.floor(s/3600);s%=3600;const m=Math.floor(s/60);s%=60;box.textContent=end>Date.now()?(en?'Monthly offer EGP 300 · '+h+' hours : '+m+' minutes : '+s+' seconds left':'عرض الشهر 300ج · متبقي '+h+' ساعة : '+m+' دقيقة : '+s+' ثانية'):(en?'The EGP 300 monthly offer has ended':'انتهى عرض الشهر بـ300ج');};
-  root.append(box);update();setInterval(update,1000);
+  root.append(box);update();if(Date.now()<end)setInterval(update,1000);
  };
  mount();const root=document.getElementById('productPage')||document.getElementById('grid');if(root)new MutationObserver(mount).observe(root,{childList:true});
 })();
