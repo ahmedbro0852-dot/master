@@ -95,7 +95,7 @@ for(const file of ['store-search.js','store-search.css'])assert(fs.existsSync(pa
 
 assert(!home.includes('store-visuals.css')&&!home.includes('visual-explore-card'),'deleted category artwork is not loaded');
 
-const inv=read('invoice.html');assert(inv.includes('invoice.js?v=20261104-warranty1')&&inv.includes('invoice.css?v=20261104-warranty1'),'warranty invoice assets missing');
+const inv=read('invoice.html');assert(inv.includes('invoice.js?v=20261127-track-ref1')&&inv.includes('invoice.css?v=20261104-warranty1'),'warranty invoice assets missing');
 const crm=read('management.html');
 assert(crm.includes('crm-enhance.js?v=20261105-photos1')&&crm.includes('crm-enhance.css?v=20261105-photos1'),'CRM photo and follow-up UI not linked');
 for(const entry of ['crm-enhance.js','crm-enhance.css'])assert(fs.existsSync(path.join(out,entry)),'CRM enhancement missing from public build: '+entry);

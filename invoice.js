@@ -44,7 +44,7 @@ function render(){
 }
 function chrome(){
  document.documentElement.lang=en()?'en':'ar';document.documentElement.dir=en()?'ltr':'rtl';
- document.getElementById('backLink').textContent=crm?t('← إدارة العملاء','← Customer management'):t('← طلباتي','← My orders');document.getElementById('backLink').href=crm?'management.html':'track.html';
+ document.getElementById('backLink').textContent=crm?t('← إدارة العملاء','← Customer management'):t('← طلباتي','← My orders');document.getElementById('backLink').href=crm?'management.html':'track.html'+(id?'#order='+encodeURIComponent(id):'');
  document.getElementById('languageButton').textContent=en()?'العربية':'English';
  document.getElementById('refreshInvoice').textContent=t('تحديث الحالة','Refresh status');print.textContent=t('طباعة / حفظ PDF','Print / Save PDF');
 }
