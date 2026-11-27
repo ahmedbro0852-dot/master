@@ -649,3 +649,118 @@ html[data-custom-theme] .reviews-playback > [data-review-step] {
   background: var(--theme-control);
   color: var(--theme-accent);
 }
+
+.store-section-links a.wholesale-shortcut {
+  background: var(--theme-selected, #e8f1ff);
+  border-color: var(--line, #a9c8f4);
+  color: var(--theme-accent, #174ea9);
+}
+.wholesale-section {
+  box-sizing: border-box;
+  width: min(1180px, calc(100% - 32px));
+  margin: 24px auto;
+  padding: clamp(16px, 3vw, 34px);
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(18px, 4vw, 46px);
+  align-items: start;
+  border: 1px solid var(--line, #d5e3f7);
+  border-radius: 24px;
+  background: var(--theme-panel, #eef5ff);
+  color: var(--ink, #17345c);
+  scroll-margin-block-start: 16px;
+}
+.wholesale-copy h2 {
+  margin: 0;
+  color: var(--ink, #17345c);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.5;
+}
+.wholesale-copy p {
+  max-width: 47ch;
+  margin: 9px 0 15px;
+  color: var(--muted, #465d7c);
+  font-size: .9375rem;
+  line-height: 1.85;
+}
+.wholesale-brands {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.wholesale-brands a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 50px;
+  min-width: 0;
+  padding: 7px 8px;
+  border: 1px solid var(--line, #d7e5f6);
+  border-radius: 11px;
+  background: var(--theme-surface, #fff);
+  color: var(--ink, #17345c);
+  font-size: .8125rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.wholesale-brands a:hover { border-color: var(--theme-accent, #2b65bd); }
+.wholesale-brands img {
+  box-sizing: border-box;
+  flex: none;
+  padding: 4px;
+  border-radius: 7px;
+  background: #fff;
+  object-fit: contain;
+}
+.wholesale-brands bdi { min-width: 0; overflow-wrap: anywhere; }
+.wholesale-contact {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 7px;
+  color: var(--theme-accent, #174ea9);
+  font-size: .875rem;
+  text-underline-offset: 3px;
+}
+.wholesale-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 13px 10px;
+  padding: clamp(12px, 2vw, 20px);
+  border: 1px solid var(--line, #d7e5f6);
+  border-radius: 16px;
+  background: var(--theme-surface, #fff);
+}
+.wholesale-form :is(.wholesale-service, .wholesale-notes, button, small) { grid-column: 1 / -1; }
+.wholesale-form label {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-width: 0;
+  color: var(--ink, #17345c);
+  font-size: .875rem;
+  font-weight: 700;
+}
+.wholesale-form :is(input, textarea) {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 9px 10px;
+  border: 1px solid var(--line, #becfee);
+  border-radius: 9px;
+  background: var(--theme-input, #f9fbff);
+  color: var(--ink, #17345c);
+  font: inherit;
+  font-weight: 400;
+}
+.wholesale-form textarea { resize: vertical; }
+.wholesale-form button { min-height: 48px; font-size: .875rem; }
+.wholesale-form small { color: var(--muted, #465d7c); font-size: .8125rem; line-height: 1.7; }
+@media (max-width: 760px) {
+  .wholesale-section { grid-template-columns: minmax(0, 1fr); border-radius: 17px; }
+  .wholesale-form :is(input, textarea) { font-size: 1rem; }
+}
+@media (max-width: 360px) {
+  .wholesale-form { grid-template-columns: minmax(0, 1fr); }
+}
