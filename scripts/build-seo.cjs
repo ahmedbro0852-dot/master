@@ -63,7 +63,82 @@ function writeBuyingGuides(){
  }
 }
 
-const directory='<section class="seo-directory" id="site-directory"><h2>تصفح أقسام ماستر ستور</h2><nav class="seo-category-links" aria-label="أقسام الاشتراكات">'+categoryLinks()+internationalLinks()+buyingLinks()+'<a href="'+origin+'/categories/about-master-store.html">عن ماستر ستور والتواصل</a></nav><details><summary>دليل الاشتراكات والخدمات</summary><nav class="seo-product-links" aria-label="كل صفحات الخدمات">'+indexed.map(p=>'<a href="'+SEO.productUrl(p)+'">'+escape(p.name)+'</a>').join('')+'</nav></details></section>';
+const englishBuyingGuides=[
+  {
+    "slug": "compare-chatgpt-plus-go-gemini-en",
+    "ar": "compare-chatgpt-plus-go-gemini",
+    "title": "ChatGPT Plus vs Go vs Gemini: subscription buying guide",
+    "description": "Compare personal-account activation, ready accounts, family invitations, warranty and regional eligibility before choosing an AI subscription.",
+    "intro": "Choose an AI subscription based on the tasks you need, the account you want to keep, the activation method and the warranty. The comparison below describes the types of offers listed by MASTER STORE, not a complete comparison of the providers’ official plans.",
+    "items": [
+      [
+        "chatgpt-plus",
+        "ChatGPT Plus",
+        "For users who want to keep their own chat history and settings, check personal-account activation or renewal. A separate ready account does not automatically transfer your existing chats or settings."
+      ],
+      [
+        "chatgpt-go",
+        "ChatGPT Go",
+        "A ready-account option may suit someone starting with a separate account. Check the plan’s warranty period independently of its subscription duration; a longer duration does not necessarily mean a longer warranty."
+      ],
+      [
+        "gemini-pro",
+        "Gemini Pro",
+        "If an offer uses a Google family invitation, check your existing family membership and regional eligibility first. Shared benefits and credits may be subject to provider restrictions."
+      ],
+      [
+        "google-ai-plus",
+        "Google AI Plus",
+        "Check eligibility for personal Google account activation. Do not assume Plus includes every Pro or Ultra feature. Confirm warranty and applicable benefits before payment."
+      ]
+    ],
+    "checks": [
+      "For writing, research and file analysis, compare the tools and limits you actually use.",
+      "For image or video generation, verify the model, credit allowance and reset schedule for the selected offer.",
+      "If keeping your own account is essential, choose the appropriate activation type and check the provider's account and transfer rules.",
+      "Outside Egypt, confirm service eligibility and final payment currency with support before ordering."
+    ]
+  },
+  {
+    "slug": "compare-canva-capcut-en",
+    "ar": "compare-canva-capcut",
+    "title": "Canva Pro vs CapCut Pro: design or video editing?",
+    "description": "Choose between Canva Pro and CapCut Pro for design, presentations and video editing. Compare activation, credits, warranty and device compatibility.",
+    "intro": "Canva and CapCut overlap in some content creation tasks, but the best purchase depends on the workflow. For a poster or presentation, start with a design tool. For editing recorded footage, start with a video editor. Compare your required features before buying both.",
+    "items": [
+      [
+        "canva-pro",
+        "Canva Pro",
+        "For static graphics, presentations and design templates, check membership type and whether activation takes place on your own email. Confirm export features and access duration before purchasing."
+      ],
+      [
+        "capcut-pro",
+        "CapCut Pro",
+        "For timeline editing, captions and short videos, check whether the selected plan works on your device and whether specific AI tools require credits. A subscription duration alone does not tell you how many AI generations are included."
+      ]
+    ],
+    "checks": [
+      "List the output you need: poster, slide deck, edited clip or AI-generated video.",
+      "Check device compatibility, cloud storage, templates, export features and credit limits on the product page and provider site.",
+      "Compare personal-account activation and ready-account options, where offered, and read the exact warranty terms.",
+      "Ask support to confirm current availability, final price and payment method for your country."
+    ]
+  }
+];
+const englishBuyingUrl=g=>origin+'/categories/'+g.slug+'.html';
+const englishBuyingLinks=()=>englishBuyingGuides.map(g=>'<a lang="en" href="'+englishBuyingUrl(g)+'">'+escape(g.title)+'</a>').join('');
+function writeEnglishBuyingGuides(){
+ for(const g of englishBuyingGuides){
+ const url=englishBuyingUrl(g),ar=origin+'/categories/'+g.ar+'.html',title=g.title+' | MASTER STORE';
+ const cards=g.items.filter(([id])=>indexed.some(p=>p.id===id)).map(([id,name,copy])=>'<article class="seo-service-card"><h2><a href="'+SEO.productUrl({id})+'">'+escape(name)+'</a></h2><p>'+escape(copy)+'</p><a class="seo-card-link" href="'+SEO.productUrl({id})+'">View current subscription options</a></article>').join('');
+ const alternate='<link rel="alternate" hreflang="ar" href="'+ar+'"><link rel="alternate" hreflang="en" href="'+url+'">';
+ const html='<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+escape(title)+'</title><meta name="description" content="'+escape(g.description)+'"><meta name="robots" content="index,follow"><link rel="canonical" href="'+url+'">'+alternate+'<link rel="stylesheet" href="/theme.css"><link rel="stylesheet" href="/seo-pages.css"><link rel="stylesheet" href="/assets/fonts/alexandria.css"></head><body class="seo-landing"><header><a href="/"><img src="/assets/storefront-logo-480.webp" alt="MASTER STORE" width="170" height="55"></a><a href="'+ar+'" lang="ar">العربية</a><a href="/#products">Browse store</a></header><main><h1>'+escape(g.title)+'</h1><p class="seo-intro">'+escape(g.intro)+'</p><section class="seo-card-grid">'+cards+'</section><section><h2>Before you buy</h2><ol>'+g.checks.map(x=>'<li>'+escape(x)+'</li>').join('')+'</ol><p>Subscription terms, availability and prices can change. Check the selected product and provider terms; MASTER STORE is not presented as the developer or an authorized partner.</p><p><a href="/categories/ai-subscriptions-international.html">International ordering guide</a> · <a href="/warranty.html">Warranty terms</a> · <a href="https://wa.me/201500950624" target="_blank" rel="noopener">Contact support</a></p></section></main><footer>MASTER STORE · <a href="/">Home</a></footer></body></html>';
+ fs.writeFileSync(path.join(root,'categories',g.slug+'.html'),html);
+ const arPath=path.join(root,'categories',g.ar+'.html');let arHtml=fs.readFileSync(arPath,'utf8');arHtml=arHtml.replace('</head>',alternate+'</head>').replace('<a href="/#products">تصفح المتجر</a>','<a href="'+url+'" lang="en">English</a><a href="/#products">تصفح المتجر</a>');fs.writeFileSync(arPath,arHtml);
+ }
+}
+
+const directory='<section class="seo-directory" id="site-directory"><h2>تصفح أقسام ماستر ستور</h2><nav class="seo-category-links" aria-label="أقسام الاشتراكات">'+categoryLinks()+internationalLinks()+buyingLinks()+englishBuyingLinks()+'<a href="'+origin+'/categories/about-master-store.html">عن ماستر ستور والتواصل</a></nav><details><summary>دليل الاشتراكات والخدمات</summary><nav class="seo-product-links" aria-label="كل صفحات الخدمات">'+indexed.map(p=>'<a href="'+SEO.productUrl(p)+'">'+escape(p.name)+'</a>').join('')+'</nav></details></section>';
 async function loadPrices(){
  if(process.env.MASTER_SEO_OFFLINE==='1')return null;
  try{
@@ -142,8 +217,8 @@ function writeHome(){
  fs.writeFileSync(path.join(root,'index.html'),html);
 }
 (async()=>{
- const prices=await loadPrices();writeProducts(prices);writeCategories();writeInternational();writeBuyingGuides();fs.writeFileSync(path.join(root,'categories','about-master-store.html'),"<!doctype html>\n<html lang=\"ar\" dir=\"rtl\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>عن ماستر ستور | الاشتراكات الرقمية والدعم والضمان</title><meta name=\"description\" content=\"تعرف على MASTER STORE، متجر للاشتراكات الرقمية، وكيفية الطلب والتفعيل والضمان والتواصل من مصر وخارجها.\"><link rel=\"canonical\" href=\"https://master-pi-six.vercel.app/categories/about-master-store.html\"><meta name=\"robots\" content=\"index,follow\"><link rel=\"stylesheet\" href=\"/theme.css\"><link rel=\"stylesheet\" href=\"/seo-pages.css\"><link rel=\"stylesheet\" href=\"/assets/fonts/alexandria.css\"><meta property=\"og:title\" content=\"عن ماستر ستور | MASTER STORE\"><meta property=\"og:url\" content=\"https://master-pi-six.vercel.app/categories/about-master-store.html\"><meta property=\"og:type\" content=\"website\"><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"AboutPage\",\"url\":\"https://master-pi-six.vercel.app/categories/about-master-store.html\",\"name\":\"عن ماستر ستور\",\"mainEntity\":{\"@type\":\"Organization\",\"@id\":\"https://master-pi-six.vercel.app/#organization\",\"name\":\"MASTER STORE\",\"alternateName\":\"ماستر ستور\",\"url\":\"https://master-pi-six.vercel.app/\",\"sameAs\":[\"https://www.facebook.com/share/19XBCdMAm5/\",\"https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K\"]}}</script></head>\n<body class=\"seo-landing\"><header><a href=\"/\"><img src=\"/assets/storefront-logo-480.webp\" width=\"170\" height=\"55\" alt=\"MASTER STORE\"></a><a href=\"/categories.html\">أقسام المتجر</a><a href=\"/categories/ai-subscriptions-international.html\" lang=\"en\">English guide</a></header><main><h1>عن ماستر ستور (MASTER STORE)</h1><p class=\"seo-intro\">ماستر ستور متجر إلكتروني للاشتراكات والخدمات الرقمية، يعرض باقات أدوات الذكاء الاصطناعي والتصميم والفيديو والبرمجة والتعلم. تفاصيل الباقة وسعرها ومدتها وطريقة التفعيل والضمان موضحة في صفحة الخدمة؛ تختلف الشروط حسب المنتج والباقة.</p><section class=\"seo-card-grid\"><article class=\"seo-service-card\"><h2>كيف تختار وتطلب؟</h2><p>اختر الخدمة والباقة، وراجع نوع الوصول: تفعيل على حسابك أو حساب جاهز أو دعوة حسب العرض. راجع ملخص الطلب، وأكد وسيلة الدفع والمبلغ مع الدعم عند الحاجة.</p><a href=\"/#products\">تصفح الاشتراكات</a></article><article class=\"seo-service-card\"><h2>الضمان والدعم</h2><p>مدة الضمان ونطاقه حسب الباقة. احتفظ برقم الطلب وتواصل مع الدعم إذا ظهرت مشكلة. لا تشارك بيانات سرية أو رموز تحقق في التعليقات العامة.</p><a href=\"/warranty.html\">اقرأ سياسة الضمان والشروط</a><br><a href=\"/common-problems.html\">دليل حل المشكلات</a></article><article class=\"seo-service-card\"><h2>الطلب من خارج مصر</h2><p>يوفر المتجر خيارات عرض أسعار بعملات متعددة. توفر الخدمة ووسيلة الدفع النهائية يعتمدان على البلد والباقة وشروط مزود الخدمة.</p><a href=\"/categories/international-subscriptions.html\">دليل الاشتراكات الدولية</a></article><article class=\"seo-service-card\"><h2>قنوات التواصل الخاصة بالمتجر</h2><p>تابع العروض من خلال حسابات المتجر، وتأكد من بيانات التحويل مع الدعم المرتبط بالموقع.</p><a href=\"https://wa.me/201500950624\" rel=\"noopener\" target=\"_blank\">دعم واتساب</a><br><a href=\"https://www.facebook.com/share/19XBCdMAm5/\" rel=\"noopener\" target=\"_blank\">صفحة فيسبوك</a><br><a href=\"https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K\" rel=\"noopener\" target=\"_blank\">قناة واتساب</a></article></section><section><h2>تجارب العملاء</h2><p>يمكن الاطلاع على معرض محادثات العملاء المنشور في الصفحة الرئيسية، حيث تُحجب المعلومات الحساسة.</p><a href=\"/#customer-stories\">عرض تجارب العملاء</a><h2>العلاقة بالعلامات التجارية</h2><p>أسماء المنتجات والعلامات التجارية ملك لأصحابها. عرض خدمة في المتجر لا يعني أن المتجر هو الشركة المطورة أو أنه شريك رسمي لها. راجع شروط استخدام المنصة ونوع الترخيص قبل الشراء.</p></section></main><footer><a href=\"/\">العودة للمتجر</a> · <a href=\"/warranty.html\">الشروط والضمان</a> · MASTER STORE</footer></body></html>");writeHome();
- const urls=[origin+'/',origin+'/warranty.html',origin+'/common-problems.html',origin+'/categories.html',origin+'/categories/about-master-store.html',...categories.map(SEO.categoryUrl),...internationalPages.map(internationalUrl),...buyingGuides.map(buyingUrl),...indexed.map(SEO.productUrl)];
+ const prices=await loadPrices();writeProducts(prices);writeCategories();writeInternational();writeBuyingGuides();writeEnglishBuyingGuides();fs.writeFileSync(path.join(root,'categories','about-master-store.html'),"<!doctype html>\n<html lang=\"ar\" dir=\"rtl\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>عن ماستر ستور | الاشتراكات الرقمية والدعم والضمان</title><meta name=\"description\" content=\"تعرف على MASTER STORE، متجر للاشتراكات الرقمية، وكيفية الطلب والتفعيل والضمان والتواصل من مصر وخارجها.\"><link rel=\"canonical\" href=\"https://master-pi-six.vercel.app/categories/about-master-store.html\"><meta name=\"robots\" content=\"index,follow\"><link rel=\"stylesheet\" href=\"/theme.css\"><link rel=\"stylesheet\" href=\"/seo-pages.css\"><link rel=\"stylesheet\" href=\"/assets/fonts/alexandria.css\"><meta property=\"og:title\" content=\"عن ماستر ستور | MASTER STORE\"><meta property=\"og:url\" content=\"https://master-pi-six.vercel.app/categories/about-master-store.html\"><meta property=\"og:type\" content=\"website\"><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"AboutPage\",\"url\":\"https://master-pi-six.vercel.app/categories/about-master-store.html\",\"name\":\"عن ماستر ستور\",\"mainEntity\":{\"@type\":\"Organization\",\"@id\":\"https://master-pi-six.vercel.app/#store\",\"name\":\"MASTER STORE\",\"alternateName\":\"ماستر ستور\",\"url\":\"https://master-pi-six.vercel.app/\",\"sameAs\":[\"https://www.facebook.com/share/19XBCdMAm5/\",\"https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K\"]}}</script></head>\n<body class=\"seo-landing\"><header><a href=\"/\"><img src=\"/assets/storefront-logo-480.webp\" width=\"170\" height=\"55\" alt=\"MASTER STORE\"></a><a href=\"/categories.html\">أقسام المتجر</a><a href=\"/categories/ai-subscriptions-international.html\" lang=\"en\">English guide</a></header><main><h1>عن ماستر ستور (MASTER STORE)</h1><p class=\"seo-intro\">ماستر ستور متجر إلكتروني للاشتراكات والخدمات الرقمية، يعرض باقات أدوات الذكاء الاصطناعي والتصميم والفيديو والبرمجة والتعلم. تفاصيل الباقة وسعرها ومدتها وطريقة التفعيل والضمان موضحة في صفحة الخدمة؛ تختلف الشروط حسب المنتج والباقة.</p><section class=\"seo-card-grid\"><article class=\"seo-service-card\"><h2>كيف تختار وتطلب؟</h2><p>اختر الخدمة والباقة، وراجع نوع الوصول: تفعيل على حسابك أو حساب جاهز أو دعوة حسب العرض. راجع ملخص الطلب، وأكد وسيلة الدفع والمبلغ مع الدعم عند الحاجة.</p><a href=\"/#products\">تصفح الاشتراكات</a></article><article class=\"seo-service-card\"><h2>الضمان والدعم</h2><p>مدة الضمان ونطاقه حسب الباقة. احتفظ برقم الطلب وتواصل مع الدعم إذا ظهرت مشكلة. لا تشارك بيانات سرية أو رموز تحقق في التعليقات العامة.</p><a href=\"/warranty.html\">اقرأ سياسة الضمان والشروط</a><br><a href=\"/common-problems.html\">دليل حل المشكلات</a></article><article class=\"seo-service-card\"><h2>الطلب من خارج مصر</h2><p>يوفر المتجر خيارات عرض أسعار بعملات متعددة. توفر الخدمة ووسيلة الدفع النهائية يعتمدان على البلد والباقة وشروط مزود الخدمة.</p><a href=\"/categories/international-subscriptions.html\">دليل الاشتراكات الدولية</a></article><article class=\"seo-service-card\"><h2>قنوات التواصل الخاصة بالمتجر</h2><p>تابع العروض من خلال حسابات المتجر، وتأكد من بيانات التحويل مع الدعم المرتبط بالموقع.</p><a href=\"https://wa.me/201500950624\" rel=\"noopener\" target=\"_blank\">دعم واتساب</a><br><a href=\"https://www.facebook.com/share/19XBCdMAm5/\" rel=\"noopener\" target=\"_blank\">صفحة فيسبوك</a><br><a href=\"https://whatsapp.com/channel/0029Vb7jYTK2ER6gmKLaA22K\" rel=\"noopener\" target=\"_blank\">قناة واتساب</a></article></section><section><h2>تجارب العملاء</h2><p>يمكن الاطلاع على معرض محادثات العملاء المنشور في الصفحة الرئيسية، حيث تُحجب المعلومات الحساسة.</p><a href=\"/#customer-stories\">عرض تجارب العملاء</a><h2>العلاقة بالعلامات التجارية</h2><p>أسماء المنتجات والعلامات التجارية ملك لأصحابها. عرض خدمة في المتجر لا يعني أن المتجر هو الشركة المطورة أو أنه شريك رسمي لها. راجع شروط استخدام المنصة ونوع الترخيص قبل الشراء.</p></section></main><footer><a href=\"/\">العودة للمتجر</a> · <a href=\"/warranty.html\">الشروط والضمان</a> · MASTER STORE</footer></body></html>");writeHome();
+ const urls=[origin+'/',origin+'/warranty.html',origin+'/common-problems.html',origin+'/categories.html',origin+'/categories/about-master-store.html',...categories.map(SEO.categoryUrl),...internationalPages.map(internationalUrl),...buyingGuides.map(buyingUrl),...englishBuyingGuides.map(englishBuyingUrl),...indexed.map(SEO.productUrl)];
  // No fabricated lastmod timestamps: catalog content can change independently of a deploy.
  fs.writeFileSync(path.join(root,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(url=>'<url><loc>'+escape(url)+'</loc></url>').join('\n')+'\n</urlset>\n');
  console.log('SEO: '+products.length+' product pages, '+categories.length+' category pages, '+urls.length+' sitemap URLs; '+(prices?prices.length+' public price records':'no unverified prices')+'.');
